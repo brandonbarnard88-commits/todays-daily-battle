@@ -137,14 +137,16 @@ const checks = [
   {
     path: '/explore.html',
     needles: [
-      'Five calm minutes (optional)',
-      'Find a path',
-      'My Study',
+      'All pages',
       'Start here',
+      'Also useful',
+      'Topics',
     ],
     forbidden: [
       'My Verses',
       'Message Board',
+      'Pastor’s Study',
+      'Full campus map',
     ],
   },
   {

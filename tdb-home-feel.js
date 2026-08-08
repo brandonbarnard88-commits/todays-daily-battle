@@ -493,10 +493,14 @@ function queueHeroBreakdownRefresh(data, attempt) {
   if (v && v.ref && v.text != null && typeof window.__TDB_repairMatthew514ByRef === "function") {
     v.text = window.__TDB_repairMatthew514ByRef(v.ref, v.text);
   }
-  heroVerse.textContent = "\u201c" + v.text + "\u201d";
   try {
     heroVerse.classList.add("verse-body");
   } catch (eHc) {}
+  if (window.TDBRedLetter && typeof window.TDBRedLetter.applyToElement === "function") {
+    window.TDBRedLetter.applyToElement(heroVerse, v.ref, v.text, { quote: true });
+  } else {
+    heroVerse.textContent = "\u201c" + v.text + "\u201d";
+  }
   var vbStd = window.TDB_verseBreakdownStandard;
   if (heroRef && vbStd && typeof vbStd.fillBigKjvStrong === "function") {
     vbStd.fillBigKjvStrong(heroRef, v.ref);
@@ -3355,7 +3359,13 @@ function loadPlan(planId) {
             vCard.className = 'plan-day-verse';
             vCard.dataset.day = String(dayNum);
             var p1 = document.createElement('p'); p1.className = 'plan-day-verse-ref'; p1.textContent = verse.ref;
-            var p2 = document.createElement('p'); p2.className = 'plan-day-verse-text'; p2.textContent = '\u201c' + verse.text + '\u201d';
+            var p2 = document.createElement('p'); p2.className = 'plan-day-verse-text verse-body';
+            p2.setAttribute('data-verse-ref', verse.ref);
+            if (window.TDBRedLetter && typeof window.TDBRedLetter.applyToElement === 'function') {
+              window.TDBRedLetter.applyToElement(p2, verse.ref, verse.text, { quote: true });
+            } else {
+              p2.textContent = '\u201c' + verse.text + '\u201d';
+            }
             vCard.append(p1, p2);
             daysEl.appendChild(vCard);
           });
@@ -3496,7 +3506,12 @@ function wireSettings() {
       } else if (window.TDBRedLetter && typeof window.TDBRedLetter.isEnabled === 'function') {
         redLetterSettings.checked = window.TDBRedLetter.isEnabled();
       } else {
-        try { redLetterSettings.checked = localStorage.getItem('redLetterEnabled') === 'true'; } catch (eRl) { /* ignore */ }
+        try {
+          var rlStored = localStorage.getItem('redLetterEnabled');
+          redLetterSettings.checked = rlStored === null || rlStored === '' || rlStored === 'true' || rlStored === '1';
+        } catch (eRl) {
+          redLetterSettings.checked = true;
+        }
       }
     }
   }

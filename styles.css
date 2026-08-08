@@ -11998,11 +11998,31 @@ body.tts-playing .btn-listen {
 }
 
 .red-letter {
-  color: #8b0000;
+  color: #b91c1c;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: inherit;
   padding: 0 1px;
   border-radius: 2px;
+}
+
+/* Dark hero / night sky: keep Jesus' words clearly red (not washed out white). */
+#heroVerse .red-letter,
+.hero-verse .red-letter,
+.verse-body .red-letter,
+[data-theme="night"] .red-letter,
+body.night .red-letter,
+.hero-daily .red-letter {
+  color: #f87171;
+  font-weight: 600;
+}
+
+/* Print: still red if the printer supports color */
+@media print {
+  .red-letter {
+    color: #b91c1c !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 }
 
 .red-letter-card {

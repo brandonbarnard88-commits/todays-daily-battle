@@ -249,7 +249,26 @@
     if (!ch) return;
     titleEl.textContent = ch.chapter;
     contentEl.innerHTML = (ch.verses || []).map(function (v) {
-      return '<p class="chapter-verse"><span class="chapter-verse-num">' + escapeHtml(String(v.ref || '')) + '.</span> ' + escapeHtml(String(v.text || '')) + '</p>';
+      var ref = String(v.ref || '');
+      var text = String(v.text || '');
+      var body = escapeHtml(text);
+      if (
+        window.TDBRedLetter &&
+        typeof window.TDBRedLetter.renderHtml === 'function' &&
+        typeof window.TDBRedLetter.isEnabled === 'function' &&
+        window.TDBRedLetter.isEnabled()
+      ) {
+        body = window.TDBRedLetter.renderHtml(ref, text, { quote: false });
+      }
+      return (
+        '<p class="chapter-verse verse-body" data-verse-ref="' +
+        escapeHtml(ref) +
+        '"><span class="chapter-verse-num">' +
+        escapeHtml(ref) +
+        '.</span> ' +
+        body +
+        '</p>'
+      );
     }).join('');
     paraphraseEl.textContent = ch.paraphrase || '';
     paraphraseEl.style.display = ch.paraphrase ? 'block' : 'none';

@@ -156,7 +156,7 @@
   {
     "ref": "Psalm 118:24",
     "text": "This is the day which the Lord hath made; we will rejoice.",
-    "plain": "Gratitude is not forced cheer. This verse calls you to notice God’s goodness and answer with honest thanks.",
+    "plain": "Today is a gift from the Lord — choose gladness in it, even if the schedule is hard.",
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "David or another psalm writer",
     "to": "Everyone hurting, thankful, or seeking God"

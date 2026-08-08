@@ -356,7 +356,7 @@ export function buildFamousVersePlain(ref, text) {
     return 'Those who wait on the Lord get fresh strength — they rise, run, and walk without giving out.';
   }
   if (/romans\s+8:28/.test(r) || /all things work together for good/.test(lower)) {
-    return 'God works all things together for good for those who love Him and are called according to His purpose.';
+    return 'Even the hard pieces are not wasted — God weaves them for good for those who love Him and are called by Him.';
   }
   if (/2\s+timothy\s+1:7/.test(r) || /spirit of fear; but of power/.test(lower)) {
     return 'God did not give us a spirit of fear, but of power, love, and a sound mind.';
@@ -410,7 +410,7 @@ export function buildFamousVersePlain(ref, text) {
     return 'Come into God’s presence with thanksgiving and praise — enter with a grateful heart.';
   }
   if (/psalm\s+118:24/.test(r) || /this is the day which the lord hath made/.test(lower)) {
-    return 'This is the day the Lord has made — a day to rejoice and be glad in it.';
+    return 'Today is a gift from the Lord — choose gladness in it, even if the schedule is hard.';
   }
   if (/begat|son of|daughter of|the generations of/i.test(body) && body.length < 180) {
     return 'This verse records real family lines in God’s story — names and people matter to Him.';

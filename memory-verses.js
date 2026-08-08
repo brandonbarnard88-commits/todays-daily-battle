@@ -252,9 +252,14 @@
     art.appendChild(refp);
 
     var tx = document.createElement('p');
-    tx.className = 'family-memory-text';
-    tx.textContent = '\u201c' + entry.text + '\u201d';
+    tx.className = 'family-memory-text verse-body';
+    tx.setAttribute('data-verse-ref', entry.ref);
     art.appendChild(tx);
+    if (window.TDBRedLetter && typeof window.TDBRedLetter.applyToElement === 'function') {
+      window.TDBRedLetter.applyToElement(tx, entry.ref, entry.text, { quote: true });
+    } else {
+      tx.textContent = '\u201c' + entry.text + '\u201d';
+    }
 
     if (entry.planUrl && !compact) {
       var more = document.createElement('p');

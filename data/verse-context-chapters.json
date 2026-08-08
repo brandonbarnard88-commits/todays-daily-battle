@@ -6,8 +6,8 @@
   },
   "Genesis:2": {
     "about": "Moses (recording God’s Word)",
-    "to": "Israel — and you hearing the beginning of the story",
-    "setting": ""
+    "to": "Israel — and anyone hearing how God formed people",
+    "setting": "Eden and the first people"
   },
   "Genesis:3": {
     "about": "The serpent, Eve, Adam, and the Lord God",
@@ -26,8 +26,8 @@
   },
   "Genesis:6": {
     "about": "Moses (recording God’s Word)",
-    "to": "Israel — and you hearing the beginning of the story",
-    "setting": ""
+    "to": "Israel — and all who need warning and mercy",
+    "setting": "Noah and the flood begins"
   },
   "Genesis:7": {
     "about": "Moses (recording God’s Word)",
@@ -55,9 +55,9 @@
     "setting": ""
   },
   "Genesis:12": {
-    "about": "Moses (recording God’s Word)",
-    "to": "Israel — and you hearing the beginning of the story",
-    "setting": ""
+    "about": "The Lord and Abram (through Moses)",
+    "to": "Abram — and all who walk by promise",
+    "setting": "Call of Abram"
   },
   "Genesis:13": {
     "about": "Moses (recording God’s Word)",
@@ -105,9 +105,9 @@
     "setting": ""
   },
   "Genesis:22": {
-    "about": "Moses (recording God’s Word)",
-    "to": "Israel — and you hearing the beginning of the story",
-    "setting": ""
+    "about": "The Lord and Abraham (through Moses)",
+    "to": "Abraham — and all who trust God with what they love",
+    "setting": "Abraham and Isaac"
   },
   "Genesis:23": {
     "about": "Moses (recording God’s Word)",
@@ -180,9 +180,9 @@
     "setting": ""
   },
   "Genesis:37": {
-    "about": "Moses (recording God’s Word)",
-    "to": "Israel — and you hearing the beginning of the story",
-    "setting": ""
+    "about": "Moses (recording Joseph’s story)",
+    "to": "Israel — and anyone betrayed yet held by God",
+    "setting": "Joseph sold by his brothers"
   },
   "Genesis:38": {
     "about": "Moses (recording God’s Word)",
@@ -245,9 +245,9 @@
     "setting": ""
   },
   "Genesis:50": {
-    "about": "Moses (recording God’s Word)",
-    "to": "Israel — and you hearing the beginning of the story",
-    "setting": ""
+    "about": "Joseph (through Moses)",
+    "to": "His brothers — and all who need forgiveness after harm",
+    "setting": "Joseph forgives"
   },
   "Exodus:1": {
     "about": "Moses (recording God’s Word)",
@@ -260,9 +260,9 @@
     "setting": ""
   },
   "Exodus:3": {
-    "about": "Moses (recording God’s Word)",
-    "to": "Israel remembering deliverance",
-    "setting": ""
+    "about": "The Lord and Moses",
+    "to": "Moses — and all who feel too small for a call",
+    "setting": "Burning bush"
   },
   "Exodus:4": {
     "about": "Moses (recording God’s Word)",
@@ -315,9 +315,9 @@
     "setting": ""
   },
   "Exodus:14": {
-    "about": "Moses (recording God’s Word)",
-    "to": "Israel remembering deliverance",
-    "setting": ""
+    "about": "Moses (recording the Lord's deliverance)",
+    "to": "Israel at the sea — and all who need a way through",
+    "setting": "Red Sea crossing"
   },
   "Exodus:15": {
     "about": "Moses (recording God’s Word)",
@@ -935,9 +935,9 @@
     "setting": ""
   },
   "Joshua:1": {
-    "about": "Joshua (and the narrator)",
-    "to": "Israel entering the land",
-    "setting": ""
+    "about": "The Lord to Joshua",
+    "to": "Joshua — and anyone stepping into a hard new season",
+    "setting": "Be strong and courageous"
   },
   "Joshua:2": {
     "about": "Joshua (and the narrator)",
@@ -1160,9 +1160,9 @@
     "setting": ""
   },
   "Ruth:1": {
-    "about": "The narrator of Ruth",
-    "to": "Israel remembering kindness and redemption",
-    "setting": ""
+    "about": "The narrator of Ruth (with Naomi and Ruth)",
+    "to": "Families under loss — and all who choose loyal love",
+    "setting": "Ruth stays with Naomi"
   },
   "Ruth:2": {
     "about": "The narrator of Ruth",
@@ -1260,9 +1260,9 @@
     "setting": ""
   },
   "1 Samuel:17": {
-    "about": "The narrator of Samuel (with Samuel, Saul, and David)",
-    "to": "Israel in the days of the first kings",
-    "setting": ""
+    "about": "The narrator of Samuel (with David and Goliath)",
+    "to": "Israel facing a giant — and anyone facing what feels too big",
+    "setting": "David and Goliath"
   },
   "1 Samuel:18": {
     "about": "The narrator of Samuel (with Samuel, Saul, and David)",
@@ -2390,9 +2390,9 @@
     "setting": ""
   },
   "Psalm:1": {
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God",
-    "setting": ""
+    "about": "A psalm writer",
+    "to": "Anyone choosing a path for life",
+    "setting": "Two ways"
   },
   "Psalm:2": {
     "about": "David or another psalm writer",
@@ -2520,9 +2520,9 @@
     "setting": ""
   },
   "Psalm:27": {
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God",
-    "setting": ""
+    "about": "David",
+    "to": "Anyone fighting fear with faith",
+    "setting": "The Lord is my light"
   },
   "Psalm:28": {
     "about": "David or another psalm writer",
@@ -2555,9 +2555,9 @@
     "setting": ""
   },
   "Psalm:34": {
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God",
-    "setting": ""
+    "about": "David",
+    "to": "Anyone tasting that the Lord is good",
+    "setting": "Taste and see"
   },
   "Psalm:35": {
     "about": "David or another psalm writer",
@@ -2615,9 +2615,9 @@
     "setting": ""
   },
   "Psalm:46": {
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God",
-    "setting": ""
+    "about": "A psalm writer",
+    "to": "Anyone in trouble who needs a refuge",
+    "setting": "God is our refuge"
   },
   "Psalm:47": {
     "about": "David or another psalm writer",
@@ -2980,9 +2980,9 @@
     "setting": ""
   },
   "Psalm:119": {
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God",
-    "setting": ""
+    "about": "A psalm writer devoted to God’s Word",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "Love for God’s law"
   },
   "Psalm:120": {
     "about": "David or another psalm writer",
@@ -3080,9 +3080,9 @@
     "setting": ""
   },
   "Psalm:139": {
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God",
-    "setting": ""
+    "about": "David",
+    "to": "Anyone who needs to know they are known by God",
+    "setting": "Wonderfully made"
   },
   "Psalm:140": {
     "about": "David or another psalm writer",
@@ -3151,8 +3151,8 @@
   },
   "Proverbs:3": {
     "about": "Solomon giving wisdom",
-    "to": "Everyone seeking guidance",
-    "setting": ""
+    "to": "Anyone learning to trust the Lord with the whole heart",
+    "setting": "Trust and acknowledge Him"
   },
   "Proverbs:4": {
     "about": "Solomon giving wisdom",
@@ -3595,9 +3595,9 @@
     "setting": "Comfort"
   },
   "Isaiah:41": {
-    "about": "Isaiah",
-    "to": "Judah — and all who need comfort and warning",
-    "setting": ""
+    "about": "Isaiah (the Lord speaking)",
+    "to": "Fearful people — and you when fear is loud",
+    "setting": "Fear not; I am with you"
   },
   "Isaiah:42": {
     "about": "Isaiah",
@@ -3865,9 +3865,9 @@
     "setting": ""
   },
   "Jeremiah:29": {
-    "about": "Jeremiah",
-    "to": "Judah and the exiles",
-    "setting": ""
+    "about": "Jeremiah (letter from the Lord)",
+    "to": "Exiles in Babylon — and all waiting for hope",
+    "setting": "Plans for peace and a future"
   },
   "Jeremiah:30": {
     "about": "Jeremiah",
@@ -3996,8 +3996,8 @@
   },
   "Lamentations:3": {
     "about": "Jeremiah",
-    "to": "Exiles mourning Jerusalem",
-    "setting": ""
+    "to": "Exiles in grief — and anyone whose mercies need renewing",
+    "setting": "New every morning"
   },
   "Lamentations:4": {
     "about": "Jeremiah",
@@ -4260,9 +4260,9 @@
     "setting": ""
   },
   "Daniel:3": {
-    "about": "Daniel (and the narrator)",
-    "to": "Exiles learning faithfulness under pressure",
-    "setting": ""
+    "about": "The narrator of Daniel",
+    "to": "Exiles under pressure — and all who refuse to bow",
+    "setting": "Fiery furnace"
   },
   "Daniel:4": {
     "about": "Daniel (and the narrator)",
@@ -4275,9 +4275,9 @@
     "setting": ""
   },
   "Daniel:6": {
-    "about": "Daniel (and the narrator)",
-    "to": "Exiles learning faithfulness under pressure",
-    "setting": ""
+    "about": "The narrator of Daniel",
+    "to": "Faithful servants under threat",
+    "setting": "Daniel in the lions’ den"
   },
   "Daniel:7": {
     "about": "Daniel (and the narrator)",
@@ -4695,9 +4695,9 @@
     "setting": ""
   },
   "Matthew:11": {
-    "about": "Jesus (through Matthew)",
-    "to": "His disciples and the crowds (and you today)",
-    "setting": ""
+    "about": "Jesus",
+    "to": "The weary and heavy laden (and you today)",
+    "setting": "Come to Me and rest"
   },
   "Matthew:12": {
     "about": "Jesus (through Matthew)",
@@ -4801,8 +4801,8 @@
   },
   "Mark:4": {
     "about": "Jesus (through Mark)",
-    "to": "His disciples and those listening (and you today)",
-    "setting": ""
+    "to": "Disciples in the storm (and you today)",
+    "setting": "Peace, be still"
   },
   "Mark:5": {
     "about": "Jesus (through Mark)",
@@ -4936,8 +4936,8 @@
   },
   "Luke:15": {
     "about": "Jesus (through Luke)",
-    "to": "His disciples and those listening (and you today)",
-    "setting": ""
+    "to": "Sinners and seekers (and you today)",
+    "setting": "Lost sheep, coin, and son"
   },
   "Luke:16": {
     "about": "Jesus (through Luke)",
@@ -5095,9 +5095,9 @@
     "setting": ""
   },
   "Acts:2": {
-    "about": "Luke",
-    "to": "The early church — and Theophilus’ readers",
-    "setting": ""
+    "about": "Luke (with Peter’s preaching)",
+    "to": "Jerusalem at Pentecost — and the church ever since",
+    "setting": "Pentecost"
   },
   "Acts:3": {
     "about": "Luke",
@@ -5251,8 +5251,8 @@
   },
   "Romans:5": {
     "about": "Paul",
-    "to": "believers in Rome (and you today)",
-    "setting": ""
+    "to": "Believers justified by faith (and you today)",
+    "setting": "Peace with God"
   },
   "Romans:6": {
     "about": "Paul",
@@ -5286,8 +5286,8 @@
   },
   "Romans:12": {
     "about": "Paul",
-    "to": "believers in Rome (and you today)",
-    "setting": ""
+    "to": "Believers offering their lives (and you today)",
+    "setting": "Living sacrifice; renewed mind"
   },
   "Romans:13": {
     "about": "Paul",
@@ -5356,8 +5356,8 @@
   },
   "1 Corinthians:10": {
     "about": "Paul",
-    "to": "the church at Corinth (and you today)",
-    "setting": ""
+    "to": "The church at Corinth facing temptation (and you today)",
+    "setting": "God is faithful in temptation"
   },
   "1 Corinthians:11": {
     "about": "Paul",
@@ -5446,8 +5446,8 @@
   },
   "2 Corinthians:12": {
     "about": "Paul",
-    "to": "the church at Corinth (and you today)",
-    "setting": ""
+    "to": "Weak believers who need grace (and you today)",
+    "setting": "Strength in weakness"
   },
   "2 Corinthians:13": {
     "about": "Paul",
@@ -5476,8 +5476,8 @@
   },
   "Galatians:5": {
     "about": "Paul",
-    "to": "the churches of Galatia (and you today)",
-    "setting": ""
+    "to": "Churches learning freedom in the Spirit (and you today)",
+    "setting": "Fruit of the Spirit"
   },
   "Galatians:6": {
     "about": "Paul",
@@ -5491,8 +5491,8 @@
   },
   "Ephesians:2": {
     "about": "Paul",
-    "to": "believers in Ephesus (and you today)",
-    "setting": ""
+    "to": "Believers saved by grace (and you today)",
+    "setting": "Saved by grace through faith"
   },
   "Ephesians:3": {
     "about": "Paul",
@@ -5511,8 +5511,8 @@
   },
   "Ephesians:6": {
     "about": "Paul",
-    "to": "believers in Ephesus (and you today)",
-    "setting": ""
+    "to": "Believers in spiritual battle (and you today)",
+    "setting": "Armor of God"
   },
   "Philippians:1": {
     "about": "Paul",
@@ -5546,8 +5546,8 @@
   },
   "Colossians:3": {
     "about": "Paul",
-    "to": "believers in Colosse (and you today)",
-    "setting": ""
+    "to": "Believers setting minds above (and you today)",
+    "setting": "Life hidden with Christ"
   },
   "Colossians:4": {
     "about": "Paul",
@@ -5626,8 +5626,8 @@
   },
   "2 Timothy:1": {
     "about": "Paul",
-    "to": "Timothy (and every timid heart)",
-    "setting": ""
+    "to": "Timothy — and every timid heart",
+    "setting": "Power, love, and a sound mind"
   },
   "2 Timothy:2": {
     "about": "Paul",
@@ -5721,8 +5721,8 @@
   },
   "Hebrews:12": {
     "about": "The writer of Hebrews",
-    "to": "Hebrew believers holding fast to Christ",
-    "setting": ""
+    "to": "Believers running with patience",
+    "setting": "Cloud of witnesses"
   },
   "Hebrews:13": {
     "about": "The writer of Hebrews",
@@ -5731,8 +5731,8 @@
   },
   "James:1": {
     "about": "James",
-    "to": "scattered believers under trial",
-    "setting": ""
+    "to": "Scattered believers under trial",
+    "setting": "Faith under pressure"
   },
   "James:2": {
     "about": "James",
@@ -5776,8 +5776,8 @@
   },
   "1 Peter:5": {
     "about": "Peter",
-    "to": "believers in suffering and hope",
-    "setting": ""
+    "to": "Believers casting care on God",
+    "setting": "Humble under God’s hand"
   },
   "2 Peter:1": {
     "about": "Peter",
@@ -5811,8 +5811,8 @@
   },
   "1 John:4": {
     "about": "John",
-    "to": "beloved children walking in the light",
-    "setting": ""
+    "to": "Beloved children learning God’s love",
+    "setting": "God is love"
   },
   "1 John:5": {
     "about": "John",

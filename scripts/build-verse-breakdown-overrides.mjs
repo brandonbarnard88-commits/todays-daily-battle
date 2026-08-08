@@ -2,6 +2,12 @@ import fs from 'fs/promises';
 import path from 'path';
 import vm from 'vm';
 import { fileURLToPath } from 'url';
+import {
+  buildHeroLaymanPlain,
+  buildModernApplication,
+  loadVersePlainMeanings,
+  normalizeHeroRef
+} from './lib/hero-layman-plain.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -90,14 +96,6 @@ const BOOK_CONTEXT = {
   Matthew: { s: 'Jesus', a: 'Believers' }, Mark: { s: 'Jesus', a: 'Believers' }, Luke: { s: 'Jesus', a: 'Believers' }, John: { s: 'Jesus', a: 'Believers' }, Acts: { s: 'Luke', a: 'Church' },
   Romans: { s: 'Paul', a: 'Rome' }, '1 Corinthians': { s: 'Paul', a: 'Corinth' }, '2 Corinthians': { s: 'Paul', a: 'Corinth' }, Galatians: { s: 'Paul', a: 'Galatia' }, Ephesians: { s: 'Paul', a: 'Ephesus' }, Philippians: { s: 'Paul', a: 'Philippi' }, Colossians: { s: 'Paul', a: 'Colosse' }, '1 Thessalonians': { s: 'Paul', a: 'Thessalonica' }, '2 Thessalonians': { s: 'Paul', a: 'Thessalonica' }, '1 Timothy': { s: 'Paul', a: 'Timothy' }, '2 Timothy': { s: 'Paul', a: 'Timothy' }, Titus: { s: 'Paul', a: 'Titus' }, Philemon: { s: 'Paul', a: 'Philemon' }, Hebrews: { s: 'Unknown', a: 'Hebrew believers' }, James: { s: 'James', a: 'Believers' }, '1 Peter': { s: 'Peter', a: 'Believers' }, '2 Peter': { s: 'Peter', a: 'Believers' }, '1 John': { s: 'John', a: 'Believers' }, '2 John': { s: 'John', a: 'Believers' }, '3 John': { s: 'John', a: 'Gaius' }, Jude: { s: 'Jude', a: 'Believers' }, Revelation: { s: 'John', a: 'Seven churches' }
 };
-const ARCHAIC = {
-  careful: 'worried', beseech: 'ask', supplication: 'prayer', thee: 'you', thou: 'you', thy: 'your', ye: 'you',
-  hath: 'has', doth: 'does', believeth: 'believes', loveth: 'loves', giveth: 'gives', knoweth: 'knows', maketh: 'makes',
-  strengtheneth: 'strengthens', keepeth: 'keeps', worketh: 'works', unto: 'to', saith: 'says', begotten: 'only', perish: 'be lost',
-  everlasting: 'eternal', labour: 'labor', laden: 'burdened', dismayed: 'discouraged', whosoever: 'whoever', whatsoever: 'whatever',
-  verily: 'truly', behold: 'look', passeth: 'passes', brethren: 'brothers'
-};
-
 const bookPattern = BOOKS.slice().sort((a, b) => b.length - a.length).map(escapeRegExp).join('|');
 const refRegex = new RegExp(`\\b(?:${bookPattern})\\s+\\d+:\\d+(?:[-–](?:\\d+:)?\\d+)?\\b`, 'g');
 
@@ -106,13 +104,7 @@ function escapeRegExp(value) {
 }
 
 function normalizeRef(ref) {
-  return String(ref || '')
-    .replace(/\s+/g, ' ')
-    .replace(/\\u2013|\\u2014/gi, '-')
-    .replace(/[–—]/g, '-')
-    .replace(/^Psalms\s+/i, 'Psalm ')
-    .replace(/\s*\(KJV\)\s*$/i, '')
-    .trim();
+  return normalizeHeroRef(ref);
 }
 
 function parseBook(ref) {
@@ -143,201 +135,14 @@ function decodeDoubleQuoted(value) {
   }
 }
 
-function rephraseArchaic(text) {
-  let out = String(text || '');
-  for (const [from, to] of Object.entries(ARCHAIC)) {
-    out = out.replace(new RegExp(`\\b${escapeRegExp(from)}\\b`, 'gi'), to);
-  }
-  return out.replace(/\s+/g, ' ').trim();
-}
-
-function hashRef(ref) {
-  let h = 0;
-  const s = String(ref || '');
-  for (let i = 0; i < s.length; i += 1) h = ((h << 5) - h + s.charCodeAt(i)) | 0;
-  return Math.abs(h);
-}
-
-/** Varied "For today" lines — avoid one stamp across thousands of verses. */
-const FALLBACK_APPLICATIONS = [
-  'Sit with one phrase from this verse before you move on.',
-  'Take one honest step today that matches what this verse says.',
-  'Return to this line when the day gets loud.',
-  'Pray this verse once, then act as if God heard you.',
-  'Share one sentence of this verse with someone who needs steady words.',
-  'Write one word from this verse where you will see it later.',
-  'Let this verse set the pace of your next conversation.',
-  'Hold this truth when you feel pressed to hurry past God.',
-  'Use this verse as a quiet answer when worry starts talking first.',
-  'End the day by reading this line again, slowly.'
-];
-
-function inferApplies(text, ref) {
-  const lower = String(text || '').toLowerCase();
-  if (/\b(careful|worry|anxious|fear|afraid|troubled)\b/.test(lower)) return 'This verse meets anxious moments with steady help instead of more noise.';
-  if (/\b(hope|wait|waiting|trust)\b/.test(lower)) return 'This verse keeps your eyes up when the day feels slow, heavy, or unfinished.';
-  if (/\b(peace|rest|quiet)\b/.test(lower)) return 'This verse makes room to breathe, slow down, and let God settle your heart.';
-  if (/\b(strength|strong|strengthen|power)\b/.test(lower)) return 'This verse reminds you that God gives strength that does not start with your own reserves.';
-  if (/\b(love|loveth|charity|mercy|forgive)\b/.test(lower)) return 'This verse calls you to live with the same mercy and steadiness you need from God.';
-  return FALLBACK_APPLICATIONS[hashRef(ref || text) % FALLBACK_APPLICATIONS.length];
-}
-
-function isNearVerbatimPlain(plain, verseText) {
-  const strip = (s) => String(s || '')
-    .replace(/^\s*In plain words:\s*/i, '')
-    .replace(/^\s*Plain English:\s*/i, '')
-    .replace(/^\s*Key idea:\s*/i, '')
-    .trim();
-  const norm = (s) => rephraseArchaic(strip(s))
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  const p = norm(plain);
-  const v = norm(verseText);
-  if (!p) return true;
-  if (v && p === v) return true;
-  if (v && (p.indexOf(v) === 0 || v.indexOf(p) === 0) && Math.abs(p.length - v.length) < 48) return true;
-  /* Short summaries share keywords; only flag near-same-length echoes. */
-  if (v && p.length >= Math.max(24, v.length * 0.72)) {
-    const pTok = p.split(' ').filter(Boolean);
-    const vSet = new Set(v.split(' ').filter(Boolean));
-    if (pTok.length >= 6) {
-      let hit = 0;
-      pTok.forEach((tok) => { if (vSet.has(tok)) hit += 1; });
-      if (hit / pTok.length >= 0.78) return true;
-    }
-  }
-  return false;
-}
-
-/** Theme / meaning restatement — never a KJV word-swap. Used for all surfaced refs. */
-function buildThemeLaymanPlain(ref, text) {
-  const body = String(text || '').replace(/\s+/g, ' ').trim();
-  const lower = body.toLowerCase();
-  const r = normalizeRef(ref).toLowerCase();
-
-  if (/genesis\s+1:1/.test(r) || /^in the beginning\s+god\s+created/.test(lower)) {
-    return 'God made everything. He started it all — heaven, earth, and life.';
-  }
-  if (/john\s+3:16/.test(r) || /for god so loved the world/.test(lower)) {
-    return 'God loved the world so much He gave His Son so you can have life with Him forever.';
-  }
-  if (/91:1/.test(r) || /secret place|shadow of the almighty/.test(lower) ||
-      (/dwell/.test(lower) && /most high|almighty/.test(lower))) {
-    return 'When you stay close to God, you rest under His protection — safe in His care.';
-  }
-  if (/11:28/.test(r) || /come unto me|heavy laden|give you rest/.test(lower)) {
-    return 'Come to Jesus as you are, tired and carrying too much. He will give you rest.';
-  }
-  if (/23:1/.test(r) || /lord is my shepherd|shall not want/.test(lower)) {
-    return 'The Lord takes care of me like a shepherd. With Him, I have what I need.';
-  }
-  if (/begat|son of|daughter of|father of|generations?\s+of/i.test(body) && body.length < 160) {
-    return 'This verse keeps track of family lines inside God\'s larger story, showing that real names and real lives matter to Him.';
-  }
-  if (/\bcreat(ed|e|ion|or)\b|\bmade the heaven|\bmade heaven and earth\b/.test(lower)) {
-    return 'God is the Maker. Nothing exists outside His hand.';
-  }
-  if (/\banxious|careful for nothing|worry|fear|afraid|dismay|terror|troubled\b/.test(lower)) {
-    return 'You do not have to carry fear alone. Bring it to God and let Him steady you.';
-  }
-  if (/\bpeace|rest|still|quiet|calm|be still\b/.test(lower)) {
-    return 'God offers real rest — a quiet place to set the day down with Him.';
-  }
-  if (/\bmercy|grace|forgiv|compassion|lovingkindness|longsuffering\b/.test(lower)) {
-    return "God's kindness meets you as you are — not after you perform.";
-  }
-  if (/\bstrength|strong|courage|weary|faint|renew|uphold|power\b/.test(lower)) {
-    return 'When you feel empty, God gives strength beyond your own.';
-  }
-  if (/\bhope|trust|believe|faith|pray|prayer|cast.*care|burden\b/.test(lower)) {
-    return 'Hand the real weight to God. Trust that He hears and holds you.';
-  }
-  if (/\blove|charity|shepherd|save|salvation|rejoice|glad|joy|bless\b/.test(lower)) {
-    return "God's care is for you today — something solid to hold when the day feels thin.";
-  }
-  if (/\brepent|turn ye|turn to the lord|return unto me\b/.test(lower)) {
-    return 'Turn back to God. He welcomes the one who comes home.';
-  }
-  if (/\bworship|praise|sing unto|glorify|hallelujah|give thanks|thanksgiving\b/.test(lower)) {
-    return 'Give God your attention and thanks — He is worthy of it.';
-  }
-  if (/\bwisdom|wise|understand|understanding|knowledge|instruction|proverb\b/.test(lower)) {
-    return 'Real wisdom starts with taking God seriously and walking in His way.';
-  }
-  if (/\bcommand|thou shalt|ye shall|statute|precept|ordinance|law of the lord\b/.test(lower)) {
-    return 'God shows a clear way to live. His instructions are for your good.';
-  }
-  if (/\bword of the lord|thus saith|it is written|thy word|my words|scripture\b/.test(lower)) {
-    return "God's Word is not empty talk. It teaches, steadies, and leads.";
-  }
-  if (/\bholy|sanctify|clean|pure|righteous|upright\b/.test(lower)) {
-    return 'God calls His people to a clean, set-apart life with Him.';
-  }
-  if (/\bneighbou?r|brother|one another|enemy|friend|stranger\b/.test(lower)) {
-    return 'This verse shapes how you treat people — close, hard, and everyday.';
-  }
-  if (/\bkingdom|reign|throne|king of kings\b/.test(lower)) {
-    return 'God rules. His kingdom is real, and it still shapes how we live today.';
-  }
-  if (/\bcross|crucif|blood of|resurrection|risen|die for|gave himself\b/.test(lower)) {
-    return 'Jesus gave Himself so you could be brought near to God. Hold that gift carefully.';
-  }
-  if (/\bdeath|grave|die|dust|mortality\b/.test(lower)) {
-    return 'Life and death are in view here. God is not far from either one.';
-  }
-  if (/\blight\b/.test(lower) && /\bdark|darkness\b/.test(lower)) {
-    return 'God brings light into dark places — and that light is for you too.';
-  }
-  if (/\bmoney|riches|poor|tithe|offering|give alms|mammon\b/.test(lower)) {
-    return 'How you handle what you have is part of walking with God.';
-  }
-  if (/\bangel|heaven|eternal|everlasting|forever\b/.test(lower)) {
-    return 'This verse lifts your eyes past the moment — God holds what lasts.';
-  }
-  if (/\bjudg(e|ment)|wrath|punish|condemn|vengeance\b/.test(lower)) {
-    return 'God takes wrong seriously. This verse keeps justice and holiness in view.';
-  }
-  if (/\bhear(ken)?|listen|ears|cry unto|call upon\b/.test(lower)) {
-    return 'God invites you to call on Him — and to listen when He speaks.';
-  }
-  if (/\bwait|patience|patient|endure|persevere\b/.test(lower)) {
-    return 'Waiting with God is not wasted time. Stay steady; He is still at work.';
-  }
-
-  /** Last-resort plains — rotated by ref so bulk coverage is not one generic stamp. */
-  const FALLBACK_PLAINS = [
-    'Read this verse slowly. Let one clear phrase stay with you through the next hour.',
-    'God is speaking something steady here — hold the part that meets you today.',
-    'This line of Scripture is for real life, not only for a quiet moment later.',
-    'Keep one truth from this verse close when the day pulls your attention everywhere.',
-    'God\'s Word here is practical: receive it, then walk a little differently.',
-    'Pause on this verse until it feels less like noise and more like a handhold.',
-    'Something true from God is on the page — take the part that steadies you first.',
-    'This verse is short enough to carry. Let it shape one choice you make next.',
-    'Scripture meets ordinary hours here. Stay with it until one sentence lands.',
-    'God is not far from this moment. Let this verse name what you need from Him.'
-  ];
-  return FALLBACK_PLAINS[hashRef(ref || r) % FALLBACK_PLAINS.length];
-}
-
 function getPlainExplanation(ref, text, plainMeanings) {
   const raw = String(text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   if (!raw) return 'A steady truth from Scripture for the day in front of you.';
+  return buildHeroLaymanPlain(ref, raw, plainMeanings, repoRoot);
+}
 
-  const keys = [normalizeRef(ref)];
-  if (/^Psalm\s+/i.test(keys[0])) keys.push(keys[0].replace(/^Psalm\s+/i, 'Psalms '));
-  if (/^Psalms\s+/i.test(keys[0])) keys.push(keys[0].replace(/^Psalms\s+/i, 'Psalm '));
-  let curated = '';
-  for (const key of keys) {
-    if (plainMeanings[key] && String(plainMeanings[key]).trim()) {
-      curated = String(plainMeanings[key]).trim();
-      break;
-    }
-  }
-  if (curated && !isNearVerbatimPlain(curated, raw)) return curated;
-  return buildThemeLaymanPlain(ref, raw);
+function inferApplies(text, ref) {
+  return buildModernApplication(text, ref);
 }
 
 function resolveVerseText(ref, kjv, pairedText) {
@@ -479,7 +284,11 @@ async function main() {
         return acc;
       }, {})
     : kjvParsed;
-  const plainMeanings = extractPlainMeanings(scriptRaw);
+  const plainMeanings = Object.assign(
+    {},
+    extractPlainMeanings(scriptRaw),
+    loadVersePlainMeanings(repoRoot)
+  );
   const surfacedRefSet = new Set();
   const textByRef = new Map();
   const sourceCounts = {};

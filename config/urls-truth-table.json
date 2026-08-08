@@ -5,96 +5,203 @@
     {
       "id": "ask-the-word",
       "note": "Ask the Word lives inside Bible Tool; tdb_focus=ask scrolls to #ask-the-word-section and is replaced with the hash for sharing.",
-      "aliases": ["/ask-the-word", "/ask-the-word/"],
-      "redirect": { "to": "/bible-tool.html?tdb_focus=ask", "status": 301 }
+      "aliases": [
+        "/ask-the-word",
+        "/ask-the-word/"
+      ],
+      "redirect": {
+        "to": "/bible-tool.html?tdb_focus=ask",
+        "status": 301
+      }
     },
     {
       "id": "battle-plans",
       "note": "Common guessed slug for Battle Plans library.",
-      "aliases": ["/battle-plans", "/battle-plans/"],
-      "redirect": { "to": "/plans", "status": 301 }
+      "aliases": [
+        "/battle-plans",
+        "/battle-plans/"
+      ],
+      "redirect": {
+        "to": "/plans",
+        "status": 301
+      }
     },
     {
       "id": "my-study-hyphen",
       "note": "Hyphenated variant; canonical clean path is /mystudy (already linked from nav).",
-      "aliases": ["/my-study", "/my-study/"],
-      "redirect": { "to": "/mystudy", "status": 301 }
+      "aliases": [
+        "/my-study",
+        "/my-study/"
+      ],
+      "redirect": {
+        "to": "/mystudy",
+        "status": 301
+      }
     },
     {
       "id": "memorize-clean",
-      "aliases": ["/memorize", "/memorize/"],
-      "rewrite": { "to": "/memorize.html", "status": 200 }
+      "aliases": [
+        "/memorize",
+        "/memorize/"
+      ],
+      "rewrite": {
+        "to": "/memorize.html",
+        "status": 200
+      }
     },
     {
       "id": "quiet-morning-clean",
-      "aliases": ["/quiet-morning", "/quiet-morning/"],
-      "rewrite": { "to": "/quiet-morning.html", "status": 200 }
+      "aliases": [
+        "/quiet-morning",
+        "/quiet-morning/"
+      ],
+      "rewrite": {
+        "to": "/quiet-morning.html",
+        "status": 200
+      }
     },
     {
       "id": "quiet-evening-clean",
-      "aliases": ["/quiet-evening", "/quiet-evening/"],
-      "rewrite": { "to": "/quiet-evening.html", "status": 200 }
+      "aliases": [
+        "/quiet-evening",
+        "/quiet-evening/"
+      ],
+      "rewrite": {
+        "to": "/quiet-evening.html",
+        "status": 200
+      }
     },
     {
       "id": "explore-clean",
-      "aliases": ["/explore", "/explore/"],
-      "rewrite": { "to": "/explore.html", "status": 200 }
+      "aliases": [
+        "/explore",
+        "/explore/"
+      ],
+      "rewrite": {
+        "to": "/explore.html",
+        "status": 200
+      }
     },
     {
       "id": "site-guide-alias",
       "note": "Site guide is an alias door; Explore #start-here is the canonical first-visit map.",
-      "aliases": ["/site-guide", "/site-guide/", "/site-guide.html"],
-      "redirect": { "to": "/explore.html#start-here", "status": 301 }
+      "aliases": [
+        "/site-guide",
+        "/site-guide/",
+        "/site-guide.html"
+      ],
+      "redirect": {
+        "to": "/explore.html#start-here",
+        "status": 301
+      }
     },
     {
       "id": "campus-alias",
       "note": "Campus map aliases land on Explore start-here.",
-      "aliases": ["/campus", "/campus/", "/campus.html"],
-      "redirect": { "to": "/explore.html#start-here", "status": 301 }
+      "aliases": [
+        "/campus",
+        "/campus/",
+        "/campus.html"
+      ],
+      "redirect": {
+        "to": "/explore.html#start-here",
+        "status": 301
+      }
     },
     {
       "id": "start-alias",
-      "aliases": ["/start", "/start/", "/start.html"],
-      "redirect": { "to": "/explore.html#start-here", "status": 301 }
+      "aliases": [
+        "/start",
+        "/start/",
+        "/start.html"
+      ],
+      "redirect": {
+        "to": "/explore.html#start-here",
+        "status": 301
+      }
     },
     {
       "id": "find-a-path-alias",
-      "aliases": ["/find-a-path", "/find-a-path/", "/find-a-path.html"],
-      "redirect": { "to": "/explore.html#start-here", "status": 301 }
+      "aliases": [
+        "/find-a-path",
+        "/find-a-path/",
+        "/find-a-path.html"
+      ],
+      "redirect": {
+        "to": "/explore.html#start-here",
+        "status": 301
+      }
     },
     {
       "id": "pastors-alias",
-      "aliases": ["/pastors", "/pastors/"],
-      "redirect": { "to": "/church-hub.html", "status": 301 }
+      "aliases": [
+        "/pastors",
+        "/pastors/"
+      ],
+      "redirect": {
+        "to": "/",
+        "status": 301
+      },
+      "note": "KISS: pastor hub no longer a main door; aliases go home"
     },
     {
       "id": "pricing-to-give",
-      "note": "Free forever — pricing routes gift only, never a paywall.",
-      "aliases": ["/pricing", "/pricing/", "/pricing.html"],
-      "redirect": { "to": "/give", "status": 301 }
+      "note": "Free forever \u2014 pricing routes gift only, never a paywall.",
+      "aliases": [
+        "/pricing",
+        "/pricing/",
+        "/pricing.html"
+      ],
+      "redirect": {
+        "to": "/give",
+        "status": 301
+      }
     },
     {
       "id": "university-clean",
       "note": "Quiet University of God anchor-verses map.",
-      "aliases": ["/university", "/university/"],
-      "rewrite": { "to": "/university.html", "status": 200 }
+      "aliases": [
+        "/university",
+        "/university/"
+      ],
+      "rewrite": {
+        "to": "/university.html",
+        "status": 200
+      }
     },
     {
       "id": "family-clean",
-      "aliases": ["/family", "/family/"],
-      "rewrite": { "to": "/family.html", "status": 200 }
+      "aliases": [
+        "/family",
+        "/family/"
+      ],
+      "rewrite": {
+        "to": "/family.html",
+        "status": 200
+      }
     },
     {
       "id": "family-legacy-html",
       "note": "Legacy HTML path now resolves to the clean Family hub URL.",
-      "aliases": ["/family.html"],
-      "redirect": { "to": "/family", "status": 301 }
+      "aliases": [
+        "/family.html"
+      ],
+      "redirect": {
+        "to": "/family",
+        "status": 301
+      }
     },
     {
       "id": "about-clean",
       "note": "About page: clean /about and /about/ rewrites; about/index.html in dist is a static fallback for /about/ on simple hosts.",
-      "aliases": ["/about", "/about/"],
-      "rewrite": { "to": "/about.html", "status": 200 }
+      "aliases": [
+        "/about",
+        "/about/"
+      ],
+      "rewrite": {
+        "to": "/about.html",
+        "status": 200
+      }
     }
   ]
 }

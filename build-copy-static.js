@@ -578,7 +578,7 @@ for (const f of otherHtml) {
     if (
       !content.includes('explore.html#start-here') ||
       !content.includes('Find a path moved') ||
-      !content.includes('Quiet Hall')
+      !content.includes('location.replace')
     ) {
       console.error('BUILD FAIL: find-a-path.html must redirect to Explore start-here (no second lobby).');
       process.exit(1);
@@ -599,34 +599,32 @@ for (const f of otherHtml) {
   if (f === 'index.html') {
     const indexContent = fs.readFileSync(path.join(root, f), 'utf8');
 
-    if (!indexContent.includes('tdbCapacityDoor') || !indexContent.includes('explore.html#start-here')) {
-      console.error('BUILD FAIL: index.html must include capacity door + Explore start-here (mercy front door).');
+    if (!indexContent.includes('id="tdbHomePrimaryPair"') || !indexContent.includes('id="feel-section"')) {
+      console.error('BUILD FAIL: index.html must keep today’s verse + Ask as the simple front door.');
       process.exit(1);
     }
     if (!indexContent.includes('ask-the-word-core.js')) {
       console.error('BUILD FAIL: index.html must load ask-the-word-core.js (unified Ask the Word).');
       process.exit(1);
     }
-    if (!indexContent.includes('tdbHomeGrowPath') || !indexContent.includes('university.html')) {
-      console.error('BUILD FAIL: index.html must include grow path (Explore → University → Plans → Life Lessons).');
+    // KISS product: no campus / pastor / university required on home.
+    if (indexContent.includes('id="nav-pastors') || /Pastor.?s Study/.test(indexContent.split('site-footer')[0] || indexContent)) {
+      console.error('BUILD FAIL: index.html must not promote Pastor’s Study in the main shell (KISS).');
       process.exit(1);
     }
     const required = [
       ['id="quick-actions-hero"', 'quick-topic buttons'],
       ['id="query"', 'search input'],
       ['id="search-btn"', 'search button'],
-      // Markup may be `class="quick-links tdb-quiet-container …"` (multiple classes) — not only `class="quick-links"`.
       ['class="quick-links', 'quick-links tools section'],
-      ['bible-tool.html', 'Bible Tool link'],
-      ['sermon.html', 'Build a Sermon / Sermon Builder link'],
-      ['kids/index.html', 'Kids Battle link'],
-      // Pastor peers nest under Pastor’s Study — home must keep the Study door, not peer toolkits
-      ['church-hub.html', 'Pastor’s Study / Church Hub link'],
+      ['bible-tool.html', 'Look up a verse link'],
+      ['/kids/', 'Kids link'],
       ['prayer-wall.html', 'Prayer link'],
-      ['coloring.html', 'Kids Coloring / Coloring page link'],
-      // DO NOT REMOVE: core search IDs — build fails if quick-search is missing
+      ['coloring.html', 'Kids Coloring link'],
+      ['plans.html', 'Plans link'],
+      ['calm.html', 'When it’s hard link'],
       ['id="main-search"', 'main-search section (core search anchor)'],
-      ['id="nav-site-guide"', 'Site guide link in primary flyout (before Explore)'],
+      ['id="nav-site-guide"', 'All pages link in primary flyout'],
       ['id="nav-site-search"', 'Site search link in primary flyout'],
     ];
     for (const [needle, label] of required) {
@@ -739,11 +737,11 @@ if (fs.existsSync(path.join(root, 'about'))) {
 if (fs.existsSync(path.join(root, 'pastor'))) {
   copyDir(path.join(root, 'pastor'), path.join(dist, 'pastor'));
   const pastorIndex = fs.readFileSync(path.join(dist, 'pastor', 'index.html'), 'utf8');
-  if (!pastorIndex.includes('church-hub.html') || !pastorIndex.includes('Pastor hub moved')) {
-    console.error('BUILD FAIL: pastor/index.html must redirect to church-hub (Pastor’s Study).');
+  if (!pastorIndex.includes('Pastor hub moved') || !pastorIndex.includes('location.replace')) {
+    console.error('BUILD FAIL: pastor/index.html must redirect away from pastor hub (KISS home path).');
     process.exit(1);
   }
-  console.log('Copied pastor/ folder (hub stub → Pastor’s Study; tools/builder/library kept)');
+  console.log('Copied pastor/ folder (hub stub → home; tools/builder/library kept offline)');
 }
 
 if (fs.existsSync(path.join(root, 'church'))) {

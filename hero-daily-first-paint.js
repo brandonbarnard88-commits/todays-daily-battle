@@ -356,29 +356,34 @@
   }
 
   function resolveHeroContext(ref, dayEx) {
-    if (dayEx && dayEx.about && dayEx.to) {
-      return {
-        about: sanitizeText(dayEx.about),
-        to: sanitizeText(dayEx.to),
-        setting: sanitizeText(dayEx.setting || '')
-      };
-    }
+    var liveSit = '';
+    var liveAbout = '';
+    var liveTo = '';
     if (typeof window.TDB_resolveVerseContext === 'function') {
       try {
         var hit = window.TDB_resolveVerseContext(ref);
-        if (hit && hit.about && hit.to) {
-          return {
-            about: sanitizeText(hit.about),
-            to: sanitizeText(hit.to),
-            setting: sanitizeText(hit.setting || '')
-          };
+        if (hit) {
+          liveSit = sanitizeText(hit.situation || hit.setting || '');
+          liveAbout = sanitizeText(hit.about || '');
+          liveTo = sanitizeText(hit.to || '');
         }
       } catch (eCtx) { /* non-fatal */ }
     }
+    /* Prefer live situation always (avoids stale dig-deeper from yesterday’s inject). */
+    if (dayEx && dayEx.about && dayEx.to) {
+      return {
+        about: sanitizeText(dayEx.about) || liveAbout,
+        to: sanitizeText(dayEx.to) || liveTo,
+        setting: liveSit || sanitizeText(dayEx.setting || '')
+      };
+    }
+    if (liveAbout && liveTo) {
+      return { about: liveAbout, to: liveTo, setting: liveSit };
+    }
     var book = parseHeroBookName(ref);
     var row = heroBookRow(book);
-    if (row) return { about: sanitizeText(row.s), to: sanitizeText(row.a), setting: '' };
-    return { about: '', to: '', setting: '' };
+    if (row) return { about: sanitizeText(row.s), to: sanitizeText(row.a), setting: liveSit };
+    return { about: '', to: '', setting: liveSit };
   }
 
   function normalizeVerse(data) {
@@ -565,7 +570,18 @@
     });
     var meaningOnly = plainE || sanitizeText(v.plain) || sanitizeText(lines[0] || '') || sanitizeText(v.app);
     meaningOnly = meaningOnly.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
-    var situation = sanitizeText(sh.situation || sh.setting || ctx.setting || v.setting || '');
+    /* Drop weak theme stamps when a curated plain exists for this verse. */
+    if (
+      (/^In plain terms for life today:/i.test(meaningOnly) ||
+        /^Read this verse slowly/i.test(meaningOnly) ||
+        /^God's care is for you today/i.test(meaningOnly)) &&
+      sanitizeText(v.plain)
+    ) {
+      meaningOnly = sanitizeText(v.plain);
+    }
+    /* Live resolver situation wins — never leave yesterday’s dig-deeper line (e.g. Psalm 92 under Prov 16:3). */
+    var situation = sanitizeText(ctx.setting || '') ||
+      sanitizeText(sh.situation || sh.setting || v.setting || '');
     if (!situation && ctx.about && ctx.to) {
       situation = sanitizeText(ctx.about) + ' speaking to ' + sanitizeText(ctx.to) + '.';
     }
@@ -920,10 +936,16 @@
       if (/\blonely|loneliness|\bforsaken\b|forsake me|no companion|desolate and afflicted|solitary in families|comfortless\b/.test(low)) return 'loneliness';
       if (/\bthank|thanks|thanksgiving|grateful|made me glad|glad through|works of (thy|your) hands|rejoice|joyful|joy in|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
       if (/\bdoubt(s|ed|ful|eth)?\b|unbelief|disbelief|faithless|be not faithless|waver(ing|ed|eth)?\b|staggered not|help thou mine|mine unbelief|look we for another|art thou he that should come\b/.test(low)) return 'doubt';
+      if (/\bproverbs\b|commit thy works|commit your works|thoughts shall be established|wisdom\b|understanding\b|fear of the lord is the beginning\b/.test(low)) return 'wisdom';
       if (/\bhope|hopeless|discouraged\b/.test(low)) return 'hope';
       return 'peace';
     }
     var UOG_PLANS = {
+      wisdom: [
+        { href: '/plans.html?plan=proverbswisdom', label: 'Proverbs of Wisdom' },
+        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' },
+        { href: '/plans.html?plan=peace', label: '7-Day Peace' }
+      ],
       anxiety: [
         { href: '/plans.html?plan=universityanxiety', label: 'Anxiety & Fear' },
         { href: '/plans.html?plan=worrytrust', label: 'Worry to Trust' },

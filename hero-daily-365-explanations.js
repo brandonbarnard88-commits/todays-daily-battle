@@ -86,8 +86,8 @@
     "plain": "Come close enough to experience that the Lord is good—not only hear it secondhand.",
     "step": "Sit still for one minute and breathe; let this verse be the only noise.",
     "about": "David",
-    "to": "Anyone tasting that the Lord is good",
-    "setting": "David, after escaping Abimelech, teaches the afflicted to taste and see that the Lord is good."
+    "to": "Anyone tasting that the Lord is good — and the brokenhearted",
+    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
   },
   {
     "ref": "1 John 4:19",
@@ -122,8 +122,8 @@
     "plain": "Give God your worries—He cares about you.",
     "step": "If you feel empty, ask God to fill the next small task with His help.",
     "about": "Peter",
-    "to": "Believers casting care on God",
-    "setting": "In this passage of Scripture, the focus is this: Humble under God’s hand — spoken by Peter to Believers casting care on God."
+    "to": "Believers casting care on God under pressure",
+    "setting": "Peter closes his letter: humble yourselves under God’s hand, cast all your care on Him, for He cares for you, and resist the devil."
   },
   {
     "ref": "Psalm 121:1-2",
@@ -266,8 +266,8 @@
     "plain": "The Lord is close to the brokenhearted and saves those who are crushed in spirit.",
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "David",
-    "to": "Anyone tasting that the Lord is good",
-    "setting": "David, after escaping Abimelech, teaches the afflicted to taste and see that the Lord is good."
+    "to": "Anyone tasting that the Lord is good — and the brokenhearted",
+    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
   },
   {
     "ref": "2 Timothy 1:7",
@@ -411,7 +411,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "Isaiah (the Lord speaking)",
     "to": "Fearful people — and you when fear is loud",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "The Lord comforts fearful Israel in exile: “Fear thou not; for I am with thee” — strength and help from His right hand."
   },
   {
     "ref": "Psalm 40:1",
@@ -932,8 +932,8 @@
     "plain": "As saints of God, then, holy and dearly loved, let your behaviour be marked by pity and mercy, kind feeling, a low opinion of yourselves, gentle ways, and a power of undergoing all things;.",
     "step": "If you feel empty, ask God to fill the next small task with His help.",
     "about": "Paul",
-    "to": "Believers setting their minds above",
-    "setting": "In this passage of Scripture, the focus is this: Life hidden with Christ — spoken by Paul to Believers setting their minds above."
+    "to": "Believers putting on love as God’s chosen ones",
+    "setting": "Paul tells the Colossians to put on mercy and forbear one another, forgiving as Christ forgave them."
   },
   {
     "ref": "Psalm 12:6",
@@ -1121,8 +1121,8 @@
     "plain": "I came to the Lord and He heard me; He set me free from my fears.",
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "David",
-    "to": "Anyone tasting that the Lord is good",
-    "setting": "David, after escaping Abimelech, teaches the afflicted to taste and see that the Lord is good."
+    "to": "Anyone tasting that the Lord is good — and the brokenhearted",
+    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
   },
   {
     "ref": "Psalm 34:7",
@@ -1130,8 +1130,8 @@
     "plain": "The angel of the Lord is ever watching over those who have fear of him, to keep them safe.",
     "step": "Take one small action today that matches what this verse asks.",
     "about": "David",
-    "to": "Anyone tasting that the Lord is good",
-    "setting": "David, after escaping Abimelech, teaches the afflicted to taste and see that the Lord is good."
+    "to": "Anyone tasting that the Lord is good — and the brokenhearted",
+    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
   },
   {
     "ref": "Luke 1:37",
@@ -1148,8 +1148,8 @@
     "plain": "Keep yourselves in the fear of the Lord, all you his saints; for those who do so will have no need of anything.",
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "David",
-    "to": "Anyone tasting that the Lord is good",
-    "setting": "David, after escaping Abimelech, teaches the afflicted to taste and see that the Lord is good."
+    "to": "Anyone tasting that the Lord is good — and the brokenhearted",
+    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
   },
   {
     "ref": "Psalm 35:9",
@@ -1445,8 +1445,8 @@
     "plain": "Be kind and compassionate; forgive others as God forgave you.",
     "step": "Ask forgiveness for one sharp word or thought, then receive mercy.",
     "about": "Paul",
-    "to": "Believers in spiritual battle (and you today)",
-    "setting": "Walk worthy: unity, purity, marriage, and the armor of God against spiritual war."
+    "to": "Believers learning kindness after the old life",
+    "setting": "Paul urges the church to put off bitterness and be kind and forgiving to one another, as God in Christ forgave them."
   },
   {
     "ref": "Psalm 56:4",
@@ -1992,10 +1992,10 @@
     "ref": "Proverbs 16:3",
     "text": "Commit thy works unto the Lord, and thy thoughts shall be established.",
     "plain": "Put your works into the hands of the Lord, and your purposes will be made certain.",
-    "step": "Ask forgiveness for one sharp word or thought, then receive mercy.",
+    "step": "Name one task or decision on your plate — hand it to God in one sentence, then take the next honest step.",
     "about": "Solomon giving wisdom",
-    "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "to": "Anyone learning a straight path for work and plans",
+    "setting": "Solomon’s proverbs on plans and work: commit your works to the Lord so your thoughts rest on Him, not only on your own scheming."
   },
   {
     "ref": "Psalm 93:4",
@@ -2983,9 +2983,9 @@
     "text": "Where two or three are gathered together in my name, there am I in the midst of them.",
     "plain": "For where two or three are come together in my name, there am I among them.",
     "step": "When fear returns, repeat one short clause of this verse once more.",
-    "about": "Jesus (through Matthew)",
-    "to": "Disciples learning who He is",
-    "setting": "John is killed; Jesus feeds multitudes, walks on water, and predicts the cross; the church is confessed."
+    "about": "Jesus",
+    "to": "His disciples — and all who guard the vulnerable and practice forgiveness",
+    "setting": "Jesus teaches about little ones, humility, seeking the lost sheep, and forgiving brothers seventy times seven."
   },
   {
     "ref": "Psalm 119:160",
@@ -3110,8 +3110,8 @@
     "plain": "A man may make designs for his way, but the Lord is the guide of his steps.",
     "step": "Choose one person to treat gently because of this verse.",
     "about": "Solomon giving wisdom",
-    "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "to": "Anyone learning a straight path for work and plans",
+    "setting": "Solomon’s proverbs on plans and work: commit your works to the Lord so your thoughts rest on Him, not only on your own scheming."
   },
   {
     "ref": "Psalm 126:3",

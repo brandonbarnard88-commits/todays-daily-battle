@@ -403,6 +403,9 @@ export function buildFamousVersePlain(ref, text) {
   if (/psalm\s+92:4/.test(r) || /made me glad through thy work|glad through your work/.test(lower)) {
     return 'God’s work is what makes the heart glad — joy rises when you look at what He has done, not only at how the day feels.';
   }
+  if (/proverbs\s+16:3/.test(r) || /commit thy works unto the lord|commit your works unto the lord/.test(lower)) {
+    return 'Put your works into the hands of the Lord, and your purposes will be made certain.';
+  }
   if (/psalm\s+92:1/.test(r) || /good (thing )?to give thanks unto the lord/.test(lower)) {
     return 'It is a good thing to thank the Lord and to sing praise to His name.';
   }

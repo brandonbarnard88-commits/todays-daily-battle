@@ -3841,10 +3841,12 @@
   function createJl(scene) {
     var jl = document.createElement('jl-coloringbook');
     jl.setAttribute('maxbrushsize', '56');
-    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=29');
+    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=30');
     var im = document.createElement('img');
     im.src = bestSceneSrc(scene);
-    im.alt = scene.alt;
+    im.alt = scene.alt || scene.caption || '';
+    im.decoding = 'async';
+    im.loading = 'eager';
     jl.appendChild(im);
     for (var c = 0; c < PALETTE.length; c++) {
       var italic = document.createElement('i');
@@ -3852,6 +3854,31 @@
       jl.appendChild(italic);
     }
     return jl;
+  }
+
+  /**
+   * Mount the heavy coloring tool only when a scene is actually shown.
+   * Avoids loading 80+ full-page JPGs + shadow-DOM books on first paint.
+   */
+  function ensureSceneJl(panel) {
+    if (!panel || panel._tdbJl) return panel._tdbJl;
+    var wrap = panel.querySelector('.tdb-cat-jl-wrap');
+    if (!wrap) return null;
+    var scene = panel._tdbScene;
+    if (!scene) return null;
+    var placeholder = wrap.querySelector('.tdb-cat-jl-placeholder');
+    var jl = createJl(scene);
+    panel._tdbJl = jl;
+    wrap.textContent = '';
+    wrap.appendChild(jl);
+    if (placeholder) {
+      /* removed with textContent clear */
+    }
+    return jl;
+  }
+
+  function getPanelJl(panel) {
+    return panel && panel._tdbJl ? panel._tdbJl : ensureSceneJl(panel);
   }
 
   var show = {
@@ -4110,13 +4137,15 @@
     container.textContent = '';
     for (var s = 0; s < STORIES.length; s++) {
       var story = STORIES[s];
-      var card = document.createElement('div');
+      var card = document.createElement('button');
+      card.type = 'button';
       card.className = 'tdb-cat-progress-card';
-      var thumb = document.createElement('img');
-      thumb.className = 'tdb-cat-progress-card-thumb';
-      thumb.src = bestSceneSrc(story.scenes[0]);
-      thumb.alt = '';
-      thumb.loading = 'lazy';
+      card.setAttribute('data-tdb-jump-story', story.id);
+      // Lightweight badge — no full-page JPG thumbs (those were crushing mobile).
+      var thumb = document.createElement('span');
+      thumb.className = 'tdb-cat-progress-card-thumb tdb-cat-progress-card-badge';
+      thumb.setAttribute('aria-hidden', 'true');
+      thumb.textContent = (story.title || '?').charAt(0);
       var title = document.createElement('p');
       title.className = 'tdb-cat-progress-card-title';
       title.textContent = story.title;
@@ -4134,6 +4163,19 @@
       card.appendChild(title);
       card.appendChild(status);
       card.appendChild(meter);
+      card.addEventListener('click', function () {
+        var sid = this.getAttribute('data-tdb-jump-story');
+        var sec = document.querySelector(
+          '.tdb-cat-story[data-tdb-story="' + sid + '"]'
+        );
+        if (sec) {
+          sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Mount first scene when user jumps to this story
+          var firstPanel = sec.querySelector('.tdb-cat-panel:not([hidden])') ||
+            sec.querySelector('.tdb-cat-panel');
+          if (firstPanel) ensureSceneJl(firstPanel);
+        }
+      });
       container.appendChild(card);
     }
   }
@@ -4146,6 +4188,7 @@
       tabs[i].setAttribute('aria-selected', on ? 'true' : 'false');
       tabs[i].tabIndex = on ? 0 : -1;
       panels[i].hidden = !on;
+      if (on) ensureSceneJl(panels[i]);
     }
   }
 
@@ -4402,10 +4445,14 @@
               story.scenes.length
             );
 
+            // Defer heavy jl-coloringbook until the panel is shown (ensureSceneJl).
+            panel._tdbScene = sc;
             var jlBox = document.createElement('div');
             jlBox.className = 'tdb-cat-jl-wrap kids-gold-frame';
-            var jl = createJl(sc);
-            jlBox.appendChild(jl);
+            var jlPlaceholder = document.createElement('p');
+            jlPlaceholder.className = 'tdb-cat-jl-placeholder section-note';
+            jlPlaceholder.textContent = 'Tap this story to load the coloring page…';
+            jlBox.appendChild(jlPlaceholder);
 
             var verseStrip = buildVerseStrip(sc.verse || story.verse);
 
@@ -4415,6 +4462,7 @@
             printBtn.textContent = 'Print this scene';
             printBtn.setAttribute('aria-label', 'Print coloring page with KJV verse');
             printBtn.addEventListener('click', function () {
+              ensureSceneJl(panel);
               window.printColoringScene();
             });
 
@@ -4430,7 +4478,8 @@
             }
 
             saveBtn.addEventListener('click', function () {
-              if (typeof jl.exportCompositePng !== 'function') {
+              var jl = getPanelJl(panel);
+              if (!jl || typeof jl.exportCompositePng !== 'function') {
                 window.alert('Coloring is still loading. Wait a moment, then try again.');
                 return;
               }
@@ -4566,6 +4615,42 @@
     }
 
     refreshAllProgress();
+
+    // Mount only the active story's visible scene (not all 80+ books).
+    function mountVisibleStory(sectionEl) {
+      if (!sectionEl) return;
+      var panel =
+        sectionEl.querySelector('.tdb-cat-panel:not([hidden])') ||
+        sectionEl.querySelector('.tdb-cat-panel');
+      if (panel) ensureSceneJl(panel);
+    }
+    if (requestedStorySection) {
+      mountVisibleStory(requestedStorySection);
+    } else {
+      var firstSec = mount.querySelector('.tdb-cat-story');
+      mountVisibleStory(firstSec);
+    }
+
+    // When a story section scrolls near the viewport, mount its first panel once.
+    if (typeof IntersectionObserver === 'function') {
+      var io = new IntersectionObserver(
+        function (entries) {
+          for (var ei = 0; ei < entries.length; ei++) {
+            if (!entries[ei].isIntersecting) continue;
+            var sec = entries[ei].target;
+            var p =
+              sec.querySelector('.tdb-cat-panel:not([hidden])') ||
+              sec.querySelector('.tdb-cat-panel');
+            if (p) ensureSceneJl(p);
+          }
+        },
+        { root: null, rootMargin: '120px 0px', threshold: 0.05 }
+      );
+      mount.querySelectorAll('.tdb-cat-story').forEach(function (sec) {
+        io.observe(sec);
+      });
+    }
+
     if (requestedStorySection && typeof requestedStorySection.scrollIntoView === 'function') {
       requestedStorySection.scrollIntoView({ behavior: 'auto', block: 'start' });
       try {

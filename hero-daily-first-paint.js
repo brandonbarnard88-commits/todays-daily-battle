@@ -490,6 +490,117 @@
     if (rowEl) rowEl.hidden = !t;
   }
 
+  /** Canonical ref key for binding dig-deeper to the on-screen verse. */
+  function normalizeHeroBoundRef(ref) {
+    return sanitizeText(ref || '')
+      .replace(/\s*\(KJV\)\s*$/i, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function readDisplayedHeroRef() {
+    var el = document.getElementById('heroRef');
+    if (!el) return '';
+    return normalizeHeroBoundRef(el.textContent || '');
+  }
+
+  function readDisplayedHeroText() {
+    var el = document.getElementById('heroVerse');
+    if (!el) return '';
+    return sanitizeText(el.textContent || '')
+      .replace(/^[\s\u201c\u201d"']+|[\s\u201c\u201d"']+$/g, '')
+      .trim();
+  }
+
+  function stampHeroDigDeeperBoundRef(ref) {
+    var key = normalizeHeroBoundRef(ref);
+    ['heroVotdBreakdown', 'heroDigDeeper', 'heroSimpleBreakdown', 'heroVbdPrimary'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) {
+        try {
+          if (key) el.setAttribute('data-tdb-bound-ref', key);
+          else el.removeAttribute('data-tdb-bound-ref');
+        } catch (eStamp) { /* non-fatal */ }
+      }
+    });
+  }
+
+  function readHeroDigDeeperBoundRef() {
+    var el =
+      document.getElementById('heroVotdBreakdown') ||
+      document.getElementById('heroSimpleBreakdown') ||
+      document.getElementById('heroDigDeeper');
+    if (!el) return '';
+    return normalizeHeroBoundRef(el.getAttribute('data-tdb-bound-ref') || '');
+  }
+
+  /**
+   * Hard clear — never leave yesterday’s situation/who/step under a new verse.
+   * Call before every dig-deeper fill.
+   */
+  function clearHeroDigDeeperShell() {
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowSit'),
+      document.getElementById('heroDeepSituation'),
+      ''
+    );
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowWho'),
+      document.getElementById('heroDeepWho'),
+      ''
+    );
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowAud'),
+      document.getElementById('heroDeepAudience'),
+      ''
+    );
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowCtx'),
+      document.getElementById('heroDeepContext'),
+      ''
+    );
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowYou'),
+      document.getElementById('heroDeepYou'),
+      ''
+    );
+    var simpleOut = document.getElementById('heroSimpleBreakdown');
+    if (simpleOut) simpleOut.textContent = '';
+    var stepOut = document.getElementById('heroVotdOneStep');
+    if (stepOut) stepOut.textContent = '';
+    var prayerTarget = document.getElementById('heroVotdPrayer');
+    if (prayerTarget) prayerTarget.textContent = '';
+    stampHeroDigDeeperBoundRef('');
+  }
+
+  /**
+   * If dig-deeper is bound to a different ref than #heroRef, rebuild from the displayed verse.
+   * This is the hard rule: mismatched dig-deeper content must never stay on screen.
+   */
+  function ensureHeroDigDeeperMatchesDisplayedVerse() {
+    var displayed = readDisplayedHeroRef();
+    if (!displayed) return false;
+    var bound = readHeroDigDeeperBoundRef();
+    if (bound && bound === displayed) return false;
+    var text = readDisplayedHeroText();
+    var v = normalizeVerse({ ref: displayed, text: text });
+    if (!v.ref) return false;
+    applyHeroVotdFromInputs(v, {
+      plainExplanation: v.plain || '',
+      groupApplication: v.today || '',
+      modernApplication: '',
+      practicalStep: v.action || v.app || '',
+      about: v.about || v.speaker || '',
+      to: v.to || '',
+      setting: v.setting || '',
+      situation: v.setting || ''
+    });
+    return true;
+  }
+
+  window.__TDB_ensureHeroDigDeeperMatchesDisplayedVerse = ensureHeroDigDeeperMatchesDisplayedVerse;
+  window.__TDB_clearHeroDigDeeperShell = clearHeroDigDeeperShell;
+
   function currentYearFresh() {
     if (typeof window.TDB_verseBreakdownStandard === 'object' && window.TDB_verseBreakdownStandard && typeof window.TDB_verseBreakdownStandard.currentYear === 'function') {
       return window.TDB_verseBreakdownStandard.currentYear();
@@ -670,6 +781,12 @@
   function applyHeroVotdFromInputs(v, shared) {
     var simpleOut = document.getElementById('heroSimpleBreakdown');
     if (!simpleOut) return;
+    var refKey = normalizeHeroBoundRef(v && v.ref);
+    if (!refKey) return;
+
+    /* Atomic replace: wipe stale dig-deeper before writing this ref’s fields. */
+    clearHeroDigDeeperShell();
+
     var lesson = computeHeroVotdBreakdownLessonFields(v, shared);
     var simple = lesson.simple;
     var who = lesson.who;
@@ -698,16 +815,22 @@
       var yrChip = document.getElementById('heroVotdBreakdownYear');
       if (yrChip) yrChip.textContent = String(yr);
     } catch (eYChip) { /* non-fatal */ }
-    var std = window.TDB_verseBreakdownStandard;
-    if (std && typeof std.hydrateHeroDigDeeper === 'function') {
-      std.hydrateHeroDigDeeper(v && v.ref ? v.ref : '', v && v.text ? v.text : '');
-    }
+
+    /* Stamp BEFORE cross-ref/plan hydrate so partial failures still know the bound ref. */
+    stampHeroDigDeeperBoundRef(refKey);
     var wrap = document.getElementById('heroVotdBreakdown');
     if (wrap) {
       try {
         wrap.setAttribute('data-tdb-hero-votd', '1');
       } catch (e) { /* non-fatal */ }
     }
+
+    var std = window.TDB_verseBreakdownStandard;
+    if (std && typeof std.hydrateHeroDigDeeper === 'function') {
+      std.hydrateHeroDigDeeper(v && v.ref ? v.ref : '', v && v.text ? v.text : '');
+    }
+    /* Cross-ref hydrate must not leave dig-deeper on another verse — re-stamp after. */
+    stampHeroDigDeeperBoundRef(refKey);
     /* BBE simpler English — always-open on home; fill as soon as ref is known. */
     try {
       var bbeRef = v && v.ref ? String(v.ref).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
@@ -752,8 +875,9 @@
     var verseCard = document.getElementById('verseCard');
     var prebuilt = verseCard && verseCard.getAttribute('data-tdb-hero-prebuilt') === '1';
     var YEAR365 = window.__TDB_HERO_DAILY_YEAR;
-    var useDomPrebuilt = prebuilt && (!YEAR365 || !YEAR365.length);
     var has365 = YEAR365 && YEAR365.length;
+    /* Prefer calendar pick whenever 365 is loaded — never trust stale inject for dig-deeper. */
+    var useDomPrebuilt = prebuilt && !has365;
     var hasPools = OFFLINE_PACK.length > 0 || VERSES.length > 0;
     if (!useDomPrebuilt && !has365 && !hasPools) return;
 
@@ -764,7 +888,11 @@
     var v = normalizeVerse(verseRaw);
     if (!v.ref) return;
     var sig = v.ref + '\0' + v.text;
-    if (window.__TDB_HERO_FIRST_PAINT_SIGNATURE === sig) return;
+    if (window.__TDB_HERO_FIRST_PAINT_SIGNATURE === sig) {
+      /* Same verse text — still repair dig-deeper if bound ref drifted or was wiped. */
+      ensureHeroDigDeeperMatchesDisplayedVerse();
+      return;
+    }
 
     var heroBreakdown = document.getElementById('heroBreakdown');
     var heroApplication = document.getElementById('heroApplication');
@@ -884,6 +1012,46 @@
   } else {
     window.setTimeout(scheduleHero365Hydrate, 1);
   }
+
+  /**
+   * Continuous integrity: dig-deeper must always match #heroRef.
+   * Catches race conditions (inject + 365 + breakdown engine) that used to leave Psalm 92 under Prov 16:3.
+   */
+  (function wireHeroDigDeeperIntegrityLock() {
+    var scheduled = false;
+    function runCheck() {
+      scheduled = false;
+      try {
+        ensureHeroDigDeeperMatchesDisplayedVerse();
+      } catch (eLock) { /* non-fatal */ }
+    }
+    function scheduleCheck() {
+      if (scheduled) return;
+      scheduled = true;
+      if (typeof window.requestAnimationFrame === 'function') {
+        window.requestAnimationFrame(function () {
+          window.setTimeout(runCheck, 0);
+        });
+      } else {
+        window.setTimeout(runCheck, 0);
+      }
+    }
+    try {
+      window.addEventListener('tdb-hero-verse-updated', scheduleCheck);
+      window.addEventListener('tdb-red-letter-changed', scheduleCheck);
+      document.addEventListener('DOMContentLoaded', scheduleCheck);
+      window.addEventListener('load', scheduleCheck);
+      /* Delayed passes after deferred engines (breakdown, 365, explanations). */
+      window.setTimeout(scheduleCheck, 400);
+      window.setTimeout(scheduleCheck, 1500);
+      window.setTimeout(scheduleCheck, 4000);
+      var heroRefEl = document.getElementById('heroRef');
+      if (heroRefEl && typeof MutationObserver === 'function') {
+        var mo = new MutationObserver(scheduleCheck);
+        mo.observe(heroRefEl, { childList: true, characterData: true, subtree: true });
+      }
+    } catch (eWire) { /* non-fatal */ }
+  })();
 
   /** Homepage: soften Verse-of-day hub rhythm wording; dismiss merged welcome card → hint strip. */
   (function hydrateHomeRhythmWelcome() {

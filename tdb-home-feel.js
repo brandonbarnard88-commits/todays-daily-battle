@@ -515,15 +515,8 @@ function queueHeroBreakdownRefresh(data, attempt) {
     timeEl.setAttribute("datetime", now.toISOString().slice(0, 10));
     timeEl.textContent = new Intl.DateTimeFormat("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" }).format(now);
   })();
-  (function tdbFillHeroDigDeeper() {
-    var vbStd = window.TDB_verseBreakdownStandard;
-    if (vbStd && typeof vbStd.hydrateHeroDigDeeper === "function") {
-      vbStd.hydrateHeroDigDeeper(v.ref, v.text);
-    } else {
-      var legacyWrap = document.getElementById("tdb-hero-curriculum-slot");
-      if (legacyWrap) legacyWrap.setAttribute("hidden", "");
-    }
-  })();
+  /* Dig-deeper situation/who/step are filled only via __TDB_applyHeroVotdFromInputs
+     (atomic clear+stamp). Cross-refs/plan hydrate runs inside that path. */
 
   // ── Update "Read full chapter" deep-link ──
   (function() {
@@ -667,13 +660,26 @@ function queueHeroBreakdownRefresh(data, attempt) {
       var looksAction = /^(so do this:|name one |sit |write |list |ask |pray |return to|take one|say |read |thank |end the day|hold this|use this)/i.test(
         String(engineModern || '').trim()
       );
+      var liveSit = '';
+      var liveAbout = '';
+      var liveTo = '';
+      try {
+        if (typeof window.TDB_resolveVerseContext === 'function' && v.ref) {
+          var ctxHit = window.TDB_resolveVerseContext(v.ref) || {};
+          liveSit = String(ctxHit.situation || ctxHit.setting || '').trim();
+          liveAbout = String(ctxHit.about || '').trim();
+          liveTo = String(ctxHit.to || '').trim();
+        }
+      } catch (eLiveCtx) { /* non-fatal */ }
       window.__TDB_applyHeroVotdFromInputs(v, {
         plainExplanation: bestPlain,
         groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || curatedToday || v.today,
         modernApplication: looksAction ? '' : engineModern,
         practicalStep: curatedStep || v.action || v.app || (looksAction ? engineModern : ''),
-        about: (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker,
-        to: (heroSharedBreakdown && heroSharedBreakdown.to) || v.to
+        about: liveAbout || (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker || v.about,
+        to: liveTo || (heroSharedBreakdown && heroSharedBreakdown.to) || v.to,
+        setting: liveSit || v.setting || '',
+        situation: liveSit || v.setting || ''
       });
       // First paint may have filled a placeholder before the engine loaded — keep polling for a real upgrade.
       if (!sharedReady || (weakPlain && !window.__tdbHeroBreakdownEngineApplied)) {

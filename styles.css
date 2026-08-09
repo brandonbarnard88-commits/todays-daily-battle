@@ -11997,6 +11997,48 @@ body.tts-playing .btn-listen {
   padding: 0.35rem 0.4rem;
 }
 
+/* Feeling topic verse cards: situation + meaning (injected by inject-topic-verse-context.mjs) */
+.tdb-topic-vbd {
+  margin: 0.65rem 0 0.35rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.04);
+}
+html[data-theme="dark"] .tdb-topic-vbd,
+body.dark-mode .tdb-topic-vbd {
+  border-color: rgba(148, 163, 184, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+}
+.tdb-topic-vbd__heading {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+.tdb-topic-vbd__combined {
+  margin: 0 0 0.45rem;
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+.tdb-topic-vbd__who,
+.tdb-topic-vbd__to {
+  margin: 0.2rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  opacity: 0.92;
+}
+.tdb-topic-vbd__label {
+  font-weight: 600;
+}
+.content-inner .list .list-item .tdb-topic-verse-note {
+  margin-top: 0.55rem;
+  font-style: italic;
+  opacity: 0.9;
+}
+
 .red-letter {
   color: #b91c1c;
   font-weight: 500;

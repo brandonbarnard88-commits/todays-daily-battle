@@ -26120,3 +26120,95 @@ body.no-tdb-bottom-nav .spacer {
   display: none !important;
   visibility: hidden !important;
 }
+
+/* ── KISS verse stack: KJV → BBE → context (feel + search cards) ── */
+.tdb-kiss-verse {
+  display: block;
+  margin: 0 0 1.15rem;
+  padding: 0.85rem 0.95rem 0.75rem;
+  border-radius: 14px;
+  border: 1px solid rgba(232, 196, 122, 0.28);
+  background: rgba(15, 23, 42, 0.28);
+}
+html[data-theme="light"] .tdb-kiss-verse,
+html[data-theme="sepia"] .tdb-kiss-verse,
+body.light:not(.dark-mode) .tdb-kiss-verse {
+  border-color: rgba(138, 90, 18, 0.22);
+  background: rgba(255, 252, 245, 0.92);
+}
+.tdb-kiss-verse__ref {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+.tdb-kiss-verse__ref strong {
+  color: #e8c47a;
+  font-weight: 700;
+}
+html[data-theme="light"] .tdb-kiss-verse__ref strong,
+html[data-theme="sepia"] .tdb-kiss-verse__ref strong {
+  color: #8a5a12;
+}
+.tdb-kiss-verse__block {
+  margin: 0.55rem 0 0.65rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid rgba(232, 196, 122, 0.18);
+  background: rgba(15, 23, 42, 0.14);
+}
+html[data-theme="light"] .tdb-kiss-verse__block,
+html[data-theme="sepia"] .tdb-kiss-verse__block {
+  border-color: rgba(138, 90, 18, 0.16);
+  background: rgba(255, 248, 235, 0.75);
+}
+.tdb-kiss-verse__label {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  color: #e8c47a !important;
+}
+html[data-theme="light"] .tdb-kiss-verse__label,
+html[data-theme="sepia"] .tdb-kiss-verse__label {
+  color: #8a5a12 !important;
+}
+.tdb-kiss-verse__kjv {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.12rem;
+  line-height: 1.55;
+  color: #e8f0fb !important;
+}
+html[data-theme="light"] .tdb-kiss-verse__kjv,
+html[data-theme="sepia"] .tdb-kiss-verse__kjv {
+  color: #1f2937 !important;
+}
+.tdb-kiss-verse__bbe,
+.tdb-kiss-verse .tdb-bbe-simple__text {
+  margin: 0.15rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+.tdb-kiss-verse__sit,
+.tdb-kiss-verse__mean {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.tdb-kiss-verse__block--bbe {
+  border-style: dashed;
+}
+.tdb-kiss-verse__actions,
+.tdb-kiss-verse .fvc-actions {
+  margin-top: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.feel-cards .tdb-kiss-verse,
+#feelCards .tdb-kiss-verse {
+  animation: none;
+}

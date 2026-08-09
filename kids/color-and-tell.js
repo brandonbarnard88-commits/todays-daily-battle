@@ -240,6 +240,10 @@
    */
   // TDB_SCENE_ART_START
   var TDB_SCENE_ART = {
+  "/coloring-pages/creation-s1.svg": "/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg",
+  "/coloring-pages/creation-s2.svg": "/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg",
+  "/coloring-pages/creation-s3.svg": "/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg",
+  "/coloring-pages/creation-s4.svg": "/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg",
   "/coloring-pages/baby-moses-s1.svg": "/coloring-pages/baby-moses-s1.jpg",
   "/coloring-pages/baby-moses-s2.svg": "/coloring-pages/baby-moses-s2.jpg",
   "/coloring-pages/baby-moses-s3.svg": "/coloring-pages/baby-moses-s3.jpg",
@@ -268,10 +272,18 @@
   "/coloring-pages/jesus-storm-s2.svg": "/coloring-pages/jesus-storm-s2.jpg",
   "/coloring-pages/jesus-storm-s3.svg": "/coloring-pages/jesus-storm-s3.jpg",
   "/coloring-pages/jesus-storm-s4.svg": "/coloring-pages/jesus-storm-s4.jpg",
+  "/coloring-pages/jesus-children-s1.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
+  "/coloring-pages/jesus-children-s2.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
+  "/coloring-pages/jesus-children-s3.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
+  "/coloring-pages/jesus-children-s4.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
   "/coloring-pages/good-samaritan-s1.svg": "/coloring-pages/good-samaritan-s1.jpg",
   "/coloring-pages/good-samaritan-s2.svg": "/coloring-pages/good-samaritan-s2.jpg",
   "/coloring-pages/good-samaritan-s3.svg": "/coloring-pages/good-samaritan-s3.jpg",
   "/coloring-pages/good-samaritan-s4.svg": "/coloring-pages/good-samaritan-s4.jpg",
+  "/coloring-pages/empty-tomb-s1.svg": "/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg",
+  "/coloring-pages/empty-tomb-s2.svg": "/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg",
+  "/coloring-pages/empty-tomb-s3.svg": "/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg",
+  "/coloring-pages/empty-tomb-s4.svg": "/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg",
   "/coloring-pages/prodigal-son-s1.svg": "/coloring-pages/prodigal-son-s1.jpg",
   "/coloring-pages/prodigal-son-s2.svg": "/coloring-pages/prodigal-son-s2.jpg",
   "/coloring-pages/prodigal-son-s3.svg": "/coloring-pages/prodigal-son-s3.jpg",
@@ -3707,7 +3719,7 @@
   function createJl(scene) {
     var jl = document.createElement('jl-coloringbook');
     jl.setAttribute('maxbrushsize', '56');
-    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=26');
+    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=27');
     var im = document.createElement('img');
     im.src = bestSceneSrc(scene);
     im.alt = scene.alt;

@@ -8350,11 +8350,14 @@
         { src: 'panel-noah-2.svg', alt: 'It bears twelve kinds of fruit every month' },
         { src: 'panel-noah-3.svg', alt: 'Its leaves heal the nations—God provides!' }
       ],
-      caption: 'Swipe to see the Tree of Life in the new city! 🌿',
+      caption: 'In God’s new city the tree of life grows by the river.',
       videoId: '',
       videoTitle: '',
-      keywords: ['tree of life', 'revelation 22', 'fruit', 'heal', 'leaves', 'river', 'nations'],
-      kidContext: { who: 'God', to: 'His people in the new creation', apply: 'God\'s healing never runs out! In His new world, everything is made whole.' }
+      keywords: ['tree of life', 'revelation 22', 'revelation 22:2', 'fruit', 'heal', 'leaves', 'river', 'nations'],
+      kjvRef: 'Revelation 22:1–2',
+      kidContext: { who: 'God', to: 'His people in the new creation', apply: 'God\'s healing never runs out! In His new world, everything is made whole.' },
+      narration:
+        'The Tree of Life – Revelation 22:1–2. A pure river of water of life, clear as crystal, proceeds out of the throne of God and of the Lamb. In the midst of the street of it, and on either side of the river, was there the tree of life, which bare twelve manner of fruits, and yielded her fruit every month: and the leaves of the tree were for the healing of the nations. For you: God makes all things new—and He provides forever.'
     },
     riverOfLife: {
       title: 'The River of Life',
@@ -9305,17 +9308,35 @@
       kidContext: { who: 'God', to: 'All His people', apply: 'The best day is coming—Jesus\' wedding feast! All who believe are invited—that means you!' }
     },
     treeFruit: {
-      title: 'The Tree That Heals Nations',
+      title: 'Tree of Life — Leaves for Healing',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'The tree of life grows by the river' },
-        { src: 'panel-noah-2.svg', alt: 'Its leaves heal every nation' },
+        { src: 'panel-noah-1.svg', alt: 'The tree of life grows by the river of life' },
+        { src: 'panel-noah-2.svg', alt: 'Its leaves are for the healing of the nations' },
         { src: 'panel-noah-3.svg', alt: 'In God\'s city—everything is made whole!' }
       ],
-      caption: 'Swipe to see the healing tree in God\'s new city! 🌿',
+      caption: 'In the new city, the tree of life bears fruit—and its leaves heal the nations.',
       videoId: '',
       videoTitle: '',
-      keywords: ['tree', 'fruit', 'revelation 22', 'heal', 'nations', 'leaves', 'life'],
-      kidContext: { who: 'God', to: 'All creation', apply: 'God\'s healing reaches every nation! His love is for everyone—share it.' }
+      keywords: [
+        'tree of life',
+        'tree fruit',
+        'healing leaves',
+        'revelation 22',
+        'revelation 22:2',
+        'heal',
+        'nations',
+        'leaves',
+        'fruit',
+        'river of life'
+      ],
+      kjvRef: 'Revelation 22:1–2',
+      kidContext: {
+        who: 'God',
+        to: 'All His people in the new creation',
+        apply: 'God’s healing love is for every nation—share His kindness today.'
+      },
+      narration:
+        'Tree of Life — Leaves for Healing – Revelation 22:1–2. In the new city a pure river of water of life flows from the throne of God and of the Lamb. On either side of the river is the tree of life, which bears twelve manner of fruits, and yields her fruit every month: and the leaves of the tree were for the healing of the nations. For you: God makes things whole—His love is for everyone.'
     },
     noNight: {
       title: 'No Night in God\'s City',

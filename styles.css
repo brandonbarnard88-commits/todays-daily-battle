@@ -25918,6 +25918,100 @@ details.hero-vbd-primary.tdb-layman-collapse > summary + p#heroSimpleBreakdown {
   text-transform: none;
   color: var(--muted, #6b7280);
 }
+
+/*
+ * Dig-deeper labels vs body — different color so sections don’t blend.
+ * Labels: warm gold/amber accent. Body: readable light (night) / dark (day).
+ */
+#heroVotdBreakdown .tdb-vbd-label,
+#heroVotdBreakdown .tdb-bbe-simple__heading,
+#heroVotdBreakdown .tdb-layman-heading,
+#heroVotdBreakdown .tdb-dig-deeper__always-heading,
+#heroVotdBreakdown .hero-vbd-bundle > h4,
+#heroVotdBreakdown .next-step > strong,
+#heroVotdBreakdown .prayer-block strong {
+  color: #e8c47a !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+  font-size: 0.88rem;
+  text-transform: none;
+  margin: 0 0 0.28rem;
+}
+html[data-theme="light"] #heroVotdBreakdown .tdb-vbd-label,
+html[data-theme="light"] #heroVotdBreakdown .tdb-bbe-simple__heading,
+html[data-theme="light"] #heroVotdBreakdown .tdb-layman-heading,
+html[data-theme="light"] #heroVotdBreakdown .tdb-dig-deeper__always-heading,
+html[data-theme="light"] #heroVotdBreakdown .hero-vbd-bundle > h4,
+html[data-theme="light"] #heroVotdBreakdown .next-step > strong,
+html[data-theme="light"] #heroVotdBreakdown .prayer-block strong,
+html[data-theme="sepia"] #heroVotdBreakdown .tdb-vbd-label,
+html[data-theme="sepia"] #heroVotdBreakdown .tdb-bbe-simple__heading,
+html[data-theme="sepia"] #heroVotdBreakdown .tdb-layman-heading,
+html[data-theme="sepia"] #heroVotdBreakdown .tdb-dig-deeper__always-heading,
+html[data-theme="sepia"] #heroVotdBreakdown .hero-vbd-bundle > h4,
+html[data-theme="sepia"] #heroVotdBreakdown .next-step > strong,
+html[data-theme="sepia"] #heroVotdBreakdown .prayer-block strong,
+body.light:not(.dark-mode) #heroVotdBreakdown .tdb-vbd-label,
+body.sepia-mode:not(.dark-mode) #heroVotdBreakdown .tdb-vbd-label {
+  color: #8a5a12 !important;
+  text-shadow: none !important;
+}
+
+#heroVotdBreakdown .tdb-vbd-body,
+#heroVotdBreakdown .hero-vbd-bundle > p,
+#heroSimpleSituation,
+#heroSimpleMeaning {
+  color: #e8f0fb !important;
+  font-weight: 500 !important;
+  line-height: 1.55;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+html[data-theme="light"] #heroVotdBreakdown .tdb-vbd-body,
+html[data-theme="light"] #heroVotdBreakdown .hero-vbd-bundle > p,
+html[data-theme="light"] #heroSimpleSituation,
+html[data-theme="light"] #heroSimpleMeaning,
+html[data-theme="sepia"] #heroVotdBreakdown .tdb-vbd-body,
+html[data-theme="sepia"] #heroVotdBreakdown .hero-vbd-bundle > p,
+html[data-theme="sepia"] #heroSimpleSituation,
+html[data-theme="sepia"] #heroSimpleMeaning {
+  color: #1f2937 !important;
+  text-shadow: none !important;
+}
+
+.hero-vbd-split {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 0.15rem 0 0.35rem;
+}
+.hero-vbd-split__row {
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid rgba(232, 196, 122, 0.28);
+  background: rgba(15, 23, 42, 0.22);
+}
+html[data-theme="light"] .hero-vbd-split__row,
+html[data-theme="sepia"] .hero-vbd-split__row {
+  border-color: rgba(138, 90, 18, 0.22);
+  background: rgba(255, 248, 235, 0.75);
+}
+.hero-vbd-bundle {
+  margin: 0.55rem 0 0.65rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid rgba(232, 196, 122, 0.2);
+  background: rgba(15, 23, 42, 0.16);
+}
+html[data-theme="light"] .hero-vbd-bundle,
+html[data-theme="sepia"] .hero-vbd-bundle {
+  border-color: rgba(138, 90, 18, 0.18);
+  background: rgba(255, 252, 245, 0.9);
+}
+.hero-vbd-bundle + .hero-vbd-bundle {
+  margin-top: 0.45rem;
+}
 .tdb-bbe-simple--always-open .tdb-bbe-simple__credit {
   margin: 0.4rem 0 0;
   font-size: 0.8rem;

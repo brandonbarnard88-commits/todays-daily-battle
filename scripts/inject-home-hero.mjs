@@ -213,7 +213,7 @@ function buildInjectedHeroLesson(refPlain, textPlain, plainMap, explMap, resolve
   const combined = composeInjectedCombined(situation, meaningOnly);
   return {
     plain: combined || meaningOnly,
-    meaningOnly,
+    meaningOnly: meaningOnly || '',
     situation,
     step,
     prayer,
@@ -256,20 +256,38 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
     return '<button' + u + '>';
   });
 
-  // Prefill combined situation + meaning so first paint teaches context for every verse.
+  // Prefill split situation + meaning so first paint is scannable (labels separate from body).
   const lesson = buildInjectedHeroLesson(refPlain, textPlain, plainMap, explMap, resolveCtx);
+  let meaningOnly = String(lesson.meaningOnly || lesson.plain || '')
+    .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+    .trim();
+  const sitOnly = String(lesson.situation || '').trim();
+  const combined =
+    sitOnly && meaningOnly
+      ? 'What was going on: ' + sitOnly.replace(/\.$/, '') + '. What it means: ' + meaningOnly
+      : lesson.plain || meaningOnly || sitOnly;
   html = html.replace(
-    /<p id="heroSimpleBreakdown">[\s\S]*?<\/p>/,
-    '<p id="heroSimpleBreakdown">' + escapeHtmlText(lesson.plain) + '</p>'
+    /(<p id="heroSimpleBreakdown"[^>]*>)[\s\S]*?(<\/p>)/,
+    '$1' + escapeHtmlText(combined) + '$2'
   );
-  if (lesson.situation) {
+  if (sitOnly) {
+    html = html.replace(
+      /(<p[^>]*id="heroSimpleSituation"[^>]*>)[\s\S]*?(<\/p>)/,
+      '$1' + escapeHtmlText(sitOnly) + '$2'
+    );
     html = html.replace(
       /(<div class="hero-vbd-bundle" id="heroVbdRowSit"[^>]*)\s*hidden/,
       '$1'
     );
     html = html.replace(
-      /(<p id="heroDeepSituation">)[\s\S]*?(<\/p>)/,
-      '$1' + escapeHtmlText(lesson.situation) + '$2'
+      /(<p[^>]*id="heroDeepSituation"[^>]*>)[\s\S]*?(<\/p>)/,
+      '$1' + escapeHtmlText(sitOnly) + '$2'
+    );
+  }
+  if (meaningOnly) {
+    html = html.replace(
+      /(<p[^>]*id="heroSimpleMeaning"[^>]*>)[\s\S]*?(<\/p>)/,
+      '$1' + escapeHtmlText(meaningOnly) + '$2'
     );
   }
   if (explMap) {

@@ -123,14 +123,17 @@ function auditHeroInject(kjv, resolve) {
 
   const refM = html.match(/id="heroRef"[^>]*>[\s\S]*?<strong>([^<]+)<\/strong>/i) ||
     html.match(/id="heroRef"[^>]*>([\s\S]*?)<\/p>/i);
-  const simpleM = html.match(/id="heroSimpleBreakdown">([^<]*)/i);
-  const sitM = html.match(/id="heroDeepSituation">([^<]*)/i);
-  const whoM = html.match(/id="heroDeepWho">([^<]*)/i);
-  const stepM = html.match(/id="heroVotdOneStep">([^<]*)/i);
+  const simpleM = html.match(/id="heroSimpleBreakdown"[^>]*>([^<]*)/i);
+  const meanM = html.match(/id="heroSimpleMeaning"[^>]*>([^<]*)/i);
+  const sitPrimaryM = html.match(/id="heroSimpleSituation"[^>]*>([^<]*)/i);
+  const sitM = html.match(/id="heroDeepSituation"[^>]*>([^<]*)/i);
+  const whoM = html.match(/id="heroDeepWho"[^>]*>([^<]*)/i);
+  const stepM = html.match(/id="heroVotdOneStep"[^>]*>([^<]*)/i);
 
   const heroRef = stripHtml(refM ? refM[1] : '').replace(/\s*\(KJV\)\s*$/i, '').trim();
   const simple = stripHtml(simpleM ? simpleM[1] : '');
-  const sit = stripHtml(sitM ? sitM[1] : '');
+  const meaning = stripHtml(meanM ? meanM[1] : '') || simple.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '');
+  const sit = stripHtml(sitPrimaryM ? sitPrimaryM[1] : '') || stripHtml(sitM ? sitM[1] : '');
   const who = stripHtml(whoM ? whoM[1] : '');
   const step = stripHtml(stepM ? stepM[1] : '');
 
@@ -148,8 +151,13 @@ function auditHeroInject(kjv, resolve) {
     }
   }
 
-  if (isWeakPlainStamp(simple)) {
-    fail(`Hero simple breakdown uses weak stamp for ${expect}: ${simple.slice(0, 100)}`);
+  if (isWeakPlainStamp(meaning) || isWeakPlainStamp(simple)) {
+    fail(
+      `Hero meaning uses weak stamp for ${expect}: ${(meaning || simple).slice(0, 100)}`
+    );
+  }
+  if (!meaning || meaning.length < 20) {
+    fail(`Hero meaning missing/too short for ${expect}`);
   }
 
   // Situation must not be empty when resolver has one

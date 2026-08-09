@@ -1618,12 +1618,135 @@
 }
 
 .kids-video-modal-title {
-  font-family: 'Bangers', cursive;
-  font-size: 1.25rem;
-  color: var(--kids-yellow);
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.2rem, 4vw, 1.55rem);
+  color: #fef9c3;
   margin: 0;
   padding: 0.75rem 1rem 0.5rem;
   text-align: center;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+/* Story body: high-contrast paper so kids can actually read */
+.kids-read-quiz-wrap {
+  margin: 0.5rem 0.75rem 1rem;
+  padding: 1rem 1.1rem 1.15rem;
+  border-radius: 16px;
+  background: #fffef8;
+  border: 2px solid rgba(251, 191, 36, 0.45);
+  color: #0f172a;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.kids-read-quiz-h4 {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #0f172a !important;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.kids-read-quiz-para,
+.kids-read-quiz-hint,
+.kids-read-quiz-verse-excerpt,
+.kids-read-quiz-section-caption,
+.kids-read-quiz-section-placeholder {
+  font-family: 'Nunito', system-ui, sans-serif !important;
+  font-size: 1.15rem !important;
+  line-height: 1.7 !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  margin: 0 0 0.75rem !important;
+}
+
+.kids-read-quiz-hint {
+  font-size: 1.05rem !important;
+  color: #334155 !important;
+}
+
+.kids-read-quiz-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 0.35rem 0 1rem;
+}
+
+.kids-read-quiz-panel-img {
+  display: block;
+  width: min(100%, 420px);
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 3px solid #e2e8f0;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+}
+
+.kids-read-quiz-panel-img--coloring {
+  width: min(100%, 520px);
+  border-color: #f59e0b;
+}
+
+.kids-story-narration {
+  background: #fffef8 !important;
+  border: 2px solid rgba(251, 191, 36, 0.45) !important;
+}
+
+.kids-story-narration-text {
+  font-size: 1.12rem !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  line-height: 1.7 !important;
+}
+
+.kids-library-modal .kids-ctx-block {
+  font-family: 'Nunito', system-ui, sans-serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  background: #fffbeb !important;
+  border-left: 4px solid #f59e0b !important;
+}
+
+.kids-library-modal .kids-kjv-ref {
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: #92400e !important;
+  opacity: 1 !important;
+}
+
+/* Color & Tell art in story modal — big and clear */
+.kids-library-modal .comic-panel--coloring-art,
+.comic-panel.comic-panel--coloring-art {
+  width: min(100%, 520px) !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: 12px;
+  border: 3px solid #f59e0b;
+  background: #fff;
+  margin: 0.35rem auto;
+  display: block;
+}
+
+.kids-library-modal .panels-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.kids-library-modal .comic-caption {
+  font-family: 'Nunito', system-ui, sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: #fef9c3 !important;
+  line-height: 1.5 !important;
+  text-align: center;
+  padding: 0.5rem 1rem;
 }
 
 .kids-video-wrapper {

@@ -885,6 +885,8 @@ const SOCIAL_PURGE_PATHS = [
   '/kids/kids-corner.js?v=20260809storyart',
   '/kids/kids-battle.css?v=20260809storyart',
   '/kids/kids-corner.js?v=20260809solomon',
+  '/kids/kids-corner.js?v=20260809readquiz',
+  '/kids/kids-battle.css?v=20260809readquiz',
   '/kids/kids-battle.css?v=20260809solomon',
   '/coloring-pages/solomon-wisdom.jpg',
   '/coloring-pages/solomon-two-mothers.jpg',

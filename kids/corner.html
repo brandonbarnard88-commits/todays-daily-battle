@@ -42,8 +42,8 @@
   <link rel="stylesheet" href="story-library-fonts.css?v=1">
   <link rel="preload" href="../styles.css?v=20260809-vbd-labels" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260809-vbd-labels">
-  <link rel="preload" href="kids-battle.css?v=20260809solomon" as="style">
-  <link rel="stylesheet" href="kids-battle.css?v=20260809solomon">
+  <link rel="preload" href="kids-battle.css?v=20260809readquiz" as="style">
+  <link rel="stylesheet" href="kids-battle.css?v=20260809readquiz">
   <link rel="preload" href="kids-hub-play.css?v=20260508porchsheep" as="style">
   <link rel="stylesheet" href="kids-hub-play.css?v=20260508porchsheep">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
@@ -155,19 +155,23 @@
     .kids-library-search { margin-bottom: 1.5rem; }
     .kids-library-modal .comic-carousel { margin: 0 0 1rem; }
     .kids-library-modal .kids-ctx-block {
-      font-family: 'Comic Neue', cursive;
-      font-size: 0.95rem;
-      color: #cbd5e1;
-      margin: 0.75rem 0;
-      padding: 1rem;
-      background: rgba(255,217,61,0.08);
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin: 0.75rem 0.75rem;
+      padding: 1rem 1.1rem;
+      background: #fffef8;
       border-radius: 12px;
-      border-left: 4px solid var(--kids-yellow);
+      border: 2px solid rgba(251, 191, 36, 0.45);
+      border-left: 4px solid #f59e0b;
+      line-height: 1.6;
     }
     .kids-library-modal .kids-kjv-ref {
-      font-size: 0.75rem;
-      color: var(--kids-yellow);
-      opacity: 0.85;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #92400e;
+      opacity: 1;
       margin: 0.5rem 0 0;
     }
     .kids-library-random-btn {
@@ -252,32 +256,35 @@
         font-size: clamp(1rem, 2.8vw, 1.2rem);
       }
     }
-    /* Read + quiz (modal) */
+    /* Read + quiz (modal) — cream paper + dark type (must override dark comic theme) */
     #kids-story-modal-read-quiz:not(.hidden) { margin: 0 0 1rem; }
     .kids-read-quiz-wrap {
-      margin-top: 0.75rem;
-      padding: 1rem 1.1rem 1.15rem;
-      border: 3px solid var(--kids-yellow);
-      border-radius: 14px;
-      background: rgba(15, 23, 42, 0.85);
-      max-height: min(55vh, 420px);
+      margin: 0.75rem 0.65rem 1rem;
+      padding: 1.1rem 1.15rem 1.2rem;
+      border: 3px solid #f59e0b;
+      border-radius: 16px;
+      background: #fffef8;
+      color: #0f172a;
+      max-height: min(70vh, 640px);
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      box-shadow: 0 2px 14px rgba(15, 23, 42, 0.12);
     }
     .kids-read-quiz-wrap.kids-read-quiz-wrap--sections {
-      max-height: min(65vh, 560px);
+      max-height: min(75vh, 720px);
     }
     .kids-read-quiz-verse-excerpt {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.88rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
       font-style: italic;
-      line-height: 1.45;
-      color: #cbd5e1;
-      margin: 0 0 0.75rem;
-      padding: 0.65rem 0.75rem;
-      border-left: 3px solid rgba(250, 204, 21, 0.45);
-      background: rgba(250, 204, 21, 0.06);
-      border-radius: 0 10px 10px 0;
+      font-weight: 600;
+      line-height: 1.6;
+      color: #1e293b;
+      margin: 0 0 0.85rem;
+      padding: 0.75rem 0.85rem;
+      border-left: 4px solid #f59e0b;
+      background: #fffbeb;
+      border-radius: 0 12px 12px 0;
     }
     .kids-read-quiz-section {
       margin: 0 0 1rem;
@@ -287,68 +294,79 @@
       text-align: center;
     }
     .kids-read-quiz-section-caption {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.82rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1rem;
       font-weight: 700;
-      color: #fde68a;
+      color: #0f172a;
       margin: 0.35rem 0 0.5rem;
-      line-height: 1.35;
+      line-height: 1.45;
     }
     .kids-read-quiz-section-placeholder {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.88rem;
-      color: #94a3b8;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1rem;
+      color: #334155;
       font-style: italic;
       margin: 0 0 0.5rem;
     }
     .kids-read-quiz-ref {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--kids-yellow);
-      margin: 0 0 0.5rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #92400e;
+      margin: 0 0 0.55rem;
     }
     .kids-read-quiz-images {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
-      gap: 0.45rem;
-      margin: 0 0 0.65rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      justify-content: center;
+      margin: 0 0 0.85rem;
     }
     .kids-read-quiz-panel-img {
-      width: 100%;
+      width: min(100%, 420px);
       height: auto;
-      max-height: 120px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 2px solid rgba(250, 204, 21, 0.35);
+      max-height: none;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 3px solid #e2e8f0;
+      background: #fff;
+      box-shadow: 0 3px 12px rgba(15, 23, 42, 0.1);
+    }
+    .kids-read-quiz-panel-img--coloring {
+      width: min(100%, 520px);
+      border-color: #f59e0b;
     }
     .kids-read-quiz-h4 {
-      font-family: 'Bangers', cursive;
-      font-size: 1.2rem;
-      color: var(--kids-yellow);
-      margin: 0.75rem 0 0.35rem;
-      letter-spacing: 0.04em;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #0f172a;
+      margin: 0.85rem 0 0.45rem;
+      letter-spacing: 0.01em;
     }
     .kids-read-quiz-hint {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.9rem;
-      color: #94a3b8;
-      margin: 0 0 0.5rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #334155;
+      margin: 0 0 0.55rem;
+      line-height: 1.5;
     }
     .kids-read-quiz-para {
-      font-family: 'Comic Neue', cursive;
-      font-size: 1rem;
-      line-height: 1.55;
-      color: #e2e8f0;
-      margin: 0 0 0.75rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.7;
+      color: #0f172a;
+      margin: 0 0 0.85rem;
     }
     .kids-read-quiz-qtext {
-      font-family: 'Comic Neue', cursive;
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: #f8fafc;
-      margin: 0 0 0.65rem;
-      line-height: 1.4;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 0.75rem;
+      line-height: 1.45;
     }
     .kids-read-quiz-fieldset {
       border: none;
@@ -358,79 +376,119 @@
     .kids-read-quiz-choice {
       display: flex;
       align-items: flex-start;
-      gap: 0.5rem;
-      margin-bottom: 0.45rem;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.95rem;
-      color: #e2e8f0;
+      gap: 0.55rem;
+      margin-bottom: 0.55rem;
+      padding: 0.55rem 0.65rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0f172a;
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+    }
+    .kids-read-quiz-choice:has(input:checked) {
+      border-color: #f59e0b;
+      background: #fffbeb;
     }
     .kids-read-quiz-choice input {
       margin-top: 0.2rem;
-      width: 1.15rem;
-      height: 1.15rem;
+      width: 1.2rem;
+      height: 1.2rem;
       flex-shrink: 0;
+      accent-color: #d97706;
     }
     .kids-read-quiz-choice label {
       cursor: pointer;
-      line-height: 1.35;
+      line-height: 1.4;
+      color: #0f172a;
     }
     .kids-read-quiz-check,
     .kids-read-quiz-next {
-      min-height: 44px;
-      margin-top: 0.25rem;
+      min-height: 48px;
+      margin-top: 0.35rem;
+      font-weight: 800;
     }
     .kids-read-quiz-feedback {
       min-height: 2.5rem;
-      margin: 0.5rem 0;
-      font-family: 'Comic Neue', cursive;
-      font-size: 0.98rem;
-      line-height: 1.45;
-      padding: 0.5rem 0.65rem;
-      border-radius: 10px;
+      margin: 0.55rem 0;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.5;
+      padding: 0.65rem 0.75rem;
+      border-radius: 12px;
     }
     .kids-read-quiz-feedback.feedback-correct {
-      background: rgba(34, 197, 94, 0.15);
-      color: #bbf7d0;
-      border: 2px solid rgba(34, 197, 94, 0.45);
+      background: #ecfdf5;
+      color: #065f46;
+      border: 2px solid #34d399;
     }
     .kids-read-quiz-feedback.feedback-wrong {
-      background: rgba(248, 113, 113, 0.12);
-      color: #fecaca;
-      border: 2px solid rgba(248, 113, 113, 0.35);
+      background: #fef2f2;
+      color: #991b1b;
+      border: 2px solid #f87171;
     }
     .kids-read-quiz-feedback.feedback-neutral {
-      background: rgba(148, 163, 184, 0.12);
-      color: #cbd5e1;
-      border: 2px solid rgba(148, 163, 184, 0.35);
+      background: #f1f5f9;
+      color: #1e293b;
+      border: 2px solid #94a3b8;
     }
     .kids-read-quiz-feedback-main {
       margin: 0;
-      font-family: 'Comic Neue', cursive;
-      font-size: 0.98rem;
-      line-height: 1.45;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: inherit;
     }
     .kids-read-quiz-feedback-humility {
       margin: 0.45rem 0 0;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.85rem;
-      line-height: 1.4;
-      color: #cbd5e1;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: #334155;
       font-style: italic;
-      opacity: 0.95;
+      opacity: 1;
     }
     .kids-read-quiz-done-title {
-      font-family: 'Bangers', cursive;
-      font-size: 1.25rem;
-      color: var(--kids-yellow);
-      margin: 0 0 0.35rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #0f172a;
+      margin: 0 0 0.45rem;
     }
     .kids-read-quiz-takeaway,
     .kids-read-quiz-prayer {
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.6;
+      color: #0f172a;
+      margin: 0.55rem 0 0;
+    }
+    .kids-read-quiz-quiz-banner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+      margin: 0.75rem 0 0.5rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 12px;
+      border: 2px solid #f59e0b;
+      background: #fffbeb;
+    }
+    .kids-read-quiz-progress {
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-weight: 800;
       font-size: 1rem;
-      line-height: 1.5;
-      color: #e2e8f0;
-      margin: 0.5rem 0 0;
+      color: #92400e;
+    }
+    .kids-read-quiz-mission-foot {
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0f172a;
     }
     .kids-live-it-out {
       margin-top: 0.95rem;
@@ -438,26 +496,27 @@
       gap: 0.7rem;
     }
     .kids-live-it-out-card {
-      padding: 0.8rem 0.9rem;
+      padding: 0.85rem 0.95rem;
       border-radius: 12px;
-      border: 1px solid rgba(255, 217, 61, 0.16);
-      background: rgba(255,255,255,0.03);
+      border: 2px solid #e2e8f0;
+      background: #fff;
     }
     .kids-live-it-out-card strong {
       display: block;
-      margin-bottom: 0.25rem;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.82rem;
-      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--kids-yellow);
+      color: #92400e;
     }
     .kids-live-it-out-card p {
       margin: 0;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.92rem;
-      line-height: 1.5;
-      color: #e2e8f0;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.55;
+      color: #0f172a;
     }
     @media (min-width: 820px) {
       .kids-live-it-out {
@@ -465,20 +524,44 @@
       }
     }
     .kids-read-quiz-unavailable .kids-read-quiz-unavailable-msg {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.95rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
       line-height: 1.5;
-      color: #e2e8f0;
+      color: #0f172a;
       margin: 0 0 0.75rem;
     }
     .kids-read-quiz-retry-btn {
-      min-height: 44px;
+      min-height: 48px;
       margin-top: 0.25rem;
     }
     .kids-read-quiz-wrap.kids-read-quiz-unavailable {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+    }
+    /* Print Q&A strip under modal — readable on dark shell */
+    .kids-print-qa-sheet-wrap {
+      margin: 0.75rem 0.65rem 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 2px solid #22c55e;
+      background: #ecfdf5;
+    }
+    .kids-print-qa-sheet-btn {
+      min-height: 48px;
+      font-weight: 800 !important;
+      color: #065f46 !important;
+      border-color: #16a34a !important;
+      background: #fff !important;
+    }
+    .kids-print-qa-sheet-hint {
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #14532d;
+      max-width: 36rem;
     }
     /* Static starter list: visible before JS hydrates the grid (SEO + noscript) */
     .kids-library-static-fallback {
@@ -2505,7 +2588,7 @@
   </script>
   <script src="loop-library-coloring.js?v=20260524readquiz" defer></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
-  <script src="kids-corner.js?v=20260809solomon" defer></script>
+  <script src="kids-corner.js?v=20260809readquiz" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260806mascot" defer></script>
   <script type="module" src="../kids-data-loader.js" data-cfasync="false" defer></script>

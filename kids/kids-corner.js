@@ -243,38 +243,47 @@
       jesusSermon: 'wise-foolish-builders',
       jesusSermonMount: 'wise-foolish-builders',
       parableHiddenTreasure: 'pearl-great-price',
-      bethesda: 'healing-paralytic',
-      figTree: 'triumphal-entry',
-      jesusFigTree: 'triumphal-entry',
-      jesusWeepsJerusalem: 'triumphal-entry',
-      jesusWeptJerusalem: 'triumphal-entry',
-      gardenPrayer: 'jesus-tempted',
-      crucifixion: 'empty-tomb',
-      crossCarry: 'empty-tomb',
-      peterDenial: 'empty-tomb',
-      trial: 'empty-tomb',
-      jesusArrest: 'empty-tomb',
-      trialBeforeCaiaphas: 'empty-tomb',
-      maryMartha: 'jesus-children',
-      marthaServe: 'jesus-children',
-      marySit: 'jesus-children',
-      jesusTemple: 'jesus-children',
+      /* Prefer no coloring art over the wrong picture (legacy panels fall back). */
       noblemanSon: 'centurion-servant',
-      parableNet: 'fishers-of-men',
-      elijahHoreb: 'elijah-ravens',
       elishaMiracles: 'elisha-oil',
       elishaShunammite: 'elisha-oil',
-      mephibosheth: 'boy-david',
-      davidBathsheba: 'boy-david',
-      absalomRebellion: 'david-spares-saul',
       solomonWisdom: 'solomon-wisdom',
       solomonTwoMothers: 'solomon-two-mothers',
       solomonTemple: 'solomon-temple',
-      davidAbigail: 'david-jonathan',
-      jesusAuthority: 'triumphal-entry',
-      parableWickedHusbandmen: 'the-sower',
-      tributeToCaesar: 'rich-young-ruler',
-      sadduceesResurrection: 'empty-tomb'
+      /* Extra keys → existing Color & Tell pages (verified filenames) */
+      naamanHealed: 'naaman',
+      naamanDip: 'naaman',
+      fallOfJericho: 'jericho',
+      jerichoWalls: 'jericho',
+      roadToEmmaus: 'emmaus-road',
+      palmSunday: 'triumphal-entry',
+      samsonBirth: 'samson',
+      samsonLion: 'samson',
+      samsonDelilah: 'samson',
+      samsonStrength: 'samson',
+      elijahChariot: 'elijah-taken-up',
+      elijahAscension: 'elijah-taken-up',
+      philipChariot: 'philip-ethiopian',
+      gideonMidianites: 'gideon-fleece',
+      gideonFleeceRevisited: 'gideon-fleece',
+      samuelCall: 'boy-samuel',
+      samuelBirth: 'boy-samuel',
+      samuelAnointsDavid: 'boy-david',
+      hannahPray: 'hannah-samuel',
+      transfigure: 'transfiguration',
+      paulShip: 'paul-shipwreck',
+      paulShipwreckRevisited: 'paul-shipwreck',
+      dorcasRaise: 'tabitha-dorcas',
+      dorcasHelpingRevisited: 'tabitha-dorcas',
+      ruthMoab: 'ruth-naomi',
+      josephSold: 'joseph-coat',
+      josephPrison: 'joseph-coat',
+      josephRuler: 'joseph-dreams',
+      silasPaulSingingRevisited: 'paul-silas-prison',
+      nehemiahWallRevisited: 'nehemiah-walls',
+      philipEthiopianRevisited: 'philip-ethiopian',
+      rahabJericho: 'rahab-spies',
+      saulSpear: 'david-spares-saul'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -282,19 +291,19 @@
     if (low.indexOf('noah') >= 0) return 'noah';
     if (low.indexOf('jonah') >= 0) return 'jonah';
     if (low.indexOf('daniel') >= 0 && low.indexOf('fiery') >= 0) return 'fiery-furnace';
-    if (low.indexOf('daniel') >= 0) return 'daniel-lions';
+    if (low.indexOf('daniel') >= 0 && low.indexOf('lion') >= 0) return 'daniel-lions';
+    if (low.indexOf('daniel') >= 0 && (low.indexOf('pray') >= 0 || low === 'daniel')) return 'daniel-lions';
     if (low.indexOf('storm') >= 0 || low.indexOf('calms') >= 0) return 'jesus-storm';
-    if (low.indexOf('fisher') >= 0 || low.indexOf('disciple') >= 0) return 'fishers-of-men';
+    if (low.indexOf('fisher') >= 0) return 'fishers-of-men';
     if (low.indexOf('resurrection') >= 0 || low.indexOf('emptytomb') >= 0 || low.indexOf('tombempty') >= 0)
       return 'empty-tomb';
-    if (low.indexOf('crucifix') >= 0) return 'empty-tomb';
+    /* Do not map crucifixion / trial / garden / arbitrary Jesus keys to empty-tomb or children */
     if (low.indexOf('creation') >= 0 || low.indexOf('adameve') >= 0) return 'creation';
     if (low.indexOf('babymoses') >= 0) return 'baby-moses';
     if (low.indexOf('redsea') >= 0) return 'moses-red-sea';
     if (low.indexOf('burning') >= 0 || low.indexOf('mosesbush') >= 0) return 'burning-bush';
-    if (low.indexOf('moses') >= 0) return 'moses-red-sea';
     if (low.indexOf('samaritanwoman') >= 0 || low.indexOf('womanatwell') >= 0) return 'woman-at-well';
-    if (low.indexOf('goodsamaritan') >= 0 || low.indexOf('samaritan') >= 0) return 'good-samaritan';
+    if (low.indexOf('goodsamaritan') >= 0) return 'good-samaritan';
     if (low.indexOf('shepherd') >= 0 || low.indexOf('psalm23') >= 0) return 'good-shepherd';
     if (low.indexOf('nativity') >= 0 || low.indexOf('wisemen') >= 0) return 'nativity';
     if (low.indexOf('feeds5000') >= 0 || low.indexOf('feeding5000') >= 0) return 'feeding-5000';
@@ -308,8 +317,16 @@
     if (low.indexOf('lazarus') >= 0) return 'lazarus';
     if (low.indexOf('esther') >= 0) return 'esther';
     if (low.indexOf('baptism') >= 0) return 'jesus-baptism';
+    if (low.indexOf('emmaus') >= 0) return 'emmaus-road';
+    if (low.indexOf('naaman') >= 0) return 'naaman';
+    if (low.indexOf('jericho') >= 0) return 'jericho';
+    if (low.indexOf('samson') >= 0) return 'samson';
+    if (low.indexOf('gideon') >= 0) return 'gideon-fleece';
+    if (low.indexOf('nehemiah') >= 0) return 'nehemiah-walls';
+    if (low.indexOf('solomon') >= 0 && low.indexOf('mother') >= 0) return 'solomon-two-mothers';
+    if (low.indexOf('solomon') >= 0 && low.indexOf('temple') >= 0) return 'solomon-temple';
+    if (low.indexOf('solomon') >= 0) return 'solomon-wisdom';
     if (low.indexOf('jesus') >= 0 && low.indexOf('child') >= 0) return 'jesus-children';
-    if (low.indexOf('jesus') >= 0) return 'jesus-children';
     return '';
   }
 

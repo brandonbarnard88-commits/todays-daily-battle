@@ -566,8 +566,21 @@ const allWhos = storyEntries.map(([, ch]) => parseKidContextBlock(ch).who).filte
 const meta = { allKjvRefs, allWhos };
 const merged = {};
 
+/** Incomplete package.md stubs still say “[Paste …]” — never prefer those over auto packs. */
+function isIncompletePack(pack) {
+  if (!pack || typeof pack !== 'object') return true;
+  const blob = JSON.stringify(pack);
+  return (
+    /\[Paste[^\]]*\]/i.test(blob) ||
+    /\[Reference\]/i.test(blob) ||
+    /paste user text here/i.test(blob) ||
+    /paste the exact/i.test(blob) ||
+    /paste short warm/i.test(blob)
+  );
+}
+
 for (const [key] of storyEntries) {
-  if (HANDCRAFTED[key]) {
+  if (HANDCRAFTED[key] && !isIncompletePack(HANDCRAFTED[key])) {
     merged[key] = HANDCRAFTED[key];
     continue;
   }

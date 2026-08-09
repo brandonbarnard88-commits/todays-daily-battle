@@ -735,6 +735,7 @@ const SOCIAL_PURGE_PATHS = [
   '/kids/kids-all-stories.js?v=20260331kidsthemes',
   '/vendor/uFuzzy.iife.min.js',
   '/kids/kids-read-quiz-data.js',
+  '/kids/kids-read-quiz-data.js?v=20260809naaman',
   '/kids/kids-read-quiz-data.js?v=20260451kind',
   '/kids/kids-read-quiz-data.js?v=20260452gehazi',
   '/kids/kids-read-quiz-data.js?v=20260453ezra',

@@ -20,7 +20,10 @@ const cp = path.join(root, 'coloring-pages');
 const catPath = path.join(root, 'kids', 'color-and-tell.js');
 const outPath = path.join(root, 'kids', 'coloring-scene-art-map.json');
 
-/** Full-page line art when multi-panel SVGs are still stick-figure placeholders. */
+/**
+ * Full-page line art when multi-panel SVGs are still stick-figure placeholders.
+ * Named overrides first; any other `{prefix}.jpg` on disk is auto-discovered.
+ */
 const HERO = {
   'daniel-lions': 'bible-stories/daniel-in-the-lions-den-coloring-page.jpg',
   creation: 'bible-stories/creation-six-days-coloring-page.jpg',
@@ -36,6 +39,14 @@ const HERO = {
   nativity: 'nativity.jpg',
   'prodigal-son': 'prodigal-son.jpg',
 };
+
+/** Resolve hero art for a story prefix: explicit HERO map, else `{prefix}.jpg`. */
+function heroFor(prefix) {
+  if (HERO[prefix] && existsGood(HERO[prefix])) return HERO[prefix];
+  const auto = prefix + '.jpg';
+  if (existsGood(auto)) return auto;
+  return null;
+}
 
 function existsGood(rel) {
   const p = path.join(cp, rel);
@@ -81,8 +92,8 @@ for (const svgUrl of ordered) {
     }
   }
   if (!chosen && fileSize(rel) < 2500) {
-    const hero = HERO[prefix];
-    if (hero && existsGood(hero)) chosen = '/coloring-pages/' + hero;
+    const hero = heroFor(prefix);
+    if (hero) chosen = '/coloring-pages/' + hero;
   }
   if (chosen) mapping[svgUrl] = chosen;
 }

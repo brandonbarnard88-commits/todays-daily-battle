@@ -83,9 +83,12 @@
           <h1 style="font-family:Bangers,cursive;font-size:1.6rem;margin:0 0 0.4rem">Where is the sheep?</h1>
           <p style="margin:0;line-height:1.45;font-size:0.95rem">Tap the grass. Jesus told a story about one sheep that was lost and found&mdash;like us when we wander and He comes to get us. <span class="sr-only">Luke 15 KJV in the real Bible.</span></p>
         </div>
-        <p id="ls-status" class="ls-status" role="status" style="min-height:1.5rem;text-align:center;margin:0.5rem 0">Tap a square.</p>
+        <p id="ls-status" class="ls-status" role="status" style="min-height:1.5rem;text-align:center;margin:0.5rem 0;font-weight:800;color:#14532d">Tap a square—find the sheep!</p>
         <div class="ls-grid" id="ls-grid" role="group" aria-label="Grass squares"></div>
         <p id="ls-win" class="ls-win" hidden>Found! The Good Shepherd never loses count of His sheep.</p>
+        <p style="text-align:center;margin-top:0.75rem">
+          <button type="button" id="ls-again" class="btn kids-btn-primary" hidden style="min-height:48px;font-weight:800">Play again (new hide)</button>
+        </p>
         <p style="text-align:center;margin-top:1rem"><a href="match-buddies.html">Match game</a> &middot; <a href="/kids/">Home</a></p>
       </div>
     </main>
@@ -100,38 +103,56 @@
       try { tdbKidsActivityLog.log({ type: 'game', label: 'Play: Find the sheep' }); } catch (e) {}
     }
     var n = 9;
-    var win = Math.floor(Math.random() * n);
     var grid = document.getElementById('ls-grid');
     var st = document.getElementById('ls-status');
     var w = document.getElementById('ls-win');
+    var again = document.getElementById('ls-again');
     var done = false;
-    for (var i = 0; i < n; i++) {
-      (function (idx) {
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'ls-tile';
-        b.setAttribute('aria-label', 'Grass square ' + (idx + 1));
-        b.textContent = '';
-        b.addEventListener('click', function () {
-          if (done) return;
-          b.classList.add('reveal');
-          b.textContent = idx === win ? '\uD83D\uDC11' : '\uD83C\uDF3F';
-          if (idx === win) {
-            done = true;
-            w.hidden = false;
-            if (st) {
-              st.textContent = 'You found the sheep! ' + (window.tdbLittleShepherd && tdbLittleShepherd.pickCheer ? tdbLittleShepherd.pickCheer() : 'Jesus is the Good Shepherd.');
+    var tries = 0;
+
+    function build() {
+      done = false;
+      tries = 0;
+      if (w) w.hidden = true;
+      if (again) again.hidden = true;
+      if (st) st.textContent = 'Tap a square—find the sheep!';
+      if (grid) grid.textContent = '';
+      var win = Math.floor(Math.random() * n);
+      for (var i = 0; i < n; i++) {
+        (function (idx) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'ls-tile';
+          b.setAttribute('aria-label', 'Grass square ' + (idx + 1));
+          b.textContent = '';
+          b.addEventListener('click', function () {
+            if (done || b.classList.contains('reveal')) return;
+            tries += 1;
+            b.classList.add('reveal');
+            b.textContent = idx === win ? '\uD83D\uDC11' : '\uD83C\uDF3F';
+            if (idx === win) {
+              done = true;
+              if (w) {
+                w.hidden = false;
+                w.textContent = 'Found in ' + tries + (tries === 1 ? ' tap!' : ' taps!') + ' The Good Shepherd never loses count of His sheep.';
+              }
+              if (st) {
+                st.textContent = 'You found the sheep! ' + (window.tdbLittleShepherd && tdbLittleShepherd.pickCheer ? tdbLittleShepherd.pickCheer() : 'Jesus is the Good Shepherd.');
+              }
+              if (again) again.hidden = false;
+              if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+                try { window.tdbLittleShepherd.notify('gameWin'); } catch (eN) {}
+              }
+            } else {
+              if (st) st.textContent = 'Not there—keep looking! He finds what is lost.';
             }
-            if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
-              try { window.tdbLittleShepherd.notify('gameWin'); } catch (eN) {}
-            }
-          } else {
-            if (st) st.textContent = 'Keep looking—He finds what is lost.';
-          }
-        });
-        if (grid) grid.appendChild(b);
-      })(i);
+          });
+          if (grid) grid.appendChild(b);
+        })(i);
+      }
     }
+    if (again) again.addEventListener('click', build);
+    build();
   });
   </script>
 </body>

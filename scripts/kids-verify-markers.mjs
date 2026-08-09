@@ -53,7 +53,7 @@ export const STORY_HTML_MARKERS = [
   'uFuzzy.iife.min.js',
   'kids-verses-365.js?v=20260802-calendar-mix',
   'kids-battle.js?v=20260809easy',
-  'kids-read-quiz-data.js?v=20260809easy',
+  'kids-read-quiz-data.js?v=20260809naaman',
   'kids-story-remember.js?v=20260803remember',
   'TDB_PANEL_RASTER',
   'nunito-latin.woff2',

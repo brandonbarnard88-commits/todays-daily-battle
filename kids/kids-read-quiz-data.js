@@ -144,9 +144,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 22",
-          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
-          "Genesis 4",
-          "Revelation 22:12–13"
+          "Ruth 2",
+          "Revelation 1–22",
+          "2 Peter 1–3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -465,10 +465,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 16:23-30",
+          "John 2:13–16",
           "Acts 18:24–28",
-          "Romans 16:1–2",
-          "Revelation 20"
+          "Judges 6:11-40",
+          "Isaiah 9:2–7"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -547,9 +547,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:16–20; Mark 16:15–18",
-          "John 11:1–44",
-          "1 John 1–5",
+          "Matthew 13:47–50",
+          "Acts 3",
+          "Acts 28",
           "Acts 2:42"
         ],
         "correctIndex": 3,
@@ -715,10 +715,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 24",
+          "Matthew 21:28–32",
           "Acts 25–26",
-          "Daniel 6:22",
-          "Acts 9:36–43"
+          "1 Corinthians 13",
+          "Exodus 14:21-31"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -798,9 +798,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 17:22–34",
-          "2 Samuel 5:1-12",
-          "2 Kings 13:20-21",
-          "Philippians 2:8–11"
+          "2 Kings 2:19-22; 4:1-7",
+          "Ezra 1:1–11; 3:1–6",
+          "Matthew 22:35–40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -881,10 +881,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1–22",
-          "2 Peter 1–3",
+          "Joshua 2:1-21",
+          "Acts 12:1–19",
           "Acts 28:1–10",
-          "Ruth 2"
+          "Romans 3:23; 5:8; 6:23; 10:9–10"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -952,89 +952,87 @@
     ]
   },
   "adamEve": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Adam and Eve",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Genesis 3",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Adam & Eve (Genesis 3).",
+      "Adam and Eve in the garden The serpent and the apple God still loves them God made you special!",
+      "Even when we make mistakes, He still loves us."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Adam and Eve?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Genesis 3",
+          "Acts 15",
+          "Numbers 22:1–20",
+          "1 Samuel 25:1-42"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 3.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Jude",
+          "God",
+          "Philip",
+          "David"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "God made you special! Even when we make mistakes, He still loves us.",
+          "The Bible is only pretend stories.",
+          "God never hears when kids pray.",
+          "We should hide from God when we mess up."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God made you special! Even when we make mistakes, He still loves us..)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "A spaceship landed in the parking lot.",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "Adam and Eve in the garden"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "God made you special! Even when we make mistakes, He still loves us.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "Ignore God until we are older."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God made you special! Even when we make mistakes, He still loves us..)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Adam and Eve",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Adam & Eve with God's Word today.",
+    "takeaway": "God made you special! Even when we make mistakes, He still loves us.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Adam & Eve. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Adam and Eve in the garden (adam)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The serpent and the apple (eve)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God still loves them (garden)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Adam and Eve in the garden (apple)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The serpent and the apple (hide)"
+    ]
   },
   "allHeroesPraise": {
     "kjvRef": "“And these all, having obtained a good report through faith, received not the promise: God having provided some better thing for us.” (Hebrews 11:39-40)",
@@ -1136,10 +1134,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 4",
-          "Revelation 22:12–13",
+          "Matthew 21:18–22",
+          "Colossians 4:12",
           "Revelation 1:8, 11, 17–18",
-          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12"
+          "1 Samuel 1:1-20"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1220,10 +1218,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "the Bible",
-          "Genesis 1:3",
+          "John 2:13–16",
+          "Isaiah 9:2–7",
           "Revelation 22:12–13",
-          "2 Kings 2:19-22; 4:1-7"
+          "Matthew 14:22–33"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1291,89 +1289,89 @@
     ]
   },
   "angelMary": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "angel Mary",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Luke 1",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "Angel Visits Mary (Luke 1).",
+      "Angel Gabriel appears with a lily Gabriel says: Fear not, Mary—you are chosen!",
+      "Mary says: I will do what God says!",
+      "God chooses ordinary people!",
+      "When God calls you, say yes like Mary."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of angel Mary?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Acts 3",
+          "Luke 1",
+          "Romans 8:38-39",
+          "Psalm 91:1-2"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Luke 1.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "God",
+          "Peter",
+          "The apostles",
+          "James"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up.",
+          "God never hears when kids pray.",
+          "God chooses ordinary people! When God calls you, say yes like Mary."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God chooses ordinary people! When God calls you, say yes like Mary..)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "Angel Gabriel appears with a lily",
+          "A spaceship landed in the parking lot."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "Ignore God until we are older.",
+          "God chooses ordinary people! When God calls you, say yes like Mary.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God chooses ordinary people! When God calls you, say yes like Mary..)"
       }
     ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "angel Mary",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Angel Visits Mary with God's Word today.",
+    "takeaway": "God chooses ordinary people! When God calls you, say yes like Mary.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Angel Visits Mary. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel Gabriel appears with a lily (angel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Gabriel says: Fear not, Mary—you are chosen! (mary)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary says: I will do what God says! (gabriel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angel Gabriel appears with a lily (luke 1)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Gabriel says: Fear not, Mary—you are chosen! (fear not)"
+    ]
   },
   "annaProphet": {
     "kjvRef": "Luke 2:36–38",
@@ -1389,10 +1387,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
-          "Matthew 2:1–12",
+          "1 Kings 3:5-15",
+          "Joshua 7:1-26",
           "Luke 2:36–38",
-          "Matthew 25:1–13"
+          "Genesis 11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1559,9 +1557,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Isaiah 9:2–7",
-          "John 2:13–16",
-          "Matthew 14:22–33",
+          "Luke 2:1–20",
+          "Matthew 5–7",
+          "Genesis 40",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1641,9 +1639,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 21–22",
-          "Ruth 3:1-18",
-          "Acts 8:26–40",
+          "1 Kings 3:16-28",
+          "Matthew 28:1–10 (KJV) (par. Mark 16:1–8; Luke 24:1–12; John 20:1–18)",
+          "Judges 13:1-25",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1725,10 +1723,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Samuel 15:1-37; 16:15-23; 19:1-15",
+          "Joshua 10:12-14",
           "Ephesians 6",
-          "Genesis 1:3",
-          "Numbers 22"
+          "Acts 17:22–34",
+          "Matthew 26:57–68 (par. Mark 14:53–65)"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1809,9 +1807,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 10:13–16",
-          "Genesis 39–40",
-          "Luke 2:41–52",
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Revelation 21–22",
+          "Acts 8:26–40",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1893,10 +1891,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:57–68 (par. Mark 14:53–65)",
-          "Acts 7",
+          "Acts 27–28",
+          "Matthew 25:14–30",
           "Acts 1:6–11",
-          "Acts 17:22–34"
+          "2 Peter 1–3"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1978,10 +1976,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 2",
+          "Mark 2:1–12",
           "Numbers 22:1–20",
-          "Luke 17:11–19",
-          "1 Samuel 13; 15"
+          "Luke 15:8–10",
+          "Revelation 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2064,9 +2062,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Numbers 23–24",
-          "Luke 15:3–7",
-          "2 John; 3 John",
-          "Exodus 14:21-22"
+          "Luke 2:1–20",
+          "Revelation 21",
+          "Matthew 5–7"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2147,10 +2145,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 28:1–10",
-          "Daniel 6",
+          "Mark 8:1–9",
+          "2 Kings 22:2",
           "Numbers 22",
-          "Ruth 2:12"
+          "Job 2:13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2436,10 +2434,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 15",
-          "2 Kings 13:14-19",
+          "Exodus 14:21-22",
+          "Acts 27–28",
           "Revelation 13:16–18",
-          "1 Samuel 16:11; 17:15, 34–37"
+          "Matthew 25:14–30"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2981,174 +2979,208 @@
     "readAlongImages": []
   },
   "burningBush": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "The Burning Bush",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
+    "kjvRef": "Exodus 3:1-6 (KJV)",
+    "readAlongTitle": "Read along",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of The Burning Bush?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "The Burning Bush",
-        "image": "panel-noah-1.svg"
+        "text": "Moses was taking care of his father-in-law's sheep in the desert. One day he came to the mountain of God, called Horeb.",
+        "caption": "Moses and the sheep at Horeb",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He saw a most wonderful thing. A bush was burning with fire, but the bush was not burned up. The flames danced, yet the leaves stayed green and whole.",
+        "caption": "Fire in the bush—yet it is not consumed",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Moses said, \"I will turn aside and see this great sight, why the bush is not burnt.\"",
+        "caption": "Moses draws near",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "When the Lord saw that Moses turned to look, God called to him out of the midst of the bush, \"Moses, Moses.\" And Moses said, \"Here am I.\"",
+        "caption": "God calls by name",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "God said, \"Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground.\"",
+        "caption": "Holy ground",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Then God told Moses who He was — the God of his fathers, Abraham, Isaac, and Jacob. And Moses hid his face, for he was afraid to look upon God.",
+        "caption": "The God of Abraham, Isaac, and Jacob",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "paragraphs": [
+      "Moses was taking care of his father-in-law's sheep in the desert. One day he came to the mountain of God, called Horeb.",
+      "He saw a most wonderful thing. A bush was burning with fire, but the bush was not burned up.",
+      "Moses said, \"I will turn aside and see this great sight, why the bush is not burnt.\"",
+      "When the Lord saw that Moses turned to look, God called to him out of the midst of the bush, \"Moses, Moses.\" And Moses said, \"Here am I.\"",
+      "God said, \"Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground.\"",
+      "Then God told Moses who He was — the God of his fathers, Abraham, Isaac, and Jacob. And Moses hid his face, for he was afraid to look upon God.",
+      "For you: When God speaks, we listen with quiet hearts. You can say \"Here am I\" too—He loves to call His children."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Exodus 3:1-6",
+          "Genesis 1:1",
+          "John 3:16"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 3:1-6.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Nobody",
+          "Only sheep",
+          "God",
+          "Pharaoh"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "We should hide from God when we mess up.",
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "God is holy. He called Moses from the bush and told him to stand on holy ground with reverence."
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God is holy….)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A talking toaster became king of the city.",
+          "The bush burned with fire but was not burned up.",
+          "A spaceship landed in the parking lot.",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "Listen when God speaks—in His Word and in prayer—and answer with a willing heart."
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Listen when God speaks….)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading The Burning Bush with God's Word today.",
+    "takeaway": "God met Moses in holy fire that did not destroy the bush. He knows your name too—and He is worthy of quiet reverence.",
+    "prayer": "God, thank You for the Bible. Thank You that You speak to Your people. Help me listen with a soft heart. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art for young children, bold thick outlines, large open areas for crayons, joyful wonder not fear, no text in image: Moses near a large bush on a quiet desert hill, gentle flames rising from the bush center, leaves and branches clearly not burned, Moses surprised but calm, one hand slightly raised, staff in the other, soft desert hills behind, minimal lines, plenty of white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses sees a bush on fire (moses)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God calls Moses from the bush (bush)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses takes off his shoes on holy ground (exodus 3)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses hides his face before God (fire)"
     ],
     "readAlongImages": []
   },
   "cainAbel": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Cain & Abel",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Genesis 4",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Cain & Abel (Genesis 4).",
+      "Cain and Abel bring offerings God is pleased with Abel God warns Cain about anger Give God your best!",
+      "When you feel jealous, talk to God instead of getting angry."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Cain & Abel?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Genesis 4",
+          "1 Timothy 4:12",
+          "Zechariah 1:3",
+          "Ephesians 6"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 4.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "Mary — and Jesus who receives her love",
+          "Stephen",
+          "Jonathan",
+          "God"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Give God your best! When you feel jealous, talk to God instead of getting angry.",
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up.",
+          "God never hears when kids pray."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Give God your best! When you feel jealous, talk to God instead of getting angry..)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "A spaceship landed in the parking lot.",
+          "A talking toaster became king of the city.",
+          "Cain and Abel bring offerings",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Give God your best! When you feel jealous, talk to God instead of getting angry.",
+          "Ignore God until we are older.",
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Give God your best! When you feel jealous, talk to God instead of getting angry..)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Cain & Abel",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Cain & Abel with God's Word today.",
+    "takeaway": "Give God your best! When you feel jealous, talk to God instead of getting angry.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Cain & Abel. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Cain and Abel bring offerings (cain)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God is pleased with Abel (abel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God warns Cain about anger (jealousy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Cain and Abel bring offerings (offering)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God is pleased with Abel (brothers)"
+    ]
   },
   "centurionServant": {
     "kjvRef": "Matthew 8:5–13 (KJV) — gentle summary for little hearts",
@@ -3296,9 +3328,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Colossians 1:18",
-          "Mark 4:35–41",
-          "Matthew 4:1–11; Luke 4:1–13",
-          "Genesis 37:28"
+          "Acts 25–26",
+          "Revelation 13:16–18",
+          "Daniel 3:1–30"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3463,10 +3495,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:1–10 (KJV) (par. Mark 16:1–8; Luke 24:1–12; John 20:1–18)",
+          "the Bible",
           "Colossians 1:15–20; 3:1–4, 12–17",
-          "Numbers 22",
-          "Joshua 7:1-26"
+          "Ezra 1:1–11; 3:1–6",
+          "2 Kings 2:19-22; 4:1-7"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3549,9 +3581,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 22",
-          "Matthew 28:16–20; Mark 16:15–18",
-          "James 2:17",
-          "Luke 10:25–37"
+          "Luke 19:1–10",
+          "Philippians 2:20",
+          "2 Kings 8:1-6"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3631,10 +3663,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 1",
+          "Daniel 6:1–23",
           "1 Corinthians 12",
-          "1 Samuel 16:14-23",
-          "Matthew 8:5–13"
+          "Ephesians 6:11",
+          "2 Kings 2:11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3716,9 +3748,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 15",
-          "1 Kings 17:8-16",
-          "2 Timothy 1:5–7; 3:15",
-          "Judges 6:36"
+          "James 2:14–26",
+          "John 2:1–11",
+          "Luke 3; Matthew 3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3800,10 +3832,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 39–40",
-          "Luke 2:41–52",
+          "Hebrews 11",
+          "Galatians 5:22-23",
           "Genesis 1",
-          "John 9:1–38"
+          "Mark 10:13–16"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3871,89 +3903,89 @@
     ]
   },
   "creationLight": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "creation Light",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Genesis 1:3",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Creation Day One – Genesis 1:3. In the beginning, God created the heavens and the earth. It was dark and empty.",
+      "God said, 'Let there be light,' and there was light! God saw the light and called it good.",
+      "He separated light from darkness—He called light Day and darkness Night. That was the first day.",
+      "God made everything perfectly by speaking it into being. For you: Look around at the sun, sky, trees, animals—God made them all.",
+      "He spoke, and they came to be. Thank God for creating such a beautiful world for you to enjoy and take care of."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of creation Light?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Genesis 1:3",
+          "Matthew 22:15–22",
+          "Exodus 40:1-38",
+          "Acts 28:1–10"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 1:3.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Elisha",
+          "The Lord",
+          "Joshua",
+          "God"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up.",
+          "God spoke, 'Let there be light,' and light appeared. Everything God made was good. He created the world perfectly for us. When you see the…",
+          "God never hears when kids pray."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God spoke, 'Let there be light,' and light appeared. Everything God made was good. He….)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Dark empty earth – Before God spoke",
+          "A talking toaster became king of the city.",
+          "Everyone decided to never sleep again."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Look around at the sun, sky, trees, animals—God made them all. He spoke, and they came to be. Thank God for creating…",
+          "Only be kind to people who are exactly like us.",
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Look around at the sun, sky, trees, animals—God made them all. He spoke, and they came….)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "creation Light",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading \"Let There Be Light\" with God's Word today.",
+    "takeaway": "God spoke, 'Let there be light,' and light appeared. Everything God made was good. He created the world perfectly for us. When you see the beauty around you—sun, sky, animals—remember God made it…",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in \"Let There Be Light\". Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Dark empty earth – Before God spoke (creation)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God saying 'Let there be light' – Creation begins (light)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Light and darkness separated – First day complete (genesis 1)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Dark empty earth – Before God spoke (let there be light)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God saying 'Let there be light' – Creation begins (darkness)"
+    ]
   },
   "crossCarry": {
     "kjvRef": "Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)",
@@ -4232,172 +4264,217 @@
     "readAlongImages": []
   },
   "daniel": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Daniel & the Lions",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Daniel 6:22",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Daniel and the Lions – Daniel 6:22.",
+      "Daniel loved God and prayed every day.",
+      "Some bad men tricked the king into making a law: 'No one can pray to anyone but the king.' Daniel kept praying to God anyway.",
+      "The king was sad, but he had to throw Daniel into the lions' den. The king worried all night. In the morning, Daniel was safe! God sent an angel to shut the lions' mouths.",
+      "Daniel said, 'My God sent his angel and shut the lions' mouths.' God protects those who trust Him! For you: When it's hard to do the right thing, pray and trust God. He is with you and keeps you safe."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Daniel & the Lions?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Daniel 6:22",
+          "Matthew 28:18–20",
+          "Nehemiah 8:8",
+          "Jeremiah 1:5,7"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Daniel 6:22.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Peter",
+          "James",
+          "Priscilla",
+          "God"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Daniel prayed to God even when it was against the law. God sent an angel to shut the lions' mouths. Daniel was safe all night! When you…",
+          "We should hide from God when we mess up.",
+          "The Bible is only pretend stories.",
+          "God never hears when kids pray."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Daniel prayed to God even when it was against the law. God sent an angel to shut the….)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Daniel praying at his window – Staying faithful to God",
+          "A talking toaster became king of the city.",
+          "Everyone decided to never sleep again."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "When it's hard to do the right thing, pray and trust God. He is with you and keeps you safe.",
+          "Only be kind to people who are exactly like us.",
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When it's hard to do the right thing, pray and trust God. He is with you and keeps you….)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Daniel & the Lions",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Daniel & the Lions with God's Word today.",
+    "takeaway": "Daniel prayed to God even when it was against the law. God sent an angel to shut the lions' mouths. Daniel was safe all night! When you stand up for what's right and trust God, He is with you and…",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Daniel & the Lions. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel praying at his window – Staying faithful to God (daniel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel thrown into the lions' den – Facing danger bravely (lion)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel safe among the lions – God shuts their mouths (lions)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel praying at his window – Staying faithful to God (den)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel thrown into the lions' den – Facing danger bravely (pray)"
+    ]
   },
   "danielFieryFurnace": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "daniel Fiery Furnace",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "Daniel 3:1–30 (KJV)",
+    "verseExcerpt": "Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. — Daniel 3:25 (KJV)",
+    "readAlongTitle": "God Walks with His Servants in the Fire",
+    "quizWrongHumilityHint": "Listen again — they loved God and would not bow; God is able to deliver; four walked in the fire unhurt.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "The king of Babylon made a big golden image and commanded everyone to bow down when they heard the music.",
+      "Shadrach, Meshach, and Abednego loved God and would not bow down.",
+      "They told the king, \"Our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.\"",
+      "The king was very angry and made the furnace seven times hotter.",
+      "The three men were thrown into the burning fiery furnace.",
+      "The king looked and said, \"Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.\"",
+      "When the three men came out, no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them.",
+      "The Lord walked with His servants in the fire and kept them safe because they trusted Him.",
+      "Reference: Daniel 3:1–30 (KJV) — gentle summary for little hearts"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of daniel Fiery Furnace?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "daniel Fiery Furnace",
-        "image": "panel-noah-1.svg"
+        "text": "The king made a golden image and told everyone to bow down.",
+        "caption": "Bow when the music plays",
+        "image": "panel-daniel-1.svg"
+      },
+      {
+        "text": "Shadrach, Meshach, and Abednego would not bow.",
+        "caption": "Loved God — would not bow",
+        "image": "panel-daniel-1.svg"
+      },
+      {
+        "text": "They said, \"Our God is able to deliver us.\"",
+        "caption": "Our God is able to deliver us",
+        "image": "panel-daniel-2.svg"
+      },
+      {
+        "text": "They were thrown into the hot furnace.",
+        "caption": "Into the fire",
+        "image": "panel-daniel-2.svg"
+      },
+      {
+        "text": "The king saw four men walking in the fire.",
+        "caption": "Four walking in the fire",
+        "image": "panel-daniel-3.svg"
+      },
+      {
+        "text": "The three men came out unhurt.",
+        "caption": "No hurt — no smell of fire",
+        "image": "panel-daniel-3.svg"
+      },
+      {
+        "text": "God walked with them and kept them safe.",
+        "caption": "For you",
+        "image": "panel-daniel-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Daniel 3:1–30",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story, or check the first paragraph’s Bible note. (Answer: Daniel 3:1–30.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God walked with His servants in the fire.",
+        "wrongFeedback": "Look for who keeps the four safe in the flames. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God forgets His people when life is hard.",
+          "The Bible is only pretend stories.",
+          "Even in the hardest place, God is with us — we can trust Him and stand for what is right.",
+          "We should hide from God when we mess up."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God's kindness and truth? (Answer: Even in the hardest place, God is with us — we can trust Him and stand for what is right.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Lo, I see four men loose, walking in the midst of the fire.",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Lo, I see four men loose, walking in the midst of the fire.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Trust God and stand for what is right — talk to Him when it is hard.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust and courage with God’s help? Pick the one that honors Him. (Answer: Trust God and stand for what is right — talk to Him when it is hard.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading God Walks with His Servants in the Fire with God's Word today.",
+    "takeaway": "God is with us in hard places — we can trust Him and stand for what is right.",
+    "prayer": "Lord, thank You that You never leave us. Help us trust You and obey. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art scene for young children ages 3–8: three men standing calmly inside the furnace with a fourth figure beside them the fire shown as soft gentle flames around them peaceful trusting faces thick bold outlines large open spaces on the men's robes the fourth figure the flames and the ground for easy coloring soft furnace walls with minimal lines trusting and safe mood focus on God walking with His servants in the fire clean minimal no fear or burning plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Three friends loved God — refuse to bow (shadrach)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The furnace — seven times hotter (daniel 3)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four walk in the fire — Son of God (angel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: No smell of fire on their coats (safe)"
     ],
     "readAlongImages": []
   },
@@ -4533,174 +4610,208 @@
     "readAlongImages": []
   },
   "danielPray": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "daniel Pray",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Daniel 6",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "Daniel Prays Three Times a Day (Daniel 6).",
+      "A new law says no praying Daniel opens his window and prays anyway God protects Daniel!",
+      "Nothing should stop you from praying!",
+      "God sees your faithfulness."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of daniel Pray?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Daniel 6",
+          "Romans–Philemon",
+          "Acts 10:34",
+          "2 Timothy 1:16"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Daniel 6.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Stephen",
+          "God",
+          "Mary — and Jesus who receives her love",
+          "Jonathan"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "The Bible is only pretend stories.",
+          "God never hears when kids pray.",
+          "Nothing should stop you from praying! God sees your faithfulness.",
+          "We should hide from God when we mess up."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Nothing should stop you from praying! God sees your faithfulness..)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "A spaceship landed in the parking lot.",
+          "A talking toaster became king of the city.",
+          "Everyone decided to never sleep again.",
+          "A new law says no praying"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Nothing should stop you from praying! God sees your faithfulness.",
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong.",
+          "Ignore God until we are older."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Nothing should stop you from praying! God sees your faithfulness..)"
       }
     ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "daniel Pray",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Daniel Prays Three Times a Day with God's Word today.",
+    "takeaway": "Nothing should stop you from praying! God sees your faithfulness.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Daniel Prays Three Times a Day. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A new law says no praying (daniel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel opens his window and prays anyway (pray)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God protects Daniel! (window)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A new law says no praying (daniel 6)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Daniel opens his window and prays anyway (law)"
+    ]
   },
   "david": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "David & Goliath",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
+    "kjvRef": "1 Samuel 17:1-11, 32-50 (KJV)",
+    "verseExcerpt": "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied. — 1 Samuel 17:45 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "David couldn't win that fight alone—and neither can we. God could.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of David & Goliath?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "David & Goliath",
-        "image": "panel-noah-1.svg"
+        "text": "Now the Philistines gathered together their armies to battle, and were gathered together at Shochoh, which belongeth to Judah, and pitched between Shochoh and Azekah, in Ephesdammim. And Saul and the men of Israel were gathered together, and pitched by the valley of Elah, and set the battle in array against the Philistines. And the Philistines stood on a mountain on the one side, and Israel stood on a mountain on the other side: and there was a valley between them. And there went out a champion out of the camp of the Philistines, named Goliath, of Gath, whose height was six cubits and a span.",
+        "caption": "Armies in the valley — Goliath comes out",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And he had an helmet of brass upon his head, and he was armed with a coat of mail; and the weight of the coat was five thousand shekels of brass. And he had greaves of brass upon his legs, and a target of brass between his shoulders. And the staff of his spear was like a weaver's beam; and his spear's head weighed six hundred shekels of iron: and one bearing a shield went before him. And he stood and cried unto the armies of Israel, and said unto them, Why are ye come out to set your battle in array? am not I a Philistine, and ye servants to Saul? choose you a man for you, and let him come down to me. If he be able to fight with me, and to kill me, then will we be your servants: but if I prevail against him, and kill him, then shall ye be our servants, and serve us. And the Philistine said, I defy the armies of Israel this day; give me a man, that we may fight together. When Saul and all Israel heard those words of the Philistine, they were dismayed, and greatly afraid.",
+        "caption": "Goliath's challenge — all Israel afraid",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And David said to Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. And Saul said to David, Thou art not able to go against this Philistine to fight with him: for thou art but a youth, and he a man of war from his youth. And David said unto Saul, Thy servant kept his father's sheep, and there came a lion, and a bear, and took a lamb out of the flock: And I went out after him, and smote him, and delivered it out of his mouth: and when he arose against me, I caught him by his beard, and smote him, and slew him. Thy servant slew both the lion and the bear: and this uncircumcised Philistine shall be as one of them, seeing he hath defied the armies of the living God. David said moreover, The LORD that delivered me out of the paw of the lion, and out of the paw of the bear, he will deliver me out of the hand of this Philistine. And Saul said unto David, Go, and the LORD be with thee.",
+        "caption": "David — thy servant will go; the living God",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And Saul armed David with his armour, and he put an helmet of brass upon his head; also he armed him with a coat of mail. And David girded his sword upon his armour, and he assayed to go; for he had not proved it. And David said unto Saul, I cannot go with these; for I have not proved them. And David put them off him. And he took his staff in his hand, and chose him five smooth stones out of the brook, and put them in a shepherd's bag which he had, even in a scrip; and his sling was in his hand: and he drew near to the Philistine. And the Philistine came on and drew near unto David; and the man that bare the shield went before him. And when the Philistine looked about, and saw David, he disdained him: for he was but a youth, and ruddy, and of a fair countenance. And the Philistine said unto David, Am I a dog, that thou comest to me with staves? And the Philistine cursed David by his gods. And the Philistine said to David, Come to me, and I will give thy flesh unto the fowls of the air, and to the beasts of the field.",
+        "caption": "Five smooth stones — drawing near",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Then said David to the Philistine, Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied. This day will the LORD deliver thee into mine hand; and I will smite thee, and take thine head from thee; and I will give the carcases of the host of the Philistines this day unto the fowls of the air, and to the wild beasts of the earth; that all the earth may know that there is a God in Israel. And all this assembly shall know that the LORD saveth not with sword and spear: for the battle is the LORD's, and he will give you into our hands. And it came to pass, when the Philistine arose, and came, and drew nigh to meet David, that David hastened, and ran toward the army to meet the Philistine. And David put his hand in his bag, and took thence a stone, and slang it, and smote the Philistine in his forehead, that the stone sunk into his forehead; and he fell upon his face to the earth. So David prevailed over the Philistine with a sling and with a stone, and smote the Philistine, and slew him; but there was no sword in the hand of David.",
+        "caption": "In the name of the LORD — the stone; no sword in David's hand",
+        "image": "panel-david-3.svg"
       }
     ],
-    "readAlongImages": []
+    "paragraphs": [
+      "The Philistines gathered their armies to fight against Israel. Their champion was a giant named Goliath who was over nine feet tall. Every day for forty days he stood and shouted, \"Choose you a man, and let him come down to me. If he be able to fight with me, and to kill me, then will we be your servants: but if I prevail against him, and kill him, then shall ye be our servants.\"",
+      "All the men of Israel were afraid.",
+      "David, a young shepherd boy, came to the camp with food for his brothers. He heard Goliath's words and asked, \"Who is this uncircumcised Philistine, that he should defy the armies of the living God?\"",
+      "David said to King Saul, \"Let no man's heart fail because of him; thy servant will go and fight with this Philistine.\"",
+      "Saul tried to put his own armor on David, but David took it off. He took his staff, five smooth stones from the brook, and his sling.",
+      "David ran toward Goliath and said, \"Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the Lord of hosts… This day will the Lord deliver thee into mine hand.\"",
+      "David put a stone in his sling, and slung it, and smote the Philistine in his forehead. The stone sank into his forehead, and he fell upon his face to the earth.",
+      "So David prevailed with a sling and a stone, and there was no sword in the hand of David. The Lord gave David the victory that day because David trusted in the name of the Lord.",
+      "The Bible goes on to tell how David finished the giant that day; the important heart-lesson is this: the battle was the Lord's.",
+      "For you: Real courage is trusting God — He is with you when trouble feels huge."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Who was the Philistine champion who defied Israel?",
+        "choices": [
+          "Goliath",
+          "David",
+          "King Saul",
+          "Samuel"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes — and God was greater still.",
+        "wrongFeedback": "Think of the very tall man from Gath. (Answer: Goliath.)"
+      },
+      {
+        "question": "How did Israel's army feel when they heard Goliath?",
+        "choices": [
+          "They were glad.",
+          "They were dismayed, and greatly afraid.",
+          "They sang.",
+          "They went home."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Honest — and God still had a plan.",
+        "wrongFeedback": "Listen for afraid. (Answer: …greatly afraid….)"
+      },
+      {
+        "question": "What did David take besides his sling?",
+        "choices": [
+          "Ten heavy stones.",
+          "Five smooth stones from the brook.",
+          "A chariot.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Simple tools — big trust in God.",
+        "wrongFeedback": "Think brook. (Answer: Five smooth stones….)"
+      },
+      {
+        "question": "How did David say he came to the giant?",
+        "choices": [
+          "In his own pride.",
+          "In the name of the LORD of hosts, the God of the armies of Israel.",
+          "To run away.",
+          "Without speaking."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful — God's name first.",
+        "wrongFeedback": "Listen for LORD of hosts. (Answer: In the name of the LORD….)"
+      },
+      {
+        "question": "How did David prevail over the Philistine?",
+        "choices": [
+          "With Saul's sword in his hand.",
+          "With a sling and a stone — no sword in David's hand.",
+          "The story does not say.",
+          "He did not fight."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The Lord gave the victory.",
+        "wrongFeedback": "Listen for sling. (Answer: …with a sling and with a stone….)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading David and Goliath with God's Word today.",
+    "takeaway": "David trusted the living God — the battle was the LORD's — and He gave the victory.",
+    "prayer": "Lord, when we feel small or afraid, help us trust You like David. Thank You that the battle is Yours. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young David standing bravely calmly sling in hand five smooth stones at feet giant Goliath distant smaller spear shield far away not scary David face looks up trusting heaven soft hills sky background courageous faithful mood no blood minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Living God armies (1 sam 17)",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Five smooth stones sling",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Name of the LORD of hosts",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sling and stone victory"
+    ]
   },
   "davidAbigail": {
     "kjvRef": "1 Samuel 25:1-42 (KJV)",
@@ -5799,9 +5910,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 18:6-11, 17-19:17",
-          "2 Kings 6:24-7:20",
-          "Revelation 14–15",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13"
+          "Acts 27",
+          "Matthew 13:1–23",
+          "Exodus 2:5"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5882,10 +5993,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:11; 17:15, 34–37",
-          "1 Corinthians 12",
+          "Isaiah 6:3",
+          "Judges 6:36",
           "1 Samuel 18:6-11, 17-19:17",
-          "2 Kings 13:14-19"
+          "Matthew 4:18–22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5967,9 +6078,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 16:11; 17:15, 34–37",
-          "Habakkuk 2:4",
-          "Matthew 17:20; Mark 11:23–24",
-          "Matthew; Mark; Luke; John (Gospels overview)"
+          "Revelation 13:16–18",
+          "Acts 25–26",
+          "Daniel 6:22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6172,10 +6283,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 17:8–11, 16, 23–30",
-          "John 2:1–11",
+          "2 Kings 6:18-23",
+          "Judges 7:1-22",
           "the Bible",
-          "James 2:14–26"
+          "Acts 20:10"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6430,9 +6541,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 10:34",
-          "Acts 18:1–3, 18–19",
-          "Romans–Philemon",
+          "Acts 27:22",
+          "Acts 5:12–16",
+          "Matthew 21:28–32",
           "Acts 9:36–43"
         ],
         "correctIndex": 3,
@@ -6515,9 +6626,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Revelation 21–22",
-          "Acts 8:26–40",
-          "1 Timothy 1–6; 2 Timothy 1–4"
+          "Luke 2:36–38",
+          "Mark 3:1–6",
+          "John 20:24–29 (KJV)"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -6598,9 +6709,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 4:1–17",
-          "2 Kings 5:20-27",
-          "Acts 2:1–13",
+          "2 Kings 4:1-7",
+          "Revelation 22:12–13",
+          "Genesis 4",
           "Acts 2:42–47"
         ],
         "correctIndex": 3,
@@ -7144,9 +7255,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:1–23",
-          "Acts 27",
-          "Acts 2:14–41",
+          "Hebrews 11",
+          "Mark 10:13–16",
+          "Luke 2:41–52",
           "1 Kings 18:17-39"
         ],
         "correctIndex": 3,
@@ -7676,87 +7787,121 @@
     ]
   },
   "elishaBones": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "elisha Bones",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "2 Kings 13:20–21",
+    "readAlongTitle": "Read along",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "God's Power Even in Elisha's Bones (2 Kings 13:20–21).",
+      "Elisha died and was buried. Later, some men were burying another man.",
+      "They saw danger coming and quickly laid the man in Elisha's grave.",
+      "As soon as the man touched the bones of Elisha, he came back to life and stood up on his feet.",
+      "The Lord showed that His power was so great that even Elisha's bones could bring a dead man back to life. God is mighty and can do wonderful things!"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of elisha Bones?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "elisha Bones",
+        "text": "Elisha died and was buried.",
+        "caption": "Quiet rest",
         "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Some men were burying another man.",
+        "caption": "Carrying a friend",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "They saw danger coming and quickly laid the man in Elisha's grave.",
+        "caption": "A hurried, kind choice",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "As soon as the man touched the bones of Elisha, he came back to life.",
+        "caption": "God gives life",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He stood up on his feet!",
+        "caption": "Standing up",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "God showed His great power—even through Elisha's bones. God is mighty and can do wonderful things!",
+        "caption": "For you",
+        "image": "panel-noah-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "2 Kings 13:20–21",
+          "John 3:16",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 2 Kings 13:20–21.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A talking animal",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—keep the Lord in mind as you think about His power and kindness.",
+        "wrongFeedback": "Look for who the story shows is mighty over life itself. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God is weak when we are scared.",
+          "God cannot do miracles today.",
+          "God's power is great—He alone gives life and can do wonderful things.",
+          "The Bible is only pretend stories."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God's power is great—He alone gives life and can do wonderful things.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "He stood up on his feet.",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: He stood up on his feet.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Remember that God is mighty and we can trust Him.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust and humility before God? Pick the one that honors Him. (Answer: Remember that God is mighty and we can trust Him.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading God's Power Even in Elisha's Bones with God's Word today.",
+    "takeaway": "God's power is greater than anything. He can do wonderful things — we can trust Him.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in God's Power Even in Elisha's Bones. Amen.",
+    "imagePrompts": [
+      "Clean bold black-and-white line-art for ages 3–8, thick outlines, large open spaces, minimal detail, peaceful: quiet hill country, simple rounded grave opening, one man standing up with a gentle glad face, two friends nearby with thankful faces, soft hills and a few simple trees, wonder-filled hopeful mood, no text, no scary soldiers, plenty of white space",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Elisha rested — God's servant buried with honor (elisha)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Friends hurry — they lay a man beside Elisha's rest (grave)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He stands up alive — God alone gives life! (2 kings 13)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He stands up alive — God alone gives life! (miracle)"
     ],
     "readAlongImages": []
   },
@@ -7871,89 +8016,118 @@
     ]
   },
   "elishaFinal": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "elisha Final",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of elisha Final?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
+    "kjvRef": "2 Kings 13:14-19 (KJV)",
+    "verseExcerpt": "The arrow of the LORD's deliverance, and the arrow of deliverance from Syria — 2 Kings 13:17 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — Elisha helped the king with the bow, the window, and the arrows.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "elisha Final",
-        "image": "panel-noah-1.svg"
+        "text": "Now Elisha was fallen sick of his sickness whereof he died. And Joash the king of Israel came down unto him, and wept over his face, and said, O my father, my father, the chariot of Israel, and the horsemen thereof.",
+        "caption": "The king came down and wept — O my father, the chariot of Israel",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And Elisha said unto him, Take bow and arrows. And he took unto him bow and arrows.",
+        "caption": "Take bow and arrows",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And he said to the king of Israel, Put thine hand upon the bow. And he put his hand upon it: and Elisha put his hands upon the king’s hands.",
+        "caption": "Elisha put his hands upon the king’s hands",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And he said, Open the window eastward. And he opened it. Then Elisha said, Shoot. And he shot. And he said, The arrow of the LORD’s deliverance, and the arrow of deliverance from Syria: for thou shalt smite the Syrians in Aphek, till thou have consumed them.",
+        "caption": "Shoot — the arrow of the LORD’s deliverance",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And he said, Take the arrows. And he took them. And he said unto the king of Israel, Smite upon the ground. And he smote thrice, and stayed.",
+        "caption": "Smite upon the ground — he smote thrice",
+        "image": "panel-jesus-3.svg"
       }
     ],
-    "readAlongImages": []
+    "paragraphs": [
+      "Elisha was very weak, yet he still helped King Joash. He put his hands on the king’s hands, opened the window toward the east, and had him shoot — God’s arrow of deliverance. Then Elisha asked him to strike the ground with the arrows; the king struck three times.",
+      "Elisha wished the king had trusted God’s help a little more fully that day. Even so, God had spoken hope: help for His people against Syria.",
+      "Verse 19 tells how the man of God felt toward the king’s small trust; 13:20-21 tell another wonder — see the elishaBones story.",
+      "For you: God can use quiet moments — a bow, a window, a promise — to remind us that He is near."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Who came down to see Elisha when he was very sick?",
+        "choices": [
+          "A stranger from Egypt.",
+          "Joash the king of Israel.",
+          "Only children.",
+          "No one came."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The king came to the man of God.",
+        "wrongFeedback": "Listen for Joash and king of Israel."
+      },
+      {
+        "question": "What did Elisha first tell the king to take?",
+        "choices": [
+          "Only a scroll.",
+          "Bow and arrows.",
+          "A shield only.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Take bow and arrows.",
+        "wrongFeedback": "Listen for bow and arrows."
+      },
+      {
+        "question": "What did Elisha do with the king’s hands on the bow?",
+        "choices": [
+          "He looked away.",
+          "He put his hands upon the king’s hands.",
+          "He took the bow away.",
+          "He broke the string."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Elisha put his hands upon the king’s hands.",
+        "wrongFeedback": "Listen for hands upon the king’s hands."
+      },
+      {
+        "question": "After the king shot, what did Elisha say the arrow was?",
+        "choices": [
+          "Only wood.",
+          "The arrow of the LORD’s deliverance.",
+          "A toy.",
+          "Lost."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The arrow of the LORD’s deliverance — God’s help.",
+        "wrongFeedback": "Listen for deliverance."
+      },
+      {
+        "question": "What did the king do when Elisha said, Smite upon the ground?",
+        "choices": [
+          "He ran away.",
+          "He smote thrice, and stayed.",
+          "He sang only.",
+          "He closed the window."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He smote thrice — three times.",
+        "wrongFeedback": "Listen for smote thrice."
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God speaks hope through faithful servants.",
+    "takeaway": "Even when Elisha was weak, he still pointed the king to God’s deliverance — bow, window, and promise.",
+    "prayer": "Lord, thank You for faithful teachers. Help us listen for Your hope. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha sitting on bed kind eyes king Joash standing bow arrows Elisha hands on king hands soft window eastward light thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Bow and arrows man of God",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Open window eastward shoot",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no Text arrow of the LORD deliverance",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Smite ground arrows thrice"
+    ]
   },
   "elishaFloatingAxe": {
     "kjvRef": "2 Kings 6:1-7 (KJV)",
@@ -8061,89 +8235,148 @@
     ]
   },
   "elishaMiracles": {
-    "kjvRef": "“And the oil stayed.” (2 Kings 4:6)",
-    "verseExcerpt": "“And the oil stayed.” (2 Kings 4:6)",
-    "readAlongTitle": "Elisha’s Kind Miracles",
-    "quizWrongHumilityHint": "God can do surprising and kind things through His servants.",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "Elisha helped many people with God’s power — oil that never ran out, an axe head that floated, even bringing a boy back to life.",
-      "God can do surprising and kind things.",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of Elisha’s Kind Miracles?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "Elisha helped many people with God’s power — oil that never ran out, an axe head that floated, even bringing a boy back to life.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "God can do surprising and kind things through His servants.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "God can do surprising and kind things.",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "Elisha helped many people with God’s power — oil that never ran out, an axe head that floated, even bringing a boy back to life.",
-    "retelling912": "",
-    "retelling1317": "",
+    "kjvRef": "2 Kings 2:19-22; 4:1-7 (KJV)",
+    "verseExcerpt": "And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land. — 2 Kings 2:21 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — the waters were healed; and the oil flowed until every vessel was full.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
     "readAlongSections": [
       {
-        "text": "Elisha helped many people with God’s power — oil that never ran out, an axe head that floated, even bringing a boy back to life.",
-        "caption": "Elisha’s Kind Miracles",
+        "text": "And the men of the city said unto Elisha, Behold, I pray thee, the situation of this city is pleasant, as my lord seeth: but the water is naught, and the ground barren.",
+        "caption": "The water is naught, and the ground barren",
         "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And he said, Bring me a new cruse, and put salt therein. And they brought it to him.",
+        "caption": "Bring me a new cruse, and put salt therein",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land.",
+        "caption": "Thus saith the LORD, I have healed these waters",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "So the waters were healed unto this day, according to the saying of Elisha which he spake.",
+        "caption": "So the waters were healed",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.",
+        "caption": "The creditor is come to take unto him my two sons to be bondmen",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.",
+        "caption": "Save a pot of oil",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.",
+        "caption": "Borrow empty vessels — borrow not a few",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.",
+        "caption": "Pour out into all those vessels",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.",
+        "caption": "She poured out",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.",
+        "caption": "There is not a vessel more — and the oil stayed",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+        "caption": "Pay thy debt, and live thou and thy children of the rest",
+        "image": "panel-noah-3.svg"
       }
     ],
-    "readAlongImages": []
+    "paragraphs": [
+      "After Elijah was taken up, Elisha began to serve the Lord in his place. The men of Jericho came to Elisha and said, The water is naught, and the ground barren.",
+      "Elisha said, Bring me a new cruse, and put salt therein. He went to the spring of the waters, cast the salt in, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land. So the waters were healed.",
+      "Another time a widow cried to Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen. She had only a pot of oil left. Elisha told her to borrow vessels from her neighbours, shut the door, and pour — and the oil filled every vessel until there were no more to fill. Then he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+      "For you: The Lord used Elisha to help His people in simple, kind ways — healing what was bitter and stretching what was little. God still cares for families today."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "What did the men of the city say was wrong with the water?",
+        "choices": [
+          "It was too hot.",
+          "The water is naught, and the ground barren.",
+          "They had no cups.",
+          "They wanted rain only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The water is naught, and the ground barren.",
+        "wrongFeedback": "Listen for naught and barren. (Answer: The water is naught, and the ground barren.)"
+      },
+      {
+        "question": "What did Elisha put into the spring?",
+        "choices": [
+          "Sand only.",
+          "Salt from a new cruse.",
+          "Rocks only.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Bring me a new cruse, and put salt therein — cast into the spring.",
+        "wrongFeedback": "Listen for salt and cruse. (Answer: Salt from a new cruse.)"
+      },
+      {
+        "question": "Why was the widow afraid for her sons?",
+        "choices": [
+          "They were too young to walk.",
+          "The creditor was come to take them to be bondmen.",
+          "They were lost.",
+          "They would not eat."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The creditor was come to take unto him my two sons to be bondmen.",
+        "wrongFeedback": "Listen for creditor and bondmen. (Answer: Creditor would take her sons.)"
+      },
+      {
+        "question": "What did she have in the house besides empty borrowed vessels?",
+        "choices": [
+          "Much gold.",
+          "Only a pot of oil.",
+          "Many sheep.",
+          "New clothes only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Thine handmaid hath not any thing in the house, save a pot of oil.",
+        "wrongFeedback": "Listen for pot of oil. (Answer: Only a pot of oil.)"
+      },
+      {
+        "question": "What did Elisha tell her to do after the oil miracle?",
+        "choices": [
+          "Hide the oil forever.",
+          "Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+          "Give all away with no plan.",
+          "Leave the city."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Pay debt — then live on the rest. God provides with order.",
+        "wrongFeedback": "Listen for sell the oil and pay thy debt. (Answer: Sell the oil, pay debt, live on the rest.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God heals what is bitter and multiplies what is little.",
+    "takeaway": "Elisha cast salt into the spring — the waters were healed. The widow poured oil — God filled every vessel until the need was met.",
+    "prayer": "Lord, thank You for kindness through Your servants. Help us trust You for daily needs. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines Elisha by spring pouring salt from small cruse thankful men of city watching soft hills Jericho mood thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text New cruse salt spring waters healed",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Widow pouring oil into borrowed vessels door closed peaceful",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Oil stayed when vessels full",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sell oil pay debt live children"
+    ]
   },
   "elishaPoisonStew": {
     "kjvRef": "2 Kings 4:38-41 (KJV)",
@@ -8250,89 +8483,119 @@
     ]
   },
   "elishaShunammite": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "elisha Shunammite",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "2 Kings 4:8-37 (KJV)",
+    "verseExcerpt": "And he called Gehazi, and said, Call this Shunammite. So he called her. And when she was come in unto him, he said, Take up thy son. — 2 Kings 4:36 (KJV)",
+    "readAlongTitle": "Elisha Prays and the Boy Lives",
+    "quizWrongHumilityHint": "Listen again — the child sneezed seven times, opened his eyes, and Elisha said, Take up thy son.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of elisha Shunammite?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "elisha Shunammite",
-        "image": "panel-noah-1.svg"
+        "text": "And it fell on a day, that Elisha passed to Shunem, where was a great woman; and she constrained him to eat bread. And so it was, that as oft as he passed by, he turned in thither to eat bread. Let us make a little chamber, I pray thee, on the wall; and let us set for him there a bed, and a table, and a stool, and a candlestick: and it shall be, when he cometh to us, that he shall turn in thither. And he said, About this season, according to the time of life, thou shalt embrace a son. And she said, Nay, my lord, thou man of God, do not lie unto thine handmaid. And the woman conceived, and bare a son at that season that Elisha had said unto her, according to the time of life.",
+        "caption": "A little chamber — a promised son, born in due season",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And when the child was grown, it fell on a day, that he went out to his father to the reapers. And she went up, and laid him on the bed of the man of God, and shut the door upon him, and went out. And she called unto her husband, and said, Send me, I pray thee, one of the young men, and one of the asses, that I may run to the man of God, and come again. Then she saddled an ass, and said to her servant, Drive, and go forward; slack not thy riding for me, except I bid thee. So she went and came unto the man of God to mount Carmel. And it came to pass, when the man of God saw her afar off, that he said to Gehazi his servant, Behold, yonder is that Shunammite:",
+        "caption": "She laid him on the prophet’s bed — and hurried to the man of God at Carmel",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Run now, I pray thee, to meet her, and say unto her, Is it well with thee? is it well with thy husband? is it well with the child? And she answered, It is well. Then she said, Did I desire a son of my lord? did I not say, Do not deceive me?",
+        "caption": "Is it well with the child? — Did I not say, Do not deceive me?",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "He went in therefore, and shut the door upon them twain, and prayed unto the LORD. And he went up, and lay upon the child, and put his mouth upon his mouth, and his eyes upon his eyes, and his hands upon his hands: and he stretched himself upon the child; and the flesh of the child waxed warm. Then he returned, and walked in the house to and fro; and went up, and stretched himself upon him: and the child sneezed seven times, and the child opened his eyes.",
+        "caption": "He prayed and lay upon the child — sneezed seven times, and opened his eyes",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And he called Gehazi, and said, Call this Shunammite. So he called her. And when she was come in unto him, he said, Take up thy son. Then she went in, and fell at his feet, and bowed herself to the ground, and took up her son, and went out.",
+        "caption": "Take up thy son — she took her boy with joy",
+        "image": "panel-jesus-2.svg"
       }
     ],
-    "readAlongImages": []
+    "paragraphs": [
+      "A kind woman in Shunem made a little chamber on the wall with a bed, table, stool, and candlestick for Elisha whenever he passed by. Elisha promised her a son, and she had a little boy just as he said.",
+      "One day the child became sick and died on his mother’s knees. The mother laid him on Elisha’s bed, shut the door, and hurried to find Elisha on Mount Carmel.",
+      "Elisha came to the house, went in, shut the door, prayed, and lay upon the child. The flesh of the child waxed warm. Elisha went up and down, then lay upon him again.",
+      "The child sneezed seven times and opened his eyes. Elisha said, Take up thy son. The mother took her boy and was full of joy.",
+      "The Lord used Elisha to bring the child back to life and show His tender care for families. For you: God hears when we pray — He tenderly cares for mothers and children."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "What did she make for Elisha on the wall?",
+        "choices": [
+          "Only a tent.",
+          "A little chamber with a bed, table, stool, and candlestick.",
+          "A tall tower.",
+          "A boat."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A little chamber — a resting place for God’s prophet.",
+        "wrongFeedback": "Listen for chamber, bed, table. (Answer: Little chamber with bed, table, stool, candlestick.)"
+      },
+      {
+        "question": "What did Elisha say she would embrace?",
+        "choices": [
+          "A lamb.",
+          "A son.",
+          "Gold only.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "About this season… thou shalt embrace a son.",
+        "wrongFeedback": "Listen for son. (Answer: A son.)"
+      },
+      {
+        "question": "Where did the mother go to find the man of God?",
+        "choices": [
+          "The sea.",
+          "Mount Carmel.",
+          "Damascus.",
+          "Jericho only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "She came unto the man of God to mount Carmel.",
+        "wrongFeedback": "Listen for Carmel. (Answer: Mount Carmel.)"
+      },
+      {
+        "question": "After Elisha prayed and lay upon the child, what happened?",
+        "choices": [
+          "The child sneezed seven times, and the child opened his eyes.",
+          "Nothing changed.",
+          "They left the city.",
+          "The room went dark."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Seven times — then opened his eyes.",
+        "wrongFeedback": "Listen for sneezed seven times. (Answer: Sneezed seven times and opened his eyes.)"
+      },
+      {
+        "question": "What did Elisha say to the mother at the last?",
+        "choices": [
+          "Hide away.",
+          "Take up thy son.",
+          "Run faster.",
+          "Stay outside."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Take up thy son — mercy spoken plain.",
+        "wrongFeedback": "Listen for Take up thy son. (Answer: Take up thy son.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — the LORD hears when we cry to Him.",
+    "takeaway": "God used Elisha’s prayer to bring life back — the Shunammite took up her son with joy.",
+    "prayer": "Lord, thank You for mercy. Help us trust You in hard moments. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines quiet little chamber small bed Elisha kneeling calmly beside bed hands raised in prayer mother standing nearby hopeful thankful face child lying peacefully on bed eyes beginning to open thick outlines large open spaces Elisha robe mother dress blanket bed floor soft walls small window gentle light minimal lines merciful comforting mood quiet prayer warmth mother joy no sadness no fear plenty white space ages 3-8 coloring page no text",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little chamber Shunem bed table stool",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Mount Carmel man of God",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Prayed unto the LORD sneezed seven times",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Take up thy son mother joy"
+    ]
   },
   "emmausRoad": {
     "kjvRef": "Luke 24",
@@ -8349,9 +8612,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 17:22–34",
-          "Daniel 3:1–30",
-          "John 5:1–15",
+          "Ephesians 6:11",
+          "1 Samuel 1–2",
+          "Galatians 5",
           "Luke 24"
         ],
         "correctIndex": 3,
@@ -8723,257 +8986,368 @@
     "readAlongImages": []
   },
   "estherBanquet": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "esther Banquet",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "Esther 5:1–8; 7:1–10 (KJV)",
+    "verseExcerpt": "If it seem good unto the king, let the king and Haman come this day unto the banquet that I have prepared for him. — Esther 5:4 (KJV)",
+    "readAlongTitle": "Esther Saves Her People at the Banquet",
+    "quizWrongHumilityHint": "Listen again — Esther invited the king and Haman; she told the truth at the right time; the king stopped the plan; God saved His people.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "Queen Esther invited the king and Haman to a special banquet.",
+      "At the right time she told the king about the wicked plan to hurt God’s people.",
+      "The king was angry with Haman and stopped the evil plan.",
+      "God used Queen Esther to save her people.",
+      "The Lord hears when His children pray and bravely speak the truth.",
+      "Reference: Esther 5:1–8; 7:1–10 (KJV)"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of esther Banquet?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "esther Banquet",
-        "image": "panel-noah-1.svg"
+        "text": "Esther invited the king and Haman to a banquet.",
+        "caption": "A special feast",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "She told the king about the bad plan.",
+        "caption": "Brave truth",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The king was angry with Haman.",
+        "caption": "The king cared",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "God used Esther to save her people.",
+        "caption": "God saves",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Esther 5:1–8; 7:1–10",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Esther 5:1–8; 7:1–10.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God heard prayer and used Esther’s brave words to save many.",
+        "wrongFeedback": "Look for who turns the king’s heart and keeps His promises to His people. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "The Lord hears when we pray — and He helps us speak the truth at the right time.",
+          "We should hide from God when we mess up."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: The Lord hears when we pray — and He helps us speak the truth at the right time.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Let us rise up and build.",
+          "Esther invited the king and Haman to come to the banquet she had prepared.",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Esther invited the king and Haman to come to the banquet she had prepared.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Pray, thank God for courageous truth, and ask Him for wise words when it is time to speak.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust in a God who hears and helps? Pick the one that honors Him. (Answer: Pray, thank God for courageous truth, and ask Him for wise words when it is time to speak.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Esther Saves Her People at the Banquet with God's Word today.",
+    "takeaway": "The Lord hears when His children pray — and He can give courage to speak the truth that helps others.",
+    "prayer": "Lord, thank You that You hear us when we pray. Give us gentle courage to speak truth in love. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Queen Esther sitting at a banquet table with the king and Haman Esther has a gentle crown and kind face the king is listening to her thick bold outlines with large open spaces on Esther's robe the king's robe the table and plates for easy coloring soft palace walls and a window with light in the background with minimal lines brave and trusting mood focus on Esther bravely telling the truth so her people could be saved clean minimal no fear or anger plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Come to the banquet — the king and Haman (feast)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther speaks the truth God gives (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God saves His people (rescue)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Prayer and courage together (esther)"
     ],
     "readAlongImages": []
   },
   "estherCrown": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "esther Crown",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "Esther 2:1–17 (KJV)",
+    "verseExcerpt": "so that he set the royal crown upon her head, and made her queen instead of Vashti. — Esther 2:17 (KJV)",
+    "readAlongTitle": "Esther Becomes Queen",
+    "quizWrongHumilityHint": "Listen again — many women came to the palace; the king loved Esther; he set the royal crown on her head; God was watching over her.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "The king of Persia wanted a new queen.",
+      "Many young women were brought to the palace.",
+      "Among them was a young woman named Esther.",
+      "She was one of God’s people, but she had not told anyone.",
+      "Esther was kind and beautiful, and the king loved her more than all the others.",
+      "He placed the royal crown on her head and made her queen.",
+      "Esther lived in the palace, and God was watching over her and her people.",
+      "The Lord can place His children in special places for special times.",
+      "Reference: Esther 2:1–17 (KJV)"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of esther Crown?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "esther Crown",
-        "image": "panel-noah-1.svg"
+        "text": "The king wanted a new queen.",
+        "caption": "A new queen",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Many young women came to the palace.",
+        "caption": "Many came",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Esther was one of God’s people.",
+        "caption": "God’s child",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The king loved Esther.",
+        "caption": "Kind and loved",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "He placed the crown on her head.",
+        "caption": "The crown",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Esther became queen.",
+        "caption": "God’s queen",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "God was watching over her.",
+        "caption": "God was near",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Esther 2:1–17",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Esther 2:1–17.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God watched over Esther and guided her steps in the palace.",
+        "wrongFeedback": "Look for who sets the crown, turns the king’s heart, and cares for His people. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "The Lord can place His children in special places for His good plans.",
+          "We should hide from God when we mess up."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: The Lord can place His children in special places for His good plans.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Let us rise up and build.",
+          "He set the royal crown upon her head, and made her queen instead of Vashti.",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: He set the royal crown upon her head, and made her queen instead of Vashti.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Thank God that He watches over us — and trust Him in the place He puts us today.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust in a God who cares and guides? Pick the one that honors Him. (Answer: Thank God that He watches over us — and trust Him in the place He puts us today.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Esther Becomes Queen with God's Word today.",
+    "takeaway": "The Lord can place His children in special places for special times — and He watches over them with love.",
+    "prayer": "Lord, thank You that You watch over Your children. Help us trust You wherever You place us today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Esther standing gently before the king in the palace thick bold outlines large open spaces the king seated on his throne and placing a simple crown on Esther's head Esther has a kind peaceful face thick bold outlines with large open spaces on Esther's robe the king's robe and the palace floor for easy coloring soft palace walls and a window with light in the background with minimal lines kind and hopeful mood focus on Esther becoming queen clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Many daughters brought to the palace (palace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The king sets the crown on Esther (crown)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God is watching over Esther (heavenly care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther made queen — gentle joy (queen)"
     ],
     "readAlongImages": []
   },
   "estherFast": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "esther Fast",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "Esther 4:1–17 (KJV)",
+    "verseExcerpt": "I will go in unto the king, which is not according to the law: and if I perish, I perish. — Esther 4:16 (KJV)",
+    "readAlongTitle": "Esther Prays and Fasts for Her People",
+    "quizWrongHumilityHint": "Listen again — Haman’s plan; Mordecai’s words; pray and fast three days; “if I perish, I perish”; then brave before the king.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "A wicked man named Haman made a plan to hurt all of God’s people.",
+      "Mordecai sent word to Queen Esther: \"Who knows whether thou art come to the kingdom for such a time as this?\"",
+      "Esther was afraid, but she asked all God’s people to pray and fast with her for three days.",
+      "She said, \"I will go in unto the king, which is not according to the law: and if I perish, I perish.\"",
+      "Esther prayed and trusted God.",
+      "Then she went bravely to the king.",
+      "The Lord hears when His children pray and fast and ask for help.",
+      "Reference: Esther 4:1–17 (KJV)"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of esther Fast?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "esther Fast",
-        "image": "panel-noah-1.svg"
+        "text": "A bad man wanted to hurt God’s people.",
+        "caption": "A hard plan",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Mordecai sent word to Esther.",
+        "caption": "Mordecai’s word",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Esther asked everyone to pray and fast with her.",
+        "caption": "Pray and fast",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "She said, \"If I perish, I perish.\"",
+        "caption": "Brave words",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Esther prayed and trusted God.",
+        "caption": "Quiet trust",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Then she went bravely to the king.",
+        "caption": "Before the king",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Esther 4:1–17",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Esther 4:1–17.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—the Lord hears when His children pray and ask for help.",
+        "wrongFeedback": "Look for who answers quiet prayer and gives courage to do the next right thing. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "The Lord hears prayer and fasting — and He helps when His children ask.",
+          "We should hide from God when we mess up."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: The Lord hears prayer and fasting — and He helps when His children ask.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Everyone decided to never sleep again.",
+          "If I perish, I perish — I will go in unto the king, which is not according to the law.",
+          "The people answered, Let us rise up and build."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: If I perish, I perish — I will go in unto the king, which is not according to the law.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Pray, ask God for help, and trust Him for the next brave step — even when it feels hard.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust in a God who hears prayer? Pick the one that honors Him. (Answer: Pray, ask God for help, and trust Him for the next brave step — even when it feels hard.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Esther Prays and Fasts for Her People with God's Word today.",
+    "takeaway": "The Lord hears when His children pray, fast, and ask for help — and He walks with us in brave moments.",
+    "prayer": "Lord, thank You that You hear when we pray. Help us trust You and take the next brave step You give. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Queen Esther kneeling quietly in her room with her hands folded in prayer thick bold outlines a soft window with light shining gently on her large open spaces on Esther's robe and the floor for easy coloring minimal palace walls and a simple bed in the background brave and trusting mood focus on Esther praying and fasting for her people clean minimal no fear or sadness plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mordecai’s message — such a time as this (esther)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God’s people pray and fast together (pray)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: If I perish, I perish — brave heart (esther 4)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther goes bravely to the king (king)"
     ],
     "readAlongImages": []
   },
@@ -9077,10 +9451,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 1",
-          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "Luke 19:41–44; Matthew 23:37",
+          "John 20:11–18 (KJV) (par. Mark 16:9–11)",
           "2 Timothy 1:5–7; 3:15",
-          "Luke 24:50–53; Acts 1:6–11"
+          "Joshua 24:14-15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9248,10 +9622,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 6:18-23",
-          "Exodus 32:1-8, 15-20, 30-32",
+          "Habakkuk 2:4",
+          "John 10:1–18",
           "Philippians 2:8–11",
-          "Acts 20:10"
+          "Matthew; Mark; Luke; John (Gospels overview)"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9405,87 +9779,130 @@
     "readAlongImages": []
   },
   "ezekielValleyBones": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "ezekiel Valley Bones",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "Ezekiel 37:1–14 (KJV)",
+    "verseExcerpt": "Son of man, can these bones live? … O Lord GOD, thou knowest. — Ezekiel 37:3 (KJV)",
+    "readAlongTitle": "God Can Make Dry Bones Live",
+    "quizWrongHumilityHint": "Listen again — a valley of dry bones; God’s question; Ezekiel trusted God; Ezekiel spoke God’s words; bones lived; God is stronger than anything.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "God showed His prophet Ezekiel a valley full of dry bones.",
+      "The bones were very dry and scattered on the ground.",
+      "God asked Ezekiel, “Son of man, can these bones live?” Ezekiel answered, “O Lord God, thou knowest.”",
+      "God told Ezekiel to speak to the bones. When Ezekiel spoke God’s words, the bones came together, flesh grew on them, and breath came into them.",
+      "They stood up — a great army!",
+      "God can make what is dead and dry come to life again. He is stronger than anything.",
+      "Reference: Ezekiel 37:1–14 (KJV) — gentle summary for little hearts"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of ezekiel Valley Bones?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "ezekiel Valley Bones",
-        "image": "panel-noah-1.svg"
+        "text": "God showed Ezekiel a valley of dry bones.",
+        "caption": "A wide valley",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The bones were very dry.",
+        "caption": "Very dry",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "God asked, “Can these bones live?”",
+        "caption": "God’s question",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Ezekiel said, “O Lord God, thou knowest.”",
+        "caption": "Trusting God",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Ezekiel spoke God’s words.",
+        "caption": "God’s words",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "The bones came together and stood up.",
+        "caption": "Alive!",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "God can make dry bones live again.",
+        "caption": "God’s power",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Ezekiel 37:1–14",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Ezekiel 37:1–14.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God’s power and Word make what is dry come to life.",
+        "wrongFeedback": "Look for who asks the big question and who gives life to the bones. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God is too weak to help anyone.",
+          "Dry bones can never change.",
+          "God can make what is dead and dry come to life again — He is stronger than anything.",
+          "The Bible is only pretend stories."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s power and kindness? (Answer: God can make what is dead and dry come to life again — He is stronger than anything.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Let us rise up and build.",
+          "Son of man, can these bones live?",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Son of man, can these bones live?)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Thank God that His Word is powerful — and remember He can make hearts come alive again.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust in a God who gives life? Pick the one that honors Him. (Answer: Thank God that His Word is powerful — and remember He can make hearts come alive again.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading God Can Make Dry Bones Live with God's Word today.",
+    "takeaway": "God can make what is dead and dry come to life again. He is stronger than anything.",
+    "prayer": "Lord, thank You that Your Word is powerful. Help us trust You to bring new life where things feel dry. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Ezekiel the prophet standing in a wide valley with many simple dry bone shapes on the ground soft light rays shine down from above thick bold outlines with large open spaces on Ezekiel's robe the bones and the ground for easy coloring gentle hills and a soft sky in the background with minimal lines wonder and hope mood focus on God making dry bones live again clean minimal no scary bones or fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Valley of dry bones (Ezekiel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God's question — can these bones live?",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Speaking God's words (prophet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Bones stand — great hope (life)"
     ],
     "readAlongImages": []
   },
@@ -9576,87 +9993,125 @@
     "readAlongImages": []
   },
   "ezraReturn": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "ezra Return",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "Ezra 1:1–11; 3:1–6 (KJV)",
+    "verseExcerpt": "Now in the first year of Cyrus king of Persia, that the word of the LORD by the mouth of Jeremiah might be accomplished, the LORD stirred up the spirit of Cyrus king of Persia, that he made a proclamation throughout all his kingdom, and put it also in writing, saying, — Ezra 1:1 (KJV)",
+    "readAlongTitle": "Coming Home to Worship",
+    "quizWrongHumilityHint": "Listen again — God stirred Cyrus’s heart; His people went up with joy; they set the altar and gave thanks.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "The people of Israel had been far away from their land for many years.",
+      "But the LORD stirred the heart of Cyrus the king of Persia, and he made a proclamation: Who is there among you of all his people? his God be with him, and let him go up to Jerusalem, which is in Judah, and build the house of the LORD God of Israel, (he is the God,) which is in Jerusalem.",
+      "Many of the fathers’ houses, the priests, and the Levites rose up with joy and went to Jerusalem.",
+      "They set the altar in his place upon his bases and offered burnt offerings unto the LORD, as it is written in the law of Moses the man of God, even though they were still a little afraid of the people around them.",
+      "Day by day they praised the LORD and gave thanks, because He had turned the heart of the king and brought them home.",
+      "The LORD showed His people that even after long years away, He remembers them and brings them back to worship Him.",
+      "Reference: Ezra 1:1–11; 3:1–6 (KJV)."
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of ezra Return?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "ezra Return",
+        "text": "The people of Israel had been far away.",
+        "caption": "Long years away",
         "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "But the LORD stirred the heart of the king.",
+        "caption": "God stirred the king’s heart",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The king said, “You may go back to Jerusalem and build God’s house.”",
+        "caption": "Freedom to go home",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Many people rose up with joy and went home.",
+        "caption": "Joy on the way",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "They built the altar and offered thanks to the LORD.",
+        "caption": "Thankful worship at the altar",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "They praised God because He had brought them back.",
+        "caption": "For you",
+        "image": "panel-noah-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 119",
+          "Ezra 1:1–11; 3:1–6",
+          "Acts 1",
+          "Genesis 12"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Ezra 1:1–11; 3:1–6.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God stirred the king and brought His people home.",
+        "wrongFeedback": "Look for who turns the king's heart and remembers His people. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God forgets His people when they are far away.",
+          "The Bible is only pretend stories.",
+          "Even after long years away, God remembers His people and brings them home to worship Him.",
+          "We should never say thank you to God."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Even after long years away, God remembers His people and brings them home to worship Him.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "They set the altar in his place upon his bases and offered burnt offerings unto the LORD.",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: They set the altar in his place upon his bases and offered burnt offerings unto the LORD.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong.",
+          "Thank God that He remembers us and we can worship Him.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust and thankfulness to God? Pick the one that honors Him. (Answer: Thank God that He remembers us and we can worship Him.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Coming Home to Worship with God's Word today.",
+    "takeaway": "Even after long years away, God remembers His people and brings them home to worship Him.",
+    "prayer": "Lord, thank You that You remember Your people. Help us worship You with thankful hearts. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art for young children ages 3–8: thankful people fathers priests and children walking toward Jerusalem with joy; background city walls simple altar soft smoke rising; thick bold outlines large open spaces on robes road altar stones sky; gentle hills open gates minimal lines; hopeful restoring mood coming home to worship God; clean minimal plenty of white space coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Cyrus proclaims — God's people may go up to Jerusalem (ezra)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Many rise up with joy and go toward home (jerusalem)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The altar on its bases — thanks and praise to the Lord (altar)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Day by day they praised the Lord (ezra 3)"
     ],
     "readAlongImages": []
   },
@@ -9674,10 +10129,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 6:8-17",
-          "1 Samuel 18:6-11, 17-19:17",
+          "2 Corinthians 7:15",
+          "Luke 2:22–38",
           "Matthew 17:20; Mark 11:23–24",
-          "Ezekiel 37:4"
+          "1 Samuel 25:1-42"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9758,10 +10213,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 24:14-15",
+          "1 Samuel 1",
           "Matthew 17",
-          "Matthew 4:18–22",
-          "Luke 19:41–44; Matthew 23:37"
+          "2 Kings 4:8-37",
+          "Joshua 6:1-21"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10226,9 +10681,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Philippians 2:8–11",
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Mark 5:21–43"
+          "Joshua 24:14-15",
+          "John 20:11–18 (KJV) (par. Mark 16:9–11)",
+          "2 Timothy 1:16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10309,9 +10764,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Galatians 5",
-          "Matthew 26:57–68 (par. Mark 14:53–65)",
-          "Acts 7",
-          "1 Samuel 1:21-28; 2:1-11, 18-21"
+          "Matthew 17",
+          "2 Kings 4:8-37",
+          "Acts 9:36"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10476,9 +10931,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 28",
-          "Acts 3",
-          "Psalm 91:1-2",
+          "Colossians 4:15",
+          "Acts 20:7–12",
+          "Luke 18:1–8",
           "Galatians 5:22-23"
         ],
         "correctIndex": 3,
@@ -10771,89 +11226,135 @@
     "readAlongImages": []
   },
   "gehaziGreed": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "gehazi Greed",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "2 Kings 5:20-27 (KJV)",
+    "verseExcerpt": "And he said unto him, Went not mine heart with thee, when the man turned again from his chariot to meet thee? Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants? — 2 Kings 5:26 (KJV)",
+    "readAlongTitle": "Honest Hearts Are Better Than Silver",
+    "quizWrongHumilityHint": "Listen again — Whence comest thou? Went not mine heart with thee? A heart that loves God is better than silver or gold.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of gehazi Greed?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "gehazi Greed",
-        "image": "panel-noah-1.svg"
+        "text": "But Gehazi, the servant of Elisha the man of God, said, Behold, my master hath spared Naaman this Syrian, in not receiving at his hands that which he brought: but, as the LORD liveth, I will run after him, and take somewhat of him.",
+        "caption": "Gehazi said, I will run after him, and take somewhat of him",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "So Gehazi followed after Naaman. And when Naaman saw him running after him, he lighted down from the chariot to meet him, and said, Is all well?",
+        "caption": "Gehazi followed — Is all well?",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And he said, All is well. My master hath sent me, saying, Behold, even now there be come to me from mount Ephraim two young men of the sons of the prophets: give them, I pray thee, a talent of silver, and two changes of garments.",
+        "caption": "Two young men of the sons of the prophets — silver and garments",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And Naaman said, Be content, take two talents. And he urged him, and bound two talents of silver in two bags, with two changes of garments, and laid them upon two of his servants; and they bare them before him.",
+        "caption": "Take two talents — two bags of silver and garments",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And when he came to the tower, he took them from their hand, and bestowed them in the house: and he let the men go, and they departed.",
+        "caption": "He bestowed them in the house",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "But he went in, and stood before his master. And Elisha said unto him, Whence comest thou, Gehazi? And he said, Thy servant went no whither.",
+        "caption": "Whence comest thou, Gehazi? — Thy servant went no whither",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And he said unto him, Went not mine heart with thee, when the man turned again from his chariot to meet thee?",
+        "caption": "Went not mine heart with thee?",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants?",
+        "caption": "Is it a time to receive money, and to receive garments?",
+        "image": "panel-jesus-3.svg"
       }
     ],
-    "readAlongImages": []
+    "paragraphs": [
+      "After Naaman was healed, he wanted to give Elisha gifts of silver, gold, and clothing. Elisha said, As the LORD liveth, I will receive none.",
+      "But Gehazi, Elisha’s servant, thought in his heart, My master hath spared Naaman this Syrian, in not receiving at his hands that which he brought. Gehazi ran after Naaman and asked for silver and clothing. Naaman gave him two talents of silver and two changes of garments.",
+      "When Gehazi returned, Elisha asked, Whence comest thou, Gehazi? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants?",
+      "Gehazi learned that a heart that loves God is better than silver or gold. The Lord used Elisha to teach that honesty and a thankful heart please God more than riches.",
+      "For you: When we are sorry for wrong, God still teaches mercy — and He loves a heart that trusts Him more than treasure.",
+      "Reference: 2 Kings 5:20-27 (KJV). The last verse names a heavy consequence; the taps stop before it so little listeners stay with Elisha’s calm words."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "What did Elisha want Naaman’s gifts to be?",
+        "choices": [
+          "Taken secretly by a servant.",
+          "Not taken — I will receive none.",
+          "Doubled.",
+          "Hidden in the house."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Elisha would not take payment — God gave the healing.",
+        "wrongFeedback": "Listen for I will receive none."
+      },
+      {
+        "question": "What did Gehazi do after Naaman left?",
+        "choices": [
+          "He stayed home.",
+          "He ran after Naaman to take silver and garments.",
+          "He prayed only.",
+          "He went to Jericho."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He ran after Naaman — not God’s way.",
+        "wrongFeedback": "Listen for ran after him."
+      },
+      {
+        "question": "What did Gehazi say when Elisha asked where he had been?",
+        "choices": [
+          "I went to the river.",
+          "Thy servant went no whither.",
+          "I was with friends.",
+          "I do not remember."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He did not tell the truth at first.",
+        "wrongFeedback": "Listen for went no whither."
+      },
+      {
+        "question": "What did Elisha ask Gehazi about receiving money?",
+        "choices": [
+          "Is it a time to receive money, and to receive garments?",
+          "Did you buy bread?",
+          "Where is the river?",
+          "Who is Naaman?"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Elisha cared about God’s honor — not greed.",
+        "wrongFeedback": "Listen for time to receive money."
+      },
+      {
+        "question": "What does this story help us remember?",
+        "choices": [
+          "Silver is always best.",
+          "God sees the heart — honesty and a thankful heart matter more than treasure.",
+          "We should hide what we do.",
+          "Servants never help."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Truth and a heart for God — better than silver or gold.",
+        "wrongFeedback": "Think: Elisha pointed to God — not to money."
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God loves truth and a thankful heart.",
+    "takeaway": "Elisha spoke truth — a heart that loves God is better than silver or gold.",
+    "prayer": "Lord, thank You for mercy. Help us speak truth and love You more than things. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art for young children ages 3–8: Elisha standing calmly outside his house with a kind thoughtful face; Gehazi before him looking sorry humble; bundles of clothing and bags of silver on the ground nearby; thick bold outlines large open spaces on robes tunics bundles ground; soft house walls gentle path minimal lines; honest merciful mood Elisha calm presence thankful heart lesson; clean minimal no anger plenty of white space coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Gehazi ran after Naaman",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Whence comest thou Gehazi",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Went not mine heart with thee",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Is it a time to receive money"
+    ]
   },
   "gideonFleece": {
     "kjvRef": "Judges 6:11-40 (KJV)",
@@ -11575,10 +12076,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 10:25–37",
+          "Revelation 14–15",
           "Matthew 28:18–20",
-          "2 Kings 13:14-19",
-          "Ezekiel 37:1–14"
+          "Acts 2",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11970,9 +12471,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 21:28–32",
-          "Acts 5:12–16",
-          "Acts 27:22",
+          "Revelation 13",
+          "1 Samuel 18",
+          "Ruth 1:1-18",
           "1 Samuel 1"
         ],
         "correctIndex": 3,
@@ -12184,9 +12685,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 1–2",
-          "Philemon 1",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
-          "Luke 10:38–42"
+          "Revelation 4–5",
+          "Matthew 6",
+          "Acts 2:4–21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12269,9 +12770,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Ruth 4:1-17",
-          "Matthew 25:31–40",
-          "Revelation 1–3"
+          "Mark 8:1–9",
+          "Job 2:13",
+          "Genesis 28:10–22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12352,10 +12853,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 8:29",
+          "Genesis 6–9",
           "Revelation 21",
-          "Matthew 22:23–33",
-          "Revelation 6–8:1"
+          "Acts 2:4",
+          "2 Timothy 4:6–8"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12434,9 +12935,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 20:10",
-          "Judges 7:1-22",
-          "Mark 5:21–43",
+          "Philemon 1:16",
+          "Revelation 1–3",
+          "Ruth 4:1-17",
           "Hebrews 11"
         ],
         "correctIndex": 3,
@@ -12516,9 +13017,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 2:1–12",
-          "Luke 1",
-          "Matthew 25:1–13",
+          "Acts 9:36",
+          "2 Kings 4:8-37",
+          "Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)",
           "Hebrews 11:1"
         ],
         "correctIndex": 3,
@@ -12687,9 +13188,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Psalm 91:1-2",
-          "Romans 8:38-39",
-          "Acts 3",
+          "Matthew 21:18–22",
+          "1 Samuel 1:1-20",
+          "Colossians 4:12",
           "Acts 2:1–13"
         ],
         "correctIndex": 3,
@@ -12758,87 +13259,125 @@
     ]
   },
   "isaiahMessianic": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "isaiah Messianic",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "Isaiah 9:2–7 (KJV)",
+    "verseExcerpt": "For unto us a child is born, unto us a son is given… and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace. — Isaiah 9:6 (KJV)",
+    "readAlongTitle": "God Promises a Savior",
+    "quizWrongHumilityHint": "Listen again — God spoke through Isaiah; a special child; beautiful names; light and joy; God promised a Savior; He keeps His promises.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "Long ago God spoke through His prophet Isaiah.",
+      "Isaiah told God’s people that a special child would be born.",
+      "He said the child would be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.",
+      "This child would bring light and joy to people walking in darkness.",
+      "God was promising to send a Savior who would love and help His people.",
+      "God always keeps His promises.",
+      "Reference: Isaiah 9:2–7 (KJV)"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of isaiah Messianic?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "isaiah Messianic",
-        "image": "panel-noah-1.svg"
+        "text": "God spoke through His prophet Isaiah.",
+        "caption": "God’s prophet",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "A special child would be born.",
+        "caption": "A child promised",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He would be called Wonderful, Counsellor, The mighty God.",
+        "caption": "Wonderful names",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "He would bring light and joy.",
+        "caption": "Light and joy",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "God promised to send a Savior.",
+        "caption": "A promised Savior",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "God always keeps His promises.",
+        "caption": "God keeps His word",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Isaiah 9:2–7",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Isaiah 9:2–7.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God speaks the promise and sends the Savior He planned.",
+        "wrongFeedback": "Look for who keeps His promises and speaks through His prophet. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God never keeps His promises.",
+          "The Bible is only pretend stories.",
+          "God promised a Savior — and He always keeps His promises.",
+          "We should hide from God when we mess up."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: God promised a Savior — and He always keeps His promises.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.",
+          "Everyone decided to never sleep again.",
+          "Let us rise up and build."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Thank God for His promises — and trust the Savior He has given.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust in God’s promises? Pick the one that honors Him. (Answer: Thank God for His promises — and trust the Savior He has given.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading God Promises a Savior with God's Word today.",
+    "takeaway": "God promised a Savior who brings light and joy — and He always keeps His promises.",
+    "prayer": "Lord, thank You for Your promises. Help us trust You today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: a gentle prophet named Isaiah standing with open hands as if sharing good news soft light rays shine down from above thick bold outlines with large open spaces on Isaiah's robe and the ground for easy coloring a simple scroll in one hand gentle hills and a soft sky in the background with minimal lines hopeful and trusting mood focus on God promising a Savior clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Isaiah speaks God’s promise (prophet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A child born — Wonderful Counsellor (isaiah 9)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Light and joy for dark places (light)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God keeps His promises (trust)"
     ],
     "readAlongImages": []
   },
@@ -12943,10 +13482,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:69–75 (par. Mark 14:66–72; Luke 22:54–62; John 18:15–18, 25–27)",
-          "Luke 15:11–32",
+          "Romans–Philemon",
+          "Acts 10:34",
           "Genesis 28:10–22",
-          "Philemon 1"
+          "2 Timothy 1:16"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13028,9 +13567,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Mark 12:41–44",
-          "Revelation 1:8, 11, 17–18",
-          "Luke 17:11–19"
+          "Malachi 3:1; 4:5–6",
+          "2 Kings 5:1-14",
+          "Genesis 37:3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13243,10 +13782,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 19:41–44; Matthew 23:37",
+          "1 Samuel 1:1-20",
           "James 2:14–26",
-          "John 20:11–18 (KJV) (par. Mark 16:9–11)",
-          "Joshua 24:14-15"
+          "Matthew 5:1–16",
+          "Matthew 3:13–17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13485,87 +14024,125 @@
     "readAlongImages": []
   },
   "jeremiahWeeping": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "jeremiah Weeping",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "Jeremiah 1:1–10; 13:17 (KJV)",
+    "verseExcerpt": "mine eye shall weep sore, and run down with tears… — Jeremiah 13:17 (KJV)",
+    "readAlongTitle": "Jeremiah Loves God’s People",
+    "quizWrongHumilityHint": "Listen again — Jeremiah loved God and His people; the people would not listen; his heart was sad; he wept; he kept speaking God’s words; God helped him.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "Jeremiah was a prophet who loved God and loved God’s people.",
+      "He saw that the people were not listening to God, and this made his heart sad.",
+      "He cried tears for them and told them God still loved them.",
+      "Jeremiah kept speaking God’s words even when it was hard.",
+      "God was with Jeremiah and helped him.",
+      "The Lord cares when His people are sad, and He stays close to those who love Him.",
+      "Reference: Jeremiah 1:1–10; 13:17 (KJV) — gentle summary for little hearts"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of jeremiah Weeping?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "jeremiah Weeping",
-        "image": "panel-noah-1.svg"
+        "text": "Jeremiah loved God and loved God’s people.",
+        "caption": "A loving heart",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He saw the people were not listening.",
+        "caption": "Please listen",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "This made his heart sad.",
+        "caption": "A sad heart",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "He cried tears for them.",
+        "caption": "Tears of love",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jeremiah kept speaking God’s words.",
+        "caption": "God’s words",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "God was with him and helped him.",
+        "caption": "God stayed near",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Jeremiah 1:1–10; 13:17",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Jeremiah 1:1–10; 13:17.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God stayed with Jeremiah and cares when His people are sad.",
+        "wrongFeedback": "Look for who helps Jeremiah speak truth and stays near a loving heart. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God does not care when we feel sad.",
+          "The Bible is only pretend stories.",
+          "The Lord cares when His people are sad — and He stays close to those who love Him.",
+          "We should hide from God when we mess up."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: The Lord cares when His people are sad — and He stays close to those who love Him.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Let us rise up and build.",
+          "Mine eye shall weep sore, and run down with tears.",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Mine eye shall weep sore, and run down with tears.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Tell God when we feel sad — and remember He stays close to those who love Him.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust in a God who cares? Pick the one that honors Him. (Answer: Tell God when we feel sad — and remember He stays close to those who love Him.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jeremiah Loves God’s People with God's Word today.",
+    "takeaway": "The Lord cares when His people are sad — and He stays close to those who love Him.",
+    "prayer": "Lord, thank You that You stay near when our hearts are sad. Help us love others like Jeremiah did. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jeremiah the prophet sitting quietly with a gentle sad-but-kind face and a single small tear on his cheek he holds a small scroll thick bold outlines with large open spaces on Jeremiah's robe the scroll and the ground for easy coloring soft hills and a gentle sky in the background with minimal lines kind and caring mood focus on Jeremiah loving God's people and God being near him clean minimal no fear or anger plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jeremiah loves God’s people (prophet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Speaking God’s words (scroll)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God stayed near Jeremiah (near)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Kind tears — loving heart (care)"
     ],
     "readAlongImages": []
   },
@@ -13685,89 +14262,88 @@
     "readAlongImages": []
   },
   "jesus": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Jesus the Good Shepherd",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Matthew; Mark; Luke; John (Gospels overview)",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Jesus the Good Shepherd (Matthew; Mark; Luke; John (Gospels overview)).",
+      "Jesus the good shepherd Jesus calling the children Jesus loves you!",
+      "Jesus wants YOU!",
+      "Come to Him—He loves you like a shepherd loves his sheep!"
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Jesus the Good Shepherd?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Luke 17:11–19",
+          "Matthew 18:21–35",
+          "1 Samuel 13; 15",
+          "Matthew; Mark; Luke; John (Gospels overview)"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew; Mark; Luke; John (Gospels overview).)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Philip",
+          "God the Father",
+          "Jesus",
+          "David"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God never hears when kids pray.",
+          "Jesus wants YOU! Come to Him—He loves you like a shepherd loves his sheep!",
+          "We should hide from God when we mess up.",
+          "The Bible is only pretend stories."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus wants YOU! Come to Him—He loves you like a shepherd loves his sheep!.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Jesus the good shepherd",
+          "Everyone decided to never sleep again.",
+          "A spaceship landed in the parking lot.",
+          "A talking toaster became king of the city."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "Ignore God until we are older.",
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong.",
+          "Jesus wants YOU! Come to Him—He loves you like a shepherd loves his sheep!"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 3,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus wants YOU! Come to Him—He loves you like a shepherd loves his sheep!.)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Jesus the Good Shepherd",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus the Good Shepherd with God's Word today.",
+    "takeaway": "Jesus wants YOU! Come to Him—He loves you like a shepherd loves his sheep!",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jesus the Good Shepherd. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus the good shepherd (jesus)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus calling the children (shepherd)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus loves you! (children)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus the good shepherd (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus calling the children (lamb)"
+    ]
   },
   "jesusArrest": {
     "kjvRef": "Matthew 26:47–56 (KJV) (par. Mark 14:43–52; Luke 22:47–53; John 18:1–11)",
@@ -14118,175 +14694,262 @@
     "readAlongImages": []
   },
   "jesusBaptism": {
-    "kjvRef": "“This is my beloved Son, in whom I am well pleased.” (Matthew 3:17)",
-    "verseExcerpt": "“This is my beloved Son, in whom I am well pleased.” (Matthew 3:17)",
-    "readAlongTitle": "Jesus’ Baptism",
-    "quizWrongHumilityHint": "Jesus did what was right and pleased His Father.",
+    "kjvRef": "Matthew 3:13–17 (KJV)",
+    "verseExcerpt": "This is my beloved Son, in whom I am well pleased. — Matthew 3:17 (KJV)",
+    "readAlongTitle": "Jesus Is Baptized by John",
+    "quizWrongHumilityHint": "Listen again — Jordan River; John baptizing; Jesus asked John; suffer it to fulfil righteousness; heavens opened; Spirit like a dove; Father’s voice well pleased.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jesus went to John to be baptized.",
-      "As He came up from the water the Holy Spirit came like a dove and God said, “This is my beloved Son.”",
-      "God was so pleased with Jesus.",
-      "Reference: "
+      "When Jesus was grown up, His cousin John was baptizing people in the Jordan River.",
+      "John told everyone to get their hearts ready for the coming Savior.",
+      "Jesus came to the river and asked John to baptize Him.",
+      "John said, “I have need to be baptized of thee, and comest thou to me?”",
+      "Jesus answered, “Suffer it to be so now: for thus it becometh us to fulfil all righteousness.”",
+      "When Jesus came up out of the water, the heavens opened.",
+      "The Spirit of God came down like a dove and rested on Him.",
+      "A voice from heaven said, “This is my beloved Son, in whom I am well pleased.”",
+      "God the Father was pleased with His Son Jesus.",
+      "Reference: Matthew 3:13–17 (KJV)"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of Jesus’ Baptism?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "Jesus went to John to be baptized.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "Jesus did what was right and pleased His Father.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "God was so pleased with Jesus.",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "Jesus went to John to be baptized. As He came up from the water the Holy Spirit came like a dove and God said, “This is my beloved Son.”",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "Jesus went to John to be baptized. As He came up from the water the Holy Spirit came like a dove and God said, “This is my beloved Son.”",
-        "caption": "Jesus’ Baptism",
-        "image": "panel-noah-1.svg"
+        "text": "Jesus came to the Jordan River.",
+        "caption": "By the river",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "John was baptizing people there.",
+        "caption": "Getting ready",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus asked John to baptize Him.",
+        "caption": "Humble hearts",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "When Jesus came up out of the water, the heavens opened.",
+        "caption": "Heavens opened",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "A dove came down and a voice from heaven said, “This is my beloved Son.”",
+        "caption": "Beloved Son",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "God the Father was pleased with Jesus.",
+        "caption": "Well pleased",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Matthew 3:13–17",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 3:13–17.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "Pharaoh",
+          "Goliath",
+          "Samson"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—the Father spoke from heaven and showed how He loved Jesus.",
+        "wrongFeedback": "Look for who opens heaven, sends the Spirit, and speaks over Jesus. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God the Father does not care about Jesus.",
+          "God the Father loves Jesus and was well pleased with Him — we can trust Jesus too.",
+          "The river was only pretend water.",
+          "John was afraid of every sound."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending paragraphs slowly. Which option matches the voice from heaven? (Answer: God the Father loves Jesus and was well pleased with Him — we can trust Jesus too.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A giant rubber duck floated by.",
+          "This is my beloved Son, in whom I am well pleased.",
+          "Let us rise up and build.",
+          "Everyone forgot how to swim."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches what you heard from heaven? (Answer: This is my beloved Son, in whom I am well pleased.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Thank God for Jesus — listen to Him, because the Father calls Him beloved.",
+          "Never say sorry when we do wrong.",
+          "Only read the Bible when we feel perfect."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust in Jesus? Pick the one that honors Him. (Answer: Thank God for Jesus — listen to Him, because the Father calls Him beloved.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Is Baptized by John with God's Word today.",
+    "takeaway": "God the Father was pleased with Jesus.",
+    "prayer": "Lord, thank You for Jesus Your beloved Son. Help us listen to Him and trust Him today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing in the gentle river while John baptizes Him soft water ripples around them a dove is flying down from above with light rays thick bold outlines with large open spaces on Jesus' robe John's robe and the water for easy coloring gentle river banks and a soft sky with minimal lines calm and holy mood focus on Jesus being baptized and God the Father being pleased clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and cream, friendly not scary, no text in image: Jesus comes to the Jordan (river)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and cream, friendly not scary, no text in image: John baptizes Jesus (water)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and cream, friendly not scary, no text in image: Heavens opened — dove (spirit)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and cream, friendly not scary, no text in image: Voice from heaven (beloved Son)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue and cream, friendly not scary, no text in image: Father pleased (love)"
     ],
     "readAlongImages": []
   },
   "jesusBirth": {
-    "kjvRef": "“And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger.” (Luke 2:7)",
-    "verseExcerpt": "“And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger.” (Luke 2:7)",
-    "readAlongTitle": "Jesus’ Birth",
-    "quizWrongHumilityHint": "Wonder that God sent Jesus as a tiny baby because He loves us.",
+    "kjvRef": "Luke 2:1–20 (KJV)",
+    "verseExcerpt": "For unto you is born this day in the city of David a Saviour, which is Christ the Lord. — Luke 2:11 (KJV)",
+    "readAlongTitle": "Jesus Is Born in Bethlehem",
+    "quizWrongHumilityHint": "Listen again — Bethlehem; no room; stable; manger; angels’ good news; shepherds found Jesus; God sent His Son to be with us.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "God loved the world so much that He sent His Son Jesus to be born as a little baby in a stable.",
-      "Mary wrapped Him and laid Him in a manger.",
-      "Angels sang and shepherds came to see the tiny King.",
-      "Jesus came because God loves you so much.",
-      "Reference: "
+      "Mary and Joseph had to travel to the town of Bethlehem.",
+      "When they got there, there was no room for them in the inn.",
+      "They stayed in a stable where the animals were kept.",
+      "That night baby Jesus was born.",
+      "Mary wrapped Him in soft cloths and laid Him in a manger.",
+      "Nearby, shepherds were watching their sheep.",
+      "An angel appeared and said, “Fear not: for, behold, I bring you good tidings of great joy… For unto you is born this day in the city of David a Saviour, which is Christ the Lord.”",
+      "Suddenly many angels were praising God, saying, “Glory to God in the highest, and on earth peace, good will toward men.”",
+      "The shepherds hurried to Bethlehem and found the baby Jesus just as the angel had said.",
+      "God sent His own Son as a baby so He could be with us.",
+      "Reference: Luke 2:1–20 (KJV)"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of Jesus’ Birth?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "God loved the world so much that He sent His Son Jesus to be born as a little baby in a stable.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "Wonder that God sent Jesus as a tiny baby because He loves us.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "Jesus came because God loves you so much.",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "God loved the world so much that He sent His Son Jesus to be born as a little baby in a stable. Mary wrapped Him and laid Him in a manger. Angels sang and shepherds came to see the tiny King.",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "God loved the world so much that He sent His Son Jesus to be born as a little baby in a stable. Mary wrapped Him and laid Him in a manger. A…",
-        "caption": "Jesus’ Birth",
-        "image": "panel-noah-1.svg"
+        "text": "Mary and Joseph went to Bethlehem.",
+        "caption": "On the way",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "There was no room in the inn.",
+        "caption": "No room",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Baby Jesus was born in a stable.",
+        "caption": "A quiet stable",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Mary laid Him in a manger.",
+        "caption": "Soft cloths",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Angels told the shepherds the good news.",
+        "caption": "Good tidings",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "The shepherds found baby Jesus.",
+        "caption": "They found Him",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "God sent His Son to be with us.",
+        "caption": "God with us",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Luke 2:1–20",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 2:1–20.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "Pharaoh",
+          "Goliath",
+          "Samson"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God sent His Son so He could be with us.",
+        "wrongFeedback": "Look for who planned this night and gave the promised Saviour. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God never hears when kids pray.",
+          "God sent His own Son as a baby so He could be with us.",
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s love? (Answer: God sent His own Son as a baby so He could be with us.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Let us rise up and build.",
+          "She laid him in a manger.",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: She laid him in a manger.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Thank God for sending Jesus — and talk to Him about the good tidings the angels shared.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show thankfulness to God for Jesus? Pick the one that honors Him. (Answer: Thank God for sending Jesus — and talk to Him about the good tidings the angels shared.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Is Born in Bethlehem with God's Word today.",
+    "takeaway": "God sent His own Son as a baby so He could be with us.",
+    "prayer": "Lord, thank You for sending Jesus. Help us remember He came to be with us. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Baby Jesus lying in a manger with soft cloths Mary and Joseph are kneeling gently beside Him a few animals stand quietly nearby thick bold outlines with large open spaces on Mary's robe Joseph's robe the manger and the ground for easy coloring soft stable walls and a gentle star in the sky with minimal lines wonder and love mood focus on the night Jesus was born clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Bethlehem — no room (journey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Baby Jesus in the manger (manger)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Angels — good tidings of great joy (angels)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Shepherds find Jesus (shepherds)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God sent His Son (love)"
     ],
     "readAlongImages": []
   },
@@ -14543,88 +15206,137 @@
     "readAlongImages": []
   },
   "jesusCalmsStorm": {
-    "kjvRef": "“And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm.” (Mark 4:39)",
-    "verseExcerpt": "“And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm.” (Mark 4:39)",
-    "readAlongTitle": "Jesus Calms the Storm",
-    "quizWrongHumilityHint": "When life feels stormy and scary.",
+    "kjvRef": "Mark 4:35–41 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still. — Mark 4:39 (KJV)",
+    "readAlongTitle": "Jesus Calms the Wind and the Waves",
+    "quizWrongHumilityHint": "Listen again — boat; storm; afraid; Master carest thou not; Peace be still; great calm; fearful; no faith; wind and sea obey.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "A big storm rocked the boat and the disciples were afraid.",
-      "Jesus woke up, spoke to the wind and waves, and everything became peaceful.",
-      "Jesus speaks peace to every storm. You can call on Him.",
-      "Reference: "
+      "Jesus and His friends got into a boat to cross the sea.",
+      "While they were sailing, a big storm came.",
+      "The wind blew hard and the waves were high.",
+      "The boat was filling with water and the friends were afraid.",
+      "Jesus was sleeping in the back of the boat.",
+      "They woke Him up and said, “Master, carest thou not that we perish?”",
+      "Jesus stood up and said to the wind and the sea, “Peace, be still.”",
+      "The wind stopped blowing and the sea became calm.",
+      "Then Jesus asked His friends, “Why are ye so fearful? how is it that ye have no faith?”",
+      "The friends were amazed and said, “What manner of man is this, that even the wind and the sea obey him!”",
+      "Jesus is stronger than any storm. He can make everything calm and safe.",
+      "Reference: Mark 4:35–41 (KJV) — gentle summary for little hearts"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of Jesus Calms the Storm?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "A big storm rocked the boat and the disciples were afraid.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "When life feels stormy and scary.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "Jesus speaks peace to every storm. You can call on Him.",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "A big storm rocked the boat and the disciples were afraid. Jesus woke up, spoke to the wind and waves, and everything became peaceful.",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "A big storm rocked the boat and the disciples were afraid. Jesus woke up, spoke to the wind and waves, and everything became peaceful.",
-        "caption": "Jesus Calms the Storm",
-        "image": "panel-noah-1.svg"
+        "text": "Jesus and His friends got into a boat.",
+        "caption": "Across the sea",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "A big storm came with wind and waves.",
+        "caption": "Wind and waves",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The friends were afraid and woke Jesus.",
+        "caption": "Wake the Master",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus said, “Peace, be still.”",
+        "caption": "Peace, be still",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The wind stopped and the sea became calm.",
+        "caption": "A great calm",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus asked, “Why are ye so fearful?”",
+        "caption": "Have faith",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Even the wind and sea obey Jesus.",
+        "caption": "He is Lord",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Mark 4:35–41",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Mark 4:35–41.)"
+      },
+      {
+        "question": "What did Jesus say to the wind and the sea?",
+        "choices": [
+          "“Peace, be still.”",
+          "“Run faster, little boat.”",
+          "“Hide under the deck.”",
+          "“Storms are always pretend.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Jesus speaks, and creation listens.",
+        "wrongFeedback": "Think about the calm command in Mark 4. (Answer: “Peace, be still.”)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Jesus is asleep, so He cannot help anyone.",
+          "Jesus is stronger than any storm — He can make everything calm and safe.",
+          "We should never tell Jesus when we are scared.",
+          "Boats are always wrong."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about the wind and sea obeying Him. (Answer: Jesus is stronger than any storm — He can make everything calm and safe.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "The disciples said, “What manner of man is this, that even the wind and the sea obey him!”",
+          "A whale wore sunglasses.",
+          "The boat turned into a kite.",
+          "Everyone forgot how to sit down."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches the disciples’ amazement? (Answer: What manner of man… wind and the sea obey him!)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He is with us — ask Him for peace when we feel scared or stormy inside.",
+          "Never talk to God on hard days.",
+          "Only be brave when we feel no fear.",
+          "Ignore people who need comfort."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ power and kindness in the boat? (Answer: Thank Jesus that He is with us — ask Him for peace when we feel scared or stormy inside.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Calms the Wind and the Waves with God's Word today.",
+    "takeaway": "Jesus is stronger than any storm. He can make everything calm and safe.",
+    "prayer": "Lord Jesus, thank You that You are with us. When we feel afraid, speak peace to our hearts. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing in a boat with His hand raised the wind and waves are becoming calm around the boat the disciples are sitting with peaceful faces thick bold outlines with large open spaces on Jesus' robe the disciples' robes the boat and the water for easy coloring soft clouds and gentle sky with minimal lines calm and safe mood focus on Jesus calming the storm clean minimal no fear or scary waves plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Into the boat — let us pass over (journey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Storm on the sea — Master, carest thou not (trust)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Peace, be still — great calm (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Why are ye so fearful — faith (gentle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Wind and sea obey him (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft aqua and cream, friendly not scary, no text in image: Jesus with you in every storm (hope)"
     ],
     "readAlongImages": []
   },
@@ -15040,10 +15752,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "1 Kings 6:1-14; 8:1-13, 22-30",
+          "Judges 16:23-30",
           "Mark 8:1–9",
-          "2 Kings 6:24-7:20"
+          "Titus 2:14"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15111,88 +15823,137 @@
     ]
   },
   "jesusFeeds5000": {
-    "kjvRef": "“And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full.” (Matthew 14:20)",
-    "verseExcerpt": "“And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full.” (Matthew 14:20)",
-    "readAlongTitle": "Jesus Feeds Five Thousand",
-    "quizWrongHumilityHint": "When there seems to be not enough and Jesus makes plenty.",
+    "kjvRef": "Matthew 14:13–21 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. — Matthew 14:20 (KJV)",
+    "readAlongTitle": "Jesus Feeds a Hungry Crowd",
+    "quizWrongHumilityHint": "Listen again — teach; send away; give ye them to eat; five loaves two fishes; sit on grass; blessed brake; disciples gave; filled; twelve baskets; five thousand men.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "A little boy gave Jesus his lunch.",
-      "Jesus blessed it and fed over five thousand people with plenty left over.",
-      "Jesus multiplies what we bring to Him. He is powerful and generous.",
-      "Reference: "
+      "Many people followed Jesus to hear Him teach.",
+      "When it was late, the disciples said, “Send them away so they can buy food.”",
+      "Jesus said, “Give ye them to eat.”",
+      "The disciples found a boy with five loaves and two small fishes.",
+      "Jesus told the people to sit down on the grass.",
+      "He took the loaves and fishes, looked up to heaven, blessed them, and broke them.",
+      "He gave the pieces to the disciples, and the disciples gave them to the people.",
+      "Everyone ate and was filled.",
+      "When they gathered up the leftovers, there were twelve baskets full.",
+      "Five thousand men, plus women and children, had been fed from one boy’s lunch.",
+      "Jesus can take a little and make it enough for everyone.",
+      "Reference: Matthew 14:13–21 (KJV) — gentle summary for little hearts"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of Jesus Feeds Five Thousand?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "A little boy gave Jesus his lunch.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "When there seems to be not enough and Jesus makes plenty.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "Jesus multiplies what we bring to Him. He is powerful and generous.",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "A little boy gave Jesus his lunch. Jesus blessed it and fed over five thousand people with plenty left over.",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "A little boy gave Jesus his lunch. Jesus blessed it and fed over five thousand people with plenty left over.",
-        "caption": "Jesus Feeds Five Thousand",
-        "image": "panel-noah-1.svg"
+        "text": "Many people followed Jesus to hear Him.",
+        "caption": "Listening to Jesus",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "It was late and they were hungry.",
+        "caption": "Give ye them to eat",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The disciples found a boy with five loaves and two fishes.",
+        "caption": "A boy’s lunch",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus blessed the food and broke it.",
+        "caption": "Blessed and brake",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The disciples gave the food to the people.",
+        "caption": "Passed to everyone",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Everyone ate and was filled.",
+        "caption": "All were filled",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus can take a little and make it enough.",
+        "caption": "Twelve baskets left",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Matthew 14:13–21",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 14:13–21.)"
+      },
+      {
+        "question": "What did Jesus say when the disciples wanted to send the crowd away?",
+        "choices": [
+          "“Give ye them to eat.”",
+          "“Hide the bread.”",
+          "“Do not share.”",
+          "“Go home alone.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Jesus provides when we bring what we have to Him.",
+        "wrongFeedback": "Think about Jesus’ kind command in Matthew 14. (Answer: “Give ye them to eat.”)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Jesus cannot help hungry people.",
+          "Jesus can take a little and make it enough for everyone.",
+          "Small gifts never matter.",
+          "We should never thank God for food."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about everyone eating and the baskets left over. (Answer: Jesus can take a little and make it enough for everyone.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "They took up twelve baskets full of fragments.",
+          "A rocket made the fish fly.",
+          "The grass turned into jelly.",
+          "Everyone forgot how to sit down."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches the leftovers? (Answer: twelve baskets full of fragments.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He cares for us — offer Him what we have and trust Him to use it kindly.",
+          "Never share our lunch.",
+          "Only pray when we have lots.",
+          "Hide when someone is hungry."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ care and generosity? (Answer: Thank Jesus… offer Him what we have…)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Feeds a Hungry Crowd with God's Word today.",
+    "takeaway": "Jesus can take a little and make it enough for everyone.",
+    "prayer": "Lord Jesus, thank You that You care for every need. Take what we have and use it for Your love. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus sitting on the grass holding the five loaves and two fishes the boy stands nearby with a happy face many people are sitting on the grass in groups thick bold outlines with large open spaces on Jesus' robe the boy's robe the loaves the fishes and the grass for easy coloring soft hills and a gentle sky with minimal lines kind generous mood focus on Jesus feeding the hungry crowd clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Crowd follows Jesus (listen)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Late and hungry — give ye them to eat (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Five loaves two fishes — a boy’s lunch (gift)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Sit on grass — bless brake — disciples give (thankful)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: All ate and were filled — twelve baskets (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Jesus provides — little becomes enough (hope)"
     ],
     "readAlongImages": []
   },
@@ -15210,10 +15971,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 1:1",
-          "John 10:1–18",
+          "1 Samuel 24:1-22",
+          "Matthew 8:5–13",
           "John 2:1–11",
-          "1 Corinthians 13"
+          "1 Kings 17:1-7"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15629,75 +16390,141 @@
     "readAlongImages": []
   },
   "jesusLastSupper": {
-    "kjvRef": "“This is my body which is given for you.” (Luke 22:19)",
-    "verseExcerpt": "“This is my body which is given for you.” (Luke 22:19)",
-    "readAlongTitle": "The Last Supper",
-    "quizWrongHumilityHint": "Jesus sharing a special meal with His friends.",
+    "kjvRef": "Matthew 26:17–30 (KJV) (par. Mark 14:12–26; Luke 22:7–23)",
+    "verseExcerpt": "Take, eat; this is my body. — Matthew 26:26 (KJV)",
+    "readAlongTitle": "Jesus Shares the Last Supper",
+    "quizWrongHumilityHint": "Listen again — unleavened bread; passover; prepare; Master; my time is at hand; made ready; even; twelve; betray me; sorrowful; Lord is it I; bread; cup; new testament; remission of sins; Father’s kingdom; hymn; Olives.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "At the last supper Jesus broke bread and shared wine with His friends.",
-      "He said it was for them and for us.",
-      "Reference: "
+      "Now the first day of the feast of unleavened bread the disciples came to Jesus, saying unto him, Where wilt thou that we prepare for thee to eat the passover?",
+      "And he said, Go into the city to such a man, and say unto him, The Master saith, My time is at hand; I will keep the passover at thy house with my disciples. And the disciples did as Jesus had appointed them; and they made ready the passover.",
+      "Now when the even was come, he sat down with the twelve. And as they did eat, he said, Verily I say unto you, that one of you shall betray me. And they were exceeding sorrowful, and began every one of them to say unto him, Lord, is it I?",
+      "And he answered and said, He that dippeth his hand with me in the dish, the same shall betray me. The Son of man goeth as it is written of him: but woe unto that man by whom the Son of man is betrayed! it had been good for that man if he had not been born. Then Judas, which betrayed him, answered and said, Master, is it I? He said unto him, Thou hast said.",
+      "And as they were eating, Jesus took bread, and blessed it, and brake it, and gave it to the disciples, and said, Take, eat; this is my body.",
+      "And he took the cup, and gave thanks, and gave it to them, saying, Drink ye all of it; For this is my blood of the new testament, which is shed for many for the remission of sins. But I say unto you, I will not drink henceforth of this fruit of the vine, until that day when I drink it new with you in my Father’s kingdom.",
+      "And when they had sung an hymn, they went out into the mount of Olives.",
+      "Jesus loves us so much that He gave His body and blood — His love never ends.",
+      "Reference: Matthew 26:17–30 (KJV) (parallel in Mark and Luke)"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of The Last Supper?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "At the last supper Jesus broke bread and shared wine with His friends.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "Jesus sharing a special meal with His friends.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "At the last supper Jesus broke bread and shared wine with His friends. He said it was for them and for us.",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "At the last supper Jesus broke bread and shared wine with His friends. He said it was for them and for us.",
-        "caption": "The Last Supper",
-        "image": "panel-noah-1.svg"
+        "text": "The disciples prepared a special supper for Jesus in a room in the city.",
+        "caption": "Made ready the passover",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus sat down with His twelve friends to eat the Passover meal.",
+        "caption": "Sat down with the twelve",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He told them that one of them would betray Him, and they felt very sad.",
+        "caption": "Lord, is it I?",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus took bread, blessed it, brake it, and gave it to them saying, Take, eat; this is my body.",
+        "caption": "This is my body",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "He took the cup, gave thanks, and said, Drink ye all of it; this is my blood of the new testament, shed for many for the remission of sins.",
+        "caption": "My blood of the new testament",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Jesus was sharing a very special meal with them before He would go to the cross.",
+        "caption": "Love to the end",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Matthew 26:17–30 (also told in Mark and Luke)",
+          "Genesis 1 only",
+          "Jonah 1 only",
+          "Psalm 23 only"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 26:17–30.)"
+      },
+      {
+        "question": "What did Jesus say about the bread He gave?",
+        "choices": [
+          "Take, eat; this is my body.",
+          "This bread is only pretend.",
+          "Do not eat anything.",
+          "The bread was for animals only."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 26:26.",
+        "wrongFeedback": "Listen for “Take, eat” and “body.” (Answer: Take, eat; this is my body.)"
+      },
+      {
+        "question": "What did Jesus say the cup was?",
+        "choices": [
+          "His blood of the new testament, shed for many for the remission of sins",
+          "Only grape juice with no meaning",
+          "A cup for hiding toys",
+          "Something to spill on purpose"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 26:28.",
+        "wrongFeedback": "Listen for “blood” and “new testament.” (Answer: blood of the new testament… remission of sins.)"
+      },
+      {
+        "question": "How did the disciples feel when Jesus said one would betray Him?",
+        "choices": [
+          "They were exceeding sorrowful, and asked, Lord, is it I?",
+          "They laughed and ran away.",
+          "They did not care at all.",
+          "They fell asleep right away."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 26:22.",
+        "wrongFeedback": "Listen for “sorrowful.” (Answer: exceeding sorrowful… Lord, is it I?)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "They made ready the passover and Jesus sat with the twelve.",
+          "A rocket flew over the table.",
+          "Everyone turned into fish.",
+          "The table became a swimming pool."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches God’s Word.",
+        "wrongFeedback": "Pick the true detail from the story. (Answer: made ready the passover… twelve.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He gave His body and blood for us — His love never ends.",
+          "Believe God never cares about kids.",
+          "Never remember what Jesus did.",
+          "Hide when we feel sad."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with gratitude: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “love” and “remember.” (Answer: thank Jesus… love never ends.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Shares the Last Supper with God's Word today.",
+    "takeaway": "Jesus shared bread and cup with His friends — He gave Himself for us because He loves us with a love that never ends.",
+    "prayer": "Lord Jesus, thank You for Your body and blood given for me. Help me remember Your love today. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): gentle Jesus at a low supper table center with a kind face; twelve disciples sit around with simple outlines; Jesus holds bread in one hand and a cup in the other; soft room walls, simple dishes, warm lamp glow suggested with light outlines — not dark or busy; large open table and floor space; bold clean lines; no text in the image.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Prepare the passover — room in the city (welcome)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Sat with the twelve — Passover meal (together)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: One shall betray me — sorrowful hearts (honesty)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Take, eat — this is my body (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: The cup — new testament (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Drink it new in my Father’s kingdom (hope)"
     ],
     "readAlongImages": []
   },
@@ -15715,10 +16542,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Romans 3:23; 5:8; 6:23; 10:9–10",
+          "1 Samuel 18:1-4; 20:1-42",
           "Luke 2:1–20",
-          "Exodus 40:1-38",
-          "Genesis 18:9–15"
+          "Acts 20:10",
+          "2 Kings 6:18-23"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15933,9 +16760,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 6:1-14; 8:1-13, 22-30",
-          "Titus 2:14",
-          "Judges 16:23-30",
+          "1 Samuel 17:1-11, 32-51",
+          "1 Kings 19:19-21",
+          "Numbers 21:1-9",
           "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 3,
@@ -16019,9 +16846,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "Jeremiah 1:5,7",
-          "Mark 2:1–12",
-          "2 John; 3 John"
+          "Matthew 25:31–40",
+          "1 Thessalonians 4:13–18; 5:16–24",
+          "Matthew 2:1–12"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16089,76 +16916,140 @@
     ]
   },
   "jesusResurrection": {
-    "kjvRef": "“He is not here: for he is risen, as he said.” (Matthew 28:6)",
-    "verseExcerpt": "“He is not here: for he is risen, as he said.” (Matthew 28:6)",
-    "readAlongTitle": "The Resurrection",
-    "quizWrongHumilityHint": "The happiest news — Jesus is alive!",
+    "kjvRef": "Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)",
+    "verseExcerpt": "He is not here: for he is risen, as he said. — Matthew 28:6 (KJV)",
+    "readAlongTitle": "Jesus Is Risen",
+    "quizWrongHumilityHint": "Listen again — dawn; sepulchre; earthquake; angel; stone; Fear not; crucified; He is not here; risen; Galilee; great joy; All hail; worshipped; Be not afraid; eleven disciples; mountain; All power; teach all nations; baptizing; Holy Ghost; I am with you alway; Amen.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "On the third day the tomb was empty.",
-      "Jesus is alive!",
-      "He met His friends and showed them He had conquered death.",
-      "Reference: "
+      "In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre.",
+      "And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it. His countenance was like lightning, and his raiment white as snow: And for fear of him the keepers did shake, and became as dead men.",
+      "And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay.",
+      "And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you.",
+      "And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word. And as they went to tell his disciples, behold, Jesus met them, saying, All hail. And they came and held him by the feet, and worshipped him. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.",
+      "Then the eleven disciples went away into Galilee, into a mountain where Jesus had appointed them. And when they saw him, they worshipped him: but some doubted. And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.",
+      "Jesus is alive — His love turns fear into joy, and His promise stays with us always.",
+      "Reference: Matthew 28:1–10, 16–20 (KJV) (told also in Mark, Luke, and John)"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of The Resurrection?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "On the third day the tomb was empty.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "The happiest news — Jesus is alive!",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "On the third day the tomb was empty. Jesus is alive! He met His friends and showed them He had conquered death.",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "On the third day the tomb was empty. Jesus is alive! He met His friends and showed them He had conquered death.",
-        "caption": "The Resurrection",
-        "image": "panel-noah-1.svg"
+        "text": "Early on Sunday morning, the women went to the tomb and saw the stone rolled away — In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre. And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it.",
+        "caption": "Dawn at the tomb",
+        "image": "panel-jesus-resurrection-1.svg"
+      },
+      {
+        "text": "An angel said, “He is not here: for he is risen, as he said.” — And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay.",
+        "caption": "He is risen",
+        "image": "panel-jesus-resurrection-2.svg"
+      },
+      {
+        "text": "The women ran to tell the disciples the good news — And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you. And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word.",
+        "caption": "Great joy",
+        "image": "panel-jesus-resurrection-2.svg"
+      },
+      {
+        "text": "Suddenly Jesus met them and said, “All hail. Be not afraid.” — And as they went to tell his disciples, behold, Jesus met them, saying, All hail. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.",
+        "caption": "Jesus meets them",
+        "image": "panel-jesus-resurrection-3.svg"
+      },
+      {
+        "text": "The women held His feet and worshipped Him with great joy — And they came and held him by the feet, and worshipped him.",
+        "caption": "Worship and peace",
+        "image": "panel-jesus-resurrection-3.svg"
+      },
+      {
+        "text": "Later Jesus told His disciples, “All power is given unto me… Go ye therefore… and, lo, I am with you alway, even unto the end of the world.” — And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.",
+        "caption": "With you alway",
+        "image": "panel-jesus-resurrection-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Matthew 28:1–10, 16–20 (also told in Mark, Luke, and John)",
+          "Genesis 1 only",
+          "Jonah 2 only",
+          "Revelation 22 only"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 28:1–10, 16–20.)"
+      },
+      {
+        "question": "What did the women see as it began to dawn on the first day of the week?",
+        "choices": [
+          "They came to the sepulchre and saw the angel had rolled back the stone from the door.",
+          "They stayed home and slept all morning.",
+          "They forgot why they came.",
+          "They never left the city."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 28:1–2.",
+        "wrongFeedback": "Listen for “dawn,” “sepulchre,” and “stone.” (Answer: stone rolled back….)"
+      },
+      {
+        "question": "What did the angel say about Jesus?",
+        "choices": [
+          "He is not here: for he is risen, as he said.",
+          "He stayed in the grave forever.",
+          "He did not love His friends.",
+          "He was only a dream."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 28:6.",
+        "wrongFeedback": "Listen for “He is not here” and “risen.” (Answer: He is not here: for he is risen….)"
+      },
+      {
+        "question": "What happened while the women went to tell the disciples?",
+        "choices": [
+          "Jesus met them, saying, All hail, and told them, Be not afraid.",
+          "They got lost and never spoke again.",
+          "They decided not to tell anyone.",
+          "They stayed at the tomb alone forever."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 28:9–10.",
+        "wrongFeedback": "Listen for “Jesus met them” and “All hail.” (Answer: Jesus met them… All hail….)"
+      },
+      {
+        "question": "What did the women do when they saw Jesus?",
+        "choices": [
+          "They came and held him by the feet, and worshipped him.",
+          "They ran away and hid forever.",
+          "They refused to look at Him.",
+          "They forgot who He was."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 28:9.",
+        "wrongFeedback": "Listen for “held him by the feet” and “worshipped.” (Answer: held him by the feet… worshipped him.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Remember the risen Jesus on hard days — He said, I am with you alway, even unto the end of the world.",
+          "Believe God is far away when I feel afraid.",
+          "Stop hoping when mornings feel heavy.",
+          "Never tell anyone about Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with honesty: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “risen,” “with you alway,” and “great joy.” (Answer: remember Jesus… I am with you alway….)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Is Risen with God's Word today.",
+    "takeaway": "Jesus kept every promise — He is alive, gentle with afraid hearts, and with His people to the end of the world.",
+    "prayer": "Lord Jesus, thank You that You are risen and that You stay with me. When I feel afraid, help me rest in Your living love. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle risen Jesus stands in the center with a kind, joyful face and open arms. Mary Magdalene and the other Mary kneel nearby, reaching toward Him with happy, worshipful faces. The large stone is rolled away from the empty tomb in the background. Soft garden flowers, gentle hills, and bright sunrise sky with plenty of open ground in the foreground for coloring. Focus on the heart of the moment: Jesus alive and meeting His friends with love and peace. Style: clear, bold, tender, hopeful, and very restful — never dark or scary.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Two Marys — gentle morning at the sepulchre (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Angel — stone rolled — He is risen (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Running with great joy — good news (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Jesus meets them — All hail — Be not afraid (gentle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Held His feet — worship with glad hearts (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Galilee mountain — with you alway — Amen (rest)"
     ],
     "readAlongImages": []
   },
@@ -16288,88 +17179,115 @@
     "readAlongImages": []
   },
   "jesusSermonMount": {
-    "kjvRef": "“Blessed are the poor in spirit: for theirs is the kingdom of heaven.” (Matthew 5:3)",
-    "verseExcerpt": "“Blessed are the poor in spirit: for theirs is the kingdom of heaven.” (Matthew 5:3)",
-    "readAlongTitle": "Jesus’ Sermon on the Mount",
-    "quizWrongHumilityHint": "Jesus teaching us how to live with happy hearts.",
+    "kjvRef": "Matthew 5–7 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Because strait is the gate, and narrow is the way, which leadeth unto life. — Matthew 7:14 (KJV)",
+    "readAlongTitle": "Sermon on the Mount",
+    "quizWrongHumilityHint": "Listen again — mountain; blessed; meek; merciful; narrow way; wise man; rock; house stands.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "On a hillside Jesus sat with the people and taught them how to live.",
-      "He said the people who feel small and need God are the ones who are truly happy in His kingdom.",
-      "Jesus’ words make our hearts happy when we listen.",
-      "Reference: "
+      "Jesus went up on a mountain. Many people came to listen.",
+      "He taught them how to live God’s way — blessed are the meek, the merciful, the peacemakers.",
+      "He told them to love God and love their neighbor, and to let their light shine.",
+      "Jesus also said the way that leads to life is narrow — not always the easy road everyone else walks.",
+      "He told a story about two builders: one built on rock, one on sand. When the storm came, the house on the rock stood firm.",
+      "Jesus wants us to hear His words and put them into practice — like building on a rock.",
+      "Reference: Matthew 5–7 (KJV) — gentle summary for little hearts"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of Jesus’ Sermon on the Mount?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "On a hillside Jesus sat with the people and taught them how to live.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "Jesus teaching us how to live with happy hearts.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "Jesus’ words make our hearts happy when we listen.",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "On a hillside Jesus sat with the people and taught them how to live. He said the people who feel small and need God are the ones who are truly happy in His kingdom.",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "On a hillside Jesus sat with the people and taught them how to live. He said the people who feel small and need God are the ones who are tru…",
-        "caption": "Jesus’ Sermon on the Mount",
-        "image": "panel-noah-1.svg"
+        "text": "Jesus taught on the mountain.",
+        "caption": "On the hill",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Blessed are the meek and merciful.",
+        "caption": "Blessed",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The narrow way leads to life.",
+        "caption": "Narrow way",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The wise man built on the rock.",
+        "caption": "On the rock",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this teaching found in the Bible?",
+        "choices": [
+          "Matthew 5–7",
+          "Genesis 1",
+          "Psalm 23",
+          "Jonah 1"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 5–7.)"
+      },
+      {
+        "question": "What did Jesus say about the way that leads to life?",
+        "choices": [
+          "It is narrow — not always the easy road",
+          "Nobody can ever find it",
+          "It is only for grown-ups",
+          "It means running as fast as you can"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes — Jesus said the narrow way leads to life.",
+        "wrongFeedback": "Think about the narrow gate Jesus described. (Answer: It is narrow — not always the easy road.)"
+      },
+      {
+        "question": "In Jesus’ story, which house stood when the storm came?",
+        "choices": [
+          "The house built on sand",
+          "The house built on rock",
+          "Neither house",
+          "A house made of clouds"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Right — the wise builder built on rock.",
+        "wrongFeedback": "Remember the two builders. (Answer: The house built on rock.)"
+      },
+      {
+        "question": "Which choice sounds most like what Jesus teaches?",
+        "choices": [
+          "Hear His words and put them into practice — like building on a rock",
+          "Ignore the Bible until we are older",
+          "Only love people who are exactly like us",
+          "Mountains are only for racing"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the parts about the rock and the narrow way. (Answer: Hear His words and put them into practice — like building on a rock.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ask Jesus to help us obey one small true thing today",
+          "Never show kindness at home",
+          "Hide from God when we mess up",
+          "Only listen but never try"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which choice matches building on the rock? (Answer: Ask Jesus to help us obey one small true thing today.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Sermon on the Mount with God's Word today.",
+    "takeaway": "Hear Jesus’ words and put them into practice — like building on a rock.",
+    "prayer": "Lord Jesus, thank You for teaching us on the mountain. Help us walk the narrow way and build on Your Word. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus on a gentle hillside teaching people with a narrow path and a small house on a rock in the background thick bold outlines large open spaces for easy coloring soft hills calm sky kind and wise mood clean minimal no fear plenty of white space age-appropriate coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Mountain teaching (gather)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Blessed and merciful (heart)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Narrow path beside a hill",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Wise house on the rock"
     ],
     "readAlongImages": []
   },
@@ -16863,177 +17781,271 @@
     "readAlongImages": []
   },
   "jesusWalksWater": {
-    "kjvRef": "“And he said, Come. And when Peter was come down out of the ship, he walked on the water.” (Matthew 14:29)",
-    "verseExcerpt": "“And he said, Come. And when Peter was come down out of the ship, he walked on the water.” (Matthew 14:29)",
-    "readAlongTitle": "Jesus Walks on the Water",
-    "quizWrongHumilityHint": "When you feel like you’re sinking and need Jesus’ hand.",
+    "kjvRef": "Matthew 14:22–33 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "And immediately Jesus stretched forth his hand, and caught him, and said unto him, O thou of little faith, wherefore didst thou doubt? — Matthew 14:31 (KJV)",
+    "readAlongTitle": "Jesus Walks on the Sea",
+    "quizWrongHumilityHint": "Listen again — boat; pray; wind; walking on water; be of good cheer; Peter come; sink; Lord save me; hand; wind ceased; Son of God.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jesus walked on the water to His friends.",
-      "Peter stepped out but began to sink.",
-      "Jesus reached out and caught him right away.",
-      "Keep your eyes on Jesus and He will hold you up.",
-      "Reference: "
+      "After feeding the five thousand, Jesus told His friends to get into the boat and go to the other side of the sea.",
+      "He went up on a mountain to pray alone.",
+      "In the middle of the night the boat was in the middle of the sea, tossed by the waves, and the wind was against them.",
+      "Jesus came to them, walking on the sea.",
+      "When the disciples saw Him walking on the water, they were afraid and cried out.",
+      "Jesus spoke to them and said, “Be of good cheer; it is I; be not afraid.”",
+      "Peter said, “Lord, if it be thou, bid me come unto thee on the water.”",
+      "Jesus said, “Come.”",
+      "Peter walked on the water toward Jesus, but when he saw the wind boisterous, he was afraid and began to sink.",
+      "He cried, “Lord, save me.”",
+      "Jesus stretched forth His hand and caught him, and said, “O thou of little faith, wherefore didst thou doubt?”",
+      "When they were come into the boat, the wind ceased.",
+      "They that were in the boat came and worshipped Him, saying, “Of a truth thou art the Son of God.”",
+      "Jesus is stronger than the wind and the waves. When we are afraid, we can call to Him and He will help us.",
+      "Reference: Matthew 14:22–33 (KJV) — gentle summary for little hearts"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of Jesus Walks on the Water?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "Jesus walked on the water to His friends.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "When you feel like you’re sinking and need Jesus’ hand.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "Keep your eyes on Jesus and He will hold you up.",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "Jesus walked on the water to His friends. Peter stepped out but began to sink. Jesus reached out and caught him right away.",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "Jesus walked on the water to His friends. Peter stepped out but began to sink. Jesus reached out and caught him right away.",
-        "caption": "Jesus Walks on the Water",
-        "image": "panel-noah-1.svg"
+        "text": "Jesus told His friends to go across the sea; He went to pray on the mountain.",
+        "caption": "Prayer and trust",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "In the night the wind blew hard and the waves were big.",
+        "caption": "Wind and waves",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus walked on the water to them.",
+        "caption": "On the sea",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus said, “Be of good cheer; it is I; be not afraid.”",
+        "caption": "Be not afraid",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Peter tried to walk to Jesus but began to sink.",
+        "caption": "Lord, save me",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus took his hand and helped him.",
+        "caption": "His strong hand",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The wind stopped. Jesus is stronger than the wind and the waves.",
+        "caption": "Peace with Jesus",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Matthew 14:22–33",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 14:22–33.)"
+      },
+      {
+        "question": "What did Jesus say to calm His friends’ hearts?",
+        "choices": [
+          "“Be of good cheer; it is I; be not afraid.”",
+          "“Hide under the boat.”",
+          "“The sea is not real.”",
+          "“Never call on Me.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Jesus speaks peace.",
+        "wrongFeedback": "Think about Jesus’ words when He walked on the water. (Answer: “Be of good cheer; it is I; be not afraid.”)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Jesus cannot hear us when we are scared.",
+          "Jesus is stronger than the wind and the waves — we can call to Him and He will help us.",
+          "We should never ask Jesus for help.",
+          "Peter never needed Jesus."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about Jesus saving Peter and calming the storm. (Answer: Jesus is stronger than the wind and the waves — we can call to Him and He will help us.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Peter cried, “Lord, save me,” and Jesus stretched forth His hand and caught him.",
+          "A whale wore sunglasses.",
+          "The boat turned into a kite.",
+          "Everyone forgot how to float."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that comes straight from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Peter’s cry and Jesus’ help? (Answer: Lord, save me… Jesus stretched forth His hand.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He is with us — ask Him for faith to look to Him when we feel afraid.",
+          "Never talk to God on hard nights.",
+          "Only pray when we feel brave.",
+          "Ignore people who need comfort."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ rescue and kindness? (Answer: Thank Jesus that He is with us — ask Him for faith to look to Him when we feel afraid.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Walks on the Sea with God's Word today.",
+    "takeaway": "Jesus is stronger than the wind and the waves. When we are afraid, we can call to Him and He will help us.",
+    "prayer": "Lord Jesus, thank You that You are stronger than every storm. When we feel afraid, help us look to You and trust You. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus walking on the water toward the boat Peter is stepping out of the boat with his hand reaching toward Jesus the other disciples are in the boat watching thick bold outlines with large open spaces on Jesus' robe Peter's robe the boat and the water for easy coloring soft waves and a gentle night sky with minimal lines trusting calm mood focus on Jesus walking on the water and helping Peter clean minimal no fear or big scary waves plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Send the boat — go to pray (quiet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Night sea — wind and waves (gentle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Jesus walks on the sea (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Be of good cheer — it is I (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Come — Peter on the water (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Lord save me — Jesus catches him (rescue)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft indigo and silver, friendly not scary, no text in image: Wind ceased — Son of God (hope)"
     ],
     "readAlongImages": []
   },
   "jesusWaterWine": {
-    "kjvRef": "“This beginning of miracles did Jesus in Cana of Galilee, and manifested forth his glory.” (John 2:11)",
-    "verseExcerpt": "“This beginning of miracles did Jesus in Cana of Galilee, and manifested forth his glory.” (John 2:11)",
-    "readAlongTitle": "Jesus Turns Water into Wine",
-    "quizWrongHumilityHint": "Wonder that Jesus can turn ordinary things into something beautiful and good.",
+    "kjvRef": "John 2:1–11 (KJV)",
+    "verseExcerpt": "Whatsoever he saith unto you, do it. — John 2:5 (KJV)",
+    "readAlongTitle": "Jesus Does His First Miracle",
+    "quizWrongHumilityHint": "Listen again — wedding at Cana; no wine; Mary; six waterpots; fill with water; governor of the feast; good wine; first miracle; disciples believed.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "At a wedding the wine ran out.",
-      "Jesus told the servants to fill big jars with water.",
-      "When they poured it out, it had become the very best wine.",
-      "Jesus showed His friends His power and care.",
-      "Jesus can take what we have and make it more than enough. He is powerful and kind.",
-      "Reference: "
+      "Jesus and His friends were at a wedding in Cana.",
+      "The people who were in charge of the feast ran out of wine.",
+      "Jesus’ mother told Him, “They have no wine.”",
+      "Jesus said, “Woman, what have I to do with thee? mine hour is not yet come.”",
+      "But His mother told the servants, “Whatsoever he saith unto you, do it.”",
+      "Jesus told the servants to fill six big stone waterpots with water.",
+      "Then He said, “Draw out now, and bear unto the governor of the feast.”",
+      "When the governor tasted it, the water had become very good wine.",
+      "He did not know where it came from, but the servants knew.",
+      "This was the first miracle Jesus did, and His disciples believed in Him.",
+      "Jesus can do wonderful things when we trust and obey Him.",
+      "Reference: John 2:1–11 (KJV)"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of Jesus Turns Water into Wine?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "At a wedding the wine ran out.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "Wonder that Jesus can turn ordinary things into something beautiful and good.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "Jesus can take what we have and make it more than enough. He is powerful and kind.",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "At a wedding the wine ran out. Jesus told the servants to fill big jars with water. When they poured it out, it had become the very best wine. Jesus showed His friends His power and care.",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "At a wedding the wine ran out. Jesus told the servants to fill big jars with water. When they poured it out, it had become the very best win…",
-        "caption": "Jesus Turns Water into Wine",
-        "image": "panel-noah-1.svg"
+        "text": "Jesus was at a wedding.",
+        "caption": "Cana",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "They ran out of wine.",
+        "caption": "Need help",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus told the servants to fill the waterpots.",
+        "caption": "Do what He says",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The water became good wine.",
+        "caption": "Wonderful wine",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "This was Jesus’ first miracle.",
+        "caption": "First miracle",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "His friends believed in Him.",
+        "caption": "They believed",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "John 2:1–11",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 2:1–11.)"
+      },
+      {
+        "question": "What did Jesus turn into very good wine?",
+        "choices": [
+          "Water",
+          "Grape juice from the store",
+          "Sand",
+          "Stone jars only, no drink"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—the servants drew water, and it became wine.",
+        "wrongFeedback": "Remember what filled the big stone waterpots before the governor tasted it. (Answer: Water.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Jesus cannot help when the feast runs out.",
+          "Jesus can do wonderful things when we trust and obey Him.",
+          "Mary told the servants to ignore Jesus.",
+          "Weddings do not matter to God."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the part about “Whatsoever he saith unto you, do it,” and the miracle. (Answer: Jesus can do wonderful things when we trust and obey Him.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Whatsoever he saith unto you, do it.",
+          "Everyone turned into a fish.",
+          "The waterpots were made of chocolate.",
+          "The feast was held on the moon."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches what Mary told the servants? (Answer: Whatsoever he saith unto you, do it.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus — He has power to help, and we can obey His words step by step.",
+          "Never listen to parents or helpers.",
+          "Ignore the Bible until we are grown up.",
+          "Only obey when it feels easy."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ care at the wedding? (Answer: Thank Jesus — He has power to help, and we can obey His words step by step.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Does His First Miracle with God's Word today.",
+    "takeaway": "Jesus can do wonderful things when we trust and obey Him.",
+    "prayer": "Lord Jesus, thank You for this first miracle. Help us trust You and obey Your words with glad hearts. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing with servants at the wedding six big stone waterpots are on the ground one servant is pouring water into a pot Jesus has a kind calm face thick bold outlines with large open spaces on Jesus' robe the servants' robes the waterpots and the ground for easy coloring soft wedding room walls and gentle light from above with minimal lines wonder and joy mood focus on Jesus turning water into wine clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: Wedding at Cana (celebration)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: No wine — need help (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: Fill the waterpots (obey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: Draw out for the governor (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: Very good wine (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and rose, friendly not scary, no text in image: Disciples believed (trust)"
     ],
     "readAlongImages": []
   },
@@ -17260,88 +18272,125 @@
     "readAlongImages": []
   },
   "jobSuffering": {
-    "kjvRef": "“Though he slay me, yet will I trust in him.” (Job 13:15)",
-    "verseExcerpt": "“Though he slay me, yet will I trust in him.” (Job 13:15)",
-    "readAlongTitle": "Job Trusts God",
-    "quizWrongHumilityHint": "Trusting God even when things are very hard.",
+    "kjvRef": "Job 1:1–22; 2:11–13 (KJV)",
+    "verseExcerpt": "The Lord gave, and the Lord hath taken away; blessed be the name of the Lord. — Job 1:21 (KJV)",
+    "readAlongTitle": "Job Trusts God When He Is Sad",
+    "quizWrongHumilityHint": "Listen again — Job loved God; he lost much and felt sad; friends sat quietly; Job blessed the Lord’s name; he still trusted God.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Job lost many things but still trusted God.",
-      "In the end God gave him back more than he had before.",
-      "Even on the hardest days we can trust God.",
-      "Reference: "
+      "Job was a good man who loved God.",
+      "One day he lost almost everything that was dear to him.",
+      "He felt very sad, but he did not stop loving God.",
+      "Three friends came and sat with him quietly for seven days and seven nights.",
+      "Job said, “The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.”",
+      "Even when he was sad, Job still trusted God.",
+      "Reference: Job 1:1–22; 2:11–13 (KJV)"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of Job Trusts God?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "Job lost many things but still trusted God.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "Trusting God even when things are very hard.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "Even on the hardest days we can trust God.",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "Job lost many things but still trusted God. In the end God gave him back more than he had before.",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "Job lost many things but still trusted God. In the end God gave him back more than he had before.",
-        "caption": "Job Trusts God",
-        "image": "panel-noah-1.svg"
+        "text": "Job was a good man who loved God.",
+        "caption": "Loved God",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He lost almost everything.",
+        "caption": "A hard day",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He felt very sad.",
+        "caption": "Honest sadness",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Three friends sat with him quietly.",
+        "caption": "Quiet friends",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Job said, “The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.”",
+        "caption": "Bless His name",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Even when he was sad, Job still trusted God.",
+        "caption": "Still trusting",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Job 1:1–22; 2:11–13",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Job 1:1–22; 2:11–13.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—even when we feel sad, we can keep loving and trusting God.",
+        "wrongFeedback": "Look for who Job kept blessing and trusting in his hardest day. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God leaves us when we are sad.",
+          "The Bible is only pretend stories.",
+          "We can love and trust God even on sad days — and tell Him how we feel.",
+          "Friends should never sit with someone who is sad."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: We can love and trust God even on sad days — and tell Him how we feel.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Let us rise up and build.",
+          "The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Tell God how we feel and trust Him — even on sad days.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust in God when feelings are hard? Pick the one that honors Him. (Answer: Tell God how we feel and trust Him — even on sad days.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Job Trusts God When He Is Sad with God's Word today.",
+    "takeaway": "We can still love and trust God when we feel sad — He is near, and He hears us.",
+    "prayer": "Lord, thank You that we can talk to You on happy days and hard days. Help us trust You when we feel sad. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Job sitting on the ground with a sad but trusting face three friends sitting quietly beside him thick bold outlines with large open spaces on Job's robe the friends' robes and the ground for easy coloring soft hills and a gentle sky in the background with minimal lines sad but trusting mood focus on Job still loving God even when he is sad clean minimal no scary loss shown plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Job loved God — a good heart (job)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Friends sit quietly — seven days (friends)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Blessed be the name of the Lord (job 1)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Still trusting on sad days (hope)"
     ],
     "readAlongImages": []
   },
@@ -17360,10 +18409,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2",
+          "Matthew 22:23–33",
           "Luke 3; Matthew 3",
-          "Nehemiah 4:6",
-          "Acts 13–14"
+          "Acts 8:29",
+          "Revelation 6–8:1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17444,9 +18493,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 22",
-          "2 Samuel 5:1-12",
-          "Ephesians 6",
+          "Matthew 13:31–32",
+          "Matthew 22:1–14",
+          "Acts 16:14",
           "Matthew 3:13–17"
         ],
         "correctIndex": 3,
@@ -17527,10 +18576,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Nehemiah 4:6",
-          "Malachi 3:1",
+          "1 Samuel 24:1-22",
+          "Matthew 8:5–13",
           "1 John 1–5",
-          "Acts 13–14"
+          "1 Kings 17:1-7"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17610,9 +18659,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1",
-          "Acts 18:1–3, 18–19",
-          "Revelation 12",
-          "Acts 10:34"
+          "Matthew 18:21–35",
+          "Hebrews 11:39-40",
+          "Luke 17:11–19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17692,10 +18741,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 7",
-          "Revelation 8–11",
+          "Luke 1",
+          "Matthew 8:5–13",
           "2 John; 3 John",
-          "Luke 18:1–8"
+          "Matthew 2:1–12"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17774,10 +18823,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ezra 1:1–11; 3:1–6",
-          "Matthew 22:35–40",
+          "Jeremiah 1:5,7",
+          "Mark 2:1–12",
           "John 1:1",
-          "2 Kings 2:19-22; 4:1-7"
+          "Matthew 28:18–20"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17931,172 +18980,215 @@
     "readAlongImages": []
   },
   "jonah": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Jonah & the Big Fish",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Jonah 1:17",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Jonah Whale – Jonah 1:17. God told Jonah, 'Go to Nineveh and tell the people to turn from their bad ways.' Jonah didn't want to, so he ran away on a ship. A big storm came.",
+      "Jonah said, 'Throw me into the sea.' The sailors did, and a huge fish swallowed Jonah. Inside the fish for three days, Jonah prayed and said sorry.",
+      "God made the fish spit Jonah out on dry land. God gave Jonah a second chance and sent him to Nineveh again.",
+      "The people listened and turned to God! God gives second chances!",
+      "For you: If you run from God or make a mistake, pray and say sorry. He forgives and gives you a new start."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Jonah & the Big Fish?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Acts 3",
+          "Jonah 1:17",
+          "Romans 8:38-39",
+          "Psalm 91:1-2"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Jonah 1:17.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "God",
+          "The apostles",
+          "Joshua",
+          "Peter"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up.",
+          "Jonah ran from God, but God sent a big fish to swallow him. Jonah prayed, and God saved him. Jonah learned to obey. God gives us second…"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jonah ran from God, but God sent a big fish to swallow him. Jonah prayed, and God saved….)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "Jonah running away on a ship – Disobeying God",
+          "A spaceship landed in the parking lot."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "Ignore God until we are older.",
+          "If you run from God or make a mistake, pray and say sorry. He forgives and gives you a new start.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: If you run from God or make a mistake, pray and say sorry. He forgives and gives you a….)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Jonah & the Big Fish",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jonah & the Big Fish with God's Word today.",
+    "takeaway": "Jonah ran from God, but God sent a big fish to swallow him. Jonah prayed, and God saved him. Jonah learned to obey. God gives us second chances too! When you make a mistake, pray and turn back to…",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jonah & the Big Fish. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonah running away on a ship – Disobeying God (jonah)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Big fish swallowing Jonah – God gets his attention (whale)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonah praying inside the fish – God hears and forgives (fish)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonah running away on a ship – Disobeying God (obey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Big fish swallowing Jonah – God gets his attention (nineveh)"
+    ]
   },
   "jonahVine": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "jonah Vine",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "Jonah 1:1–17; 2:1–10; 3:1–10 (KJV)",
+    "verseExcerpt": "Now the LORD had prepared a great fish to swallow up Jonah. And Jonah was in the belly of the fish three days and three nights. — Jonah 1:17 (KJV)",
+    "readAlongTitle": "God Gives Jonah a Second Chance",
+    "quizWrongHumilityHint": "Listen again — God’s call; ship; storm into the sea; fish kept Jonah safe; Jonah was sorry; dry land; Nineveh heard God’s kindness.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "God told Jonah to go to the city of Nineveh and tell the people to stop doing wrong things.",
+      "Jonah did not want to go, so he ran away on a ship. A big storm came, and the sailors were afraid.",
+      "Jonah told them to throw him into the sea. God sent a big fish that swallowed Jonah and kept him safe inside for three days and three nights.",
+      "Inside the fish, Jonah prayed and said he was sorry. God told the fish to let Jonah go onto dry land.",
+      "Jonah went to Nineveh and told the people God’s message. The people listened and turned back to God.",
+      "God is kind and gives us second chances when we are sorry.",
+      "Reference: Jonah 1:1–17; 2:1–10; 3:1–10 (KJV) — gentle summary for little hearts"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of jonah Vine?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "jonah Vine",
-        "image": "panel-noah-1.svg"
+        "text": "God told Jonah to go to Nineveh.",
+        "caption": "God’s call",
+        "image": "panel-jonah-1.svg"
+      },
+      {
+        "text": "Jonah ran away on a ship.",
+        "caption": "Running away",
+        "image": "panel-jonah-1.svg"
+      },
+      {
+        "text": "A big storm came.",
+        "caption": "A hard moment",
+        "image": "panel-jonah-2.svg"
+      },
+      {
+        "text": "Jonah was thrown into the sea.",
+        "caption": "Into the sea",
+        "image": "panel-jonah-2.svg"
+      },
+      {
+        "text": "A big fish swallowed Jonah and kept him safe.",
+        "caption": "Kept safe",
+        "image": "panel-jonah-3.svg"
+      },
+      {
+        "text": "Jonah prayed and said he was sorry.",
+        "caption": "I’m sorry",
+        "image": "panel-jonah-3.svg"
+      },
+      {
+        "text": "God gave Jonah a second chance.",
+        "caption": "Second chance",
+        "image": "panel-jonah-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Jonah 1:1–17; 2:1–10; 3:1–10",
+          "Jonah 4 only",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Jonah 1:1–17; 2:1–10; 3:1–10.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A giant fish only",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God is kind, hears prayer, and gives second chances.",
+        "wrongFeedback": "Look for who calls Jonah, sends the fish, and forgives. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God never hears when kids pray.",
+          "God is kind and gives us second chances when we are sorry.",
+          "We should hide from God when we mess up.",
+          "The Bible is only pretend stories."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: God is kind and gives us second chances when we are sorry.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Let us rise up and build.",
+          "Now the LORD had prepared a great fish to swallow up Jonah.",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Now the LORD had prepared a great fish to swallow up Jonah.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Tell God we are sorry when we mess up — and thank Him that He gives second chances.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust in a God who forgives? Pick the one that honors Him. (Answer: Tell God we are sorry when we mess up — and thank Him that He gives second chances.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading God Gives Jonah a Second Chance with God's Word today.",
+    "takeaway": "God is kind and gives us second chances when we are sorry.",
+    "prayer": "Lord, thank You for listening when we say we are sorry. Help us obey You and love others like You do. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jonah standing on dry land after the fish has let him go the big fish is swimming away in the water with a gentle smile Jonah has a thankful face and is looking up toward heaven thick bold outlines with large open spaces on Jonah's robe the fish and the water for easy coloring soft waves sand and a gentle sky with minimal lines thankful and hopeful mood focus on God giving Jonah a second chance clean minimal no scary storm or inside-the-fish darkness plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonah thankful on dry land (second chance)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Gentle big fish — God kept Jonah safe (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jonah prayed and said sorry (prayer)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Nineveh listens — God is kind (hope)"
     ],
     "readAlongImages": []
   },
@@ -18230,9 +19322,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 22:1–20",
-          "Acts 15",
-          "1 Samuel 16:11; 17:15, 34–37",
+          "Matthew 22:15–22",
+          "Acts 28:1–10",
+          "Matthew 26:14–16; 26:47–50 (par. Mark 14:10–11, 43–46)",
           "Genesis 37:3"
         ],
         "correctIndex": 3,
@@ -18301,344 +19393,341 @@
     ]
   },
   "josephDreams": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Joseph Interprets Dreams",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Genesis 40",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Joseph Interprets Dreams (Genesis 40). Joseph in prison.",
+      "cupbearer and baker need help Joseph explains the vine and the baskets. God shows the meaning God is still with Joseph.",
+      "faithful in the hard place Joseph trusted God to explain dreams.",
+      "and helped others even while he waited.",
+      "God is with you in hard places too."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Joseph Interprets Dreams?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Genesis 40",
+          "Mark 4:35–41",
+          "Acts 2:1–13",
+          "Matthew 4:1–11; Luke 4:1–13"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 40.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Jude",
+          "David",
+          "Philip",
+          "God"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up.",
+          "Joseph trusted God to explain dreams — and helped others even while he waited. God is with you in hard places too.",
+          "God never hears when kids pray."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Joseph trusted God to explain dreams — and helped others even while he waited. God is….)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Joseph in prison — cupbearer and baker need help",
+          "A talking toaster became king of the city.",
+          "Everyone decided to never sleep again."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Joseph trusted God to explain dreams — and helped others even while he waited. God is with you in hard places too.",
+          "Only be kind to people who are exactly like us.",
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Joseph trusted God to explain dreams — and helped others even while he waited. God is….)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Joseph Interprets Dreams",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Joseph Interprets Dreams with God's Word today.",
+    "takeaway": "Joseph trusted God to explain dreams — and helped others even while he waited. God is with you in hard places too.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Joseph Interprets Dreams. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph in prison — cupbearer and baker need help (joseph)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph explains the vine and the baskets — God shows the meaning (prison)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God is still with Joseph — faithful in the hard place (dreams)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph in prison — cupbearer and baker need help (cupbearer)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph explains the vine and the baskets — God shows the meaning (baker)"
+    ]
   },
   "josephPrison": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Joseph in Prison",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Genesis 39–40",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Joseph in Prison (Genesis 39–40).",
+      "Joseph is put in prison The cupbearer has a dream—Joseph explains God is with Joseph even in prison God is with you in hard places!",
+      "He never forgets you."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Joseph in Prison?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Matthew 26:69–75 (par. Mark 14:66–72; Luke 22:54–62; John 18:15–18, 25–27)",
+          "Luke 15:11–32",
+          "Mark 10:17–27",
+          "Genesis 39–40"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 39–40.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "John",
+          "Stephen",
+          "Jonathan"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "We should hide from God when we mess up.",
+          "God is with you in hard places! He never forgets you.",
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God is with you in hard places! He never forgets you..)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Everyone decided to never sleep again.",
+          "A spaceship landed in the parking lot.",
+          "Joseph is put in prison",
+          "A talking toaster became king of the city."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "Ignore God until we are older.",
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong.",
+          "God is with you in hard places! He never forgets you."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 3,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God is with you in hard places! He never forgets you..)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Joseph in Prison",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Joseph in Prison with God's Word today.",
+    "takeaway": "God is with you in hard places! He never forgets you.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Joseph in Prison. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph is put in prison (joseph)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The cupbearer has a dream—Joseph explains (prison)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God is with Joseph even in prison (cupbearer)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph is put in prison (dream)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The cupbearer has a dream—Joseph explains (genesis 40)"
+    ]
   },
   "josephRuler": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Joseph Ruler in Egypt",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Genesis 41:41",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Joseph Ruler in Egypt (Genesis 41:41).",
+      "Joseph dressed in linen.",
+      "second in command under Pharaoh Grain stored in Egypt during the seven full years God gave Joseph wisdom to feed many people After many hard years, God honored faithful Joseph and used him to save lives.",
+      "God can use your faithful days too."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Joseph Ruler in Egypt?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Genesis 41:41",
+          "Hebrews 11:39-40",
+          "Numbers 21:1-9",
+          "1 Samuel 17:1-11, 32-51"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 41:41.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "David",
+          "Philip",
+          "Jude",
+          "God"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up.",
+          "After many hard years, God honored faithful Joseph and used him to save lives. God can use your faithful days too.",
+          "God never hears when kids pray."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: After many hard years, God honored faithful Joseph and used him to save lives. God can….)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "A spaceship landed in the parking lot.",
+          "A talking toaster became king of the city.",
+          "Joseph dressed in linen — second in command under Pharaoh",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "After many hard years, God honored faithful Joseph and used him to save lives. God can use your faithful days too.",
+          "Ignore God until we are older.",
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: After many hard years, God honored faithful Joseph and used him to save lives. God can….)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Joseph Ruler in Egypt",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Joseph Ruler in Egypt with God's Word today.",
+    "takeaway": "After many hard years, God honored faithful Joseph and used him to save lives. God can use your faithful days too.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Joseph Ruler in Egypt. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph dressed in linen — second in command under Pharaoh (joseph)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Grain stored in Egypt during the seven full years (egypt)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God gave Joseph wisdom to feed many people (ruler)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph dressed in linen — second in command under Pharaoh (pharaoh)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Grain stored in Egypt during the seven full years (genesis 41)"
+    ]
   },
   "josephSold": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Joseph Sold to Egypt",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Genesis 37:28",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Joseph Sold to Egypt (Genesis 37:28).",
+      "Joseph's brothers see him coming.",
+      "anger and jealousy Joseph alone in a pit.",
+      "scary moment, God still sees him Merchants traveling toward Egypt.",
+      "Joseph's hard road begins."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Joseph Sold to Egypt?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Genesis 37:28",
+          "Exodus 7:8–13",
+          "Luke 2:7",
+          "Matthew 20:1–16"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 37:28.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Jesus",
+          "The Holy Ghost",
+          "Holy Spirit",
+          "God"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Joseph's brothers did something terribly wrong, but God stayed with Joseph. When people hurt you or life feels unfair, God sees you — He…",
+          "We should hide from God when we mess up.",
+          "The Bible is only pretend stories.",
+          "God never hears when kids pray."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Joseph's brothers did something terribly wrong, but God stayed with Joseph. When people….)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A talking toaster became king of the city.",
+          "Joseph's brothers see him coming — anger and jealousy",
+          "A spaceship landed in the parking lot.",
+          "Everyone decided to never sleep again."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Joseph's brothers did something terribly wrong, but God stayed with Joseph. When people hurt you or life feels unfair,…",
+          "Only be kind to people who are exactly like us.",
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Joseph's brothers did something terribly wrong, but God stayed with Joseph. When people….)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Joseph Sold to Egypt",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Joseph Sold to Egypt with God's Word today.",
+    "takeaway": "Joseph's brothers did something terribly wrong, but God stayed with Joseph. When people hurt you or life feels unfair, God sees you — He can still work good in His time.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Joseph Sold to Egypt. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph's brothers see him coming — anger and jealousy (joseph)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph alone in a pit — scary moment, God still sees him (sold)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Merchants traveling toward Egypt — Joseph's hard road begins (egypt)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph's brothers see him coming — anger and jealousy (pit)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph alone in a pit — scary moment, God still sees him (brothers)"
+    ]
   },
   "joshuaAi": {
     "kjvRef": "Joshua 7:1-11",
@@ -18655,9 +19744,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:19-22; 4:1-7",
-          "Matthew 22:35–40",
-          "Ezra 1:1–11; 3:1–6",
+          "Matthew 3:13–17",
+          "Genesis 37:3",
+          "Matthew 5:1–16",
           "Joshua 7:1-11"
         ],
         "correctIndex": 3,
@@ -19184,10 +20273,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 4:1–17",
-          "Acts 2:1–13",
+          "1 Kings 17:8-16",
+          "Judges 6:36",
           "Jude 1",
-          "2 Kings 5:20-27"
+          "2 Timothy 1:5–7; 3:15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19269,9 +20358,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23); 1 Corinthians 11:23–26",
-          "2 John; 3 John",
-          "Luke 15:3–7"
+          "Job 2:13",
+          "2 Kings 22:2",
+          "Luke 10:38–42"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19351,9 +20440,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Genesis 39–40",
-          "Luke 2:41–52",
-          "John 9:1–38"
+          "Matthew 21:28–32",
+          "Exodus 14:21-31",
+          "Acts 27:22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19711,9 +20800,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "1 Samuel 13; 15",
-          "Ruth 2",
-          "Revelation 1–22"
+          "Ruth 3:1-18",
+          "Revelation 21–22",
+          "Acts 8:26–40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19795,9 +20884,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 15:8–10",
-          "Matthew 4:18–22",
-          "Isaiah 6:3",
-          "Judges 6:36"
+          "1 Corinthians 12",
+          "Acts 1:6–11",
+          "1 Samuel 25:1-42"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20006,9 +21095,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Corinthians 13",
-          "Acts 10:34",
-          "Acts 18:1–3, 18–19",
-          "Revelation 12"
+          "Psalm 91:1-2",
+          "Romans 8:38-39",
+          "1 Samuel 3:1-21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20090,10 +21179,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14:21-31",
+          "Revelation 13:16–18",
           "the Bible",
-          "John 1:1",
-          "1 Corinthians 13"
+          "Matthew 27:11–26 (KJV) (par. Mark 15:1–15; Luke 23:1–25; John 18:28–19:16)",
+          "Acts 25–26"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20173,9 +21262,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 2:7",
-          "Matthew 1:1",
-          "2 Kings 22:2",
-          "Matthew 13:44"
+          "Philemon 1:16",
+          "Acts 18:23–21:17",
+          "Revelation 1–3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20431,9 +21520,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 16:11–15",
-          "Matthew 3:13–17",
-          "Matthew 5:1–16",
-          "1 Samuel 1–2"
+          "Luke 15:3–7",
+          "Exodus 14:21-31",
+          "2 John; 3 John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20501,87 +21590,121 @@
     ]
   },
   "malachiMessage": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "malachi Message",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "Malachi 3:1; 4:5–6 (KJV)",
+    "verseExcerpt": "Behold, I will send my messenger, and he shall prepare the way before me: — Malachi 3:1 (KJV)",
+    "readAlongTitle": "God Promises to Send a Messenger",
+    "quizWrongHumilityHint": "Listen again — last prophet’s kind word; God still loved them; a messenger would come; hearts ready for the Savior; God keeps His promises.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "Malachi was the last prophet God sent before a long quiet time.",
+      "He told God’s people that the Lord still loved them.",
+      "Malachi said God would send a special messenger to prepare the way.",
+      "One day a man named John would come and tell people to get their hearts ready for the Savior.",
+      "Malachi reminded the people to love God and love one another.",
+      "God always keeps His promises, even when it feels quiet.",
+      "Reference: Malachi 3:1; 4:5–6 (KJV) — gentle summary for little hearts"
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of malachi Message?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "malachi Message",
-        "image": "panel-noah-1.svg"
+        "text": "Malachi was the last prophet before a quiet time.",
+        "caption": "A faithful voice",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He told the people God still loved them.",
+        "caption": "Still loved",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "God would send a special messenger.",
+        "caption": "A promise",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The messenger would help people get ready for the Savior.",
+        "caption": "Hearts ready",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "God always keeps His promises.",
+        "caption": "Always true",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Malachi 3:1; 4:5–6",
+          "Jonah 1 only",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Malachi 3:1; 4:5–6.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "Pharaoh",
+          "Goliath",
+          "A giant fish"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God speaks faithfully through His prophet and keeps every promise.",
+        "wrongFeedback": "Look for who loves His people and promises to send a messenger. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God forgets His people when it is quiet.",
+          "God always keeps His promises, even when it feels quiet.",
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches God’s faithfulness? (Answer: God always keeps His promises, even when it feels quiet.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Let us rise up and build.",
+          "Behold, I will send my messenger, and he shall prepare the way before me.",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Behold, I will send my messenger, and he shall prepare the way before me.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Thank God that He keeps His promises — and ask Him to help your heart be ready for Jesus.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust in a faithful God? Pick the one that honors Him. (Answer: Thank God that He keeps His promises — and ask Him to help your heart be ready for Jesus.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading God Promises to Send a Messenger with God's Word today.",
+    "takeaway": "God always keeps His promises, even when it feels quiet.",
+    "prayer": "Lord, thank You that You love us and keep every promise. Help us love You and love others. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: the prophet Malachi standing with open hands as if sharing a kind message a small simple scroll rests in his hands soft light rays shine down from above thick bold outlines with large open spaces on Malachi's robe and the ground for easy coloring gentle hills and a soft sky in the background with minimal lines hopeful and trusting mood focus on God promising to send a messenger clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Malachi — God still loves His people (prophet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A messenger will prepare the way (promise)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Hearts ready for the Savior (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Love God and love others (kind)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God keeps His promises (quiet)"
     ],
     "readAlongImages": []
   },
@@ -20930,10 +22053,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13",
+          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
           "Mark 1:1",
-          "1 Samuel 18",
-          "Ruth 1:1-18"
+          "Matthew 26:69–75 (par. Mark 14:66–72; Luke 22:54–62; John 18:15–18, 25–27)",
+          "Philemon 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21500,9 +22623,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 1:1",
-          "Luke 3; Matthew 3",
-          "John 2:1–11",
-          "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23)"
+          "1 Samuel 13; 15",
+          "Ruth 2",
+          "Luke 17:11–19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21864,257 +22987,290 @@
     "readAlongImages": []
   },
   "miriamSong": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Miriam Sings to the Lord",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "the Bible",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Miriam Sings to the Lord (the Bible).",
+      "Israel is safe on the other side of the sea Miriam takes her tambourine and leads the women She sings: The Lord has triumphed gloriously!",
+      "When God saves you—sing about it!",
+      "Let praise pour out."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Miriam Sings to the Lord?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Matthew 28:1–10 (KJV) (par. Mark 16:1–8; Luke 24:1–12; John 20:1–18)",
+          "the Bible",
+          "Numbers 23–24",
+          "2 Samuel 15:1-37; 16:15-23; 19:1-15"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "God",
+          "Mary — and Jesus who receives her love",
+          "Priscilla",
+          "Jonathan"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up.",
+          "When God saves you—sing about it! Let praise pour out."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When God saves you—sing about it! Let praise pour out..)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "Israel is safe on the other side of the sea",
+          "A spaceship landed in the parking lot."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "Ignore God until we are older.",
+          "When God saves you—sing about it! Let praise pour out.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When God saves you—sing about it! Let praise pour out..)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Miriam Sings to the Lord",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Miriam Sings to the Lord with God's Word today.",
+    "takeaway": "When God saves you—sing about it! Let praise pour out.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Miriam Sings to the Lord. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israel is safe on the other side of the sea (miriam)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Miriam takes her tambourine and leads the women (song)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She sings: The Lord has triumphed gloriously! (tambourine)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israel is safe on the other side of the sea (exodus 15)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Miriam takes her tambourine and leads the women (worship)"
+    ]
   },
   "mosesBaby": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Baby Moses in the Basket",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Exodus 2:5",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Baby Moses Basket – Exodus 2:5.",
+      "The king was afraid of the Israelites and ordered baby boys to be killed.",
+      "Moses' mom hid him for three months. She made a basket, put baby Moses in it, and set it in the river reeds. His big sister Miriam watched. Pharaoh's daughter came to bathe and found the basket. She felt sorry for the baby and adopted him as her son. Moses grew up in the palace, but God had a big plan for him to lead His people! God watched over baby Moses. For you: When you feel small or scared, remember God is watching over you. He has a plan and protects you, just like He did for Moses."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Baby Moses in the Basket?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Exodus 14:21-22",
+          "Matthew 25:14–30",
+          "Exodus 2:5",
+          "Luke 15:8–10"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 2:5.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "John",
+          "God",
+          "The Holy Ghost",
+          "Jesus"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Baby Moses was hidden in a basket on the river to stay safe from the king. God protected him, and Pharaoh's daughter found and adopted…",
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Baby Moses was hidden in a basket on the river to stay safe from the king. God protected….)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "A spaceship landed in the parking lot.",
+          "Moses' mom making the basket – Protecting her baby"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong.",
+          "When you feel small or scared, remember God is watching over you. He has a plan and protects you, just like He did for…",
+          "Ignore God until we are older."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 2,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When you feel small or scared, remember God is watching over you. He has a plan and….)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Baby Moses in the Basket",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Baby Moses in the Basket with God's Word today.",
+    "takeaway": "Baby Moses was hidden in a basket on the river to stay safe from the king. God protected him, and Pharaoh's daughter found and adopted him. God watches over you too, even when things seem scary—He…",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Baby Moses in the Basket. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses' mom making the basket – Protecting her baby (moses)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Basket floating on the river – God keeps Moses safe (basket)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Pharaoh's daughter finding Moses – God has a plan (nile)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses' mom making the basket – Protecting her baby (princess)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Basket floating on the river – God keeps Moses safe (exodus 2)"
+    ]
   },
   "mosesBush": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Moses & the Burning Bush",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
+    "kjvRef": "Exodus 3:1-6 (KJV)",
+    "readAlongTitle": "Read along",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of Moses & the Burning Bush?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Moses & the Burning Bush",
-        "image": "panel-noah-1.svg"
+        "text": "Moses was taking care of his father-in-law's sheep in the desert. One day he came to the mountain of God, called Horeb.",
+        "caption": "Moses and the sheep at Horeb",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He saw a most wonderful thing. A bush was burning with fire, but the bush was not burned up. The flames danced, yet the leaves stayed green and whole.",
+        "caption": "Fire in the bush—yet it is not consumed",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Moses said, \"I will turn aside and see this great sight, why the bush is not burnt.\"",
+        "caption": "Moses draws near",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "When the Lord saw that Moses turned to look, God called to him out of the midst of the bush, \"Moses, Moses.\" And Moses said, \"Here am I.\"",
+        "caption": "God calls by name",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "God said, \"Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground.\"",
+        "caption": "Holy ground",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Then God told Moses who He was — the God of his fathers, Abraham, Isaac, and Jacob. And Moses hid his face, for he was afraid to look upon God.",
+        "caption": "The God of Abraham, Isaac, and Jacob",
+        "image": "panel-jesus-3.svg"
       }
+    ],
+    "paragraphs": [
+      "Moses was taking care of his father-in-law's sheep in the desert. One day he came to the mountain of God, called Horeb.",
+      "He saw a most wonderful thing. A bush was burning with fire, but the bush was not burned up.",
+      "Moses said, \"I will turn aside and see this great sight, why the bush is not burnt.\"",
+      "When the Lord saw that Moses turned to look, God called to him out of the midst of the bush, \"Moses, Moses.\" And Moses said, \"Here am I.\"",
+      "God said, \"Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground.\"",
+      "Then God told Moses who He was — the God of his fathers, Abraham, Isaac, and Jacob. And Moses hid his face, for he was afraid to look upon God.",
+      "For you: When God speaks, we listen with quiet hearts. You can say \"Here am I\" too—He loves to call His children."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Exodus 3:1-6",
+          "Genesis 1:1",
+          "John 3:16"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 3:1-6.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Nobody",
+          "Only sheep",
+          "God",
+          "Pharaoh"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "We should hide from God when we mess up.",
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "God is holy. He called Moses from the bush and told him to stand on holy ground with reverence."
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God is holy….)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A talking toaster became king of the city.",
+          "The bush burned with fire but was not burned up.",
+          "A spaceship landed in the parking lot.",
+          "Everyone decided to never sleep again."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "Listen when God speaks—in His Word and in prayer—and answer with a willing heart."
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Listen when God speaks….)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading The Burning Bush with God's Word today.",
+    "takeaway": "God met Moses in holy fire that did not destroy the bush. He knows your name too—and He is worthy of quiet reverence.",
+    "prayer": "God, thank You for the Bible. Thank You that You speak to Your people. Help me listen with a soft heart. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art for young children, bold thick outlines, large open areas for crayons, joyful wonder not fear, no text in image: Moses near a large bush on a quiet desert hill, gentle flames rising from the bush center, leaves and branches clearly not burned, Moses surprised but calm, one hand slightly raised, staff in the other, soft desert hills behind, minimal lines, plenty of white space, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses sees a bush on fire (moses)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God calls Moses from the bush (bush)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses takes off his shoes on holy ground (exodus 3)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses hides his face before God (fire)"
     ],
     "readAlongImages": []
   },
@@ -22207,174 +23363,170 @@
     "readAlongImages": []
   },
   "mosesSea": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Moses Parts the Sea",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Exodus 14:21-31",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Moses Sea-Split – Exodus 14:21-31. God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea.",
+      "But Moses stretched out his hand over the sea, just as God told him. The Lord caused the sea to go back all night with a strong east wind. The waters divided.",
+      "The children of Israel walked on dry ground, with walls of water on their right and on their left. When the Egyptians tried to follow, God told Moses to stretch out his hand again.",
+      "The waters returned and covered the chariots and the horsemen—not one of them remained. That day the Lord saved Israel, and the people believed the Lord and His servant Moses.",
+      "For you: When you feel stuck or afraid, God can still make a way. Pray and trust Him."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Moses Parts the Sea?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Acts 16:11–15",
+          "Exodus 12:1-14",
+          "Exodus 14:21-31",
+          "2 Kings 5:1-14"
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 14:21-31.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Peter",
+          "The apostles",
+          "God",
+          "James"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "God never hears when kids pray.",
+          "We should hide from God when we mess up.",
+          "The Bible is only pretend stories.",
+          "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him.…"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God opened the sea, brought Israel through on dry ground, and closed the waters behind….)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Israelites trapped by the Red Sea – Pharaoh's army chasing",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "A spaceship landed in the parking lot."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong.",
+          "When you feel stuck or afraid, God can still make a way. Pray and trust Him.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 2,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When you feel stuck or afraid, God can still make a way. Pray and trust Him..)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Moses Parts the Sea",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Moses Parts the Sea with God's Word today.",
+    "takeaway": "God opened the sea, brought Israel through on dry ground, and closed the waters behind them. He still makes a way for those who trust Him. When you feel stuck or afraid, pray—He is strong to save.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Moses Parts the Sea. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israelites trapped by the Red Sea – Pharaoh's army chasing (moses)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses stretching his hand over the sea – God parts the waters (red sea)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People walking on dry ground between walls of water – God makes a way (staff)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israelites trapped by the Red Sea – Pharaoh's army chasing (parting)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses stretching his hand over the sea – God parts the waters (exodus 14)"
+    ]
   },
   "mosesStaffSnake": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Moses\\",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Exodus 7:8–13",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Moses' Staff Becomes a Snake (Exodus 7:8–13). Moses throws his staff down It becomes a snake! God shows His power through Moses God's power is real! He gives us what we need to do His work."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Moses\\?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Exodus 7:8–13",
+          "Acts 25–26",
+          "Revelation 13:16–18",
+          "Daniel 6:22"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 7:8–13.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "David — and the Lord",
+          "Elisha",
+          "Paul",
+          "God"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up.",
+          "God's power is real! He gives us what we need to do His work.",
+          "God never hears when kids pray."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God's power is real! He gives us what we need to do His work..)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Moses throws his staff down",
+          "A talking toaster became king of the city.",
+          "Everyone decided to never sleep again."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "God's power is real! He gives us what we need to do His work.",
+          "Ignore God until we are older.",
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God's power is real! He gives us what we need to do His work..)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Moses\\",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Moses' Staff Becomes a Snake with God's Word today.",
+    "takeaway": "God's power is real! He gives us what we need to do His work.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Moses' Staff Becomes a Snake. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses throws his staff down (moses)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: It becomes a snake! (staff)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God shows His power through Moses (snake)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses throws his staff down (exodus 7)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: It becomes a snake! (pharaoh)"
+    ]
   },
   "mustardSeed": {
     "kjvRef": "Matthew 13:31–32 (KJV) — gentle summary for little hearts",
@@ -22501,89 +23653,118 @@
     "readAlongImages": []
   },
   "naamanDip": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "naaman Dip",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "2 Kings 5:15-19 (KJV)",
+    "verseExcerpt": "And he said unto him, Go in peace. So he departed from him a little way. — 2 Kings 5:19 (KJV)",
+    "readAlongTitle": "Naaman Returns with Thanks",
+    "quizWrongHumilityHint": "Listen again — Naaman said thanks, Elisha took no payment, and Go in peace.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of naaman Dip?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "naaman Dip",
-        "image": "panel-noah-1.svg"
+        "text": "And he returned to the man of God, he and all his company, and came, and stood before him: and he said, Behold, now I know that there is no God in all the earth, but in Israel: now therefore, I pray thee, take a blessing of thy servant.",
+        "caption": "Behold, now I know — take a blessing of thy servant",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "But he said, As the LORD liveth, before whom I stand, I will receive none. And he urged him to take it; but he refused.",
+        "caption": "As the LORD liveth, I will receive none",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And Naaman said, Shall there not then, I pray thee, be given to thy servant two mules’ burden of earth? for thy servant will henceforth offer neither burnt offering nor sacrifice unto other gods, but unto the LORD.",
+        "caption": "Two mules’ burden of earth — unto the LORD only",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "In this thing the LORD pardon thy servant, that when my master goeth into the house of Rimmon to worship there, and he leaneth on my hand, and I bow myself in the house of Rimmon: when I bow down myself in the house of Rimmon, the LORD pardon thy servant in this thing.",
+        "caption": "The LORD pardon thy servant in this thing",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And he said unto him, Go in peace. So he departed from him a little way.",
+        "caption": "Go in peace",
+        "image": "panel-jesus-3.svg"
       }
     ],
-    "readAlongImages": []
+    "paragraphs": [
+      "After Naaman was clean in the Jordan, he came back to the man of God with a thankful heart. He knew the true God was in Israel.",
+      "Naaman wished to give a blessing; Elisha would not take silver or clothing — the healing was God’s gift, not something to buy. Naaman asked for a little earth to remember the LORD, and spoke humbly about his duty to his king. Elisha sent him with kind words: Go in peace.",
+      "For you: God’s mercy is freely given. A thankful heart is a beautiful offering.",
+      "Reference: 2 Kings 5:15-19 (KJV)."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "What did Naaman say he now knew?",
+        "choices": [
+          "There was no river in Syria.",
+          "There was no God in all the earth, but in Israel.",
+          "He would never go home.",
+          "Elisha needed more silver."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He saw clearly — the true God is in Israel.",
+        "wrongFeedback": "Listen for no God in all the earth, but in Israel."
+      },
+      {
+        "question": "What did Elisha say about taking Naaman’s gift?",
+        "choices": [
+          "He asked for double.",
+          "As the LORD liveth, I will receive none.",
+          "He only wanted gold.",
+          "He sent Naaman away angry."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The healing was God’s gift — not for sale.",
+        "wrongFeedback": "Listen for I will receive none."
+      },
+      {
+        "question": "What did Naaman ask to take with him?",
+        "choices": [
+          "A new chariot.",
+          "Two mules’ burden of earth.",
+          "A sword from the king.",
+          "Nothing at all."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Earth — to remember the LORD in his land.",
+        "wrongFeedback": "Listen for two mules and earth."
+      },
+      {
+        "question": "How did Elisha send Naaman away at the end?",
+        "choices": [
+          "In haste.",
+          "Go in peace.",
+          "With a shout.",
+          "Without a word."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Peace — calm words for the road home.",
+        "wrongFeedback": "Listen for Go in peace."
+      },
+      {
+        "question": "What does this part of the story remind us?",
+        "choices": [
+          "Healing must always be paid for.",
+          "God’s mercy is a gift — and thanks fits a thankful heart.",
+          "We should hide what God did.",
+          "Only kings may pray."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Thankfulness and truth — God’s gift is not bought.",
+        "wrongFeedback": "Think: Elisha would not take payment — God gave the healing."
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — peace goes with those who honor the Lord.",
+    "takeaway": "Naaman came back thankful. Elisha pointed to God — Go in peace.",
+    "prayer": "Lord, thank You for mercy we cannot buy. Teach us grateful hearts. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines two figures before simple house door thankful captain humble prophet gesture refusing gift earth bundles mules distant minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Now I know no God but Israel",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text I will receive none",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Two mules burden earth",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Go in peace"
+    ]
   },
   "naamanHealed": {
     "kjvRef": "2 Kings 5:1-14 (KJV)",
@@ -22782,87 +23963,130 @@
     "readAlongImages": []
   },
   "nehemiahWalls": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "nehemiah Walls",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
+    "kjvRef": "Nehemiah 1:1–4; 2:1–20; 3:1–32 (KJV)",
+    "verseExcerpt": "And I told them of the hand of my God which was good upon me; as also the king’s words that he had spoken unto me. And they said, Let us rise up and build. So they strengthened their hands for this good work. — Nehemiah 2:18 (KJV)",
+    "readAlongTitle": "Nehemiah and the People Rebuild Together",
+    "quizWrongHumilityHint": "Listen again — Nehemiah prayed; the king sent him; the people said, Let us rise up and build.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
+      "The walls of Jerusalem were broken down and the gates were burned with fire.",
+      "Nehemiah heard the sad news while he was far away serving the king. He prayed to the God of heaven and asked the king for permission to go and rebuild the walls.",
+      "The king sent him with letters and timber. When Nehemiah came to Jerusalem, he rose up at night and went out to see the broken walls.",
+      "Then said I unto them, Ye see the distress that we are in, how Jerusalem lieth waste, and the gates thereof are burned with fire: come, and let us build up the wall of Jerusalem, that we be no more a reproach.",
+      "The people answered, Let us rise up and build. So they strengthened their hands for this good work.",
+      "The LORD used Nehemiah to stir the hearts of His people to rebuild the walls of Jerusalem together.",
+      "Reference: Nehemiah 1:1–4; 2:1–20; 3:1–32 (KJV)."
     ],
-    "questions": [
-      {
-        "question": "What happened in the story of nehemiah Walls?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "nehemiah Walls",
+        "text": "The walls of Jerusalem were broken down.",
+        "caption": "Broken gates and walls",
         "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Nehemiah heard the sad news and prayed to God.",
+        "caption": "Pray to the God of heaven",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The king let him go to rebuild the walls.",
+        "caption": "Letters and timber",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Nehemiah saw the broken places at night.",
+        "caption": "A quiet look at the city",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Then said I unto them, Ye see the distress that we are in, how Jerusalem lieth waste, and the gates thereof are burned with fire: come, and let us build up the wall of Jerusalem, that we be no more a reproach.",
+        "caption": "Come, let us build up the wall",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "And they said, Let us rise up and build. So they strengthened their hands for this good work.",
+        "caption": "Let us rise up and build",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "They worked together with joy.",
+        "caption": "For you",
+        "image": "panel-noah-3.svg"
       }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Nehemiah 1:1–4; 2:1–20; 3:1–32.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "A giant fish",
+          "Pharaoh",
+          "Goliath"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God heard prayer and stirred hearts to rebuild.",
+        "wrongFeedback": "Look for who helps His people work together for good. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "We should never pray.",
+          "The Bible is only pretend stories.",
+          "God helps His people pray, work together, and rebuild what was broken.",
+          "Only one person can do God’s work alone."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God helps His people pray, work together, and rebuild what was broken.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "The people answered, “Let us rise up and build.”",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: The people answered, “Let us rise up and build.”)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Pray to God and be willing to help with the good work He gives.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust and teamwork with God’s help? Pick the one that honors Him. (Answer: Pray to God and be willing to help with the good work He gives.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Nehemiah and the People Rebuild Together with God's Word today.",
+    "takeaway": "God helps His people pray, work together, and rebuild what was broken.",
+    "prayer": "Lord, thank You that You hear prayer. Help us work together in the good work You give. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art for young children ages 3–8: Nehemiah and thankful people working together to rebuild the wall of Jerusalem some carrying stones others building with simple tools wall rising large open spaces thick bold outlines on robes stones tools ground soft city gates and hills in background minimal lines hopeful teamwork mood no fighting no fear plenty of white space coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Nehemiah prays — God hears (nehemiah)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The king sends Nehemiah with letters (king)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Let us rise up and build — people together (jerusalem)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: They strengthened their hands for this good work (wall)"
     ],
     "readAlongImages": []
   },
@@ -22881,9 +24105,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:19-22; 4:1-7",
-          "Matthew 22:35–40",
-          "Ezra 1:1–11; 3:1–6",
+          "Romans 16:3",
+          "1 Samuel 18:1-4; 20:1-42",
+          "Colossians 1:15–20; 3:1–4, 12–17",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -22967,9 +24191,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "John 9:1–38",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-          "Acts 9:1–19"
+          "Malachi 3:1",
+          "Nehemiah 4:6",
+          "Acts 13–14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23051,10 +24275,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18",
+          "1 Samuel 16:1-13",
           "Genesis 6–9",
-          "Matthew 2:1–12",
-          "Matthew 25:1–13"
+          "Esther 2:1–17",
+          "1 Kings 18:17-39"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23270,9 +24494,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Numbers 13:1-33; 14:1-9",
-          "Judges 14:5-9",
-          "Matthew 17:1–13"
+          "Romans 8:38-39",
+          "Psalm 91:1-2",
+          "1 Samuel 3:1-21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -23783,9 +25007,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)",
-          "Hebrews 11:1",
-          "Esther 2:1–17",
+          "Luke 15:11–32",
+          "Mark 10:17–27",
+          "Matthew 26:69–75 (par. Mark 14:66–72; Luke 22:54–62; John 18:15–18, 25–27)",
           "Matthew 13:47–50"
         ],
         "correctIndex": 3,
@@ -24755,87 +25979,118 @@
     "readAlongImages": []
   },
   "passoverLamb": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "The Passover Lamb",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
+    "kjvRef": "Exodus 12:7-13 (KJV)",
+    "readAlongTitle": "Read along",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of The Passover Lamb?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "The Passover Lamb",
+        "text": "God told Moses and Aaron what His people must do so the angel of death would pass over their houses. Each family was to take a perfect little lamb and keep it until the evening.",
+        "caption": "A lamb for each home",
         "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Then they would kill the lamb and take some of its blood. With a bunch of hyssop they would strike the blood on the two side posts and on the upper door post of their house.",
+        "caption": "Blood on the doorposts",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "God said, \"When I see the blood, I will pass over you, and the plague shall not be upon you to destroy you.\"",
+        "caption": "God's promise",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "That night, the children of Israel did exactly as the Lord commanded. They put the blood on their doors. They stayed inside their houses and ate the roasted lamb with bitter herbs and unleavened bread.",
+        "caption": "Inside, safe together",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Because of the blood on the door, the Lord passed over their houses and kept them safe.",
+        "caption": "Passed over—kept safe",
+        "image": "panel-noah-3.svg"
       }
+    ],
+    "paragraphs": [
+      "God told Moses and Aaron what His people must do so the angel of death would pass over their houses.",
+      "Each family was to take a perfect little lamb and keep it until the evening. Then they would kill the lamb and take some of its blood.",
+      "With a bunch of hyssop they would strike the blood on the two side posts and on the upper door post of their house.",
+      "God said, \"When I see the blood, I will pass over you, and the plague shall not be upon you to destroy you.\"",
+      "That night, the children of Israel did exactly as the Lord commanded. They put the blood on their doors. They stayed inside and ate the roasted lamb with bitter herbs and unleavened bread.",
+      "Because of the blood on the door, the Lord passed over their houses and kept them safe.",
+      "For you: God keeps everyone who trusts His way of rescue. Jesus is the Lamb who saves us—believe Him, and you are safe in Him."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "John 3:16",
+          "Genesis 1:1",
+          "Exodus 12:7-13",
+          "Psalm 23"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 12:7-13.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Nobody",
+          "Pharaoh only",
+          "God",
+          "Only sheep"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up.",
+          "When God sees the blood He commanded, He passes over His people and keeps them safe."
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When God sees the blood….)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Everyone decided to never sleep again.",
+          "They struck the blood on the doorposts with hyssop.",
+          "A talking toaster became king of the city."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "Thank God for His rescue—and trust Jesus, the Lamb who saves us."
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Thank God… trust Jesus….)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading The Passover Lamb with God's Word today.",
+    "takeaway": "God saw the blood on the door and passed over His people. He still saves everyone who trusts His Lamb—Jesus.",
+    "prayer": "God, thank You for the Bible. Thank You for the Passover—and for Jesus, who saves us. Help me trust You. Amen.",
+    "imagePrompts": [
+      "Simple joyful black-and-white line-art for young children, bold thick outlines, large open coloring areas, hopeful protected mood, no scary shadows or plagues, no text in image: humble house door at night with two side posts and lintel, father gently touching hyssop with blood to doorposts, clear drops and branch strokes, family calm inside open doorway, soft starry sky, minimal ground, ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A lamb is chosen—spotless and perfect (passover)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Blood painted on the doorposts (hyssop)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The angel passes over—God saves His people (exodus 12)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Family safe inside—roasted lamb meal (lamb)"
     ],
     "readAlongImages": []
   },
@@ -24852,9 +26107,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 10:38–42",
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
-          "2 Kings 22:2",
+          "Revelation 22:12–13",
+          "Genesis 4",
+          "2 Kings 4:1-7",
           "Acts 13–14"
         ],
         "correctIndex": 3,
@@ -24937,9 +26192,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1–3",
-          "Ruth 4:1-17",
-          "Matthew 25:31–40",
+          "Galatians 5:22-23",
+          "Hebrews 11",
+          "Mark 10:13–16",
           "Acts 9:1–19"
         ],
         "correctIndex": 3,
@@ -25022,10 +26277,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 19:9-18",
-          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
+          "Esther 2:1–17",
+          "1 Kings 18:17-39",
           "Acts 9:1–19",
-          "Esther 4:1–17"
+          "Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25104,10 +26359,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 6:36",
-          "2 Timothy 1:5–7; 3:15",
+          "Judges 13:1-25",
+          "Revelation 4–5",
           "2 Timothy 4:6–8",
-          "Isaiah 6:3"
+          "1 Kings 3:16-28"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25189,9 +26444,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 19",
-          "Hebrews 11:39-40",
-          "Numbers 21:1-9",
-          "Matthew 18:21–35"
+          "Acts 1:6–11",
+          "1 Corinthians 12",
+          "1 Samuel 25:1-42"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25271,10 +26526,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jude 1",
+          "Revelation 1–22",
           "Acts 20:7–12",
-          "Matthew 13:44",
-          "Matthew 1:1"
+          "1 Samuel 13; 15",
+          "Ruth 2"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25439,10 +26694,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23); 1 Corinthians 11:23–26",
-          "2 John; 3 John",
+          "Genesis 28:10–22",
+          "Mark 8:1–9",
           "Romans–Philemon",
-          "Jeremiah 1:1–10; 13:17"
+          "Judges 7:1-22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25521,9 +26776,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 2:1-21",
-          "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Acts 12:1–19",
+          "Acts 2:4–21",
+          "Matthew 6",
+          "2 Timothy 4:6–8",
           "Philemon 1"
         ],
         "correctIndex": 3,
@@ -25604,9 +26859,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-          "Acts 9:1–19",
-          "Acts 2:4",
+          "Revelation 21",
+          "Luke 2:1–20",
+          "Matthew 5–7",
           "Ephesians, Philippians, Colossians, Philemon"
         ],
         "correctIndex": 3,
@@ -25687,9 +26942,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 28",
-          "Romans 16:3",
-          "Colossians 1:15–20; 3:1–4, 12–17",
-          "Luke 19:1–10"
+          "Luke 15:3–7",
+          "Exodus 14:21-22",
+          "2 John; 3 John"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25769,10 +27024,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 7:1-22",
+          "Luke 10:25–37",
           "Acts 15:36–18:22",
-          "2 Kings 6:18-23",
-          "Acts 20:10"
+          "2 Kings 13:14-19",
+          "Ezekiel 37:1–14"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25853,10 +27108,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 22:35–40",
+          "1 Kings 19:19-21",
           "Acts 27",
-          "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23); 1 Corinthians 11:23–26",
-          "Jeremiah 1:1–10; 13:17"
+          "Galatians 5:22-23",
+          "Esther 5:1–8; 7:1–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25924,89 +27179,88 @@
     ]
   },
   "paulShipwreck": {
-    "kjvRef": "[Paste exact KJV line with reference in parentheses]",
-    "verseExcerpt": "[Paste exact KJV line with reference in parentheses]",
-    "readAlongTitle": "Paul on the Stormy Sea",
-    "quizWrongHumilityHint": "[Paste emotional focus — calm, specific, ages 3–8]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Acts 27–28",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[Paste short warm read-aloud]",
-      "[Paste one warm closing line in quotes]",
-      "Reference: "
+      "Paul's Shipwreck (Acts 27–28).",
+      "Paul sails in a terrible storm The ship breaks apart—Paul swims to shore A snake bites Paul—he is fine!",
+      "God protects him God protects His people through storms!",
+      "When life gets hard, He keeps you safe."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Paul on the Stormy Sea?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[Paste short warm read-aloud].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "2 Peter 1–3",
+          "Revelation 1–22",
+          "Acts 27",
+          "Acts 27–28"
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Acts 27–28.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[Paste emotional focus — calm, specific, ages 3–8]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Mary — and Jesus who receives her love",
+          "Jonathan",
+          "God",
+          "Priscilla"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[Paste one warm closing line in quotes]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "God never hears when kids pray.",
+          "We should hide from God when we mess up.",
+          "God protects His people through storms! When life gets hard, He keeps you safe.",
+          "The Bible is only pretend stories."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God protects His people through storms! When life gets hard, He keeps you safe..)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Paul sails in a terrible storm",
+          "A spaceship landed in the parking lot.",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong.",
+          "Ignore God until we are older.",
+          "God protects His people through storms! When life gets hard, He keeps you safe."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 3,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God protects His people through storms! When life gets hard, He keeps you safe..)"
       }
     ],
-    "retelling38": "[Paste short warm read-aloud]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[Paste short warm read-aloud]",
-        "caption": "Paul on the Stormy Sea",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Paul's Shipwreck with God's Word today.",
+    "takeaway": "God protects His people through storms! When life gets hard, He keeps you safe.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Paul's Shipwreck. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Paul sails in a terrible storm (paul)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The ship breaks apart—Paul swims to shore (shipwreck)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A snake bites Paul—he is fine! God protects him (storm)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Paul sails in a terrible storm (acts 27)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The ship breaks apart—Paul swims to shore (acts 28)"
+    ]
   },
   "paulShipwreckRevisited": {
     "kjvRef": "“And Paul said… there shall be no loss of any man’s life among you, but of the ship.” (Acts 27:22)",
@@ -26110,10 +27364,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:47–56 (par. Mark 14:43–52; Luke 22:47–53; John 18:1–11)",
+          "Genesis 37:3",
           "Acts 16:16–40",
-          "Jonah 1:17",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
+          "2 Kings 5:1-14",
+          "Malachi 3:1; 4:5–6"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -26193,10 +27447,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 12:1-14",
-          "Acts 2",
+          "Mark 10:17–27",
+          "Judges 14:6",
           "Acts 18:23–21:17",
-          "2 Kings 5:1-14"
+          "Luke 15:11–32"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -26275,9 +27529,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ephesians 6",
-          "Revelation 22",
-          "Zechariah 1:3",
+          "Romans 3:23; 5:8; 6:23; 10:9–10",
+          "Genesis 18:9–15",
+          "Joshua 2:1-21",
           "1 Timothy 1–6; 2 Timothy 1–4"
         ],
         "correctIndex": 3,
@@ -26358,9 +27612,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Titus 1–3",
-          "2 Kings 2:1-14",
-          "Esther 4:1–17; 5:1–8; 7:1–10",
-          "Daniel 6"
+          "Philippians 2:20",
+          "Luke 19:1–10",
+          "2 Kings 8:1-6"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -26441,9 +27695,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2",
-          "Judges 4:14",
-          "Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)",
-          "2 Kings 4:38-41"
+          "Joshua 6:1-21",
+          "Luke 24",
+          "1 Samuel 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -26526,9 +27780,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2:1–4",
+          "Matthew 4:18–22; Luke 5:1–11",
           "Hebrews 11:1",
-          "Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)",
-          "Esther 2:1–17"
+          "Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -26696,10 +27950,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:1-14",
-          "3 John 1:5",
+          "Hebrews 11:1",
+          "Matthew 4:1–11",
           "Acts 2:4–21",
-          "Esther 4:1–17; 5:1–8; 7:1–10"
+          "Matthew 4:18–22; Luke 5:1–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27078,89 +28332,86 @@
     "readAlongImages": []
   },
   "peterFirstLetter": {
-    "kjvRef": "[Paste exact KJV line with reference in parentheses]",
-    "verseExcerpt": "[Paste exact KJV line with reference in parentheses]",
-    "readAlongTitle": "Peter Encourages the Church",
-    "quizWrongHumilityHint": "[Paste emotional focus — calm, specific, ages 3–8]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "1 Peter 1–5",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[Paste short warm read-aloud]",
-      "[Paste one warm closing line in quotes]",
-      "Reference: "
+      "Peter’s First Letter (1 Peter) (1 Peter 1–5).",
+      "Peter writes to believers in hard days—hope shines in Christ Love with a pure heart—cast every care on God Be sober—the devil prowls, but God is your strength When school or home feels heavy, Jesus’ resurrection gives you a living hope—tell Him your worries."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Peter Encourages the Church?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[Paste short warm read-aloud].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23); 1 Corinthians 11:23–26",
+          "Luke 15:3–7",
+          "2 John; 3 John",
+          "1 Peter 1–5"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Peter 1–5.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Peter",
+          "Priscilla",
+          "Mary — and Jesus who receives her love",
+          "James"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Peter.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "We should hide from God when we mess up.",
+          "When school or home feels heavy, Jesus’ resurrection gives you a living hope—tell Him your worries.",
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When school or home feels heavy, Jesus’ resurrection gives you a living hope—tell Him….)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "[Paste emotional focus — calm, specific, ages 3–8]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Everyone decided to never sleep again.",
+          "A spaceship landed in the parking lot.",
+          "Peter writes to believers in hard days—hope shines in Christ",
+          "A talking toaster became king of the city."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "[Paste one warm closing line in quotes]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "When school or home feels heavy, Jesus’ resurrection gives you a living hope—tell Him your worries."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 3,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When school or home feels heavy, Jesus’ resurrection gives you a living hope—tell Him….)"
       }
     ],
-    "retelling38": "[Paste short warm read-aloud]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[Paste short warm read-aloud]",
-        "caption": "Peter Encourages the Church",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Peter’s First Letter (1 Peter) with God's Word today.",
+    "takeaway": "When school or home feels heavy, Jesus’ resurrection gives you a living hope—tell Him your worries.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Peter’s First Letter (1 Peter). Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Peter writes to believers in hard days—hope shines in Christ (peter)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Love with a pure heart—cast every care on God (1 peter)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Be sober—the devil prowls, but God is your strength (suffering)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Peter writes to believers in hard days—hope shines in Christ (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Love with a pure heart—cast every care on God (love)"
+    ]
   },
   "peterHealsLame": {
     "kjvRef": "“In the name of Jesus Christ of Nazareth rise up and walk.” (Acts 3:6)",
@@ -27261,10 +28512,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 4:18–22",
-          "Luke 19:41–44; Matthew 23:37",
+          "John 4:1–42",
+          "Luke 2:22–38",
           "Acts 12:1–19",
-          "Isaiah 6:3"
+          "Revelation 19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27346,10 +28597,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 6:1-14; 8:1-13, 22-30",
-          "Judges 16:23-30",
+          "2 Samuel 9:1-13",
+          "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23)",
           "Acts 2:14–41",
-          "Titus 2:14"
+          "Matthew 13:47–50"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27429,9 +28680,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
-          "Philemon 1",
-          "Matthew 26:69–75 (par. Mark 14:66–72; Luke 22:54–62; John 18:15–18, 25–27)",
+          "Colossians 1:18",
+          "1 Samuel 16:14-23",
+          "1 Kings 17:8-16",
           "2 Peter 1–3"
         ],
         "correctIndex": 3,
@@ -27513,10 +28764,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 17:22–34",
+          "Joshua 2:1-21",
           "Acts 5:12–16",
-          "Acts 7",
-          "Matthew 26:57–68 (par. Mark 14:53–65)"
+          "Acts 28",
+          "Acts 3"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27584,89 +28835,88 @@
     ]
   },
   "pharaohDreams": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Pharaoh\\",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Genesis 41",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Pharaoh's Dreams (Genesis 41).",
+      "Pharaoh dreams of fat and thin cows Joseph explains: 7 good years, 7 hard years Joseph is put in charge—God's plan works!",
+      "God promotes the faithful!",
+      "Stay humble and trust His timing."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Pharaoh\\?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Genesis 41",
+          "Matthew 14:22–33",
+          "Joshua 7:1-11",
+          "John 2:13–16"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 41.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "James",
+          "Mary — and Jesus who receives her love",
+          "God",
+          "Priscilla"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "God promotes the faithful! Stay humble and trust His timing.",
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God promotes the faithful! Stay humble and trust His timing..)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "A spaceship landed in the parking lot.",
+          "A talking toaster became king of the city.",
+          "Everyone decided to never sleep again.",
+          "Pharaoh dreams of fat and thin cows"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "God promotes the faithful! Stay humble and trust His timing.",
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong.",
+          "Ignore God until we are older."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God promotes the faithful! Stay humble and trust His timing..)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Pharaoh\\",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Pharaoh's Dreams with God's Word today.",
+    "takeaway": "God promotes the faithful! Stay humble and trust His timing.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Pharaoh's Dreams. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Pharaoh dreams of fat and thin cows (pharaoh)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph explains: 7 good years, 7 hard years (dreams)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph is put in charge—God's plan works! (cows)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Pharaoh dreams of fat and thin cows (joseph)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Joseph explains: 7 good years, 7 hard years (genesis 41)"
+    ]
   },
   "philemonForgiveness": {
     "kjvRef": "Philemon 1:16",
@@ -27681,9 +28931,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Philemon 1:16",
-          "Job 2:13",
-          "2 Kings 22:2",
-          "Luke 10:38–42"
+          "2 Timothy 1:5–7; 3:15",
+          "Judges 6:36",
+          "Isaiah 6:3"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27936,9 +29186,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 9:36–43",
-          "Joshua 6:1-21",
-          "Luke 24",
+          "Matthew; Mark; Luke; John (Gospels overview)",
+          "John 1:1",
+          "John 10:1–18",
           "Acts 8:26–40"
         ],
         "correctIndex": 3,
@@ -28192,10 +29442,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:18–20",
-          "Jeremiah 1:5,7",
+          "Luke 24:50–53; Acts 1:6–11",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
           "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Nehemiah 8:8"
+          "1 Samuel 1"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -28362,9 +29612,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Romans 16:1–2",
-          "Genesis 18:9–15",
-          "Exodus 40:1-38",
-          "Matthew 21:1–11"
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "Jonah 1:1–17; 2:1–10; 3:1–10",
+          "Acts 16:14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -28446,9 +29696,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "Mark 1:1",
-          "Genesis 37:28",
-          "John 4:46–54"
+          "Zechariah 1:3",
+          "1 Timothy 4:12",
+          "Ephesians 6"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -28530,10 +29780,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
-          "Philemon 1",
+          "Luke 24:50–53; Acts 1:6–11",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
           "Matthew 7",
-          "Luke 10:38–42"
+          "1 Samuel 1"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -28614,9 +29864,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 19:1–10",
-          "Ephesians 6",
-          "Revelation 22",
+          "Philippians 4:4",
+          "Revelation 19",
+          "John 4:1–42",
           "Acts 18:24–28"
         ],
         "correctIndex": 3,
@@ -28698,9 +29948,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 2:7",
-          "Matthew 20:1–16",
-          "Exodus 7:8–13",
+          "Malachi 3:1",
+          "Acts 13–14",
+          "Nehemiah 4:6",
           "Acts 18:1–3, 18–19"
         ],
         "correctIndex": 3,
@@ -28904,92 +30154,126 @@
     "readAlongImages": []
   },
   "psalm23": {
-    "kjvRef": "“The LORD is my shepherd; I shall not want.” (Psalm 23:1)",
-    "verseExcerpt": "“The LORD is my shepherd; I shall not want.” (Psalm 23:1)",
-    "readAlongTitle": "The Lord Is My Shepherd",
-    "quizWrongHumilityHint": "Remembering the Lord is our Shepherd on hard days and quiet ones.",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "The Lord is my Shepherd.",
-      "He lets me rest in green pastures and leads me beside still waters.",
-      "Even in dark valleys I do not need to be afraid, because He is with me.",
-      "His goodness and mercy follow me all my life.",
-      "The Lord is still your Shepherd — you are not alone.",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of The Lord Is My Shepherd?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "The Lord is my Shepherd.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "Remembering the Lord is our Shepherd on hard days and quiet ones.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "The Lord is still your Shepherd — you are not alone.",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "The Lord is my Shepherd. He lets me rest in green pastures and leads me beside still waters. Even in dark valleys I do not need to be afraid, because He is with me. His goodness and mercy follow me all my life.",
-    "retelling912": "",
-    "retelling1317": "",
+    "kjvRef": "Psalm 23:1-6 (KJV)",
+    "verseExcerpt": "The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. — Psalm 23:1-2 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "The Good Shepherd knows His sheep — we can rest in His care.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
     "readAlongSections": [
       {
-        "text": "The Lord is my Shepherd. He lets me rest in green pastures and leads me beside still waters. Even in dark valleys I do not need to be afraid…",
-        "caption": "The Lord Is My Shepherd",
-        "image": "panel-noah-1.svg"
+        "text": "The LORD is my shepherd; I shall not want.",
+        "caption": "The LORD is my shepherd",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+        "caption": "Green pastures — still waters",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+        "caption": "He restoreth my soul",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+        "caption": "Thou art with me — rod and staff",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+        "caption": "Thou preparest a table — my cup runneth over",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+        "caption": "Goodness and mercy — dwell in the house of the LORD",
+        "image": "panel-david-3.svg"
       }
     ],
-    "readAlongImages": []
+    "paragraphs": [
+      "The Lord is my shepherd; I shall not want.",
+      "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+      "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+      "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+      "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+      "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+      "For you: The same Lord who leads sheep beside quiet water leads His people with kindness — you can speak to Him anytime."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Who does the psalm say is our shepherd?",
+        "choices": [
+          "A sheep.",
+          "The LORD.",
+          "Only kings.",
+          "No one."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes — the LORD cares for His own.",
+        "wrongFeedback": "Listen for the first line. (Answer: The LORD.)"
+      },
+      {
+        "question": "Where does He lead His sheep besides green pastures?",
+        "choices": [
+          "Into fear only.",
+          "Beside the still waters.",
+          "Away from rest.",
+          "The psalm does not say."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Quiet water — a picture of peace.",
+        "wrongFeedback": "Listen for waters. (Answer: Beside the still waters.)"
+      },
+      {
+        "question": "In the dark valley, why does the writer say, \"I will fear no evil\"?",
+        "choices": [
+          "Because evil is not real.",
+          "For thou art with me.",
+          "Because there is no valley.",
+          "Because sheep are never afraid."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "God's presence is the comfort.",
+        "wrongFeedback": "Listen for with me. (Answer: For thou art with me.)"
+      },
+      {
+        "question": "What comforts the writer alongside the rod?",
+        "choices": [
+          "A loud storm.",
+          "Thy staff.",
+          "Running away.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Rod and staff — gentle care.",
+        "wrongFeedback": "Listen for staff. (Answer: Thy staff.)"
+      },
+      {
+        "question": "How does the psalm end?",
+        "choices": [
+          "With anger.",
+          "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+          "With confusion.",
+          "With silence."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A peaceful home with the LORD — for ever.",
+        "wrongFeedback": "Listen for goodness and mercy. (Answer: …dwell in the house of the LORD for ever.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Beautiful job resting in Psalm 23 with God's Word today.",
+    "takeaway": "The LORD is my shepherd — He gives rest, presence in hard places, and a home with Him.",
+    "prayer": "Lord, thank You that You are our Shepherd. Lead us beside still waters today. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces gentle young shepherd boy staff in hand leading two sheep beside still pond water green pasture grass soft hills bright open sky kind protecting face restful safe mood minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The LORD is my shepherd",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Still waters green pastures",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Thou art with me",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Goodness and mercy"
+    ]
   },
   "psalm23Shepherd": {
     "kjvRef": "Psalm 23:1-6 (KJV)",
@@ -29806,89 +31090,88 @@
     "readAlongImages": []
   },
   "redSeaCrossing": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Red Sea Crossing",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Exodus 14",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Red Sea Crossing (Exodus 14).",
+      "Egypt's army chases Israel God tangles the chariot wheels Israel is safe—Egypt is stopped!",
+      "God stops the enemy for you!",
+      "When you're afraid, He fights your battle."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Red Sea Crossing?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Acts 27",
+          "Exodus 14",
+          "Exodus 2:5",
+          "Matthew 13:1–23"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 14.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "John",
+          "Stephen",
+          "God",
+          "Jesus"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up.",
+          "God stops the enemy for you! When you're afraid, He fights your battle."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God stops the enemy for you! When you're afraid, He fights your battle..)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Egypt's army chases Israel",
+          "A talking toaster became king of the city.",
+          "Everyone decided to never sleep again.",
+          "A spaceship landed in the parking lot."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "Never say sorry when we do wrong.",
+          "God stops the enemy for you! When you're afraid, He fights your battle.",
+          "Ignore God until we are older.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God stops the enemy for you! When you're afraid, He fights your battle..)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Red Sea Crossing",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Red Sea Crossing with God's Word today.",
+    "takeaway": "God stops the enemy for you! When you're afraid, He fights your battle.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Red Sea Crossing. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Egypt's army chases Israel (red sea)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God tangles the chariot wheels (chariot)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Israel is safe—Egypt is stopped! (egypt)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Egypt's army chases Israel (exodus 14)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God tangles the chariot wheels (army)"
+    ]
   },
   "resurrection": {
     "kjvRef": "Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)",
@@ -30042,9 +31325,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1–22",
-          "Luke 24:50–53; Acts 1:6–11",
-          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "Jonah 1:1–17; 2:1–10; 3:1–10"
+          "Exodus 14:21-22",
+          "Matthew 25:14–30",
+          "Acts 27–28"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30126,9 +31409,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 17–18",
-          "Judges 14:5-9",
-          "Numbers 13:1-33; 14:1-9",
-          "Revelation 12"
+          "Luke 24:50–53; Acts 1:6–11",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "1 Samuel 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30207,10 +31490,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 18:21–35",
-          "Exodus 20:1-17",
+          "1 Samuel 18:6-11, 17-19:17",
+          "1 Corinthians 12",
           "Revelation 13",
-          "Hebrews 11:39-40"
+          "2 Kings 6:8-17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30292,9 +31575,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Matthew 18:21–35",
-          "Exodus 20:1-17",
-          "Hebrews 11:39-40"
+          "Matthew 28:18–20",
+          "Nehemiah 8:8",
+          "Jeremiah 1:5,7"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30373,9 +31656,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 20:1–16",
-          "Acts 16:16–40",
-          "Exodus 7:8–13",
+          "Matthew 21:1–11",
+          "Genesis 3",
+          "Exodus 20:1-17",
           "Revelation 1–3"
         ],
         "correctIndex": 3,
@@ -30541,10 +31824,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 1–3",
-          "Philemon 1:16",
+          "Numbers 21:1-9",
+          "Hebrews 11:39-40",
           "Revelation 21–22",
-          "Ruth 3:1-18"
+          "1 Samuel 17:1-11, 32-51"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30626,9 +31909,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 6–8:1",
-          "Galatians 5:22-23",
-          "Hebrews 11",
-          "Mark 10:13–16"
+          "1 Corinthians 12",
+          "1 Samuel 18:6-11, 17-19:17",
+          "2 Kings 6:8-17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30708,9 +31991,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 14–15",
-          "John 20:11–18 (KJV) (par. Mark 16:9–11)",
-          "2 Timothy 1:16",
-          "Joshua 24:14-15"
+          "Hebrews 11:1",
+          "Matthew 4:18–22; Luke 5:1–11",
+          "Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30789,10 +32072,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 5–7",
+          "Judges 4:1-16",
           "Revelation 19",
-          "Malachi 3:1",
-          "Genesis 40"
+          "Nehemiah 8:8",
+          "2 Kings 6:1-7"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30873,10 +32156,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 15:36–18:22",
-          "Acts 12:1–19",
+          "1 Samuel 1:1-20",
+          "Matthew 21:23–27",
           "Revelation 20",
-          "Matthew 13:45–46"
+          "Matthew 21:18–22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30957,10 +32240,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 24:14-15",
-          "Luke 19:41–44; Matthew 23:37",
+          "1 Kings 17:1-7",
+          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
           "the Bible",
-          "John 20:11–18 (KJV) (par. Mark 16:9–11)"
+          "Esther 4:14"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -31042,9 +32325,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 39–40",
-          "John 9:1–38",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
+          "Galatians 5:22-23",
+          "Hebrews 11",
+          "Mark 10:13–16",
           "Revelation 4–5"
         ],
         "correctIndex": 3,
@@ -31126,9 +32409,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 8–11",
-          "Luke 2:41–52",
-          "Mark 10:13–16",
-          "Hebrews 11"
+          "Numbers 13:1-33; 14:1-9",
+          "Judges 14:5-9",
+          "Revelation 12"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -31209,9 +32492,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 4:35–41",
-          "Genesis 37:28",
-          "Matthew 4:1–11; Luke 4:1–13",
+          "Acts 18:23–21:17",
+          "Revelation 1–3",
+          "Philemon 1:16",
           "Revelation 12"
         ],
         "correctIndex": 3,
@@ -31422,9 +32705,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Matthew 14:22–33",
-          "John 2:13–16",
-          "Joshua 7:1-11"
+          "Ruth 1",
+          "Revelation 17–18",
+          "1 Samuel 9–10"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -31492,89 +32775,86 @@
     ]
   },
   "roadToEmmaus": {
-    "kjvRef": "[Paste exact KJV line with reference in parentheses]",
-    "verseExcerpt": "[Paste exact KJV line with reference in parentheses]",
-    "readAlongTitle": "Road to Emmaus",
-    "quizWrongHumilityHint": "[Paste emotional focus — calm, specific, ages 3–8]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Luke 24:13–35",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[Paste short warm read-aloud]",
-      "[Paste one warm closing line in quotes]",
-      "Reference: "
+      "Road to Emmaus (Luke 24:13–35).",
+      "Two disciples walk to Emmaus Jesus walks with them Jesus explains—they recognize Him!"
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Road to Emmaus?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[Paste short warm read-aloud].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Luke 24:13–35",
+          "Judges 16:23-30",
+          "Revelation 19",
+          "Philippians 4:4"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Luke 24:13–35.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Paul",
+          "Jesus",
+          "Holy Spirit",
+          "The Holy Ghost"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[Paste emotional focus — calm, specific, ages 3–8]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Jesus walks with us—He explains! He's with you on every road!",
+          "The Bible is only pretend stories.",
+          "God never hears when kids pray.",
+          "We should hide from God when we mess up."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus walks with us—He explains! He's with you on every road!.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "[Paste one warm closing line in quotes]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "A spaceship landed in the parking lot.",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "Two disciples walk to Emmaus"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Jesus walks with us—He explains! He's with you on every road!",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "Ignore God until we are older."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus walks with us—He explains! He's with you on every road!.)"
       }
     ],
-    "retelling38": "[Paste short warm read-aloud]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[Paste short warm read-aloud]",
-        "caption": "Road to Emmaus",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Road to Emmaus with God's Word today.",
+    "takeaway": "Jesus walks with us—He explains! He's with you on every road!",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Road to Emmaus. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Two disciples walk to Emmaus (emmaus)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus walks with them (road)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus explains—they recognize Him! (walk)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Two disciples walk to Emmaus (luke 24)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus walks with them (explain)"
+    ]
   },
   "romansLove": {
     "kjvRef": "Romans 8:38-39",
@@ -31588,10 +32868,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:1–10 (KJV) (par. Mark 16:1–8; Luke 24:1–12; John 20:1–18)",
+          "Exodus 14:21-31",
           "Romans 8:38-39",
-          "Judges 13:1-25",
-          "1 Kings 3:16-28"
+          "John 1:1",
+          "1 Corinthians 13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -31756,10 +33036,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 20:10",
-          "2 Kings 6:18-23",
+          "2 Samuel 9:1-13",
+          "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23)",
           "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Judges 7:1-22"
+          "Matthew 13:47–50"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -31958,9 +33238,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 20:24–29 (KJV)",
-          "Romans 16:3",
-          "Luke 19:1–10",
+          "2 Samuel 9:1-13",
+          "Acts 28",
+          "Matthew 13:47–50",
           "Ruth 2"
         ],
         "correctIndex": 3,
@@ -32043,9 +33323,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Timothy 1:16",
-          "Acts 10:34",
-          "Romans–Philemon",
+          "1 Samuel 1:21-28; 2:1-11, 18-21",
+          "Matthew 27:11–26 (KJV) (par. Mark 15:1–15; Luke 23:1–25; John 18:28–19:16)",
+          "Acts 7",
           "Ruth 1"
         ],
         "correctIndex": 3,
@@ -32618,89 +33898,123 @@
     "readAlongImages": []
   },
   "samariaSiege": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "samaria Siege",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of samaria Siege?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
+    "kjvRef": "2 Kings 6:24-7:20 (KJV)",
+    "verseExcerpt": "So a measure of fine flour was sold for a shekel, and two measures of barley for a shekel, according to the word of the LORD. — 2 Kings 7:16 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — the LORD made the Syrians hear a noise of chariots and horses, and they fled and left food behind.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "samaria Siege",
-        "image": "panel-noah-1.svg"
+        "text": "And it came to pass after this, that Benhadad king of Syria gathered all his host, and went up, and besieged Samaria.",
+        "caption": "The king of Syria besieged Samaria",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Then Elisha said, Hear ye the word of the LORD; Thus saith the LORD, To morrow about this time shall a measure of fine flour be sold for a shekel, and two measures of barley for a shekel, in the gate of Samaria.",
+        "caption": "To morrow — flour and barley in the gate of Samaria",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Then a lord on whose hand the king leaned answered the man of God, and said, Behold, if the LORD would make windows in heaven, might this thing be? And he said, Behold, thou shalt see it with thine eyes, but shalt not eat thereof.",
+        "caption": "If the LORD would make windows in heaven — thou shalt see it, but shalt not eat thereof",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "For the LORD had made the host of the Syrians to hear a noise of chariots, and a noise of horses, even the noise of a great host: and they said one to another, Lo, the king of Israel hath hired against us the kings of the Hittites, and the kings of the Egyptians, to come upon us.",
+        "caption": "The LORD made them hear a noise of chariots and horses",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Wherefore they arose and fled in the twilight, and left their tents, and their horses, and their asses, even the camp as it was, and fled for their life.",
+        "caption": "They fled and left their tents and food behind",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And the people went out, and spoiled the tents of the Syrians. So a measure of fine flour was sold for a shekel, and two measures of barley for a shekel, according to the word of the LORD.",
+        "caption": "The people found food — according to the word of the LORD",
+        "image": "panel-jesus-3.svg"
       }
     ],
-    "readAlongImages": []
+    "paragraphs": [
+      "There was a great famine in Samaria because the city was shut in; the king of Israel was full of sorrow for his people. But Elisha sat with the elders — God still spoke.",
+      "Elisha said, Hear ye the word of the LORD: tomorrow about this time there shall be flour and barley sold in the gate of Samaria for a small price. A lord who leaned on the king’s hand wondered if the LORD could open windows in heaven; Elisha said, Thou shalt see it with thine eyes, but shalt not eat thereof.",
+      "That night the LORD caused the Syrian army to hear a noise of chariots and horses like a great host. They fled in haste and left their camp full of food. Messengers found the way empty; the people went out and brought in plenty. It happened as God said — He fed His people when things looked impossible.",
+      "Reference: 2 Kings 6:24-7:20 (KJV). Some verses name hard hunger and one sad end; this story for little hearts stays with God’s promise, His wonder, and the plenty that came true."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "What did Elisha say the LORD promised for the next day?",
+        "choices": [
+          "No rain at all.",
+          "Flour and barley sold in the gate of Samaria for a shekel.",
+          "The wall would fall down.",
+          "Everyone would leave the city."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Tomorrow about this time — flour and barley in the gate.",
+        "wrongFeedback": "Listen for flour, barley, and gate of Samaria."
+      },
+      {
+        "question": "What did the doubtful lord ask about?",
+        "choices": [
+          "A new horse.",
+          "Whether the LORD would make windows in heaven.",
+          "A bigger wall.",
+          "A shorter day."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He wondered if God could pour out such plenty.",
+        "wrongFeedback": "Listen for windows in heaven."
+      },
+      {
+        "question": "What did the LORD make the Syrian army hear?",
+        "choices": [
+          "Silence only.",
+          "A noise of chariots and horses, like a great host.",
+          "Only birds.",
+          "Rain only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A noise of chariots and horses — and they were afraid.",
+        "wrongFeedback": "Listen for chariots and horses."
+      },
+      {
+        "question": "What did the Syrian army leave behind when they fled?",
+        "choices": [
+          "Nothing at all.",
+          "Their tents, horses, and food.",
+          "Only water.",
+          "Only swords."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "They left the camp — and God used it to feed His people.",
+        "wrongFeedback": "Listen for tents and what they left."
+      },
+      {
+        "question": "How did the flour and barley sale match Elisha’s word?",
+        "choices": [
+          "It did not happen.",
+          "A measure of fine flour for a shekel, and two measures of barley for a shekel.",
+          "It was free only for soldiers.",
+          "Only barley was sold."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "According to the word of the LORD — just as He said.",
+        "wrongFeedback": "Listen for measure of flour and two measures of barley."
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God can turn a hungry day into a day of plenty when He speaks.",
+    "takeaway": "Elisha trusted God’s word before anyone saw food — and God fed His people in a wonderful way.",
+    "prayer": "Lord, thank You for caring when we are hungry in body or heart. Help us trust Your word. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines gate of Samaria people gathering flour barley sacks smiling faces Elisha standing kind expression abandoned tents soft hills minimal thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Gate of Samaria grain plenty",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Elisha word of the LORD tomorrow",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Noise of chariots horses wonder",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text People spoiled tents food plenty"
+    ]
   },
   "samaritanWoman": {
     "kjvRef": "John 4:1–42 (KJV) — gentle summary for little hearts",
@@ -33853,174 +35167,173 @@
     "readAlongImages": []
   },
   "sarahLaughs": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Sarah Laughs",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Genesis 18:9–15",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Sarah Laughs (Genesis 18:9–15).",
+      "An angel visits Abraham's tent Sarah hears she will have a baby Sarah laughs—then holds baby Isaac!",
+      "Nothing is impossible with God!",
+      "He keeps every promise."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Sarah Laughs?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Genesis 18:9–15",
+          "1 Samuel 18:1-4; 20:1-42",
+          "2 Kings 6:18-23",
+          "Colossians 1:15–20; 3:1–4, 12–17"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 18:9–15.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "Priscilla",
+          "Jonathan",
+          "God",
+          "Mary — and Jesus who receives her love"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Nothing is impossible with God! He keeps every promise.",
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Nothing is impossible with God! He keeps every promise..)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "A spaceship landed in the parking lot.",
+          "A talking toaster became king of the city.",
+          "Everyone decided to never sleep again.",
+          "An angel visits Abraham's tent"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Nothing is impossible with God! He keeps every promise.",
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong.",
+          "Ignore God until we are older."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Nothing is impossible with God! He keeps every promise..)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Sarah Laughs",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Sarah Laughs with God's Word today.",
+    "takeaway": "Nothing is impossible with God! He keeps every promise.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Sarah Laughs. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: An angel visits Abraham's tent (sarah)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Sarah hears she will have a baby (laugh)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Sarah laughs—then holds baby Isaac! (angel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: An angel visits Abraham's tent (genesis 18)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Sarah hears she will have a baby (baby)"
+    ]
   },
   "sarahPromise": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Sarah Receives the Promise",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "the Bible",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Sarah Receives the Promise (the Bible). God promises Sarah a baby—at 90!",
+      "She laughed—but God said: is anything too hard?",
+      "Baby Isaac is born—the promise kept!",
+      "God always keeps His promises!",
+      "Even the ones that seem impossible are safe in His hands."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Sarah Receives the Promise?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Matthew 6",
+          "the Bible",
+          "Judges 13:1-25",
+          "Revelation 4–5"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "God",
+          "Holy Spirit",
+          "The Holy Ghost",
+          "The LORD"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up.",
+          "God never hears when kids pray.",
+          "God always keeps His promises! Even the ones that seem impossible are safe in His hands."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God always keeps His promises! Even the ones that seem impossible are safe in His hands..)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "God promises Sarah a baby—at 90!",
+          "A spaceship landed in the parking lot."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "Ignore God until we are older.",
+          "God always keeps His promises! Even the ones that seem impossible are safe in His hands.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God always keeps His promises! Even the ones that seem impossible are safe in His hands..)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Sarah Receives the Promise",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Sarah Receives the Promise with God's Word today.",
+    "takeaway": "God always keeps His promises! Even the ones that seem impossible are safe in His hands.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Sarah Receives the Promise. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God promises Sarah a baby—at 90! (sarah)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She laughed—but God said: is anything too hard? (promise)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Baby Isaac is born—the promise kept! (genesis 18)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God promises Sarah a baby—at 90! (isaac)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She laughed—but God said: is anything too hard? (laugh)"
+    ]
   },
   "saulConversion": {
     "kjvRef": "“Saul, Saul, why persecutest thou me?” (Acts 9:4)",
@@ -34123,9 +35436,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 13; 15",
-          "John 11:1–44",
-          "1 John 1–5",
-          "Matthew 28:16–20; Mark 16:15–18"
+          "Ruth 2:12",
+          "Genesis 3",
+          "Matthew 21:1–11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -34207,10 +35520,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 16:11–15",
+          "Luke 2:7",
           "1 Samuel 9–10",
-          "Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)",
-          "Joshua 3:14-17; 4:1-7, 18-24"
+          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "Jonah 1:17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -34291,10 +35604,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 9:1–38",
+          "Genesis 37:3",
           "1 Samuel 18",
-          "Acts 9:1–19",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32"
+          "2 Kings 5:1-14",
+          "Malachi 3:1; 4:5–6"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -34619,89 +35932,123 @@
     "readAlongImages": []
   },
   "shunammiteReturn": {
-    "kjvRef": "[Paste the exact Key KJV the user will provide]",
-    "verseExcerpt": "[Paste the exact Key KJV the user will provide]",
-    "readAlongTitle": "shunammite Return",
-    "quizWrongHumilityHint": "[Creation / Thankfulness / Wonder focus — paste user text here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "[Paste the gentle retelling for ages 3–8]",
-      "[Paste the short warm response line]",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of shunammite Return?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "[Paste the gentle retelling for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "[Creation / Thankfulness / Wonder focus — paste user text here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "[Paste the short warm response line]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "[Paste the gentle retelling for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
+    "kjvRef": "2 Kings 8:1-6 (KJV)",
+    "verseExcerpt": "So the king appointed unto her a certain officer, saying, Restore all that was hers, and all the fruits of the field since the day that she left the land, even until now. — 2 Kings 8:6 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — the king had an officer restore all that was hers, with the fruits of the field.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
     "readAlongSections": [
       {
-        "text": "[Paste the gentle retelling for ages 3–8]",
-        "caption": "shunammite Return",
-        "image": "panel-noah-1.svg"
+        "text": "Then spake Elisha unto the woman, whose son he had restored to life, saying, Arise, and go thou and thine household, and sojourn wheresoever thou canst sojourn: for the LORD hath called for a famine; and it shall also come upon the land seven years.",
+        "caption": "Arise, and go — a famine seven years",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And the woman arose, and did after the saying of the man of God: and she went with her household, and sojourned in the land of the Philistines seven years.",
+        "caption": "She sojourned in the land of the Philistines seven years",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And it came to pass at the seven years’ end, that the woman returned out of the land of the Philistines: and she went forth to cry unto the king for her house and for her land.",
+        "caption": "She returned — cry unto the king for her house and for her land",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And the king talked with Gehazi the servant of the man of God, saying, Tell me, I pray thee, all the great things that Elisha hath done.",
+        "caption": "Tell me, I pray thee, all the great things that Elisha hath done",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And it came to pass, as he was telling the king how he had restored a dead body to life, that, behold, the woman, whose son he had restored to life, cried to the king for her house and for her land. And Gehazi said, My lord, O king, this is the woman, and this is her son, whom Elisha restored to life.",
+        "caption": "This is the woman, and this is her son, whom Elisha restored to life",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And when the king asked the woman, she told him. So the king appointed unto her a certain officer, saying, Restore all that was hers, and all the fruits of the field since the day that she left the land, even until now.",
+        "caption": "Restore all that was hers — all the fruits of the field",
+        "image": "panel-jesus-3.svg"
       }
     ],
-    "readAlongImages": []
+    "paragraphs": [
+      "Elisha spoke to the woman whose son he had raised: a famine was coming seven years; she should take her household and sojourn where they could. She obeyed and stayed in the land of the Philistines those seven years.",
+      "When the years ended, she came back and asked the king for her house and her land. The king was talking with Gehazi about the great things Elisha had done — and just then she came in. Gehazi said, This is the woman, and this is her son, whom Elisha restored to life.",
+      "The king listened; then he sent an officer: restore all that was hers, and all the fruits of the field from when she left until now. God remembered her family and gave back what belonged to them.",
+      "For you: God keeps loving the same people through hard years — and He can restore what feels lost when we trust Him."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Why did Elisha tell the woman to go away for a while?",
+        "choices": [
+          "To find new friends only.",
+          "The LORD had called for a famine — seven years upon the land.",
+          "To hide from the king.",
+          "To buy more land."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Elisha said the LORD had called for a famine seven years.",
+        "wrongFeedback": "Listen for famine and seven years."
+      },
+      {
+        "question": "After seven years, what did the woman ask the king for?",
+        "choices": [
+          "Only silver.",
+          "Her house and her land.",
+          "A new city.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "She cried to the king for her house and for her land.",
+        "wrongFeedback": "Listen for house and land."
+      },
+      {
+        "question": "Who was the king talking with when she came in?",
+        "choices": [
+          "Naaman only.",
+          "Gehazi the servant of the man of God.",
+          "A Philistine captain.",
+          "Her son only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The king talked with Gehazi about Elisha’s great works.",
+        "wrongFeedback": "Listen for Gehazi and the man of God."
+      },
+      {
+        "question": "What did Gehazi say to the king about the woman and boy?",
+        "choices": [
+          "He did not know them.",
+          "This is the woman, and this is her son, whom Elisha restored to life.",
+          "They were strangers.",
+          "They needed to leave."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "He pointed to the same miracle the king was hearing about.",
+        "wrongFeedback": "Listen for this is the woman and her son."
+      },
+      {
+        "question": "What did the king tell the officer to do?",
+        "choices": [
+          "Take her land.",
+          "Restore all that was hers, and all the fruits of the field since she left.",
+          "Send her away empty.",
+          "Build a new palace."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Restore all — house, land, and the field’s increase.",
+        "wrongFeedback": "Listen for restore all that was hers and fruits of the field."
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God remembers faithful families and can restore what belongs to them.",
+    "takeaway": "She obeyed God in the famine years; when she came home, the king listened and gave back her house and land with kindness.",
+    "prayer": "Lord, thank You for remembering families. Help us trust You in hard seasons. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines woman and boy standing calmly before seated king on simple throne kind officer nearby thankful faces thick outlines white space ages 3-8 coloring page palace doorway soft walls minimal",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Shunammite woman son before king",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Gehazi points woman restored son",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text King listens gentle officer scroll",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Restore house land fruits field"
+    ]
   },
   "silasPaulSingingRevisited": {
     "kjvRef": "“And at midnight Paul and Silas prayed, and sang praises unto God.” (Acts 16:25)",
@@ -35161,90 +36508,119 @@
     ]
   },
   "solomonWisdom": {
-    "kjvRef": "“Give therefore thy servant an understanding heart to judge thy people, that I may discern between good and bad.” (1 Kings 3:9)",
-    "verseExcerpt": "“Give therefore thy servant an understanding heart to judge thy people, that I may discern between good and bad.” (1 Kings 3:9)",
-    "readAlongTitle": "Solomon Asks for Wisdom",
-    "quizWrongHumilityHint": "Asking God for wisdom when we don’t know what to do.",
+    "kjvRef": "1 Kings 3:5-15 (KJV)",
+    "verseExcerpt": "Give therefore thy servant an understanding heart to judge thy people, that I may discern between good and bad: for who is able to judge this thy so great a people? — 1 Kings 3:9 (KJV)",
+    "readAlongTitle": "Solomon Asks God for a Wise Heart",
+    "quizWrongHumilityHint": "God loves when we ask Him for wisdom and a heart that chooses what is right.",
     "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
-    "paragraphs": [
-      "Young King Solomon asked God for a wise heart instead of riches or long life.",
-      "God was pleased and gave him wisdom that amazed everyone.",
-      "You can ask God for wisdom anytime — He loves to give it.",
-      "Reference: "
-    ],
-    "questions": [
-      {
-        "question": "What happened in the story of Solomon Asks for Wisdom?",
-        "choices": [
-          "Something scary with no happy ending.",
-          "Young King Solomon asked God for a wise heart instead of riches or long life.",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
-      },
-      {
-        "question": "What does this story especially help us feel or understand?",
-        "choices": [
-          "Asking God for wisdom when we don’t know what to do.",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
-      },
-      {
-        "question": "What does the story want us to remember and do?",
-        "choices": [
-          "You can ask God for wisdom anytime — He loves to give it.",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
-      },
-      {
-        "question": "How can you live this story today?",
-        "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
-      }
-    ],
-    "retelling38": "Young King Solomon asked God for a wise heart instead of riches or long life. God was pleased and gave him wisdom that amazed everyone.",
-    "retelling912": "",
-    "retelling1317": "",
     "readAlongSections": [
       {
-        "text": "Young King Solomon asked God for a wise heart instead of riches or long life. God was pleased and gave him wisdom that amazed everyone.",
-        "caption": "Solomon Asks for Wisdom",
-        "image": "panel-noah-1.svg"
+        "text": "In Gibeon the LORD appeared to Solomon in a dream by night: and God said, Ask what I shall give thee.",
+        "caption": "The Lord in a dream — Ask what I shall give thee",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And Solomon said, I am but a little child: I know not how to go out or come in. Give therefore thy servant an understanding heart to judge thy people, that I may discern between good and bad: for who is able to judge this thy so great a people?",
+        "caption": "A humble prayer — an understanding heart",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And the speech pleased the LORD, that Solomon had asked this thing. And God said unto him, Because thou hast asked this thing, and hast not asked for thyself long life; neither hast asked riches for thyself, nor hast asked the life of thine enemies; but hast asked for thyself understanding to discern judgment;",
+        "caption": "The Lord was pleased with Solomon’s request",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Behold, I have done according to thy words: lo, I have given thee a wise and an understanding heart; so that there was none like thee before thee, neither after thee shall any arise like unto thee. And I have also given thee that which thou hast not asked, both riches, and honour: so that there shall not be any among the kings like unto thee all thy days.",
+        "caption": "God gave a wise heart — and kindness besides",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "And Solomon awoke; and, behold, it was a dream. And he came to Jerusalem, and stood before the ark of the covenant of the LORD, and offered up burnt offerings, and offered peace offerings, and made a feast to all his servants.",
+        "caption": "He awoke — and worshiped in Jerusalem",
+        "image": "panel-david-3.svg"
       }
     ],
-    "readAlongImages": []
+    "paragraphs": [
+      "Solomon was the new king. One night the Lord appeared to him in a dream and said, Ask what I shall give thee.",
+      "Solomon answered, I am but a little child… give therefore thy servant an understanding heart to judge thy people, that I may discern between good and bad.",
+      "The Lord was pleased that Solomon had asked for wisdom instead of long life, riches, or the life of his enemies.",
+      "God said, I have given thee a wise and an understanding heart, and I have also given thee that which thou hast not asked, both riches and honour.",
+      "Solomon learned that when we ask God for the right things with a humble heart, He answers with kindness."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "How did the LORD first speak to Solomon in this story?",
+        "choices": [
+          "Only in a letter.",
+          "In a dream by night.",
+          "Through a whale.",
+          "The Bible does not say."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "In Gibeon — in a dream by night.",
+        "wrongFeedback": "Listen for dream. (Answer: In a dream by night.)"
+      },
+      {
+        "question": "What did God tell Solomon to do?",
+        "choices": [
+          "Run away.",
+          "Ask what I shall give thee.",
+          "Stay silent forever.",
+          "Hide from the people."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "God invited him to ask.",
+        "wrongFeedback": "Listen for Ask what I shall give thee. (Answer: Ask what I shall give thee.)"
+      },
+      {
+        "question": "What did Solomon ask for to help him judge God’s people?",
+        "choices": [
+          "Only gold.",
+          "An understanding heart to judge thy people, that I may discern between good and bad.",
+          "A bigger palace.",
+          "Nothing at all."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Wisdom to judge rightly — not for himself first.",
+        "wrongFeedback": "Listen for understanding heart. (Answer: An understanding heart… discern between good and bad.)"
+      },
+      {
+        "question": "How did the LORD feel about Solomon’s request?",
+        "choices": [
+          "Angry.",
+          "The speech pleased the LORD.",
+          "Too busy to listen.",
+          "Unmoved."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Pleased — Solomon asked well.",
+        "wrongFeedback": "Listen for pleased. (Answer: The speech pleased the LORD.)"
+      },
+      {
+        "question": "After Solomon woke, where did he go to worship?",
+        "choices": [
+          "Nineveh.",
+          "Jerusalem — before the ark of the covenant of the LORD.",
+          "He stayed in Gibeon only.",
+          "Egypt."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Jerusalem — offerings before the ark.",
+        "wrongFeedback": "Listen for Jerusalem and ark. (Answer: Jerusalem — before the ark….)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Beautiful asking today — God loves a humble heart that seeks wisdom.",
+    "takeaway": "When we ask God for wisdom with a humble heart, He is pleased — and He knows what else we need.",
+    "prayer": "Lord, give us hearts that love wisdom and truth. Teach us to ask You first. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art for young children: young King Solomon kneeling in prayer at night with a soft humble face; gentle light rays from above; thick bold outlines with large open spaces on robe hands and ground; soft stars and a simple bed in the background with minimal lines; wonder-filled humble mood; Solomon asking God for wisdom; clean minimal no fear or piles of riches; plenty of white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Ask what I shall give thee",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Understanding heart",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text The speech pleased the LORD",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Stood before the ark"
+    ]
   },
   "spiesInCanaan": {
     "kjvRef": "Numbers 13:1-3, 17-33; 14:1-9 (KJV)",
@@ -35367,10 +36743,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 17–18",
-          "Ruth 1",
+          "Mark 10:13–16",
+          "Luke 2:41–52",
           "Acts 6:8–7:60",
-          "Acts 5:12–16"
+          "Hebrews 11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -35451,10 +36827,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-          "Acts 2:1–4",
+          "Revelation 19",
+          "Luke 2:22–38",
           "Acts 6:8–7:60",
-          "Acts 9:1–19"
+          "John 4:1–42"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -36094,89 +37470,89 @@
     "readAlongImages": []
   },
   "tenPlagues": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Ten Plagues of Egypt",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Exodus 7–12",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Ten Plagues – Exodus 7 to 12. Pharaoh would not let God's people go.",
+      "God sent Moses and Aaron to tell him, 'Let My people go.' Pharaoh said no, so God sent ten plagues: water to blood, frogs, lice, flies, sick animals, boils, hail, locusts, darkness, and finally the death of the firstborn. Each plague showed God was stronger than Egypt's gods.",
+      "For the last plague, God told His people to put lamb blood on their doors—the angel passed over them. Pharaoh finally let them go!",
+      "God shows His power to save. For you: When bad things happen or people are mean, God is stronger than anything.",
+      "Trust Him—He protects and sets free."
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Ten Plagues of Egypt?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "Esther 2:1–17",
+          "Exodus 7–12",
+          "1 Samuel 16:1-13",
+          "1 Kings 18:17-39"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Exodus 7–12.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "Joshua",
+          "The Lord",
+          "God",
+          "The apostles"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "God never hears when kids pray.",
+          "We should hide from God when we mess up.",
+          "The Bible is only pretend stories.",
+          "God sent ten plagues to show Pharaoh He was stronger than any false gods. The last plague was hard, but God protected His people with the…"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God sent ten plagues to show Pharaoh He was stronger than any false gods. The last….)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Moses and Aaron before Pharaoh – Asking to let people go",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "A spaceship landed in the parking lot."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
+          "Never say sorry when we do wrong.",
+          "When bad things happen or people are mean, God is stronger than anything. Trust Him—He protects and sets free.",
+          "Ignore God until we are older.",
+          "Only be kind to people who are exactly like us."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When bad things happen or people are mean, God is stronger than anything. Trust Him—He….)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Ten Plagues of Egypt",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Ten Plagues of Egypt with God's Word today.",
+    "takeaway": "God sent ten plagues to show Pharaoh He was stronger than any false gods. The last plague was hard, but God protected His people with the Passover lamb. God shows His power to save and protect. When…",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Ten Plagues of Egypt. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses and Aaron before Pharaoh – Asking to let people go (plagues)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Plagues coming on Egypt – God shows His power (egypt)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Passover door with blood – God protects His people (frogs)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Moses and Aaron before Pharaoh – Asking to let people go (darkness)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Plagues coming on Egypt – God shows His power (exodus 8)"
+    ]
   },
   "tenVirgins": {
     "kjvRef": "Matthew 25:1–13 (KJV) — gentle summary for little hearts",
@@ -36324,10 +37700,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 2:11",
+          "Judges 6:36",
           "1 Thessalonians 4:13–18; 5:16–24",
-          "Matthew 26:14–16; 26:47–50 (par. Mark 14:10–11, 43–46)",
-          "Daniel 6:1–23"
+          "1 Kings 17:8-16",
+          "2 Timothy 1:5–7; 3:15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -36630,10 +38006,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 22:35–40",
-          "Jeremiah 1:1–10; 13:17",
+          "Galatians 5",
+          "1 Samuel 1–2",
           "1 Timothy 4:12",
-          "Ezra 1:1–11; 3:1–6"
+          "Ephesians 6:11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -36798,10 +38174,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 21:18–22",
+          "1 Kings 19:19-21",
           "Titus 2:14",
-          "Matthew 21:23–27",
-          "1 Samuel 1:1-20"
+          "Galatians 5:22-23",
+          "Esther 5:1–8; 7:1–10"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -37092,89 +38468,87 @@
     "readAlongImages": []
   },
   "towerBabel": {
-    "kjvRef": "[PASTE the exact Key KJV verse the user provided]",
-    "verseExcerpt": "[PASTE the exact Key KJV verse the user provided]",
-    "readAlongTitle": "Tower of Babel",
-    "quizWrongHumilityHint": "[PASTE the Emotional Focus line the user wrote for this story here]",
-    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "kjvRef": "Genesis 11",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-      "[PASTE the exact short response line the user wrote]",
-      "Reference: "
+      "Tower of Babel (Genesis 11).",
+      "People build a tall tower God mixes up their words Everyone speaks different languages God is bigger than any tower!",
+      "He made all the languages—that's why we have so many ways to talk!"
     ],
+    "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "What happened in the story of Tower of Babel?",
+        "question": "Where is this story found in the Bible?",
         "choices": [
-          "Something scary with no happy ending.",
-          "[PASTE the full gentle retelling the user wrote for ages 3–8].",
-          "Everyone was perfect and nothing hard happened.",
-          "A mean person won."
+          "2 Kings 5:20-27",
+          "Acts 2:1–13",
+          "Genesis 11",
+          "Esther 4:1–17"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 11.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Mary — and Jesus who receives her love",
+          "God",
+          "Stephen",
+          "Jonathan"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes — you remembered the story well!",
-        "wrongFeedback": "Listen again for the kind or brave part."
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
       },
       {
-        "question": "What does this story especially help us feel or understand?",
+        "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "[PASTE the Emotional Focus line the user wrote for this story here]",
-          "We only need to be kind when we feel like it.",
-          "God only cares about big important people.",
-          "It is okay to stay angry forever."
+          "God is bigger than any tower! He made all the languages—that's why we have so many ways to talk!",
+          "The Bible is only pretend stories.",
+          "God never hears when kids pray.",
+          "We should hide from God when we mess up."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes! That is the heart of the story.",
-        "wrongFeedback": "The story shows us how God wants our hearts to be."
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God is bigger than any tower! He made all the languages—that's why we have so many ways….)"
       },
       {
-        "question": "What does the story want us to remember and do?",
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "[PASTE the exact short response line the user wrote]",
-          "We should never forgive.",
-          "Only grown-ups have to be kind.",
-          "It does not matter how we treat friends."
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "A spaceship landed in the parking lot.",
+          "People build a tall tower"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
-        "wrongFeedback": "Ask God to help you live this out today."
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
       },
       {
-        "question": "How can you live this story today?",
+        "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
-          "By staying quiet and never helping anyone.",
-          "By only being nice to people who are nice first.",
-          "By telling God I can do it all by myself."
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong.",
+          "God is bigger than any tower! He made all the languages—that's why we have so many ways to talk!",
+          "Ignore God until we are older."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes — little acts of love please Jesus.",
-        "wrongFeedback": "God is happy to help you be gentle and brave."
-      },
-      {
-        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
-        "choices": [
-          "Jesus — He is our forever friend who loves us.",
-          "Only the strongest people.",
-          "People who never make mistakes.",
-          "We have to earn it by being perfect."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
-        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+        "correctIndex": 2,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God is bigger than any tower! He made all the languages—that's why we have so many ways….)"
       }
     ],
-    "retelling38": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-    "retelling912": "",
-    "retelling1317": "",
-    "readAlongSections": [
-      {
-        "text": "[PASTE the full gentle retelling the user wrote for ages 3–8]",
-        "caption": "Tower of Babel",
-        "image": "panel-noah-1.svg"
-      }
-    ],
-    "readAlongImages": []
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Tower of Babel with God's Word today.",
+    "takeaway": "God is bigger than any tower! He made all the languages—that's why we have so many ways to talk!",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Tower of Babel. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People build a tall tower (babel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God mixes up their words (tower)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Everyone speaks different languages (confusion)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People build a tall tower (languages)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God mixes up their words (babylon)"
+    ]
   },
   "transfigure": {
     "kjvRef": "Matthew 17:1–13",
@@ -37187,10 +38561,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 4:4",
+          "Matthew; Mark; Luke; John (Gospels overview)",
           "Matthew 17:1–13",
-          "Acts 9:1–19",
-          "Acts 2:1–4"
+          "Matthew 17:20; Mark 11:23–24",
+          "Habakkuk 2:4"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -37258,22 +38632,3861 @@
     ]
   },
   "treeFruit": {
-    "kjvRef": "Revelation 22:1–2 (KJV)",
-    "hintAboveQuiz": "Look at the coloring picture, then read slowly.",
+    "kjvRef": "Revelation 22:1–2",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
     "paragraphs": [
-      "Tree of Life — Leaves for Healing (Revelation 22:1–2).",
+      "Tree of Life — Leaves for Healing – Revelation 22:1–2.",
       "In the new city a pure river of water of life flows from the throne of God and of the Lamb.",
-      "On either side of the river is the tree of life, with fruit every month—and leaves for the healing of the nations.",
-      "God’s healing love is for every nation—share His kindness today."
+      "On either side of the river is the tree of life, which bears twelve manner of fruits, and yields her fruit every month: and the leaves of the tree were for the healing of the nations.",
+      "For you: God makes things whole—His love is for everyone."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Romans 16:3",
-          "1 Samuel 18:1-4; 20:1-42",
-          "Colossians 1:15–20; 3:1–4, 12–17",
-          "the Bible"
+          "1 Samuel 18:6-11, 17-19:17",
+          "Ezekiel 37:4",
+          "2 Kings 6:8-17",
+          "Revelation 22:1–2"
         ],
         "correctIndex": 3,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Revelation 22:1–2.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "John",
+          "Jesus",
+          "Stephen"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God never hears when kids pray.",
+          "We should hide from God when we mess up.",
+          "God’s healing love is for every nation—share His kindness today.",
+          "The Bible is only pretend stories."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God’s healing love is for every nation—share His kindness today..)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Everyone decided to never sleep again.",
+          "A spaceship landed in the parking lot.",
+          "The tree of life grows by the river of life",
+          "A talking toaster became king of the city."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "God makes things whole—His love is for everyone."
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God makes things whole—His love is for everyone..)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Tree of Life — Leaves for Healing with God's Word today.",
+    "takeaway": "God’s healing love is for every nation—share His kindness today.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Tree of Life — Leaves for Healing. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The tree of life grows by the river of life (tree of life)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Its leaves are for the healing of the nations (tree fruit)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: In God's city—everything is made whole! (healing leaves)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The tree of life grows by the river of life (revelation 22)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Its leaves are for the healing of the nations (revelation 22:2)"
+    ]
+  },
+  "treeOfLife": {
+    "kjvRef": "Revelation 22:1–2",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "paragraphs": [
+      "The Tree of Life – Revelation 22:1–2.",
+      "A pure river of water of life, clear as crystal, proceeds out of the throne of God and of the Lamb.",
+      "In the midst of the street of it, and on either side of the river, was there the tree of life, which bare twelve manner of fruits, and yielded her fruit every month: and the leaves of the tree were for the healing of the nations.",
+      "For you: God makes all things new—and He provides forever."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Revelation 22:1–2",
+          "Hebrews 11:39-40",
+          "Matthew 18:21–35",
+          "Exodus 20:1-17"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Revelation 22:1–2.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Jesus",
+          "God",
+          "Stephen",
+          "John"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God's healing never runs out! In His new world, everything is made whole.",
+          "The Bible is only pretend stories.",
+          "God never hears when kids pray.",
+          "We should hide from God when we mess up."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God's healing never runs out! In His new world, everything is made whole..)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "A beautiful tree grows by the river"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "God makes all things new—and He provides forever.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us.",
+          "Ignore God until we are older."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God makes all things new—and He provides forever..)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading The Tree of Life with God's Word today.",
+    "takeaway": "God's healing never runs out! In His new world, everything is made whole.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Tree of Life. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A beautiful tree grows by the river (tree of life)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: It bears twelve kinds of fruit every month (revelation 22)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Its leaves heal the nations—God provides! (revelation 22:2)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A beautiful tree grows by the river (fruit)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: It bears twelve kinds of fruit every month (heal)"
+    ]
+  },
+  "trial": {
+    "kjvRef": "Matthew 27:11–26 (KJV) (par. Mark 15:1–15; Luke 23:1–25; John 18:28–19:16)",
+    "verseExcerpt": "And Jesus said unto him, Thou sayest. — Matthew 27:11 (KJV)",
+    "readAlongTitle": "Jesus Before Pilate",
+    "quizWrongHumilityHint": "Listen again — governor; King of the Jews; Thou sayest; accused; answered nothing; marvelled greatly; Barabbas; Jesus which is called Christ; persuaded; Let him be crucified; washed his hands; just person; delivered to be crucified.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "And Jesus stood before the governor: and the governor asked him, saying, Art thou the King of the Jews? And Jesus said unto him, Thou sayest.",
+      "And when he was accused of the chief priests and elders, he answered nothing. Then said Pilate unto him, Hearest thou not how many things they witness against thee? And he answered him to never a word; insomuch that the governor marvelled greatly.",
+      "Now at that feast the governor was wont to release unto the people a prisoner, whom they would. And they had then a notable prisoner, called Barabbas. Therefore when they were gathered together, Pilate said unto them, Whom will ye that I release unto you? Barabbas, or Jesus which is called Christ? For he knew that for envy they had delivered him.",
+      "When he was set down on the judgment seat, his wife sent unto him, saying, Have thou nothing to do with that just man: for I have suffered many things this day in a dream because of him. But the chief priests and elders persuaded the multitude that they should ask Barabbas, and destroy Jesus.",
+      "The governor answered and said unto them, Whether of the twain will ye that I release unto you? They said, Barabbas. Pilate saith unto them, What shall I do then with Jesus which is called Christ? They all say unto him, Let him be crucified. And the governor said, Why, what evil hath he done? But they cried out the more, saying, Let him be crucified.",
+      "When Pilate saw that he could prevail nothing, but that rather a tumult was made, he took water, and washed his hands before the multitude, saying, I am innocent of the blood of this just person: see ye to it. Then answered all the people, and said, His blood be on us, and on our children. Then released he Barabbas unto them: and when he had scourged Jesus, he delivered him to be crucified.",
+      "Jesus stayed calm and strong in God's truth — He loves us with a kingdom that lasts forever.",
+      "Reference: Matthew 27:11–26 (KJV) (parallel in Mark, Luke, and John)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "The soldiers brought Jesus to Pilate the governor early in the morning. He asked, Art thou the King of the Jews? Jesus answered, Thou sayest.",
+        "caption": "Before the governor",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "When the chief priests accused Jesus, He would not speak against them — and Pilate marvelled greatly.",
+        "caption": "Answered nothing",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "At the feast, Pilate would release one prisoner. They had a man called Barabbas, and Jesus which is called Christ.",
+        "caption": "Barabbas or Christ",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The rulers persuaded the crowd to ask for Barabbas. Pilate's wife had dreamed about the just Man Jesus.",
+        "caption": "Ask Barabbas",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Pilate asked, What shall I do with Jesus? They cried, Let him be crucified. He asked, Why, what evil hath he done?",
+        "caption": "Let him be crucified",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Pilate washed his hands before the people. They chose Barabbas, and Jesus was delivered to be crucified — and Jesus stayed calm and strong.",
+        "caption": "Truth and love",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Matthew 27:11–26 (also told in Mark, Luke, and John)",
+          "Genesis 1 only",
+          "Jonah 1 only",
+          "Revelation 20 only"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 27:11–26.)"
+      },
+      {
+        "question": "What did Pilate ask Jesus first?",
+        "choices": [
+          "Art thou the King of the Jews?",
+          "Where is the boat?",
+          "Who built the tower?",
+          "What is nine plus ten?"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:11.",
+        "wrongFeedback": "Listen for “King of the Jews.” (Answer: Art thou the King of the Jews?)"
+      },
+      {
+        "question": "What did Jesus say to Pilate about being the King of the Jews?",
+        "choices": [
+          "Thou sayest.",
+          "No, never.",
+          "Ask Barabbas.",
+          "Run away."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:11.",
+        "wrongFeedback": "Listen for “Thou sayest.” (Answer: Thou sayest.)"
+      },
+      {
+        "question": "When the chief priests accused Jesus, what did He do?",
+        "choices": [
+          "He answered nothing — He stayed quiet before Pilate.",
+          "He shouted loudly only.",
+          "He hid under the floor.",
+          "He forgot who He was."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:12–14.",
+        "wrongFeedback": "Listen for “answered nothing.” (Answer: He answered nothing.)"
+      },
+      {
+        "question": "Whom did the crowd ask Pilate to release instead of Jesus?",
+        "choices": [
+          "Barabbas",
+          "Moses only",
+          "David only",
+          "Jonah only"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:21.",
+        "wrongFeedback": "Listen for the prisoner’s name. (Answer: Barabbas.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Tell Jesus when things feel unfair — He stayed true and loves me still.",
+          "Believe God never hears.",
+          "Stop praying when I am sad.",
+          "Never talk to a grown-up."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with honesty: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “unfair,” “true,” and “Jesus loves me.” (Answer: tell Jesus… loves me still.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Before Pilate with God's Word today.",
+    "takeaway": "Jesus stayed calm and spoke truth before Pilate — His kingdom is forever, and His love holds us on hard days.",
+    "prayer": "Lord Jesus, thank You that You understand unfair moments. Help me trust You and rest in Your love. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus stands quietly and calmly before Pilate in the center, with a kind and peaceful face. Pilate sits on a judgment seat looking thoughtful. A few soldiers stand nearby with simple spears resting on the ground (no raised weapons). Soft palace pillars and open courtyard space with plenty of room in the foreground for coloring. Focus on the heart of the moment: Jesus standing strong and true before the governor, speaking about His kingdom of truth. Style: clear, bold, tender, restful — never dark, angry, or scary.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Before Pilate — King of the Jews (calm)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Answered nothing — gentle strength (trust)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Barabbas or Christ — a hard choice (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Persuaded multitude — kindness test (honesty)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Let him be crucified — Jesus stayed strong (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Washed hands — delivered — God's plan still good (hope)"
+    ],
+    "readAlongImages": []
+  },
+  "trialBeforeCaiaphas": {
+    "kjvRef": "Matthew 26:57–68 (KJV) (par. Mark 14:53–65)",
+    "verseExcerpt": "Thou hast said: nevertheless I say unto you, Hereafter shall ye see the Son of man sitting on the right hand of power, and coming in the clouds of heaven. — Matthew 26:64 (KJV)",
+    "readAlongTitle": "Jesus Before Caiaphas",
+    "quizWrongHumilityHint": "Listen again — Caiaphas; scribes; elders; council; false witness; temple; three days; held his peace; adjure; living God; Christ; Son of God; Thou hast said; right hand of power; clouds of heaven; blasphemy; spit; buffeted; prophesy; smote thee.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "And they that had laid hold on Jesus led him away to Caiaphas the high priest, where the scribes and the elders were assembled. But Peter followed him afar off unto the high priest's palace, and went in, and sat with the servants, to see the end.",
+      "Now the chief priests, and elders, and all the council, sought false witness against Jesus, to put him to death; But found none: yea, though many false witnesses came, yet found they none. At the last came two false witnesses, And said, This fellow said, I am able to destroy the temple of God, and to build it in three days.",
+      "And the high priest arose, and said unto him, Answerest thou nothing? what is it which these witness against thee? But Jesus held his peace. And the high priest answered and said unto him, I adjure thee by the living God, that thou tell us whether thou be the Christ, the Son of God.",
+      "Jesus saith unto him, Thou hast said: nevertheless I say unto you, Hereafter shall ye see the Son of man sitting on the right hand of power, and coming in the clouds of heaven.",
+      "Then the high priest rent his clothes, saying, He hath spoken blasphemy; what further need have we of witnesses? behold, now ye have heard his blasphemy. What think ye? They answered and said, He is guilty of death.",
+      "Then did they spit in his face, and buffeted him; and others smote him with the palms of their hands, Saying, Prophesy unto us, thou Christ, Who is he that smote thee?",
+      "Jesus told the truth with quiet strength — He is the Son of God, and He loves us still.",
+      "Reference: Matthew 26:57–68 (KJV) (parallel in Mark)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "The men took Jesus to the high priest Caiaphas and the elders.",
+        "caption": "Led him away to Caiaphas",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "They tried to find people to say untrue things about Jesus, but they could not.",
+        "caption": "Sought false witness",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The high priest asked Jesus questions, but Jesus stayed quiet at first.",
+        "caption": "Jesus held his peace",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Then the high priest asked if He was the Christ, the Son of God.",
+        "caption": "I adjure thee by the living God",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus answered calmly, \"Thou hast said… Hereafter shall ye see the Son of man sitting on the right hand of power.\"",
+        "caption": "Thou hast said",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Jesus told the truth even when it was hard, because He is the Son of God.",
+        "caption": "The Son of God",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Matthew 26:57–68 (also told in Mark)",
+          "Genesis 1 only",
+          "Jonah 1 only",
+          "Revelation 20 only"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 26:57–68.)"
+      },
+      {
+        "question": "Who was the high priest where they took Jesus first?",
+        "choices": [
+          "Caiaphas",
+          "Pilate only",
+          "Herod only",
+          "Nineveh"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 26:57.",
+        "wrongFeedback": "Listen for the high priest's name. (Answer: Caiaphas.)"
+      },
+      {
+        "question": "What did the council try to find against Jesus at first?",
+        "choices": [
+          "False witness (untrue stories)",
+          "A birthday cake",
+          "A missing camel",
+          "A new king from Mars"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 26:59.",
+        "wrongFeedback": "Listen for “false witness.” (Answer: false witness.)"
+      },
+      {
+        "question": "Before answering the big question, what did Jesus do when the high priest asked about the witnesses' words?",
+        "choices": [
+          "He held his peace (stayed quiet).",
+          "He ran away.",
+          "He hid under a table.",
+          "He sang a silly song."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 26:62–63.",
+        "wrongFeedback": "Listen for “held his peace.” (Answer: He held his peace.)"
+      },
+      {
+        "question": "When asked if He was the Christ, the Son of God, how did Jesus answer?",
+        "choices": [
+          "Thou hast said — and He spoke truthfully about the Son of man and the clouds of heaven.",
+          "He said He was not the Christ.",
+          "He refused to speak at all.",
+          "He said to forget God."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 26:64.",
+        "wrongFeedback": "Listen for “Thou hast said.” (Answer: Thou hast said… Son of man… clouds of heaven.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Tell Jesus when people are unkind or unfair — remember He told the truth and stays with me.",
+          "Believe God is never near.",
+          "Never tell the truth.",
+          "Stay angry on purpose forever."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with honesty: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “truth” and “Jesus with me.” (Answer: tell Jesus… He stays with me.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Before Caiaphas with God's Word today.",
+    "takeaway": "Jesus stayed calm and spoke the truth — He is the Son of God, and His love holds us on hard days.",
+    "prayer": "Lord Jesus, thank You that You understand when people are unfair. Help me trust You and speak truth with love. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus stands quietly and calmly in the center before the high priest, with a kind and peaceful face, His hands gently at His sides. The high priest sits on a simple seat with a surprised look (no anger). A few elders and scribes stand nearby listening. Soft room walls and pillars in the background with plenty of open floor space in the foreground for coloring. Focus on the heart of the moment: Jesus standing strong and true, speaking calmly about who He is. Style: clear, bold, tender, restful — never dark, scary, or unkind.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Led to Caiaphas — quiet hall (calm)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: False witness sought — God knows the truth (honesty)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Jesus held his peace — gentle strength (trust)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Christ, the Son of God — the big question (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Right hand of power — clouds of heaven (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Jesus tells the truth — Son of God loves us (love)"
+    ],
+    "readAlongImages": []
+  },
+  "tributeToCaesar": {
+    "kjvRef": "Matthew 22:15–22 (KJV)",
+    "verseExcerpt": "Render therefore unto Caesar the things which are Caesar’s; and unto God the things that are God’s. — Matthew 22:21 (KJV)",
+    "readAlongTitle": "Jesus Answers About Taxes",
+    "quizWrongHumilityHint": "Listen again — Pharisees; Herodians; Master; true; tribute; Caesar; penny; image; superscription; Render; marvelled; hypocrites; tempt.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "The Pharisees and Herodians came to Jesus to trap Him.",
+      "They said, Master, we know that thou art true, and teachest the way of God in truth… Tell us therefore, What thinkest thou? Is it lawful to give tribute unto Caesar, or not?",
+      "Jesus perceived their wickedness and said, Why tempt ye me, ye hypocrites? Shew me the tribute money.",
+      "They brought Him a penny.",
+      "He asked them, Whose is this image and superscription? They said, Caesar’s.",
+      "Jesus said unto them, Render therefore unto Caesar the things which are Caesar’s; and unto God the things which are God’s.",
+      "When they heard these words, they marvelled and left Him.",
+      "Jesus teaches us to give to God what belongs to God and to earthly rulers what belongs to them.",
+      "Reference: Matthew 22:15–22 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Some men came to Jesus with a question that was meant to trap Him.",
+        "caption": "A hard question",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "They asked, Is it lawful to give tribute unto Caesar, or not?",
+        "caption": "Tribute to Caesar?",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus said, Shew me the tribute money.",
+        "caption": "Show me the coin",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "They brought Him a penny. He asked, Whose is this image and superscription? They said, Caesar’s.",
+        "caption": "Whose image?",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus said, Render therefore unto Caesar the things which are Caesar’s; and unto God the things which are God’s.",
+        "caption": "Caesar and God",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "They marvelled at His answer — Jesus teaches us with quiet wisdom.",
+        "caption": "Jesus answers with wisdom",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Matthew 22:15–22",
+          "Psalm 23",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 22:15–22.)"
+      },
+      {
+        "question": "Who came to Jesus with the question about tribute?",
+        "choices": [
+          "The Pharisees and Herodians (with their disciples)",
+          "Only small children",
+          "Only shepherds",
+          "No one — Jesus was alone"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 22:15–16.",
+        "wrongFeedback": "Listen for “Pharisees” and “Herodians.” (Answer: Pharisees and Herodians.)"
+      },
+      {
+        "question": "What did Jesus ask them to show Him?",
+        "choices": [
+          "The tribute money (a penny)",
+          "A giant ladder",
+          "A boat",
+          "A bag of rocks"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Shew me the tribute money.",
+        "wrongFeedback": "Listen for “tribute money” and “penny.” (Answer: tribute money / penny.)"
+      },
+      {
+        "question": "What did Jesus say to do?",
+        "choices": [
+          "Render unto Caesar the things which are Caesar’s; and unto God the things which are God’s.",
+          "Never obey anyone.",
+          "Hide every coin forever.",
+          "Only love money."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 22:21.",
+        "wrongFeedback": "Listen for “Render” and “Caesar” and “God.” (Answer: Caesar… and God…)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Love God with my whole heart and ask Jesus to help me do what is right and honest.",
+          "Stop caring about truth.",
+          "Believe God never speaks to children.",
+          "Pretend questions do not matter."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with honesty: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “God first” and “honest heart.” (Answer: love God… right and honest.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "They marvelled and went away after Jesus answered",
+          "The coin turned into a bird.",
+          "Everyone forgot how to walk.",
+          "A spaceship landed in the temple."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 22:22.",
+        "wrongFeedback": "Pick the true detail from God’s Word. (Answer: marvelled… went away.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Answers About Taxes with God's Word today.",
+    "takeaway": "Render unto Caesar and unto God — Jesus teaches us to honor God first and live with honest, wise hearts.",
+    "prayer": "Lord Jesus, thank You for wisdom that is kind and true. Help me love You first and do what is right today. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art scene for young children: Jesus standing calmly holding a large, simple coin (penny) while two robed men stand nearby with thoughtful, non-angry faces. Jesus has a wise, kind face. Thick, bold outlines with large open spaces on Jesus’ robe, the coin, the men’s robes, and the ground. Soft temple wall shapes in the background (few lines, rounded tops) and a gentle sky band. Wise and calm mood — focus on Jesus answering about taxes. Clean, minimal, no trap or arguing faces, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Hard question — listening hearts (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Show the coin — honest look (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Whose image? — pause (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Render to Caesar and to God (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Marvelled — gentle wisdom (peace)"
+    ],
+    "readAlongImages": []
+  },
+  "triumphalEntry": {
+    "kjvRef": "Matthew 21:1–11 (KJV)",
+    "verseExcerpt": "Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord. — Matthew 21:9 (KJV)",
+    "readAlongTitle": "Jesus Rides into Jerusalem",
+    "quizWrongHumilityHint": "Listen again — Bethphage; mount of Olives; two disciples; village; ass; colt; loose them; Lord hath need; garments; palm branches; strawed; Hosanna; Son of David; city was moved; Who is this; prophet of Nazareth; joy and praise.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus and His disciples came near Jerusalem.",
+      "They stopped at Bethphage, at the mount of Olives.",
+      "Jesus sent two disciples into the village and said, “Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them.”",
+      "The disciples went and did as Jesus commanded.",
+      "They brought the donkey and the colt, and put their clothes on them, and Jesus sat thereon.",
+      "A very great multitude spread their garments in the way.",
+      "Others cut down branches from the trees and spread them in the way.",
+      "The crowds that went before and that followed cried, saying, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”",
+      "When Jesus entered Jerusalem, all the city was moved, saying, “Who is this?”",
+      "The multitude said, “This is Jesus the prophet of Nazareth of Galilee.”",
+      "The people welcomed Jesus as their King with joy and praise.",
+      "Reference: Matthew 21:1–11 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus and His disciples came near Jerusalem. They stopped at Bethphage, at the mount of Olives.",
+        "caption": "Near Jerusalem",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus sent two disciples into the village and said, “Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them.”",
+        "caption": "The Lord hath need of them",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The disciples went and did as Jesus commanded. They brought the donkey and the colt, and put their clothes on them, and Jesus sat thereon.",
+        "caption": "Jesus rides the donkey",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "A very great multitude spread their garments in the way. Others cut down branches from the trees and spread them in the way.",
+        "caption": "Clothes and branches",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The crowds cried, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”",
+        "caption": "Hosanna to the Son of David",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "When Jesus entered Jerusalem, all the city was moved, saying, “Who is this?” The multitude said, “This is Jesus the prophet of Nazareth of Galilee.”",
+        "caption": "Who is this?",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "The people welcomed Jesus as their King with joy and praise.",
+        "caption": "Welcome the King",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Matthew 21:1–11",
+          "Psalm 23",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 21:1–11.)"
+      },
+      {
+        "question": "Where were Jesus and His disciples when He sent two disciples on this errand?",
+        "choices": [
+          "Near Bethphage, on the mount of Olives, drawing nigh to Jerusalem",
+          "Already inside the temple courts",
+          "On a boat in the middle of the sea",
+          "In Nazareth only"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 21:1.",
+        "wrongFeedback": "Listen for “Bethphage” and “mount of Olives.” (Answer: near Bethphage… Olives.)"
+      },
+      {
+        "question": "What animal did Jesus ride into Jerusalem?",
+        "choices": [
+          "A young donkey — a colt no one had ridden",
+          "A tall camel",
+          "A racing horse",
+          "A wooden cart"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 21:5–7.",
+        "wrongFeedback": "Listen for donkey, colt, and clothes laid on it. (Answer: young donkey… colt.)"
+      },
+      {
+        "question": "What did the people shout as Jesus came?",
+        "choices": [
+          "“Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord.”",
+          "“We do not want a King.”",
+          "“Hide from the prophet.”",
+          "“Never sing in church.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that joy matches Matthew 21:9 Hosanna.",
+        "wrongFeedback": "Listen again for “Hosanna” and “Son of David.” (Answer: Hosanna… Blessed is he….)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "People spread clothes and branches in the road for Jesus",
+          "The road turned into jelly.",
+          "A spaceship carried the donkey.",
+          "Everyone forgot how to wave."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 21:8.",
+        "wrongFeedback": "Which matches God’s Word — garments, branches, welcoming? (Answer: clothes and branches.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Welcome Jesus as King in my heart — praise Him with a thankful heart today.",
+          "Only cheer when everyone else does.",
+          "Believe God is far away from kids.",
+          "Never sing or speak to God out loud."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with joy: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “welcome Jesus” and “praise.” (Answer: King in my heart… thankful.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Rides into Jerusalem with God's Word today.",
+    "takeaway": "The people welcomed Jesus as their King with joy and praise — Hosanna to the Son of David; we can welcome Him with the same gentle gladness.",
+    "prayer": "Lord Jesus, thank You for riding to us as our humble King. Help me welcome You today with joy, praise, and a peaceful heart. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art scene for young children: Jesus riding on a young donkey into Jerusalem. People are spreading clothes on the road; several people hold palm branches up high in simple, easy-to-see waves (large leaf shapes, bold outlines). Happy, calm faces. Thick, bold outlines with large open spaces on Jesus’ robe, the donkey, the clothes, and the branches for easy coloring. Soft road and gentle rounded city wall shapes in the background with minimal lines. Joyful and welcoming mood — focus on the people welcoming Jesus. Clean, minimal, no fear, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Village — colt brought (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Garments on the way (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Branches spread — Hosanna (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Son of David — welcome (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Prophet of Nazareth — who is this? (truth)"
+    ],
+    "readAlongImages": []
+  },
+  "unforgivingServant": {
+    "kjvRef": "Matthew 18:21–35 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses. — Matthew 18:35 (KJV)",
+    "readAlongTitle": "Jesus Tells About Forgiving Others",
+    "quizWrongHumilityHint": "Listen again — king; account; debt; patience; forgave; fellowservant; throat; prison; wicked servant; compassion; heart; forgive.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus told a story about a king who was checking how much money his servants owed him.",
+      "One servant owed the king a huge amount of money — more than he could ever pay back.",
+      "The servant fell on his knees and begged, “Lord, have patience with me, and I will pay thee all.”",
+      "The king felt sorry for him and forgave the whole debt.",
+      "But that same servant went out and found another servant who owed him a very small amount.",
+      "He grabbed him by the throat and said, “Pay me what thou owest!”",
+      "The second servant begged for patience, but the first servant would not forgive him.",
+      "He had the man thrown into prison until he could pay.",
+      "When the king heard what had happened, he was very angry.",
+      "He called the first servant and said, “O thou wicked servant, I forgave thee all that debt because thou desiredst me: shouldest not thou also have had compassion on thy fellowservant?”",
+      "Then the king had the unforgiving servant punished.",
+      "Jesus said, “So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses.”",
+      "Jesus wants us to forgive others the way God forgives us.",
+      "Reference: Matthew 18:21–35 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A servant owed the king a huge debt.",
+        "caption": "Ten thousand talents…",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The servant begged for patience.",
+        "caption": "Have patience with me",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The king forgave the whole debt.",
+        "caption": "Moved with compassion",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The servant found another man who owed him a little.",
+        "caption": "A fellowservant",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He would not forgive him and put him in prison.",
+        "caption": "Took by the throat",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The king was angry and punished the unforgiving servant.",
+        "caption": "O thou wicked servant",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus wants us to forgive others.",
+        "caption": "From your hearts",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this parable found in the Bible?",
+        "choices": [
+          "Luke 15",
+          "Matthew 18:21–35",
+          "John 3",
+          "Psalm 23"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 18:21–35.)"
+      },
+      {
+        "question": "What did the king do first for the servant who owed a huge debt?",
+        "choices": [
+          "He forgave the whole debt because the servant begged for patience.",
+          "He gave him a new horse.",
+          "He sent him on vacation forever.",
+          "He ignored him."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—the king showed great mercy first.",
+        "wrongFeedback": "Think: what happened at the throne before the servant went out? (Answer: forgave… debt.)"
+      },
+      {
+        "question": "What did the unforgiving servant do to the man who owed him little?",
+        "choices": [
+          "He would not forgive him and had him thrown in prison.",
+          "He paid the man’s rent.",
+          "He invited him to a party and then forgot.",
+          "He shared all his toys."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that shows why Jesus told this story.",
+        "wrongFeedback": "Remember the sad turning point—throat, prison, no mercy. (Answer: would not forgive… prison.)"
+      },
+      {
+        "question": "Which line belongs to Jesus’ teaching in this gentle summary?",
+        "choices": [
+          "“So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not…”",
+          "“Eat more dessert every day.”",
+          "“Hide when someone says sorry.”",
+          "“Never speak to family again.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that heart line matches the end of the parable.",
+        "wrongFeedback": "Cross out silliness. Which calls us to forgive from the heart? (Answer: likewise… heavenly Father… forgive.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ask Jesus to help me forgive others the way He forgave me — starting small and honest.",
+          "Refuse to say sorry.",
+          "Only remember what hurt me.",
+          "Try to pay God back for grace by being perfect alone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which matches Jesus’ “from your hearts” heart? (Answer: forgive… way He forgave me.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Tells About Forgiving Others with God's Word today.",
+    "takeaway": "Jesus wants us to forgive others the way God forgives us.",
+    "prayer": "Lord Jesus, You forgave me so much. Please help me forgive others from my heart. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: A king sitting on his throne forgiving a servant who is kneeling and begging The servant looks thankful thick bold outlines with large open spaces on the king robe the servant robe and the floor for easy coloring soft throne room walls with minimal lines kind and forgiving mood focus on the king forgiving the big debt clean minimal no fear or anger plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: King reckons — huge debt (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Have patience — loosed and forgiven (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Fellowservant — pay me (sad)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Prison — would not forgive (heavy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: King hears — pity on thee? (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Heart forgiveness — heavenly Father (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Jesus teaches — forgive brothers (love)"
+    ],
+    "readAlongImages": []
+  },
+  "weddingWine": {
+    "kjvRef": "John 2:1–11",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "paragraphs": [
+      "Water into Wine (John 2:1–11).",
+      "A wedding runs out of wine Mary tells Jesus—He says: Fill the jars Water becomes wine—the first miracle!",
+      "Jesus loves to help!",
+      "When we bring Him our empty jars, He fills them."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "John 2:1–11",
+          "Genesis 3",
+          "Ruth 2:12",
+          "Matthew 21:1–11"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: John 2:1–11.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Stephen",
+          "Jesus",
+          "Mary — and Jesus who receives her love",
+          "Jonathan"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "The Bible is only pretend stories.",
+          "God never hears when kids pray.",
+          "Jesus loves to help! When we bring Him our empty jars, He fills them.",
+          "We should hide from God when we mess up."
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus loves to help! When we bring Him our empty jars, He fills them..)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "A spaceship landed in the parking lot.",
+          "A talking toaster became king of the city.",
+          "Everyone decided to never sleep again.",
+          "A wedding runs out of wine"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Jesus loves to help! When we bring Him our empty jars, He fills them.",
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong.",
+          "Ignore God until we are older."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus loves to help! When we bring Him our empty jars, He fills them..)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Water into Wine with God's Word today.",
+    "takeaway": "Jesus loves to help! When we bring Him our empty jars, He fills them.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Water into Wine. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A wedding runs out of wine (wedding)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary tells Jesus—He says: Fill the jars (wine)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Water becomes wine—the first miracle! (water)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A wedding runs out of wine (john 2)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary tells Jesus—He says: Fill the jars (miracle)"
+    ]
+  },
+  "widowMite": {
+    "kjvRef": "Mark 12:41–44 (KJV)",
+    "verseExcerpt": "She of her want did cast in all that she had, even all her living. — Mark 12:44 (KJV)",
+    "readAlongTitle": "Jesus Sees the Poor Widow’s Gift",
+    "quizWrongHumilityHint": "Listen again — treasury; rich; cast in; poor widow; two mites; farthing; Verily; abundance; want; all her living.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus sat near the temple treasury and watched the people putting money into the offering box.",
+      "Many rich people put in a lot of money.",
+      "Then a poor widow came and put in two very small coins.",
+      "Jesus called His disciples to Him and said, “Verily I say unto you, That this poor widow hath cast more in, than all they which have cast into the treasury: for all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living.”",
+      "Jesus sees when we give with a loving heart, even if it is only a little.",
+      "Reference: Mark 12:41–44 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus watched people putting money in the treasury.",
+        "caption": "Jesus sat over against the treasury",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Rich people put in a lot.",
+        "caption": "Many that were rich cast in much",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "A poor widow put in two small coins.",
+        "caption": "Two mites, which make a farthing",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus said she gave more than all the others.",
+        "caption": "This poor widow hath cast more in",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "She gave all she had — even all her living.",
+        "caption": "All that she had, even all her living",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus sees when we give with a loving heart.",
+        "caption": "God sees the heart",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Mark 12:41–44",
+          "Psalm 23",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Mark 12:41–44.)"
+      },
+      {
+        "question": "What did the poor widow put into the treasury?",
+        "choices": [
+          "Two small coins (two mites)",
+          "A bag of gold",
+          "Nothing at all",
+          "Only a flower"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 12:42.",
+        "wrongFeedback": "Listen again for “two mites.” (Answer: two small coins.)"
+      },
+      {
+        "question": "What did Jesus say about her gift?",
+        "choices": [
+          "That she cast in more than all the others — she gave of her want, all her living",
+          "That it was too small to matter",
+          "That only rich gifts count",
+          "That she should not give"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Jesus sees the heart behind the gift.",
+        "wrongFeedback": "Think “more than all…” and “all her living.” (Answer: she gave more… all her living.)"
+      },
+      {
+        "question": "Why was her small gift so big in God’s eyes?",
+        "choices": [
+          "She gave all she had — from the heart — not just from extra abundance",
+          "Because coins were magic",
+          "Because the box was empty",
+          "Because people were laughing"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—God weighs love, not only size.",
+        "wrongFeedback": "Remember “abundance” vs “her want.” (Answer: all she had… loving heart.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ask Jesus to help me give gladly — love, kindness, and what I can — with a cheerful heart.",
+          "Never give anything small.",
+          "Believe God only watches rich people.",
+          "Hide what I have from everyone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Sweet faith—little loaves, offered to God, please Him.",
+        "wrongFeedback": "Think: “Jesus sees” and “loving heart.” (Answer: give gladly… cheerful heart.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Sees the Poor Widow’s Gift with God's Word today.",
+    "takeaway": "Jesus sees when we give with a loving heart — even a little can be much.",
+    "prayer": "Lord Jesus, thank You for seeing my heart. Help me give and love generously, even in small ways. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art scene for young children: A poor widow dropping two small coins into the offering box. Jesus is watching with a kind, pleased face. Thick, bold outlines with large open spaces on the widow’s robe, Jesus’ robe, and the offering box for easy coloring. Soft temple walls and gentle light with minimal lines. Loving and generous mood — focus on the widow giving all she had. Clean, minimal, no sadness or poverty shown strongly, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Treasury — Jesus beholding (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Rich cast in much (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Poor widow — two mites (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Verily — she cast more in (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: All her living — loving heart (love)"
+    ],
+    "readAlongImages": []
+  },
+  "widowOil": {
+    "kjvRef": "2 Kings 4:1-7 (KJV)",
+    "verseExcerpt": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few. — 2 Kings 4:3 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — she poured out; and when there was not a vessel more, the oil stayed.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.",
+        "caption": "The creditor is come to take unto him my two sons to be bondmen",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.",
+        "caption": "Save a pot of oil",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.",
+        "caption": "Borrow empty vessels — borrow not a few",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.",
+        "caption": "Shut the door — pour out into all those vessels",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.",
+        "caption": "She poured out",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.",
+        "caption": "There is not a vessel more — and the oil stayed",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+        "caption": "Sell the oil — pay thy debt — live thou and thy children of the rest",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "A certain woman of the wives of the sons of the prophets cried unto Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen.",
+      "Elisha asked what she had in the house; she had only a pot of oil. He said, Go, borrow empty vessels from thy neighbours — borrow not a few. Shut the door upon thee and thy sons, and pour out into all those vessels.",
+      "She obeyed: her sons brought the vessels, and she poured out. When every vessel was full, there was not a vessel more — and the oil stayed. Elisha said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+      "For you: God sees a mother's worry — and He can do much with what feels like almost nothing when we trust Him and obey."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Why was the widow afraid for her sons?",
+        "choices": [
+          "They were hungry only.",
+          "The creditor was come to take them to be bondmen.",
+          "They would not sleep.",
+          "They were lost in the city."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "She told Elisha plainly — the creditor would take her sons.",
+        "wrongFeedback": "Listen for creditor and bondmen. (Answer: Creditor would take her sons.)"
+      },
+      {
+        "question": "What did she have in the house besides borrowed vessels?",
+        "choices": [
+          "Much silver.",
+          "Save a pot of oil.",
+          "Many sheep.",
+          "New robes only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Only a pot of oil — a small start for a big God.",
+        "wrongFeedback": "Listen for pot of oil. (Answer: Save a pot of oil.)"
+      },
+      {
+        "question": "What did Elisha tell her to borrow?",
+        "choices": [
+          "Stones only.",
+          "Empty vessels — borrow not a few.",
+          "Food only.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Empty vessels — and not just a few.",
+        "wrongFeedback": "Listen for empty vessels. (Answer: Empty vessels — borrow not a few.)"
+      },
+      {
+        "question": "When did the oil stop flowing?",
+        "choices": [
+          "When she was tired.",
+          "When there was not a vessel more.",
+          "At noon only.",
+          "Before any vessel was full."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "There is not a vessel more — and the oil stayed.",
+        "wrongFeedback": "Listen for “not a vessel more.” (Answer: When there were no more vessels.)"
+      },
+      {
+        "question": "What did Elisha tell her to do after the miracle?",
+        "choices": [
+          "Hide the oil.",
+          "Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+          "Leave the city.",
+          "Give nothing to the creditor."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Pay the debt — then live on the rest. God provides with care.",
+        "wrongFeedback": "Listen for sell the oil and pay thy debt. (Answer: Sell the oil, pay debt, live on the rest.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God cares for widows and children, and He can bless little into enough.",
+    "takeaway": "She poured the little oil God gave — and it filled every borrowed vessel until there were no more. Then she could pay her debt and care for her children.",
+    "prayer": "Lord, thank You for caring for families. Help us trust You with what feels small. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines widow indoors pouring from small pot into many jars sons carrying empty vessels thankful hopeful faces thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrow empty vessels borrow not a few",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Shut the door pour out vessels",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Oil stayed when no vessel more",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sell oil pay debt live children"
+    ]
+  },
+  "widowsMite": {
+    "kjvRef": "Mark 12:41–44 (KJV)",
+    "verseExcerpt": "She of her want did cast in all that she had, even all her living. — Mark 12:44 (KJV)",
+    "readAlongTitle": "Jesus Sees the Poor Widow’s Gift",
+    "quizWrongHumilityHint": "Listen again — treasury; rich; cast in; poor widow; two mites; farthing; Verily; abundance; want; all her living.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus sat near the temple treasury and watched the people putting money into the offering box.",
+      "Many rich people put in a lot of money.",
+      "Then a poor widow came and put in two very small coins.",
+      "Jesus called His disciples to Him and said, “Verily I say unto you, That this poor widow hath cast more in, than all they which have cast into the treasury: for all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living.”",
+      "Jesus sees when we give with a loving heart, even if it is only a little.",
+      "Reference: Mark 12:41–44 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus watched people putting money in the treasury.",
+        "caption": "Jesus sat over against the treasury",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Rich people put in a lot.",
+        "caption": "Many that were rich cast in much",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "A poor widow put in two small coins.",
+        "caption": "Two mites, which make a farthing",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus said she gave more than all the others.",
+        "caption": "This poor widow hath cast more in",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "She gave all she had — even all her living.",
+        "caption": "All that she had, even all her living",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus sees when we give with a loving heart.",
+        "caption": "God sees the heart",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Mark 12:41–44",
+          "Psalm 23",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Mark 12:41–44.)"
+      },
+      {
+        "question": "What did the poor widow put into the treasury?",
+        "choices": [
+          "Two small coins (two mites)",
+          "A bag of gold",
+          "Nothing at all",
+          "Only a flower"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 12:42.",
+        "wrongFeedback": "Listen again for “two mites.” (Answer: two small coins.)"
+      },
+      {
+        "question": "What did Jesus say about her gift?",
+        "choices": [
+          "That she cast in more than all the others — she gave of her want, all her living",
+          "That it was too small to matter",
+          "That only rich gifts count",
+          "That she should not give"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Jesus sees the heart behind the gift.",
+        "wrongFeedback": "Think “more than all…” and “all her living.” (Answer: she gave more… all her living.)"
+      },
+      {
+        "question": "Why was her small gift so big in God’s eyes?",
+        "choices": [
+          "She gave all she had — from the heart — not just from extra abundance",
+          "Because coins were magic",
+          "Because the box was empty",
+          "Because people were laughing"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—God weighs love, not only size.",
+        "wrongFeedback": "Remember “abundance” vs “her want.” (Answer: all she had… loving heart.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ask Jesus to help me give gladly — love, kindness, and what I can — with a cheerful heart.",
+          "Never give anything small.",
+          "Believe God only watches rich people.",
+          "Hide what I have from everyone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Sweet faith—little loaves, offered to God, please Him.",
+        "wrongFeedback": "Think: “Jesus sees” and “loving heart.” (Answer: give gladly… cheerful heart.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Sees the Poor Widow’s Gift with God's Word today.",
+    "takeaway": "Jesus sees when we give with a loving heart — even a little can be much.",
+    "prayer": "Lord Jesus, thank You for seeing my heart. Help me give and love generously, even in small ways. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art scene for young children: A poor widow dropping two small coins into the offering box. Jesus is watching with a kind, pleased face. Thick, bold outlines with large open spaces on the widow’s robe, Jesus’ robe, and the offering box for easy coloring. Soft temple walls and gentle light with minimal lines. Loving and generous mood — focus on the widow giving all she had. Clean, minimal, no sadness or poverty shown strongly, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Treasury — Jesus beholding (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Rich cast in much (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Poor widow — two mites (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: Verily — she cast more in (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm temple light, friendly not scary, no text in image: All her living — loving heart (love)"
+    ],
+    "readAlongImages": []
+  },
+  "wiseMen": {
+    "kjvRef": "Matthew 2:1–12 (KJV)",
+    "verseExcerpt": "…they saw the young child with Mary his mother, and fell down, and worshipped him: and…they presented unto him gifts; gold, and frankincense, and myrrh. — Matthew 2:11 (KJV)",
+    "readAlongTitle": "The Wise Men Follow the Star",
+    "quizWrongHumilityHint": "Listen again — star in the east; journey to Bethlehem; young child with Mary; gifts of gold, frankincense, and myrrh; worship.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Far away in the east, wise men saw a bright new star.",
+      "They knew it meant a special king had been born.",
+      "They followed the star all the way to Bethlehem.",
+      "When they found baby Jesus with Mary, they were very happy.",
+      "They bowed down and gave Him wonderful gifts — gold, and sweet-smelling frankincense, and myrrh.",
+      "They worshipped the little King.",
+      "God sent the star so the wise men could find and worship Jesus.",
+      "Reference: Matthew 2:1–12 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Wise men saw a bright star.",
+        "caption": "A new star",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "They followed the star to Bethlehem.",
+        "caption": "Following",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "They found baby Jesus with Mary.",
+        "caption": "Found Him",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "They bowed down and gave Him gifts.",
+        "caption": "Gifts of love",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "They worshipped the little King.",
+        "caption": "We worship Him",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Matthew 2:1–12",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 2:1–12.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "God",
+          "Pharaoh",
+          "Goliath",
+          "Samson"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—God put the star in the sky and welcomed the wise men to worship Jesus.",
+        "wrongFeedback": "Look for who made the star known and received the wise men’s worship of Jesus. (Answer: God.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Jesus is only for people who live next door.",
+          "People from far away can come to worship Jesus — He is the King.",
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the last paragraphs slowly. Which option matches how the wise men came to Jesus? (Answer: People from far away can come to worship Jesus — He is the King.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "They brought Him a rocket ship.",
+          "They presented unto him gifts; gold, and frankincense, and myrrh.",
+          "Let us rise up and build.",
+          "Everyone forgot how to walk."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: They presented unto him gifts; gold, and frankincense, and myrrh.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ignore God until we are older.",
+          "Thank God for Jesus — and worship Him with a glad, quiet heart.",
+          "Never say sorry when we do wrong.",
+          "Only be kind to people who are exactly like us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show worship and thankfulness to Jesus? Pick the one that honors Him. (Answer: Thank God for Jesus — and worship Him with a glad, quiet heart.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading The Wise Men Follow the Star with God's Word today.",
+    "takeaway": "People from far away can come to worship Jesus.",
+    "prayer": "Lord, thank You for the star that led the wise men to Jesus. Help us worship You today with wonder. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Three wise men kneeling gently before baby Jesus one wise man holds a small box of gold another holds frankincense and the third holds myrrh Mary sits nearby with a kind face thick bold outlines with large open spaces on the wise men's robes the gifts and the ground for easy coloring soft stable walls and a bright star in the sky with minimal lines wonder and worship mood focus on the wise men bringing gifts to baby Jesus clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and blue accents, friendly not scary, no text in image: Bright star in the east (star)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and blue accents, friendly not scary, no text in image: Journey following the star (travel)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and blue accents, friendly not scary, no text in image: Baby Jesus with Mary (found)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and blue accents, friendly not scary, no text in image: Gifts of gold frankincense and myrrh (gifts)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and blue accents, friendly not scary, no text in image: Kneeling in worship (worship)"
+    ],
+    "readAlongImages": []
+  },
+  "witheredHand": {
+    "kjvRef": "Mark 3:1–6 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "And he saith unto the man, Stretch forth thine hand. And he stretched it out: and his hand was restored whole as the other. — Mark 3:5 (KJV)",
+    "readAlongTitle": "Jesus Heals a Man on the Sabbath",
+    "quizWrongHumilityHint": "Listen again — synagogue; withered hand; stand forth; do good or evil; save life or kill; quiet; Stretch forth thine hand; restored whole; amazed.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "One Sabbath day Jesus went into the synagogue to teach.",
+      "A man was there whose hand was withered and could not work.",
+      "Some people watched to see if Jesus would heal on the Sabbath.",
+      "Jesus asked the man to stand up where everyone could see.",
+      "Then He asked the people, “Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill?”",
+      "They were quiet.",
+      "Jesus looked at them with sadness because their hearts were hard.",
+      "He said to the man, “Stretch forth thine hand.”",
+      "The man stretched out his hand, and it was made whole like the other.",
+      "The people were amazed.",
+      "Jesus does good and shows love every day, because He cares for people.",
+      "Reference: Mark 3:1–6 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus was teaching in the synagogue.",
+        "caption": "Listening to Jesus",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "A man was there whose hand was hurt.",
+        "caption": "Jesus sees him",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus asked the man to stand up.",
+        "caption": "Stand forth",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus asked about doing good — the people were quiet.",
+        "caption": "Do good or evil?",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus said, “Stretch forth thine hand.”",
+        "caption": "His kind words",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The man stretched out his hand and it was made whole.",
+        "caption": "Healed!",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus does good every day because He cares.",
+        "caption": "He loves us",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Mark 3:1–6",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Mark 3:1–6.)"
+      },
+      {
+        "question": "What did Jesus say to the man?",
+        "choices": [
+          "“Stretch forth thine hand.”",
+          "“Run out of the building.”",
+          "“Hide your hand.”",
+          "“Never ask for help.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Jesus speaks with power and love.",
+        "wrongFeedback": "Think about the healing words in Mark 3. (Answer: “Stretch forth thine hand.”)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Jesus only helps on busy days.",
+          "Jesus does good and shows love because He cares for people.",
+          "Hands never get better.",
+          "We should never go to church."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about Jesus doing good and caring. (Answer: Jesus does good and shows love because He cares for people.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Jesus asked, Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill?",
+          "A turtle drove a race car.",
+          "The floor turned into jelly.",
+          "Everyone forgot how to stand."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that comes straight from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Jesus’ question? (Answer: Is it lawful to do good… or to do evil? to save life, or to kill?)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He does good and heals — ask Him to help us love others kindly too.",
+          "Never pray when we feel worried.",
+          "Only be kind when people are perfect.",
+          "Hide when we need help."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ kindness and healing? (Answer: Thank Jesus that He does good and heals — ask Him to help us love others kindly too.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Heals a Man on the Sabbath with God's Word today.",
+    "takeaway": "Jesus does good and shows love every day, because He cares for people.",
+    "prayer": "Lord Jesus, thank You for doing good and caring for us. Help us trust You and be kind like You. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing in the synagogue speaking kindly to a man whose hand was hurt the man is stretching out his hand toward Jesus with a hopeful face thick bold outlines with large open spaces on Jesus' robe the man's robe and the floor for easy coloring soft synagogue walls and gentle light from above with minimal lines kind healing mood focus on Jesus making the man's hand well clean minimal no fear or angry faces plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Synagogue — Jesus teaching (listen)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Man with hurt hand — Jesus sees him (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Do good or evil — save life or kill (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Stretch forth thine hand (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Hand restored whole — amazed (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and cream, friendly not scary, no text in image: Jesus does good every day (hope)"
+    ],
+    "readAlongImages": []
+  },
+  "worryBirds": {
+    "kjvRef": "Matthew 6",
+    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "paragraphs": [
+      "Don't Worry—Look at the Birds (Matthew 6).",
+      "Birds fly freely—they don't worry Lilies grow without stress—God clothes them You are worth more—God takes care of you!",
+      "God feeds the birds—He definitely takes care of you!",
+      "Don't worry; trust."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Matthew 6",
+          "1 Samuel 1:1-20",
+          "Matthew 21:23–27",
+          "Matthew 21:18–22"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew 6.)"
+      },
+      {
+        "question": "Who do we mainly learn from or watch in this story?",
+        "choices": [
+          "Priscilla",
+          "Elisha",
+          "Jesus",
+          "David — and the Lord"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
+        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God feeds the birds—He definitely takes care of you! Don't worry; trust.",
+          "God never hears when kids pray.",
+          "The Bible is only pretend stories.",
+          "We should hide from God when we mess up."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
+        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God feeds the birds—He definitely takes care of you! Don't worry; trust..)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Everyone decided to never sleep again.",
+          "A talking toaster became king of the city.",
+          "A spaceship landed in the parking lot.",
+          "Birds fly freely—they don't worry"
+        ],
+        "correctIndex": 3,
+        "correctFeedback": "Yes—that detail comes from the story God gave us.",
+        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "God feeds the birds—He definitely takes care of you! Don't worry; trust.",
+          "Only be kind to people who are exactly like us.",
+          "Never say sorry when we do wrong.",
+          "Ignore God until we are older."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God feeds the birds—He definitely takes care of you! Don't worry; trust..)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Don't Worry—Look at the Birds with God's Word today.",
+    "takeaway": "God feeds the birds—He definitely takes care of you! Don't worry; trust.",
+    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Don't Worry—Look at the Birds. Amen.",
+    "imagePrompts": [
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Birds fly freely—they don't worry (worry)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Lilies grow without stress—God clothes them (birds)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: You are worth more—God takes care of you! (lilies)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Birds fly freely—they don't worry (matthew 6)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Lilies grow without stress—God clothes them (sparrows)"
+    ]
+  },
+  "zacchaeus": {
+    "kjvRef": "Luke 19:1–10 (KJV)",
+    "verseExcerpt": "For the Son of man is come to seek and to save that which was lost. — Luke 19:10 (KJV)",
+    "readAlongTitle": "Jesus Loves Zacchaeus",
+    "quizWrongHumilityHint": "Listen again — Jericho; publicans; rich; little of stature; press; sycomore; Zacchaeus; make haste; come down; abide; joyfully; murmured; sinner; half; fourfold; salvation; son of Abraham; seek; save; lost.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus was passing through the city of Jericho. There was a man named Zacchaeus. He was the chief among the publicans, and he was rich. But he was little of stature, and he could not see Jesus because of the crowd.",
+      "So Zacchaeus ran on before, and climbed up into a sycomore tree to see Jesus, for He was to pass that way.",
+      "When Jesus came to the place, He looked up, and saw him, and said unto him, Zacchaeus, make haste, and come down; for to day I must abide at thy house.",
+      "Zacchaeus made haste, and came down, and received Jesus joyfully.",
+      "When the people saw it, they all murmured, saying that Jesus was gone to be guest with a man that is a sinner.",
+      "Zacchaeus stood, and said unto the Lord, Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold.",
+      "Jesus said unto him, This day is salvation come to this house, forsomuch as he also is a son of Abraham. For the Son of man is come to seek and to save that which was lost.",
+      "Jesus knows our name, He comes to us, and He came to seek and save the lost — no one is too small, too far, or too far gone for His love.",
+      "Reference: Luke 19:1–10 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus walked through Jericho. A man named Zacchaeus was very short and could not see over the crowd.",
+        "caption": "Little of stature",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "So Zacchaeus climbed up into a tall sycomore tree to see Jesus.",
+        "caption": "Up in the tree",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "Jesus looked up and called him by name: Zacchaeus, make haste, and come down; for to day I must abide at thy house.",
+        "caption": "Jesus called his name",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Zacchaeus came down quickly and welcomed Jesus with joy.",
+        "caption": "Joyfully received",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "The people murmured because Zacchaeus had been a sinner, but Zacchaeus promised to give to the poor and make things right.",
+        "caption": "Making things right",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "Jesus said, This day is salvation come to this house… for the Son of man is come to seek and to save that which was lost. What a happy day!",
+        "caption": "Seek and save the lost",
+        "image": "panel-david-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Luke 19:1–10",
+          "Matthew 5",
+          "Acts 2",
+          "Genesis 12"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Luke 19:1–10.)"
+      },
+      {
+        "question": "What did Jesus first say to Zacchaeus in the tree?",
+        "choices": [
+          "“Zacchaeus, make haste, and come down; for to day I must abide at thy house.”",
+          "“Stay in the tree forever.”",
+          "“Do not speak to anyone.”",
+          "“Run away to another town.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 19:5.",
+        "wrongFeedback": "Think about Jesus’ kind invitation in Luke 19. (Answer: make haste… abide at thy house.)"
+      },
+      {
+        "question": "What good did Zacchaeus say he would do after meeting Jesus?",
+        "choices": [
+          "Give half of his goods to the poor — and restore fourfold if he wronged anyone.",
+          "Hide everything he owned.",
+          "Never say sorry.",
+          "Only help people who clapped the loudest."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches his honest words in Luke 19:8.",
+        "wrongFeedback": "Reread what Zacchaeus promised God. (Answer: half… poor… fourfold.)"
+      },
+      {
+        "question": "Why did the people murmur when Jesus went to Zacchaeus’s house?",
+        "choices": [
+          "They said He was gone to be guest with a man that is a sinner.",
+          "They were angry because it started to snow.",
+          "They wanted the tree to fall down.",
+          "They forgot how to walk."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 19:7.",
+        "wrongFeedback": "Listen for “murmured” and “sinner.” (Answer: guest with a man that is a sinner.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Talk to Jesus honestly — He sees us, loves us, and can change our hearts.",
+          "Believe God only loves perfect people.",
+          "Stay hidden and never come to Him.",
+          "Try to earn God’s love by never making mistakes alone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which matches Jesus seeking and saving the lost? (Answer: honest… sees us… change our hearts.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Loves Zacchaeus with God's Word today.",
+    "takeaway": "Jesus knows our name, comes to us, and came to seek and save the lost — we can rest in His love on hard days.",
+    "prayer": "Lord Jesus, thank You that You know my name and seek the lost. Change my heart and help me welcome You with joy today. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. In the center, gentle Jesus stands looking up with kind eyes and a soft smile, one hand gently reaching toward the tree. Little Zacchaeus sits happily on a low branch of a big sycomore tree, looking down at Jesus with a joyful face — simple robe, short stature shown gently. A few townspeople stand nearby watching quietly. Soft ground and a few leaves on the tree with plenty of large open space in the foreground for coloring. Focus: Jesus calling Zacchaeus by name and bringing joy and salvation. Style: clear, bold, restful, never busy or scary.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Jericho — little of stature (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Sycomore — ran before, climbed up (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Zacchaeus — make haste, come down (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Joyfully received — abide at thy house (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Murmured — half and fourfold (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Salvation — seek and save the lost (peace)"
+    ],
+    "readAlongImages": []
+  },
+  "zechariahVision": {
+    "kjvRef": "“Turn ye unto me, saith the LORD of hosts, and I will turn unto you.” (Zechariah 1:3)",
+    "verseExcerpt": "“Turn ye unto me, saith the LORD of hosts, and I will turn unto you.” (Zechariah 1:3)",
+    "readAlongTitle": "Zechariah’s Hope",
+    "quizWrongHumilityHint": "God gives hope and new beginnings.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Zechariah saw visions of hope.",
+      "God told the people to turn back to Him and He would turn back to them.",
+      "God gives us hope and new beginnings.",
+      "Reference: "
+    ],
+    "questions": [
+      {
+        "question": "What happened in the story of Zechariah’s Hope?",
+        "choices": [
+          "Something scary with no happy ending.",
+          "Zechariah saw visions of hope.",
+          "Everyone was perfect and nothing hard happened.",
+          "A mean person won."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes — you remembered the story well!",
+        "wrongFeedback": "Listen again for the kind or brave part."
+      },
+      {
+        "question": "What does this story especially help us feel or understand?",
+        "choices": [
+          "God gives hope and new beginnings.",
+          "We only need to be kind when we feel like it.",
+          "God only cares about big important people.",
+          "It is okay to stay angry forever."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes! That is the heart of the story.",
+        "wrongFeedback": "The story shows us how God wants our hearts to be."
+      },
+      {
+        "question": "What does the story want us to remember and do?",
+        "choices": [
+          "God gives us hope and new beginnings.",
+          "We should never forgive.",
+          "Only grown-ups have to be kind.",
+          "It does not matter how we treat friends."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Exactly — that is what Jesus wants us to carry in our hearts.",
+        "wrongFeedback": "Ask God to help you live this out today."
+      },
+      {
+        "question": "How can you live this story today?",
+        "choices": [
+          "By showing kindness or forgiveness in a small way, even when it feels a little hard.",
+          "By staying quiet and never helping anyone.",
+          "By only being nice to people who are nice first.",
+          "By telling God I can do it all by myself."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes — little acts of love please Jesus.",
+        "wrongFeedback": "God is happy to help you be gentle and brave."
+      },
+      {
+        "question": "Who is the one who always shows us perfect kindness and forgiveness?",
+        "choices": [
+          "Jesus — He is our forever friend who loves us.",
+          "Only the strongest people.",
+          "People who never make mistakes.",
+          "We have to earn it by being perfect."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes! Jesus is the best example and He helps us.",
+        "wrongFeedback": "Jesus is the one who forgives us first and shows us how."
+      }
+    ],
+    "retelling38": "Zechariah saw visions of hope. God told the people to turn back to Him and He would turn back to them.",
+    "retelling912": "",
+    "retelling1317": "",
+    "readAlongSections": [
+      {
+        "text": "Zechariah saw visions of hope. God told the people to turn back to Him and He would turn back to them.",
+        "caption": "Zechariah’s Hope",
+        "image": "panel-noah-1.svg"
+      }
+    ],
+    "readAlongImages": []
+  },
+  "naaman": {
+    "kjvRef": "2 Kings 5:1-14 (KJV)",
+    "verseExcerpt": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean. — 2 Kings 5:14 (KJV)",
+    "readAlongTitle": "Naaman Obeys and Is Made Clean",
+    "quizWrongHumilityHint": "Listen again — seven dips in Jordan, clean like a little child, and God’s kindness when we obey simply.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "Now Naaman, captain of the host of the king of Syria, was a great man with his master, and honourable, because by him the LORD had given deliverance unto Syria: he was also a mighty man in valour, but he was a leper. And the Syrians had gone out by companies, and had brought away captive out of the land of Israel a little maid; and she waited on Naaman's wife. And she said unto her mistress, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
+        "caption": "A great captain — a little maid points to the prophet in Samaria",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha. And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
+        "caption": "Wash in Jordan seven times — thou shalt be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "But Naaman was wroth, and went away, and said, Behold, I thought, He will surely come out to me, and stand, and call on the name of the LORD his God, and strike his hand over the place, and recover the leper. Are not Abana and Pharpar, rivers of Damascus, better than all the waters of Israel? may I not wash in them, and be clean? So he turned and went away in a rage. And his servants came near, and spake unto him, and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? how much rather then, when he saith to thee, Wash, and be clean?",
+        "caption": "At first he was angry — then gentle words: Wash, and be clean",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
+        "caption": "Seven times in Jordan — clean like a little child",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "Naaman was a great captain, but he had leprosy. A little maid from Israel told his wife, Would God my lord were with the prophet in Samaria! for he would recover him of his leprosy.",
+      "Naaman went to Elisha’s house. Elisha sent a messenger saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
+      "At first Naaman was angry and wanted to wash in his own rivers. His servants said gently, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?",
+      "So Naaman dipped himself seven times in Jordan. His flesh came again like unto the flesh of a little child, and he was clean. The Lord used Elisha to show that simple obedience brings cleansing and healing.",
+      "For you: God heals when we obey simply and humbly — one step at a time."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "What was Naaman’s trouble at the first?",
+        "choices": [
+          "He could not walk.",
+          "He was a leper.",
+          "He was a fisherman.",
+          "He had no house."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A great man — but he was a leper.",
+        "wrongFeedback": "Listen for leper. (Answer: He was a leper.)"
+      },
+      {
+        "question": "Who pointed Naaman toward the prophet in Samaria?",
+        "choices": [
+          "The king of Egypt only.",
+          "A little maid from Israel.",
+          "No one.",
+          "Only Naaman’s horse."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "A little maid — God used her faithful words.",
+        "wrongFeedback": "Listen for little maid. (Answer: A little maid from Israel.)"
+      },
+      {
+        "question": "What did Elisha tell Naaman to do?",
+        "choices": [
+          "Stay home.",
+          "Go and wash in Jordan seven times.",
+          "Bring gold only.",
+          "Never speak again."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Wash in Jordan seven times — simple and clear.",
+        "wrongFeedback": "Listen for Jordan seven times. (Answer: Wash in Jordan seven times.)"
+      },
+      {
+        "question": "What did Naaman’s servants wisely say?",
+        "choices": [
+          "Run away.",
+          "If the prophet had bid a great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean?",
+          "Do nothing.",
+          "Shout at the river."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Gentle words — and Naaman obeyed.",
+        "wrongFeedback": "Listen for Wash, and be clean. (Answer: the servants’ wise words.)"
+      },
+      {
+        "question": "What happened after he dipped seven times?",
+        "choices": [
+          "Nothing changed.",
+          "His flesh came again like a little child’s — and he was clean.",
+          "He stayed in the water all day.",
+          "The river dried up."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Clean — like a little child.",
+        "wrongFeedback": "Listen for little child and clean. (Answer: Flesh like a little child — he was clean.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God heals when we trust and obey.",
+    "takeaway": "Naaman dipped seven times in Jordan — God made him clean. Simple obedience brings God’s kindness.",
+    "prayer": "Lord, help us obey You — even when Your way feels small. Thank You for mercy. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines Naaman standing gentle Jordan River waters dipping seventh time calm hopeful thankful joyful face Elisha servant on bank watching kindly soft ripples around Naaman thick outlines large open spaces robe water riverbank soft trees hills background minimal lines wonder-filled merciful no sores no sadness white space ages 3-8 coloring page no text",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Little maid prophet Samaria",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Wash in Jordan seven times",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Servants Wash and be clean",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Flesh like little child clean Jordan"
+    ]
+  },
+  "elishaOil": {
+    "kjvRef": "2 Kings 4:1-7 (KJV)",
+    "verseExcerpt": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few. — 2 Kings 4:3 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "Listen again — she poured out; and when there was not a vessel more, the oil stayed.",
+    "hintAboveQuiz": "Read slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.",
+        "caption": "The creditor is come to take unto him my two sons to be bondmen",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.",
+        "caption": "Save a pot of oil",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.",
+        "caption": "Borrow empty vessels — borrow not a few",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.",
+        "caption": "Shut the door — pour out into all those vessels",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.",
+        "caption": "She poured out",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.",
+        "caption": "There is not a vessel more — and the oil stayed",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+        "caption": "Sell the oil — pay thy debt — live thou and thy children of the rest",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "A certain woman of the wives of the sons of the prophets cried unto Elisha: her husband was dead, and the creditor was come to take her two sons to be bondmen.",
+      "Elisha asked what she had in the house; she had only a pot of oil. He said, Go, borrow empty vessels from thy neighbours — borrow not a few. Shut the door upon thee and thy sons, and pour out into all those vessels.",
+      "She obeyed: her sons brought the vessels, and she poured out. When every vessel was full, there was not a vessel more — and the oil stayed. Elisha said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+      "For you: God sees a mother's worry — and He can do much with what feels like almost nothing when we trust Him and obey."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Why was the widow afraid for her sons?",
+        "choices": [
+          "They were hungry only.",
+          "The creditor was come to take them to be bondmen.",
+          "They would not sleep.",
+          "They were lost in the city."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "She told Elisha plainly — the creditor would take her sons.",
+        "wrongFeedback": "Listen for creditor and bondmen. (Answer: Creditor would take her sons.)"
+      },
+      {
+        "question": "What did she have in the house besides borrowed vessels?",
+        "choices": [
+          "Much silver.",
+          "Save a pot of oil.",
+          "Many sheep.",
+          "New robes only."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Only a pot of oil — a small start for a big God.",
+        "wrongFeedback": "Listen for pot of oil. (Answer: Save a pot of oil.)"
+      },
+      {
+        "question": "What did Elisha tell her to borrow?",
+        "choices": [
+          "Stones only.",
+          "Empty vessels — borrow not a few.",
+          "Food only.",
+          "Nothing."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Empty vessels — and not just a few.",
+        "wrongFeedback": "Listen for empty vessels. (Answer: Empty vessels — borrow not a few.)"
+      },
+      {
+        "question": "When did the oil stop flowing?",
+        "choices": [
+          "When she was tired.",
+          "When there was not a vessel more.",
+          "At noon only.",
+          "Before any vessel was full."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "There is not a vessel more — and the oil stayed.",
+        "wrongFeedback": "Listen for “not a vessel more.” (Answer: When there were no more vessels.)"
+      },
+      {
+        "question": "What did Elisha tell her to do after the miracle?",
+        "choices": [
+          "Hide the oil.",
+          "Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
+          "Leave the city.",
+          "Give nothing to the creditor."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Pay the debt — then live on the rest. God provides with care.",
+        "wrongFeedback": "Listen for sell the oil and pay thy debt. (Answer: Sell the oil, pay debt, live on the rest.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Well done — God cares for widows and children, and He can bless little into enough.",
+    "takeaway": "She poured the little oil God gave — and it filled every borrowed vessel until there were no more. Then she could pay her debt and care for her children.",
+    "prayer": "Lord, thank You for caring for families. Help us trust You with what feels small. Amen.",
+    "imagePrompts": [
+      "Simple peaceful black-and-white line-art young children bold thick outlines widow indoors pouring from small pot into many jars sons carrying empty vessels thankful hopeful faces thick outlines white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Borrow empty vessels borrow not a few",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Shut the door pour out vessels",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Oil stayed when no vessel more",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sell oil pay debt live children"
+    ]
+  },
+  "davidRepentance": {
+    "kjvRef": "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12 (KJV)",
+    "verseExcerpt": "Create in me a clean heart, O God; and renew a right spirit within me. — Psalm 51:10 (KJV)",
+    "readAlongTitle": "David's Repentance and God's Mercy",
+    "quizWrongHumilityHint": "God hears an honest sorry heart — He forgives and makes us clean when we turn to Him.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "Have mercy upon me, O God, according to thy lovingkindness: according unto the multitude of thy tender mercies blot out my transgressions. Wash me throughly from mine iniquity, and cleanse me from my sin.",
+        "caption": "Have mercy, O God — blot out my transgressions",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "For I acknowledge my transgressions: and my sin is ever before me. Against thee, thee only, have I sinned, and done this evil in thy sight: that thou mightest be justified when thou speakest, and be clear when thou judgest.",
+        "caption": "An honest heart before the Lord",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "Purge me with hyssop, and I shall be clean: wash me, and I shall be whiter than snow.",
+        "caption": "Wash me — make me clean",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Create in me a clean heart, O God; and renew a right spirit within me. Cast me not away from thy presence; and take not thy holy spirit from me. Restore unto me the joy of thy salvation; and uphold me with thy free spirit.",
+        "caption": "Create in me a clean heart — restore thy joy",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And David said unto Nathan, I have sinned against the LORD. And Nathan said unto David, The LORD also hath put away thy sin; thou shalt not die.",
+        "caption": "God heard — the LORD put away his sin",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "The sacrifices of God are a broken spirit: a broken and a contrite heart, O God, thou wilt not despise.",
+        "caption": "A contrite heart — God will not despise",
+        "image": "panel-david-3.svg"
+      }
+    ],
+    "paragraphs": [
+      "David’s heart became heavy because he had done wrong in God’s sight.",
+      "He prayed honestly: Have mercy upon me, O God; blot out my transgressions; wash me and cleanse me.",
+      "David asked God to create in him a clean heart and to renew a right spirit within him.",
+      "Nathan brought God’s word: David said, I have sinned against the LORD. And the LORD put away his sin.",
+      "God does not turn away a broken and contrite heart — He draws near with mercy.",
+      "David learned that when we are sorry and turn to God, He forgives and helps us begin again.",
+      "For you: Tell God when you are sorry — He is merciful and loves to give a clean heart."
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "What did David ask God to do with his transgressions?",
+        "choices": [
+          "Hide them from everyone only.",
+          "Blot them out — have mercy according to God's lovingkindness.",
+          "Forget about prayer.",
+          "Run away from home."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes — honest words of mercy.",
+        "wrongFeedback": "Listen for blot out… mercy. (Answer: …blot out my transgressions….)"
+      },
+      {
+        "question": "What did David pray God would create in him?",
+        "choices": [
+          "A new palace.",
+          "A clean heart — and a right spirit renewed.",
+          "Only more riches.",
+          "Nothing at all."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful — Create in me a clean heart.",
+        "wrongFeedback": "Listen for clean heart. (Answer: …a clean heart….)"
+      },
+      {
+        "question": "What did David say to Nathan about his sin?",
+        "choices": [
+          "I have not sinned.",
+          "I have sinned against the LORD.",
+          "I will not pray.",
+          "I do not need God."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Honest — and God met him with mercy.",
+        "wrongFeedback": "Listen for sinned against the LORD. (Answer: I have sinned against the LORD.)"
+      },
+      {
+        "question": "What did Nathan say the LORD had done for David?",
+        "choices": [
+          "The LORD had put away his sin.",
+          "God would never listen again.",
+          "David must never speak.",
+          "The Bible does not say."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Mercy — the LORD put away his sin.",
+        "wrongFeedback": "Listen for put away thy sin. (Answer: The LORD… put away thy sin.)"
+      },
+      {
+        "question": "What kind of heart does God not despise?",
+        "choices": [
+          "A proud and stubborn heart.",
+          "A broken and contrite heart.",
+          "A heart that hides wrong.",
+          "A heart that never says sorry."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Tender truth — God welcomes honesty.",
+        "wrongFeedback": "Listen for contrite. (Answer: …a broken and a contrite heart….)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Thank you for reading how God hears sorry hearts and gives mercy — that is hope for us all.",
+    "takeaway": "David turned to God with an honest prayer — and the LORD showed mercy and forgiveness.",
+    "prayer": "Lord, when we do wrong, teach us to come to You with a sorry heart. Create in us a clean heart. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: David kneeling quietly with hands folded in prayer honest sorry peaceful face. Soft light beams from above shining gently on him. Thick bold outlines large open spaces on robe hands ground. Soft simple room walls and a window with minimal lines. Honest hopeful mood focus on asking God for a clean heart and mercy. Clean minimal no other people no hard details plenty of white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text: Have mercy upon me O God",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text: Create in me a clean heart",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text: The LORD put away thy sin",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text: God forgives a sorry heart"
+    ]
+  },
+  "parableMustardSeed": {
+    "kjvRef": "Matthew 13:31–32 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof. — Matthew 13:32 (KJV)",
+    "readAlongTitle": "Jesus Tells About a Tiny Seed That Grows Big",
+    "quizWrongHumilityHint": "Listen again — mustard seed; least; sowed; field; grew; greatest among herbs; tree; birds; lodge; kingdom; hear.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus told another story to the people.",
+      "He said, “The kingdom of heaven is like to a grain of mustard seed, which a man took, and sowed in his field: which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof.”",
+      "A tiny mustard seed is very small, but when it is planted in good soil, it grows into a big plant — sometimes as tall as a tree.",
+      "Jesus was teaching that God’s kingdom starts small, like a little seed, but it grows and grows until it becomes something strong and beautiful that helps many people.",
+      "God’s kingdom grows in our hearts when we listen to Jesus.",
+      "Reference: Matthew 13:31–32 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus told a story about a mustard seed.",
+        "caption": "A grain of mustard seed",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The seed is very tiny.",
+        "caption": "Least of all seeds",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "It is planted in the ground.",
+        "caption": "Sowed in his field",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "It grows into a big plant.",
+        "caption": "Greatest among herbs",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Birds come and rest in its branches.",
+        "caption": "Birds lodge in the branches",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "God’s kingdom grows like that tiny seed.",
+        "caption": "Kingdom like a mustard seed",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Matthew 13:31–32",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 13:31–32.)"
+      },
+      {
+        "question": "What is the kingdom of heaven like in this parable?",
+        "choices": [
+          "A grain of mustard seed that grows great",
+          "A bucket of sand",
+          "A loud drum",
+          "A sleeping pillow"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—Jesus said the kingdom of heaven is like a little mustard seed that grows.",
+        "wrongFeedback": "Think about what Jesus compared the kingdom to. (Answer: a grain of mustard seed that grows great.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God’s kingdom never grows.",
+          "God’s kingdom starts small but grows big — and He can grow in our hearts when we listen to Jesus.",
+          "Only big people are important.",
+          "Seeds never need soil."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the part about the tiny seed and the great plant. (Answer: starts small… grows… listen to Jesus.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "The birds of the air come and lodge in the branches.",
+          "The farmer rode a rocket into space.",
+          "The seed turned into a jellyfish.",
+          "The tree was made of ice cream."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Jesus’ parable? (Answer: birds… lodge in the branches.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that His kingdom grows in us — ask Him to help us listen and trust Him like good soil for a tiny seed.",
+          "Never pray about small things.",
+          "Hide from God when we feel small.",
+          "Only grown-ups care about God’s kingdom."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ care and growth? (Answer: thank Jesus… listen… trust Him.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Tells About a Tiny Seed That Grows Big with God's Word today.",
+    "takeaway": "God’s kingdom grows in our hearts when we listen to Jesus.",
+    "prayer": "Lord Jesus, thank You that Your kingdom grows in us. Help us listen to You today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: a tiny mustard seed on the ground next to a tall leafy mustard plant with birds sitting in its branches a gentle farmer stands nearby with a smile thick bold outlines with large open spaces on the seed the tall plant the birds and the ground for easy coloring soft hills and a gentle sky with minimal lines wonder growing mood focus on the tiny seed that grows into something big clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Jesus tells — kingdom like a mustard seed (listen)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Tiny seed — least of all seeds (gentle)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Planted in the field — soil and hope (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Grows tall — greatest among herbs (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Birds lodge in branches — shade and rest (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Kingdom grows — listen to Jesus (hope)"
+    ],
+    "readAlongImages": []
+  },
+  "parableLostSheep": {
+    "kjvRef": "Luke 15:3–7 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "And when he hath found it, he layeth it on his shoulders, rejoicing. — Luke 15:5 (KJV)",
+    "readAlongTitle": "Jesus Tells About the Lost Sheep",
+    "quizWrongHumilityHint": "Listen again — hundred sheep; one lost; ninety and nine; find; shoulders; rejoice; heaven; repenteth.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus told a story about a shepherd who had one hundred sheep.",
+      "One little sheep wandered away and got lost.",
+      "The shepherd left the ninety-nine safe sheep and went to look for the one that was lost.",
+      "He searched until he found it. Then he picked it up, put it on his shoulders, and carried it home.",
+      "He was so happy he called his friends and neighbors to celebrate with him.",
+      "Jesus said: “I say unto you, that likewise joy shall be in heaven over one sinner that repenteth, more than over ninety and nine just persons, which need no repentance.”",
+      "Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.",
+      "Reference: Luke 15:3–7 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A shepherd had one hundred sheep.",
+        "caption": "A hundred sheep",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "One little sheep got lost.",
+        "caption": "One wandered away",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The shepherd left the ninety-nine and looked for it.",
+        "caption": "Left the ninety-nine",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He found the lost sheep and carried it home.",
+        "caption": "On his shoulders",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "He was so happy he celebrated with his friends.",
+        "caption": "Rejoice together",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus looks for us when we are lost.",
+        "caption": "The good Shepherd",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Luke 15:3–7",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 15:3–7.)"
+      },
+      {
+        "question": "What did the shepherd do when one sheep was lost?",
+        "choices": [
+          "He left the ninety-nine and went after the one that was lost until he found it.",
+          "He forgot all about sheep.",
+          "He hid in a cave.",
+          "He bought a scooter."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ parable in Luke 15.",
+        "wrongFeedback": "Think about what the good shepherd did for the one lost sheep. (Answer: left the ninety-nine… find it.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God does not care about lost sinners.",
+          "Heaven has great joy when one sinner repenteth — and Jesus is the Shepherd who looks for us when we are lost.",
+          "Sheep are never important.",
+          "We should never celebrate."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about joy in heaven and the good shepherd. (Answer: joy… one sinner… Jesus looks for us.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "When he hath found it, he layeth it on his shoulders, rejoicing.",
+          "The sheep turned into a watermelon.",
+          "The shepherd only liked clouds.",
+          "Everyone forgot how to walk."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 15? (Answer: layeth it on his shoulders… rejoicing.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He is the good Shepherd — ask Him to find us when we wander and help us trust Him.",
+          "Never think about God’s love.",
+          "Hide when we feel loved.",
+          "Only grown-ups need the Shepherd."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus as Shepherd? (Answer: thank Jesus… good Shepherd… trust Him.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Tells About the Lost Sheep with God's Word today.",
+    "takeaway": "Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.",
+    "prayer": "Lord Jesus, thank You for being the good Shepherd who seeks the lost. Help me trust You today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: a kind shepherd carrying a little lost sheep on his shoulders the shepherd has a happy relieved face the sheep looks safe and calm thick bold outlines with large open spaces on the shepherd robe the sheep and the ground for easy coloring soft hills and a gentle sky with minimal lines caring and joyful mood focus on the shepherd finding the lost sheep clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: A hundred sheep — gentle flock (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: One lost — tender search (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Left the ninety-nine — faithful love (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Found — on his shoulders (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Rejoice with friends — heaven’s joy (celebrate)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Jesus — good Shepherd for us (love)"
+    ],
+    "readAlongImages": []
+  },
+  "marthaServe": {
+    "kjvRef": "Luke 10:38–42 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Mary hath chosen that good part, which shall not be taken away from her. — Luke 10:42 (KJV)",
+    "readAlongTitle": "Jesus Visits Mary and Martha",
+    "quizWrongHumilityHint": "Listen again — Bethany; Martha; Mary; feet; hear; careful; troubled; one thing; needful; good part; listen.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus came to the home of two sisters, Mary and Martha.",
+      "Martha was busy getting everything ready for Jesus. She wanted the house to be clean and the meal to be just right.",
+      "Mary sat down at Jesus’ feet and listened to every word He said.",
+      "Martha became upset and said, “Lord, dost thou not care that my sister hath left me to serve alone? Bid her therefore that she help me.”",
+      "Jesus answered gently, “Martha, Martha, thou art careful and troubled about many things: but one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.”",
+      "Jesus wants us to spend time listening to Him, because that is the most important thing.",
+      "Reference: Luke 10:38–42 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus visited Mary and Martha’s house.",
+        "caption": "A quiet welcome",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Martha was busy getting everything ready.",
+        "caption": "Serving with care",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Mary sat at Jesus’ feet and listened.",
+        "caption": "Still… and listening",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Martha said, “Lord, tell my sister to help me.”",
+        "caption": "Dost thou not care?",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus said gently, “Mary hath chosen that good part.”",
+        "caption": "One thing is needful",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Listening to Jesus is the most important thing.",
+        "caption": "The good part",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Luke 10:38–42",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 10:38–42.)"
+      },
+      {
+        "question": "What was Mary doing that Jesus called “the good part”?",
+        "choices": [
+          "She sat at Jesus’ feet and listened to His words.",
+          "She ran away from home.",
+          "She hid under a table.",
+          "She forgot Jesus was there."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ gentle words in Luke 10.",
+        "wrongFeedback": "Think about what Mary chose while Martha was busy. (Answer: sat… listened.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Busy work is always wrong.",
+          "Time with Jesus — listening to Him — is the one needful thing; it will not be taken away.",
+          "We should never help at home.",
+          "Only grown-ups need God’s Word."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread Jesus’ words about “one thing is needful” and “that good part.” (Answer: listen… needful.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Mary hath chosen that good part, which shall not be taken away from her.",
+          "The bowl turned into a trampoline.",
+          "The house flew to the moon.",
+          "Nobody could hear anything."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 10? (Answer: good part… not taken away.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ask Jesus to help me sit still with Him today — even a little — and listen to His Word.",
+          "Never be kind at home.",
+          "Only rush and worry.",
+          "Hide from Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ “one thing is needful”? (Answer: listen… His Word.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Visits Mary and Martha with God's Word today.",
+    "takeaway": "Jesus wants us to spend time listening to Him, because that is the most important thing.",
+    "prayer": "Lord Jesus, thank You for calling me to sit with You. Help me choose the good part today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus sitting in a quiet room talking Mary is sitting at His feet listening with a peaceful face Martha stands nearby with a bowl in her hands thick bold outlines with large open spaces on Jesus robe Mary robe Martha robe and the floor for easy coloring soft house walls and gentle light from a window with minimal lines calm and listening mood focus on Mary choosing to sit with Jesus clean minimal no anger or busy mess plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Quiet house — Jesus welcomed (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha serving — getting things ready (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Mary at Jesus’ feet — listening (still)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha speaks — help me (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Jesus gentle — one thing needful (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Good part — not taken away (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Listen today — small quiet moment (hope)"
+    ],
+    "readAlongImages": []
+  },
+  "marySit": {
+    "kjvRef": "Luke 10:38–42 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Mary hath chosen that good part, which shall not be taken away from her. — Luke 10:42 (KJV)",
+    "readAlongTitle": "Jesus Visits Mary and Martha",
+    "quizWrongHumilityHint": "Listen again — Bethany; Martha; Mary; feet; hear; careful; troubled; one thing; needful; good part; listen.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus came to the home of two sisters, Mary and Martha.",
+      "Martha was busy getting everything ready for Jesus. She wanted the house to be clean and the meal to be just right.",
+      "Mary sat down at Jesus’ feet and listened to every word He said.",
+      "Martha became upset and said, “Lord, dost thou not care that my sister hath left me to serve alone? Bid her therefore that she help me.”",
+      "Jesus answered gently, “Martha, Martha, thou art careful and troubled about many things: but one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.”",
+      "Jesus wants us to spend time listening to Him, because that is the most important thing.",
+      "Reference: Luke 10:38–42 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus visited Mary and Martha’s house.",
+        "caption": "A quiet welcome",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Martha was busy getting everything ready.",
+        "caption": "Serving with care",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Mary sat at Jesus’ feet and listened.",
+        "caption": "Still… and listening",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Martha said, “Lord, tell my sister to help me.”",
+        "caption": "Dost thou not care?",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus said gently, “Mary hath chosen that good part.”",
+        "caption": "One thing is needful",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Listening to Jesus is the most important thing.",
+        "caption": "The good part",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Luke 10:38–42",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 10:38–42.)"
+      },
+      {
+        "question": "What was Mary doing that Jesus called “the good part”?",
+        "choices": [
+          "She sat at Jesus’ feet and listened to His words.",
+          "She ran away from home.",
+          "She hid under a table.",
+          "She forgot Jesus was there."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ gentle words in Luke 10.",
+        "wrongFeedback": "Think about what Mary chose while Martha was busy. (Answer: sat… listened.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Busy work is always wrong.",
+          "Time with Jesus — listening to Him — is the one needful thing; it will not be taken away.",
+          "We should never help at home.",
+          "Only grown-ups need God’s Word."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread Jesus’ words about “one thing is needful” and “that good part.” (Answer: listen… needful.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Mary hath chosen that good part, which shall not be taken away from her.",
+          "The bowl turned into a trampoline.",
+          "The house flew to the moon.",
+          "Nobody could hear anything."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 10? (Answer: good part… not taken away.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ask Jesus to help me sit still with Him today — even a little — and listen to His Word.",
+          "Never be kind at home.",
+          "Only rush and worry.",
+          "Hide from Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ “one thing is needful”? (Answer: listen… His Word.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Visits Mary and Martha with God's Word today.",
+    "takeaway": "Jesus wants us to spend time listening to Him, because that is the most important thing.",
+    "prayer": "Lord Jesus, thank You for calling me to sit with You. Help me choose the good part today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus sitting in a quiet room talking Mary is sitting at His feet listening with a peaceful face Martha stands nearby with a bowl in her hands thick bold outlines with large open spaces on Jesus robe Mary robe Martha robe and the floor for easy coloring soft house walls and gentle light from a window with minimal lines calm and listening mood focus on Mary choosing to sit with Jesus clean minimal no anger or busy mess plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Quiet house — Jesus welcomed (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha serving — getting things ready (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Mary at Jesus’ feet — listening (still)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha speaks — help me (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Jesus gentle — one thing needful (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Good part — not taken away (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Listen today — small quiet moment (hope)"
+    ],
+    "readAlongImages": []
+  },
+  "jesusLazarus": {
+    "kjvRef": "John 11:1–44 (KJV)",
+    "verseExcerpt": "Jesus said unto her, I am the resurrection, and the life. — John 11:25 (KJV)",
+    "readAlongTitle": "Jesus Brings Lazarus Back to Life",
+    "quizWrongHumilityHint": "Listen again — Bethany; sick; lovest; two days; sleepeth; awake; four days; Martha; resurrection; life; believest; cave; stone; come forth; graveclothes; napkin; loose him; believed.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus had a dear friend named Lazarus who lived in Bethany with his sisters, Mary and Martha. Lazarus became very sick. His sisters sent word to Jesus, saying, Lord, behold, he whom thou lovest is sick.",
+      "Jesus loved Martha, and her sister, and Lazarus. Yet when He heard that Lazarus was sick, He stayed two more days in the place where He was. Then He said to His disciples, Our friend Lazarus sleepeth; but I go, that I may awake him out of sleep.",
+      "When Jesus came, Lazarus had already been in the grave four days. Martha went to meet Jesus and said, Lord, if thou hadst been here, my brother had not died. Jesus saith unto her, Thy brother shall rise again. Martha said, I know that he shall rise again in the resurrection at the last day. Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live: And whosoever liveth and believeth in me shall never die. Believest thou this?",
+      "Jesus came to the grave. It was a cave, and a stone lay upon it. Jesus said, Take ye away the stone. Then He cried with a loud voice, Lazarus, come forth. And he that was dead came forth, bound hand and foot with graveclothes: and his face was bound about with a napkin. Jesus saith unto them, Loose him, and let him go.",
+      "Many of the Jews which came to Mary, and had seen the things which Jesus did, believed on Him.",
+      "Jesus cares when we hurt, and He has power over death — a safe, hopeful truth for hard days.",
+      "Reference: John 11:1–44 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Lazarus was sick, and his sisters Mary and Martha sent for Jesus.",
+        "caption": "He whom thou lovest is sick",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus waited a little while, then went to Bethany even though Lazarus had died.",
+        "caption": "Our friend sleepeth",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Martha met Jesus and said her brother would have lived if He had come sooner.",
+        "caption": "Lord, if thou hadst been here",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus said, I am the resurrection, and the life.",
+        "caption": "Believest thou this?",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "At the cave tomb, Jesus told them to roll away the stone.",
+        "caption": "Take ye away the stone",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Jesus called with a loud voice, Lazarus, come forth! And Lazarus walked out alive. Many people believed in Jesus that day.",
+        "caption": "Loose him, and let him go",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "John 11:1–44",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: John 11:1–44.)"
+      },
+      {
+        "question": "Who was Lazarus to Jesus in this story?",
+        "choices": [
+          "A dear friend — brother to Mary and Martha, and Jesus loved them all.",
+          "A stranger Jesus never met.",
+          "Someone who lived only in a pretend tale.",
+          "A person with no family."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 11:3–5.",
+        "wrongFeedback": "Think: who sent word from Bethany? (Answer: dear friend… sisters.)"
+      },
+      {
+        "question": "Which words did Jesus say to Martha about resurrection and life?",
+        "choices": [
+          "I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.",
+          "Be careful for nothing.",
+          "Peace, be still.",
+          "Take no thought for your life."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 11:25.",
+        "wrongFeedback": "Listen for “resurrection” and “life.” (Answer: I am the resurrection, and the life…)"
+      },
+      {
+        "question": "What did Jesus cry at the tomb?",
+        "choices": [
+          "Lazarus, come forth.",
+          "Stay in the cave forever.",
+          "Run away from Bethany.",
+          "Do not speak to anyone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 11:43.",
+        "wrongFeedback": "Listen for “come forth.” (Answer: Lazarus, come forth.)"
+      },
+      {
+        "question": "What did Jesus say to do after Lazarus came out bound in graveclothes?",
+        "choices": [
+          "Loose him, and let him go.",
+          "Leave him bound forever.",
+          "Hide him from everyone.",
+          "Roll the stone back immediately."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 11:44.",
+        "wrongFeedback": "Listen for “loose.” (Answer: Loose him, and let him go.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He is the resurrection and the life — and ask Him to help me trust Him on sad, hard days.",
+          "Never talk to God when I am sad.",
+          "Believe God never cares.",
+          "Try to be brave alone without Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with hope: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ power and love? (Answer: thank Him… trust Him… hard days.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Brings Lazarus Back to Life with God's Word today.",
+    "takeaway": "Jesus is the resurrection and the life — He cares when we hurt, and nothing is too hard for Him.",
+    "prayer": "Lord Jesus, thank You that You are the resurrection and the life. On hard days, help me rest in Your strong, gentle love. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. Gentle Jesus stands near the opening of a cave tomb with a kind, loving face, one hand raised as He calls out. Lazarus stands at the cave entrance wrapped in simple graveclothes, beginning to step forward — face peaceful, not scary. Mary and Martha kneel nearby with hopeful expressions. A large stone rests beside the cave opening. Soft hills and a few trees in the distance with plenty of open ground in the foreground for coloring. Focus: Jesus bringing life and hope. Style: clear, bold, tender, restful — never frightening or dark.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Bethany — sisters send word — he whom thou lovest is sick (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Two days — our friend sleepeth — Jesus goes (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Martha meets Jesus — if thou hadst been here (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: I am the resurrection, and the life (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Cave tomb — take ye away the stone (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Come forth — loose him — many believed (peace)"
+    ],
+    "readAlongImages": []
+  },
+  "healLeper": {
+    "kjvRef": "Luke 17:11–19 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Arise, go thy way: thy faith hath made thee whole. — Luke 17:19 (KJV)",
+    "readAlongTitle": "Jesus Heals Ten Men and One Says Thank You",
+    "quizWrongHumilityHint": "Listen again — Samaria; Galilee; stood afar; mercy; priests; healed; glorified God; thanks; where are the nine; faith made whole; thank.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus was walking along the road between Samaria and Galilee.",
+      "Ten men who had a skin disease called leprosy saw Him.",
+      "They stood far away and called, “Jesus, Master, have mercy on us!”",
+      "Jesus said to them, “Go shew yourselves unto the priests.”",
+      "As they went, they were healed.",
+      "One of them, when he saw that he was healed, turned back and with a loud voice glorified God.",
+      "He fell down on his face at Jesus’ feet and gave Him thanks.",
+      "Jesus said, “Were there not ten cleansed? but where are the nine? Arise, go thy way: thy faith hath made thee whole.”",
+      "Jesus heals us and is happy when we remember to say thank you.",
+      "Reference: Luke 17:11–19 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Ten men with a skin disease saw Jesus.",
+        "caption": "They stood afar off",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "They called, “Jesus, have mercy on us!”",
+        "caption": "Master, have mercy on us",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus said, “Go show yourselves to the priests.”",
+        "caption": "Go shew yourselves unto the priests",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "As they went, they were healed.",
+        "caption": "Cleansed as they went",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "One man ran back and thanked Jesus.",
+        "caption": "He glorified God",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus said, “Thy faith hath made thee whole.”",
+        "caption": "Where are the nine?",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus is happy when we say thank you.",
+        "caption": "A thankful heart",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Luke 17:11–19",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 17:11–19.)"
+      },
+      {
+        "question": "What did the men call out to Jesus before they were healed?",
+        "choices": [
+          "“Jesus, Master, have mercy on us!”",
+          "“Bring us gold and toys.”",
+          "“Let us hide forever.”",
+          "“We do not need any help.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 17:13.",
+        "wrongFeedback": "Think about the honest cry for mercy in Luke 17. (Answer: Master, have mercy.)"
+      },
+      {
+        "question": "What did Jesus tell them to do?",
+        "choices": [
+          "“Go shew yourselves unto the priests.”",
+          "“Stay far away forever.”",
+          "“Do not obey God.”",
+          "“Walk into the sea.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ words in Luke 17:14.",
+        "wrongFeedback": "Reread what Jesus said before they were healed on the way. (Answer: show yourselves to the priests.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Only one came back to give thanks — and Jesus praised his faith.",
+          "Ten dinosaurs built a tower.",
+          "The road turned into jelly.",
+          "Nobody was healed."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with Jesus’ “where are the nine?” and “thy faith hath made thee whole.”",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 17? (Answer: one came back… thanks.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus for helping me — and remember to say thank you to Him today.",
+          "Never say thank you to anyone.",
+          "Forget what God did.",
+          "Only grown-ups should speak to Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus like the one who returned? (Answer: thank… remember.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Heals Ten Men and One Says Thank You with God's Word today.",
+    "takeaway": "Jesus heals us and is happy when we remember to say thank you.",
+    "prayer": "Lord Jesus, thank You for loving me and healing my heart. Help me remember to say thank You. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: Ten men with skin trouble standing far away calling to Jesus One man is running back to Jesus with a thankful face and arms raised Jesus has a kind caring face thick bold outlines with large open spaces on Jesus robe the men robes and the road for easy coloring soft road and gentle hills with minimal lines thankful and healing mood focus on the one man saying thank you clean minimal no scary disease details plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Afar off — mercy cry (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Go shew yourselves — obey Jesus (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Cleansed as they went (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: One turns back — glorified God (worship)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Thanks at Jesus’ feet (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Where are the nine? (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Faith made whole — say thank you (peace)"
+    ],
+    "readAlongImages": []
+  },
+  "healBlind": {
+    "kjvRef": "John 9:1–38 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "One thing I know, that, whereas I was blind, now I see. — John 9:25 (KJV)",
+    "readAlongTitle": "Jesus Gives Sight to a Man Who Was Born Blind",
+    "quizWrongHumilityHint": "Listen again — born blind; disciples; sin; works of God; clay; spittle; Siloam; wash; neighbours; Pharisees; Son of God; Lord; believe.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus saw a man who had been blind since he was born.",
+      "His disciples asked, “Master, who did sin, this man, or his parents, that he was born blind?”",
+      "Jesus answered, “Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him.”",
+      "Jesus made clay with the dirt and spit, put it on the man’s eyes, and said, “Go, wash in the pool of Siloam.”",
+      "The man went, washed, and came back seeing!",
+      "The neighbors were amazed and asked, “Is not this he that sat and begged?”",
+      "The man said, “I was blind, but now I see.”",
+      "When the Pharisees asked how he received his sight, he simply said, “He put clay on my eyes, and I washed, and do see.”",
+      "Later Jesus found the man and asked, “Dost thou believe on the Son of God?”",
+      "The man answered, “Lord, I believe.” And he worshipped Jesus.",
+      "Jesus opens blind eyes and helps us see who He really is.",
+      "Reference: John 9:1–38 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus saw a man who was born blind.",
+        "caption": "That the works of God…",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus put clay on his eyes.",
+        "caption": "Anointed the eyes",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "He said, “Go wash in the pool of Siloam.”",
+        "caption": "Go, wash",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The man washed and came back seeing!",
+        "caption": "Came seeing",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He said, “I was blind, but now I see.”",
+        "caption": "Now I see",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus helps us see who He is.",
+        "caption": "Lord, I believe",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "John 9:1–38",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 9:1–38.)"
+      },
+      {
+        "question": "What did Jesus tell the man to do after He put clay on his eyes?",
+        "choices": [
+          "Wash in the pool of Siloam.",
+          "Run away from home.",
+          "Hide behind a tree forever.",
+          "Never speak to anyone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 9:7.",
+        "wrongFeedback": "Think about where Jesus sent him next. (Answer: pool of Siloam… wash.)"
+      },
+      {
+        "question": "Which line matches the man’s simple honest truth after he could see?",
+        "choices": [
+          "“One thing I know: I was blind, but now I see.”",
+          "“I have never heard of Jesus.”",
+          "“Nothing changed at all.”",
+          "“I only want to be angry.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that heart line belongs to John 9.",
+        "wrongFeedback": "Choose the honest line from God’s Word. (Answer: blind… now I see.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Jesus asked him, “Dost thou believe on the Son of God?” and the man said, “Lord, I believe.”",
+          "A giant carrot taught the lesson.",
+          "Everyone pretended to be statues.",
+          "The pool turned into soup."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with the end of John 9 in this gentle summary.",
+        "wrongFeedback": "Cross out the joke answers. Which matches John 9? (Answer: believe… Lord.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He helps us truly see Him — and ask Him to open my heart to trust Him today.",
+          "Never thank God.",
+          "Only look at what is dark.",
+          "Forget every promise of God."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus as the One who opens eyes—heart and soul? (Answer: thank… see Him.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Gives Sight to a Man Who Was Born Blind with God's Word today.",
+    "takeaway": "Jesus opens blind eyes and helps us see who He really is.",
+    "prayer": "Lord Jesus, help me see You clearly and trust You with my whole heart. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: Jesus gently putting clay on the eyes of a man who was born blind The man is sitting with a hopeful face thick bold outlines with large open spaces on Jesus robe the man robe and the ground for easy coloring soft road and gentle sky with minimal lines kind and healing mood focus on Jesus giving sight clean minimal no scary blindness or mud plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Works of God — gentle mission (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Clay on eyes — obey and go (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pool of Siloam — wash (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Came seeing — joy (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Neighbors amazed — honest answer (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pharisees ask — clay, wash, see (courage)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Son of God — Lord, I believe (love)"
+    ],
+    "readAlongImages": []
+  },
+  "jesusHealsBlind": {
+    "kjvRef": "John 9:1–38 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "One thing I know, that, whereas I was blind, now I see. — John 9:25 (KJV)",
+    "readAlongTitle": "Jesus Gives Sight to a Man Who Was Born Blind",
+    "quizWrongHumilityHint": "Listen again — born blind; disciples; sin; works of God; clay; spittle; Siloam; wash; neighbours; Pharisees; Son of God; Lord; believe.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus saw a man who had been blind since he was born.",
+      "His disciples asked, “Master, who did sin, this man, or his parents, that he was born blind?”",
+      "Jesus answered, “Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him.”",
+      "Jesus made clay with the dirt and spit, put it on the man’s eyes, and said, “Go, wash in the pool of Siloam.”",
+      "The man went, washed, and came back seeing!",
+      "The neighbors were amazed and asked, “Is not this he that sat and begged?”",
+      "The man said, “I was blind, but now I see.”",
+      "When the Pharisees asked how he received his sight, he simply said, “He put clay on my eyes, and I washed, and do see.”",
+      "Later Jesus found the man and asked, “Dost thou believe on the Son of God?”",
+      "The man answered, “Lord, I believe.” And he worshipped Jesus.",
+      "Jesus opens blind eyes and helps us see who He really is.",
+      "Reference: John 9:1–38 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus saw a man who was born blind.",
+        "caption": "That the works of God…",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus put clay on his eyes.",
+        "caption": "Anointed the eyes",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "He said, “Go wash in the pool of Siloam.”",
+        "caption": "Go, wash",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The man washed and came back seeing!",
+        "caption": "Came seeing",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He said, “I was blind, but now I see.”",
+        "caption": "Now I see",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus helps us see who He is.",
+        "caption": "Lord, I believe",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "John 9:1–38",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 9:1–38.)"
+      },
+      {
+        "question": "What did Jesus tell the man to do after He put clay on his eyes?",
+        "choices": [
+          "Wash in the pool of Siloam.",
+          "Run away from home.",
+          "Hide behind a tree forever.",
+          "Never speak to anyone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 9:7.",
+        "wrongFeedback": "Think about where Jesus sent him next. (Answer: pool of Siloam… wash.)"
+      },
+      {
+        "question": "Which line matches the man’s simple honest truth after he could see?",
+        "choices": [
+          "“One thing I know: I was blind, but now I see.”",
+          "“I have never heard of Jesus.”",
+          "“Nothing changed at all.”",
+          "“I only want to be angry.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that heart line belongs to John 9.",
+        "wrongFeedback": "Choose the honest line from God’s Word. (Answer: blind… now I see.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Jesus asked him, “Dost thou believe on the Son of God?” and the man said, “Lord, I believe.”",
+          "A giant carrot taught the lesson.",
+          "Everyone pretended to be statues.",
+          "The pool turned into soup."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with the end of John 9 in this gentle summary.",
+        "wrongFeedback": "Cross out the joke answers. Which matches John 9? (Answer: believe… Lord.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He helps us truly see Him — and ask Him to open my heart to trust Him today.",
+          "Never thank God.",
+          "Only look at what is dark.",
+          "Forget every promise of God."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus as the One who opens eyes—heart and soul? (Answer: thank… see Him.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Gives Sight to a Man Who Was Born Blind with God's Word today.",
+    "takeaway": "Jesus opens blind eyes and helps us see who He really is.",
+    "prayer": "Lord Jesus, help me see You clearly and trust You with my whole heart. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: Jesus gently putting clay on the eyes of a man who was born blind The man is sitting with a hopeful face thick bold outlines with large open spaces on Jesus robe the man robe and the ground for easy coloring soft road and gentle sky with minimal lines kind and healing mood focus on Jesus giving sight clean minimal no scary blindness or mud plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Works of God — gentle mission (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Clay on eyes — obey and go (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pool of Siloam — wash (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Came seeing — joy (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Neighbors amazed — honest answer (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pharisees ask — clay, wash, see (courage)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Son of God — Lord, I believe (love)"
+    ],
+    "readAlongImages": []
+  },
+  "forgive70x7": {
+    "kjvRef": "Matthew 18:21–35 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses. — Matthew 18:35 (KJV)",
+    "readAlongTitle": "Jesus Tells About Forgiving Others",
+    "quizWrongHumilityHint": "Listen again — king; account; debt; patience; forgave; fellowservant; throat; prison; wicked servant; compassion; heart; forgive.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus told a story about a king who was checking how much money his servants owed him.",
+      "One servant owed the king a huge amount of money — more than he could ever pay back.",
+      "The servant fell on his knees and begged, “Lord, have patience with me, and I will pay thee all.”",
+      "The king felt sorry for him and forgave the whole debt.",
+      "But that same servant went out and found another servant who owed him a very small amount.",
+      "He grabbed him by the throat and said, “Pay me what thou owest!”",
+      "The second servant begged for patience, but the first servant would not forgive him.",
+      "He had the man thrown into prison until he could pay.",
+      "When the king heard what had happened, he was very angry.",
+      "He called the first servant and said, “O thou wicked servant, I forgave thee all that debt because thou desiredst me: shouldest not thou also have had compassion on thy fellowservant?”",
+      "Then the king had the unforgiving servant punished.",
+      "Jesus said, “So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses.”",
+      "Jesus wants us to forgive others the way God forgives us.",
+      "Reference: Matthew 18:21–35 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A servant owed the king a huge debt.",
+        "caption": "Ten thousand talents…",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The servant begged for patience.",
+        "caption": "Have patience with me",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The king forgave the whole debt.",
+        "caption": "Moved with compassion",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The servant found another man who owed him a little.",
+        "caption": "A fellowservant",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He would not forgive him and put him in prison.",
+        "caption": "Took by the throat",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The king was angry and punished the unforgiving servant.",
+        "caption": "O thou wicked servant",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus wants us to forgive others.",
+        "caption": "From your hearts",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this parable found in the Bible?",
+        "choices": [
+          "Luke 15",
+          "Matthew 18:21–35",
+          "John 3",
+          "Psalm 23"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 18:21–35.)"
+      },
+      {
+        "question": "What did the king do first for the servant who owed a huge debt?",
+        "choices": [
+          "He forgave the whole debt because the servant begged for patience.",
+          "He gave him a new horse.",
+          "He sent him on vacation forever.",
+          "He ignored him."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—the king showed great mercy first.",
+        "wrongFeedback": "Think: what happened at the throne before the servant went out? (Answer: forgave… debt.)"
+      },
+      {
+        "question": "What did the unforgiving servant do to the man who owed him little?",
+        "choices": [
+          "He would not forgive him and had him thrown in prison.",
+          "He paid the man’s rent.",
+          "He invited him to a party and then forgot.",
+          "He shared all his toys."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that shows why Jesus told this story.",
+        "wrongFeedback": "Remember the sad turning point—throat, prison, no mercy. (Answer: would not forgive… prison.)"
+      },
+      {
+        "question": "Which line belongs to Jesus’ teaching in this gentle summary?",
+        "choices": [
+          "“So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not…”",
+          "“Eat more dessert every day.”",
+          "“Hide when someone says sorry.”",
+          "“Never speak to family again.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that heart line matches the end of the parable.",
+        "wrongFeedback": "Cross out silliness. Which calls us to forgive from the heart? (Answer: likewise… heavenly Father… forgive.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ask Jesus to help me forgive others the way He forgave me — starting small and honest.",
+          "Refuse to say sorry.",
+          "Only remember what hurt me.",
+          "Try to pay God back for grace by being perfect alone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which matches Jesus’ “from your hearts” heart? (Answer: forgive… way He forgave me.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Tells About Forgiving Others with God's Word today.",
+    "takeaway": "Jesus wants us to forgive others the way God forgives us.",
+    "prayer": "Lord Jesus, You forgave me so much. Please help me forgive others from my heart. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: A king sitting on his throne forgiving a servant who is kneeling and begging The servant looks thankful thick bold outlines with large open spaces on the king robe the servant robe and the floor for easy coloring soft throne room walls with minimal lines kind and forgiving mood focus on the king forgiving the big debt clean minimal no fear or anger plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: King reckons — huge debt (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Have patience — loosed and forgiven (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Fellowservant — pay me (sad)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Prison — would not forgive (heavy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: King hears — pity on thee? (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Heart forgiveness — heavenly Father (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Jesus teaches — forgive brothers (love)"
+    ],
+    "readAlongImages": []
+  },
+  "jesusAndChildren": {
+    "kjvRef": "Mark 10:13–16 (KJV)",
+    "verseExcerpt": "Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. — Mark 10:14 (KJV)",
+    "readAlongTitle": "Jesus Welcomes the Little Children",
+    "quizWrongHumilityHint": "Listen again — children; touch; bless; disciples; rebuked; displeased; suffer; forbid not; kingdom; arms; blessed.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "People brought little children to Jesus so He could touch them and bless them.",
+      "The disciples thought the children were in the way and told the people to stop.",
+      "Jesus was not pleased.",
+      "He said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”",
+      "Then He took the children in His arms, put His hands on them, and blessed them.",
+      "Jesus loves little children and wants them to come to Him.",
+      "Reference: Mark 10:13–16 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "People brought little children to Jesus.",
+        "caption": "That he should touch them",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The disciples told them to stop.",
+        "caption": "His disciples rebuked those that brought them",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”",
+        "caption": "He was much displeased",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He took them in His arms and blessed them.",
+        "caption": "Put his hands upon them",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus loves little children.",
+        "caption": "Of such is the kingdom of God",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Mark 10:13–16",
+          "Genesis 1",
+          "Jonah 1",
+          "Revelation 21"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Mark 10:13–16.)"
+      },
+      {
+        "question": "What did Jesus say about the little children?",
+        "choices": [
+          "“Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”",
+          "“Hide away from Me forever.”",
+          "“Only grown-ups may pray.”",
+          "“Do not sing praise songs.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 10:14.",
+        "wrongFeedback": "Think about Jesus’ kind command in Mark 10. (Answer: Suffer the little children… kingdom of God.)"
+      },
+      {
+        "question": "What did Jesus do after He taught about the children?",
+        "choices": [
+          "He took them up in His arms, put His hands upon them, and blessed them.",
+          "He sent every child away sad.",
+          "He told them never to come back.",
+          "He asked them to stop smiling."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Mark 10:16.",
+        "wrongFeedback": "Reread the ending: arms, hands, blessed. (Answer: took them up in his arms… blessed them.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "The disciples tried to turn the children away — and Jesus welcomed them.",
+          "A rocket landed in the grass.",
+          "The children built a tower to the moon.",
+          "Nobody came near Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that honest moment is part of Mark 10.",
+        "wrongFeedback": "Cross out the joke answers. Which matches the story? (Answer: disciples… Jesus welcomed them.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Come to Jesus in prayer — He loves little children and wants them to come to Him.",
+          "Decide prayer is only for adults.",
+          "Believe God is too busy for kids.",
+          "Hide feelings from God on purpose."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which matches Jesus’ welcome? (Answer: come to Jesus… loves little children.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Welcomes the Little Children with God's Word today.",
+    "takeaway": "Jesus loves little children and wants them to come to Him.",
+    "prayer": "Lord Jesus, thank You for welcoming children. Help me come to You and trust You today. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art scene for young children: Jesus sitting on the ground with open arms. Several little children are coming to Him with happy faces. One child is already in His lap. Thick, bold outlines with large open spaces on Jesus’ robe, the children’s clothes, and the ground for easy coloring. Soft grass and a gentle sky with minimal lines. Loving and welcoming mood — focus on Jesus welcoming the little children. Clean, minimal, no fear or scolding, plenty of white space, age-appropriate for ages 3–8.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Children brought — that he should touch them (welcome)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Disciples rebuked — much displeased (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Suffer the little children — kingdom of God (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: In His arms — hands upon them (blessing)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Receive as a child — enter (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus loves you — come to Him (love)"
+    ],
+    "readAlongImages": []
+  },
+  "jesusAndZacchaeus": {
+    "kjvRef": "Luke 19:1–10 (KJV)",
+    "verseExcerpt": "For the Son of man is come to seek and to save that which was lost. — Luke 19:10 (KJV)",
+    "readAlongTitle": "Jesus Loves Zacchaeus",
+    "quizWrongHumilityHint": "Listen again — Jericho; publicans; rich; little of stature; press; sycomore; Zacchaeus; make haste; come down; abide; joyfully; murmured; sinner; half; fourfold; salvation; son of Abraham; seek; save; lost.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus was passing through the city of Jericho. There was a man named Zacchaeus. He was the chief among the publicans, and he was rich. But he was little of stature, and he could not see Jesus because of the crowd.",
+      "So Zacchaeus ran on before, and climbed up into a sycomore tree to see Jesus, for He was to pass that way.",
+      "When Jesus came to the place, He looked up, and saw him, and said unto him, Zacchaeus, make haste, and come down; for to day I must abide at thy house.",
+      "Zacchaeus made haste, and came down, and received Jesus joyfully.",
+      "When the people saw it, they all murmured, saying that Jesus was gone to be guest with a man that is a sinner.",
+      "Zacchaeus stood, and said unto the Lord, Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold.",
+      "Jesus said unto him, This day is salvation come to this house, forsomuch as he also is a son of Abraham. For the Son of man is come to seek and to save that which was lost.",
+      "Jesus knows our name, He comes to us, and He came to seek and save the lost — no one is too small, too far, or too far gone for His love.",
+      "Reference: Luke 19:1–10 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus walked through Jericho. A man named Zacchaeus was very short and could not see over the crowd.",
+        "caption": "Little of stature",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "So Zacchaeus climbed up into a tall sycomore tree to see Jesus.",
+        "caption": "Up in the tree",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "Jesus looked up and called him by name: Zacchaeus, make haste, and come down; for to day I must abide at thy house.",
+        "caption": "Jesus called his name",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Zacchaeus came down quickly and welcomed Jesus with joy.",
+        "caption": "Joyfully received",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "The people murmured because Zacchaeus had been a sinner, but Zacchaeus promised to give to the poor and make things right.",
+        "caption": "Making things right",
+        "image": "panel-david-3.svg"
+      },
+      {
+        "text": "Jesus said, This day is salvation come to this house… for the Son of man is come to seek and to save that which was lost. What a happy day!",
+        "caption": "Seek and save the lost",
+        "image": "panel-david-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Luke 19:1–10",
+          "Matthew 5",
+          "Acts 2",
+          "Genesis 12"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Luke 19:1–10.)"
+      },
+      {
+        "question": "What did Jesus first say to Zacchaeus in the tree?",
+        "choices": [
+          "“Zacchaeus, make haste, and come down; for to day I must abide at thy house.”",
+          "“Stay in the tree forever.”",
+          "“Do not speak to anyone.”",
+          "“Run away to another town.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 19:5.",
+        "wrongFeedback": "Think about Jesus’ kind invitation in Luke 19. (Answer: make haste… abide at thy house.)"
+      },
+      {
+        "question": "What good did Zacchaeus say he would do after meeting Jesus?",
+        "choices": [
+          "Give half of his goods to the poor — and restore fourfold if he wronged anyone.",
+          "Hide everything he owned.",
+          "Never say sorry.",
+          "Only help people who clapped the loudest."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches his honest words in Luke 19:8.",
+        "wrongFeedback": "Reread what Zacchaeus promised God. (Answer: half… poor… fourfold.)"
+      },
+      {
+        "question": "Why did the people murmur when Jesus went to Zacchaeus’s house?",
+        "choices": [
+          "They said He was gone to be guest with a man that is a sinner.",
+          "They were angry because it started to snow.",
+          "They wanted the tree to fall down.",
+          "They forgot how to walk."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 19:7.",
+        "wrongFeedback": "Listen for “murmured” and “sinner.” (Answer: guest with a man that is a sinner.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Talk to Jesus honestly — He sees us, loves us, and can change our hearts.",
+          "Believe God only loves perfect people.",
+          "Stay hidden and never come to Him.",
+          "Try to earn God’s love by never making mistakes alone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which matches Jesus seeking and saving the lost? (Answer: honest… sees us… change our hearts.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Loves Zacchaeus with God's Word today.",
+    "takeaway": "Jesus knows our name, comes to us, and came to seek and save the lost — we can rest in His love on hard days.",
+    "prayer": "Lord Jesus, thank You that You know my name and seek the lost. Change my heart and help me welcome You with joy today. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. In the center, gentle Jesus stands looking up with kind eyes and a soft smile, one hand gently reaching toward the tree. Little Zacchaeus sits happily on a low branch of a big sycomore tree, looking down at Jesus with a joyful face — simple robe, short stature shown gently. A few townspeople stand nearby watching quietly. Soft ground and a few leaves on the tree with plenty of large open space in the foreground for coloring. Focus: Jesus calling Zacchaeus by name and bringing joy and salvation. Style: clear, bold, restful, never busy or scary.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Jericho — little of stature (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Sycomore — ran before, climbed up (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Zacchaeus — make haste, come down (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Joyfully received — abide at thy house (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Murmured — half and fourfold (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Salvation — seek and save the lost (peace)"
+    ],
+    "readAlongImages": []
+  },
+  "simonOfCyrene": {
+    "kjvRef": "Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)",
+    "verseExcerpt": "And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross. — Matthew 27:32 (KJV)",
+    "readAlongTitle": "Jesus Carries His Cross",
+    "quizWrongHumilityHint": "Listen again — mocked; raiment; led away; crucify; Cyrene; Simon; bear his cross; great company; women; bewailed; Daughters of Jerusalem; weep not for me.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him.",
+      "Jesus went forward carrying the cross — heavy wood, and a heart full of love for us.",
+      "And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross.",
+      "And there followed him a great company of people, and of women, which also bewailed and lamented him.",
+      "But Jesus turning unto them said, Daughters of Jerusalem, weep not for me, but weep for yourselves, and for your children.",
+      "Jesus carried His cross because He loves us — He is strong and kind, and He helps us when life feels hard.",
+      "Reference: Matthew 27:31–32 (KJV) (parallel in Mark, Luke, and John)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "After the soldiers mocked Jesus, they led Him away to crucify Him — And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him.",
+        "caption": "Led away in His own raiment",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus began to carry His heavy wooden cross — slow, steady, and strong in love.",
+        "caption": "Carrying the cross",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The soldiers found Simon of Cyrene and asked him to help — And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross.",
+        "caption": "Simon helps",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Many people followed Jesus, and some women were crying — And there followed him a great company of people, and of women, which also bewailed and lamented him.",
+        "caption": "A great company",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus turned to them and said gently — But Jesus turning unto them said, Daughters of Jerusalem, weep not for me, but weep for yourselves, and for your children.",
+        "caption": "Weep not for me",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Jesus carried His cross because He loved us so much and wanted to save us — and He helps us carry what feels heavy in our hearts.",
+        "caption": "Love that holds us",
+        "image": "panel-jesus-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Matthew 27:31–32 (also told in Mark, Luke, and John)",
+          "Genesis 1 only",
+          "Jonah 1 only",
+          "Revelation 20 only"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: Matthew 27:31–32.)"
+      },
+      {
+        "question": "After they mocked Jesus, what did they do next?",
+        "choices": [
+          "They put His own raiment on Him and led Him away to crucify Him.",
+          "They sailed away in a tiny boat.",
+          "They planted a garden in the palace.",
+          "They forgot who He was."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:31.",
+        "wrongFeedback": "Listen for “raiment” and “led him away.” (Answer: His own raiment… led away to crucify.)"
+      },
+      {
+        "question": "Whom did they find to help bear His cross?",
+        "choices": [
+          "Simon of Cyrene",
+          "Barabbas",
+          "Pontius Pilate",
+          "Jonah the prophet"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Matthew 27:32.",
+        "wrongFeedback": "Listen for “Cyrene” and “Simon.” (Answer: Simon of Cyrene.)"
+      },
+      {
+        "question": "Who followed Jesus on the road?",
+        "choices": [
+          "A great company of people, and women who bewailed and lamented Him",
+          "Only one silent tree",
+          "No one at all",
+          "Only soldiers who stayed indoors"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 23:27.",
+        "wrongFeedback": "Listen for “great company” and “women.” (Answer: people and women who lamented.)"
+      },
+      {
+        "question": "What did Jesus say to the daughters of Jerusalem?",
+        "choices": [
+          "Weep not for me, but weep for yourselves, and for your children.",
+          "Run faster than the wind.",
+          "Hide behind the city wall.",
+          "Forget your families."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 23:28.",
+        "wrongFeedback": "Listen for “weep not for me.” (Answer: Weep not for me….)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Remember Jesus when I feel tired — He carried the cross because He loves me, and He helps me.",
+          "Believe God never cares when I am sad.",
+          "Stop talking to Jesus on hard days.",
+          "Never ask a grown-up for help."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with honesty: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “tired,” “loves me,” and “Jesus helps.” (Answer: remember Jesus… He helps me.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Carries His Cross with God's Word today.",
+    "takeaway": "Jesus walked with willing love toward the cross — Simon helped, women wept, and Jesus spoke truth with gentleness. His strength holds us on tired days.",
+    "prayer": "Lord Jesus, thank You for carrying the cross because You love me. When my heart feels heavy, please help me rest in You. Amen.",
+    "imagePrompts": [
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus walks slowly and calmly in the center, carrying a large wooden cross on His shoulder with a kind and peaceful face. Simon of Cyrene walks beside Him, helping to carry the cross (simple, strong man with a gentle expression). A few women follow quietly with sad but hopeful faces. Soft road and distant city walls in the background with plenty of open ground and sky in the foreground for coloring. Focus on the heart of the moment: Jesus willingly carrying His cross out of love for us. Style: clear, bold, tender, restful — never dark, heavy, or scary.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Mocking ended — His own raiment — led away (gentle strength)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Wooden cross on the road — Jesus steady in love (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Simon of Cyrene — helping hands (kindness)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Great company following — tender faces (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Daughters of Jerusalem — weep not for me (gentle truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Love that saves — Jesus holds tired hearts (rest)"
+    ],
+    "readAlongImages": []
+  }
+};
+
+  function _tdbPlainTextForUiReadQuiz(s) {
+    if (s == null || s === '') return '';
+    var str = String(s);
+    var prev;
+    for (var n = 0; n < 12; n++) {
+      prev = str;
+      str = str.replace(/&amp;/g, '&');
+      if (str === prev) break;
+    }
+    try {
+      var t = document.createElement('textarea');
+      t.innerHTML = str;
+      var out = t.value;
+      if (typeof out === 'string') return out;
+    } catch (_) {}
+    return str;
+  }
+  function _normalizeTdbKidsReadQuizInPlace(rq) {
+    if (!rq || typeof rq !== 'object') return;
+    var rk = Object.keys(rq);
+    for (var ri = 0; ri < rk.length; ri++) {
+      var pack = rq[rk[ri]];
+      if (!pack || typeof pack !== 'object') continue;
+      if (pack.kjvRef != null) pack.kjvRef = _tdbPlainTextForUiReadQuiz(pack.kjvRef);
+      if (pack.verseExcerpt != null) pack.verseExcerpt = _tdbPlainTextForUiReadQuiz(pack.verseExcerpt);
+      if (pack.readAlongTitle != null) pack.readAlongTitle = _tdbPlainTextForUiReadQuiz(pack.readAlongTitle);
+      if (pack.quizWrongHumilityHint != null) pack.quizWrongHumilityHint = _tdbPlainTextForUiReadQuiz(pack.quizWrongHumilityHint);
+      if (pack.hintAboveQuiz != null) pack.hintAboveQuiz = _tdbPlainTextForUiReadQuiz(pack.hintAboveQuiz);
+      if (pack.quizHeading != null) pack.quizHeading = _tdbPlainTextForUiReadQuiz(pack.quizHeading);
+      if (pack.doneHeading != null) pack.doneHeading = _tdbPlainTextForUiReadQuiz(pack.doneHeading);
+      if (pack.doneMessage != null) pack.doneMessage = _tdbPlainTextForUiReadQuiz(pack.doneMessage);
+      if (pack.takeaway != null) pack.takeaway = _tdbPlainTextForUiReadQuiz(pack.takeaway);
+      if (pack.prayer != null) pack.prayer = _tdbPlainTextForUiReadQuiz(pack.prayer);
+      if (Array.isArray(pack.paragraphs)) {
+        for (var pj = 0; pj < pack.paragraphs.length; pj++) {
+          pack.paragraphs[pj] = _tdbPlainTextForUiReadQuiz(pack.paragraphs[pj]);
+        }
+      }
+      if (Array.isArray(pack.readAlongSections)) {
+        for (var rs = 0; rs < pack.readAlongSections.length; rs++) {
+          var sec = pack.readAlongSections[rs];
+          if (!sec || typeof sec !== 'object') continue;
+          if (sec.text != null) sec.text = _tdbPlainTextForUiReadQuiz(sec.text);
+          if (sec.caption != null) sec.caption = _tdbPlainTextForUiReadQuiz(sec.caption);
+          if (sec.placeholder != null) sec.placeholder = _tdbPlainTextForUiReadQuiz(sec.placeholder);
+          if (sec.image != null) sec.image = _tdbPlainTextForUiReadQuiz(sec.image);
+        }
+      }
+      if (Array.isArray(pack.imagePrompts)) {
+        for (var ip = 0; ip < pack.imagePrompts.length; ip++) {
+          pack.imagePrompts[ip] = _tdbPlainTextForUiReadQuiz(pack.imagePrompts[ip]);
+        }
+      }
+      if (Array.isArray(pack.questions)) {
+        for (var qi = 0; qi < pack.questions.length; qi++) {
+          var q = pack.questions[qi];
+          if (!q || typeof q !== 'object') continue;
+          if (q.question != null) q.question = _tdbPlainTextForUiReadQuiz(q.question);
+          if (q.correctFeedback != null) q.correctFeedback = _tdbPlainTextForUiReadQuiz(q.correctFeedback);
+          if (q.wrongFeedback != null) q.wrongFeedback = _tdbPlainTextForUiReadQuiz(q.wrongFeedback);
+          if (q.wrongHumilityHint != null) q.wrongHumilityHint = _tdbPlainTextForUiReadQuiz(q.wrongHumilityHint);
+          if (Array.isArray(q.choices)) {
+            for (var ci = 0; ci < q.choices.length; ci++) {
+              q.choices[ci] = _tdbPlainTextForUiReadQuiz(q.choices[ci]);
+            }
+          }
+        }
+      }
+    }
+  }
+  _normalizeTdbKidsReadQuizInPlace(global.TDB_KIDS_READ_QUIZ);
+})(typeof window !== 'undefined' ? window : this);

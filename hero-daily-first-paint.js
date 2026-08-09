@@ -566,6 +566,10 @@
     );
     var simpleOut = document.getElementById('heroSimpleBreakdown');
     if (simpleOut) simpleOut.textContent = '';
+    var sitOut = document.getElementById('heroSimpleSituation');
+    if (sitOut) sitOut.textContent = '';
+    var meanOut = document.getElementById('heroSimpleMeaning');
+    if (meanOut) meanOut.textContent = '';
     var stepOut = document.getElementById('heroVotdOneStep');
     if (stepOut) stepOut.textContent = '';
     var prayerTarget = document.getElementById('heroVotdPrayer');
@@ -573,18 +577,36 @@
     stampHeroDigDeeperBoundRef('');
   }
 
+  /** Thin speaker-line or weak plain stamp — force upgrade when better data is available. */
+  function heroDigDeeperLooksWeak() {
+    var sitEl = document.getElementById('heroDeepSituation') || document.getElementById('heroSimpleSituation');
+    var meanEl = document.getElementById('heroSimpleMeaning');
+    var simpleEl = document.getElementById('heroSimpleBreakdown');
+    var sit = sanitizeText(sitEl && sitEl.textContent);
+    var mean = sanitizeText((meanEl && meanEl.textContent) || (simpleEl && simpleEl.textContent));
+    if (/^In plain terms for life today:/i.test(mean) || /Sit with that until one phrase lands/i.test(mean)) {
+      return true;
+    }
+    if (/ speaking to /i.test(sit) && sit.length < 90) return true;
+    if (!sit || sit.length < 12) return true;
+    if (!mean || mean.length < 12) return true;
+    return false;
+  }
+
   /**
-   * If dig-deeper is bound to a different ref than #heroRef, rebuild from the displayed verse.
-   * This is the hard rule: mismatched dig-deeper content must never stay on screen.
+   * If dig-deeper is bound to a different ref than #heroRef, or content is weak while
+   * better context exists, rebuild. Mismatched/stale dig-deeper must never stay on screen.
    */
   function ensureHeroDigDeeperMatchesDisplayedVerse() {
     var displayed = readDisplayedHeroRef();
     if (!displayed) return false;
     var bound = readHeroDigDeeperBoundRef();
-    if (bound && bound === displayed) return false;
+    var weak = heroDigDeeperLooksWeak();
+    if (bound && bound === displayed && !weak) return false;
     var text = readDisplayedHeroText();
     var v = normalizeVerse({ ref: displayed, text: text });
     if (!v.ref) return false;
+    /* Prefer day-explanation plain/step when integrity re-runs after context loads. */
     applyHeroVotdFromInputs(v, {
       plainExplanation: v.plain || '',
       groupApplication: v.today || '',
@@ -681,28 +703,32 @@
     });
     var meaningOnly = plainE || sanitizeText(v.plain) || sanitizeText(lines[0] || '') || sanitizeText(v.app);
     meaningOnly = meaningOnly.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
-    /* Drop weak theme stamps when a curated plain exists for this verse. */
+    /* Always prefer curated plain over weak theme stamps (even if stamp came first). */
     if (
-      (/^In plain terms for life today:/i.test(meaningOnly) ||
-        /^Read this verse slowly/i.test(meaningOnly) ||
-        /^God's care is for you today/i.test(meaningOnly)) &&
-      sanitizeText(v.plain)
+      /^In plain terms for life today:/i.test(meaningOnly) ||
+      /^Read this verse slowly/i.test(meaningOnly) ||
+      /^God's care is for you today/i.test(meaningOnly) ||
+      /Sit with that until one phrase lands/i.test(meaningOnly)
     ) {
-      meaningOnly = sanitizeText(v.plain);
+      if (sanitizeText(v.plain)) meaningOnly = sanitizeText(v.plain);
     }
     /* Live resolver situation wins — never leave yesterday’s dig-deeper line (e.g. Psalm 92 under Prov 16:3). */
     var situation = sanitizeText(ctx.setting || '') ||
       sanitizeText(sh.situation || sh.setting || v.setting || '');
+    /* Prefer full narrative; only use “X speaking to Y” if nothing better exists. */
     if (!situation && ctx.about && ctx.to) {
       situation = sanitizeText(ctx.about) + ' speaking to ' + sanitizeText(ctx.to) + '.';
+    } else if (situation && /^.{3,50} speaking to /i.test(situation) && sanitizeText(v.setting) && sanitizeText(v.setting).length > situation.length) {
+      situation = sanitizeText(v.setting);
     }
-    var simple = meaningOnly;
-    if (situation && meaningOnly) {
+    var meaningClean = meaningOnly.replace(/^What it means:\s*/i, '');
+    var simple = meaningClean;
+    if (situation && meaningClean) {
       simple =
         'What was going on: ' +
         situation.replace(/\.$/, '') +
         '. What it means: ' +
-        meaningOnly.replace(/^What it means:\s*/i, '');
+        meaningClean;
     }
     var who = aboutA || sanitizeText(v.about) || sanitizeText(v.speaker) || ctx.about;
     if (!who) {
@@ -761,6 +787,7 @@
     if (!prayer) prayer = buildHeroVotdPrayer(v.ref);
     return {
       simple: simple,
+      meaningOnly: meaningClean || meaningOnly,
       who: who,
       audience: audience,
       situation: situation,
@@ -792,12 +819,22 @@
     var who = lesson.who;
     var audience = lesson.audience;
     var situation = lesson.situation || lesson.setting || '';
+    var meaningOnly = sanitizeText(lesson.meaningOnly || '');
+    if (!meaningOnly && simple) {
+      meaningOnly = /^What was going on:/i.test(simple)
+        ? simple.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim()
+        : simple;
+    }
     var relatesToday = lesson.relatesToday;
     var relYou = lesson.relYou;
     var oneStep = lesson.oneStep;
     var prayer = lesson.prayer;
     var yr = lesson.year;
     simpleOut.textContent = simple;
+    var sitPrimary = document.getElementById('heroSimpleSituation');
+    var meanPrimary = document.getElementById('heroSimpleMeaning');
+    if (sitPrimary) sitPrimary.textContent = situation || '';
+    if (meanPrimary) meanPrimary.textContent = meaningOnly || '';
     setVotdRowVisible(document.getElementById('heroVbdRowSit'), document.getElementById('heroDeepSituation'), situation);
     setVotdRowVisible(document.getElementById('heroVbdRowWho'), document.getElementById('heroDeepWho'), who);
     setVotdRowVisible(document.getElementById('heroVbdRowAud'), document.getElementById('heroDeepAudience'), audience);

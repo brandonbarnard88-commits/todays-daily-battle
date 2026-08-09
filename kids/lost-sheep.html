@@ -8,21 +8,51 @@
   <link rel="canonical" href="https://todaysdailybattle.com/kids/lost-sheep.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Find the sheep • Kids</title>
-  <meta name="description" content="Tap the grass until you find the little sheep. KJV, calm, one minute.">
+  <meta name="description" content="Find the lost sheep in the grass. Levels get harder. Luke 15 KJV—Jesus is the Good Shepherd.">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="preload" href="../styles.css?v=20260809-vbd-labels" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260809-vbd-labels">
-  <link rel="preload" href="kids-battle.css?v=20260405kidsfollowup" as="style">
-  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="preload" href="kids-battle.css?v=20260809easy" as="style">
+  <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
   <style>
-    .ls-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; max-width: 16rem; margin: 0.75rem auto; }
-    .ls-tile { min-height: 64px; border-radius: 14px; border: 3px solid rgba(34, 197, 94, 0.4); background: linear-gradient(180deg, #bbf7d0, #86efac); font-size: 1.6rem; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .ls-page { max-width: 32rem; margin: 0 auto; padding: 0.5rem 0.75rem 2rem; }
+    .ls-hero {
+      padding: 1rem; border-radius: 16px; margin-bottom: 0.65rem;
+      background: linear-gradient(165deg, #ecfdf5, #fef9c3); border: 3px solid #22c55e; color: #0f172a;
+    }
+    .ls-hero h1 { font-family: Bangers, cursive; font-size: 1.6rem; margin: 0 0 0.35rem; }
+    .ls-hero p { margin: 0; font-family: Nunito, system-ui, sans-serif; font-weight: 600; line-height: 1.45; font-size: 0.95rem; color: #14532d; }
+    .ls-hud {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between;
+      margin: 0 0 0.55rem; padding: 0.45rem 0.7rem; border-radius: 12px; background: #fffef8; border: 2px solid #86efac;
+      font-family: Nunito, system-ui, sans-serif; font-weight: 800; font-size: 0.88rem; color: #14532d;
+    }
+    .ls-grid { display: grid; gap: 0.45rem; max-width: 18rem; margin: 0.75rem auto; }
+    .ls-grid.cols3 { grid-template-columns: repeat(3, 1fr); }
+    .ls-grid.cols4 { grid-template-columns: repeat(4, 1fr); max-width: 20rem; }
+    .ls-grid.cols5 { grid-template-columns: repeat(5, 1fr); max-width: 22rem; }
+    .ls-tile {
+      min-height: 64px; border-radius: 14px; border: 3px solid rgba(34, 197, 94, 0.45);
+      background: linear-gradient(180deg, #bbf7d0, #86efac); font-size: 1.6rem; cursor: pointer;
+      -webkit-tap-highlight-color: transparent; transition: transform 0.1s;
+    }
+    .ls-tile:active { transform: scale(0.96); }
     .ls-tile:focus-visible { outline: 3px solid #0ea5e9; }
-    .ls-tile.reveal { background: linear-gradient(180deg, #fef9c3, #fde68a); }
-    .ls-win { text-align: center; margin-top: 0.75rem; font-weight: 800; color: #14532d; }
+    .ls-tile.reveal { background: linear-gradient(180deg, #fef9c3, #fde68a); border-color: #f59e0b; }
+    .ls-win { text-align: center; margin-top: 0.75rem; font-weight: 800; color: #14532d; font-family: Nunito, system-ui, sans-serif; line-height: 1.45; }
+    .ls-kjv {
+      margin: 0.75rem 0; padding: 0.75rem; border-radius: 12px; background: #fff; border: 2px solid #e2e8f0;
+      font-family: Nunito, system-ui, sans-serif; font-weight: 700; font-size: 0.92rem; color: #0f172a; line-height: 1.45;
+    }
+    .ls-status { min-height: 1.5rem; text-align: center; margin: 0.5rem 0; font-weight: 800; color: #14532d; font-family: Nunito, system-ui, sans-serif; }
+    .ls-actions { text-align: center; margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+    .ls-actions button {
+      min-height: 48px; font-weight: 800; border-radius: 12px; border: 2px solid #22c55e; background: #ecfdf5;
+      padding: 0.5rem 1rem; cursor: pointer; font-family: Nunito, system-ui, sans-serif; color: #14532d;
+    }
   </style>
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -39,60 +69,31 @@
       </nav>
     </header>
     <main class="app-content" id="main" role="main">
-      <div class="content-inner" style="max-width:32rem;margin:0 auto;padding:0.5rem 0.75rem 2rem">
-        <p class="section-note topic-mood-porch kids-site-porch" lang="en">You&rsquo;re already welcome here&mdash;fun first, short moments, tiny KJV line. No rush.</p>
-        <div class="kids-pasture-shell kids-pasture-shell--compact" role="region" aria-label="Your quiet field with Little Shepherd">
-          <div class="kids-pasture-card kids-pasture-card--straggler" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
-            <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
-            <div class="kids-pasture-illu" aria-hidden="true">
-              <span class="kids-pasture-bloom pt-a" aria-hidden="true"></span>
-              <span class="kids-pasture-bloom pt-b" aria-hidden="true"></span>
-              <span class="kids-pasture-bloom pt-c" aria-hidden="true"></span>
-              <span class="kids-pasture-bloom pt-d" aria-hidden="true"></span>
-              <span class="kids-pasture-sheep" aria-hidden="true"></span>
-              <span class="kids-pasture-sheep2" aria-hidden="true"></span>
-              <span class="kids-pasture-sheep3" aria-hidden="true"></span>
-              <span class="kids-pasture-flower1" aria-hidden="true"></span>
-              <span class="kids-pasture-flower2" aria-hidden="true"></span>
-              <span class="kids-pasture-tree" aria-hidden="true"></span>
-              <span class="kids-pasture-fruit" aria-hidden="true"></span>
-              <span class="kids-pasture-brook" aria-hidden="true"></span>
-              <span class="kids-pasture-fence" aria-hidden="true"></span>
-            </div>
-            <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
-            <p class="kids-sheep-tokens" id="kids-sheep-tokens-line" aria-live="polite"></p>
-            <p class="sr-only" id="kids-pasture-aria">Story opens on this device: loading.</p>
-            <p class="sr-only" id="kids-pasture-bloom-announce" role="status" aria-live="polite" aria-atomic="true"></p>
-          </div>
-          <section class="kids-shepherd-compact glass tdb-porch-paper-glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0.75rem 0 0">
-            <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
-            <div class="kids-buddy-mascot-row">
-              <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
-                <span class="kids-shepherd-hero-wrap">
-                  <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
-                </span>
-              </button>
-              <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
-                <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—looking with you.</p>
-                <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
-              </div>
-            </div>
-          </section>
+      <div class="content-inner ls-page">
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Jesus told this story—He comes looking for the one who is lost.</p>
+        <div class="ls-hud">
+          <span id="ls-level">Level 1 · 9 patches</span>
+          <span id="ls-best">Best find: —</span>
         </div>
-        <div class="mini-game-hero glass tdb-porch-paper-glass" style="padding:1rem;border-radius:16px">
-          <h1 style="font-family:Bangers,cursive;font-size:1.6rem;margin:0 0 0.4rem">Where is the sheep?</h1>
-          <p style="margin:0;line-height:1.45;font-size:0.95rem">Tap the grass. Jesus told a story about one sheep that was lost and found&mdash;like us when we wander and He comes to get us. <span class="sr-only">Luke 15 KJV in the real Bible.</span></p>
+        <div class="ls-hero">
+          <h1>Where is the sheep?</h1>
+          <p>Tap the grass. One sheep is hidden. The Good Shepherd never loses count of His sheep—and He is glad when the lost one is found.</p>
         </div>
-        <p id="ls-status" class="ls-status" role="status" style="min-height:1.5rem;text-align:center;margin:0.5rem 0;font-weight:800;color:#14532d">Tap a square—find the sheep!</p>
-        <div class="ls-grid" id="ls-grid" role="group" aria-label="Grass squares"></div>
-        <p id="ls-win" class="ls-win" hidden>Found! The Good Shepherd never loses count of His sheep.</p>
-        <p style="text-align:center;margin-top:0.75rem">
-          <button type="button" id="ls-again" class="btn kids-btn-primary" hidden style="min-height:48px;font-weight:800">Play again (new hide)</button>
-        </p>
-        <p style="text-align:center;margin-top:1rem"><a href="match-buddies.html">Match game</a> &middot; <a href="/kids/">Home</a></p>
+        <p id="ls-status" class="ls-status" role="status">Tap a square—find the sheep!</p>
+        <div class="ls-grid cols3" id="ls-grid" role="group" aria-label="Grass squares"></div>
+        <p id="ls-win" class="ls-win" hidden></p>
+        <div class="ls-kjv" id="ls-kjv">
+          <strong>KJV (Luke 15:4–6 idea):</strong> What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine… and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing.
+        </div>
+        <div class="ls-actions">
+          <button type="button" id="ls-again" hidden>Play again (same level)</button>
+          <button type="button" id="ls-harder" hidden>Harder field</button>
+        </div>
+        <p style="text-align:center;margin-top:1rem"><a href="match-buddies.html">Match game</a> · <a href="/kids/">Home</a></p>
       </div>
     </main>
   </div>
+  <script src="kids-game-kit.js?v=20260809funedu"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260806mascot" defer></script>
@@ -102,23 +103,50 @@
     if (window.tdbKidsActivityLog && tdbKidsActivityLog.log) {
       try { tdbKidsActivityLog.log({ type: 'game', label: 'Play: Find the sheep' }); } catch (e) {}
     }
-    var n = 9;
+    var LEVELS = [
+      { n: 9, cols: 'cols3', label: 'Level 1 · 9 patches' },
+      { n: 12, cols: 'cols4', label: 'Level 2 · 12 patches' },
+      { n: 16, cols: 'cols4', label: 'Level 3 · 16 patches' },
+      { n: 20, cols: 'cols5', label: 'Level 4 · 20 patches' }
+    ];
+    var levelIndex = 0;
     var grid = document.getElementById('ls-grid');
     var st = document.getElementById('ls-status');
     var w = document.getElementById('ls-win');
     var again = document.getElementById('ls-again');
+    var harder = document.getElementById('ls-harder');
+    var levelEl = document.getElementById('ls-level');
+    var bestEl = document.getElementById('ls-best');
+    var kit = window.tdbKidsGameKit;
     var done = false;
     var tries = 0;
+
+    function paintBest() {
+      if (!bestEl || !kit) return;
+      var g = kit.getScore('sheep') || {};
+      if (g.bestFindTries && g.bestFindTries < 99) {
+        bestEl.textContent = 'Best find: ' + g.bestFindTries + ' taps · Wins: ' + (g.totalWins || 0);
+      } else {
+        bestEl.textContent = 'Wins: ' + (g.totalWins || 0) + ' (this device)';
+      }
+    }
 
     function build() {
       done = false;
       tries = 0;
-      if (w) w.hidden = true;
+      var L = LEVELS[Math.min(levelIndex, LEVELS.length - 1)];
+      if (levelEl) levelEl.textContent = L.label;
+      if (w) { w.hidden = true; w.textContent = ''; }
       if (again) again.hidden = true;
+      if (harder) harder.hidden = true;
       if (st) st.textContent = 'Tap a square—find the sheep!';
-      if (grid) grid.textContent = '';
-      var win = Math.floor(Math.random() * n);
-      for (var i = 0; i < n; i++) {
+      if (grid) {
+        grid.textContent = '';
+        grid.className = 'ls-grid ' + L.cols;
+      }
+      paintBest();
+      var win = Math.floor(Math.random() * L.n);
+      for (var i = 0; i < L.n; i++) {
         (function (idx) {
           var b = document.createElement('button');
           b.type = 'button';
@@ -134,17 +162,23 @@
               done = true;
               if (w) {
                 w.hidden = false;
-                w.textContent = 'Found in ' + tries + (tries === 1 ? ' tap!' : ' taps!') + ' The Good Shepherd never loses count of His sheep.';
+                w.innerHTML =
+                  'Found in <strong>' + tries + '</strong> ' + (tries === 1 ? 'tap' : 'taps') + '!<br>' +
+                  'Jesus is the Good Shepherd—He rejoices when the lost sheep is found (Luke 15).';
               }
               if (st) {
-                st.textContent = 'You found the sheep! ' + (window.tdbLittleShepherd && tdbLittleShepherd.pickCheer ? tdbLittleShepherd.pickCheer() : 'Jesus is the Good Shepherd.');
+                st.textContent = 'You found the sheep! ' +
+                  (window.tdbLittleShepherd && tdbLittleShepherd.pickCheer ? tdbLittleShepherd.pickCheer() : 'Rejoice with the Shepherd.');
               }
               if (again) again.hidden = false;
-              if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+              if (harder) harder.hidden = levelIndex + 1 >= LEVELS.length;
+              if (kit) kit.recordScore('sheep', { wins: 1, tries: tries, level: levelIndex + 1 });
+              paintBest();
+              if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
                 try { window.tdbLittleShepherd.notify('gameWin'); } catch (eN) {}
               }
-            } else {
-              if (st) st.textContent = 'Not there—keep looking! He finds what is lost.';
+            } else if (st) {
+              st.textContent = 'Not there—keep looking! He finds what is lost.';
             }
           });
           if (grid) grid.appendChild(b);
@@ -152,6 +186,12 @@
       }
     }
     if (again) again.addEventListener('click', build);
+    if (harder) {
+      harder.addEventListener('click', function () {
+        if (levelIndex + 1 < LEVELS.length) levelIndex += 1;
+        build();
+      });
+    }
     build();
   });
   </script>

@@ -8,23 +8,52 @@
   <link rel="canonical" href="https://todaysdailybattle.com/kids/memory-flock.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Memory flock • Kids</title>
-  <meta name="description" content="Flip two cards; match the picture to the KJV line.">
+  <meta name="description" content="Flip cards to match character phrases with KJV lines. Daily mix, teach tips, device scores.">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="preload" href="../styles.css?v=20260809-vbd-labels" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260809-vbd-labels">
-  <link rel="preload" href="kids-battle.css?v=20260405kidsfollowup" as="style">
-  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="preload" href="kids-battle.css?v=20260809easy" as="style">
+  <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
   <style>
-    .mf-board { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; max-width: 22rem; margin: 0.75rem auto; }
-    @media (min-width: 400px) { .mf-board { grid-template-columns: repeat(4, 1fr); } }
-    .mf-card { min-height: 88px; border-radius: 14px; border: 3px solid rgba(245, 158, 11, 0.55); background: #fffbeb; font-size: 0.82rem; font-weight: 800; padding: 0.45rem; cursor: pointer; line-height: 1.25; -webkit-tap-highlight-color: transparent; color: #0f172a; transition: transform 0.15s; }
-    .mf-card[aria-pressed="false"] { color: #fff; background: linear-gradient(180deg, #818cf8, #6366f1); border-color: #4f46e5; font-size: 1.6rem; text-align: center; }
+    .mf-page { max-width: 36rem; margin: 0 auto; padding: 0.5rem 0.75rem 2rem; }
+    .mf-hero {
+      padding: 1rem; border-radius: 16px; margin-bottom: 0.65rem;
+      background: linear-gradient(165deg, #eff6ff, #fef3c7); border: 3px solid #6366f1; color: #0f172a;
+    }
+    .mf-hero h1 { font-family: Bangers, cursive; font-size: 1.55rem; margin: 0 0 0.35rem; }
+    .mf-hero p { margin: 0; font-family: Nunito, system-ui, sans-serif; font-weight: 600; line-height: 1.45; font-size: 0.92rem; color: #334155; }
+    .mf-hud {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between;
+      margin: 0 0 0.55rem; padding: 0.45rem 0.7rem; border-radius: 12px; background: #fffef8; border: 2px solid #fcd34d;
+      font-family: Nunito, system-ui, sans-serif; font-weight: 800; font-size: 0.88rem; color: #92400e;
+    }
+    .mf-board { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; max-width: 24rem; margin: 0.75rem auto; }
+    @media (min-width: 420px) { .mf-board { grid-template-columns: repeat(4, 1fr); } }
+    .mf-card {
+      min-height: 92px; border-radius: 14px; border: 3px solid #f59e0b; background: #fffbeb;
+      font-size: 0.8rem; font-weight: 800; padding: 0.4rem; cursor: pointer; line-height: 1.25;
+      color: #0f172a; font-family: Nunito, system-ui, sans-serif; -webkit-tap-highlight-color: transparent;
+    }
+    .mf-card[aria-pressed="false"] {
+      color: #fff; background: linear-gradient(180deg, #818cf8, #6366f1); border-color: #4f46e5;
+      font-size: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center;
+    }
     .mf-card.mf-match { opacity: 0.55; pointer-events: none; border-color: #22c55e; background: #ecfdf5; }
-    .mf-again { min-height: 48px; margin: 0.75rem auto; display: none; font-weight: 800; border-radius: 12px; border: 2px solid #f59e0b; background: #fffbeb; padding: 0.5rem 1rem; cursor: pointer; }
+    .mf-teach {
+      display: none; margin: 0.5rem auto; max-width: 24rem; padding: 0.65rem 0.8rem; border-radius: 12px;
+      background: #fffef8; border: 2px solid #f59e0b; font-family: Nunito, system-ui, sans-serif;
+      font-weight: 700; font-size: 0.9rem; color: #0f172a; line-height: 1.4;
+    }
+    .mf-teach.show { display: block; }
+    .mf-again {
+      min-height: 48px; margin: 0.75rem auto; display: none; font-weight: 800; border-radius: 12px;
+      border: 2px solid #f59e0b; background: #fffbeb; padding: 0.5rem 1rem; cursor: pointer; font-family: Nunito, system-ui, sans-serif;
+    }
     .mf-again.show { display: inline-block; }
+    .mf-st { text-align: center; margin: 0.5rem 0; font-weight: 800; color: #0f172a; font-family: Nunito, system-ui, sans-serif; }
   </style>
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -41,58 +70,27 @@
       </nav>
     </header>
     <main class="app-content" id="main" role="main">
-      <div class="content-inner" style="max-width:36rem;margin:0 auto;padding:0.5rem 0.75rem 2rem">
-        <p class="section-note topic-mood-porch kids-site-porch" lang="en">You&rsquo;re already welcome here&mdash;fun first, short moments, tiny KJV line. No rush.</p>
-        <div class="kids-pasture-shell kids-pasture-shell--compact" role="region" aria-label="Your quiet field with Little Shepherd">
-          <div class="kids-pasture-card kids-pasture-card--straggler" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
-            <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
-            <div class="kids-pasture-illu" aria-hidden="true">
-              <span class="kids-pasture-bloom pt-a" aria-hidden="true"></span>
-              <span class="kids-pasture-bloom pt-b" aria-hidden="true"></span>
-              <span class="kids-pasture-bloom pt-c" aria-hidden="true"></span>
-              <span class="kids-pasture-bloom pt-d" aria-hidden="true"></span>
-              <span class="kids-pasture-sheep" aria-hidden="true"></span>
-              <span class="kids-pasture-sheep2" aria-hidden="true"></span>
-              <span class="kids-pasture-sheep3" aria-hidden="true"></span>
-              <span class="kids-pasture-flower1" aria-hidden="true"></span>
-              <span class="kids-pasture-flower2" aria-hidden="true"></span>
-              <span class="kids-pasture-tree" aria-hidden="true"></span>
-              <span class="kids-pasture-fruit" aria-hidden="true"></span>
-              <span class="kids-pasture-brook" aria-hidden="true"></span>
-              <span class="kids-pasture-fence" aria-hidden="true"></span>
-            </div>
-            <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
-            <p class="kids-sheep-tokens" id="kids-sheep-tokens-line" aria-live="polite"></p>
-            <p class="sr-only" id="kids-pasture-aria">Story opens on this device: loading.</p>
-            <p class="sr-only" id="kids-pasture-bloom-announce" role="status" aria-live="polite" aria-atomic="true"></p>
-          </div>
-          <section class="kids-shepherd-compact glass tdb-porch-paper-glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0.75rem 0 0">
-            <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
-            <div class="kids-buddy-mascot-row">
-              <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
-                <span class="kids-shepherd-hero-wrap">
-                  <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
-                </span>
-              </button>
-              <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
-                <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—cheering in the flock game.</p>
-                <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
-              </div>
-            </div>
-          </section>
+      <div class="content-inner mf-page">
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Flip, match, remember—KJV lines stick when we play.</p>
+        <div class="mf-hud">
+          <span id="mf-hud-left">Today’s flock</span>
+          <span id="mf-hud-right">This device: —</span>
         </div>
-        <div class="mini-game-hero glass tdb-porch-paper-glass" style="padding:1rem;border-radius:16px">
-          <h1 style="font-family:Bangers,cursive;font-size:1.55rem;margin:0 0 0.4rem">Match the flock</h1>
-          <p style="margin:0;line-height:1.45;font-size:0.9rem">Tap a card, then its pair—picture to short KJV line. All King James.</p>
+        <div class="mf-hero">
+          <h1>Match the flock</h1>
+          <p>Tap a card, then its pair—<strong>character phrase</strong> to <strong>KJV line</strong>. A short Remember tip appears each time you match.</p>
         </div>
-        <p id="mf-st" class="section-note" style="text-align:center;margin:0.5rem 0">Find two that go together.</p>
+        <p id="mf-st" class="mf-st" role="status">Find two that go together—tap a card!</p>
+        <div id="mf-teach" class="mf-teach" role="status"></div>
         <div class="mf-board" id="mf-board" role="group" aria-label="Memory cards"></div>
         <p id="mf-win" class="section-note" style="text-align:center;margin:0.75rem 0;font-weight:800;color:#14532d" hidden>All pairs found!</p>
-        <p style="text-align:center"><button type="button" id="mf-again" class="mf-again">Play again (shuffle)</button></p>
-        <p style="text-align:center"><a href="lost-sheep.html">Find the sheep</a> &middot; <a href="match-buddies.html">Match game</a> &middot; <a href="/kids/">Home</a></p>
+        <p style="text-align:center"><button type="button" id="mf-again" class="mf-again">Play again (new daily mix)</button></p>
+        <p style="text-align:center"><a href="match-buddies.html">Match game</a> · <a href="lost-sheep.html">Find the sheep</a> · <a href="/kids/">Home</a></p>
       </div>
     </main>
   </div>
+  <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
+  <script src="kids-game-kit.js?v=20260809funedu"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260806mascot" defer></script>
@@ -102,44 +100,45 @@
     if (window.tdbKidsActivityLog && tdbKidsActivityLog.log) {
       try { tdbKidsActivityLog.log({ type: 'game', label: 'Play: Memory flock' }); } catch (e) {}
     }
-    var PAIRS = [
-      { id: 'a', a: "\uD83C\uDF3F The Lord is my shepherd", b: "The Lord is my shepherd; I shall not want." },
-      { id: 'b', a: "\uD83C\uDF1F Suffer the children", b: "Suffer the little children to come unto me." },
-      { id: 'c', a: "\uD83C\uDF0E Be strong, fear not", b: "Be strong and of a good courage; be not afraid." },
-      { id: 'd', a: "\uD83D\uDCD6 Cast your care on Him", b: "Casting all your care upon him; for he careth for you." },
-      { id: 'e', a: "\uD83D\uDCA1 Lamp to my feet", b: "Thy word is a lamp unto my feet." },
-      { id: 'f', a: "\uD83D\uDC96 God so loved", b: "For God so loved the world, that he gave his only begotten Son." }
-    ];
+    var kit = window.tdbKidsGameKit;
     var board = document.getElementById('mf-board');
     var st = document.getElementById('mf-st');
     var winEl = document.getElementById('mf-win');
     var again = document.getElementById('mf-again');
+    var teach = document.getElementById('mf-teach');
+    var hudR = document.getElementById('mf-hud-right');
     var first = null;
     var matched = {};
     var lock = false;
-    function shuffle(arr) {
-      var x = arr.slice();
-      for (var i = x.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var t = x[i]; x[i] = x[j]; x[j] = t;
-      }
-      return x;
+    var usePairs = [];
+    var pairTeach = {};
+
+    function paintHud() {
+      if (!hudR || !kit) return;
+      var g = kit.getScore('memory') || {};
+      hudR.textContent = 'Wins: ' + (g.totalWins || 0) + ' · Pairs: ' + (g.totalPairs || 0);
     }
+
     function build() {
       first = null;
       matched = {};
       lock = false;
+      pairTeach = {};
       if (winEl) winEl.hidden = true;
       if (again) again.classList.remove('show');
+      if (teach) { teach.classList.remove('show'); teach.textContent = ''; }
       if (st) st.textContent = 'Find two that go together—tap a card!';
       if (board) board.textContent = '';
-      var usePairs = shuffle(PAIRS).slice(0, 4);
+      usePairs = kit && kit.mixDailyAndCore ? kit.mixDailyAndCore(4) : (kit && kit.MATCH_CORE ? kit.MATCH_CORE.slice(0, 4) : []);
+      usePairs.forEach(function (p) {
+        pairTeach[p.id] = p;
+      });
       var cards = [];
       usePairs.forEach(function (p) {
-        cards.push({ pair: p.id, text: p.a });
-        cards.push({ pair: p.id, text: p.b });
+        cards.push({ pair: p.id, text: (p.icon || '📖') + ' ' + p.plain });
+        cards.push({ pair: p.id, text: p.kjv });
       });
-      cards = shuffle(cards);
+      cards = kit && kit.seededShuffle ? kit.seededShuffle(cards, Date.now() % 99991) : cards;
       cards.forEach(function (c) {
         var b = document.createElement('button');
         b.type = 'button';
@@ -165,17 +164,25 @@
             b.classList.add('mf-match');
             matched[a] = true;
             first = null;
+            var p = pairTeach[a];
+            if (teach && p) {
+              teach.innerHTML = '<strong>Remember:</strong> ' + (p.teach || 'God’s Word is true.') +
+                (p.ref ? ' <span style="color:#64748b">(' + p.ref + ')</span>' : '');
+              teach.classList.add('show');
+            }
             if (Object.keys(matched).length === usePairs.length) {
               winEl.hidden = false;
               if (again) again.classList.add('show');
               if (st) {
                 st.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin) ? tdbLittleShepherd.pickMatchWin() : 'You matched the flock!';
               }
-              if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+              if (kit) kit.recordScore('memory', { pairs: usePairs.length, wins: 1 });
+              paintHud();
+              if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
                 try { window.tdbLittleShepherd.notify('gameWin'); } catch (e3) {}
               }
-            } else {
-              if (st) st.textContent = 'Nice! Keep going.';
+            } else if (st) {
+              st.textContent = 'Nice! Read the tip—then keep going.';
             }
           } else {
             lock = true;
@@ -189,13 +196,14 @@
               lock = false;
             }, 650);
             if (st) st.textContent = 'Try again—read slow.';
-            if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+            if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
               try { window.tdbLittleShepherd.notify('wrongMatch'); } catch (e4) {}
             }
           }
         });
         if (board) board.appendChild(b);
       });
+      paintHud();
     }
     if (again) again.addEventListener('click', build);
     build();

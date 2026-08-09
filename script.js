@@ -10826,7 +10826,7 @@ const topics = {
   },
   addiction: {
     synonyms: ['addicted', 'bondage', 'habit', 'freedom', 'sober', 'temptation', 'overcome', 'relapse', 'porn'],
-    verses: ['John 8:36', 'Romans 6:6-7', 'Galatians 5:1', '1 Corinthians 10:13', '2 Corinthians 5:17', 'Philippians 4:13', 'Romans 6:14'],
+    verses: ['John 8:36', 'Romans 6:6', 'Galatians 5:1', '1 Corinthians 10:13', '2 Corinthians 5:17', 'Philippians 4:13', 'Romans 6:14'],
     guidance: {
       kid: "God is stronger than any habit. Ask Him for help every day.",
       teen: "You don't have to fight alone. God gives a way out and strength to walk in freedom.",
@@ -10883,7 +10883,7 @@ const topics = {
   },
   forgiveness: {
     synonyms: ['forgive', 'pardon', 'mercy', 'absolve', 'difficult person', 'coworker', 'boss'],
-    verses: ['Matthew 5:44', 'Ephesians 4:32', 'Colossians 3:23', 'Proverbs 15:1', 'Romans 12:17-19', 'Matthew 6:14', 'Colossians 3:13', 'Luke 6:37', 'Acts 13:38'],
+    verses: ['Matthew 5:44', 'Ephesians 4:32', 'Colossians 3:23', 'Proverbs 15:1', 'Romans 12:17', 'Matthew 6:14', 'Colossians 3:13', 'Luke 6:37', 'Acts 13:38'],
     guidance: {
       kid: "Forgive others just like God forgives you.",
       teen: "Let go of grudges; forgiveness sets you free.",
@@ -11192,7 +11192,7 @@ const topics = {
   family: {
     synonyms: ['home', 'parents', 'siblings', 'household', 'brothers', 'sisters', 'inheritance', 'caregiving'],
     // Keep this list distinct from "free will" so topic results are unambiguous.
-    verses: ['Ephesians 6:1', 'Colossians 3:13', 'Matthew 18:15', 'Ephesians 4:31-32', 'Proverbs 17:17', 'Psalms 133:1', 'Psalms 127:3', 'Proverbs 22:6', 'Colossians 3:20'],
+    verses: ['Ephesians 6:1', 'Colossians 3:13', 'Matthew 18:15', 'Ephesians 4:31', 'Proverbs 17:17', 'Psalms 133:1', 'Psalms 127:3', 'Proverbs 22:6', 'Colossians 3:20'],
     guidance: {
       kid: "Love your family and help at home.",
       teen: "Honor your family even when it is hard.",
@@ -11234,7 +11234,7 @@ const topics = {
   },
   relationships: {
     synonyms: ['marriage', 'friendship', 'family', 'community', 'reconcile'],
-    verses: ['Ephesians 4:2-3', 'Colossians 3:13', 'Romans 12:18', 'Proverbs 27:17', '1 Corinthians 13:4-7'],
+    verses: ['Ephesians 4:2', 'Colossians 3:13', 'Romans 12:18', 'Proverbs 27:17', '1 Corinthians 13:4'],
     guidance: {
       kid: "Be kind and forgive quickly in your relationships.",
       teen: "Fight for peace, speak truth in love, and forgive freely.",

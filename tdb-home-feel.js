@@ -348,8 +348,8 @@ const CHIP_TO_TOPICS_KEY = {
   addiction: "addiction",
   cancer: "cancer",
   gratitude: "gratitude",
-  wonder: "hope",
-  exhaustion: "strength",
+  wonder: "wonder",
+  exhaustion: "exhaustion",
   joy: "joy",
   love: "love",
   courage: "courage",
@@ -401,22 +401,34 @@ function resolveTopicsKey(raw) {
 }
 
 function lookupKjvText(ref) {
-  const r = String(ref || "").trim();
-  if (!r) return "";
-  try {
-    if (typeof window !== "undefined" && window.bible && window.bible[r]) return String(window.bible[r]);
-  } catch (e) { /* non-fatal */ }
-  try {
-    if (typeof bible !== "undefined" && bible && bible[r]) return String(bible[r]);
-  } catch (e2) { /* non-fatal */ }
-  try {
-    if (typeof getBibleVerseText === "function") {
-      const t = getBibleVerseText(r);
-      if (t) return String(t);
-    }
-  } catch (e3) { /* non-fatal */ }
+  const r0 = String(ref || "").trim();
+  if (!r0) return "";
+  /* Ranges like Romans 6:6-7 → use first verse for lookup. */
+  let r = r0;
+  const rangeM = r.match(/^(.+?\s+\d+):(\d+)-\d+$/);
+  if (rangeM) r = rangeM[1] + ":" + rangeM[2];
+  function tryKey(key) {
+    try {
+      if (typeof window !== "undefined" && window.bible && window.bible[key]) return String(window.bible[key]);
+    } catch (e) { /* non-fatal */ }
+    try {
+      if (typeof bible !== "undefined" && bible && bible[key]) return String(bible[key]);
+    } catch (e2) { /* non-fatal */ }
+    try {
+      if (typeof getBibleVerseText === "function") {
+        const t = getBibleVerseText(key);
+        if (t) return String(t);
+      }
+    } catch (e3) { /* non-fatal */ }
+    return "";
+  }
+  let hit = tryKey(r);
+  if (hit) return hit;
   const alt = r.replace(/^Psalms\s+/i, "Psalm ").replace(/^Psalm\s+/i, "Psalms ");
-  if (alt !== r) return lookupKjvText(alt);
+  if (alt !== r) {
+    hit = tryKey(alt);
+    if (hit) return hit;
+  }
   return "";
 }
 

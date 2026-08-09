@@ -615,6 +615,21 @@ async function main() {
   auditTopicCardQuality(resolve);
   auditEngineSample(kjv, resolve);
 
+  /* Full chip + topic-page audit (spawn as child for isolation) */
+  try {
+    const { spawnSync } = await import('child_process');
+    const r = spawnSync(process.execPath, [path.join(root, 'scripts/verify-all-topics.mjs')], {
+      cwd: root,
+      encoding: 'utf8',
+    });
+    if (r.status !== 0) {
+      const out = String(r.stdout || '') + String(r.stderr || '');
+      fail('verify-all-topics failed:\n' + out.slice(0, 2000));
+    }
+  } catch (eTopics) {
+    fail('verify-all-topics could not run: ' + (eTopics && eTopics.message));
+  }
+
   console.log('Checks complete.\n');
   if (failures.length) {
     console.error(`FAIL: ${failures.length} teaching integrity issue(s):\n`);

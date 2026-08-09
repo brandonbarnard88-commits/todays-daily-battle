@@ -132,7 +132,8 @@
     "pre-launch:verify-live": "npm run verify:live:critical && npm run validate:prod",
     "api:dev": "npm --prefix api run dev",
     "api:build": "npm --prefix api run build",
-    "verify:freeze": "node scripts/verify-feature-freeze.mjs"
+    "verify:freeze": "node scripts/verify-feature-freeze.mjs",
+    "verify:topics": "node scripts/verify-all-topics.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",

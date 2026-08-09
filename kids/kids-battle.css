@@ -1732,6 +1732,20 @@
   opacity: 1 !important;
 }
 
+/* Library shelf: Color & Tell thumbs (not stick panel-*.svg) */
+.kids-library-card--color-art .kids-library-card-thumb--coloring,
+.kids-library-card img.kids-library-card-thumb--coloring {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  object-position: center top;
+  background: #fffef8;
+  border-radius: 10px;
+  border: 2px solid rgba(245, 158, 11, 0.45);
+  display: block;
+}
+
 /* Color & Tell art in story modal — big and clear (override stick-panel grid) */
 .kids-library-modal .comic-panel--coloring-art,
 .comic-panel.comic-panel--coloring-art {

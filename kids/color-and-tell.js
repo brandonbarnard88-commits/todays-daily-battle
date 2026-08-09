@@ -598,13 +598,14 @@
       var isRaster = /\.(jpe?g|png|webp)(\?|$)/i.test(resolved[0] || '');
       if (story.scenes.length > 1 && allSame && isRaster) {
         var first = story.scenes[0];
+        // Full-page hero: keep whole-story KJV + idea so the picture has full context.
         story.scenes = [
           {
             id: '1',
             src: resolved[0],
-            alt: first.alt,
-            caption: first.caption,
-            verse: first.verse
+            alt: first.alt || story.title,
+            caption: first.caption || story.idea || story.title,
+            verse: story.verse || first.verse || ''
           }
         ];
         if (story.lead && /four|panels|scene\(s\)/i.test(story.lead)) {
@@ -617,6 +618,123 @@
         }
       }
     }
+  }
+
+  /**
+   * Build the story-context block shown with every coloring scene
+   * (title, what's happening, KJV) so kids always know the picture's story.
+   */
+  function buildSceneStoryCard(story, scene, sceneIdx, sceneTotal) {
+    var card = document.createElement('div');
+    card.className = 'tdb-cat-scene-story-card';
+
+    var label = document.createElement('p');
+    label.className = 'tdb-cat-scene-label';
+    if (sceneTotal > 1) {
+      label.textContent =
+        'Scene ' + (sceneIdx + 1) + ' of ' + sceneTotal + ' · ' + (story.title || '');
+    } else {
+      label.textContent = story.title || 'Bible story';
+    }
+    card.appendChild(label);
+
+    if (scene.caption) {
+      var cap = document.createElement('p');
+      cap.className = 'tdb-cat-scene-caption';
+      cap.textContent = scene.caption;
+      card.appendChild(cap);
+    }
+
+    var pictureHint = scene.alt || '';
+    if (pictureHint) {
+      var pic = document.createElement('p');
+      pic.className = 'tdb-cat-scene-picture-hint';
+      pic.textContent = 'In this picture: ' + pictureHint;
+      card.appendChild(pic);
+    }
+
+    if (story.idea) {
+      var idea = document.createElement('p');
+      idea.className = 'tdb-cat-scene-idea';
+      idea.textContent = 'Big idea: ' + story.idea;
+      card.appendChild(idea);
+    }
+
+    return card;
+  }
+
+  /**
+   * Composite caption + KJV under a saved coloring PNG so Watch My Story
+   * and downloads keep the story text with the picture.
+   */
+  function compositeStoryTextUnderImage(pngDataUrl, story, scene) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      img.onload = function () {
+        var pad = 24;
+        var textBlockH = 120;
+        var w = img.naturalWidth;
+        var h = img.naturalHeight + textBlockH;
+        var c = document.createElement('canvas');
+        c.width = w;
+        c.height = h;
+        var ctx = c.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, w, h);
+        ctx.drawImage(img, 0, 0);
+
+        var y = img.naturalHeight + 18;
+        ctx.fillStyle = '#f8fafc';
+        ctx.fillRect(0, img.naturalHeight, w, textBlockH);
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.beginPath();
+        ctx.moveTo(0, img.naturalHeight + 0.5);
+        ctx.lineTo(w, img.naturalHeight + 0.5);
+        ctx.stroke();
+
+        ctx.fillStyle = '#0f172a';
+        ctx.font = 'bold ' + Math.max(18, Math.round(w / 42)) + 'px system-ui, sans-serif';
+        var title = story.title || '';
+        ctx.fillText(title, pad, y + 8);
+
+        ctx.font = Math.max(16, Math.round(w / 48)) + 'px system-ui, sans-serif';
+        ctx.fillStyle = '#1e293b';
+        var cap = scene.caption || '';
+        // simple wrap
+        var maxW = w - pad * 2;
+        var words = cap.split(/\s+/);
+        var line = '';
+        var ly = y + 36;
+        var lineH = Math.max(20, Math.round(w / 45));
+        for (var i = 0; i < words.length; i++) {
+          var test = line ? line + ' ' + words[i] : words[i];
+          if (ctx.measureText(test).width > maxW && line) {
+            ctx.fillText(line, pad, ly);
+            line = words[i];
+            ly += lineH;
+            if (ly > h - 28) break;
+          } else {
+            line = test;
+          }
+        }
+        if (line && ly <= h - 28) ctx.fillText(line, pad, ly);
+
+        var verse = scene.verse || story.verse || '';
+        if (verse) {
+          ctx.fillStyle = '#7c3d12';
+          ctx.font =
+            'italic ' + Math.max(14, Math.round(w / 52)) + 'px Georgia, serif';
+          var vLine = verse.length > 110 ? verse.slice(0, 107) + '…' : verse;
+          ctx.fillText(vLine, pad, h - 16);
+        }
+
+        resolve(c.toDataURL('image/png'));
+      };
+      img.onerror = function () {
+        reject(new Error('image'));
+      };
+      img.src = pngDataUrl;
+    });
   }
 
   /** KJV refs in captions — short for on-screen (OT first, then Gospels) */
@@ -3723,7 +3841,7 @@
   function createJl(scene) {
     var jl = document.createElement('jl-coloringbook');
     jl.setAttribute('maxbrushsize', '56');
-    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=28');
+    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=29');
     var im = document.createElement('img');
     im.src = bestSceneSrc(scene);
     im.alt = scene.alt;
@@ -4254,7 +4372,13 @@
             tab.setAttribute('aria-controls', 'panel-' + story.id + '-' + sc.id);
             tab.setAttribute('aria-selected', sceneIdx === 0 ? 'true' : 'false');
             tab.tabIndex = sceneIdx === 0 ? 0 : -1;
-            tab.textContent = 'Scene ' + (sceneIdx + 1);
+            // Short tab label: "1 · caption snippet" so kids see the story beat
+            var tabCap = (sc.caption || '').trim();
+            if (tabCap.length > 28) tabCap = tabCap.slice(0, 26) + '…';
+            tab.textContent = tabCap
+              ? sceneIdx + 1 + ' · ' + tabCap
+              : 'Scene ' + (sceneIdx + 1);
+            tab.title = sc.caption || 'Scene ' + (sceneIdx + 1);
             tab.addEventListener('click', function () {
               selectTab(story, sceneIdx, section);
             });
@@ -4271,16 +4395,19 @@
             }
             panel.hidden = sceneIdx !== 0;
 
-            var cap = document.createElement('p');
-            cap.className = 'tdb-cat-scene-caption no-print';
-            cap.textContent = sc.caption;
+            var storyCard = buildSceneStoryCard(
+              story,
+              sc,
+              sceneIdx,
+              story.scenes.length
+            );
 
             var jlBox = document.createElement('div');
             jlBox.className = 'tdb-cat-jl-wrap kids-gold-frame';
             var jl = createJl(sc);
             jlBox.appendChild(jl);
 
-            var verseStrip = buildVerseStrip(sc.verse);
+            var verseStrip = buildVerseStrip(sc.verse || story.verse);
 
             var printBtn = document.createElement('button');
             printBtn.type = 'button';
@@ -4307,35 +4434,45 @@
                 window.alert('Coloring is still loading. Wait a moment, then try again.');
                 return;
               }
-              jl.exportCompositePng().then(function (png) {
-                if (!png) {
-                  window.alert('Picture is not ready yet—that is all right. Try again in a second.');
-                  return null;
-                }
-                return pngToJpeg(png, JPEG_QUALITY);
-              }).then(function (jpeg) {
-                if (!jpeg) return;
-                try {
-                  setSaved(story.id, sc.id, jpeg);
-                } catch (err) {
-                  if (err && err.name === 'QuotaExceededError') {
+              jl.exportCompositePng()
+                .then(function (png) {
+                  if (!png) {
                     window.alert(
-                      'This device ran out of save space. Tap “Clear saved stories” under the progress cards, or ask a grown-up to free browser storage.'
+                      'Picture is not ready yet—that is all right. Try again in a second.'
                     );
-                  } else {
-                    window.alert('That did not save—that is all right. Try again.');
+                    return null;
                   }
-                  return;
-                }
-                msg.textContent = 'Saved! This scene is in your story.';
-                refreshAllProgress();
-                updateStoryUI(story, section, watchBtn, celebrate);
-              }).catch(function () {
-                window.alert('Picture did not save—that is all right. Try again.');
-              });
+                  // Keep story title + caption + KJV under the saved picture.
+                  return compositeStoryTextUnderImage(png, story, sc);
+                })
+                .then(function (pngWithText) {
+                  if (!pngWithText) return null;
+                  return pngToJpeg(pngWithText, JPEG_QUALITY);
+                })
+                .then(function (jpeg) {
+                  if (!jpeg) return;
+                  try {
+                    setSaved(story.id, sc.id, jpeg);
+                  } catch (err) {
+                    if (err && err.name === 'QuotaExceededError') {
+                      window.alert(
+                        'This device ran out of save space. Tap “Clear saved stories” under the progress cards, or ask a grown-up to free browser storage.'
+                      );
+                    } else {
+                      window.alert('That did not save—that is all right. Try again.');
+                    }
+                    return;
+                  }
+                  msg.textContent = 'Saved! This scene is in your story.';
+                  refreshAllProgress();
+                  updateStoryUI(story, section, watchBtn, celebrate);
+                })
+                .catch(function () {
+                  window.alert('Picture did not save—that is all right. Try again.');
+                });
             });
 
-            panel.appendChild(cap);
+            panel.appendChild(storyCard);
             panel.appendChild(jlBox);
             panel.appendChild(verseStrip);
             panel.appendChild(printBtn);

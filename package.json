@@ -133,7 +133,8 @@
     "api:dev": "npm --prefix api run dev",
     "api:build": "npm --prefix api run build",
     "verify:freeze": "node scripts/verify-feature-freeze.mjs",
-    "verify:topics": "node scripts/verify-all-topics.mjs"
+    "verify:topics": "node scripts/verify-all-topics.mjs",
+    "build:coloring-art-map": "node scripts/build-coloring-scene-map.mjs && node scripts/inject-coloring-scene-map.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",

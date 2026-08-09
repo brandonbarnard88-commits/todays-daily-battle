@@ -261,7 +261,7 @@
     "thru": "10:16",
     "about": "Jesus",
     "audience": "The disciples — and the little children brought to Him",
-    "setting": "In this passage of Scripture, the focus is this: Jesus blesses the children — spoken by Jesus to The disciples — and the little children brought to Him."
+    "setting": "Parents bring little children to Jesus; the disciples rebuke them; Jesus is much displeased and welcomes the children into His arms."
   },
   {
     "book": "Mark",
@@ -612,8 +612,8 @@
     "from": "34:1",
     "thru": "34:22",
     "about": "David",
-    "audience": "Anyone tasting that the Lord is good",
-    "setting": "David, after escaping Abimelech, teaches the afflicted to taste and see that the Lord is good."
+    "audience": "Anyone tasting that the Lord is good — and the brokenhearted",
+    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
   },
   {
     "book": "Psalm",
@@ -654,5 +654,53 @@
     "about": "Paul",
     "audience": "the church at Corinth facing temptation (and you today)",
     "setting": "Paul warns Corinth from Israel’s wilderness failures and promises God is faithful in temptation."
+  },
+  {
+    "book": "Matthew",
+    "from": "18:1",
+    "thru": "18:14",
+    "about": "Jesus",
+    "audience": "His disciples — and all who guard the vulnerable",
+    "setting": "In Capernaum Jesus teaches humility with a child in their midst and warns against despising little ones whose angels behold the Father’s face."
+  },
+  {
+    "book": "Matthew",
+    "from": "18:21",
+    "thru": "18:35",
+    "about": "Jesus",
+    "audience": "Peter and the disciples learning how far forgiveness goes",
+    "setting": "Peter asks how often to forgive; Jesus answers seventy times seven and tells the parable of the unforgiving servant."
+  },
+  {
+    "book": "Ephesians",
+    "from": "4:25",
+    "thru": "4:32",
+    "about": "Paul",
+    "audience": "Believers learning kindness after the old life",
+    "setting": "Paul urges the church to put off bitterness and be kind and forgiving to one another, as God in Christ forgave them."
+  },
+  {
+    "book": "Colossians",
+    "from": "3:12",
+    "thru": "3:15",
+    "about": "Paul",
+    "audience": "Believers putting on love as God’s chosen ones",
+    "setting": "Paul tells the Colossians to put on mercy and forbear one another, forgiving as Christ forgave them."
+  },
+  {
+    "book": "Isaiah",
+    "from": "41:8",
+    "thru": "41:14",
+    "about": "Isaiah (the Lord speaking)",
+    "audience": "Fearful people — and you when fear is loud",
+    "setting": "The Lord comforts fearful Israel in exile: “Fear thou not; for I am with thee” — strength and help from His right hand."
+  },
+  {
+    "book": "1 Peter",
+    "from": "5:5",
+    "thru": "5:11",
+    "about": "Peter",
+    "audience": "Believers casting care on God under pressure",
+    "setting": "Peter closes his letter: humble yourselves under God’s hand, cast all your care on Him, for He cares for you, and resist the devil."
   }
 ]

@@ -1,0 +1,2104 @@
+{
+  "existingMap": {
+    "jesusTemptation": "jesus-tempted",
+    "mosesSea": "moses-red-sea",
+    "jesusBirth": "nativity",
+    "jesusManger": "nativity",
+    "jesusLastSupper": "jesus-washes-feet",
+    "roadToEmmaus": "emmaus-road",
+    "weddingWine": "wedding-cana",
+    "jesusFirstMiracle": "wedding-cana",
+    "johnBaptize": "jesus-baptism",
+    "widowOil": "elisha-oil",
+    "joshuaJordan": "jordan-crossing",
+    "ruthGlean": "ruth-boaz",
+    "parableTalents": "the-talents",
+    "theTalents": "the-talents",
+    "widowMite": "widows-mite",
+    "widowsMite": "widows-mite",
+    "lostCoin": "lost-coin",
+    "bethesda": "healing-paralytic",
+    "lydiaSell": "lydia-purple",
+    "lydiaConversion": "lydia-purple",
+    "silasPaulSinging": "paul-silas-prison",
+    "paulShip": "paul-shipwreck",
+    "philipChariot": "philip-ethiopian",
+    "dorcasRaise": "tabitha-dorcas",
+    "elijahChariot": "elijah-taken-up",
+    "elijahAscension": "elijah-taken-up",
+    "elijahFireFromHeaven": "elijah-carmel",
+    "elijahFire": "elijah-carmel",
+    "naamanHealed": "naaman",
+    "naamanDip": "naaman",
+    "fallOfJericho": "jericho",
+    "jerichoWalls": "jericho",
+    "rahabRope": "rahab-spies",
+    "rahabWindow": "rahab-spies",
+    "rahabJericho": "rahab-spies",
+    "samsonBirth": "samson",
+    "samsonLion": "samson",
+    "samsonDelilah": "samson",
+    "samsonStrength": "samson",
+    "gideonMidianites": "gideon-fleece",
+    "gideonFleeceRevisited": "gideon-fleece",
+    "hannahPray": "hannah-samuel",
+    "samuelCall": "boy-samuel",
+    "samuelBirth": "boy-samuel",
+    "samuelAnointsDavid": "boy-david",
+    "saulSpear": "david-spares-saul",
+    "davidJonathanFriendship": "david-jonathan",
+    "transfigure": "transfiguration",
+    "nehemiahWallRevisited": "nehemiah-walls",
+    "philipEthiopianRevisited": "philip-ethiopian",
+    "paulShipwreckRevisited": "paul-shipwreck",
+    "palmSunday": "triumphal-entry",
+    "triumphalEntry": "triumphal-entry",
+    "writingOnWall": "writing-on-wall",
+    "tenCommandments": "ll-commandments",
+    "llCommandments": "ll-commandments",
+    "cainAbel": "cain-abel",
+    "towerBabel": "tower-babel",
+    "manna": "manna",
+    "goldenCalf": "golden-calf",
+    "bronzeSerpent": "bronze-serpent",
+    "tabernacle": "tabernacle",
+    "spiesInCanaan": "spies-canaan",
+    "elijahHoreb": "elijah-horeb",
+    "elijahElijahElisha": "elisha-mantle",
+    "jesusWeepsJerusalem": "jesus-weeps",
+    "figTree": "fig-tree",
+    "jesusAuthority": "jesus-authority",
+    "parableWickedHusbandmen": "vineyard-son",
+    "tributeToCaesar": "tribute-caesar",
+    "gardenPrayer": "garden-gethsemane",
+    "betrayal": "judas-betrayal",
+    "trial": "jesus-pilate",
+    "ascension": "ascension",
+    "jesusGardenGethsemane": "garden-gethsemane",
+    "jesusArrest": "jesus-arrest",
+    "trialBeforeCaiaphas": "jesus-caiaphas",
+    "peterDenial": "peter-denial",
+    "jesusCrucifixion": "crucifixion",
+    "jesusAscension": "ascension",
+    "pentecost": "pentecost",
+    "stephen": "stephen",
+    "paulDamascus": "paul-damascus",
+    "heavenPromise": "heaven-promise",
+    "ruthThreshing": "boaz-redeemer",
+    "ruthRedemption": "boaz-redeemer",
+    "armorOfGod": "armor-of-god",
+    "tenPlagues": "ten-plagues",
+    "sarahLaughs": "sarah-laughs",
+    "jacobLadder": "jacob-ladder",
+    "pharaohDreams": "pharaoh-dreams",
+    "mosesStaffSnake": "moses-staff-snake",
+    "passoverLamb": "passover-lamb",
+    "joshuaAi": "joshua-ai",
+    "achan": "joshua-ai",
+    "battleOfAi": "joshua-ai",
+    "sunStandsStill": "sun-stands-still",
+    "joshuaCharge": "joshua-charge",
+    "deborahBarak": "deborah-barak",
+    "balaakCurse": "balaam-king",
+    "balaamBlessing": "balaam-king",
+    "saulKing": "saul-king",
+    "saulDisobedience": "saul-king",
+    "shunammiteReturn": "shunammite",
+    "samariaSiege": "shunammite",
+    "elishaFinal": "elisha-bones",
+    "elishaBones": "elisha-bones",
+    "jobSuffering": "job-trust",
+    "elishaFloatingAxe": "elisha-axe",
+    "elishaChariots": "elisha-chariots",
+    "elishaPoisonStew": "shunammite",
+    "elishaBlindArmy": "elisha-chariots",
+    "isaiahMessianic": "isaiah-vision",
+    "jeremiahWeeping": "jeremiah-call",
+    "ezekielValleyBones": "ezekiel-bones",
+    "ezraReturn": "ezra-return",
+    "malachiMessage": "malachi-messenger",
+    "angelMary": "angel-mary",
+    "jesusTemple": "jesus-temple-boy",
+    "johnBaptist": "john-baptist",
+    "parableNet": "parable-net",
+    "parableVineyardWorkers": "vineyard-son",
+    "parableTwoSons": "vineyard-son",
+    "parableWeddingFeast": "wedding-feast",
+    "judasKiss": "judas-betrayal",
+    "crossCarry": "cross-carry",
+    "crucifixion": "crucifixion",
+    "pentecostFire": "pentecost",
+    "holySpiritPentecost": "pentecost",
+    "peterPentecostSermon": "pentecost",
+    "earlyChurchLife": "early-church",
+    "peterShadow": "peter-lame",
+    "peterHealsLame": "peter-lame",
+    "peterJailBreak": "peter-jail",
+    "paulConversion": "paul-damascus",
+    "paulBarnabas": "barnabas",
+    "paulSecondJourney": "philippians-joy",
+    "actsPaulMarsHill": "paul-mars-hill",
+    "actsApollosPriscilla": "priscilla-aquila",
+    "paulEutychus": "eutychus",
+    "paulRome": "paul-rome",
+    "paulLetters": "philippians-joy",
+    "paulPrisonEpistles": "philippians-joy",
+    "paulEndurance": "paul-rome",
+    "paulPhilemon": "philemon",
+    "hebrewsFaith": "hebrews-faith",
+    "revelationLetters": "revelation-throne",
+    "revelationSeals": "revelation-throne",
+    "revelationTrumpets": "revelation-throne",
+    "revelationBeasts": "revelation-throne",
+    "revelationThousandYears": "revelation-throne",
+    "revelationNewJerusalem": "heaven-promise",
+    "revelationWomanDragon": "revelation-throne",
+    "revelationSongsAndHarvest": "revelation-throne",
+    "revelationSupperAndKing": "lamb-book",
+    "revelationBabylonFall": "revelation-throne",
+    "actsPaulBeforeAgrippa": "paul-rome",
+    "actsPaulMelita": "paul-rome",
+    "romansRoadKids": "romans-love",
+    "corinthiansOneBody": "love-chapter",
+    "philippiansJoy": "philippians-joy",
+    "thessaloniansHope": "come-lord-jesus",
+    "timothyYouthExample": "young-timothy",
+    "tenVirgins": "ten-virgins",
+    "sheepAndGoats": "sheep-goats",
+    "armorShield": "armor-of-god",
+    "armorSword": "armor-of-god",
+    "fruitSpirit": "fruit-spirit",
+    "loveChapter": "love-chapter",
+    "prayerKnock": "prayer-knock",
+    "worryBirds": "worry-birds",
+    "jesusCleansesTemple": "temple-clean",
+    "greatestCommandment": "greatest-command",
+    "stephenStones": "stephen",
+    "stephenMartyr": "stephen",
+    "johnPatmos": "john-patmos",
+    "revelation": "john-patmos",
+    "revelationThrone": "revelation-throne",
+    "revelationThroneRoom": "revelation-throne",
+    "fourHorsemen": "revelation-throne",
+    "alphaOmega": "lamb-book",
+    "newHeaven": "heaven-promise",
+    "revelationNewHeaven": "heaven-promise",
+    "treeOfLife": "tree-of-life",
+    "riverOfLife": "tree-of-life",
+    "lambBook": "lamb-book",
+    "deborahJudge": "deborah-barak",
+    "jaelTent": "jael-tent",
+    "abigailWise": "abigail-wise",
+    "davidAbigail": "abigail-wise",
+    "mephibosheth": "mephibosheth",
+    "davidBathsheba": "david-repent",
+    "absalomRebellion": "david-repent",
+    "priscillaTeach": "priscilla-aquila",
+    "sarahPromise": "sarah-laughs",
+    "miriamSong": "miriam-song",
+    "annaProphet": "anna-prophet",
+    "maryMartha": "mary-martha",
+    "loisTimothy": "young-timothy",
+    "euniceMother": "young-timothy",
+    "priscillaTent": "priscilla-aquila",
+    "greatCommission": "great-commission",
+    "jesusGreatCommission": "great-commission",
+    "pentecostTongues": "pentecost",
+    "armorBelt": "armor-of-god",
+    "prayerCloset": "prayer-knock",
+    "faithMountain": "faith-mountain",
+    "loveNeighbor": "greatest-command",
+    "heavenDoor": "heaven-promise",
+    "revelationBride": "revelation-throne",
+    "treeFruit": "tree-of-life",
+    "noNight": "heaven-promise",
+    "newEarth": "heaven-promise",
+    "alphaOmega2": "lamb-book",
+    "josiahReform": "josiah-reform",
+    "jeremiahCall": "jeremiah-call",
+    "ezekielDryBones": "ezekiel-bones",
+    "ezraLaw": "ezra-return",
+    "deborahJudgeRevisited": "deborah-barak",
+    "isaiahVision": "isaiah-vision",
+    "micahJustice": "micah-justice",
+    "habakkukFaith": "micah-justice",
+    "haggaiTemple": "micah-justice",
+    "zechariahVision": "micah-justice",
+    "malachiMessenger": "malachi-messenger",
+    "boazRedeemer": "boaz-redeemer",
+    "jobFriends": "job-trust",
+    "allHeroesPraise": "hebrews-faith",
+    "psalm91": "psalm-91",
+    "pentecostHolySpirit": "pentecost",
+    "saulConversion": "paul-damascus",
+    "peterCornelius": "peter-cornelius",
+    "barnabasEncouragesRevisited": "barnabas",
+    "eutychusFallenRevisited": "eutychus",
+    "timothyPaulFriendshipRevisited": "young-timothy",
+    "aquilaPriscillaRevisited": "priscilla-aquila",
+    "epaphrasPrayerRevisited": "prayer-knock",
+    "philemonOnesimusRevisited": "philemon",
+    "nymphasHouseChurchRevisited": "early-church",
+    "gaiusHospitalityRevisited": "early-church",
+    "actsChurchBegins": "early-church",
+    "romansLove": "romans-love",
+    "1corinthiansLoveChapter": "love-chapter",
+    "galatiansFruit": "fruit-spirit",
+    "ephesiansArmorRevisited": "armor-of-god",
+    "1thessaloniansRapture": "come-lord-jesus",
+    "1timothyYoungLeader": "young-timothy",
+    "2timothyFaithPassed": "young-timothy",
+    "philemonForgiveness": "philemon",
+    "hebrewsFaithHeroes": "hebrews-faith",
+    "actsChurchBeginsRevisited": "early-church",
+    "romansLoveRevisited": "romans-love",
+    "1corinthiansLoveChapterRevisited": "love-chapter",
+    "galatiansFruitRevisited": "fruit-spirit",
+    "philippiansJoyRevisited": "philippians-joy",
+    "1thessaloniansRaptureRevisited": "come-lord-jesus",
+    "1timothyYoungLeaderRevisited": "young-timothy",
+    "2timothyFaithPassedRevisited": "young-timothy",
+    "philemonForgivenessRevisited": "philemon",
+    "hebrewsFaithHeroesRevisited": "hebrews-faith",
+    "comeLordJesus": "come-lord-jesus",
+    "marthaServe": "mary-martha",
+    "marySit": "mary-martha",
+    "gehaziGreed": "hebrews-faith",
+    "paulFirstJourney": "paul-rome",
+    "councilJerusalem": "hebrews-faith",
+    "paulThirdJourney": "paul-rome",
+    "paulEphesus": "paul-rome",
+    "paulTimothy": "paul-rome",
+    "paulTitus": "paul-rome",
+    "jamesFaithWorks": "paul-rome",
+    "peterFirstLetter": "paul-rome",
+    "peterSecondLetter": "paul-rome",
+    "johnFirstLetter": "paul-rome",
+    "judeWarning": "paul-rome",
+    "johnSecondThirdLetters": "paul-rome",
+    "colossiansChristSupreme": "paul-rome",
+    "maryAnoint": "great-commission",
+    "dragonFight": "revelation-throne",
+    "beastMark": "revelation-throne",
+    "phoebeDeacon": "early-church",
+    "juniaApostle": "hebrews-faith",
+    "everyKneeBow": "armor-of-god",
+    "onesiphorusPaulRevisited": "paul-rome",
+    "titusEncouragementRevisited": "paul-rome",
+    "matthewGenealogy": "great-commission",
+    "markBeginning": "great-commission",
+    "johnWord": "paul-rome",
+    "colossiansChristFirst": "paul-rome",
+    "2thessaloniansStandFirm": "paul-rome",
+    "titusGoodWorks": "paul-rome",
+    "1peterHopeLiving": "paul-rome",
+    "matthewGenealogyRevisited": "great-commission",
+    "markBeginningRevisited": "great-commission",
+    "johnWordRevisited": "paul-rome",
+    "colossiansChristFirstRevisited": "paul-rome",
+    "2thessaloniansStandFirmRevisited": "paul-rome",
+    "titusGoodWorksRevisited": "paul-rome",
+    "jamesFaithWorksRevisited": "paul-rome",
+    "1peterHopeLivingRevisited": "paul-rome",
+    "2peterKnowledge": "paul-rome",
+    "1johnLoveGod": "paul-rome",
+    "2johnTruth": "paul-rome",
+    "3johnFaithful": "paul-rome"
+  },
+  "toGenerate": [
+    {
+      "slug": "cain-abel",
+      "title": "Cain and Abel",
+      "promptScene": "Two brothers Cain and Abel at outdoor altar with simple offerings (fruit and lamb), gentle Bible kids scene, no violence",
+      "keys": [
+        "cainAbel"
+      ]
+    },
+    {
+      "slug": "tower-babel",
+      "title": "Tower of Babel",
+      "promptScene": "People building a tall tower toward clouds, simple city of Babel, ancient clothes, cooperative builders",
+      "keys": [
+        "towerBabel"
+      ]
+    },
+    {
+      "slug": "manna",
+      "title": "Manna from Heaven",
+      "promptScene": "Israelites in desert gathering small round manna from the ground at dawn, baskets, Moses nearby calm",
+      "keys": [
+        "manna"
+      ]
+    },
+    {
+      "slug": "golden-calf",
+      "title": "The Golden Calf",
+      "promptScene": "People around a golden calf statue at base of mountain, Moses approaching with tablets from above, concerned faces",
+      "keys": [
+        "goldenCalf"
+      ]
+    },
+    {
+      "slug": "bronze-serpent",
+      "title": "The Bronze Serpent",
+      "promptScene": "Moses lifting a bronze serpent on a pole, people looking up and healed in the wilderness camp",
+      "keys": [
+        "bronzeSerpent"
+      ]
+    },
+    {
+      "slug": "tabernacle",
+      "title": "The Tabernacle",
+      "promptScene": "Beautiful portable tabernacle tent with pillars and courtyard, worshipers approaching calmly",
+      "keys": [
+        "tabernacle"
+      ]
+    },
+    {
+      "slug": "spies-canaan",
+      "title": "Spies in Canaan",
+      "promptScene": "Two spies carrying a huge cluster of grapes on a pole between them, fertile land behind",
+      "keys": [
+        "spiesInCanaan"
+      ]
+    },
+    {
+      "slug": "ten-plagues",
+      "title": "Ten Plagues",
+      "promptScene": "Moses and Aaron before Pharaoh on throne, simple staff, palace columns, serious but kid-safe",
+      "keys": [
+        "tenPlagues"
+      ]
+    },
+    {
+      "slug": "passover-lamb",
+      "title": "Passover",
+      "promptScene": "Hebrew family at table with lamb and bread, doorposts marked, calm night meal of hope",
+      "keys": [
+        "passoverLamb"
+      ]
+    },
+    {
+      "slug": "sarah-laughs",
+      "title": "Sarah Laughs",
+      "promptScene": "Sarah at tent door smiling/laughing softly, Abraham and three visitors nearby, desert tent",
+      "keys": [
+        "sarahLaughs",
+        "sarahPromise"
+      ]
+    },
+    {
+      "slug": "jacob-ladder",
+      "title": "Jacobs Ladder",
+      "promptScene": "Jacob asleep with stone pillow, ladder of light to heaven with gentle angels ascending",
+      "keys": [
+        "jacobLadder"
+      ]
+    },
+    {
+      "slug": "pharaoh-dreams",
+      "title": "Pharaohs Dreams",
+      "promptScene": "Pharaoh on throne looking puzzled, Joseph interpreting, seven grain ears motif simple",
+      "keys": [
+        "pharaohDreams"
+      ]
+    },
+    {
+      "slug": "moses-staff-snake",
+      "title": "Moses Staff",
+      "promptScene": "Moses casting staff that becomes a snake before Pharaoh, palace floor, awe not fear",
+      "keys": [
+        "mosesStaffSnake"
+      ]
+    },
+    {
+      "slug": "sun-stands-still",
+      "title": "Sun Stands Still",
+      "promptScene": "Joshua with raised hand, sun and moon in sky over battlefield landscape, triumphant calm",
+      "keys": [
+        "sunStandsStill"
+      ]
+    },
+    {
+      "slug": "joshua-ai",
+      "title": "Joshua and Ai",
+      "promptScene": "Israelites marching around city walls with trumpets and ark, city of Ai in distance",
+      "keys": [
+        "joshuaAi",
+        "battleOfAi",
+        "achan"
+      ]
+    },
+    {
+      "slug": "deborah-barak",
+      "title": "Deborah and Barak",
+      "promptScene": "Prophetess Deborah under a palm tree advising warrior Barak, hills of Israel",
+      "keys": [
+        "deborahBarak",
+        "deborahJudge"
+      ]
+    },
+    {
+      "slug": "jael-tent",
+      "title": "Jael Courage",
+      "promptScene": "Jael standing by tent with gentle courage (no violence shown), quiet camp scene",
+      "keys": [
+        "jaelTent"
+      ]
+    },
+    {
+      "slug": "saul-king",
+      "title": "Saul Becomes King",
+      "promptScene": "Young Saul anointed as king, oil poured, people cheering, simple crown nearby",
+      "keys": [
+        "saulKing",
+        "saulDisobedience"
+      ]
+    },
+    {
+      "slug": "abigail-wise",
+      "title": "Abigail Wisdom",
+      "promptScene": "Wise Abigail on a donkey with gifts of food meeting David and his men, peaceful",
+      "keys": [
+        "abigailWise",
+        "davidAbigail"
+      ]
+    },
+    {
+      "slug": "mephibosheth",
+      "title": "Mephibosheth",
+      "promptScene": "King David at table kindly inviting Mephibosheth to sit and eat, royal hall kindness",
+      "keys": [
+        "mephibosheth"
+      ]
+    },
+    {
+      "slug": "elijah-horeb",
+      "title": "Still Small Voice",
+      "promptScene": "Elijah at cave entrance on mountain Horeb, soft wind lines, calm after storm, listening",
+      "keys": [
+        "elijahHoreb"
+      ]
+    },
+    {
+      "slug": "elisha-mantle",
+      "title": "Elisha Follows",
+      "promptScene": "Elijah casting mantle on Elisha plowing with oxen, Elisha leaving field to follow",
+      "keys": [
+        "elijahElijahElisha"
+      ]
+    },
+    {
+      "slug": "elisha-axe",
+      "title": "Floating Axe",
+      "promptScene": "Elisha by river, iron axe head floating on water, young prophets watching amazed",
+      "keys": [
+        "elishaFloatingAxe"
+      ]
+    },
+    {
+      "slug": "elisha-chariots",
+      "title": "Horses of Fire",
+      "promptScene": "Elisha and servant on hill, hills filled with horses and chariots of fire protecting them, kid-safe glow",
+      "keys": [
+        "elishaChariots",
+        "elishaBlindArmy"
+      ]
+    },
+    {
+      "slug": "elisha-bones",
+      "title": "Elisha Bones",
+      "promptScene": "Simple tomb scene where a man is raised by Gods power (gentle, no gore), people amazed",
+      "keys": [
+        "elishaBones",
+        "elishaFinal"
+      ]
+    },
+    {
+      "slug": "job-trust",
+      "title": "Job Trusts",
+      "promptScene": "Job sitting calmly under sky looking up to God with hope, friends nearby quiet",
+      "keys": [
+        "jobSuffering",
+        "jobFriends"
+      ]
+    },
+    {
+      "slug": "isaiah-vision",
+      "title": "Isaiah Vision",
+      "promptScene": "Isaiah looking up toward glowing throne of God with gentle seraph wings, temple smoke soft",
+      "keys": [
+        "isaiahVision",
+        "isaiahMessianic"
+      ]
+    },
+    {
+      "slug": "jeremiah-call",
+      "title": "Jeremiah Call",
+      "promptScene": "Young Jeremiah receiving Gods word, scroll and simple town of Jerusalem",
+      "keys": [
+        "jeremiahCall",
+        "jeremiahWeeping"
+      ]
+    },
+    {
+      "slug": "ezekiel-bones",
+      "title": "Dry Bones",
+      "promptScene": "Ezekiel in valley as dry bones become living people standing, hope and life, not scary",
+      "keys": [
+        "ezekielValleyBones",
+        "ezekielDryBones"
+      ]
+    },
+    {
+      "slug": "ezra-return",
+      "title": "Ezra Return",
+      "promptScene": "People returning to Jerusalem with joy, scrolls of Gods law, rebuilding mood",
+      "keys": [
+        "ezraReturn",
+        "ezraLaw"
+      ]
+    },
+    {
+      "slug": "josiah-reform",
+      "title": "King Josiah",
+      "promptScene": "Young king Josiah reading the rediscovered book of the law, temple clean and bright",
+      "keys": [
+        "josiahReform"
+      ]
+    },
+    {
+      "slug": "malachi-messenger",
+      "title": "Malachi Messenger",
+      "promptScene": "Prophet pointing to dawn light, promise of a messenger, hopeful people",
+      "keys": [
+        "malachiMessage",
+        "malachiMessenger"
+      ]
+    },
+    {
+      "slug": "micah-justice",
+      "title": "Micah Justice",
+      "promptScene": "Families walking humbly doing justice and kindness, simple village",
+      "keys": [
+        "micahJustice",
+        "habakkukFaith",
+        "haggaiTemple",
+        "zechariahVision"
+      ]
+    },
+    {
+      "slug": "angel-mary",
+      "title": "Angel and Mary",
+      "promptScene": "Angel Gabriel visiting young Mary with gentle news, simple home, peace",
+      "keys": [
+        "angelMary"
+      ]
+    },
+    {
+      "slug": "john-baptist",
+      "title": "John the Baptist",
+      "promptScene": "John baptizing people at Jordan river, camel hair clothes, wilderness",
+      "keys": [
+        "johnBaptist"
+      ]
+    },
+    {
+      "slug": "jesus-temple-boy",
+      "title": "Boy Jesus Temple",
+      "promptScene": "Young Jesus teaching in the temple among teachers, Mary and Joseph finding him",
+      "keys": [
+        "jesusTemple"
+      ]
+    },
+    {
+      "slug": "mary-martha",
+      "title": "Mary and Martha",
+      "promptScene": "Jesus sitting teaching Mary who listens, Martha serving nearby kitchen, warm home",
+      "keys": [
+        "maryMartha",
+        "marthaServe",
+        "marySit"
+      ]
+    },
+    {
+      "slug": "fig-tree",
+      "title": "Fig Tree Faith",
+      "promptScene": "Jesus and disciples by a fig tree on a path, teaching about faith, hills of Judea",
+      "keys": [
+        "figTree",
+        "jesusFigTree"
+      ]
+    },
+    {
+      "slug": "tribute-caesar",
+      "title": "Tribute Caesar",
+      "promptScene": "Jesus holding a coin teaching about Caesar and God, Pharisees listening",
+      "keys": [
+        "tributeToCaesar"
+      ]
+    },
+    {
+      "slug": "temple-clean",
+      "title": "Temple Cleansing",
+      "promptScene": "Jesus calmly driving out money tables from temple courts, doves freed, righteous care",
+      "keys": [
+        "jesusCleansesTemple"
+      ]
+    },
+    {
+      "slug": "greatest-command",
+      "title": "Greatest Commandment",
+      "promptScene": "Jesus teaching love God and love neighbor, people listening on steps",
+      "keys": [
+        "greatestCommandment",
+        "loveNeighbor"
+      ]
+    },
+    {
+      "slug": "ten-virgins",
+      "title": "Ten Virgins",
+      "promptScene": "Five wise young women with bright lamps and oil, night wedding path, joyful readiness",
+      "keys": [
+        "tenVirgins"
+      ]
+    },
+    {
+      "slug": "sheep-goats",
+      "title": "Sheep and Goats",
+      "promptScene": "Jesus as king separating kind helpers (sheep) gently, kids helping hungry and sick",
+      "keys": [
+        "sheepAndGoats"
+      ]
+    },
+    {
+      "slug": "vineyard-son",
+      "title": "Wicked Husbandmen",
+      "promptScene": "Vineyard with tower and son approaching, parable of the vineyard, simple farm",
+      "keys": [
+        "parableWickedHusbandmen",
+        "parableTwoSons",
+        "parableVineyardWorkers"
+      ]
+    },
+    {
+      "slug": "wedding-feast",
+      "title": "Wedding Feast",
+      "promptScene": "King hosting wedding feast, guests at long table, joyful banquet parable",
+      "keys": [
+        "parableWeddingFeast"
+      ]
+    },
+    {
+      "slug": "garden-gethsemane",
+      "title": "Gethsemane",
+      "promptScene": "Jesus praying on knees in olive garden at night, soft moon, three disciples resting",
+      "keys": [
+        "gardenPrayer",
+        "jesusGardenGethsemane"
+      ]
+    },
+    {
+      "slug": "judas-betrayal",
+      "title": "Judas Betrayal",
+      "promptScene": "Judas approaching Jesus in garden with crowd of torches, solemn not graphic",
+      "keys": [
+        "betrayal",
+        "judasKiss"
+      ]
+    },
+    {
+      "slug": "peter-denial",
+      "title": "Peter Denial",
+      "promptScene": "Peter by courtyard fire looking sad as rooster crows, gentle regret scene",
+      "keys": [
+        "peterDenial"
+      ]
+    },
+    {
+      "slug": "jesus-pilate",
+      "title": "Jesus Before Pilate",
+      "promptScene": "Jesus standing calmly before Pilate on judgment seat, Roman columns, dignified",
+      "keys": [
+        "trial",
+        "jesusPilate"
+      ]
+    },
+    {
+      "slug": "jesus-caiaphas",
+      "title": "Before Caiaphas",
+      "promptScene": "Jesus before high priest Caiaphas, temple court night lamps",
+      "keys": [
+        "trialBeforeCaiaphas"
+      ]
+    },
+    {
+      "slug": "jesus-arrest",
+      "title": "Jesus Arrested",
+      "promptScene": "Soldiers gently taking Jesus in garden, disciples nearby, calm courage",
+      "keys": [
+        "jesusArrest"
+      ]
+    },
+    {
+      "slug": "cross-carry",
+      "title": "Carries Cross",
+      "promptScene": "Jesus carrying wooden cross on path to Calvary with Simon helping, solemn hope",
+      "keys": [
+        "crossCarry"
+      ]
+    },
+    {
+      "slug": "crucifixion",
+      "title": "The Cross",
+      "promptScene": "Empty wooden cross on hill at sunset with soft sky (kid-safe, no gore), hope and love",
+      "keys": [
+        "crucifixion",
+        "jesusCrucifixion"
+      ]
+    },
+    {
+      "slug": "ascension",
+      "title": "Ascension",
+      "promptScene": "Jesus rising into clouds blessing disciples below on hill, joyful wonder",
+      "keys": [
+        "ascension",
+        "jesusAscension"
+      ]
+    },
+    {
+      "slug": "pentecost",
+      "title": "Pentecost",
+      "promptScene": "Disciples with gentle flames of Spirit above heads, wind lines, joyful unity",
+      "keys": [
+        "pentecost",
+        "pentecostFire",
+        "holySpiritPentecost",
+        "pentecostTongues",
+        "pentecostHolySpirit",
+        "peterPentecostSermon"
+      ]
+    },
+    {
+      "slug": "stephen",
+      "title": "Stephen",
+      "promptScene": "Stephen looking up to heaven with peaceful face, people around, first martyr dignified",
+      "keys": [
+        "stephen",
+        "stephenStones",
+        "stephenMartyr"
+      ]
+    },
+    {
+      "slug": "paul-damascus",
+      "title": "Road to Damascus",
+      "promptScene": "Saul falling from horse as bright light from heaven, road to Damascus conversion",
+      "keys": [
+        "paulDamascus",
+        "paulConversion",
+        "saulConversion"
+      ]
+    },
+    {
+      "slug": "peter-lame",
+      "title": "Peter Heals Lame",
+      "promptScene": "Peter taking lame mans hand at Beautiful Gate of temple, man standing praising",
+      "keys": [
+        "peterHealsLame",
+        "peterShadow"
+      ]
+    },
+    {
+      "slug": "peter-jail",
+      "title": "Peter Freed",
+      "promptScene": "Angel freeing Peter from prison chains at night, doors open, quiet miracle",
+      "keys": [
+        "peterJailBreak"
+      ]
+    },
+    {
+      "slug": "peter-cornelius",
+      "title": "Peter and Cornelius",
+      "promptScene": "Peter and Cornelius the centurion sharing meal and faith, friendship of nations",
+      "keys": [
+        "peterCornelius"
+      ]
+    },
+    {
+      "slug": "barnabas",
+      "title": "Barnabas",
+      "promptScene": "Barnabas encouraging young Paul and church friends with open arms, warm smiles",
+      "keys": [
+        "barnabasEncourages",
+        "paulBarnabas"
+      ]
+    },
+    {
+      "slug": "paul-mars-hill",
+      "title": "Mars Hill",
+      "promptScene": "Paul speaking on rocky hill of Athens with simple listeners, Areopagus",
+      "keys": [
+        "actsPaulMarsHill"
+      ]
+    },
+    {
+      "slug": "eutychus",
+      "title": "Eutychus",
+      "promptScene": "Paul preaching upstairs, young Eutychus safe and awake again by window, relief",
+      "keys": [
+        "paulEutychus",
+        "eutychusFallen"
+      ]
+    },
+    {
+      "slug": "armor-of-god",
+      "title": "Armor of God",
+      "promptScene": "Child of God wearing simple biblical armor of faith pieces labeled by symbols (belt shield sword) kid friendly",
+      "keys": [
+        "armorOfGod",
+        "armorShield",
+        "armorSword",
+        "armorBelt",
+        "ephesiansArmor",
+        "everyKneeBow"
+      ]
+    },
+    {
+      "slug": "fruit-spirit",
+      "title": "Fruit of the Spirit",
+      "promptScene": "Tree with nine bright fruits of love joy peace, children picking kindly",
+      "keys": [
+        "fruitSpirit",
+        "galatiansFruit"
+      ]
+    },
+    {
+      "slug": "love-chapter",
+      "title": "Love Is Patient",
+      "promptScene": "Children showing kindness helping and hugging, soft hearts motif, 1 Corinthians 13",
+      "keys": [
+        "loveChapter",
+        "1corinthiansLoveChapter",
+        "corinthiansOneBody"
+      ]
+    },
+    {
+      "slug": "prayer-knock",
+      "title": "Ask Seek Knock",
+      "promptScene": "Child knocking on door that opens to warm light, prayer and seeking God",
+      "keys": [
+        "prayerKnock",
+        "prayerCloset"
+      ]
+    },
+    {
+      "slug": "worry-birds",
+      "title": "Birds and Lilies",
+      "promptScene": "Birds in air and lilies of field, child looking up not worrying, Jesus teaching outdoors",
+      "keys": [
+        "worryBirds"
+      ]
+    },
+    {
+      "slug": "faith-mountain",
+      "title": "Faith Mountain",
+      "promptScene": "Small child pointing at mountain with trust, mustard seed in hand, Jesus teaching",
+      "keys": [
+        "faithMountain"
+      ]
+    },
+    {
+      "slug": "great-commission",
+      "title": "Great Commission",
+      "promptScene": "Risen Jesus sending disciples to all nations on mountain, joyful mission",
+      "keys": [
+        "greatCommission",
+        "jesusGreatCommission",
+        "maryAnoint",
+        "matthewGenealogy",
+        "markBeginning",
+        "matthewGenealogyRevisited",
+        "markBeginningRevisited"
+      ]
+    },
+    {
+      "slug": "heaven-promise",
+      "title": "New Jerusalem",
+      "promptScene": "Beautiful city of God with glowing walls and open gates, river and light, Revelation hope",
+      "keys": [
+        "heavenPromise",
+        "revelationNewJerusalem",
+        "newHeaven",
+        "revelationNewHeaven",
+        "newEarth",
+        "noNight"
+      ]
+    },
+    {
+      "slug": "john-patmos",
+      "title": "John on Patmos",
+      "promptScene": "Elder John on island writing scroll, sea and sky, vision of Jesus",
+      "keys": [
+        "johnPatmos",
+        "revelation"
+      ]
+    },
+    {
+      "slug": "tree-of-life",
+      "title": "Tree of Life",
+      "promptScene": "Great tree of life by crystal river with fruit and healing leaves, paradise",
+      "keys": [
+        "treeOfLife",
+        "riverOfLife",
+        "treeFruit"
+      ]
+    },
+    {
+      "slug": "hebrews-faith",
+      "title": "Heroes of Faith",
+      "promptScene": "Line of faithful heroes walking toward light (Abraham Moses David simple silhouettes), Hebrews 11",
+      "keys": [
+        "hebrewsFaith",
+        "hebrewsFaithHeroes",
+        "allHeroesPraise",
+        "gehaziGreed",
+        "councilJerusalem",
+        "juniaApostle"
+      ]
+    },
+    {
+      "slug": "young-timothy",
+      "title": "Young Timothy",
+      "promptScene": "Young Timothy reading scripture with Lois and Eunice, warm home faith passed down",
+      "keys": [
+        "timothyYouthExample",
+        "1timothyYoungLeader",
+        "2timothyFaithPassed",
+        "loisTimothy",
+        "euniceMother",
+        "timothyPaulFriendship"
+      ]
+    },
+    {
+      "slug": "philemon",
+      "title": "Philemon Welcome",
+      "promptScene": "Philemon welcoming Onesimus with open arms forgiveness, Roman home doorway",
+      "keys": [
+        "philemonOnesimus",
+        "philemonForgiveness",
+        "paulPhilemon"
+      ]
+    },
+    {
+      "slug": "romans-love",
+      "title": "Nothing Separates",
+      "promptScene": "Child held safe in large caring hands of God, Romans 8 love, stars soft",
+      "keys": [
+        "romansLove",
+        "romansRoadKids"
+      ]
+    },
+    {
+      "slug": "philippians-joy",
+      "title": "Joy in Chains",
+      "promptScene": "Paul writing letter with joy smile even near simple chains, Timothy nearby",
+      "keys": [
+        "philippiansJoy",
+        "paulPrisonEpistles",
+        "paulLetters"
+      ]
+    },
+    {
+      "slug": "come-lord-jesus",
+      "title": "Come Lord Jesus",
+      "promptScene": "Children looking up to bright clouds welcoming Jesus return with hope and flowers",
+      "keys": [
+        "comeLordJesus",
+        "1thessaloniansRapture",
+        "thessaloniansHope"
+      ]
+    },
+    {
+      "slug": "miriam-song",
+      "title": "Miriam Sings",
+      "promptScene": "Miriam with tambourine leading women in joyful song by the sea",
+      "keys": [
+        "miriamSong"
+      ]
+    },
+    {
+      "slug": "anna-prophet",
+      "title": "Anna Prophetess",
+      "promptScene": "Elderly Anna in temple praising God for baby Jesus, Simeon nearby soft",
+      "keys": [
+        "annaProphet",
+        "simeonAnna"
+      ]
+    },
+    {
+      "slug": "priscilla-aquila",
+      "title": "Priscilla and Aquila",
+      "promptScene": "Priscilla and Aquila teaching Apollos by tentmaking tools and scroll",
+      "keys": [
+        "priscillaTeach",
+        "priscillaTent",
+        "aquilaPriscilla",
+        "actsApollosPriscilla"
+      ]
+    },
+    {
+      "slug": "boaz-redeemer",
+      "title": "Boaz Redeemer",
+      "promptScene": "Boaz and Ruth at city gate with sandal exchange of redemption, joyful witnesses",
+      "keys": [
+        "boazRedeemer",
+        "ruthRedemption",
+        "ruthThreshing"
+      ]
+    },
+    {
+      "slug": "psalm-91",
+      "title": "Psalm 91",
+      "promptScene": "Child resting under wide protective wings of care, safe refuge, night calm",
+      "keys": [
+        "psalm91"
+      ]
+    },
+    {
+      "slug": "jesus-weeps",
+      "title": "Jesus Weeps",
+      "promptScene": "Jesus looking over Jerusalem city with tears of love, Mount of Olives view",
+      "keys": [
+        "jesusWeepsJerusalem",
+        "jesusWeptJerusalem"
+      ]
+    },
+    {
+      "slug": "jesus-authority",
+      "title": "Jesus Authority",
+      "promptScene": "Jesus teaching with authority on temple steps, leaders listening carefully",
+      "keys": [
+        "jesusAuthority"
+      ]
+    },
+    {
+      "slug": "parable-net",
+      "title": "Net of Fish",
+      "promptScene": "Fishermen with large net full of fish on shore, parable of the net",
+      "keys": [
+        "parableNet"
+      ]
+    },
+    {
+      "slug": "david-repent",
+      "title": "David Repents",
+      "promptScene": "King David kneeling in prayer with tears of repentance, harp set aside, mercy",
+      "keys": [
+        "davidBathsheba",
+        "absalomRebellion"
+      ]
+    },
+    {
+      "slug": "shunammite",
+      "title": "Shunammite",
+      "promptScene": "Elisha and the Shunammite woman, room on roof for the prophet, kindness",
+      "keys": [
+        "shunammiteReturn",
+        "samariaSiege",
+        "elishaPoisonStew"
+      ]
+    },
+    {
+      "slug": "balaam-king",
+      "title": "Balak and Balaam",
+      "promptScene": "King Balak on high place looking over Israel tents, Balaam blessing instead of curse",
+      "keys": [
+        "balaakCurse",
+        "balaamBlessing"
+      ]
+    },
+    {
+      "slug": "joshua-charge",
+      "title": "Joshua Charge",
+      "promptScene": "Elder Joshua charging Israel to serve the Lord, people answering we will serve",
+      "keys": [
+        "joshuaCharge"
+      ]
+    },
+    {
+      "slug": "early-church",
+      "title": "Early Church",
+      "promptScene": "Early believers sharing food and prayer in simple home church joy",
+      "keys": [
+        "earlyChurchLife",
+        "actsChurchBegins",
+        "nymphasHouseChurch",
+        "gaiusHospitality",
+        "phoebeDeacon"
+      ]
+    },
+    {
+      "slug": "paul-rome",
+      "title": "Paul in Rome",
+      "promptScene": "Paul teaching freely in a simple house in Rome, listeners of many lands",
+      "keys": [
+        "paulRome",
+        "paulEndurance",
+        "actsPaulBeforeAgrippa",
+        "actsPaulMelita",
+        "paulFirstJourney",
+        "paulThirdJourney",
+        "paulEphesus",
+        "paulTimothy",
+        "paulTitus",
+        "jamesFaithWorks",
+        "peterFirstLetter",
+        "peterSecondLetter",
+        "johnFirstLetter",
+        "judeWarning",
+        "johnSecondThirdLetters",
+        "colossiansChristSupreme",
+        "onesiphorusPaulRevisited",
+        "titusEncouragementRevisited",
+        "johnWord",
+        "colossiansChristFirst",
+        "2thessaloniansStandFirm",
+        "titusGoodWorks",
+        "1peterHopeLiving",
+        "johnWordRevisited",
+        "colossiansChristFirstRevisited",
+        "2thessaloniansStandFirmRevisited",
+        "titusGoodWorksRevisited",
+        "jamesFaithWorksRevisited",
+        "1peterHopeLivingRevisited",
+        "2peterKnowledge",
+        "1johnLoveGod",
+        "2johnTruth",
+        "3johnFaithful"
+      ]
+    },
+    {
+      "slug": "revelation-throne",
+      "title": "Throne of Heaven",
+      "promptScene": "Heavenly throne with rainbow glow, worshipers and gentle living creatures kid-safe Revelation 4",
+      "keys": [
+        "revelationThrone",
+        "revelationThroneRoom",
+        "revelationSeals",
+        "fourHorsemen",
+        "revelationLetters",
+        "dragonFight",
+        "beastMark"
+      ]
+    },
+    {
+      "slug": "lamb-book",
+      "title": "Lambs Book",
+      "promptScene": "Open book of life with lamb of God motif, soft light, names of hope",
+      "keys": [
+        "lambBook",
+        "alphaOmega",
+        "alphaOmega2",
+        "revelationSupperAndKing"
+      ]
+    }
+  ],
+  "allNew": [
+    {
+      "slug": "cain-abel",
+      "title": "Cain and Abel",
+      "promptScene": "Two brothers Cain and Abel at outdoor altar with simple offerings (fruit and lamb), gentle Bible kids scene, no violence",
+      "keys": [
+        "cainAbel"
+      ]
+    },
+    {
+      "slug": "tower-babel",
+      "title": "Tower of Babel",
+      "promptScene": "People building a tall tower toward clouds, simple city of Babel, ancient clothes, cooperative builders",
+      "keys": [
+        "towerBabel"
+      ]
+    },
+    {
+      "slug": "manna",
+      "title": "Manna from Heaven",
+      "promptScene": "Israelites in desert gathering small round manna from the ground at dawn, baskets, Moses nearby calm",
+      "keys": [
+        "manna"
+      ]
+    },
+    {
+      "slug": "golden-calf",
+      "title": "The Golden Calf",
+      "promptScene": "People around a golden calf statue at base of mountain, Moses approaching with tablets from above, concerned faces",
+      "keys": [
+        "goldenCalf"
+      ]
+    },
+    {
+      "slug": "bronze-serpent",
+      "title": "The Bronze Serpent",
+      "promptScene": "Moses lifting a bronze serpent on a pole, people looking up and healed in the wilderness camp",
+      "keys": [
+        "bronzeSerpent"
+      ]
+    },
+    {
+      "slug": "tabernacle",
+      "title": "The Tabernacle",
+      "promptScene": "Beautiful portable tabernacle tent with pillars and courtyard, worshipers approaching calmly",
+      "keys": [
+        "tabernacle"
+      ]
+    },
+    {
+      "slug": "spies-canaan",
+      "title": "Spies in Canaan",
+      "promptScene": "Two spies carrying a huge cluster of grapes on a pole between them, fertile land behind",
+      "keys": [
+        "spiesInCanaan"
+      ]
+    },
+    {
+      "slug": "ten-plagues",
+      "title": "Ten Plagues",
+      "promptScene": "Moses and Aaron before Pharaoh on throne, simple staff, palace columns, serious but kid-safe",
+      "keys": [
+        "tenPlagues"
+      ]
+    },
+    {
+      "slug": "passover-lamb",
+      "title": "Passover",
+      "promptScene": "Hebrew family at table with lamb and bread, doorposts marked, calm night meal of hope",
+      "keys": [
+        "passoverLamb"
+      ]
+    },
+    {
+      "slug": "sarah-laughs",
+      "title": "Sarah Laughs",
+      "promptScene": "Sarah at tent door smiling/laughing softly, Abraham and three visitors nearby, desert tent",
+      "keys": [
+        "sarahLaughs",
+        "sarahPromise"
+      ]
+    },
+    {
+      "slug": "jacob-ladder",
+      "title": "Jacobs Ladder",
+      "promptScene": "Jacob asleep with stone pillow, ladder of light to heaven with gentle angels ascending",
+      "keys": [
+        "jacobLadder"
+      ]
+    },
+    {
+      "slug": "pharaoh-dreams",
+      "title": "Pharaohs Dreams",
+      "promptScene": "Pharaoh on throne looking puzzled, Joseph interpreting, seven grain ears motif simple",
+      "keys": [
+        "pharaohDreams"
+      ]
+    },
+    {
+      "slug": "moses-staff-snake",
+      "title": "Moses Staff",
+      "promptScene": "Moses casting staff that becomes a snake before Pharaoh, palace floor, awe not fear",
+      "keys": [
+        "mosesStaffSnake"
+      ]
+    },
+    {
+      "slug": "sun-stands-still",
+      "title": "Sun Stands Still",
+      "promptScene": "Joshua with raised hand, sun and moon in sky over battlefield landscape, triumphant calm",
+      "keys": [
+        "sunStandsStill"
+      ]
+    },
+    {
+      "slug": "joshua-ai",
+      "title": "Joshua and Ai",
+      "promptScene": "Israelites marching around city walls with trumpets and ark, city of Ai in distance",
+      "keys": [
+        "joshuaAi",
+        "battleOfAi",
+        "achan"
+      ]
+    },
+    {
+      "slug": "deborah-barak",
+      "title": "Deborah and Barak",
+      "promptScene": "Prophetess Deborah under a palm tree advising warrior Barak, hills of Israel",
+      "keys": [
+        "deborahBarak",
+        "deborahJudge"
+      ]
+    },
+    {
+      "slug": "jael-tent",
+      "title": "Jael Courage",
+      "promptScene": "Jael standing by tent with gentle courage (no violence shown), quiet camp scene",
+      "keys": [
+        "jaelTent"
+      ]
+    },
+    {
+      "slug": "saul-king",
+      "title": "Saul Becomes King",
+      "promptScene": "Young Saul anointed as king, oil poured, people cheering, simple crown nearby",
+      "keys": [
+        "saulKing",
+        "saulDisobedience"
+      ]
+    },
+    {
+      "slug": "abigail-wise",
+      "title": "Abigail Wisdom",
+      "promptScene": "Wise Abigail on a donkey with gifts of food meeting David and his men, peaceful",
+      "keys": [
+        "abigailWise",
+        "davidAbigail"
+      ]
+    },
+    {
+      "slug": "mephibosheth",
+      "title": "Mephibosheth",
+      "promptScene": "King David at table kindly inviting Mephibosheth to sit and eat, royal hall kindness",
+      "keys": [
+        "mephibosheth"
+      ]
+    },
+    {
+      "slug": "elijah-horeb",
+      "title": "Still Small Voice",
+      "promptScene": "Elijah at cave entrance on mountain Horeb, soft wind lines, calm after storm, listening",
+      "keys": [
+        "elijahHoreb"
+      ]
+    },
+    {
+      "slug": "elisha-mantle",
+      "title": "Elisha Follows",
+      "promptScene": "Elijah casting mantle on Elisha plowing with oxen, Elisha leaving field to follow",
+      "keys": [
+        "elijahElijahElisha"
+      ]
+    },
+    {
+      "slug": "elisha-axe",
+      "title": "Floating Axe",
+      "promptScene": "Elisha by river, iron axe head floating on water, young prophets watching amazed",
+      "keys": [
+        "elishaFloatingAxe"
+      ]
+    },
+    {
+      "slug": "elisha-chariots",
+      "title": "Horses of Fire",
+      "promptScene": "Elisha and servant on hill, hills filled with horses and chariots of fire protecting them, kid-safe glow",
+      "keys": [
+        "elishaChariots",
+        "elishaBlindArmy"
+      ]
+    },
+    {
+      "slug": "elisha-bones",
+      "title": "Elisha Bones",
+      "promptScene": "Simple tomb scene where a man is raised by Gods power (gentle, no gore), people amazed",
+      "keys": [
+        "elishaBones",
+        "elishaFinal"
+      ]
+    },
+    {
+      "slug": "job-trust",
+      "title": "Job Trusts",
+      "promptScene": "Job sitting calmly under sky looking up to God with hope, friends nearby quiet",
+      "keys": [
+        "jobSuffering",
+        "jobFriends"
+      ]
+    },
+    {
+      "slug": "isaiah-vision",
+      "title": "Isaiah Vision",
+      "promptScene": "Isaiah looking up toward glowing throne of God with gentle seraph wings, temple smoke soft",
+      "keys": [
+        "isaiahVision",
+        "isaiahMessianic"
+      ]
+    },
+    {
+      "slug": "jeremiah-call",
+      "title": "Jeremiah Call",
+      "promptScene": "Young Jeremiah receiving Gods word, scroll and simple town of Jerusalem",
+      "keys": [
+        "jeremiahCall",
+        "jeremiahWeeping"
+      ]
+    },
+    {
+      "slug": "ezekiel-bones",
+      "title": "Dry Bones",
+      "promptScene": "Ezekiel in valley as dry bones become living people standing, hope and life, not scary",
+      "keys": [
+        "ezekielValleyBones",
+        "ezekielDryBones"
+      ]
+    },
+    {
+      "slug": "ezra-return",
+      "title": "Ezra Return",
+      "promptScene": "People returning to Jerusalem with joy, scrolls of Gods law, rebuilding mood",
+      "keys": [
+        "ezraReturn",
+        "ezraLaw"
+      ]
+    },
+    {
+      "slug": "josiah-reform",
+      "title": "King Josiah",
+      "promptScene": "Young king Josiah reading the rediscovered book of the law, temple clean and bright",
+      "keys": [
+        "josiahReform"
+      ]
+    },
+    {
+      "slug": "malachi-messenger",
+      "title": "Malachi Messenger",
+      "promptScene": "Prophet pointing to dawn light, promise of a messenger, hopeful people",
+      "keys": [
+        "malachiMessage",
+        "malachiMessenger"
+      ]
+    },
+    {
+      "slug": "micah-justice",
+      "title": "Micah Justice",
+      "promptScene": "Families walking humbly doing justice and kindness, simple village",
+      "keys": [
+        "micahJustice",
+        "habakkukFaith",
+        "haggaiTemple",
+        "zechariahVision"
+      ]
+    },
+    {
+      "slug": "angel-mary",
+      "title": "Angel and Mary",
+      "promptScene": "Angel Gabriel visiting young Mary with gentle news, simple home, peace",
+      "keys": [
+        "angelMary"
+      ]
+    },
+    {
+      "slug": "john-baptist",
+      "title": "John the Baptist",
+      "promptScene": "John baptizing people at Jordan river, camel hair clothes, wilderness",
+      "keys": [
+        "johnBaptist"
+      ]
+    },
+    {
+      "slug": "jesus-temple-boy",
+      "title": "Boy Jesus Temple",
+      "promptScene": "Young Jesus teaching in the temple among teachers, Mary and Joseph finding him",
+      "keys": [
+        "jesusTemple"
+      ]
+    },
+    {
+      "slug": "mary-martha",
+      "title": "Mary and Martha",
+      "promptScene": "Jesus sitting teaching Mary who listens, Martha serving nearby kitchen, warm home",
+      "keys": [
+        "maryMartha",
+        "marthaServe",
+        "marySit"
+      ]
+    },
+    {
+      "slug": "fig-tree",
+      "title": "Fig Tree Faith",
+      "promptScene": "Jesus and disciples by a fig tree on a path, teaching about faith, hills of Judea",
+      "keys": [
+        "figTree",
+        "jesusFigTree"
+      ]
+    },
+    {
+      "slug": "tribute-caesar",
+      "title": "Tribute Caesar",
+      "promptScene": "Jesus holding a coin teaching about Caesar and God, Pharisees listening",
+      "keys": [
+        "tributeToCaesar"
+      ]
+    },
+    {
+      "slug": "temple-clean",
+      "title": "Temple Cleansing",
+      "promptScene": "Jesus calmly driving out money tables from temple courts, doves freed, righteous care",
+      "keys": [
+        "jesusCleansesTemple"
+      ]
+    },
+    {
+      "slug": "greatest-command",
+      "title": "Greatest Commandment",
+      "promptScene": "Jesus teaching love God and love neighbor, people listening on steps",
+      "keys": [
+        "greatestCommandment",
+        "loveNeighbor"
+      ]
+    },
+    {
+      "slug": "ten-virgins",
+      "title": "Ten Virgins",
+      "promptScene": "Five wise young women with bright lamps and oil, night wedding path, joyful readiness",
+      "keys": [
+        "tenVirgins"
+      ]
+    },
+    {
+      "slug": "sheep-goats",
+      "title": "Sheep and Goats",
+      "promptScene": "Jesus as king separating kind helpers (sheep) gently, kids helping hungry and sick",
+      "keys": [
+        "sheepAndGoats"
+      ]
+    },
+    {
+      "slug": "vineyard-son",
+      "title": "Wicked Husbandmen",
+      "promptScene": "Vineyard with tower and son approaching, parable of the vineyard, simple farm",
+      "keys": [
+        "parableWickedHusbandmen",
+        "parableTwoSons",
+        "parableVineyardWorkers"
+      ]
+    },
+    {
+      "slug": "wedding-feast",
+      "title": "Wedding Feast",
+      "promptScene": "King hosting wedding feast, guests at long table, joyful banquet parable",
+      "keys": [
+        "parableWeddingFeast"
+      ]
+    },
+    {
+      "slug": "garden-gethsemane",
+      "title": "Gethsemane",
+      "promptScene": "Jesus praying on knees in olive garden at night, soft moon, three disciples resting",
+      "keys": [
+        "gardenPrayer",
+        "jesusGardenGethsemane"
+      ]
+    },
+    {
+      "slug": "judas-betrayal",
+      "title": "Judas Betrayal",
+      "promptScene": "Judas approaching Jesus in garden with crowd of torches, solemn not graphic",
+      "keys": [
+        "betrayal",
+        "judasKiss"
+      ]
+    },
+    {
+      "slug": "peter-denial",
+      "title": "Peter Denial",
+      "promptScene": "Peter by courtyard fire looking sad as rooster crows, gentle regret scene",
+      "keys": [
+        "peterDenial"
+      ]
+    },
+    {
+      "slug": "jesus-pilate",
+      "title": "Jesus Before Pilate",
+      "promptScene": "Jesus standing calmly before Pilate on judgment seat, Roman columns, dignified",
+      "keys": [
+        "trial",
+        "jesusPilate"
+      ]
+    },
+    {
+      "slug": "jesus-caiaphas",
+      "title": "Before Caiaphas",
+      "promptScene": "Jesus before high priest Caiaphas, temple court night lamps",
+      "keys": [
+        "trialBeforeCaiaphas"
+      ]
+    },
+    {
+      "slug": "jesus-arrest",
+      "title": "Jesus Arrested",
+      "promptScene": "Soldiers gently taking Jesus in garden, disciples nearby, calm courage",
+      "keys": [
+        "jesusArrest"
+      ]
+    },
+    {
+      "slug": "cross-carry",
+      "title": "Carries Cross",
+      "promptScene": "Jesus carrying wooden cross on path to Calvary with Simon helping, solemn hope",
+      "keys": [
+        "crossCarry"
+      ]
+    },
+    {
+      "slug": "crucifixion",
+      "title": "The Cross",
+      "promptScene": "Empty wooden cross on hill at sunset with soft sky (kid-safe, no gore), hope and love",
+      "keys": [
+        "crucifixion",
+        "jesusCrucifixion"
+      ]
+    },
+    {
+      "slug": "ascension",
+      "title": "Ascension",
+      "promptScene": "Jesus rising into clouds blessing disciples below on hill, joyful wonder",
+      "keys": [
+        "ascension",
+        "jesusAscension"
+      ]
+    },
+    {
+      "slug": "pentecost",
+      "title": "Pentecost",
+      "promptScene": "Disciples with gentle flames of Spirit above heads, wind lines, joyful unity",
+      "keys": [
+        "pentecost",
+        "pentecostFire",
+        "holySpiritPentecost",
+        "pentecostTongues",
+        "pentecostHolySpirit",
+        "peterPentecostSermon"
+      ]
+    },
+    {
+      "slug": "stephen",
+      "title": "Stephen",
+      "promptScene": "Stephen looking up to heaven with peaceful face, people around, first martyr dignified",
+      "keys": [
+        "stephen",
+        "stephenStones",
+        "stephenMartyr"
+      ]
+    },
+    {
+      "slug": "paul-damascus",
+      "title": "Road to Damascus",
+      "promptScene": "Saul falling from horse as bright light from heaven, road to Damascus conversion",
+      "keys": [
+        "paulDamascus",
+        "paulConversion",
+        "saulConversion"
+      ]
+    },
+    {
+      "slug": "peter-lame",
+      "title": "Peter Heals Lame",
+      "promptScene": "Peter taking lame mans hand at Beautiful Gate of temple, man standing praising",
+      "keys": [
+        "peterHealsLame",
+        "peterShadow"
+      ]
+    },
+    {
+      "slug": "peter-jail",
+      "title": "Peter Freed",
+      "promptScene": "Angel freeing Peter from prison chains at night, doors open, quiet miracle",
+      "keys": [
+        "peterJailBreak"
+      ]
+    },
+    {
+      "slug": "peter-cornelius",
+      "title": "Peter and Cornelius",
+      "promptScene": "Peter and Cornelius the centurion sharing meal and faith, friendship of nations",
+      "keys": [
+        "peterCornelius"
+      ]
+    },
+    {
+      "slug": "barnabas",
+      "title": "Barnabas",
+      "promptScene": "Barnabas encouraging young Paul and church friends with open arms, warm smiles",
+      "keys": [
+        "barnabasEncourages",
+        "paulBarnabas"
+      ]
+    },
+    {
+      "slug": "paul-mars-hill",
+      "title": "Mars Hill",
+      "promptScene": "Paul speaking on rocky hill of Athens with simple listeners, Areopagus",
+      "keys": [
+        "actsPaulMarsHill"
+      ]
+    },
+    {
+      "slug": "eutychus",
+      "title": "Eutychus",
+      "promptScene": "Paul preaching upstairs, young Eutychus safe and awake again by window, relief",
+      "keys": [
+        "paulEutychus",
+        "eutychusFallen"
+      ]
+    },
+    {
+      "slug": "armor-of-god",
+      "title": "Armor of God",
+      "promptScene": "Child of God wearing simple biblical armor of faith pieces labeled by symbols (belt shield sword) kid friendly",
+      "keys": [
+        "armorOfGod",
+        "armorShield",
+        "armorSword",
+        "armorBelt",
+        "ephesiansArmor",
+        "everyKneeBow"
+      ]
+    },
+    {
+      "slug": "fruit-spirit",
+      "title": "Fruit of the Spirit",
+      "promptScene": "Tree with nine bright fruits of love joy peace, children picking kindly",
+      "keys": [
+        "fruitSpirit",
+        "galatiansFruit"
+      ]
+    },
+    {
+      "slug": "love-chapter",
+      "title": "Love Is Patient",
+      "promptScene": "Children showing kindness helping and hugging, soft hearts motif, 1 Corinthians 13",
+      "keys": [
+        "loveChapter",
+        "1corinthiansLoveChapter",
+        "corinthiansOneBody"
+      ]
+    },
+    {
+      "slug": "prayer-knock",
+      "title": "Ask Seek Knock",
+      "promptScene": "Child knocking on door that opens to warm light, prayer and seeking God",
+      "keys": [
+        "prayerKnock",
+        "prayerCloset"
+      ]
+    },
+    {
+      "slug": "worry-birds",
+      "title": "Birds and Lilies",
+      "promptScene": "Birds in air and lilies of field, child looking up not worrying, Jesus teaching outdoors",
+      "keys": [
+        "worryBirds"
+      ]
+    },
+    {
+      "slug": "faith-mountain",
+      "title": "Faith Mountain",
+      "promptScene": "Small child pointing at mountain with trust, mustard seed in hand, Jesus teaching",
+      "keys": [
+        "faithMountain"
+      ]
+    },
+    {
+      "slug": "great-commission",
+      "title": "Great Commission",
+      "promptScene": "Risen Jesus sending disciples to all nations on mountain, joyful mission",
+      "keys": [
+        "greatCommission",
+        "jesusGreatCommission",
+        "maryAnoint",
+        "matthewGenealogy",
+        "markBeginning",
+        "matthewGenealogyRevisited",
+        "markBeginningRevisited"
+      ]
+    },
+    {
+      "slug": "heaven-promise",
+      "title": "New Jerusalem",
+      "promptScene": "Beautiful city of God with glowing walls and open gates, river and light, Revelation hope",
+      "keys": [
+        "heavenPromise",
+        "revelationNewJerusalem",
+        "newHeaven",
+        "revelationNewHeaven",
+        "newEarth",
+        "noNight"
+      ]
+    },
+    {
+      "slug": "john-patmos",
+      "title": "John on Patmos",
+      "promptScene": "Elder John on island writing scroll, sea and sky, vision of Jesus",
+      "keys": [
+        "johnPatmos",
+        "revelation"
+      ]
+    },
+    {
+      "slug": "tree-of-life",
+      "title": "Tree of Life",
+      "promptScene": "Great tree of life by crystal river with fruit and healing leaves, paradise",
+      "keys": [
+        "treeOfLife",
+        "riverOfLife",
+        "treeFruit"
+      ]
+    },
+    {
+      "slug": "hebrews-faith",
+      "title": "Heroes of Faith",
+      "promptScene": "Line of faithful heroes walking toward light (Abraham Moses David simple silhouettes), Hebrews 11",
+      "keys": [
+        "hebrewsFaith",
+        "hebrewsFaithHeroes",
+        "allHeroesPraise",
+        "gehaziGreed",
+        "councilJerusalem",
+        "juniaApostle"
+      ]
+    },
+    {
+      "slug": "young-timothy",
+      "title": "Young Timothy",
+      "promptScene": "Young Timothy reading scripture with Lois and Eunice, warm home faith passed down",
+      "keys": [
+        "timothyYouthExample",
+        "1timothyYoungLeader",
+        "2timothyFaithPassed",
+        "loisTimothy",
+        "euniceMother",
+        "timothyPaulFriendship"
+      ]
+    },
+    {
+      "slug": "philemon",
+      "title": "Philemon Welcome",
+      "promptScene": "Philemon welcoming Onesimus with open arms forgiveness, Roman home doorway",
+      "keys": [
+        "philemonOnesimus",
+        "philemonForgiveness",
+        "paulPhilemon"
+      ]
+    },
+    {
+      "slug": "romans-love",
+      "title": "Nothing Separates",
+      "promptScene": "Child held safe in large caring hands of God, Romans 8 love, stars soft",
+      "keys": [
+        "romansLove",
+        "romansRoadKids"
+      ]
+    },
+    {
+      "slug": "philippians-joy",
+      "title": "Joy in Chains",
+      "promptScene": "Paul writing letter with joy smile even near simple chains, Timothy nearby",
+      "keys": [
+        "philippiansJoy",
+        "paulPrisonEpistles",
+        "paulLetters"
+      ]
+    },
+    {
+      "slug": "come-lord-jesus",
+      "title": "Come Lord Jesus",
+      "promptScene": "Children looking up to bright clouds welcoming Jesus return with hope and flowers",
+      "keys": [
+        "comeLordJesus",
+        "1thessaloniansRapture",
+        "thessaloniansHope"
+      ]
+    },
+    {
+      "slug": "miriam-song",
+      "title": "Miriam Sings",
+      "promptScene": "Miriam with tambourine leading women in joyful song by the sea",
+      "keys": [
+        "miriamSong"
+      ]
+    },
+    {
+      "slug": "anna-prophet",
+      "title": "Anna Prophetess",
+      "promptScene": "Elderly Anna in temple praising God for baby Jesus, Simeon nearby soft",
+      "keys": [
+        "annaProphet",
+        "simeonAnna"
+      ]
+    },
+    {
+      "slug": "priscilla-aquila",
+      "title": "Priscilla and Aquila",
+      "promptScene": "Priscilla and Aquila teaching Apollos by tentmaking tools and scroll",
+      "keys": [
+        "priscillaTeach",
+        "priscillaTent",
+        "aquilaPriscilla",
+        "actsApollosPriscilla"
+      ]
+    },
+    {
+      "slug": "boaz-redeemer",
+      "title": "Boaz Redeemer",
+      "promptScene": "Boaz and Ruth at city gate with sandal exchange of redemption, joyful witnesses",
+      "keys": [
+        "boazRedeemer",
+        "ruthRedemption",
+        "ruthThreshing"
+      ]
+    },
+    {
+      "slug": "psalm-91",
+      "title": "Psalm 91",
+      "promptScene": "Child resting under wide protective wings of care, safe refuge, night calm",
+      "keys": [
+        "psalm91"
+      ]
+    },
+    {
+      "slug": "jesus-weeps",
+      "title": "Jesus Weeps",
+      "promptScene": "Jesus looking over Jerusalem city with tears of love, Mount of Olives view",
+      "keys": [
+        "jesusWeepsJerusalem",
+        "jesusWeptJerusalem"
+      ]
+    },
+    {
+      "slug": "jesus-authority",
+      "title": "Jesus Authority",
+      "promptScene": "Jesus teaching with authority on temple steps, leaders listening carefully",
+      "keys": [
+        "jesusAuthority"
+      ]
+    },
+    {
+      "slug": "parable-net",
+      "title": "Net of Fish",
+      "promptScene": "Fishermen with large net full of fish on shore, parable of the net",
+      "keys": [
+        "parableNet"
+      ]
+    },
+    {
+      "slug": "david-repent",
+      "title": "David Repents",
+      "promptScene": "King David kneeling in prayer with tears of repentance, harp set aside, mercy",
+      "keys": [
+        "davidBathsheba",
+        "absalomRebellion"
+      ]
+    },
+    {
+      "slug": "shunammite",
+      "title": "Shunammite",
+      "promptScene": "Elisha and the Shunammite woman, room on roof for the prophet, kindness",
+      "keys": [
+        "shunammiteReturn",
+        "samariaSiege",
+        "elishaPoisonStew"
+      ]
+    },
+    {
+      "slug": "balaam-king",
+      "title": "Balak and Balaam",
+      "promptScene": "King Balak on high place looking over Israel tents, Balaam blessing instead of curse",
+      "keys": [
+        "balaakCurse",
+        "balaamBlessing"
+      ]
+    },
+    {
+      "slug": "joshua-charge",
+      "title": "Joshua Charge",
+      "promptScene": "Elder Joshua charging Israel to serve the Lord, people answering we will serve",
+      "keys": [
+        "joshuaCharge"
+      ]
+    },
+    {
+      "slug": "early-church",
+      "title": "Early Church",
+      "promptScene": "Early believers sharing food and prayer in simple home church joy",
+      "keys": [
+        "earlyChurchLife",
+        "actsChurchBegins",
+        "nymphasHouseChurch",
+        "gaiusHospitality",
+        "phoebeDeacon"
+      ]
+    },
+    {
+      "slug": "paul-rome",
+      "title": "Paul in Rome",
+      "promptScene": "Paul teaching freely in a simple house in Rome, listeners of many lands",
+      "keys": [
+        "paulRome",
+        "paulEndurance",
+        "actsPaulBeforeAgrippa",
+        "actsPaulMelita",
+        "paulFirstJourney",
+        "paulThirdJourney",
+        "paulEphesus",
+        "paulTimothy",
+        "paulTitus",
+        "jamesFaithWorks",
+        "peterFirstLetter",
+        "peterSecondLetter",
+        "johnFirstLetter",
+        "judeWarning",
+        "johnSecondThirdLetters",
+        "colossiansChristSupreme",
+        "onesiphorusPaulRevisited",
+        "titusEncouragementRevisited",
+        "johnWord",
+        "colossiansChristFirst",
+        "2thessaloniansStandFirm",
+        "titusGoodWorks",
+        "1peterHopeLiving",
+        "johnWordRevisited",
+        "colossiansChristFirstRevisited",
+        "2thessaloniansStandFirmRevisited",
+        "titusGoodWorksRevisited",
+        "jamesFaithWorksRevisited",
+        "1peterHopeLivingRevisited",
+        "2peterKnowledge",
+        "1johnLoveGod",
+        "2johnTruth",
+        "3johnFaithful"
+      ]
+    },
+    {
+      "slug": "revelation-throne",
+      "title": "Throne of Heaven",
+      "promptScene": "Heavenly throne with rainbow glow, worshipers and gentle living creatures kid-safe Revelation 4",
+      "keys": [
+        "revelationThrone",
+        "revelationThroneRoom",
+        "revelationSeals",
+        "fourHorsemen",
+        "revelationLetters",
+        "dragonFight",
+        "beastMark"
+      ]
+    },
+    {
+      "slug": "lamb-book",
+      "title": "Lambs Book",
+      "promptScene": "Open book of life with lamb of God motif, soft light, names of hope",
+      "keys": [
+        "lambBook",
+        "alphaOmega",
+        "alphaOmega2",
+        "revelationSupperAndKing"
+      ]
+    }
+  ]
+}

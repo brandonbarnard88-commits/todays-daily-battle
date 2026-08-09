@@ -149,6 +149,7 @@ const widowOilReadQuizPack = require('./read-quiz-widow-oil-pack.cjs');
 const elishaShunammiteReadQuizPack = require('./read-quiz-elisha-shunammite-pack.cjs');
 const naamanHealedReadQuizPack = require('./read-quiz-naaman-healed-pack.cjs');
 const naamanDipReadQuizPack = require('./read-quiz-naaman-dip-pack.cjs');
+const romansRoadKidsReadQuizPack = require('./read-quiz-romans-road-kids-pack.cjs');
 const elishaFloatingAxeReadQuizPack = require('./read-quiz-elisha-floating-axe-pack.cjs');
 const elishaChariotsReadQuizPack = require('./read-quiz-elisha-chariots-pack.cjs');
 const elishaPoisonStewReadQuizPack = require('./read-quiz-elisha-poison-stew-pack.cjs');
@@ -15270,6 +15271,7 @@ module.exports = {
   naamanHealed: naamanHealedReadQuizPack,
   naamanDip: naamanDipReadQuizPack,
   naaman: naamanHealedReadQuizPack,
+  romansRoadKids: romansRoadKidsReadQuizPack,
   elishaFloatingAxe: elishaFloatingAxeReadQuizPack,
   elishaChariots: elishaChariotsReadQuizPack,
   elishaPoisonStew: elishaPoisonStewReadQuizPack,

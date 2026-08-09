@@ -523,6 +523,7 @@ const SOCIAL_PURGE_PATHS = [
   '/kids/bible-story-tool-index.js?v=20260327kidsmax',
   /** Keep ?v= in sync with kids/index.html <script src="kids-battle.js?v=…"> */
   '/kids/kids-battle.js',
+  '/kids/kids-battle.js?v=20260809romans',
   '/kids/kids-battle.js?v=20260326clean',
   '/kids/kids-battle.js?v=20260331tierschallenge',
   '/kids/kids-battle.js?v=20260330kidslib',
@@ -603,6 +604,7 @@ const SOCIAL_PURGE_PATHS = [
   '/kids/kids-battle.js?v=20260524readquiz',
   '/kids/kids-corner.js',
   '/kids/kids-corner.js?v=20260809colorart',
+  '/kids/kids-corner.js?v=20260809romans',
   '/kids/kids-corner.js?v=20260330kidslib',
   '/kids/kids-corner.js?v=20260331kidsfuzzy',
   '/kids/kids-corner.js?v=20260331kidsdeeplink',
@@ -736,6 +738,7 @@ const SOCIAL_PURGE_PATHS = [
   '/kids/kids-all-stories.js?v=20260331kidsthemes',
   '/vendor/uFuzzy.iife.min.js',
   '/kids/kids-read-quiz-data.js',
+  '/kids/kids-read-quiz-data.js?v=20260809romans',
   '/kids/kids-read-quiz-data.js?v=20260809naaman',
   '/kids/kids-read-quiz-data.js?v=20260451kind',
   '/kids/kids-read-quiz-data.js?v=20260452gehazi',
@@ -1080,3 +1083,5 @@ function printCloudflareRecoveryHints(error) {
     process.exit(1);
   }
 })();
+
+//   '/coloring-pages/romans-road-kids.jpg',

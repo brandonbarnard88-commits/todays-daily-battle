@@ -95,7 +95,7 @@
     "verify:live": "node scripts/verify-live-suite.mjs",
     "verify:live-kids": "node scripts/verify-live-kids.mjs",
     "verify:live-kids-scripts": "node scripts/verify-live-kids.mjs --scripts-only",
-    "verify:kids-dist": "node scripts/verify-kids-dist.mjs",
+    "verify:kids-dist": "node scripts/verify-kids-dist.mjs && node scripts/verify-coloring-art.mjs",
     "verify:kids": "npm run build && npm run verify:kids-dist && npm run verify:live-kids",
     "suggest:fetch": "node scripts/fetch-feeling-suggestions.mjs",
     "deploy:webhook": "bash scripts/deploy-stripe-webhook.sh",
@@ -134,7 +134,9 @@
     "api:build": "npm --prefix api run build",
     "verify:freeze": "node scripts/verify-feature-freeze.mjs",
     "verify:topics": "node scripts/verify-all-topics.mjs",
-    "build:coloring-art-map": "node scripts/build-coloring-scene-map.mjs && node scripts/inject-coloring-scene-map.mjs"
+    "build:coloring-art-map": "node scripts/build-coloring-scene-map.mjs && node scripts/inject-coloring-scene-map.mjs && node scripts/verify-coloring-art.mjs",
+    "verify:coloring-art": "node scripts/verify-coloring-art.mjs",
+    "verify:coloring-art:report": "node scripts/verify-coloring-art.mjs --report"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",

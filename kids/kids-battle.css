@@ -1693,13 +1693,23 @@
 .kids-story-narration {
   background: #fffef8 !important;
   border: 2px solid rgba(251, 191, 36, 0.45) !important;
+  margin: 0.65rem 0.75rem 1rem !important;
+  padding: 1rem 1.15rem 1.1rem !important;
+  border-radius: 16px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
 .kids-story-narration-text {
-  font-size: 1.12rem !important;
+  font-family: 'Nunito', system-ui, sans-serif !important;
+  font-size: 1.18rem !important;
   font-weight: 600 !important;
   color: #0f172a !important;
-  line-height: 1.7 !important;
+  line-height: 1.75 !important;
+  margin: 0 0 0.85rem !important;
+}
+
+.kids-story-narration-text:last-child {
+  margin-bottom: 0 !important;
 }
 
 .kids-library-modal .kids-ctx-block {
@@ -1741,12 +1751,21 @@
 
 .kids-library-modal .comic-caption {
   font-family: 'Nunito', system-ui, sans-serif !important;
-  font-size: 1.1rem !important;
+  font-size: 1.12rem !important;
   font-weight: 700 !important;
-  color: #fef9c3 !important;
-  line-height: 1.5 !important;
+  color: #0f172a !important;
+  line-height: 1.55 !important;
   text-align: center;
-  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.75rem 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #fffef8;
+  border: 2px solid rgba(251, 191, 36, 0.45);
+  border-radius: 12px;
+}
+
+/* Make coloring art fill more of the modal on phones */
+.kids-library-modal .comic-panel--coloring-art {
+  width: min(100%, 560px) !important;
 }
 
 .kids-video-wrapper {

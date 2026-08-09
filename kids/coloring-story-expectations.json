@@ -1,0 +1,100 @@
+{
+  "_comment": "Explicit art expectations for Color & Tell. Used by scripts/verify-coloring-art.mjs. resolvedPathIncludesAny: final art path must contain one of these. resolvedPathExcludes: final art path must not contain these. svgContentExcludes: if resolved file is SVG, its source must not contain these (catches wrong drawings).",
+  "stories": {
+    "david": {
+      "titleMustInclude": ["goliath"],
+      "resolvedPathIncludesAny": ["david-and-goliath", "goliath"],
+      "resolvedPathExcludes": ["boy-david"],
+      "svgContentExcludes": ["harp", "played outdoors", "Evening sky with stars"]
+    },
+    "boy-david": {
+      "resolvedPathIncludesAny": ["boy-david"],
+      "resolvedPathExcludes": ["david-and-goliath", "goliath"]
+    },
+    "creation": {
+      "resolvedPathIncludesAny": ["creation"],
+      "svgContentExcludes": []
+    },
+    "jesus-children": {
+      "resolvedPathIncludesAny": ["jesus", "children"],
+      "resolvedPathExcludes": ["empty-tomb", "goliath"]
+    },
+    "empty-tomb": {
+      "resolvedPathIncludesAny": ["empty-tomb", "tomb"],
+      "resolvedPathExcludes": ["creation", "goliath"]
+    },
+    "daniel-lions": {
+      "resolvedPathIncludesAny": ["daniel", "lions"],
+      "resolvedPathExcludes": ["goliath", "creation"]
+    },
+    "jonah": {
+      "resolvedPathIncludesAny": ["jonah"]
+    },
+    "noah": {
+      "resolvedPathIncludesAny": ["noah"]
+    },
+    "baby-moses": {
+      "resolvedPathIncludesAny": ["moses", "baby"]
+    },
+    "moses-red-sea": {
+      "resolvedPathIncludesAny": ["moses", "red-sea", "red_sea"]
+    },
+    "good-samaritan": {
+      "resolvedPathIncludesAny": ["samaritan"]
+    },
+    "good-shepherd": {
+      "resolvedPathIncludesAny": ["shepherd", "good-shepherd"]
+    },
+    "feeding-5000": {
+      "resolvedPathIncludesAny": ["feeding", "5000", "five-thousand"]
+    },
+    "jesus-storm": {
+      "resolvedPathIncludesAny": ["storm", "jesus"]
+    },
+    "nativity": {
+      "resolvedPathIncludesAny": ["nativity"]
+    },
+    "prodigal-son": {
+      "resolvedPathIncludesAny": ["prodigal"]
+    },
+    "david-jonathan": {
+      "resolvedPathIncludesAny": ["david-jonathan", "jonathan"]
+    },
+    "david-spares-saul": {
+      "resolvedPathIncludesAny": ["david-spares", "spares-saul"]
+    },
+    "fiery-furnace": {
+      "resolvedPathIncludesAny": ["fiery", "furnace"]
+    },
+    "esther": {
+      "resolvedPathIncludesAny": ["esther"]
+    },
+    "burning-bush": {
+      "resolvedPathIncludesAny": ["burning-bush", "bush"]
+    },
+    "joseph-coat": {
+      "resolvedPathIncludesAny": ["joseph-coat", "joseph"]
+    },
+    "triumphal-entry": {
+      "resolvedPathIncludesAny": ["triumphal", "palm"]
+    },
+    "jesus-baptism": {
+      "resolvedPathIncludesAny": ["baptism", "jesus-baptism"]
+    },
+    "transfiguration": {
+      "resolvedPathIncludesAny": ["transfiguration"]
+    },
+    "emmaus-road": {
+      "resolvedPathIncludesAny": ["emmaus"]
+    },
+    "paul-shipwreck": {
+      "resolvedPathIncludesAny": ["shipwreck", "paul"]
+    },
+    "ll-honesty": {
+      "resolvedPathIncludesAny": ["ll-honesty", "honesty"]
+    },
+    "ll-commandments": {
+      "resolvedPathIncludesAny": ["ll-commandments", "commandments"]
+    }
+  }
+}

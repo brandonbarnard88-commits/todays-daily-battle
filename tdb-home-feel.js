@@ -311,31 +311,218 @@ const FEEL_GROUPS = {
 };
 
 // ── Feel Search Mappings ──
-// All quick-topic buttons must resolve; add each data-topic to the right group.
+// Hand-curated packs (rich plain/today/action). Other chips build from script.js `topics` verses.
 const FEEL_MAP = [
-  { keys: ["anxious","anxiety","anxiousness","stress","stressed","worry","worried","worrying","nervous","panic","panicking","overwhelmed","overthinking","scared","fear","afraid","fearful","dread","dreading","finances"], group: "anxious" },
-  { keys: ["tired","exhausted","weary","sleepy","drained","worn out","worn-out","fatigued","fatigue","burnt out","burnout","burn out","sleep"], group: "tired" },
+  { keys: ["anxious","anxiety","anxiousness","stress","stressed","worry","worried","worrying","nervous","panic","panicking","overwhelmed","overthinking","restless","finances","money"], group: "anxious" },
+  { keys: ["tired","exhausted","weary","sleepy","drained","worn out","worn-out","fatigued","fatigue","burnt out","burnout","burn out","sleep","exhaustion","strength"], group: "tired" },
   { keys: ["angry","mad","frustrated","frustration","furious","irritated","irritable","rage","fuming","livid","irate","anger"], group: "angry" },
   { keys: ["lonely","alone","isolated","solitude","nobody","no one","nobody cares","nobody gets me","nobody understands","forgotten","invisible","loneliness"], group: "lonely" },
-  { keys: ["hopeful","grateful","thankful","joyful","joy","blessed","glad","encouraged","optimistic","happy","good","hope","strength","love","forgiveness","patience","courage","grace","wisdom","gratitude","faith","god","jesus","christ","marriage","family","parenting","obedience","identity","purpose"], group: "hopeful" },
+  { keys: ["hopeful","hope","encouraged","optimistic"], group: "hopeful" },
   { keys: ["sad","hurt","broken","heartbroken","crying","grief","grieving","depressed","depression","down","low","devastated","loss","numb","mourning","sorrowful","guilt","trauma","addiction","heartache","cancer","chemo","oncology"], group: "sad" },
-  { keys: ["peace","peaceful","calm","still","quiet","rest","restless","unsettled","unrest","serene","tranquil","settled"], group: "peace" },
+  { keys: ["peace","peaceful","calm","still","quiet","rest","unsettled","unrest","serene","tranquil","settled"], group: "peace" },
   { keys: ["piece of shit","difficult person","coworker","toxic coworker","bad coworker","difficult boss","hate my boss","hate my coworker","difficult coworker","work with someone difficult","toxic boss"], group: "difficult" }
 ];
 
+/** Chip / query → script.js topics key (exact chip labels first). */
+const CHIP_TO_TOPICS_KEY = {
+  anxiety: "anxiety",
+  fear: "fear",
+  overwhelmed: "anxiety",
+  heavy: "anxiety",
+  grief: "grief",
+  strength: "strength",
+  tired: "strength",
+  hope: "hope",
+  peace: "peace",
+  parenting: "parenting",
+  finances: "finances",
+  money: "finances",
+  faith: "faith",
+  heartache: "heartache",
+  anger: "anger",
+  "difficult person": "forgiveness",
+  "difficult boss": "forgiveness",
+  guilt: "guilt",
+  loneliness: "loneliness",
+  trauma: "trauma",
+  addiction: "addiction",
+  cancer: "cancer",
+  gratitude: "gratitude",
+  wonder: "hope",
+  exhaustion: "strength",
+  joy: "joy",
+  love: "love",
+  courage: "courage",
+  patience: "patience",
+  wisdom: "wisdom",
+  rest: "rest",
+  sleep: "sleep",
+  family: "family",
+  marriage: "marriage",
+  relationships: "relationships",
+  forgiveness: "forgiveness",
+  obedience: "obedience",
+  "jesus said": "jesus said",
+  spiritualwarfare: "spiritualwarfare",
+  identity: "identity",
+  purpose: "purpose",
+  "free will": "free will"
+};
+
+function getScriptTopicsDict() {
+  try {
+    if (typeof window !== "undefined" && window.topics && typeof window.topics === "object") {
+      return window.topics;
+    }
+  } catch (e) { /* non-fatal */ }
+  try {
+    if (typeof topics !== "undefined" && topics && typeof topics === "object") return topics;
+  } catch (e2) { /* non-fatal */ }
+  return null;
+}
+
+function resolveTopicsKey(raw) {
+  const q = String(raw || "").trim().toLowerCase();
+  if (!q) return "";
+  if (CHIP_TO_TOPICS_KEY[q]) return CHIP_TO_TOPICS_KEY[q];
+  const dict = getScriptTopicsDict();
+  if (dict && dict[q]) return q;
+  try {
+    if (typeof window !== "undefined" && window.QUERY_TO_TOPIC && window.QUERY_TO_TOPIC[q]) {
+      return window.QUERY_TO_TOPIC[q];
+    }
+  } catch (e) { /* non-fatal */ }
+  try {
+    if (typeof QUERY_TO_TOPIC !== "undefined" && QUERY_TO_TOPIC && QUERY_TO_TOPIC[q]) {
+      return QUERY_TO_TOPIC[q];
+    }
+  } catch (e2) { /* non-fatal */ }
+  return "";
+}
+
+function lookupKjvText(ref) {
+  const r = String(ref || "").trim();
+  if (!r) return "";
+  try {
+    if (typeof window !== "undefined" && window.bible && window.bible[r]) return String(window.bible[r]);
+  } catch (e) { /* non-fatal */ }
+  try {
+    if (typeof bible !== "undefined" && bible && bible[r]) return String(bible[r]);
+  } catch (e2) { /* non-fatal */ }
+  try {
+    if (typeof getBibleVerseText === "function") {
+      const t = getBibleVerseText(r);
+      if (t) return String(t);
+    }
+  } catch (e3) { /* non-fatal */ }
+  const alt = r.replace(/^Psalms\s+/i, "Psalm ").replace(/^Psalm\s+/i, "Psalms ");
+  if (alt !== r) return lookupKjvText(alt);
+  return "";
+}
+
+/** Build a FEEL_GROUPS-shaped pack from script.js topics so every chip has real verses. */
+function buildFeelGroupFromScriptTopics(topicKey, label) {
+  const dict = getScriptTopicsDict();
+  if (!dict || !topicKey || !dict[topicKey] || !Array.isArray(dict[topicKey].verses)) return null;
+  const row = dict[topicKey];
+  const verses = [];
+  const seen = new Set();
+  row.verses.forEach(function (ref) {
+    const text = lookupKjvText(ref);
+    if (!text || seen.has(ref)) return;
+    seen.add(ref);
+    let plain = "";
+    let action = "";
+    try {
+      if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === "function") {
+        const bd = window.TDBVerseBreakdown.getBreakdown(ref, text, { group: "general" }) || {};
+        plain = String(bd.plainMeaningOnly || bd.layman || bd.plainExplanation || "").trim();
+        if (window.TDBTeachingQuality && typeof window.TDBTeachingQuality.meaningOnly === "function") {
+          plain = window.TDBTeachingQuality.meaningOnly(plain) || plain;
+        }
+        plain = plain.replace(/^What was going on:[\s\S]*?What it means:\s*/i, "").trim();
+        action = String(bd.modernApplication || bd.applies || "").trim();
+      }
+    } catch (eBd) { /* non-fatal */ }
+    if (!plain && row.explain && row.explain.adult) plain = String(row.explain.adult);
+    if (!plain && row.guidance && row.guidance.adult) plain = String(row.guidance.adult);
+    if (!plain) plain = "God’s Word here is steady for real life — hold one clear phrase and walk with it.";
+    if (!action && row.guidance && row.guidance.adult) {
+      action = "Sit with this verse, then take one honest step that matches what it says.";
+    }
+    verses.push({
+      ref: ref,
+      speaker: "Scripture (KJV)",
+      text: text,
+      plain: plain,
+      today: (row.explain && (row.explain.adult || row.explain.teen)) ||
+        "Hold this word as God speaking kindly to you today — not as a slogan, but as truth for your next step.",
+      action: action || "Read it slowly once more, then thank God for one true thing inside it."
+    });
+  });
+  if (!verses.length) return null;
+  return {
+    label: label || topicKey,
+    verses: verses,
+    _fromTopics: topicKey
+  };
+}
+
 function resolveFeelGroup(raw) {
-  const q = raw.trim().toLowerCase();
+  const q = String(raw || "").trim().toLowerCase();
   if (!q) return null;
-  for (const group of FEEL_MAP) {
-    for (const key of group.keys) {
-      if (q.includes(key)) {
-        return FEEL_GROUPS[group.group] || null;
+
+  // 1) Exact FEEL_MAP key → hand-curated pack (never substring-match first — that was collapsing chips).
+  for (let gi = 0; gi < FEEL_MAP.length; gi++) {
+    const group = FEEL_MAP[gi];
+    for (let ki = 0; ki < group.keys.length; ki++) {
+      if (q === group.keys[ki]) {
+        const pack = FEEL_GROUPS[group.group];
+        if (pack) return pack;
       }
     }
   }
+
+  // 2) Exact chip / topics key → curated topic verses from script.js
+  const topicsKey = resolveTopicsKey(q);
+  if (topicsKey) {
+    // Prefer hand pack when chip aliases into one of the 8 rich moods
+    for (let gi = 0; gi < FEEL_MAP.length; gi++) {
+      const group = FEEL_MAP[gi];
+      for (let ki = 0; ki < group.keys.length; ki++) {
+        if (topicsKey === group.keys[ki] || q === group.keys[ki]) {
+          const pack = FEEL_GROUPS[group.group];
+          if (pack) return pack;
+        }
+      }
+    }
+    const fromTopics = buildFeelGroupFromScriptTopics(topicsKey, q);
+    if (fromTopics) return fromTopics;
+  }
+
+  // 3) Substring match on FEEL_MAP keys (longest key first) for free-typed phrases
+  let bestKey = "";
+  let bestGroup = "";
+  for (let gi = 0; gi < FEEL_MAP.length; gi++) {
+    const group = FEEL_MAP[gi];
+    for (let ki = 0; ki < group.keys.length; ki++) {
+      const key = group.keys[ki];
+      if (key.length >= 4 && q.includes(key) && key.length > bestKey.length) {
+        bestKey = key;
+        bestGroup = group.group;
+      }
+    }
+  }
+  if (bestGroup && FEEL_GROUPS[bestGroup]) return FEEL_GROUPS[bestGroup];
+
+  // 4) Semantic bridge
   const semantic = typeof window.resolveSemanticWithScore === "function" ? window.resolveSemanticWithScore(q) : null;
   if (semantic && semantic.feelGroup && FEEL_GROUPS[semantic.feelGroup]) {
     return FEEL_GROUPS[semantic.feelGroup];
+  }
+  if (semantic && semantic.topic) {
+    const fromSem = buildFeelGroupFromScriptTopics(semantic.topic, q);
+    if (fromSem) return fromSem;
   }
   return null;
 }

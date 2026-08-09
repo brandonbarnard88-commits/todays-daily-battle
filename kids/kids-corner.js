@@ -496,7 +496,9 @@
       roadToEmmaus: 'emmaus-road',
       romansLove: 'romans-love',
       romansLoveRevisited: 'romans-love',
-      romansRoadKids: 'romans-love',
+      romansRoadKids: 'romans-road-kids',
+      romansLove: 'romans-love',
+      romansLoveRevisited: 'romans-love',
       ruth: 'ruth-boaz',
       ruthBoaz: 'ruth-boaz',
       ruthGlean: 'ruth-boaz',
@@ -10138,11 +10140,37 @@
 
     if (randomBtn) {
       randomBtn.addEventListener('click', function () {
+        var classicPool = [
+          'noah',
+          'davidGoliath',
+          'danielLionsDen',
+          'jonah',
+          'jesusCalmsStorm',
+          'jesusFeeds5000',
+          'goodSamaritan',
+          'lostSheep',
+          'prodigalSon',
+          'babyMoses',
+          'mosesSea',
+          'creation',
+          'emptyTomb',
+          'jesusBlessKids',
+          'zacchaeus',
+          'naamanHealed',
+          'esther',
+          'josephCoat',
+          'fieryFurnace',
+          'jesusWalksWater'
+        ];
         var keys = applyFilters();
         if (keys.length === 0) keys = getStoryKeys();
-        if (keys.length === 0) return;
-        var idx = Math.floor(Math.random() * keys.length);
-        openStory(keys[idx]);
+        var pool = classicPool.filter(function (k) {
+          return keys.indexOf(k) !== -1;
+        });
+        if (!pool.length) pool = keys;
+        if (pool.length === 0) return;
+        var idx = Math.floor(Math.random() * pool.length);
+        openStory(pool[idx]);
       });
     }
 
@@ -10482,7 +10510,34 @@
       if (journeyParam === '1') {
         continueJourney();
       } else if (randomParam === '1') {
-        var poolRand = getKeysForStoryNav();
+        /* Story door: prefer classic kid Bible stories — not thin epistle cards */
+        var classicPool = [
+          'noah',
+          'davidGoliath',
+          'danielLionsDen',
+          'jonah',
+          'jesusCalmsStorm',
+          'jesusFeeds5000',
+          'goodSamaritan',
+          'lostSheep',
+          'prodigalSon',
+          'babyMoses',
+          'mosesSea',
+          'creation',
+          'emptyTomb',
+          'jesusBlessKids',
+          'zacchaeus',
+          'naamanHealed',
+          'esther',
+          'josephCoat',
+          'fieryFurnace',
+          'jesusWalksWater'
+        ];
+        var storiesAll = getStories();
+        var poolRand = classicPool.filter(function (k) {
+          return !!(storiesAll && storiesAll[k]);
+        });
+        if (!poolRand.length) poolRand = getKeysForStoryNav();
         if (poolRand.length) {
           openStory(poolRand[Math.floor(Math.random() * poolRand.length)]);
         }

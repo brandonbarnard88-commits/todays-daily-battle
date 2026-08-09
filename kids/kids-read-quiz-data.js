@@ -33024,86 +33024,107 @@
     "readAlongImages": []
   },
   "romansRoadKids": {
-    "kjvRef": "Romans 3:23; 5:8; 6:23; 10:9–10",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Romans 3:23; 5:8; 6:23; 10:9–10 (KJV)",
+    "verseExcerpt": "But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us. — Romans 5:8 (KJV)",
+    "readAlongTitle": "The Romans Road (for Kids)",
+    "quizWrongHumilityHint": "Listen again for the four steps: all have sinned — Christ died for us — the gift is eternal life — believe and confess Jesus is Lord.",
+    "hintAboveQuiz": "Read the four steps slowly. Tap each part when you are ready.",
+    "readAlongSections": [
+      {
+        "text": "For all have sinned, and come short of the glory of God. — Romans 3:23 (KJV)",
+        "caption": "Step 1 — All have sinned; we need a Saviour"
+      },
+      {
+        "text": "But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us. — Romans 5:8 (KJV)",
+        "caption": "Step 2 — Christ died for us while we were yet sinners"
+      },
+      {
+        "text": "For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord. — Romans 6:23 (KJV)",
+        "caption": "Step 3 — Sin’s pay is death; God’s gift is life in Jesus"
+      },
+      {
+        "text": "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved. For with the heart man believeth unto righteousness; and with the mouth confession is made unto salvation. — Romans 10:9–10 (KJV)",
+        "caption": "Step 4 — Believe in your heart; confess Jesus is Lord"
+      }
+    ],
     "paragraphs": [
-      "The Romans Road (for Kids) (Romans 3:23; 5:8; 6:23; 10:9–10).",
-      "All have sinned—we need a Saviour Christ died for us while we were yet sinners Believe in your heart—confess Jesus is Lord—saved If you trust Jesus died and rose for you, tell Him—and tell a trusted grown-up.",
-      "baptism and church help you grow."
+      "Paul wrote to friends in Rome about God’s rescue plan. We call these verses the Romans Road — four simple steps from God’s Word.",
+      "First: everyone has sinned. We all need a Saviour. Second: God loved us so much that Christ died for us while we were still sinners. Third: sin leads to death, but God gives the free gift of eternal life through Jesus. Fourth: believe in your heart that God raised Jesus, and confess with your mouth that Jesus is Lord — and you shall be saved.",
+      "For you: If you trust Jesus, tell Him in a quiet prayer — and tell a trusted grown-up. Baptism and church help you grow with friends who love Him too.",
+      "Reference: Romans 3:23; 5:8; 6:23; 10:9–10 (KJV)."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What does Romans 3:23 say about people?",
         "choices": [
-          "2 Samuel 9:1-13",
-          "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23)",
-          "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "Matthew 13:47–50"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Romans 3:23; 5:8; 6:23; 10:9–10.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The Lord",
-          "The apostles",
-          "Joshua",
-          "Paul"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Paul.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "If you trust Jesus died and rose for you, tell Him—and tell a trusted grown-up; baptism and church help you grow.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: If you trust Jesus died and rose for you, tell Him—and tell a trusted grown-up; baptism….)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A talking toaster became king of the city.",
-          "All have sinned—we need a Saviour",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "Only grown-ups make mistakes.",
+          "All have sinned, and come short of the glory of God.",
+          "Nobody needs help.",
+          "Kids never sin."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes — all of us need a Saviour.",
+        "wrongFeedback": "Listen for all have sinned."
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What does Romans 5:8 say God did for us?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "If you trust Jesus died and rose for you, tell Him—and tell a trusted grown-up; baptism and church help you grow.",
-          "Never say sorry when we do wrong."
+          "He waited until we were perfect.",
+          "While we were yet sinners, Christ died for us.",
+          "He only loved kings.",
+          "He forgot about us."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: If you trust Jesus died and rose for you, tell Him—and tell a trusted grown-up; baptism….)"
+        "correctIndex": 1,
+        "correctFeedback": "God’s love came first — Jesus died for us.",
+        "wrongFeedback": "Listen for while we were yet sinners, Christ died for us."
+      },
+      {
+        "question": "What is the gift of God in Romans 6:23?",
+        "choices": [
+          "A bag of gold.",
+          "Eternal life through Jesus Christ our Lord.",
+          "A longer school day.",
+          "Being famous."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Eternal life is God’s gift through Jesus.",
+        "wrongFeedback": "Listen for the gift of God is eternal life."
+      },
+      {
+        "question": "What does Romans 10:9 say we should do?",
+        "choices": [
+          "Hide our faith forever.",
+          "Confess Jesus is Lord and believe God raised Him from the dead.",
+          "Only obey when we feel like it.",
+          "Trust money to save us."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Believe in your heart; confess Jesus is Lord.",
+        "wrongFeedback": "Listen for confess… and believe… thou shalt be saved."
+      },
+      {
+        "question": "What is a good next step after trusting Jesus?",
+        "choices": [
+          "Keep it a total secret from everyone always.",
+          "Tell a trusted grown-up, and grow with baptism and church friends.",
+          "Never pray again.",
+          "Stop reading the Bible."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Jesus wants you safe with people who love Him too.",
+        "wrongFeedback": "Think: tell Him, tell a trusted grown-up, and grow in church."
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Romans Road (for Kids) with God's Word today.",
-    "takeaway": "If you trust Jesus died and rose for you, tell Him—and tell a trusted grown-up; baptism and church help you grow.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Romans Road (for Kids). Amen.",
+    "doneMessage": "Well done — you walked the Romans Road with God’s Word.",
+    "takeaway": "All have sinned. Christ died for us. Eternal life is God’s gift. Believe and confess Jesus is Lord.",
+    "prayer": "Lord Jesus, thank You for loving us while we were sinners. Help us trust You and tell others with a grown-up’s help. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: All have sinned—we need a Saviour (romans)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Christ died for us while we were yet sinners (gospel)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Believe in your heart—confess Jesus is Lord—saved (sin)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: All have sinned—we need a Saviour (grace)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Christ died for us while we were yet sinners (saved)"
+      "Simple peaceful black-and-white line-art children Bible coloring page thick outlines Romans Road four soft steps path to cross warm hope ages 5-10 no scary no text",
+      "Hand-drawn bouncy cartoon kids KJV mood soft gold blue friendly not scary path of light toward cross",
+      "Hand-drawn bouncy cartoon kids KJV mood soft gold blue friendly open hands receiving gift of life",
+      "Hand-drawn bouncy cartoon kids KJV mood soft gold blue friendly child praying with trusted adult nearby"
     ]
   },
   "ruthBoaz": {

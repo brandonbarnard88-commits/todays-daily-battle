@@ -7641,16 +7641,23 @@
     romansRoadKids: {
       title: 'The Romans Road (for Kids)',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'All have sinned—we need a Saviour' },
-        { src: 'panel-david-2.svg', alt: 'Christ died for us while we were yet sinners' },
-        { src: 'panel-david-3.svg', alt: 'Believe in your heart—confess Jesus is Lord—saved' }
+        { src: 'panel-jesus-1.svg', alt: 'All have sinned—we need a Saviour' },
+        { src: 'panel-jesus-2.svg', alt: 'Christ died for us while we were yet sinners' },
+        { src: 'panel-jesus-3.svg', alt: 'Believe in your heart—confess Jesus is Lord—saved' }
       ],
-      caption: 'Swipe to see God’s rescue plan—straight from Romans! ✝️',
+      caption: 'Four steps from Romans: we need a Saviour, Jesus died for us, life is God’s gift, believe and confess.',
       videoId: '',
       videoTitle: '',
-      keywords: ['romans', 'gospel', 'sin', 'grace', 'saved', 'confess', 'believe', 'eternal life'],
+      keywords: ['romans', 'gospel', 'sin', 'grace', 'saved', 'confess', 'believe', 'eternal life', 'romans road'],
       kjvRef: 'Romans 3:23; 5:8; 6:23; 10:9–10',
-      kidContext: { who: 'Paul', to: 'Us', apply: 'If you trust Jesus died and rose for you, tell Him—and tell a trusted grown-up; baptism and church help you grow.' }
+      kidContext: {
+        who: 'Paul',
+        to: 'Us',
+        apply:
+          'If you trust Jesus died and rose for you, tell Him—and tell a trusted grown-up; baptism and church help you grow.'
+      },
+      narration:
+        "The Romans Road (for Kids) — Romans 3:23; 5:8; 6:23; 10:9–10. Paul wrote about God’s rescue plan. Step one: all have sinned, and come short of the glory of God — we all need a Saviour. Step two: God commendeth his love toward us, in that, while we were yet sinners, Christ died for us. Step three: the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord. Step four: if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved. For you: If you trust Jesus, tell Him in a quiet prayer, and tell a trusted grown-up. He loves you."
     },
     corinthiansOneBody: {
       title: 'One Body, Many Gifts',

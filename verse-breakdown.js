@@ -305,11 +305,14 @@
       return framed("God's Word is not empty talk. It teaches, steadies, and leads.", modernShort);
     }
 
-    /* Last resort: teaching frame + short modern snippet (never raw KJV echo alone). */
+    /* Last resort: framed teaching line (never “In plain terms…” stamp — that leaked into search/plans). */
     if (modernShort && modernShort.length >= 12) {
-      return 'In plain terms for life today: “' + modernShort.replace(/[“”"]/g, '').replace(/\.$/, '') + '.” Sit with that until one phrase lands.';
+      return framed(
+        'God’s Word here is steady for real life — hold one clear phrase and walk with it.',
+        modernShort
+      );
     }
-    return 'Read this verse slowly and hold the words that land — God is speaking something steady here.';
+    return 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
   }
 
   /** Drop override fields that only echo the KJV (archaic word-swap). */
@@ -769,27 +772,40 @@
     return false;
   }
 
+  function isThinSpeakerSituation(s) {
+    var t = tdbPlainTextForUi(s || '');
+    if (!t) return true;
+    if (/ speaking to /i.test(t) && t.length < 100) return true;
+    return false;
+  }
+
   function resolveContextForRef(ref) {
     if (typeof window !== 'undefined' && typeof window.TDB_resolveVerseContext === 'function') {
       try {
         var hit = window.TDB_resolveVerseContext(ref);
         if (hit && hit.about && hit.to && !isWeakContextStamp(hit.about, hit.to)) {
+          var liveSit = tdbPlainTextForUi(hit.situation || hit.setting || '');
+          /* Prefer narrative; never promote thin “X speaking to Y” when setting exists. */
+          if (isThinSpeakerSituation(liveSit) && hit.setting && !isThinSpeakerSituation(hit.setting)) {
+            liveSit = tdbPlainTextForUi(hit.setting);
+          }
           return {
             s: tdbPlainTextForUi(hit.about),
             a: tdbPlainTextForUi(hit.to),
             setting: tdbPlainTextForUi(hit.setting || ''),
-            situation: tdbPlainTextForUi(hit.situation || hit.setting || '')
+            situation: liveSit
           };
         }
       } catch (eCtx) {}
     }
     var book = parseBook(ref);
     var ctx = BOOK_CONTEXT[book] || { s: 'The biblical author', a: 'Original audience' };
+    /* Empty situation beats a thin speaker-line stamp (cards skip empty; never paint garbage). */
     return {
       s: ctx.s,
       a: ctx.a,
       setting: '',
-      situation: ctx.s + ' speaking to ' + ctx.a + '.'
+      situation: ''
     };
   }
 
@@ -866,7 +882,24 @@
 
   function finalizeBreakdown(base, group) {
     var meaningOnly = tdbPlainTextForUi(base.plainMeaningOnly || base.plainExplanation || '');
+    /* If plainExplanation was already a combined stamp, strip to meaning. */
+    meaningOnly = meaningOnly
+      .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+      .replace(/^What it means:\s*/i, '')
+      .trim();
+    /* Never ship the old weak last-resort stamp as “meaning”. */
+    if (
+      /^In plain terms for life today:/i.test(meaningOnly) ||
+      /Sit with that until one phrase lands/i.test(meaningOnly)
+    ) {
+      meaningOnly = buildThemeLaymanPlain(base.ref || '', base.text || meaningOnly);
+    }
     var situation = tdbPlainTextForUi(base.situation || base.setting || '');
+    if (isThinSpeakerSituation(situation)) {
+      var alt = tdbPlainTextForUi(base.setting || '');
+      if (alt && !isThinSpeakerSituation(alt)) situation = alt;
+      else situation = '';
+    }
     var combined = composeContextAndMeaning(situation, meaningOnly);
     var out = {
       about: plainSpeaker(base.about || ''),
@@ -874,7 +907,9 @@
       setting: tdbPlainTextForUi(base.setting || ''),
       situation: situation,
       plainMeaningOnly: meaningOnly,
-      plainExplanation: combined || meaningOnly,
+      /* Meaning-only for “What it means” / Plain English labels sitewide. */
+      plainExplanation: meaningOnly || combined,
+      combinedExplanation: combined || meaningOnly,
       groupApplication: tdbPlainTextForUi(base.groupApplication || ''),
       modernApplication: tdbPlainTextForUi(base.modernApplication || ''),
       bubbleTitle: 'Verse breakdown',
@@ -882,7 +917,7 @@
       group: normalizeGroup(group),
       source: base.source || 'generated'
     };
-    out.layman = out.plainExplanation || 'A steady truth from Scripture for real life today.';
+    out.layman = meaningOnly || 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
     out.applies = out.groupApplication || buildGroupApplication(out.group, inferRelationTopic('', out.layman));
     out.relates = out.modernApplication || inferApplies(out.layman);
     return out;
@@ -900,18 +935,27 @@
     if (cached) {
       /* Re-validate cache: older entries (and any weak seed) must not stick as “plain.” */
       var cachedPlain = cached.plainExplanation || cached.layman || '';
-      var hasCombined =
-        /^What was going on:/i.test(cachedPlain) ||
-        (!!(cached.situation || cached.setting) && /What it means:/i.test(cachedPlain));
+      var cachedSit = cached.situation || cached.setting || '';
+      var weakCached =
+        !cachedPlain ||
+        isNearVerbatimPlain(cachedPlain, raw) ||
+        isWeakContextStamp(cached.about, cached.to) ||
+        /^In plain terms for life today:/i.test(cachedPlain) ||
+        /Sit with that until one phrase lands/i.test(cachedPlain) ||
+        isThinSpeakerSituation(cachedSit);
       if (
+        !weakCached &&
         cachedPlain &&
-        !isNearVerbatimPlain(cachedPlain, raw) &&
-        !isWeakContextStamp(cached.about, cached.to) &&
-        hasCombined
+        (cached.plainMeaningOnly || !/^What was going on:/i.test(cachedPlain))
       ) {
+        /* Prefer meaning-only layman on cache hits from older builds. */
+        if (cached.plainMeaningOnly) {
+          cached.layman = cached.plainMeaningOnly;
+          cached.plainExplanation = cached.plainMeaningOnly;
+        }
         return cached;
       }
-      /* Drop incomplete cache so finalize re-combines situation + meaning. */
+      /* Drop incomplete / weak cache so finalize rebuilds clean. */
       if (useCache) {
         try {
           var dropKey = getTextCacheKey(ref, group, raw);
@@ -923,18 +967,31 @@
     var base = buildGeneratedBase(ref, raw);
     var registered = scrubWeakPlainFields(getRegisteredOverride(ref, group), raw);
     var merged = Object.assign({}, base, registered, manualOverride);
+    merged.ref = ref;
+    merged.text = raw;
     var freshCtx = resolveContextForRef(ref);
     if (isWeakContextStamp(merged.about, merged.to)) {
       merged.about = freshCtx.s;
       merged.to = freshCtx.a;
     }
     if (!merged.setting) merged.setting = freshCtx.setting || '';
-    if (!merged.situation) merged.situation = freshCtx.situation || freshCtx.setting || '';
+    var candSit = merged.situation || freshCtx.situation || freshCtx.setting || '';
+    if (isThinSpeakerSituation(candSit)) {
+      candSit = freshCtx.setting || merged.setting || '';
+      if (isThinSpeakerSituation(candSit)) candSit = '';
+    }
+    merged.situation = candSit;
     /* Keep meaning-only for combine; strip prior combined stamps from cache/overrides. */
     var meaningSeed = merged.plainMeaningOnly || merged.plainExplanation || merged.layman || merged.plain || '';
     meaningSeed = String(meaningSeed || '')
       .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
       .trim();
+    if (
+      /^In plain terms for life today:/i.test(meaningSeed) ||
+      /Sit with that until one phrase lands/i.test(meaningSeed)
+    ) {
+      meaningSeed = '';
+    }
     merged.plainMeaningOnly = ensureStrongPlain(ref, raw, meaningSeed);
     merged.plainExplanation = merged.plainMeaningOnly;
     if (!merged.groupApplication) merged.groupApplication = buildGroupApplication(group, inferRelationTopic(ref, raw));
@@ -2258,7 +2315,41 @@
     getMissingVisibleBreakdowns: getMissingVisibleBreakdowns,
     countMissingVisibleBreakdowns: countMissingVisibleBreakdowns,
     getAgeMode: getAgeMode,
-    setAgeMode: setAgeMode
+    setAgeMode: setAgeMode,
+    isThinSpeakerSituation: isThinSpeakerSituation,
+    isWeakPlainStamp: function (p) {
+      var t = tdbPlainTextForUi(p || '');
+      if (!t) return true;
+      if (/^In plain terms for life today:/i.test(t)) return true;
+      if (/Sit with that until one phrase lands/i.test(t)) return true;
+      if (/^Read this verse slowly/i.test(t)) return true;
+      return false;
+    },
+    meaningOnly: function (text) {
+      return tdbPlainTextForUi(text || '')
+        .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+        .replace(/^What it means:\s*/i, '')
+        .trim();
+    },
+    preferSituation: function () {
+      var best = '';
+      var bestLen = 0;
+      for (var i = 0; i < arguments.length; i++) {
+        var c = tdbPlainTextForUi(arguments[i] || '');
+        if (!c || isThinSpeakerSituation(c)) continue;
+        if (c.length > bestLen) {
+          bestLen = c.length;
+          best = c;
+        }
+      }
+      return best;
+    }
+  };
+  window.TDBTeachingQuality = {
+    isThinSpeakerSituation: isThinSpeakerSituation,
+    isWeakPlainStamp: window.TDBVerseBreakdown.isWeakPlainStamp,
+    meaningOnly: window.TDBVerseBreakdown.meaningOnly,
+    preferSituation: window.TDBVerseBreakdown.preferSituation
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wireAutoEnhance);
   else wireAutoEnhance();

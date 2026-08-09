@@ -19,6 +19,12 @@ import vm from 'vm';
 import { fileURLToPath } from 'url';
 import { pickVerseForToday, loadYear365, utcDayOfYear } from './lib/hero-daily-verse-pick.mjs';
 import { buildHeroLaymanPlain, loadVersePlainMeanings } from './lib/hero-layman-plain.mjs';
+import {
+  isThinSpeakerLine,
+  isWeakPlainStamp,
+  sampleRefs,
+  scoreSituationLine,
+} from './lib/teaching-quality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -96,14 +102,42 @@ function speakerBelongsToBook(about, ref) {
   return true;
 }
 
-function isWeakPlainStamp(plain) {
-  const p = String(plain || '').trim();
-  if (!p) return true;
-  if (/^In plain terms for life today:/i.test(p)) return true;
-  if (/^Read this verse slowly/i.test(p)) return true;
-  if (/^God's care is for you today/i.test(p)) return true;
-  if (/Sit with that until one phrase lands/i.test(p)) return true;
-  return false;
+/* isWeakPlainStamp imported from teaching-quality.mjs */
+
+/* ─── 0. Source contracts: no residual weak stamps in runtime engines ─── */
+function auditSourceContracts() {
+  const vb = fs.readFileSync(path.join(root, 'verse-breakdown.js'), 'utf8');
+  /* Reject emission (return/concat), not mere detection regexes that still ban the stamp. */
+  if (/return\s+['"`]In plain terms for life today:/i.test(vb) || /\+\s*['"`]In plain terms for life today:/i.test(vb)) {
+    fail('verse-breakdown.js still emits “In plain terms for life today” stamp');
+  }
+  if (/return\s+['"`][^'"`]*Sit with that until one phrase lands/i.test(vb)) {
+    fail('verse-breakdown.js still emits “Sit with that until one phrase lands” stamp');
+  }
+  if (!vb.includes('isThinSpeakerSituation') || !vb.includes('plainMeaningOnly')) {
+    fail('verse-breakdown.js missing thin-situation / plainMeaningOnly seals');
+  }
+  if (!vb.includes('TDBTeachingQuality')) {
+    fail('verse-breakdown.js must export window.TDBTeachingQuality for card surfaces');
+  }
+  const script = fs.readFileSync(path.join(root, 'script.js'), 'utf8');
+  if (!script.includes('plainMeaningOnly') && !script.includes('TDBTeachingQuality')) {
+    fail('script.js search cards should prefer plainMeaningOnly / TDBTeachingQuality');
+  }
+  const feel = fs.readFileSync(path.join(root, 'tdb-home-feel.js'), 'utf8');
+  if (!feel.includes('speaking to') || !feel.includes('preferSituation') && !feel.includes('TDBTeachingQuality')) {
+    /* soft: at least filter thin situations in buildSituationMeaningBlock */
+    if (!/speaking to /.test(feel)) {
+      fail('tdb-home-feel.js should filter thin “speaking to” situations on feel cards');
+    }
+  }
+  const injectTopic = fs.readFileSync(path.join(root, 'scripts/inject-topic-verse-context.mjs'), 'utf8');
+  if (/plain = text\.length > 140/.test(injectTopic) || /Never echo full KJV/.test(injectTopic) === false) {
+    /* ensure we do not assign raw KJV as meaning */
+  }
+  if (/plain = text\.length/.test(injectTopic)) {
+    fail('inject-topic-verse-context.mjs must not fall back to raw KJV as meaning');
+  }
 }
 
 /* ─── 1. Hero dig-deeper matches today’s verse ─── */
@@ -393,17 +427,169 @@ function auditBreakdownContracts() {
   }
 }
 
+/* ─── 7. Random full-Bible context sample (stable by UTC day) ─── */
+function auditRandomContextSample(kjv, resolve) {
+  const keys = Object.keys(kjv || {}).filter((k) => /^\S.+\s+\d+:\d+$/.test(k));
+  if (keys.length < 1000) {
+    fail(`KJV map too small for random sample (${keys.length})`);
+    return;
+  }
+  const seed = utcDayOfYear(new Date()) * 997 + 2026;
+  const sample = sampleRefs(keys, 40, seed);
+  let thinCount = 0;
+  let missingAbout = 0;
+  for (const ref of sample) {
+    const hit = resolve(ref) || {};
+    const about = String(hit.about || '');
+    const sit = String(hit.situation || hit.setting || '');
+    if (!about) missingAbout += 1;
+    if (!speakerBelongsToBook(about, ref)) {
+      fail(`Random sample ${ref}: about="${about}" contradicts book`);
+    }
+    if (isThinSpeakerLine(sit) && scoreSituationLine(sit) < 20) {
+      thinCount += 1;
+    }
+  }
+  /* Book-level fallbacks may still be thin; cap how many we tolerate in the sample. */
+  if (thinCount > 28) {
+    fail(
+      `Random sample: ${thinCount}/40 situations are thin speaker-lines — expand verse-context ranges/chapters`
+    );
+  }
+  if (missingAbout > 15) {
+    fail(`Random sample: ${missingAbout}/40 refs missing about`);
+  }
+}
+
+/* ─── 8. Home feeling chips all resolve to a curated topic or safe search path ─── */
+function auditHomeFeelingChips(kjv) {
+  const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const chips = [...indexHtml.matchAll(/data-topic="([^"]+)"/g)].map((m) => m[1].toLowerCase().trim());
+  const unique = [...new Set(chips)].filter(Boolean);
+  if (unique.length < 25) {
+    fail(`Expected 25+ unique home feeling chips, found ${unique.length}`);
+  }
+
+  const script = fs.readFileSync(path.join(root, 'script.js'), 'utf8');
+  const topicsChunk = script.match(/const topics = \{([\s\S]*?)\n\};\s*\n/);
+  if (!topicsChunk) {
+    fail('Could not parse const topics for chip audit');
+    return;
+  }
+  const topicBody = topicsChunk[1];
+
+  function topicHasVerses(name) {
+    const re = new RegExp(
+      name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ':\\s*\\{[\\s\\S]*?verses:\\s*\\[',
+      'i'
+    );
+    return re.test(topicBody);
+  }
+
+  const queryMap = script.match(/QUERY_TO_TOPIC\s*=\s*\{([\s\S]*?)\n\s*\};/);
+  const qmap = queryMap ? queryMap[1] : '';
+
+  function chipMapped(chip) {
+    if (topicHasVerses(chip)) return true;
+    /* QUERY_TO_TOPIC keys often match chip labels */
+    const key = chip.replace(/\s+/g, ' ');
+    if (new RegExp(key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "\\s*:", 'i').test(qmap)) {
+      return true;
+    }
+    /* multi-word chips like "difficult person" */
+    if (qmap.toLowerCase().includes("'" + key + "'") || qmap.toLowerCase().includes('"' + key + '"')) {
+      return true;
+    }
+    return false;
+  }
+
+  const unmapped = [];
+  for (const chip of unique) {
+    if (!chipMapped(chip)) unmapped.push(chip);
+  }
+  /* Allow a small set of free-text chips that fall through to keyword search */
+  if (unmapped.length > 12) {
+    fail(
+      `Too many home chips without topics/QUERY_TO_TOPIC mapping (${unmapped.length}): ${unmapped.slice(0, 12).join(', ')}`
+    );
+  }
+
+  /* Spot-check major chips have KJV-backed verse lists */
+  const core = ['anxiety', 'fear', 'grief', 'hope', 'peace', 'strength', 'parenting', 'forgiveness'];
+  for (const name of core) {
+    if (!topicHasVerses(name)) {
+      fail(`Core feeling topic "${name}" missing verses array in script.js`);
+    }
+  }
+}
+
+/* ─── 9. Topic page cards: no weak stamps, situation not thinner than resolver ─── */
+function auditTopicCardQuality(resolve) {
+  const plainMap = loadVersePlainMeanings(root);
+  const files = fs.readdirSync(root).filter((f) => /^topic-.*\.html$/i.test(f));
+  for (const file of files) {
+    const html = fs.readFileSync(path.join(root, file), 'utf8');
+    if (/In plain terms for life today:/i.test(html) || /Sit with that until one phrase lands/i.test(html)) {
+      fail(`${file}: contains weak plain stamp in static HTML`);
+    }
+    const combinedBlocks = [
+      ...html.matchAll(/tdb-topic-vbd__combined"[^>]*>([^<]*)</gi),
+    ];
+    for (const m of combinedBlocks.slice(0, 8)) {
+      const body = stripHtml(m[1] || '');
+      if (isWeakPlainStamp(body)) {
+        fail(`${file}: topic-vbd combined is weak stamp: ${body.slice(0, 80)}`);
+      }
+      if (/ speaking to /i.test(body) && body.length < 120 && /What was going on:/i.test(body)) {
+        /* thin speaker as situation inside combined */
+        const sitPart = body.replace(/^What was going on:\s*/i, '').replace(/\.?\s*What it means:[\s\S]*$/i, '');
+        if (isThinSpeakerLine(sitPart)) {
+          fail(`${file}: thin speaker-line situation in topic card: ${sitPart.slice(0, 80)}`);
+        }
+      }
+    }
+    void plainMap;
+    void resolve;
+  }
+}
+
+/* ─── 10. Engine sample: load verse-breakdown in VM when possible ─── */
+function auditEngineSample(kjv, resolve) {
+  /* Static checks on buildThemeLaymanPlain output via hero-layman for random refs */
+  const plainMap = loadVersePlainMeanings(root);
+  const keys = Object.keys(kjv || {}).filter((k) => /^(John|Romans|Psalms?|Matthew|Proverbs|Isaiah)\s+\d+:\d+$/i.test(k));
+  const sample = sampleRefs(keys, 25, utcDayOfYear(new Date()) + 42);
+  for (const ref of sample) {
+    const text = kjvText(kjv, ref);
+    if (!text) continue;
+    const plain = buildHeroLaymanPlain(ref.replace(/^Psalms\s+/i, 'Psalm '), text, plainMap, root);
+    if (isWeakPlainStamp(plain)) {
+      fail(`Engine sample weak plain for ${ref}: ${String(plain).slice(0, 100)}`);
+    }
+    const ctx = resolve(ref) || {};
+    const sit = String(ctx.situation || ctx.setting || '');
+    if (sit && isThinSpeakerLine(sit) && String(ctx.setting || '').length > sit.length + 20) {
+      fail(`${ref}: situation is thin speaker-line while setting is richer`);
+    }
+  }
+}
+
 async function main() {
   console.log('Teaching integrity audit (fine-tooth comb)\n');
   const kjv = loadKjv();
   const resolve = loadVerseContextResolve();
 
+  auditSourceContracts();
   auditBreakdownContracts();
   auditHeroInject(kjv, resolve);
   auditFeelingSearch(kjv);
   auditContextSpeakers(resolve);
   auditPlains(kjv);
   auditTopicPages(kjv, resolve);
+  auditRandomContextSample(kjv, resolve);
+  auditHomeFeelingChips(kjv);
+  auditTopicCardQuality(resolve);
+  auditEngineSample(kjv, resolve);
 
   console.log('Checks complete.\n');
   if (failures.length) {

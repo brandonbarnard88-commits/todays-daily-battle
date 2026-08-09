@@ -46,6 +46,31 @@
   color: rgba(226, 232, 240, 0.82);
 }
 
+.tdb-cat-all-stories-details {
+  margin: 0.75rem 0 1rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 12px;
+  border: 2px solid rgba(245, 158, 11, 0.35);
+  background: #fffef8;
+}
+.tdb-cat-all-stories-summary {
+  cursor: pointer;
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.02rem;
+  color: #92400e;
+  list-style-position: outside;
+}
+.tdb-cat-all-stories-details[open] .tdb-cat-all-stories-summary {
+  margin-bottom: 0.65rem;
+}
+.tdb-cat-show-all-stories {
+  display: block;
+  margin: 0.5rem auto 1.25rem;
+}
+.tdb-cat-story--deferred {
+  display: none !important;
+}
 .tdb-cat-progress-outer {
   position: relative;
   margin-bottom: 0.75rem;

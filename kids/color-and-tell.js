@@ -4169,6 +4169,9 @@
           '.tdb-cat-story[data-tdb-story="' + sid + '"]'
         );
         if (sec) {
+          /* Reveal deferred stories when jumped from the full list */
+          sec.hidden = false;
+          sec.classList.remove('tdb-cat-story--deferred');
           sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
           // Mount first scene when user jumps to this story
           var firstPanel = sec.querySelector('.tdb-cat-panel:not([hidden])') ||
@@ -4279,7 +4282,24 @@
     var note = document.createElement('p');
     note.className = 'tdb-cat-hero-note';
     note.textContent =
-      'Color & Tell: Color the scenes, save each one on this device, then watch your own colored story come to life in a personal slideshow. Some stories are one beautiful full page; others have several scenes. No account needed.';
+      'Pick a story above (Brave, Safe, Wonder…) or open one below. Color, save on this device, then Watch My Story. No account needed.';
+
+    /* Full catalog stays available but collapsed — 80 “Not started” chips overwhelm kids */
+    var FEATURED_STORY_IDS = {
+      creation: true,
+      david: true,
+      'jesus-children': true,
+      'daniel-lions': true,
+      'empty-tomb': true
+    };
+    var progressDetails = document.createElement('details');
+    progressDetails.className = 'tdb-cat-all-stories-details';
+    progressDetails.id = 'tdb-cat-all-stories';
+    var progressSummary = document.createElement('summary');
+    progressSummary.className = 'tdb-cat-all-stories-summary';
+    progressSummary.textContent =
+      'All stories to color (' + STORIES.length + ') — tap only if you want the full list';
+    progressDetails.appendChild(progressSummary);
 
     var progressOuter = document.createElement('div');
     progressOuter.className = 'tdb-cat-progress-outer';
@@ -4287,18 +4307,13 @@
     var progressWrap = document.createElement('div');
     progressWrap.className = 'tdb-cat-progress';
     progressWrap.setAttribute('role', 'region');
-    progressWrap.setAttribute('aria-label', 'Story progress');
+    progressWrap.setAttribute('aria-label', 'All Color and Tell stories');
     progressWrap.tabIndex = 0;
 
     var jumpHint = document.createElement('p');
     jumpHint.className = 'tdb-cat-progress-jump-hint section-note';
-    jumpHint.appendChild(document.createTextNode('Scroll sideways for all stories, or '));
-    var jumpA = document.createElement('a');
-    jumpA.href = '#tdb-cat-story-start';
-    jumpA.className = 'link-button';
-    jumpA.textContent = 'jump to coloring';
-    jumpHint.appendChild(jumpA);
-    jumpHint.appendChild(document.createTextNode('.'));
+    jumpHint.textContent =
+      'Tip: use the five feeling buttons above first. Open “All stories” only when you want more choices.';
 
     mount.appendChild(note);
     if (requestedStoryId) {
@@ -4332,8 +4347,9 @@
       mount.appendChild(gentleNote);
     }
     mount.appendChild(jumpHint);
-    mount.appendChild(progressOuter);
     progressOuter.appendChild(progressWrap);
+    progressDetails.appendChild(progressOuter);
+    mount.appendChild(progressDetails);
 
     var clearAllWrap = document.createElement('div');
     clearAllWrap.className = 'tdb-cat-clear-all-wrap';
@@ -4365,6 +4381,26 @@
       refreshProgressCards(progressWrap);
     }
 
+    var showAllStoriesBtn = document.createElement('button');
+    showAllStoriesBtn.type = 'button';
+    showAllStoriesBtn.className = 'btn btn-secondary tdb-cat-show-all-stories no-print';
+    showAllStoriesBtn.textContent = 'Show more stories to color';
+    showAllStoriesBtn.setAttribute(
+      'aria-label',
+      'Show every Color and Tell story section on this page'
+    );
+    showAllStoriesBtn.addEventListener('click', function () {
+      mount.querySelectorAll('.tdb-cat-story--deferred').forEach(function (sec) {
+        sec.hidden = false;
+        sec.classList.remove('tdb-cat-story--deferred');
+      });
+      showAllStoriesBtn.hidden = true;
+      try {
+        progressDetails.open = true;
+      } catch (eOpen) {}
+    });
+    mount.appendChild(showAllStoriesBtn);
+
     for (var si = 0; si < STORIES.length; si++) {
       (function (story) {
         var section = document.createElement('section');
@@ -4373,8 +4409,22 @@
           section.classList.add('is-single-scene');
         }
         section.setAttribute('data-tdb-story', story.id);
-        if (STORIES[0] && story.id === STORIES[0].id) {
-          section.id = 'tdb-cat-story-start';
+        var isFeatured = !!FEATURED_STORY_IDS[story.id];
+        var isRequested = !!(requestedStoryId && story.id === requestedStoryId);
+        /* Deep link: focus that story. Otherwise start with five doors only. */
+        if (requestedStoryId) {
+          if (!isRequested) {
+            section.hidden = true;
+            section.classList.add('tdb-cat-story--deferred');
+          }
+        } else if (!isFeatured) {
+          section.hidden = true;
+          section.classList.add('tdb-cat-story--deferred');
+        }
+        if (isFeatured || isRequested) {
+          if (!document.getElementById('tdb-cat-story-start')) {
+            section.id = 'tdb-cat-story-start';
+          }
         }
         if (requestedStoryId && story.id === requestedStoryId) {
           requestedStorySection = section;
@@ -4615,6 +4665,9 @@
     }
 
     refreshAllProgress();
+    if (!mount.querySelector('.tdb-cat-story--deferred')) {
+      showAllStoriesBtn.hidden = true;
+    }
 
     // Mount only the active story's visible scene (not all 80+ books).
     function mountVisibleStory(sectionEl) {

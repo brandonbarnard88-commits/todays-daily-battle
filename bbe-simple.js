@@ -292,6 +292,152 @@
     }
   }
 
+  /**
+   * KISS verse card: ref → KJV → BBE (simpler words) → context → (next card same).
+   * Used by home feel chips + search results so every verse reads the same way.
+   *
+   * @param {{ ref: string, text?: string, plain?: string, className?: string }} opts
+   * @returns {HTMLElement|null}
+   */
+  function buildKissVerseCard(opts) {
+    opts = opts || {};
+    var refRaw = String(opts.ref || '').replace(/\s*\(KJV\)\s*$/i, '').trim();
+    if (!refRaw) return null;
+    var refKey = normalizeRef(refRaw);
+    var primaryRef = refKey;
+    var pm = primaryRef.match(/^(.+?\s+\d+:\d+)/);
+    if (pm) primaryRef = pm[1].trim();
+
+    var kjv = String(opts.text || '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .replace(/^[\s\u201c\u201d"']+|[\s\u201c\u201d"']+$/g, '')
+      .trim();
+
+    var article = document.createElement('article');
+    article.className = 'tdb-kiss-verse' + (opts.className ? ' ' + opts.className : '');
+    article.setAttribute('data-tdb-kiss-verse', '1');
+    article.setAttribute('data-ref', refKey);
+
+    var refEl = document.createElement('p');
+    refEl.className = 'tdb-kiss-verse__ref';
+    refEl.innerHTML = '';
+    var refStrong = document.createElement('strong');
+    refStrong.textContent = refRaw + ' (KJV)';
+    refEl.appendChild(refStrong);
+    article.appendChild(refEl);
+
+    /* 1) KJV */
+    var kjvBlock = document.createElement('div');
+    kjvBlock.className = 'tdb-kiss-verse__block tdb-kiss-verse__block--kjv';
+    var kjvLab = document.createElement('h4');
+    kjvLab.className = 'tdb-kiss-verse__label';
+    kjvLab.textContent = 'KJV';
+    var kjvBody = document.createElement('p');
+    kjvBody.className = 'tdb-kiss-verse__kjv verse-body';
+    kjvBody.textContent = kjv ? '\u201c' + kjv + '\u201d' : '';
+    try {
+      if (kjv && global.TDBRedLetter && typeof global.TDBRedLetter.applyToElement === 'function') {
+        global.TDBRedLetter.applyToElement(kjvBody, primaryRef, kjv, { quote: true });
+      }
+    } catch (eRl) { /* non-fatal */ }
+    kjvBlock.appendChild(kjvLab);
+    kjvBlock.appendChild(kjvBody);
+    article.appendChild(kjvBlock);
+
+    /* 2) BBE — simpler words */
+    var bbeBlock = document.createElement('div');
+    bbeBlock.className = 'tdb-kiss-verse__block tdb-kiss-verse__block--bbe tdb-bbe-simple tdb-bbe-simple--always-open';
+    bbeBlock.setAttribute('data-bbe-simple', '1');
+    bbeBlock.setAttribute('data-bbe-ref', primaryRef);
+    bbeBlock.setAttribute('data-bbe-always-open', '1');
+    var bbeLab = document.createElement('h4');
+    bbeLab.className = 'tdb-kiss-verse__label tdb-bbe-simple__heading';
+    bbeLab.textContent = 'In simpler words';
+    var bbeBody = document.createElement('div');
+    bbeBody.className = 'tdb-bbe-simple__body';
+    var bbeStatus = document.createElement('p');
+    bbeStatus.className = 'tdb-bbe-simple__status section-note';
+    bbeStatus.setAttribute('data-bbe-status', '1');
+    bbeStatus.setAttribute('hidden', '');
+    var bbeText = document.createElement('p');
+    bbeText.className = 'tdb-bbe-simple__text tdb-kiss-verse__bbe';
+    bbeText.setAttribute('data-bbe-text', '1');
+    bbeText.setAttribute('lang', 'en');
+    bbeBody.appendChild(bbeStatus);
+    bbeBody.appendChild(bbeText);
+    bbeBlock.appendChild(bbeLab);
+    bbeBlock.appendChild(bbeBody);
+    article.appendChild(bbeBlock);
+    try {
+      fillHost(bbeBody, primaryRef);
+    } catch (eBbe) { /* non-fatal */ }
+
+    /* 3) Context — what was going on + what it means */
+    var sit = '';
+    var mean = String(opts.plain || opts.meaning || '')
+      .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+      .replace(/^What it means:\s*/i, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    try {
+      if (global.TDB_resolveVerseContext) {
+        var hit = global.TDB_resolveVerseContext(primaryRef) || {};
+        sit = String(hit.situation || hit.setting || '').replace(/\s+/g, ' ').trim();
+        if (global.TDBTeachingQuality && typeof global.TDBTeachingQuality.preferSituation === 'function') {
+          sit = global.TDBTeachingQuality.preferSituation(sit, hit.setting || '') || '';
+        } else if (/ speaking to /i.test(sit) && sit.length < 100) {
+          var alt = String(hit.setting || '').replace(/\s+/g, ' ').trim();
+          sit = alt && alt.length >= 55 ? alt : '';
+        }
+      }
+    } catch (eCtx) { /* non-fatal */ }
+    if (!mean) {
+      try {
+        if (global.TDBVerseBreakdown && typeof global.TDBVerseBreakdown.getBreakdown === 'function' && kjv) {
+          var bd = global.TDBVerseBreakdown.getBreakdown(primaryRef, kjv, { group: 'general' }) || {};
+          mean = String(bd.plainMeaningOnly || bd.layman || bd.plainExplanation || '').trim();
+          mean = mean
+            .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+            .replace(/^What it means:\s*/i, '')
+            .trim();
+        }
+      } catch (eBd) { /* non-fatal */ }
+    }
+    if (global.TDBTeachingQuality && typeof global.TDBTeachingQuality.meaningOnly === 'function') {
+      mean = global.TDBTeachingQuality.meaningOnly(mean) || mean;
+    }
+    if (/^In plain terms for life today:/i.test(mean) || /Sit with that until one phrase lands/i.test(mean)) {
+      mean = '';
+    }
+
+    var ctxBlock = document.createElement('div');
+    ctxBlock.className = 'tdb-kiss-verse__block tdb-kiss-verse__block--ctx';
+    if (sit) {
+      var sitLab = document.createElement('h4');
+      sitLab.className = 'tdb-kiss-verse__label';
+      sitLab.textContent = 'What was going on';
+      var sitBody = document.createElement('p');
+      sitBody.className = 'tdb-kiss-verse__sit tdb-vbd-body';
+      sitBody.textContent = sit;
+      ctxBlock.appendChild(sitLab);
+      ctxBlock.appendChild(sitBody);
+    }
+    if (mean) {
+      var meanLab = document.createElement('h4');
+      meanLab.className = 'tdb-kiss-verse__label';
+      meanLab.textContent = 'What it means';
+      var meanBody = document.createElement('p');
+      meanBody.className = 'tdb-kiss-verse__mean tdb-vbd-body';
+      meanBody.textContent = mean;
+      ctxBlock.appendChild(meanLab);
+      ctxBlock.appendChild(meanBody);
+    }
+    if (ctxBlock.childNodes.length) article.appendChild(ctxBlock);
+
+    return article;
+  }
+
   var api = {
     ensureLoaded: ensureLoaded,
     getText: getText,
@@ -299,6 +445,7 @@
     normalizeRef: normalizeRef,
     fillHost: fillHost,
     buildDetailsBlock: buildDetailsBlock,
+    buildKissVerseCard: buildKissVerseCard,
     attachAfter: attachAfter,
     wireHero: wireHero,
     enhanceDocument: enhanceDocument,
@@ -309,6 +456,7 @@
   };
 
   global.TDBBbeSimple = api;
+  global.TDB_buildKissVerseCard = buildKissVerseCard;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {

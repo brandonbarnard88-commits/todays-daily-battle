@@ -110,7 +110,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260809-topics-work';
+    s.src = '/verse-breakdown.js?v=20260809-kiss-stack';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2832,7 +2832,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
   var trustedCtx = trustedScriptURL('/verse-context.js?v=20260808-situation-every');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-topics-work');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-kiss-stack');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -13088,84 +13088,32 @@ function renderSmartResult(query) {
   heartfelt.className = 'smart-heartfelt';
   heartfelt.textContent = info.def;
 
+  /* KISS verse stack: KJV → BBE → context */
+  var kissVerse = null;
+  try {
+    var kissBuild =
+      (window.TDBBbeSimple && typeof window.TDBBbeSimple.buildKissVerseCard === 'function'
+        ? window.TDBBbeSimple.buildKissVerseCard
+        : null) ||
+      (typeof window.TDB_buildKissVerseCard === 'function' ? window.TDB_buildKissVerseCard : null);
+    if (kissBuild) {
+      kissVerse = kissBuild({
+        ref: verse.ref,
+        text: verse.text,
+        plain: (verse.breakdown && verse.breakdown[0]) || info.def || '',
+        className: 'smart-kiss-verse'
+      });
+    }
+  } catch (eKissSmart) {
+    kissVerse = null;
+  }
   var verseEl = document.createElement('p');
   verseEl.className = 'smart-verse';
   verseEl.textContent = verse.text;
-
   var refEl = document.createElement('p');
   refEl.className = 'smart-ref';
   refEl.textContent = verse.ref + ' (KJV)';
-
-  /* Situation + meaning for every smart/feel chip result (all homepage topics). */
   var situationWrap = null;
-  try {
-    if (typeof window.TDB_resolveVerseContext === 'function' && verse.ref) {
-      var primaryRef = String(verse.ref).replace(/\s*\(KJV\)\s*$/i, '').trim();
-      var pm = primaryRef.match(/^(.+?\s+\d+:\d+)/);
-      if (pm) primaryRef = pm[1].trim();
-      var ctxHit = window.TDB_resolveVerseContext(primaryRef) || {};
-      var sit = String(ctxHit.situation || ctxHit.setting || '').replace(/\s+/g, ' ').trim();
-      /* Drop thin “X speaking to Y” when a longer setting exists; else hide situation. */
-      if (typeof window.TDBTeachingQuality !== 'undefined' && window.TDBTeachingQuality.preferSituation) {
-        sit = window.TDBTeachingQuality.preferSituation(sit, ctxHit.setting || '') || '';
-      } else if (/ speaking to /i.test(sit) && sit.length < 100) {
-        var setAlt = String(ctxHit.setting || '').replace(/\s+/g, ' ').trim();
-        sit = setAlt && setAlt.length >= 55 ? setAlt : '';
-      }
-      var aboutCtx = String(ctxHit.about || '').replace(/\s+/g, ' ').trim();
-      var toCtx = String(ctxHit.to || '').replace(/\s+/g, ' ').trim();
-      var meaningLine = '';
-      if (verse.breakdown && verse.breakdown.length) {
-        meaningLine = String(verse.breakdown[0] || '').replace(/\s+/g, ' ').trim();
-      }
-      if (!meaningLine && info.def) meaningLine = String(info.def).replace(/\s+/g, ' ').trim();
-      if (typeof window.TDBTeachingQuality !== 'undefined' && window.TDBTeachingQuality.meaningOnly) {
-        meaningLine = window.TDBTeachingQuality.meaningOnly(meaningLine) || meaningLine;
-      } else {
-        meaningLine = meaningLine.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
-      }
-      if (sit || meaningLine || aboutCtx) {
-        situationWrap = document.createElement('div');
-        situationWrap.className = 'tdb-topic-vbd smart-situation';
-        var sitHead = document.createElement('p');
-        sitHead.className = 'tdb-topic-vbd__heading';
-        sitHead.textContent = 'What was going on & what it means';
-        situationWrap.appendChild(sitHead);
-        var sitComb = document.createElement('p');
-        sitComb.className = 'tdb-topic-vbd__combined';
-        if (sit && meaningLine) {
-          sitComb.textContent =
-            'What was going on: ' +
-            sit.replace(/\.$/, '') +
-            '. What it means: ' +
-            meaningLine.replace(/^What it means:\s*/i, '');
-        } else {
-          sitComb.textContent = meaningLine || sit;
-        }
-        situationWrap.appendChild(sitComb);
-        if (aboutCtx) {
-          var sitWho = document.createElement('p');
-          sitWho.className = 'tdb-topic-vbd__who';
-          var sitWhoLab = document.createElement('span');
-          sitWhoLab.className = 'tdb-topic-vbd__label';
-          sitWhoLab.textContent = 'Who\u2019s talking? ';
-          sitWho.appendChild(sitWhoLab);
-          sitWho.appendChild(document.createTextNode(aboutCtx));
-          situationWrap.appendChild(sitWho);
-        }
-        if (toCtx) {
-          var sitTo = document.createElement('p');
-          sitTo.className = 'tdb-topic-vbd__to';
-          var sitToLab = document.createElement('span');
-          sitToLab.className = 'tdb-topic-vbd__label';
-          sitToLab.textContent = 'Who is this for? ';
-          sitTo.appendChild(sitToLab);
-          sitTo.appendChild(document.createTextNode(toCtx));
-          situationWrap.appendChild(sitTo);
-        }
-      }
-    }
-  } catch (eSit) { /* non-fatal */ }
 
   var ul = document.createElement('ul');
   ul.className = 'smart-breakdown';
@@ -13184,9 +13132,13 @@ function renderSmartResult(query) {
   outcomeEl.textContent = 'Then: ' + info.outcome;
 
   card.appendChild(heartfelt);
-  card.appendChild(verseEl);
-  card.appendChild(refEl);
-  if (situationWrap) card.appendChild(situationWrap);
+  if (kissVerse) {
+    card.appendChild(kissVerse);
+  } else {
+    card.appendChild(refEl);
+    card.appendChild(verseEl);
+    if (situationWrap) card.appendChild(situationWrap);
+  }
   card.appendChild(ul);
   card.appendChild(actionEl);
   card.appendChild(outcomeEl);
@@ -32965,40 +32917,12 @@ function buildHomeSearchFilterRow(output, availableSections, activeTopics) {
 }
 
 function buildHomeVerseCard(output, verse, queryText) {
-  var card = document.createElement('article');
-  card.className = 'verse-card home-search-card home-search-card--verse tdb-result-card';
-  card.setAttribute('data-home-result-card', 'verse');
-
-  var ref = document.createElement('p');
-  ref.className = 'home-search-card-ref';
-  ref.textContent = verse.ref;
-  card.appendChild(ref);
-
-  var versePreview = document.createElement('p');
-  versePreview.className = 'home-search-card-copy';
   var plainVerse = stripHtmlToPlainText(verse.text || '');
-  if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(verse.ref, plainVerse)) {
-    try {
-      if (window.trustedTypes && window.trustedTypes.defaultPolicy && window.trustedTypes.defaultPolicy.createHTML) {
-        versePreview.innerHTML = window.trustedTypes.defaultPolicy.createHTML(tdbVerseBodyHtml(verse.ref, plainVerse, { quote: false }));
-      } else {
-        versePreview.innerHTML = tdbVerseBodyHtml(verse.ref, plainVerse, { quote: false });
-      }
-    } catch (eRlHome) {
-      versePreview.textContent = plainVerse;
-    }
-    card.classList.add('red-letter-card');
-  } else {
-    appendHighlightedText(versePreview, plainVerse, buildHomeSearchHighlightRegex(queryText));
-  }
-  card.appendChild(versePreview);
-
   var verseText = plainVerse;
 
   var plainMeaning = typeof getPlainMeaning === 'function' ? getPlainMeaning(verse.ref) : '';
   if (!plainMeaning && typeof getVerseBreakdown === 'function') {
     var autoBd = getVerseBreakdown(verse.ref, verseText, null);
-    /* Prefer meaning-only — never show combined “What was going on…” under Plain English. */
     if (autoBd) {
       plainMeaning = String(
         autoBd.plainMeaningOnly || autoBd.layman || autoBd.plainExplanation || ''
@@ -33020,15 +32944,57 @@ function buildHomeVerseCard(output, verse, queryText) {
     plainMeaning = '';
   }
 
-  var primary = document.createElement('div');
-  primary.className = 'verse-breakdown-container search-vbd-primary home-search-vbd';
-  appendSearchBpIf(primary, 'Plain English', plainMeaning);
-  appendSearchBpIf(primary, 'One small step', getHomeSearchNextStepTeaser(verse), 'action-panel');
-  appendSearchBpIf(primary, 'Prayer', getHomeSearchPrayerText(verse), 'prayer-panel');
-  if (primary.childElementCount) card.appendChild(primary);
-
-  var digDet = attachHomeSearchDigDeeper(verse, verseText);
-  if (digDet) card.appendChild(digDet);
+  /* KISS stack: KJV → BBE → context (same for every verse in the list). */
+  var card = null;
+  try {
+    var kissBuild =
+      (window.TDBBbeSimple && typeof window.TDBBbeSimple.buildKissVerseCard === 'function'
+        ? window.TDBBbeSimple.buildKissVerseCard
+        : null) ||
+      (typeof window.TDB_buildKissVerseCard === 'function' ? window.TDB_buildKissVerseCard : null);
+    if (kissBuild) {
+      card = kissBuild({
+        ref: verse.ref,
+        text: plainVerse,
+        plain: plainMeaning,
+        className: 'verse-card home-search-card home-search-card--verse tdb-result-card'
+      });
+    }
+  } catch (eKissHome) {
+    card = null;
+  }
+  if (!card) {
+    card = document.createElement('article');
+    card.className = 'verse-card home-search-card home-search-card--verse tdb-result-card';
+    var ref = document.createElement('p');
+    ref.className = 'home-search-card-ref';
+    ref.textContent = verse.ref;
+    card.appendChild(ref);
+    var versePreview = document.createElement('p');
+    versePreview.className = 'home-search-card-copy';
+    if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(verse.ref, plainVerse)) {
+      try {
+        if (window.trustedTypes && window.trustedTypes.defaultPolicy && window.trustedTypes.defaultPolicy.createHTML) {
+          versePreview.innerHTML = window.trustedTypes.defaultPolicy.createHTML(tdbVerseBodyHtml(verse.ref, plainVerse, { quote: false }));
+        } else {
+          versePreview.innerHTML = tdbVerseBodyHtml(verse.ref, plainVerse, { quote: false });
+        }
+      } catch (eRlHome) {
+        versePreview.textContent = plainVerse;
+      }
+      card.classList.add('red-letter-card');
+    } else {
+      appendHighlightedText(versePreview, plainVerse, buildHomeSearchHighlightRegex(queryText));
+    }
+    card.appendChild(versePreview);
+    if (plainMeaning) {
+      var primary = document.createElement('div');
+      primary.className = 'verse-breakdown-container search-vbd-primary home-search-vbd';
+      appendSearchBpIf(primary, 'What it means', plainMeaning);
+      if (primary.childElementCount) card.appendChild(primary);
+    }
+  }
+  card.setAttribute('data-home-result-card', 'verse');
 
   var actionBar = document.createElement('div');
   actionBar.className = 'ask-word-action-bar';

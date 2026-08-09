@@ -85,20 +85,43 @@ function composeCombined(situation, plain) {
   return p || sit || '';
 }
 
+let bbeMapCache = null;
+function loadBbeMap() {
+  if (bbeMapCache) return bbeMapCache;
+  const p = path.join(root, 'data', 'bbe-full.json');
+  try {
+    bbeMapCache = JSON.parse(fs.readFileSync(p, 'utf8'));
+  } catch (e) {
+    bbeMapCache = {};
+  }
+  return bbeMapCache;
+}
+
+function bbeForRef(ref) {
+  const map = loadBbeMap();
+  const r = primaryRef(ref);
+  if (map[r]) return String(map[r]).replace(/\s+/g, ' ').trim();
+  const alt = r.replace(/^Psalm\s+/i, 'Psalms ').replace(/^Psalms\s+/i, 'Psalm ');
+  if (map[alt]) return String(map[alt]).replace(/\s+/g, ' ').trim();
+  return '';
+}
+
+/**
+ * KISS stack after the KJV paragraph:
+ * BBE → What was going on → What it means
+ * (KJV already sits above as the verse body.)
+ */
 function buildVbdHtml(refLabel, verseText, plainMap, resolve) {
   const ref = primaryRef(refLabel);
   const text = stripTags(verseText);
   const ctx = resolve(ref) || {};
   const situation = String(ctx.situation || ctx.setting || '').replace(/\s+/g, ' ').trim();
-  const about = String(ctx.about || '').replace(/\s+/g, ' ').trim();
-  const to = String(ctx.to || '').replace(/\s+/g, ' ').trim();
   let plain = buildHeroLaymanPlain(ref, text, plainMap, root);
   plain = String(plain || '')
     .replace(/\s+/g, ' ')
     .trim()
     .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
     .replace(/^What it means:\s*/i, '');
-  // Prefer teaching line; never echo full KJV / thin stamps as “meaning”
   if (
     !plain ||
     plain.length < 12 ||
@@ -107,32 +130,38 @@ function buildVbdHtml(refLabel, verseText, plainMap, resolve) {
   ) {
     plain = 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
   }
-  /* Prefer narrative situation; drop thin “X speaking to Y” stamps. */
   let sit = situation;
   if (/ speaking to /i.test(sit) && sit.length < 100) {
     const setAlt = String(ctx.setting || '').replace(/\s+/g, ' ').trim();
     sit = setAlt && setAlt.length >= 55 ? setAlt : '';
   }
-  const combined = composeCombined(sit, plain);
-  if (!combined) return '';
+  if (!sit && !plain) return '';
 
-  let html =
-    '<div class="tdb-topic-vbd" data-tdb-topic-vbd="1">' +
-    '<p class="tdb-topic-vbd__heading">What was going on &amp; what it means</p>' +
-    '<p class="tdb-topic-vbd__combined">' +
-    escapeHtml(combined) +
-    '</p>';
-  if (about) {
+  const bbe = bbeForRef(ref);
+  let html = '<div class="tdb-topic-vbd tdb-kiss-verse tdb-kiss-verse--topic" data-tdb-topic-vbd="1">';
+  if (bbe) {
     html +=
-      '<p class="tdb-topic-vbd__who"><span class="tdb-topic-vbd__label">Who&rsquo;s talking?</span> ' +
-      escapeHtml(about) +
-      '</p>';
+      '<div class="tdb-kiss-verse__block tdb-kiss-verse__block--bbe">' +
+      '<h4 class="tdb-kiss-verse__label">In simpler words</h4>' +
+      '<p class="tdb-kiss-verse__bbe">' +
+      escapeHtml(bbe) +
+      '</p></div>';
   }
-  if (to) {
+  if (sit) {
     html +=
-      '<p class="tdb-topic-vbd__to"><span class="tdb-topic-vbd__label">Who is this for?</span> ' +
-      escapeHtml(to) +
-      '</p>';
+      '<div class="tdb-kiss-verse__block">' +
+      '<h4 class="tdb-kiss-verse__label">What was going on</h4>' +
+      '<p class="tdb-kiss-verse__sit">' +
+      escapeHtml(sit) +
+      '</p></div>';
+  }
+  if (plain) {
+    html +=
+      '<div class="tdb-kiss-verse__block">' +
+      '<h4 class="tdb-kiss-verse__label">What it means</h4>' +
+      '<p class="tdb-kiss-verse__mean">' +
+      escapeHtml(plain) +
+      '</p></div>';
   }
   html += '</div>';
   return html;
@@ -202,9 +231,22 @@ function injectIntoListItemInner(inner, plainMap, resolve) {
   const vbd = buildVbdHtml(refLabel, verseHtml, plainMap, resolve);
   if (!vbd) return body;
 
+  /* Label the KJV block, then BBE + context — same order as home chips. */
   return body.replace(
-    /(<\/strong>\s*<p(?![^>]*class="tdb-topic)[^>]*>[\s\S]*?<\/p>)/i,
-    '$1\n            ' + vbd
+    /(<strong>[^<]+<\/strong>)\s*<p(?![^>]*class="tdb-topic)([^>]*)>([\s\S]*?)<\/p>/i,
+    function (_full, strong, _pAttrs, pInner) {
+      return (
+        strong +
+        '\n            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv">' +
+        '<h4 class="tdb-kiss-verse__label">KJV</h4>' +
+        '<p class="tdb-kiss-verse__kjv"' +
+        _pAttrs +
+        '>' +
+        pInner +
+        '</p></div>\n            ' +
+        vbd
+      );
+    }
   );
 }
 

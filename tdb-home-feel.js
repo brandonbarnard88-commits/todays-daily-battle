@@ -1805,65 +1805,62 @@ const FEEL_MORE = {
     return wrap;
   }
 
+  /**
+   * KISS card: KJV → BBE → context, then the next verse the same way.
+   */
   function buildVerseCard(entry, idx) {
-    const article = document.createElement("article");
-    article.className = "feel-verse-card";
-    article.style.animationDelay = (idx * 0.12) + "s";
+    let article = null;
+    try {
+      const build =
+        (window.TDBBbeSimple && typeof window.TDBBbeSimple.buildKissVerseCard === "function"
+          ? window.TDBBbeSimple.buildKissVerseCard
+          : null) ||
+        (typeof window.TDB_buildKissVerseCard === "function" ? window.TDB_buildKissVerseCard : null);
+      if (build) {
+        article = build({
+          ref: entry.ref,
+          text: entry.text,
+          plain: entry.plain,
+          className: "feel-verse-card"
+        });
+      }
+    } catch (eKiss) {
+      article = null;
+    }
 
-    const ref = document.createElement("p");
-    ref.className = "fvc-ref";
-    ref.textContent = sanitizeText(entry.ref);
+    /* Fallback if BBE helper not loaded yet */
+    if (!article) {
+      article = document.createElement("article");
+      article.className = "feel-verse-card tdb-kiss-verse";
+      const ref = document.createElement("p");
+      ref.className = "tdb-kiss-verse__ref fvc-ref";
+      ref.textContent = sanitizeText(entry.ref) + " (KJV)";
+      const kjv = document.createElement("p");
+      kjv.className = "tdb-kiss-verse__kjv fvc-kjv";
+      kjv.textContent = "\u201c" + sanitizeText(entry.text) + "\u201d";
+      article.append(ref, kjv);
+      const situationBlock = buildSituationMeaningBlock(entry.ref, entry.plain);
+      if (situationBlock) article.appendChild(situationBlock);
+    }
 
-    const speaker = document.createElement("p");
-    speaker.className = "fvc-speaker";
-    speaker.textContent = sanitizeText(entry.speaker);
+    article.style.animationDelay = (idx * 0.08) + "s";
 
-    const divider1 = document.createElement("hr");
-    divider1.className = "fvc-rule";
-
-    const kjv = document.createElement("blockquote");
-    kjv.className = "fvc-kjv";
-    kjv.textContent = "\u201c" + sanitizeText(entry.text) + "\u201d";
-
-    const divider2 = document.createElement("hr");
-    divider2.className = "fvc-rule";
-
-    const situationBlock = buildSituationMeaningBlock(entry.ref, entry.plain);
-
-    const dl = document.createElement("dl");
-    dl.className = "fvc-breakdown";
-
-    [
-      ["Today", entry.today],
-      ["So do this", entry.action]
-    ].forEach(([label, value]) => {
-      const dt = document.createElement("dt");
-      dt.textContent = label;
-      const dd = document.createElement("dd");
-      dd.textContent = sanitizeText(value);
-      dl.append(dt, dd);
-    });
-
-    article.append(ref, speaker, divider1, kjv, divider2);
-    if (situationBlock) article.appendChild(situationBlock);
-    article.appendChild(dl);
-
-    // ── Save + Share actions ──
+    // ── Quiet actions under the stack ──
     const actions = document.createElement("div");
-    actions.className = "fvc-actions";
+    actions.className = "fvc-actions tdb-kiss-verse__actions";
 
     const saveBtn = document.createElement("button");
     saveBtn.type = "button";
     saveBtn.className = "fvc-action-btn";
-    saveBtn.textContent = "Save to My Study";
+    saveBtn.textContent = "Save";
     saveBtn.setAttribute("aria-label", "Save " + sanitizeText(entry.ref) + " to My Study");
     saveBtn.addEventListener("click", () => {
       saveBtn.disabled = true;
       const done = (ok, already) => {
-        saveBtn.textContent = ok ? (already ? "Already saved \u2713" : "Saved \u2713") : "Save failed";
+        saveBtn.textContent = ok ? (already ? "Saved \u2713" : "Saved \u2713") : "Save failed";
         saveBtn.classList.add("confirmed");
         setTimeout(() => {
-          saveBtn.textContent = "Save to My Study";
+          saveBtn.textContent = "Save";
           saveBtn.classList.remove("confirmed");
           saveBtn.disabled = false;
         }, 1600);
@@ -1889,12 +1886,12 @@ const FEEL_MORE = {
         shareBtn.classList.add("confirmed");
         setTimeout(() => { shareBtn.textContent = "Share"; shareBtn.classList.remove("confirmed"); }, 1500);
       }).catch(() => {});
-      if (typeof showEncouragementNudge === 'function') setTimeout(showEncouragementNudge, 800);
+      if (typeof showEncouragementNudge === "function") setTimeout(showEncouragementNudge, 800);
     });
 
     const prayBtn = document.createElement("a");
     prayBtn.className = "fvc-action-btn";
-    prayBtn.textContent = "Read chapter";
+    prayBtn.textContent = "Chapter";
     prayBtn.href = "reader.html";
     prayBtn.setAttribute("aria-label", "Open chapter reader from " + sanitizeText(entry.ref));
 

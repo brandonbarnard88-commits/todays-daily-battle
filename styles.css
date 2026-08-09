@@ -11997,13 +11997,20 @@ body.tts-playing .btn-listen {
   padding: 0.35rem 0.4rem;
 }
 
-/* Feeling topic verse cards: situation + meaning (injected by inject-topic-verse-context.mjs) */
+/* Feeling topic verse cards + home feel/smart results: situation + meaning */
 .tdb-topic-vbd {
   margin: 0.65rem 0 0.35rem;
   padding: 0.7rem 0.85rem;
   border-radius: 10px;
   border: 1px solid rgba(148, 163, 184, 0.28);
   background: rgba(15, 23, 42, 0.04);
+}
+.feel-verse-card .tdb-topic-vbd,
+.smart-card .tdb-topic-vbd {
+  margin: 0.75rem 0;
+}
+.feel-verse-card .fvc-breakdown {
+  margin-top: 0.5rem;
 }
 html[data-theme="dark"] .tdb-topic-vbd,
 body.dark-mode .tdb-topic-vbd {

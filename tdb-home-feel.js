@@ -1497,6 +1497,75 @@ const FEEL_MORE = {
   let debounceTimer = null;
   let activeIdx = -1;
 
+  /** Primary ref for context lookup (Philippians 4:6-7 → Philippians 4:6). */
+  function primaryFeelRef(ref) {
+    const n = sanitizeText(ref || "").replace(/\s*\(KJV\)\s*$/i, "").trim();
+    const m = n.match(/^(.+?\s+\d+:\d+)/);
+    return m ? m[1].trim() : n;
+  }
+
+  /**
+   * Situation + meaning block for every home feel-result card
+   * (covers all ~49 quick-topic chips, not only the 13 topic-*.html pages).
+   */
+  function buildSituationMeaningBlock(ref, plainMeaning) {
+    const wrap = document.createElement("div");
+    wrap.className = "tdb-topic-vbd fvc-situation";
+    let situation = "";
+    let about = "";
+    let to = "";
+    try {
+      if (typeof window.TDB_resolveVerseContext === "function") {
+        const ctx = window.TDB_resolveVerseContext(primaryFeelRef(ref)) || {};
+        situation = sanitizeText(ctx.situation || ctx.setting || "");
+        about = sanitizeText(ctx.about || "");
+        to = sanitizeText(ctx.to || "");
+      }
+    } catch (eCtx) { /* non-fatal */ }
+    const meaning = sanitizeText(plainMeaning || "");
+    if (!situation && !meaning && !about) return null;
+
+    const heading = document.createElement("p");
+    heading.className = "tdb-topic-vbd__heading";
+    heading.textContent = "What was going on & what it means";
+    wrap.appendChild(heading);
+
+    const combined = document.createElement("p");
+    combined.className = "tdb-topic-vbd__combined";
+    if (situation && meaning) {
+      combined.textContent =
+        "What was going on: " +
+        situation.replace(/\.$/, "") +
+        ". What it means: " +
+        meaning.replace(/^What it means:\s*/i, "");
+    } else {
+      combined.textContent = meaning || situation;
+    }
+    wrap.appendChild(combined);
+
+    if (about) {
+      const who = document.createElement("p");
+      who.className = "tdb-topic-vbd__who";
+      const whoLabel = document.createElement("span");
+      whoLabel.className = "tdb-topic-vbd__label";
+      whoLabel.textContent = "Who\u2019s talking? ";
+      who.appendChild(whoLabel);
+      who.appendChild(document.createTextNode(about));
+      wrap.appendChild(who);
+    }
+    if (to) {
+      const aud = document.createElement("p");
+      aud.className = "tdb-topic-vbd__to";
+      const audLabel = document.createElement("span");
+      audLabel.className = "tdb-topic-vbd__label";
+      audLabel.textContent = "Who is this for? ";
+      aud.appendChild(audLabel);
+      aud.appendChild(document.createTextNode(to));
+      wrap.appendChild(aud);
+    }
+    return wrap;
+  }
+
   function buildVerseCard(entry, idx) {
     const article = document.createElement("article");
     article.className = "feel-verse-card";
@@ -1520,11 +1589,12 @@ const FEEL_MORE = {
     const divider2 = document.createElement("hr");
     divider2.className = "fvc-rule";
 
+    const situationBlock = buildSituationMeaningBlock(entry.ref, entry.plain);
+
     const dl = document.createElement("dl");
     dl.className = "fvc-breakdown";
 
     [
-      ["Plain", entry.plain],
       ["Today", entry.today],
       ["So do this", entry.action]
     ].forEach(([label, value]) => {
@@ -1535,7 +1605,9 @@ const FEEL_MORE = {
       dl.append(dt, dd);
     });
 
-    article.append(ref, speaker, divider1, kjv, divider2, dl);
+    article.append(ref, speaker, divider1, kjv, divider2);
+    if (situationBlock) article.appendChild(situationBlock);
+    article.appendChild(dl);
 
     // ── Save + Share actions ──
     const actions = document.createElement("div");

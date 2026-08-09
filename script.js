@@ -13037,6 +13037,65 @@ function renderSmartResult(query) {
   refEl.className = 'smart-ref';
   refEl.textContent = verse.ref + ' (KJV)';
 
+  /* Situation + meaning for every smart/feel chip result (all homepage topics). */
+  var situationWrap = null;
+  try {
+    if (typeof window.TDB_resolveVerseContext === 'function' && verse.ref) {
+      var primaryRef = String(verse.ref).replace(/\s*\(KJV\)\s*$/i, '').trim();
+      var pm = primaryRef.match(/^(.+?\s+\d+:\d+)/);
+      if (pm) primaryRef = pm[1].trim();
+      var ctxHit = window.TDB_resolveVerseContext(primaryRef) || {};
+      var sit = String(ctxHit.situation || ctxHit.setting || '').replace(/\s+/g, ' ').trim();
+      var aboutCtx = String(ctxHit.about || '').replace(/\s+/g, ' ').trim();
+      var toCtx = String(ctxHit.to || '').replace(/\s+/g, ' ').trim();
+      var meaningLine = '';
+      if (verse.breakdown && verse.breakdown.length) {
+        meaningLine = String(verse.breakdown[0] || '').replace(/\s+/g, ' ').trim();
+      }
+      if (!meaningLine && info.def) meaningLine = String(info.def).replace(/\s+/g, ' ').trim();
+      if (sit || meaningLine || aboutCtx) {
+        situationWrap = document.createElement('div');
+        situationWrap.className = 'tdb-topic-vbd smart-situation';
+        var sitHead = document.createElement('p');
+        sitHead.className = 'tdb-topic-vbd__heading';
+        sitHead.textContent = 'What was going on & what it means';
+        situationWrap.appendChild(sitHead);
+        var sitComb = document.createElement('p');
+        sitComb.className = 'tdb-topic-vbd__combined';
+        if (sit && meaningLine) {
+          sitComb.textContent =
+            'What was going on: ' +
+            sit.replace(/\.$/, '') +
+            '. What it means: ' +
+            meaningLine.replace(/^What it means:\s*/i, '');
+        } else {
+          sitComb.textContent = meaningLine || sit;
+        }
+        situationWrap.appendChild(sitComb);
+        if (aboutCtx) {
+          var sitWho = document.createElement('p');
+          sitWho.className = 'tdb-topic-vbd__who';
+          var sitWhoLab = document.createElement('span');
+          sitWhoLab.className = 'tdb-topic-vbd__label';
+          sitWhoLab.textContent = 'Who\u2019s talking? ';
+          sitWho.appendChild(sitWhoLab);
+          sitWho.appendChild(document.createTextNode(aboutCtx));
+          situationWrap.appendChild(sitWho);
+        }
+        if (toCtx) {
+          var sitTo = document.createElement('p');
+          sitTo.className = 'tdb-topic-vbd__to';
+          var sitToLab = document.createElement('span');
+          sitToLab.className = 'tdb-topic-vbd__label';
+          sitToLab.textContent = 'Who is this for? ';
+          sitTo.appendChild(sitToLab);
+          sitTo.appendChild(document.createTextNode(toCtx));
+          situationWrap.appendChild(sitTo);
+        }
+      }
+    }
+  } catch (eSit) { /* non-fatal */ }
+
   var ul = document.createElement('ul');
   ul.className = 'smart-breakdown';
   (verse.breakdown || []).forEach(function(line) {
@@ -13056,6 +13115,7 @@ function renderSmartResult(query) {
   card.appendChild(heartfelt);
   card.appendChild(verseEl);
   card.appendChild(refEl);
+  if (situationWrap) card.appendChild(situationWrap);
   card.appendChild(ul);
   card.appendChild(actionEl);
   card.appendChild(outcomeEl);

@@ -364,15 +364,17 @@
   function plainSpeaker(raw) {
     var s = String(raw || '').trim();
     if (!s) return 'Bible writer';
-    if (/jesus/i.test(s)) return 'Jesus';
-    if (/paul/i.test(s)) return 'Paul';
-    if (/david/i.test(s)) return 'David';
-    if (/moses/i.test(s)) return 'Moses';
-    if (/john/i.test(s)) return 'John';
-    if (/isaiah/i.test(s)) return 'Isaiah';
-    if (/jeremiah/i.test(s)) return 'Jeremiah';
-    if (/solomon/i.test(s)) return 'Solomon';
-    if (/unknown/i.test(s)) return 'Bible writer';
+    if (/\bjesus\b/i.test(s)) return 'Jesus';
+    if (/\bpaul\b/i.test(s)) return 'Paul';
+    if (/\bmoses\b/i.test(s)) return 'Moses';
+    if (/\bisaiah\b/i.test(s)) return 'Isaiah';
+    if (/\bjeremiah\b/i.test(s)) return 'Jeremiah';
+    if (/\bsolomon\b/i.test(s)) return 'Solomon';
+    if (/\bpeter\b/i.test(s)) return 'Peter';
+    if (/\bjames\b/i.test(s)) return 'James';
+    if (/\bjohn\b/i.test(s)) return 'John';
+    if (/\bdavid\b/i.test(s)) return 'David';
+    if (/\bunknown\b/i.test(s)) return 'Bible writer';
     s = s.split('/')[0].split(',')[0].replace(/\(.*?\)/g, '').trim();
     return s || 'Bible writer';
   }
@@ -402,7 +404,7 @@
   }
 
   function getContextNeedle() {
-    var ids = ['main-search', 'q', 'mystudy-search', 'query', 'search'];
+    var ids = ['main-search', 'q', 'mystudy-search', 'query', 'search', 'feel-search', 'tdb-search'];
     var parts = [];
     ids.forEach(function (id) {
       var el = byId(id);
@@ -1428,14 +1430,13 @@
   function buildUogInfluenceString(ref, verseText, breakdown) {
     var parts = [String(ref || ''), String(verseText || '')];
     if (breakdown && typeof breakdown === 'object') {
-      ['about', 'to', 'layman', 'applies', 'relates'].forEach(function (k) {
+      ['about', 'to', 'layman'].forEach(function (k) {
         if (breakdown[k]) parts.push(String(breakdown[k]));
       });
     }
+    /* Do not append the whole search box — one query was poisoning every card's plans
+       (e.g. "overwhelmed" results all linking Forgiveness). Verse text drives the plan. */
     var s = parts.join(' ').replace(/\s+/g, ' ').trim();
-    try {
-      s = (s + ' ' + getContextNeedle()).replace(/\s+/g, ' ').trim();
-    } catch (eCtx) { /* no-op */ }
     if (s.length > 2000) s = s.slice(0, 2000);
     return s;
   }
@@ -1501,7 +1502,13 @@
     if (!ageMode) ageMode = inferAgeFromContext() || 'adult';
     details.setAttribute('data-age-mode', ageMode);
 
-    var resolvedText = cleanVerseText(text || '') || getBibleVerseText(ref);
+    var resolvedText = cleanVerseText(text || '');
+    /* Never treat the reference string as verse body (e.g. “Isaiah 24:2”). */
+    if (!resolvedText || normalizeRef(resolvedText) === normalizeRef(ref) || resolvedText === String(ref || '').trim()) {
+      resolvedText = getBibleVerseText(ref);
+    }
+    if (!resolvedText) resolvedText = cleanVerseText(text || '');
+
     var breakdown = getBreakdown(ref, resolvedText, { group: ageMode, host: details });
     var topic = inferRelationTopic(ref, resolvedText);
     var stdVB = window.TDB_verseBreakdownStandard;
@@ -1848,11 +1855,27 @@
     var r = String(ref || '').trim();
     if (!r) return '';
     var key = normalizeRef(r);
-    var direct = (window.bible && (window.bible[r] || window.bible[key])) || (window.kjvData && (window.kjvData[r] || window.kjvData[key])) || '';
+    function lookup(map, k) {
+      if (!map || !k) return '';
+      if (map[k]) return map[k];
+      if (/^Psalm\s+/i.test(k) && map[k.replace(/^Psalm\s+/i, 'Psalms ')]) {
+        return map[k.replace(/^Psalm\s+/i, 'Psalms ')];
+      }
+      if (/^Psalms\s+/i.test(k) && map[k.replace(/^Psalms\s+/i, 'Psalm ')]) {
+        return map[k.replace(/^Psalms\s+/i, 'Psalm ')];
+      }
+      return '';
+    }
+    var direct =
+      lookup(window.bible, r) ||
+      lookup(window.bible, key) ||
+      lookup(window.kjvData, r) ||
+      lookup(window.kjvData, key) ||
+      '';
     if (direct) return cleanVerseText(direct);
     var ranged = resolveRangeVerseText(r, window.bible || window.kjvData || null);
     if (ranged) return ranged;
-    if (typeof window.getBibleVerseText === 'function') {
+    if (typeof window.getBibleVerseText === 'function' && window.getBibleVerseText !== getBibleVerseText) {
       try { return cleanVerseText(window.getBibleVerseText(r) || ''); } catch (e) {}
     }
     return '';

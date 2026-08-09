@@ -566,8 +566,12 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
         const coloringData = await this.loadImage(this.canvas.toDataURL('image/png'));
         c.drawImage(coloringData, 0, 0, width, height);
 
-        // Draw line art last so outlines always sit on top of color
+        // Draw line art last so outlines sit on top of color.
+        // multiply: white JPG paper becomes transparent; black lines stay inked.
+        // Works for SVG stroke-only art too (transparent fills leave color alone).
+        c.globalCompositeOperation = 'multiply';
         c.drawImage(this.img, 0, 0, width, height);
+        c.globalCompositeOperation = 'source-over';
 
         return combinedCanvas.toDataURL('image/png');
     }

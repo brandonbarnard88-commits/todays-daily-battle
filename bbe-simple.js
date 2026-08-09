@@ -8,10 +8,13 @@
   'use strict';
 
   var DATA_URL = '/data/bbe-full.json';
+  var KJV_DATA_URL = '/data/kjv-full.json';
   var CREDIT_HREF = '/bible-credits.html';
   var map = null;
   var loadPromise = null;
   var loadError = null;
+  var kjvMap = null;
+  var kjvLoadPromise = null;
 
   function normalizeRef(ref) {
     var s = String(ref || '')
@@ -78,6 +81,106 @@
     return ensureLoaded().then(function () {
       return getTextSync(ref);
     });
+  }
+
+  /** Sync KJV lookup — window.bible / kjvData / local fetch cache. Handles Psalm/Psalms. */
+  function resolveKjvTextSync(ref) {
+    var keys = lookupKeys(ref);
+    /* Range first-verse: Romans 6:6-7 → try Romans 6:6 */
+    var n0 = normalizeRef(ref);
+    var rangeM = n0.match(/^(.+?\s+\d+):(\d+)-\d+$/);
+    if (rangeM) {
+      var first = rangeM[1] + ':' + rangeM[2];
+      lookupKeys(first).forEach(function (k) {
+        if (keys.indexOf(k) === -1) keys.push(k);
+      });
+    }
+    function tryMap(m) {
+      if (!m || typeof m !== 'object') return '';
+      for (var i = 0; i < keys.length; i++) {
+        var hit = m[keys[i]];
+        if (hit && String(hit).trim()) return String(hit).replace(/\s+/g, ' ').trim();
+      }
+      if (typeof global.resolveBibleTextFromMap === 'function') {
+        try {
+          var r = global.resolveBibleTextFromMap(m, ref);
+          if (r) return String(r).replace(/\s+/g, ' ').trim();
+        } catch (eR) { /* non-fatal */ }
+      }
+      return '';
+    }
+    var t =
+      tryMap(global.bible) ||
+      tryMap(global.kjvData) ||
+      tryMap(kjvMap) ||
+      '';
+    if (!t && typeof global.getBibleVerseText === 'function') {
+      try {
+        t = String(global.getBibleVerseText(ref) || '').replace(/\s+/g, ' ').trim();
+      } catch (eG) { /* non-fatal */ }
+    }
+    return t;
+  }
+
+  function ensureKjvLoaded() {
+    if (kjvMap && Object.keys(kjvMap).length > 1000) return Promise.resolve(kjvMap);
+    if (global.bible && Object.keys(global.bible).length > 1000) {
+      kjvMap = global.bible;
+      return Promise.resolve(kjvMap);
+    }
+    if (global.kjvData && Object.keys(global.kjvData).length > 1000) {
+      kjvMap = global.kjvData;
+      return Promise.resolve(kjvMap);
+    }
+    if (kjvLoadPromise) return kjvLoadPromise;
+    kjvLoadPromise = fetch(KJV_DATA_URL, { credentials: 'same-origin', cache: 'force-cache' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('KJV data HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (!data || typeof data !== 'object') throw new Error('KJV data invalid');
+        kjvMap = data;
+        try {
+          if (!global.bible || Object.keys(global.bible).length < 1000) global.bible = data;
+          if (!global.kjvData || Object.keys(global.kjvData).length < 1000) global.kjvData = data;
+        } catch (eW) { /* non-fatal */ }
+        return kjvMap;
+      })
+      .catch(function (err) {
+        kjvLoadPromise = null;
+        throw err;
+      });
+    return kjvLoadPromise;
+  }
+
+  function fillKissKjvBodies(root) {
+    var scope = root && root.querySelectorAll ? root : document;
+    var nodes = scope.querySelectorAll
+      ? scope.querySelectorAll('.tdb-kiss-verse[data-ref] .tdb-kiss-verse__kjv, [data-tdb-kiss-verse="1"][data-ref] .tdb-kiss-verse__kjv')
+      : [];
+    for (var i = 0; i < nodes.length; i++) {
+      (function (el) {
+        var card = el.closest('.tdb-kiss-verse, [data-tdb-kiss-verse="1"]');
+        if (!card) return;
+        var ref = card.getAttribute('data-ref') || '';
+        var existing = String(el.textContent || '')
+          .replace(/^[\s\u201c\u201d"']+|[\s\u201c\u201d"']+$/g, '')
+          .trim();
+        var looksEmpty =
+          !existing ||
+          existing.toLowerCase() === String(ref).toLowerCase() ||
+          /^[1-3]?\s*[A-Za-z][A-Za-z\s.]+\s+\d+:\d+/i.test(existing);
+        if (!looksEmpty) return;
+        var txt = resolveKjvTextSync(ref);
+        if (txt) {
+          el.textContent = '\u201c' + txt + '\u201d';
+          try {
+            card.setAttribute('data-verse-text', txt);
+          } catch (eA) { /* non-fatal */ }
+        }
+      })(nodes[i]);
+    }
   }
 
   function escapeHtml(s) {
@@ -321,17 +424,7 @@
       kjvBare.toLowerCase() === refBareCmp.toLowerCase() ||
       /^[1-3]?\s*[A-Za-z][A-Za-z\s.]+\s+\d+:\d+(-\d+)?$/i.test(kjvBare)
     ) {
-      try {
-        if (global.bible && global.bible[primaryRef]) kjv = String(global.bible[primaryRef]);
-        else if (global.bible) {
-          var altR = primaryRef.replace(/^Psalms\s+/i, 'Psalm ').replace(/^Psalm\s+/i, 'Psalms ');
-          if (global.bible[altR]) kjv = String(global.bible[altR]);
-        }
-      } catch (eBible) { /* non-fatal */ }
-      kjv = String(kjv || '')
-        .replace(/<[^>]+>/g, ' ')
-        .replace(/\s+/g, ' ')
-        .trim();
+      kjv = resolveKjvTextSync(primaryRef) || resolveKjvTextSync(refRaw) || '';
     }
 
     var article = document.createElement('article');
@@ -366,6 +459,20 @@
     kjvBlock.appendChild(kjvLab);
     kjvBlock.appendChild(kjvBody);
     article.appendChild(kjvBlock);
+    /* If KJV still empty (bible not loaded yet), fetch corpus and fill this card. */
+    if (!kjv) {
+      ensureKjvLoaded()
+        .then(function () {
+          var filled = resolveKjvTextSync(primaryRef) || resolveKjvTextSync(refRaw) || '';
+          if (filled) {
+            kjvBody.textContent = '\u201c' + filled + '\u201d';
+            try {
+              article.setAttribute('data-verse-text', filled);
+            } catch (eF) { /* non-fatal */ }
+          }
+        })
+        .catch(function () { /* non-fatal */ });
+    }
 
     /* 2) BBE — simpler words */
     var bbeBlock = document.createElement('div');
@@ -465,6 +572,9 @@
     getText: getText,
     getTextSync: getTextSync,
     normalizeRef: normalizeRef,
+    resolveKjvTextSync: resolveKjvTextSync,
+    ensureKjvLoaded: ensureKjvLoaded,
+    fillKissKjvBodies: fillKissKjvBodies,
     fillHost: fillHost,
     buildDetailsBlock: buildDetailsBlock,
     buildKissVerseCard: buildKissVerseCard,
@@ -479,6 +589,15 @@
 
   global.TDBBbeSimple = api;
   global.TDB_buildKissVerseCard = buildKissVerseCard;
+  global.TDB_resolveKjvText = resolveKjvTextSync;
+
+  try {
+    global.addEventListener('tdb-bible-ready', function () {
+      try {
+        fillKissKjvBodies(document);
+      } catch (eFill) { /* non-fatal */ }
+    });
+  } catch (eListen) { /* non-fatal */ }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {

@@ -48,7 +48,7 @@ export const STORY_HTML_MARKERS = [
   '/coloring.html?story=prodigal-son',
   'story-library-fonts.css?v=1',
   'loop-library-coloring.js?v=20260524readquiz',
-  'kids-corner.js?v=20260809storyart',
+  'kids-corner.js?v=20260809solomon',
   'kids-page-sky.css?v=20260326playful',
   'uFuzzy.iife.min.js',
   'kids-verses-365.js?v=20260802-calendar-mix',

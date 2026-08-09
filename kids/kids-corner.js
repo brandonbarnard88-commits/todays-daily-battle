@@ -267,9 +267,9 @@
       mephibosheth: 'boy-david',
       davidBathsheba: 'boy-david',
       absalomRebellion: 'david-spares-saul',
-      solomonWisdom: 'boy-david',
-      solomonTwoMothers: 'boy-david',
-      solomonTemple: 'boy-david',
+      solomonWisdom: 'solomon-wisdom',
+      solomonTwoMothers: 'solomon-two-mothers',
+      solomonTemple: 'solomon-temple',
       davidAbigail: 'david-jonathan',
       jesusAuthority: 'triumphal-entry',
       parableWickedHusbandmen: 'the-sower',
@@ -7723,11 +7723,38 @@
   function splitKidsNarrationParagraphs(raw) {
     var t = tdbPlainTextForUi(raw || '').trim();
     if (!t) return [];
+    var forYou = '';
     var fu = t.indexOf(' For you:');
+    if (fu < 0) fu = t.indexOf('For you:');
     if (fu >= 0) {
-      return [t.slice(0, fu).trim(), t.slice(fu + 1).trim()];
+      forYou = t.slice(fu).trim();
+      t = t.slice(0, fu).trim();
     }
-    return [t];
+    var out = [];
+    /* Short chunks so kids (and grown-ups) can actually read the story */
+    if (t.length > 200) {
+      var sentences = t.match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g);
+      if (sentences && sentences.length > 1) {
+        var buf = '';
+        for (var si = 0; si < sentences.length; si++) {
+          var sent = String(sentences[si] || '').trim();
+          if (!sent) continue;
+          if (buf && buf.length + sent.length > 150) {
+            out.push(buf);
+            buf = sent;
+          } else {
+            buf = buf ? buf + ' ' + sent : sent;
+          }
+        }
+        if (buf) out.push(buf);
+      } else {
+        out.push(t);
+      }
+    } else if (t) {
+      out.push(t);
+    }
+    if (forYou) out.push(forYou);
+    return out;
   }
 
   function getStories() {

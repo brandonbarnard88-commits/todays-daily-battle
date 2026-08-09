@@ -603,6 +603,7 @@ const SOCIAL_PURGE_PATHS = [
   '/kids/kids-battle.js?v=20260423caesarcoin',
   '/kids/kids-battle.js?v=20260524readquiz',
   '/kids/kids-corner.js',
+  '/kids/kids-corner.js?v=20260809noage',
   '/kids/kids-corner.js?v=20260809colorart',
   '/kids/kids-corner.js?v=20260809romans',
   '/kids/kids-corner.js?v=20260330kidslib',

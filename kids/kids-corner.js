@@ -8876,41 +8876,6 @@
     el.textContent = total + ' titles in this PDF • full library (ignores search/filter)';
   }
 
-  function buildLiveItOutCards(key, storyObj, pack) {
-    var wrap = document.createElement('div');
-    wrap.className = 'kids-live-it-out';
-    wrap.setAttribute('aria-label', 'Live it out for different ages');
-    var apply = tdbPlainTextForUi((storyObj && storyObj.kidContext && storyObj.kidContext.apply) || (pack && pack.takeaway) || '');
-    var prayer = tdbPlainTextForUi((pack && pack.prayer) || '');
-    var storyTitle = tdbPlainTextForUi((storyObj && storyObj.title) || key || 'this story');
-    var cards = [
-      {
-        label: 'Littles 5-7',
-        text: (apply || 'Hold the big truth in one simple line.') + ' Then draw one part of ' + storyTitle + ' and say one thank-You prayer.'
-      },
-      {
-        label: 'Middles 8-10',
-        text: 'Tell a grown-up what happened in ' + storyTitle + ', then choose one small act of obedience or kindness to do before bed.'
-      },
-      {
-        label: 'Older 11+',
-        text: 'Say what this story shows you about God, where it meets real life, and answer it with one honest step today.' + (prayer ? ' Prayer idea: ' + prayer : '')
-      }
-    ];
-    for (var i = 0; i < cards.length; i++) {
-      var card = document.createElement('div');
-      card.className = 'kids-live-it-out-card';
-      var strong = document.createElement('strong');
-      strong.textContent = cards[i].label;
-      var body = document.createElement('p');
-      body.textContent = cards[i].text;
-      card.appendChild(strong);
-      card.appendChild(body);
-      wrap.appendChild(card);
-    }
-    return wrap;
-  }
-
   function updateDocumentStoryMeta(storyKey, storyObj) {
     try {
       var t = tdbPlainTextForUi((storyObj && storyObj.title) || storyKey);
@@ -9401,7 +9366,6 @@
         pr.textContent = tdbPlainTextForUi(ref);
         modalContext.appendChild(pr);
       }
-      modalContext.appendChild(buildLiveItOutCards(key, s, pack));
       appendWonderQuestionBlock(modalContext, key, s, pack);
       appendAdultReflectionPrompts(modalContext, key);
       if (modalContext.childNodes.length) {

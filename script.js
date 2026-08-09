@@ -110,7 +110,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260809-sitewide-seal';
+    s.src = '/verse-breakdown.js?v=20260809-topics-work';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2832,7 +2832,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
   var trustedCtx = trustedScriptURL('/verse-context.js?v=20260808-situation-every');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-sitewide-seal');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-topics-work');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -4912,6 +4912,17 @@ const QUERY_TO_TOPIC = {
   // spiritual warfare
   spiritualwarfare: 'spiritualwarfare', armor: 'spiritualwarfare', devil: 'spiritualwarfare', demon: 'spiritualwarfare',
   satan: 'spiritualwarfare', evil: 'spiritualwarfare', warfare: 'spiritualwarfare', attack: 'spiritualwarfare',
+  /* Exact home chip labels (multi-word) — must map for curated prepend */
+  'difficult person': 'forgiveness',
+  'difficult boss': 'forgiveness',
+  'jesus said': 'jesus said',
+  'free will': 'free will',
+  'spiritual warfare': 'spiritualwarfare',
+  heavy: 'anxiety',
+  restless: 'anxiety',
+  tired: 'strength',
+  wonder: 'hope',
+  exhaustion: 'strength',
   // free will
   choice: 'free will', choices: 'free will', choosing: 'free will', freedom: 'free will',
   freewill: 'free will', will: 'free will',
@@ -11263,6 +11274,48 @@ const topics = {
       teen: "God's armor protects your heart and mind in the battle."
     }
   },
+  'jesus said': {
+    synonyms: ['jesus said', 'red letter', 'words of jesus', 'sermon on the mount', 'i am'],
+    verses: ['Matthew 11:28', 'John 14:6', 'John 14:27', 'Matthew 5:14', 'John 3:16', 'Matthew 6:33', 'John 10:10', 'Matthew 28:20'],
+    guidance: {
+      kid: "Jesus said real words you can trust. Read one slowly.",
+      teen: "Jesus' words cut through noise—come to Him, follow Him, receive His peace.",
+      adult: "Hold what Jesus said in the Gospels: come, believe, abide, and take His peace.",
+      pastor: "Preach the actual words of Jesus; let red-letter truth lead application."
+    },
+    explain: {
+      kid: "Jesus spoke so we would know how much God loves us.",
+      teen: "Jesus said true things for hard days—listen and walk them out."
+    }
+  },
+  wonder: {
+    synonyms: ['awe', 'amazing', 'creation', 'stars', 'majesty'],
+    verses: ['Psalms 8:3', 'Psalms 19:1', 'Psalms 139:14', 'Job 37:14', 'Psalms 104:24', 'Romans 1:20'],
+    guidance: {
+      kid: "Look at the sky and thank God who made it.",
+      teen: "Wonder pulls you out of self—look at what God has made.",
+      adult: "Consider His heavens and works; let awe steady a thin day.",
+      pastor: "Lead people into worship through creation and God's majesty."
+    },
+    explain: {
+      kid: "God made a wonderful world and He made you too.",
+      teen: "Wonder is allowed—and it points past the sky to the One who made you."
+    }
+  },
+  exhaustion: {
+    synonyms: ['exhausted', 'burnout', 'worn out', 'drained', 'fatigue'],
+    verses: ['Matthew 11:28', 'Isaiah 40:29', 'Isaiah 40:31', 'Psalms 23:2', 'Exodus 33:14', 'Psalms 62:1'],
+    guidance: {
+      kid: "When you are tired, Jesus gives rest.",
+      teen: "You do not have to push through alone—come to Jesus for rest.",
+      adult: "He gives power to the faint; rest is not failure, it is trust.",
+      pastor: "Normalize rest and point to Christ who invites the weary."
+    },
+    explain: {
+      kid: "God cares when you are tired and helps you rest.",
+      teen: "Exhaustion is real; God renews strength when you wait on Him."
+    }
+  },
   sleep: {
     synonyms: ['rest', 'insomnia', 'peace at night', 'calm', 'sleepless'],
     verses: ['Psalms 4:8', 'Proverbs 3:24', 'Psalms 127:2', 'Matthew 11:28', 'Philippians 4:6'],
@@ -11349,8 +11402,14 @@ const topics = {
   }
   // You can keep adding more here
 };
-// Expose for mobius-loop.js (Fear → Faith Loop visualization)
-if (typeof window !== 'undefined') window.TDB_TOPIC_DATA = topics;
+// Expose for mobius-loop.js + homepage feel chips (tdb-home-feel builds packs from topics).
+if (typeof window !== 'undefined') {
+  window.TDB_TOPIC_DATA = topics;
+  window.topics = topics;
+  try {
+    if (typeof QUERY_TO_TOPIC !== 'undefined') window.QUERY_TO_TOPIC = QUERY_TO_TOPIC;
+  } catch (eQ) { /* non-fatal */ }
+}
 
 // Supabase: use imported config (SUPABASE_URL, SUPABASE_ANON_KEY) and window.TDB_CONFIG for other consumers.
 if (typeof window !== 'undefined' && (window.TDB_CONFIG == null || typeof window.TDB_CONFIG !== 'object')) {
@@ -30573,17 +30632,24 @@ function executeQuery(parsed, tier, filters) {
     // Feeling/topic queries: curated topic verses FIRST (never dump random keyword hits alone)
     (function prependCuratedFeelingVerses() {
       var topicKey = (parsed.payload && (parsed.payload.semanticTopic || parsed.payload.topic)) || '';
+      var rawQ = normalizeInput(String((parsed.payload && parsed.payload.phrase) || rawTokens.join(' ') || lastQueryInput || ''));
       if (!topicKey && typeof QUERY_TO_TOPIC !== 'undefined') {
-        var rawQ = normalizeInput(String((parsed.payload && parsed.payload.phrase) || rawTokens.join(' ') || ''));
         topicKey = QUERY_TO_TOPIC[rawQ] || '';
         if (!topicKey && rawTokens.length === 1) topicKey = QUERY_TO_TOPIC[normalizeInput(rawTokens[0])] || '';
+        /* Multi-word chip labels: "difficult person", "jesus said", "free will" */
+        if (!topicKey && rawQ) topicKey = QUERY_TO_TOPIC[rawQ] || '';
       }
+      /* Exact topics key (chip data-topic often matches topics.* directly) */
+      if (!topicKey && topics && topics[rawQ]) topicKey = rawQ;
       // Map common chip labels to topics
       var alias = {
         overwhelmed: 'anxiety', heavy: 'anxiety', burnout: 'rest', tired: 'strength',
-        restless: 'anxiety', stress: 'anxiety', stressed: 'anxiety'
+        restless: 'anxiety', stress: 'anxiety', stressed: 'anxiety',
+        wonder: 'hope', exhaustion: 'strength', money: 'finances',
+        'difficult person': 'forgiveness', 'difficult boss': 'forgiveness'
       };
       if (alias[topicKey]) topicKey = alias[topicKey];
+      if (alias[rawQ]) topicKey = alias[rawQ];
       if (!topicKey || !topics || !topics[topicKey] || !Array.isArray(topics[topicKey].verses)) return;
       var seen = new Set(results.verses.map(function (v) { return v.ref; }));
       var curated = [];
@@ -36382,7 +36448,18 @@ async function tdbInitImpl() {
           var q = getQueryInput();
           if (q) q.value = topic;
           ensureBattleSearchVisible();
-          if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
+          /* Dedicated feel-topic path: curated cards + search (not raw keyword dump alone).
+             #quickTopics also dispatches tdb-quick-feel-topic via tdb-home-feel.js. */
+          if (typeof window.tdbRunFeelTopicWithInstantCard === 'function') {
+            window.tdbRunFeelTopicWithInstantCard(topic);
+          } else if (typeof window.runSearchWithInput === 'function') {
+            window.runSearchWithInput(topic);
+          }
+          if (!(btn.closest && btn.closest('#quickTopics'))) {
+            try {
+              window.dispatchEvent(new CustomEvent('tdb-quick-feel-topic', { detail: { topic: topic } }));
+            } catch (eFeel) { /* non-fatal */ }
+          }
         } catch (err) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB quick-topic click:', err); }
       }
       document.addEventListener('click', onTopicChipTap);

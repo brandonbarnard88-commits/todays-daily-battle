@@ -471,6 +471,17 @@ function auditHomeFeelingChips(kjv) {
   }
 
   const script = fs.readFileSync(path.join(root, 'script.js'), 'utf8');
+  const feel = fs.readFileSync(path.join(root, 'tdb-home-feel.js'), 'utf8');
+  if (!feel.includes('CHIP_TO_TOPICS_KEY') || !feel.includes('buildFeelGroupFromScriptTopics')) {
+    fail('tdb-home-feel.js must map chips via CHIP_TO_TOPICS_KEY + buildFeelGroupFromScriptTopics');
+  }
+  if (!feel.includes('q === group.keys[ki]') && !feel.includes('q === group.keys')) {
+    fail('tdb-home-feel resolveFeelGroup must exact-match chip keys before substring includes');
+  }
+  if (!script.includes('window.topics = topics')) {
+    fail('script.js must expose window.topics for feel-chip packs');
+  }
+
   const topicsChunk = script.match(/const topics = \{([\s\S]*?)\n\};\s*\n/);
   if (!topicsChunk) {
     fail('Could not parse const topics for chip audit');
@@ -480,7 +491,11 @@ function auditHomeFeelingChips(kjv) {
 
   function topicHasVerses(name) {
     const re = new RegExp(
-      name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ':\\s*\\{[\\s\\S]*?verses:\\s*\\[',
+      "(?:'" +
+        name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') +
+        "'|" +
+        name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') +
+        '):\\s*\\{[\\s\\S]*?verses:\\s*\\[',
       'i'
     );
     return re.test(topicBody);
@@ -489,14 +504,19 @@ function auditHomeFeelingChips(kjv) {
   const queryMap = script.match(/QUERY_TO_TOPIC\s*=\s*\{([\s\S]*?)\n\s*\};/);
   const qmap = queryMap ? queryMap[1] : '';
 
+  /* CHIP_TO_TOPICS_KEY targets from feel file */
+  const chipMapBody = feel.match(/CHIP_TO_TOPICS_KEY\s*=\s*\{([\s\S]*?)\n\};/);
+  const chipMap = chipMapBody ? chipMapBody[1] : '';
+
   function chipMapped(chip) {
     if (topicHasVerses(chip)) return true;
-    /* QUERY_TO_TOPIC keys often match chip labels */
     const key = chip.replace(/\s+/g, ' ');
+    if (chipMap.includes(key + ':') || chipMap.includes("'" + key + "'") || chipMap.includes('"' + key + '"')) {
+      return true;
+    }
     if (new RegExp(key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "\\s*:", 'i').test(qmap)) {
       return true;
     }
-    /* multi-word chips like "difficult person" */
     if (qmap.toLowerCase().includes("'" + key + "'") || qmap.toLowerCase().includes('"' + key + '"')) {
       return true;
     }
@@ -507,19 +527,23 @@ function auditHomeFeelingChips(kjv) {
   for (const chip of unique) {
     if (!chipMapped(chip)) unmapped.push(chip);
   }
-  /* Allow a small set of free-text chips that fall through to keyword search */
-  if (unmapped.length > 12) {
+  if (unmapped.length > 3) {
     fail(
-      `Too many home chips without topics/QUERY_TO_TOPIC mapping (${unmapped.length}): ${unmapped.slice(0, 12).join(', ')}`
+      `Home chips without topics/CHIP_TO_TOPICS_KEY mapping (${unmapped.length}): ${unmapped.slice(0, 12).join(', ')}`
     );
   }
 
   /* Spot-check major chips have KJV-backed verse lists */
-  const core = ['anxiety', 'fear', 'grief', 'hope', 'peace', 'strength', 'parenting', 'forgiveness'];
+  const core = ['anxiety', 'fear', 'grief', 'hope', 'peace', 'strength', 'parenting', 'forgiveness', 'jesus said', 'free will'];
   for (const name of core) {
     if (!topicHasVerses(name)) {
       fail(`Core feeling topic "${name}" missing verses array in script.js`);
     }
+  }
+
+  /* Guard: hopeful bucket must not swallow parenting/faith/strength (old bug) */
+  if (/keys:\s*\[[^\]]*parenting[^\]]*\]\s*,\s*group:\s*"hopeful"/i.test(feel.replace(/\s+/g, ' '))) {
+    fail('FEEL_MAP must not map parenting into hopeful pack');
   }
 }
 

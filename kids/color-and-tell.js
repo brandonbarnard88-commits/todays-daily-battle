@@ -260,6 +260,10 @@
   "/coloring-pages/noah-s2.svg": "/coloring-pages/noah-s2.jpg",
   "/coloring-pages/noah-s3.svg": "/coloring-pages/noah-s3.jpg",
   "/coloring-pages/noah-s4.svg": "/coloring-pages/noah-s4.jpg",
+  "/coloring-pages/david-s1.svg": "/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg",
+  "/coloring-pages/david-s2.svg": "/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg",
+  "/coloring-pages/david-s3.svg": "/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg",
+  "/coloring-pages/david-s4.svg": "/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg",
   "/coloring-pages/daniel-lions-s1.svg": "/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg",
   "/coloring-pages/daniel-lions-s2.svg": "/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg",
   "/coloring-pages/daniel-lions-s3.svg": "/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg",
@@ -3719,7 +3723,7 @@
   function createJl(scene) {
     var jl = document.createElement('jl-coloringbook');
     jl.setAttribute('maxbrushsize', '56');
-    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=27');
+    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=28');
     var im = document.createElement('img');
     im.src = bestSceneSrc(scene);
     im.alt = scene.alt;

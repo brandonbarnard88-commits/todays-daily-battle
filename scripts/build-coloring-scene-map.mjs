@@ -45,7 +45,7 @@ const HERO = {
 };
 
 /** Always prefer full-page hero over multi-panel detailed SVGs. */
-const FORCE_HERO = new Set(['creation', 'jesus-children', 'empty-tomb']);
+const FORCE_HERO = new Set(['creation', 'jesus-children', 'empty-tomb', 'david']);
 
 /** Resolve hero art for a story prefix: explicit HERO map, else `{prefix}.jpg`. */
 function heroFor(prefix) {

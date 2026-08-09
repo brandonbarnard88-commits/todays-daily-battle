@@ -93,12 +93,27 @@ function buildVbdHtml(refLabel, verseText, plainMap, resolve) {
   const about = String(ctx.about || '').replace(/\s+/g, ' ').trim();
   const to = String(ctx.to || '').replace(/\s+/g, ' ').trim();
   let plain = buildHeroLaymanPlain(ref, text, plainMap, root);
-  plain = String(plain || '').replace(/\s+/g, ' ').trim();
-  // Prefer teaching line; never echo full KJV as “meaning”
-  if (!plain || plain.length < 12) {
-    plain = text.length > 140 ? text.slice(0, 137).replace(/\s+\S*$/, '') + '…' : text;
+  plain = String(plain || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+    .replace(/^What it means:\s*/i, '');
+  // Prefer teaching line; never echo full KJV / thin stamps as “meaning”
+  if (
+    !plain ||
+    plain.length < 12 ||
+    /^In plain terms for life today:/i.test(plain) ||
+    /Sit with that until one phrase lands/i.test(plain)
+  ) {
+    plain = 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
   }
-  const combined = composeCombined(situation, plain);
+  /* Prefer narrative situation; drop thin “X speaking to Y” stamps. */
+  let sit = situation;
+  if (/ speaking to /i.test(sit) && sit.length < 100) {
+    const setAlt = String(ctx.setting || '').replace(/\s+/g, ' ').trim();
+    sit = setAlt && setAlt.length >= 55 ? setAlt : '';
+  }
+  const combined = composeCombined(sit, plain);
   if (!combined) return '';
 
   let html =

@@ -1556,11 +1556,25 @@ const FEEL_MORE = {
       if (typeof window.TDB_resolveVerseContext === "function") {
         const ctx = window.TDB_resolveVerseContext(primaryFeelRef(ref)) || {};
         situation = sanitizeText(ctx.situation || ctx.setting || "");
+        if (window.TDBTeachingQuality && typeof window.TDBTeachingQuality.preferSituation === "function") {
+          situation = window.TDBTeachingQuality.preferSituation(situation, ctx.setting || "") || "";
+        } else if (/ speaking to /i.test(situation) && situation.length < 100) {
+          const setAlt = sanitizeText(ctx.setting || "");
+          situation = setAlt && setAlt.length >= 55 ? setAlt : "";
+        }
         about = sanitizeText(ctx.about || "");
         to = sanitizeText(ctx.to || "");
       }
     } catch (eCtx) { /* non-fatal */ }
-    const meaning = sanitizeText(plainMeaning || "");
+    let meaning = sanitizeText(plainMeaning || "");
+    if (window.TDBTeachingQuality && typeof window.TDBTeachingQuality.meaningOnly === "function") {
+      meaning = window.TDBTeachingQuality.meaningOnly(meaning) || meaning;
+    } else {
+      meaning = meaning.replace(/^What was going on:[\s\S]*?What it means:\s*/i, "").trim();
+    }
+    if (/^In plain terms for life today:/i.test(meaning) || /Sit with that until one phrase lands/i.test(meaning)) {
+      meaning = "";
+    }
     if (!situation && !meaning && !about) return null;
 
     const heading = document.createElement("p");

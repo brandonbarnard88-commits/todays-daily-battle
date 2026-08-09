@@ -110,7 +110,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260809-no-weak-combined';
+    s.src = '/verse-breakdown.js?v=20260809-sitewide-seal';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2832,7 +2832,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
   var trustedCtx = trustedScriptURL('/verse-context.js?v=20260808-situation-every');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-no-weak-combined');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-sitewide-seal');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -13046,6 +13046,13 @@ function renderSmartResult(query) {
       if (pm) primaryRef = pm[1].trim();
       var ctxHit = window.TDB_resolveVerseContext(primaryRef) || {};
       var sit = String(ctxHit.situation || ctxHit.setting || '').replace(/\s+/g, ' ').trim();
+      /* Drop thin “X speaking to Y” when a longer setting exists; else hide situation. */
+      if (typeof window.TDBTeachingQuality !== 'undefined' && window.TDBTeachingQuality.preferSituation) {
+        sit = window.TDBTeachingQuality.preferSituation(sit, ctxHit.setting || '') || '';
+      } else if (/ speaking to /i.test(sit) && sit.length < 100) {
+        var setAlt = String(ctxHit.setting || '').replace(/\s+/g, ' ').trim();
+        sit = setAlt && setAlt.length >= 55 ? setAlt : '';
+      }
       var aboutCtx = String(ctxHit.about || '').replace(/\s+/g, ' ').trim();
       var toCtx = String(ctxHit.to || '').replace(/\s+/g, ' ').trim();
       var meaningLine = '';
@@ -13053,6 +13060,11 @@ function renderSmartResult(query) {
         meaningLine = String(verse.breakdown[0] || '').replace(/\s+/g, ' ').trim();
       }
       if (!meaningLine && info.def) meaningLine = String(info.def).replace(/\s+/g, ' ').trim();
+      if (typeof window.TDBTeachingQuality !== 'undefined' && window.TDBTeachingQuality.meaningOnly) {
+        meaningLine = window.TDBTeachingQuality.meaningOnly(meaningLine) || meaningLine;
+      } else {
+        meaningLine = meaningLine.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
+      }
       if (sit || meaningLine || aboutCtx) {
         situationWrap = document.createElement('div');
         situationWrap.className = 'tdb-topic-vbd smart-situation';
@@ -28299,7 +28311,14 @@ function fillReaderVerseBreakdown(ref, text) {
   if (textEl) textEl.textContent = cleanText ? '\u201C' + cleanText + '\u201D' : '';
   var bd = typeof getVerseBreakdown === 'function' ? getVerseBreakdown(cleanRef, cleanText, null) : null;
   if (laymanEl) {
-    laymanEl.textContent = (bd && bd.layman) || 'Read this verse slowly. Let one clear phrase stay with you.';
+    var laymanTxt = (bd && (bd.plainMeaningOnly || bd.layman || bd.plainExplanation)) || '';
+    if (typeof window.TDBTeachingQuality !== 'undefined' && window.TDBTeachingQuality.meaningOnly) {
+      laymanTxt = window.TDBTeachingQuality.meaningOnly(laymanTxt) || laymanTxt;
+    }
+    if (!laymanTxt || /^In plain terms for life today:/i.test(laymanTxt)) {
+      laymanTxt = 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
+    }
+    laymanEl.textContent = laymanTxt;
   }
   if (stepWrap && stepText) {
     var step = (bd && (bd.nextStep || bd.action)) || '';
@@ -32913,7 +32932,26 @@ function buildHomeVerseCard(output, verse, queryText) {
   var plainMeaning = typeof getPlainMeaning === 'function' ? getPlainMeaning(verse.ref) : '';
   if (!plainMeaning && typeof getVerseBreakdown === 'function') {
     var autoBd = getVerseBreakdown(verse.ref, verseText, null);
-    if (autoBd && autoBd.layman) plainMeaning = String(autoBd.layman).trim();
+    /* Prefer meaning-only — never show combined “What was going on…” under Plain English. */
+    if (autoBd) {
+      plainMeaning = String(
+        autoBd.plainMeaningOnly || autoBd.layman || autoBd.plainExplanation || ''
+      ).trim();
+    }
+  }
+  if (typeof window.TDBTeachingQuality !== 'undefined' && window.TDBTeachingQuality.meaningOnly) {
+    plainMeaning = window.TDBTeachingQuality.meaningOnly(plainMeaning) || plainMeaning;
+  } else {
+    plainMeaning = String(plainMeaning || '')
+      .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+      .replace(/^What it means:\s*/i, '')
+      .trim();
+  }
+  if (
+    /^In plain terms for life today:/i.test(plainMeaning) ||
+    /Sit with that until one phrase lands/i.test(plainMeaning)
+  ) {
+    plainMeaning = '';
   }
 
   var primary = document.createElement('div');

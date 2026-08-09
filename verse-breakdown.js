@@ -1849,6 +1849,12 @@
     } catch (e0) {}
     if (el.closest('#tdb-cat-root')) return true;
     if (el.closest('[data-tdb-no-verse-breakdown="1"]')) return true;
+    /* KISS cards already show KJV → BBE → context — never pile on heavy inline breakdown. */
+    if (el.classList && el.classList.contains('tdb-kiss-verse')) return true;
+    if (el.closest('.tdb-kiss-verse, [data-tdb-kiss-verse="1"]')) return true;
+    if (el.closest('[data-home-result-card="verse"], .home-search-card--verse')) return true;
+    if (el.closest('#feelCards, .feel-verse-card, #feel-results')) return true;
+    if (el.closest('.home-search-detail-panel')) return true;
     if (el.classList && el.classList.contains('tdb-verse-breakdown-inline')) return true;
     if (el.closest('.tdb-verse-breakdown-inline')) return true;
     return false;
@@ -2101,6 +2107,16 @@
       ''
     ).trim();
     if (!text) {
+      var kissKjv = container.querySelector('.tdb-kiss-verse__kjv');
+      if (kissKjv) {
+        text = cleanVerseText(
+          String(kissKjv.textContent || '')
+            .replace(/^[\s"\u201c\u201d']+|[\s"\u201c\u201d']+$/g, '')
+            .trim()
+        );
+      }
+    }
+    if (!text) {
       var textNode = container.querySelector('.verse-text, .daily-verse-text, .smart-verse, .kids-verse-text, .concordance-verse-text, .verse-maps-verse-text, #verse-text, #desktop-verse-text, #family-daily-verse-text, #family-armor-hero-text, #kids-daily-verse-text, #little-ones-verse-text, #pastor-daily-verse-text');
       if (textNode) text = cleanVerseText(textNode.textContent || '');
     }
@@ -2116,11 +2132,34 @@
       }
     }
     if (!text) {
-      var p = container.querySelector('p');
-      if (p) text = cleanVerseText(p.textContent || '');
+      /* Prefer body paragraphs, never the ref line as verse text. */
+      var pNodes = container.querySelectorAll('p');
+      for (var pi = 0; pi < pNodes.length; pi++) {
+        var cand = cleanVerseText(pNodes[pi].textContent || '');
+        if (!cand) continue;
+        if (pNodes[pi].classList && (
+          pNodes[pi].classList.contains('tdb-kiss-verse__ref') ||
+          pNodes[pi].classList.contains('home-search-card-ref') ||
+          pNodes[pi].classList.contains('smart-ref')
+        )) continue;
+        var looksLikeRefOnly = /^[1-3]?\s*[A-Za-z][A-Za-z\s.]+\s+\d+:\d+(-\d+)?(\s*\(KJV\))?$/i.test(cand);
+        if (looksLikeRefOnly) continue;
+        text = cand;
+        break;
+      }
     }
     if (!text && ref) text = getBibleVerseText(ref);
-    return { ref: cleanVerseText(ref), text: cleanVerseText(text) };
+    var refClean = cleanVerseText(ref);
+    var textClean = cleanVerseText(text);
+    /* Never treat the reference string as verse body (e.g. “Psalms 68:6”). */
+    if (textClean && refClean) {
+      var tNorm = textClean.replace(/[“”"']/g, '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
+      var rNorm = refClean.replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
+      if (tNorm.toLowerCase() === rNorm.toLowerCase() || extractRefFromText(tNorm) === rNorm) {
+        textClean = getBibleVerseText(refClean) || '';
+      }
+    }
+    return { ref: refClean, text: textClean };
   }
 
   function enhanceVerseContainers(root) {

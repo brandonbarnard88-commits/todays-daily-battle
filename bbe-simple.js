@@ -313,11 +313,33 @@
       .replace(/\s+/g, ' ')
       .replace(/^[\s\u201c\u201d"']+|[\s\u201c\u201d"']+$/g, '')
       .trim();
+    /* Never paint the reference as the verse body. */
+    var kjvBare = kjv.replace(/\s*\(KJV\)\s*$/i, '').trim();
+    var refBareCmp = primaryRef.replace(/\s*\(KJV\)\s*$/i, '').trim();
+    if (
+      !kjv ||
+      kjvBare.toLowerCase() === refBareCmp.toLowerCase() ||
+      /^[1-3]?\s*[A-Za-z][A-Za-z\s.]+\s+\d+:\d+(-\d+)?$/i.test(kjvBare)
+    ) {
+      try {
+        if (global.bible && global.bible[primaryRef]) kjv = String(global.bible[primaryRef]);
+        else if (global.bible) {
+          var altR = primaryRef.replace(/^Psalms\s+/i, 'Psalm ').replace(/^Psalm\s+/i, 'Psalms ');
+          if (global.bible[altR]) kjv = String(global.bible[altR]);
+        }
+      } catch (eBible) { /* non-fatal */ }
+      kjv = String(kjv || '')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
 
     var article = document.createElement('article');
     article.className = 'tdb-kiss-verse' + (opts.className ? ' ' + opts.className : '');
     article.setAttribute('data-tdb-kiss-verse', '1');
+    article.setAttribute('data-tdb-no-verse-breakdown', '1');
     article.setAttribute('data-ref', refKey);
+    if (kjv) article.setAttribute('data-verse-text', kjv);
 
     var refEl = document.createElement('p');
     refEl.className = 'tdb-kiss-verse__ref';

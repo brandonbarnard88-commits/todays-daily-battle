@@ -110,7 +110,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260809-kiss-stack';
+    s.src = '/verse-breakdown.js?v=20260809-kiss-only';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2832,7 +2832,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
   var trustedCtx = trustedScriptURL('/verse-context.js?v=20260808-situation-every');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-kiss-stack');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-kiss-only');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -30618,7 +30618,18 @@ function executeQuery(parsed, tier, filters) {
         curated.push({ ref: ref, text: text });
       });
       if (curated.length) {
-        results.verses = curated.concat(results.verses).slice(0, 30);
+        /* Pure topic chips (loneliness, anxiety, …): show curated only — no keyword junk (e.g. 1 Cor 7:4). */
+        var pureTopic =
+          rawQ &&
+          (rawQ === topicKey ||
+            rawQ === alias[rawQ] ||
+            rawQ === topicKey.replace(/\s+/g, '') ||
+            (QUERY_TO_TOPIC && QUERY_TO_TOPIC[rawQ] === topicKey));
+        if (pureTopic && curated.length >= 3) {
+          results.verses = curated.slice(0, 16);
+        } else {
+          results.verses = curated.concat(results.verses).slice(0, 30);
+        }
         results.usedSemanticTopic = true;
         results.topic = results.topic || topicKey;
       }
@@ -32698,7 +32709,8 @@ function renderHomeSearchDetail(output, verse, queryText) {
 
   var panel = document.createElement('article');
   panel.className = 'home-search-detail-panel';
-  panel.setAttribute('aria-label', 'Verse breakdown for ' + verse.ref);
+  panel.setAttribute('aria-label', 'Verse for ' + verse.ref);
+  panel.setAttribute('data-tdb-no-verse-breakdown', '1');
 
   var topActions = document.createElement('div');
   topActions.className = 'home-search-detail-top-actions';
@@ -32712,56 +32724,59 @@ function renderHomeSearchDetail(output, verse, queryText) {
     tdbScrollIntoView(output, 'start', 'nearest');
   });
   topActions.appendChild(backTop);
-
-  var listenBtn = document.createElement('button');
-  listenBtn.type = 'button';
-  listenBtn.className = 'btn btn-secondary';
-  listenBtn.textContent = 'Listen';
-  listenBtn.setAttribute('aria-label', 'Listen to ' + verse.ref);
-  listenBtn.addEventListener('click', function () {
-    speakVerse(verse.ref, stripHtmlToPlainText(verse.text || ''));
-  });
-  topActions.appendChild(listenBtn);
-
-  var saveBtn = document.createElement('button');
-  saveBtn.type = 'button';
-  saveBtn.className = 'btn btn-primary';
-  updateHomeSearchSaveButton(saveBtn, verse);
-  saveBtn.addEventListener('click', function () {
-    if (saveBtn.disabled) return;
-    saveBtn.disabled = true;
-    saveDailyVerseToMyVerses(verse.ref, stripHtmlToPlainText(verse.text || '')).then(function () {
-      updateHomeSearchSaveButton(saveBtn, verse);
-    }).catch(function () {
-      saveBtn.textContent = 'Try again';
-      saveBtn.disabled = false;
-    });
-  });
-  topActions.appendChild(saveBtn);
-
   panel.appendChild(topActions);
 
-  var verseSection = document.createElement('section');
-  verseSection.className = 'home-search-detail-section home-search-detail-section--verse';
-  var verseHeading = document.createElement('h3');
-  verseHeading.className = 'home-search-detail-heading';
-  verseHeading.textContent = 'The Verse';
-  verseSection.appendChild(verseHeading);
-  var verseRef = document.createElement('p');
-  verseRef.className = 'home-search-detail-ref';
-  verseRef.textContent = verse.ref + ' (KJV)';
-  verseSection.appendChild(verseRef);
-  var verseBody = document.createElement('p');
-  verseBody.className = 'home-search-detail-text';
-  appendHighlightedText(verseBody, stripHtmlToPlainText(verse.text || ''), buildHomeSearchHighlightRegex(queryText));
-  verseSection.appendChild(verseBody);
-  panel.appendChild(verseSection);
+  /* Same KISS stack as list cards — not a second full breakdown maze. */
+  var detailText = stripHtmlToPlainText(verse.text || '');
+  var detailRef = String(verse.ref || '').replace(/\s*\(KJV\)\s*$/i, '').trim();
+  if (
+    !detailText ||
+    detailText.replace(/[“”"']/g, '').replace(/\s*\(KJV\)\s*$/i, '').trim().toLowerCase() === detailRef.toLowerCase()
+  ) {
+    detailText =
+      (typeof getBibleVerseText === 'function' ? getBibleVerseText(detailRef) : '') ||
+      (bible && bible[detailRef]) ||
+      detailText;
+    detailText = stripHtmlToPlainText(detailText || '');
+  }
+  var kissDetail = null;
+  try {
+    var kissBuild =
+      (window.TDBBbeSimple && typeof window.TDBBbeSimple.buildKissVerseCard === 'function'
+        ? window.TDBBbeSimple.buildKissVerseCard
+        : null) ||
+      (typeof window.TDB_buildKissVerseCard === 'function' ? window.TDB_buildKissVerseCard : null);
+    if (kissBuild) {
+      kissDetail = kissBuild({
+        ref: verse.ref,
+        text: detailText,
+        className: 'home-search-detail-kiss'
+      });
+    }
+  } catch (eKissDet) {
+    kissDetail = null;
+  }
+  if (kissDetail) {
+    panel.appendChild(kissDetail);
+  } else {
+    var verseSection = document.createElement('section');
+    verseSection.className = 'home-search-detail-section home-search-detail-section--verse';
+    var verseRef = document.createElement('p');
+    verseRef.className = 'home-search-detail-ref';
+    verseRef.textContent = verse.ref + ' (KJV)';
+    verseSection.appendChild(verseRef);
+    var verseBody = document.createElement('p');
+    verseBody.className = 'home-search-detail-text';
+    verseBody.textContent = detailText;
+    verseSection.appendChild(verseBody);
+    panel.appendChild(verseSection);
+  }
 
   var nextStepSection = document.createElement('section');
   nextStepSection.className = 'home-search-detail-section';
   var nextStepHeading = document.createElement('h3');
   nextStepHeading.className = 'home-search-detail-heading';
-  nextStepHeading.textContent = 'Why this can help today';
+  nextStepHeading.textContent = 'One small step';
   nextStepSection.appendChild(nextStepHeading);
   var nextStepBody = document.createElement('p');
   nextStepBody.className = 'home-search-detail-copy';
@@ -32773,7 +32788,7 @@ function renderHomeSearchDetail(output, verse, queryText) {
   prayerSection.className = 'home-search-detail-section';
   var prayerHeading = document.createElement('h3');
   prayerHeading.className = 'home-search-detail-heading';
-  prayerHeading.textContent = 'Pray it back to God';
+  prayerHeading.textContent = 'A simple prayer';
   prayerSection.appendChild(prayerHeading);
   var prayerBody = document.createElement('p');
   prayerBody.className = 'home-search-detail-copy';
@@ -32781,6 +32796,11 @@ function renderHomeSearchDetail(output, verse, queryText) {
   prayerSection.appendChild(prayerBody);
   panel.appendChild(prayerSection);
 
+  host.appendChild(panel);
+  tdbScrollIntoView(host, 'start', 'nearest');
+  return;
+
+  /* Legacy accordion path below kept unreachable for safety if someone rewires later. */
   var accordions = document.createElement('div');
   accordions.className = 'home-search-accordions';
 
@@ -32944,7 +32964,25 @@ function buildHomeVerseCard(output, verse, queryText) {
     plainMeaning = '';
   }
 
-  /* KISS stack: KJV → BBE → context (same for every verse in the list). */
+  /* Resolve real KJV body — never show the reference string as the verse. */
+  var refBare = String(verse.ref || '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
+  var textLooksLikeRef =
+    !plainVerse ||
+    plainVerse.replace(/[“”"']/g, '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim().toLowerCase() ===
+      refBare.toLowerCase() ||
+    /^[1-3]?\s*[A-Za-z][A-Za-z\s.]+\s+\d+:\d+(-\d+)?$/i.test(plainVerse.replace(/[“”"']/g, '').trim());
+  if (textLooksLikeRef) {
+    var resolved =
+      (typeof getBibleVerseText === 'function' ? getBibleVerseText(refBare) : '') ||
+      (bible && (bible[refBare] || bible[refBare.replace(/^Psalms\s+/i, 'Psalm ')] || bible[refBare.replace(/^Psalm\s+/i, 'Psalms ')])) ||
+      '';
+    if (resolved) {
+      plainVerse = stripHtmlToPlainText(resolved);
+      verseText = plainVerse;
+    }
+  }
+
+  /* KISS stack only: KJV → BBE → context. No heavy inline “Verse breakdown” chrome. */
   var card = null;
   try {
     var kissBuild =
@@ -32957,7 +32995,7 @@ function buildHomeVerseCard(output, verse, queryText) {
         ref: verse.ref,
         text: plainVerse,
         plain: plainMeaning,
-        className: 'verse-card home-search-card home-search-card--verse tdb-result-card'
+        className: 'tdb-kiss-verse home-search-card home-search-card--verse tdb-result-card'
       });
     }
   } catch (eKissHome) {
@@ -32965,39 +33003,38 @@ function buildHomeVerseCard(output, verse, queryText) {
   }
   if (!card) {
     card = document.createElement('article');
-    card.className = 'verse-card home-search-card home-search-card--verse tdb-result-card';
+    card.className = 'tdb-kiss-verse home-search-card home-search-card--verse tdb-result-card';
     var ref = document.createElement('p');
-    ref.className = 'home-search-card-ref';
+    ref.className = 'home-search-card-ref tdb-kiss-verse__ref';
     ref.textContent = verse.ref;
     card.appendChild(ref);
     var versePreview = document.createElement('p');
-    versePreview.className = 'home-search-card-copy';
-    if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(verse.ref, plainVerse)) {
-      try {
-        if (window.trustedTypes && window.trustedTypes.defaultPolicy && window.trustedTypes.defaultPolicy.createHTML) {
-          versePreview.innerHTML = window.trustedTypes.defaultPolicy.createHTML(tdbVerseBodyHtml(verse.ref, plainVerse, { quote: false }));
-        } else {
-          versePreview.innerHTML = tdbVerseBodyHtml(verse.ref, plainVerse, { quote: false });
-        }
-      } catch (eRlHome) {
-        versePreview.textContent = plainVerse;
-      }
-      card.classList.add('red-letter-card');
-    } else {
-      appendHighlightedText(versePreview, plainVerse, buildHomeSearchHighlightRegex(queryText));
-    }
+    versePreview.className = 'home-search-card-copy tdb-kiss-verse__kjv';
+    versePreview.textContent = plainVerse ? ('\u201c' + plainVerse + '\u201d') : '';
     card.appendChild(versePreview);
     if (plainMeaning) {
       var primary = document.createElement('div');
-      primary.className = 'verse-breakdown-container search-vbd-primary home-search-vbd';
-      appendSearchBpIf(primary, 'What it means', plainMeaning);
-      if (primary.childElementCount) card.appendChild(primary);
+      primary.className = 'tdb-kiss-verse__block';
+      var meanLab = document.createElement('h4');
+      meanLab.className = 'tdb-kiss-verse__label';
+      meanLab.textContent = 'What it means';
+      var meanP = document.createElement('p');
+      meanP.className = 'tdb-kiss-verse__mean';
+      meanP.textContent = plainMeaning;
+      primary.appendChild(meanLab);
+      primary.appendChild(meanP);
+      card.appendChild(primary);
     }
   }
   card.setAttribute('data-home-result-card', 'verse');
+  card.setAttribute('data-tdb-kiss-verse', '1');
+  card.setAttribute('data-tdb-no-verse-breakdown', '1');
+  card.setAttribute('data-ref', refBare);
+  if (plainVerse) card.setAttribute('data-verse-text', plainVerse);
 
+  /* Quiet actions only — no dual breakdown / kid-teen-adult wall. */
   var actionBar = document.createElement('div');
-  actionBar.className = 'ask-word-action-bar';
+  actionBar.className = 'ask-word-action-bar tdb-kiss-verse__actions';
 
   function buildActionGroup(label) {
     var group = document.createElement('div');
@@ -33025,88 +33062,31 @@ function buildHomeVerseCard(output, verse, queryText) {
     }
   }
 
-  var verseWords = verseText.split(/\s+/).filter(Boolean);
-
-  var quickGroup = buildActionGroup('Quick actions');
-  quickGroup.appendChild(buildActionButton('📋 Copy', 'Copy ' + verse.ref, function () {
+  var quietGroup = buildActionGroup('Actions');
+  quietGroup.appendChild(buildActionButton('Copy', 'Copy ' + verse.ref, function () {
     if (!navigator.clipboard) return;
     navigator.clipboard.writeText(verse.ref + ': ' + verseText).catch(function () {});
   }));
-  quickGroup.appendChild(buildActionButton('🔊 Listen', 'Listen to ' + verse.ref, function () {
+  quietGroup.appendChild(buildActionButton('Listen', 'Listen to ' + verse.ref, function () {
     speakVerse(verse.ref, verseText);
   }));
-  quickGroup.appendChild(buildActionButton('🙏 Pray This', 'Copy a prayer from ' + verse.ref, function (event) {
-    var btn = event.currentTarget;
-    if (!navigator.clipboard) return;
-    navigator.clipboard.writeText(getHomeSearchPrayerText(verse)).then(function () {
-      btn.textContent = 'Copied';
-      setTimeout(function () { btn.textContent = '🙏 Pray This'; }, 1800);
-    }).catch(function () {});
-  }));
-  actionBar.appendChild(quickGroup);
-
-  var growGroup = buildActionGroup('Save and grow');
-  growGroup.appendChild(buildActionButton('📝 Add to Notes', 'Save ' + verse.ref + ' to your notes on this device', function (event) {
+  quietGroup.appendChild(buildActionButton('Save', 'Save ' + verse.ref + ' to My Study', function (event) {
     var btn = event.currentTarget;
     if (btn.disabled) return;
     btn.disabled = true;
     saveDailyVerseToMyVerses(verse.ref, verseText).then(function () {
       btn.textContent = 'Saved';
+      setTimeout(function () { btn.textContent = 'Save'; btn.disabled = false; }, 1600);
     }).catch(function () {
       btn.disabled = false;
       btn.textContent = 'Try again';
-      setTimeout(function () { btn.textContent = '📝 Add to Notes'; }, 1800);
+      setTimeout(function () { btn.textContent = 'Save'; }, 1800);
     });
   }));
-  growGroup.appendChild(buildActionButton('🧠 Memory', 'Toggle memory mode for ' + verse.ref, function (event) {
-    var btn = event.currentTarget;
-    if (versePreview.classList.contains('memory-mode')) {
-      versePreview.classList.remove('memory-mode');
-      appendHighlightedText(versePreview, verseText, buildHomeSearchHighlightRegex(queryText));
-      btn.textContent = '🧠 Memory';
-      return;
-    }
-    versePreview.classList.add('memory-mode');
-    versePreview.textContent = '';
-    verseWords.forEach(function (word, index) {
-      var span = document.createElement('span');
-      span.className = 'memory-word';
-      span.setAttribute('tabindex', '0');
-      span.setAttribute('role', 'button');
-      span.textContent = word;
-      span.addEventListener('click', function () { span.classList.add('revealed'); });
-      span.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          span.classList.add('revealed');
-        }
-      });
-      versePreview.appendChild(span);
-      if (index < verseWords.length - 1) versePreview.appendChild(document.createTextNode(' '));
-    });
-    btn.textContent = 'Show all';
+  quietGroup.appendChild(buildActionButton('Chapter', 'Open full chapter for ' + verse.ref, function () {
+    window.location.href = buildReaderUrl(verse.ref);
   }));
-  growGroup.appendChild(buildActionButton('🖼️ Card', 'Create a verse card for ' + verse.ref, function () {
-    createVerseCardImage(verse.ref, verseText);
-  }));
-  actionBar.appendChild(growGroup);
-
-  var shareGroup = buildActionGroup('Share');
-  shareGroup.appendChild(buildActionButton('𝕏 Share', 'Share ' + verse.ref + ' on X', function () {
-    window.open(buildTweetShareUrl(verse.ref, verseText), '_blank', 'noopener,noreferrer');
-  }));
-  shareGroup.appendChild(buildActionButton('📘 FB', 'Share ' + verse.ref + ' on Facebook', function () {
-    window.open(buildFacebookShareUrl(verse.ref), '_blank', 'noopener,noreferrer');
-  }));
-  shareGroup.appendChild(buildActionButton('🔗 Link', 'Copy a link to ' + verse.ref, function (event) {
-    var btn = event.currentTarget;
-    if (!navigator.clipboard) return;
-    navigator.clipboard.writeText(readerShareUrl()).then(function () {
-      btn.textContent = 'Copied';
-      setTimeout(function () { btn.textContent = '🔗 Link'; }, 1800);
-    }).catch(function () {});
-  }));
-  actionBar.appendChild(shareGroup);
+  actionBar.appendChild(quietGroup);
 
   card.appendChild(actionBar);
 
@@ -34247,6 +34227,18 @@ function renderHomeSearchResults(results, output, queryText) {
       list.forEach(function (verse) {
         verseList.appendChild(buildHomeVerseCard(output, verse, queryText));
       });
+      try {
+        if (window.TDBBbeSimple && typeof window.TDBBbeSimple.enhanceDocument === 'function') {
+          window.TDBBbeSimple.enhanceDocument(verseList);
+        }
+      } catch (eBbeEnh) { /* non-fatal */ }
+      try {
+        verseList.querySelectorAll('.tdb-verse-breakdown-inline, details.verse-breakdown').forEach(function (node) {
+          if (node.closest('.tdb-kiss-verse, [data-home-result-card="verse"], [data-tdb-no-verse-breakdown="1"]') && node.parentNode) {
+            node.parentNode.removeChild(node);
+          }
+        });
+      } catch (eStrip) { /* non-fatal */ }
     }
     paintVerseCards();
     versesSection.appendChild(verseList);

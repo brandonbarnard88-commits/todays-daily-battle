@@ -7443,6 +7443,35 @@
         hint0.textContent = tdbPlainTextForUi(pack.hintAboveQuiz);
         wrap.appendChild(hint0);
       }
+      /* Prefer Color & Tell line art — never show stick panel-*.svg when real art exists */
+      var colorArtSec = getColoringArtUrlsForLibraryKey(key);
+      var colorArtSafe = [];
+      var csi;
+      for (csi = 0; csi < colorArtSec.length; csi++) {
+        if (isSafeColoringPagePath(colorArtSec[csi])) colorArtSafe.push(colorArtSec[csi]);
+      }
+      if (colorArtSafe.length) {
+        var colorRow = document.createElement('div');
+        colorRow.className = 'kids-read-quiz-images';
+        colorRow.setAttribute('role', 'group');
+        colorRow.setAttribute('aria-label', 'Coloring pictures for this story');
+        for (csi = 0; csi < colorArtSafe.length; csi++) {
+          var cImg = document.createElement('img');
+          cImg.src = colorArtSafe[csi];
+          cImg.alt = tdbPlainTextForUi(storyTitle) + ' — Bible coloring picture';
+          cImg.className = 'kids-read-quiz-panel-img kids-read-quiz-panel-img--coloring';
+          cImg.setAttribute('loading', csi === 0 ? 'eager' : 'lazy');
+          cImg.setAttribute('decoding', 'async');
+          (function (imgEl) {
+            imgEl.addEventListener('error', function onSecColorErr() {
+              imgEl.removeEventListener('error', onSecColorErr);
+              if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
+            });
+          })(cImg);
+          colorRow.appendChild(cImg);
+        }
+        if (colorRow.childNodes.length) wrap.appendChild(colorRow);
+      }
       var panelList = stMeta.panels || [];
       pack.readAlongSections.forEach(function (sec, si) {
         if (!sec || typeof sec !== 'object') return;
@@ -7450,7 +7479,11 @@
         block.className = 'kids-read-quiz-section';
         block.setAttribute('role', 'group');
         block.setAttribute('aria-label', 'Story part ' + (si + 1));
-        var imgSrc = resolveReadAlongSectionImageSrc(sec.image || '');
+        /* Skip stick-figure panel SVGs when Color & Tell art is already shown above */
+        var imgSrc = '';
+        if (!colorArtSafe.length) {
+          imgSrc = resolveReadAlongSectionImageSrc(sec.image || '');
+        }
         var ph = sec.placeholder ? String(sec.placeholder).trim() : '';
         if (imgSrc) {
           var fig = document.createElement('figure');
@@ -7474,11 +7507,17 @@
             fig.appendChild(cap);
           }
           block.appendChild(fig);
-        } else if (ph) {
+        } else if (ph && !colorArtSafe.length) {
           var pl = document.createElement('p');
           pl.className = 'kids-read-quiz-section-placeholder';
           pl.textContent = tdbPlainTextForUi(ph);
           block.appendChild(pl);
+        } else if (sec.caption && colorArtSafe.length) {
+          /* Keep part caption as text when we already showed real art above */
+          var capOnly = document.createElement('p');
+          capOnly.className = 'kids-read-quiz-section-caption';
+          capOnly.textContent = tdbPlainTextForUi(sec.caption);
+          block.appendChild(capOnly);
         }
         if (sec.text) {
           var pt = document.createElement('p');
@@ -9112,7 +9151,7 @@
       prependLittleShepherdIntro(carouselRoot, key, s);
       var panelsWrap = document.createElement('div');
       panelsWrap.className = 'panels-container';
-      /* Prefer Color & Tell line art over tiny legacy panel-*.svg comics */
+      /* Prefer Color & Tell line art — never lead with stick panel-*.svg when art exists */
       var colorArtUrls = getColoringArtUrlsForLibraryKey(key);
       var usedColorArt = false;
       if (colorArtUrls && colorArtUrls.length) {
@@ -9128,51 +9167,31 @@
             ' — Bible coloring picture' +
             (themeSnippet ? ' – ' + tdbPlainTextForUi(themeSnippet) : '');
           imC.src = colorArtUrls[cai];
-          (function (imgEl, storyPanels, themeSnip, storyObj) {
+          (function (imgEl) {
             imgEl.addEventListener('error', function onColorArtErr() {
               imgEl.removeEventListener('error', onColorArtErr);
-              var parent = imgEl.parentNode;
-              if (parent) parent.removeChild(imgEl);
-              /* If every coloring image failed, fall back to legacy panels once */
-              if (parent && !parent.querySelector('.comic-panel--coloring-art') && !parent.getAttribute('data-legacy-fallback')) {
-                parent.setAttribute('data-legacy-fallback', '1');
-                for (var pi2 = 0; pi2 < storyPanels.length; pi2++) {
-                  var pan2 = storyPanels[pi2];
-                  var baseAlt2 = tdbPlainTextForUi(pan2.alt || ((storyObj && storyObj.title) + ' illustration'));
-                  var fullAlt2 = themeSnip
-                    ? baseAlt2 + ' – ' + tdbPlainTextForUi(themeSnip)
-                    : baseAlt2 + ' – ' + tdbPlainTextForUi((storyObj && (storyObj.kjvRef || storyObj.title)) || '');
-                  var im2 = document.createElement('img');
-                  im2.className = 'comic-panel';
-                  im2.setAttribute('width', '200');
-                  im2.setAttribute('height', '160');
-                  im2.setAttribute('loading', 'lazy');
-                  im2.setAttribute('decoding', 'async');
-                  im2.alt = fullAlt2;
-                  im2.src = String(pan2.src || '').trim();
-                  parent.appendChild(im2);
-                }
-              }
+              if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
             });
-          })(imC, panels, themeSnippet, s);
+          })(imC);
           panelsWrap.appendChild(imC);
         }
       }
+      /* Legacy stick panels only when no Color & Tell map (absolute /kids/ paths) */
       if (!usedColorArt) {
         for (var pi = 0; pi < panels.length; pi++) {
           var pan = panels[pi];
+          var panelAbs = safeKidsPanelSvgAbsFromRel(String((pan && pan.src) || ''));
+          if (!panelAbs) continue;
           var baseAlt = tdbPlainTextForUi(pan.alt || (s.title + ' illustration'));
           var fullAlt = themeSnippet
             ? baseAlt + ' – ' + tdbPlainTextForUi(themeSnippet)
             : baseAlt + ' – ' + tdbPlainTextForUi(s.kjvRef || s.title);
           var im = document.createElement('img');
           im.className = 'comic-panel';
-          im.setAttribute('width', '200');
-          im.setAttribute('height', '160');
           im.setAttribute('loading', 'lazy');
           im.setAttribute('decoding', 'async');
           im.alt = fullAlt;
-          im.src = String(pan.src || '').trim();
+          im.src = panelAbs;
           panelsWrap.appendChild(im);
         }
       }

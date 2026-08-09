@@ -1686,8 +1686,12 @@
 }
 
 .kids-read-quiz-panel-img--coloring {
-  width: min(100%, 520px);
-  border-color: #f59e0b;
+  width: min(100%, 520px) !important;
+  max-height: none !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-color: #f59e0b !important;
+  aspect-ratio: auto !important;
 }
 
 .kids-story-narration {
@@ -1728,23 +1732,28 @@
   opacity: 1 !important;
 }
 
-/* Color & Tell art in story modal — big and clear */
+/* Color & Tell art in story modal — big and clear (override stick-panel grid) */
 .kids-library-modal .comic-panel--coloring-art,
 .comic-panel.comic-panel--coloring-art {
-  width: min(100%, 520px) !important;
+  width: min(100%, 560px) !important;
   max-width: 100% !important;
   height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
   object-fit: contain !important;
   border-radius: 12px;
   border: 3px solid #f59e0b;
   background: #fff;
   margin: 0.35rem auto;
   display: block;
+  grid-column: 1 / -1;
 }
 
 .kids-library-modal .panels-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  grid-auto-flow: unset !important;
+  grid-auto-columns: unset !important;
   justify-content: center;
   gap: 0.65rem;
 }

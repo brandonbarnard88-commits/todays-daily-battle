@@ -110,7 +110,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260809-kiss-only';
+    s.src = '/verse-breakdown.js?v=20260809-kjv-text-fix';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2832,7 +2832,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
   var trustedCtx = trustedScriptURL('/verse-context.js?v=20260808-situation-every');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-kiss-only');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-kjv-text-fix');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -21445,6 +21445,7 @@ if (typeof document !== 'undefined' && document.addEventListener) {
 if (typeof window !== 'undefined') {
   window.getDailyVerseRef = getDailyVerseRef;
   window.getBibleVerseText = getBibleVerseText;
+        window.loadBible = loadBible;
   window.resolveBibleTextFromMap = resolveBibleTextFromMap;
   window.getDailyKey = getDailyKey;
   window.getDailyBattleFromSupabaseForKey = getDailyBattleFromSupabaseForKey;
@@ -23727,7 +23728,16 @@ async function loadBible(version = currentVersion) {
   }
   function applyBibleMap(map, ver) {
     bible = normalizeBibleData(map);
-    if (ver === 'KJV' && typeof window !== 'undefined') window.kjvData = bible;
+    if (typeof window !== 'undefined') {
+      window.bible = bible;
+      if (ver === 'KJV') window.kjvData = bible;
+      try {
+        window.getBibleVerseText = getBibleVerseText;
+        window.loadBible = loadBible;
+        window.resolveBibleTextFromMap = resolveBibleTextFromMap;
+        window.normalizeBibleRef = normalizeBibleRef;
+      } catch (eEx) { /* non-fatal */ }
+    }
     bibleVersions[ver] = bible;
     currentVersion = ver;
     bibleEntries = Object.entries(bible);
@@ -30606,16 +30616,23 @@ function executeQuery(parsed, tier, filters) {
       var seen = new Set(results.verses.map(function (v) { return v.ref; }));
       var curated = [];
       topics[topicKey].verses.forEach(function (ref) {
-        var text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
+        var text =
+          (typeof resolveBibleTextFromMap === 'function' ? resolveBibleTextFromMap(bible, ref) : '') ||
+          (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '') ||
+          (bible && bible[ref]) ||
+          '';
         if (!text) {
-          // Psalms alias
           var alt = String(ref || '').replace(/^Psalms\s+/i, 'Psalm ').replace(/^Psalm\s+/i, 'Psalms ');
-          text = bible[alt] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(alt) : '');
-          if (text) ref = bible[ref] ? ref : alt;
+          text =
+            (typeof resolveBibleTextFromMap === 'function' ? resolveBibleTextFromMap(bible, alt) : '') ||
+            (typeof getBibleVerseText === 'function' ? getBibleVerseText(alt) : '') ||
+            '';
+          if (text && bible && !bible[ref] && bible[alt]) ref = alt;
         }
-        if (!text || seen.has(ref)) return;
+        /* Still show the card with ref if text missing — KISS card will fill when bible is ready. */
+        if (seen.has(ref)) return;
         seen.add(ref);
-        curated.push({ ref: ref, text: text });
+        curated.push({ ref: ref, text: text || '' });
       });
       if (curated.length) {
         /* Pure topic chips (loneliness, anxiety, …): show curated only — no keyword junk (e.g. 1 Cor 7:4). */
@@ -34232,6 +34249,16 @@ function renderHomeSearchResults(results, output, queryText) {
           window.TDBBbeSimple.enhanceDocument(verseList);
         }
       } catch (eBbeEnh) { /* non-fatal */ }
+      try {
+        if (window.TDBBbeSimple && typeof window.TDBBbeSimple.fillKissKjvBodies === 'function') {
+          window.TDBBbeSimple.fillKissKjvBodies(verseList);
+        }
+        if (window.TDBBbeSimple && typeof window.TDBBbeSimple.ensureKjvLoaded === 'function') {
+          window.TDBBbeSimple.ensureKjvLoaded().then(function () {
+            if (window.TDBBbeSimple.fillKissKjvBodies) window.TDBBbeSimple.fillKissKjvBodies(verseList);
+          }).catch(function () {});
+        }
+      } catch (eKjvFill) { /* non-fatal */ }
       try {
         verseList.querySelectorAll('.tdb-verse-breakdown-inline, details.verse-breakdown').forEach(function (node) {
           if (node.closest('.tdb-kiss-verse, [data-home-result-card="verse"], [data-tdb-no-verse-breakdown="1"]') && node.parentNode) {

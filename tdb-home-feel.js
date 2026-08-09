@@ -403,23 +403,42 @@ function resolveTopicsKey(raw) {
 function lookupKjvText(ref) {
   const r0 = String(ref || "").trim();
   if (!r0) return "";
-  /* Ranges like Romans 6:6-7 → use first verse for lookup. */
+  /* Prefer shared resolvers (Psalm/Psalms + full corpus). */
+  try {
+    if (window.TDBBbeSimple && typeof window.TDBBbeSimple.resolveKjvTextSync === "function") {
+      const t = window.TDBBbeSimple.resolveKjvTextSync(r0);
+      if (t) return t;
+    }
+  } catch (e0) { /* non-fatal */ }
+  try {
+    if (typeof window.TDB_resolveKjvText === "function") {
+      const t2 = window.TDB_resolveKjvText(r0);
+      if (t2) return t2;
+    }
+  } catch (e1) { /* non-fatal */ }
+  try {
+    if (typeof window.resolveBibleTextFromMap === "function" && window.bible) {
+      const t3 = window.resolveBibleTextFromMap(window.bible, r0);
+      if (t3) return String(t3);
+    }
+  } catch (e2) { /* non-fatal */ }
+  try {
+    if (typeof window.getBibleVerseText === "function") {
+      const t4 = window.getBibleVerseText(r0);
+      if (t4) return String(t4);
+    }
+  } catch (e3) { /* non-fatal */ }
+  /* Ranges like Romans 6:6-7 → first verse. */
   let r = r0;
   const rangeM = r.match(/^(.+?\s+\d+):(\d+)-\d+$/);
   if (rangeM) r = rangeM[1] + ":" + rangeM[2];
   function tryKey(key) {
     try {
-      if (typeof window !== "undefined" && window.bible && window.bible[key]) return String(window.bible[key]);
+      if (window.bible && window.bible[key]) return String(window.bible[key]);
     } catch (e) { /* non-fatal */ }
     try {
-      if (typeof bible !== "undefined" && bible && bible[key]) return String(bible[key]);
+      if (window.kjvData && window.kjvData[key]) return String(window.kjvData[key]);
     } catch (e2) { /* non-fatal */ }
-    try {
-      if (typeof getBibleVerseText === "function") {
-        const t = getBibleVerseText(key);
-        if (t) return String(t);
-      }
-    } catch (e3) { /* non-fatal */ }
     return "";
   }
   let hit = tryKey(r);
@@ -441,7 +460,8 @@ function buildFeelGroupFromScriptTopics(topicKey, label) {
   const seen = new Set();
   row.verses.forEach(function (ref) {
     const text = lookupKjvText(ref);
-    if (!text || seen.has(ref)) return;
+    /* Keep the card even if bible is still loading — KISS stack fills KJV body when ready. */
+    if (seen.has(ref)) return;
     seen.add(ref);
     let plain = "";
     let action = "";
@@ -2103,20 +2123,56 @@ const FEEL_MORE = {
     else if (e.key === "Escape") closeSuggest();
   });
 
+  function paintTopicAfterBible(topic) {
+    input.value = topic;
+    const group = resolveFeelGroup(topic);
+    if (group) showGroup(group, topic);
+    else if (typeof window.runSearchWithInput !== 'function') showNoMatch();
+    try {
+      if (window.TDBBbeSimple && typeof window.TDBBbeSimple.fillKissKjvBodies === 'function') {
+        window.TDBBbeSimple.fillKissKjvBodies(cards || document);
+      }
+      if (window.TDBBbeSimple && typeof window.TDBBbeSimple.ensureKjvLoaded === 'function') {
+        window.TDBBbeSimple.ensureKjvLoaded().then(function () {
+          if (window.TDBBbeSimple.fillKissKjvBodies) {
+            window.TDBBbeSimple.fillKissKjvBodies(cards || document);
+          }
+          /* Rebuild topic packs once full KJV is available (refs that were empty now have text). */
+          const g2 = resolveFeelGroup(topic);
+          if (g2 && g2.verses && g2.verses.some(function (v) { return v && v.text; })) {
+            showGroup(g2, topic);
+            if (window.TDBBbeSimple.fillKissKjvBodies) {
+              window.TDBBbeSimple.fillKissKjvBodies(cards || document);
+            }
+          }
+        }).catch(function () { /* non-fatal */ });
+      }
+    } catch (eFill) { /* non-fatal */ }
+  }
+
   window.addEventListener('tdb-quick-feel-topic', function (ev) {
     var topic = ev && ev.detail && ev.detail.topic;
     if (!topic || !input) return;
     if (typeof window.tryStillEaster === 'function' && window.tryStillEaster(input)) return;
     if (typeof window.tryAmenEaster === 'function' && window.tryAmenEaster(input)) return;
-    input.value = topic;
-    const group = resolveFeelGroup(topic);
-    if (group) showGroup(group, topic);
+    /* Load full KJV before painting so cards never show ref-only shells. */
+    var ready = Promise.resolve();
+    try {
+      if (typeof window.loadBible === 'function' && (!window.bible || Object.keys(window.bible).length < 1000)) {
+        ready = Promise.resolve(window.loadBible('KJV')).catch(function () {});
+      } else if (window.TDBBbeSimple && typeof window.TDBBbeSimple.ensureKjvLoaded === 'function') {
+        ready = window.TDBBbeSimple.ensureKjvLoaded().catch(function () {});
+      }
+    } catch (eLoad) { /* non-fatal */ }
+    ready.then(function () {
+      paintTopicAfterBible(topic);
+    });
     if (typeof window.runSearchWithInput === 'function') {
       var tdbT = document.getElementById('tdb-search');
       if (tdbT) tdbT.value = topic;
       if (typeof window.tdbScrollSearchSurfaceIntoView === 'function') window.tdbScrollSearchSurfaceIntoView();
       window.runSearchWithInput(topic);
-    } else if (!group) showNoMatch();
+    }
     updateFeelPlanCta(topic);
     input.scrollIntoView({ behavior: 'smooth', block: 'center' });
     try { input.focus(); } catch (err) {}

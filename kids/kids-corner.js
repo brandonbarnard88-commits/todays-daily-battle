@@ -217,7 +217,13 @@
       ephesiansArmor: 'armor-of-god',
       ephesiansArmorRevisited: 'armor-of-god',
       esther: 'esther',
+      estherBanquet: 'esther',
+      estherBrave: 'esther',
+      estherCrown: 'esther',
+      estherFast: 'esther',
+      estherRevisited: 'esther',
       euniceMother: 'young-timothy',
+      faithMustard: 'mustard-seed',
       eutychusFallen: 'eutychus',
       eutychusFallenRevisited: 'eutychus',
       everyKneeBow: 'armor-of-god',
@@ -300,6 +306,8 @@
       jesusLazarus: 'lazarus',
       jesusManger: 'nativity',
       jesusParableGoodShepherd: 'good-shepherd',
+      jesusParableMustardSeed: 'mustard-seed',
+      jesusParableSower: 'the-sower',
       jesusPilate: 'jesus-pilate',
       jesusResurrection: 'empty-tomb',
       jesusSermon: 'wise-foolish-builders',
@@ -370,6 +378,7 @@
       moses: 'moses-red-sea',
       mosesBaby: 'baby-moses',
       mosesBush: 'burning-bush',
+      mosesRedSea: 'moses-red-sea',
       mosesSea: 'moses-red-sea',
       mosesStaffSnake: 'moses-staff-snake',
       mustardSeed: 'mustard-seed',
@@ -377,6 +386,8 @@
       naamanDip: 'naaman',
       naamanHealed: 'naaman',
       nativity: 'nativity',
+      lukeNativity: 'nativity',
+      lukeNativityRevisited: 'nativity',
       nehemiah: 'nehemiah-walls',
       nehemiahWallRevisited: 'nehemiah-walls',
       nehemiahWalls: 'nehemiah-walls',
@@ -493,6 +504,7 @@
       ruthNaomi: 'ruth-naomi',
       ruthRedemption: 'boaz-redeemer',
       ruthThreshing: 'boaz-redeemer',
+      sadduceesResurrection: 'empty-tomb',
       samariaSiege: 'shunammite',
       samaritanWoman: 'woman-at-well',
       samson: 'samson',
@@ -511,6 +523,7 @@
       saulKing: 'saul-king',
       saulSpear: 'david-spares-saul',
       sheepAndGoats: 'sheep-goats',
+      shepherdsStar: 'nativity',
       shunammiteReturn: 'shunammite',
       silasPaulSinging: 'paul-silas-prison',
       silasPaulSingingRevisited: 'paul-silas-prison',
@@ -626,21 +639,25 @@
   }
 
   /**
-   * Prefer real Color & Tell art for story pictures (user plan).
+   * Prefer real Color & Tell art for story pictures (never stick panel-*.svg when these exist).
    * Returns one or more /coloring-pages/ URLs; missing files are dropped on img error.
    */
   function getColoringArtUrlsForLibraryKey(storyKey) {
     var slug = tdbColoringSlugForLibraryKey(storyKey);
     if (!slug) return [];
+    /* Premium full-page Color & Tell heroes (bible-stories folder) */
     var heroes = {
       david: ['/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg'],
-      creation: ['/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg'],
+      creation: [
+        '/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg',
+        '/coloring-pages/creation.jpg'
+      ],
       'jesus-children': ['/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg'],
       'empty-tomb': ['/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg'],
       'daniel-lions': ['/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg']
     };
     if (heroes[slug]) return heroes[slug].slice();
-    /* Multi-panel JPG stories */
+    /* Multi-panel JPG stories (scene 1…n) */
     var multi = {
       jonah: 4,
       noah: 4,
@@ -675,6 +692,15 @@
     /* Single full-page heroes generated for the long-tail library */
     out.push('/coloring-pages/' + slug + '.jpg');
     return out;
+  }
+
+  /** First Color & Tell URL for library shelf thumbs (never panel stick figures). */
+  function getColoringThumbForLibraryKey(storyKey) {
+    var urls = getColoringArtUrlsForLibraryKey(storyKey);
+    for (var i = 0; i < urls.length; i++) {
+      if (isSafeColoringPagePath(urls[i])) return urls[i];
+    }
+    return '';
   }
 
   /* ────────────────────────────────────────────────────
@@ -7097,15 +7123,31 @@
   }
 
   /**
-   * Story grid card thumbnail: optional AVIF/WebP + SVG fallback for LCP when raster assets exist.
+   * Story grid card thumbnail: Color & Tell JPG first; optional AVIF/WebP + SVG only as last resort.
    */
   function buildLibraryCardThumb(thumbSrc, plainAlt, isFirstCard) {
     var raw = String(thumbSrc || '').trim();
+    /* Color & Tell paths (/coloring-pages/…) — never route through panel SVG logic */
+    if (isSafeColoringPagePath(raw)) {
+      var imgColor = document.createElement('img');
+      imgColor.src = raw;
+      imgColor.alt = plainAlt;
+      imgColor.className = 'kids-library-card-thumb kids-library-card-thumb--coloring';
+      imgColor.setAttribute('decoding', 'async');
+      if (isFirstCard) {
+        imgColor.loading = 'eager';
+        try { imgColor.fetchPriority = 'high'; } catch (_) {}
+      } else {
+        imgColor.loading = 'lazy';
+      }
+      return imgColor;
+    }
     var absSvg = safeKidsPanelSvgAbsFromRel(raw);
     if (!absSvg) {
       var img0 = document.createElement('img');
       img0.src = raw;
       img0.alt = plainAlt;
+      img0.className = 'kids-library-card-thumb';
       if (isFirstCard) {
         img0.loading = 'eager';
         try { img0.fetchPriority = 'high'; } catch (_) {}
@@ -8717,16 +8759,22 @@
       var s = stories[key];
       if (!s) continue;
       var panels = s.panels || [];
-      var thumb = panels[0] ? String(panels[0].src || '') : '';
+      /* Prefer Color & Tell art on the shelf — panel-*.svg are generic stick figures */
+      var colorThumb = getColoringThumbForLibraryKey(key);
+      var thumb = colorThumb || (panels[0] ? String(panels[0].src || '') : '');
       if (!thumb) thumb = 'panel-noah-1.svg';
       var plainTitle = tdbPlainTextForUi(s.title || key);
-      var altRaw = panels[0] && panels[0].alt != null ? String(panels[0].alt) : String(s.title || key);
+      var altRaw = colorThumb
+        ? plainTitle + ' — Bible coloring picture'
+        : panels[0] && panels[0].alt != null
+          ? String(panels[0].alt)
+          : String(s.title || key);
       var plainAlt = tdbPlainTextForUi(altRaw);
       var meta = storyMeta(key, s, themes);
       var descText = tdbPlainTextForUi((s.caption || (s.kidContext && s.kidContext.apply) || '').trim());
 
       var card = document.createElement('div');
-      card.className = 'kids-library-card';
+      card.className = 'kids-library-card' + (colorThumb ? ' kids-library-card--color-art' : '');
       card.setAttribute('data-story', key);
       card.setAttribute('role', 'button');
       card.setAttribute('tabindex', '0');
@@ -9154,6 +9202,7 @@
       /* Prefer Color & Tell line art — never lead with stick panel-*.svg when art exists */
       var colorArtUrls = getColoringArtUrlsForLibraryKey(key);
       var usedColorArt = false;
+      var colorArtNodes = [];
       if (colorArtUrls && colorArtUrls.length) {
         for (var cai = 0; cai < colorArtUrls.length; cai++) {
           if (!isSafeColoringPagePath(colorArtUrls[cai])) continue;
@@ -9167,20 +9216,58 @@
             ' — Bible coloring picture' +
             (themeSnippet ? ' – ' + tdbPlainTextForUi(themeSnippet) : '');
           imC.src = colorArtUrls[cai];
-          (function (imgEl) {
+          (function (imgEl, wrapEl) {
             imgEl.addEventListener('error', function onColorArtErr() {
               imgEl.removeEventListener('error', onColorArtErr);
               if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
+              /* If every Color & Tell file 404s, fall back once to story-specific panels only when
+                 they are not the shared panel-jesus stick pack (wrong art for OT stories). */
+              if (wrapEl && !wrapEl.querySelector('.comic-panel--coloring-art')) {
+                var st = (window.TDB_BIBLE_STORIES || {})[key] || {};
+                var pans = st.panels || [];
+                var onlyJesus = pans.length > 0;
+                var pii;
+                for (pii = 0; pii < pans.length; pii++) {
+                  var srcP = String((pans[pii] && pans[pii].src) || '');
+                  if (!/^panel-jesus-\d+\.svg$/i.test(srcP.replace(/^.*\//, ''))) {
+                    onlyJesus = false;
+                    break;
+                  }
+                }
+                if (onlyJesus) return; /* keep empty rather than wrong stick Jesus for Naaman etc. */
+                for (pii = 0; pii < pans.length; pii++) {
+                  var panF = pans[pii];
+                  var absF = safeKidsPanelSvgAbsFromRel(String((panF && panF.src) || ''));
+                  if (!absF) continue;
+                  var imF = document.createElement('img');
+                  imF.className = 'comic-panel';
+                  imF.setAttribute('loading', 'lazy');
+                  imF.alt = tdbPlainTextForUi((panF && panF.alt) || s.title || key);
+                  imF.src = absF;
+                  wrapEl.appendChild(imF);
+                }
+              }
             });
-          })(imC);
+          })(imC, panelsWrap);
           panelsWrap.appendChild(imC);
+          colorArtNodes.push(imC);
         }
       }
-      /* Legacy stick panels only when no Color & Tell map (absolute /kids/ paths) */
+      /* Legacy stick panels only when no Color & Tell map — and never reuse panel-jesus for non-Jesus stories */
       if (!usedColorArt) {
         for (var pi = 0; pi < panels.length; pi++) {
           var pan = panels[pi];
-          var panelAbs = safeKidsPanelSvgAbsFromRel(String((pan && pan.src) || ''));
+          var relPan = String((pan && pan.src) || '');
+          var basePan = relPan.indexOf('/') === -1 ? relPan : relPan.split('/').pop() || '';
+          var titleLow = String(s.title || key || '').toLowerCase();
+          var isJesusStory =
+            /jesus|christ|nativity|manger|disciples|crucifix|tomb|resurrection|shepherd|lazarus|zacchaeus|parable|sermon|baptism|tempt|calms|feeds|walks|anoint|pilate|gethsemane|emmaus/i.test(
+              titleLow + ' ' + key
+            );
+          if (/^panel-jesus-\d+\.svg$/i.test(basePan) && !isJesusStory) {
+            continue; /* wrong generic art — leave blank rather than stick Jesus for OT heroes */
+          }
+          var panelAbs = safeKidsPanelSvgAbsFromRel(relPan);
           if (!panelAbs) continue;
           var baseAlt = tdbPlainTextForUi(pan.alt || (s.title + ' illustration'));
           var fullAlt = themeSnippet

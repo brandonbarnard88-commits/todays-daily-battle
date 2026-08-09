@@ -216,6 +216,38 @@
   border-color: rgba(96, 165, 250, 0.25);
 }
 
+/* Progress cards are buttons (jump links) — no full-res JPG thumbs */
+.tdb-cat-progress-card {
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  appearance: none;
+  -webkit-appearance: none;
+  width: auto;
+}
+
+.tdb-cat-progress-card-badge {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #9a3412;
+  background: linear-gradient(145deg, #fef3c7, #fdba74);
+}
+
+.dark-mode .tdb-cat-progress-card-badge {
+  color: #fef3c7;
+  background: linear-gradient(145deg, #334155, #1e293b);
+}
+
+.tdb-cat-jl-placeholder {
+  margin: 0;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  min-height: 8rem;
+}
+
 .tdb-cat-progress-card-thumb {
   width: 100%;
   height: 72px;

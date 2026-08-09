@@ -110,7 +110,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260808-situation-every';
+    s.src = '/verse-breakdown.js?v=20260809-search-fix';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -166,7 +166,7 @@ function tdbIsHomePage() {
     if (/\bfear|afraid|panic|scared|terror\b/.test(low)) return 'fear';
     if (/(closet|secret place|shut thy door|a great while before day|a solitary|draw nigh to god|ears are open|double minded|in secret;|in secret,|in secret\.|in secret\)|seeth in secret|seen in secret)\b/.test(low)) return 'secretprayer';
     if (/\bregret\w*|\bif only\b|should have|second guess|second-guess|hindsight|what if i|replaying yesterday|godly sorrow worketh|repentance to salvation|no condemnation to them which are in christ|forgetting those things which are behind|pressed toward the mark\b/.test(low)) return 'regret';
-    if (/\bmy spirit was overwhelmed\b|multitude of my thoughts within me\b|troubled on every side.? yet not distressed\b|\bwait thou only upon god\b|\bcasting all your care\b/.test(low)) return 'overwhelm';
+    if (/\boverwhelmed\b|\boverwhelm\b|\bmy spirit was overwhelmed\b|multitude of my thoughts within me\b|troubled on every side.? yet not distressed\b|\bwait thou only upon god\b|\bcasting all your care\b|\bheavy laden\b|\bcast thy burden\b/.test(low)) return 'overwhelm';
     if (/\bgrief|grieve|grieving|mourning|mourn(ed|ing)?|bereave|bereft|\bloss\b|funeral|widow|orphan|weep|weeping|broken\s*heart|contrite|\bsorrow\b/.test(low)) return 'grief';
     if (/\bwait(ing)?\b|tarry|not yet|\bpatience\b|\bpatient\b|hope for that we see not|appointed time|delayed?\b/.test(low)) return 'waiting';
     if (/\bparent\w*\s+fear\b|fear for (my |our )?(child|children|kids)\b|\blittle ones should perish\b|\bgreat shall be the peace of thy children\b|\bsuffer the little children to come\b/.test(low)) return 'parentfear';
@@ -2832,7 +2832,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
   var trustedCtx = trustedScriptURL('/verse-context.js?v=20260808-situation-every');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260808-situation-every');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-search-fix');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -4579,14 +4579,14 @@ const MEANING_MAP = {
   love: ['charity', 'compassion', 'kindness', 'affection', 'beloved', 'mercy'],
   faith: ['belief', 'trust', 'confidence', 'assurance', 'believe', 'believed'],
   hope: ['expectation', 'confidence', 'assurance', 'expected', 'wait', 'waiting'],
-  peace: ['rest', 'calm', 'stillness', 'quietness', 'quiet', 'troubled', 'care'],
+  peace: ['rest', 'calm', 'stillness', 'quietness', 'quiet', 'troubled'],
   joy: ['gladness', 'delight', 'rejoice', 'rejoicing', 'joyful', 'glad'],
   grace: ['favor', 'kindness', 'mercy', 'gracious', 'sufficient'],
   mercy: ['compassion', 'pity', 'kindness', 'merciful', 'compassionate'],
   truth: ['faithfulness', 'honesty', 'reality', 'true', 'verity'],
   wisdom: ['understanding', 'knowledge', 'insight', 'wise', 'prudent', 'counsel'],
   fear: ['afraid', 'anxious', 'worried', 'dread', 'dismayed', 'terror', 'frightened'],
-  anxiety: ['care', 'careful', 'careth', 'anxious', 'thought', 'troubled', 'peace'],
+  anxiety: ['careful', 'careth', 'anxious', 'troubled', 'burden', 'laden', 'heavy'],
   anger: ['wrath', 'rage', 'fury', 'angry', 'wrathful', 'slow', 'patience'],
   heartache: ['grief', 'sorrow', 'sadness', 'brokenhearted', 'mourning', 'mourn', 'comfort'],
   sin: ['evil', 'wrongdoing', 'transgression', 'iniquity', 'transgress'],
@@ -24978,7 +24978,32 @@ function expandKeywords(keywords) {
     }
   });
 
-  return { expanded: Array.from(expanded).filter(Boolean), mapKeysHit: [...new Set(mapKeysHit)] };
+  // Drop stop-words and ultra-common KJV noise — short tokens flood ranking
+  // (e.g. "overwhelmed" → care/thought/peace → Isaiah 24:2 ranked by "with").
+  var WEAK_SEARCH_TOKENS = new Set([
+    'lord', 'god', 'unto', 'shall', 'thee', 'thou', 'thy', 'ye', 'hath', 'also',
+    'said', 'came', 'went', 'upon', 'them', 'their', 'from', 'into', 'over', 'very',
+    'many', 'great', 'even', 'will', 'have', 'been', 'were', 'this', 'that', 'with',
+    'when', 'then', 'there', 'which', 'what', 'than', 'into', 'come', 'went', 'made',
+    'let', 'may', 'did', 'one', 'man', 'men', 'day', 'all', 'any', 'out', 'him', 'her',
+    'our', 'its', 'not', 'but', 'for', 'and', 'the', 'are', 'was', 'had', 'has', 'can'
+  ]);
+  function isUsefulSearchToken(word) {
+    var w = String(word || '').toLowerCase().trim();
+    if (!w || w.length < 4) return false;
+    if (typeof STOP_WORDS !== 'undefined' && STOP_WORDS.has(w)) return false;
+    if (WEAK_SEARCH_TOKENS.has(w)) return false;
+    return true;
+  }
+  var filtered = Array.from(expanded).map(function (w) {
+    return String(w || '').toLowerCase().trim();
+  }).filter(isUsefulSearchToken);
+  // Always keep original query tokens of length >= 4 even if rare
+  keywords.forEach(function (token) {
+    var base = String(token || '').toLowerCase().trim();
+    if (base.length >= 4 && filtered.indexOf(base) === -1) filtered.push(base);
+  });
+  return { expanded: filtered, mapKeysHit: [...new Set(mapKeysHit)] };
 }
 
 function buildWordRegex(terms) {
@@ -30511,6 +30536,11 @@ function executeQuery(parsed, tier, filters) {
         // REACTION priority: verses with clear "do this" actions get a slight boost
         const normWords = normText.split(/\s+/);
         if (normWords.some(w => REACTION_TERMS.has(w.replace(/\W/g, '')))) score += 1;
+        // Prefer matches that hit the user's raw tokens, not only expanded synonyms
+        rawTokens.forEach(function (rt) {
+          var t = normalizeInput(String(rt || ''));
+          if (t.length >= 4 && normText.indexOf(t) !== -1) score += 4;
+        });
         if (score > 0) {
           const snippet = wordRegex ? text.replace(wordRegex, '<span class="highlight">$&</span>') : text;
           return { ref, text: snippet, score };
@@ -30520,6 +30550,42 @@ function executeQuery(parsed, tier, filters) {
       .sort((a,b) => b.score - a.score)
       .slice(0, 30);
     results.verses = matches.map(m => ({ ref: m.ref, text: m.text }));
+
+    // Feeling/topic queries: curated topic verses FIRST (never dump random keyword hits alone)
+    (function prependCuratedFeelingVerses() {
+      var topicKey = (parsed.payload && (parsed.payload.semanticTopic || parsed.payload.topic)) || '';
+      if (!topicKey && typeof QUERY_TO_TOPIC !== 'undefined') {
+        var rawQ = normalizeInput(String((parsed.payload && parsed.payload.phrase) || rawTokens.join(' ') || ''));
+        topicKey = QUERY_TO_TOPIC[rawQ] || '';
+        if (!topicKey && rawTokens.length === 1) topicKey = QUERY_TO_TOPIC[normalizeInput(rawTokens[0])] || '';
+      }
+      // Map common chip labels to topics
+      var alias = {
+        overwhelmed: 'anxiety', heavy: 'anxiety', burnout: 'rest', tired: 'strength',
+        restless: 'anxiety', stress: 'anxiety', stressed: 'anxiety'
+      };
+      if (alias[topicKey]) topicKey = alias[topicKey];
+      if (!topicKey || !topics || !topics[topicKey] || !Array.isArray(topics[topicKey].verses)) return;
+      var seen = new Set(results.verses.map(function (v) { return v.ref; }));
+      var curated = [];
+      topics[topicKey].verses.forEach(function (ref) {
+        var text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
+        if (!text) {
+          // Psalms alias
+          var alt = String(ref || '').replace(/^Psalms\s+/i, 'Psalm ').replace(/^Psalm\s+/i, 'Psalms ');
+          text = bible[alt] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(alt) : '');
+          if (text) ref = bible[ref] ? ref : alt;
+        }
+        if (!text || seen.has(ref)) return;
+        seen.add(ref);
+        curated.push({ ref: ref, text: text });
+      });
+      if (curated.length) {
+        results.verses = curated.concat(results.verses).slice(0, 30);
+        results.usedSemanticTopic = true;
+        results.topic = results.topic || topicKey;
+      }
+    })();
 
     // Phrase-to-topic (e.g. "brothers fighting" -> family): prepend curated topic verses so we always return relevant results
     if (results.verses.length === 0 && parsed.payload.semanticTopic && topics && topics[parsed.payload.semanticTopic]) {

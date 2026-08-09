@@ -12284,11 +12284,19 @@ a.plan-category-chip:focus-visible,
   text-transform: none;
   color: var(--muted);
 }
-.tdb-layman-always-open > #heroSimpleBreakdown {
-  margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.58;
-  color: var(--text);
+/* Combined legacy line must stay invisible (split situation/meaning are the UI). */
+.tdb-layman-always-open > #heroSimpleBreakdown,
+#heroSimpleBreakdown {
+  display: none !important;
+  visibility: hidden !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  font-size: 0 !important;
+  color: transparent !important;
+  pointer-events: none !important;
 }
 .tdb-home-after-ask details.tdb-dig-deeper {
   margin-top: 0.5rem;

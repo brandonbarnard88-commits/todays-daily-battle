@@ -26041,10 +26041,27 @@ html[data-theme="sepia"] .hero-vbd-bundle {
   margin: 0.35rem 0 0.65rem;
   padding: 0.15rem 0;
 }
-.tdb-layman-always-open #heroSimpleBreakdown {
-  margin: 0;
-  font-size: 1.02rem;
-  line-height: 1.55;
+/* Combined legacy line: never paint on screen (split fields carry the teaching). */
+.tdb-layman-always-open #heroSimpleBreakdown,
+#heroVotdBreakdown #heroSimpleBreakdown,
+#heroSimpleBreakdown.sr-only,
+p#heroSimpleBreakdown {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
 }
 .tdb-home-after-ask {
   margin-top: 1.25rem;

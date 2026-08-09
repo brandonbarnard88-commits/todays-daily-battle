@@ -577,25 +577,131 @@
     stampHeroDigDeeperBoundRef('');
   }
 
+  /** Thin “X speaking to Y” stamp — never prefer this over a real narrative. */
+  function isThinSpeakerLine(s) {
+    var t = sanitizeText(s);
+    if (!t) return true;
+    if (/ speaking to /i.test(t) && t.length < 100) return true;
+    if (/^.{3,55}\s+speaking to\s+/i.test(t) && t.length < 120) return true;
+    return false;
+  }
+
+  /** Weak plain stamps from last-resort theme engine. */
+  function isWeakMeaningStamp(s) {
+    var t = sanitizeText(s);
+    if (!t) return true;
+    if (/^In plain terms for life today:/i.test(t)) return true;
+    if (/Sit with that until one phrase lands/i.test(t)) return true;
+    if (/^Read this verse slowly/i.test(t)) return true;
+    if (/^What was going on:\s*.{0,60}speaking to/i.test(t)) return true;
+    return false;
+  }
+
+  /** Higher score = better teaching copy. Prefer long narrative over speaker-line. */
+  function scoreSituationLine(s) {
+    var t = sanitizeText(s).replace(/^What was going on:\s*/i, '').trim();
+    if (!t) return 0;
+    if (isThinSpeakerLine(t)) return 8;
+    var score = t.length;
+    if (t.length >= 55) score += 40;
+    if (t.length >= 90) score += 30;
+    if (/[.!?]/.test(t)) score += 15;
+    if (/\b(commit|plans|work|proverb|psalm|sermon|cross|exile|disciple)/i.test(t)) score += 20;
+    return score;
+  }
+
+  function scoreMeaningLine(s) {
+    var t = sanitizeText(s)
+      .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+      .replace(/^What it means:\s*/i, '')
+      .trim();
+    if (!t) return 0;
+    if (isWeakMeaningStamp(t)) return 5;
+    return t.length + (t.length >= 40 ? 25 : 0);
+  }
+
+  function pickBestText(candidates, scorer) {
+    var best = '';
+    var bestScore = 0;
+    for (var i = 0; i < candidates.length; i++) {
+      var c = sanitizeText(candidates[i]);
+      if (!c) continue;
+      var sc = scorer(c);
+      if (sc > bestScore) {
+        bestScore = sc;
+        best = c;
+      }
+    }
+    return best;
+  }
+
+  /** Snapshot currently painted hero dig-deeper (SSR inject often has the best line). */
+  function readHeroDigDeeperDomSnapshot() {
+    var sitPrimary = sanitizeText(
+      document.getElementById('heroSimpleSituation') &&
+        document.getElementById('heroSimpleSituation').textContent
+    );
+    var sitDeep = sanitizeText(
+      document.getElementById('heroDeepSituation') &&
+        document.getElementById('heroDeepSituation').textContent
+    );
+    var meanPrimary = sanitizeText(
+      document.getElementById('heroSimpleMeaning') &&
+        document.getElementById('heroSimpleMeaning').textContent
+    );
+    var simple = sanitizeText(
+      document.getElementById('heroSimpleBreakdown') &&
+        document.getElementById('heroSimpleBreakdown').textContent
+    );
+    var who = sanitizeText(
+      document.getElementById('heroDeepWho') && document.getElementById('heroDeepWho').textContent
+    );
+    var aud = sanitizeText(
+      document.getElementById('heroDeepAudience') &&
+        document.getElementById('heroDeepAudience').textContent
+    );
+    var meanFromSimple = '';
+    if (simple && /What it means:/i.test(simple)) {
+      meanFromSimple = simple.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
+    }
+    var sitFromSimple = '';
+    if (simple && /^What was going on:/i.test(simple)) {
+      sitFromSimple = simple.replace(/^What was going on:\s*/i, '').replace(/\.?\s*What it means:[\s\S]*$/i, '').trim();
+    }
+    return {
+      situation: pickBestText([sitPrimary, sitDeep, sitFromSimple], scoreSituationLine),
+      meaning: pickBestText([meanPrimary, meanFromSimple], scoreMeaningLine),
+      who: who,
+      audience: aud
+    };
+  }
+
   /** Thin speaker-line or weak plain stamp — force upgrade when better data is available. */
   function heroDigDeeperLooksWeak() {
-    var sitEl = document.getElementById('heroDeepSituation') || document.getElementById('heroSimpleSituation');
-    var meanEl = document.getElementById('heroSimpleMeaning');
-    var simpleEl = document.getElementById('heroSimpleBreakdown');
-    var sit = sanitizeText(sitEl && sitEl.textContent);
-    var mean = sanitizeText((meanEl && meanEl.textContent) || (simpleEl && simpleEl.textContent));
-    if (/^In plain terms for life today:/i.test(mean) || /Sit with that until one phrase lands/i.test(mean)) {
-      return true;
-    }
-    if (/ speaking to /i.test(sit) && sit.length < 90) return true;
+    var snap = readHeroDigDeeperDomSnapshot();
+    var sit = snap.situation;
+    var mean = snap.meaning;
+    if (isWeakMeaningStamp(mean)) return true;
+    if (isThinSpeakerLine(sit)) return true;
     if (!sit || sit.length < 12) return true;
     if (!mean || mean.length < 12) return true;
+    /* Primary and deep must agree when both present — desync means a partial overwrite. */
+    var sitP = sanitizeText(
+      document.getElementById('heroSimpleSituation') &&
+        document.getElementById('heroSimpleSituation').textContent
+    );
+    var sitD = sanitizeText(
+      document.getElementById('heroDeepSituation') &&
+        document.getElementById('heroDeepSituation').textContent
+    );
+    if (sitP && sitD && scoreSituationLine(sitP) > 40 && isThinSpeakerLine(sitD)) return true;
     return false;
   }
 
   /**
    * If dig-deeper is bound to a different ref than #heroRef, or content is weak while
    * better context exists, rebuild. Mismatched/stale dig-deeper must never stay on screen.
+   * Never wipe a strong SSR line with a weaker recompute.
    */
   function ensureHeroDigDeeperMatchesDisplayedVerse() {
     var displayed = readDisplayedHeroRef();
@@ -606,16 +712,34 @@
     var text = readDisplayedHeroText();
     var v = normalizeVerse({ ref: displayed, text: text });
     if (!v.ref) return false;
+    var snap = readHeroDigDeeperDomSnapshot();
+    var liveSit = '';
+    var liveAbout = '';
+    var liveTo = '';
+    try {
+      if (typeof window.TDB_resolveVerseContext === 'function') {
+        var hit = window.TDB_resolveVerseContext(displayed) || {};
+        liveSit = sanitizeText(hit.situation || hit.setting || '');
+        liveAbout = sanitizeText(hit.about || '');
+        liveTo = sanitizeText(hit.to || '');
+      }
+    } catch (eLive) { /* non-fatal */ }
+    var bestSit = pickBestText(
+      [liveSit, v.setting, snap.situation],
+      scoreSituationLine
+    );
+    var bestPlain = pickBestText([v.plain, snap.meaning], scoreMeaningLine);
     /* Prefer day-explanation plain/step when integrity re-runs after context loads. */
     applyHeroVotdFromInputs(v, {
-      plainExplanation: v.plain || '',
+      plainExplanation: bestPlain || v.plain || '',
       groupApplication: v.today || '',
       modernApplication: '',
       practicalStep: v.action || v.app || '',
-      about: v.about || v.speaker || '',
-      to: v.to || '',
-      setting: v.setting || '',
-      situation: v.setting || ''
+      about: liveAbout || v.about || v.speaker || snap.who || '',
+      to: liveTo || v.to || snap.audience || '',
+      setting: bestSit || v.setting || '',
+      situation: bestSit || v.setting || '',
+      preserveDomSnapshot: snap
     });
     return true;
   }
@@ -704,24 +828,53 @@
     var meaningOnly = plainE || sanitizeText(v.plain) || sanitizeText(lines[0] || '') || sanitizeText(v.app);
     meaningOnly = meaningOnly.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
     /* Always prefer curated plain over weak theme stamps (even if stamp came first). */
-    if (
-      /^In plain terms for life today:/i.test(meaningOnly) ||
-      /^Read this verse slowly/i.test(meaningOnly) ||
-      /^God's care is for you today/i.test(meaningOnly) ||
-      /Sit with that until one phrase lands/i.test(meaningOnly)
-    ) {
-      if (sanitizeText(v.plain)) meaningOnly = sanitizeText(v.plain);
+    if (isWeakMeaningStamp(meaningOnly)) {
+      var betterPlain = pickBestText(
+        [sanitizeText(v.plain), sanitizeText(sh.preserveDomSnapshot && sh.preserveDomSnapshot.meaning)],
+        scoreMeaningLine
+      );
+      if (betterPlain && !isWeakMeaningStamp(betterPlain)) meaningOnly = betterPlain;
     }
-    /* Live resolver situation wins — never leave yesterday’s dig-deeper line (e.g. Psalm 92 under Prov 16:3). */
-    var situation = sanitizeText(ctx.setting || '') ||
-      sanitizeText(sh.situation || sh.setting || v.setting || '');
-    /* Prefer full narrative; only use “X speaking to Y” if nothing better exists. */
+    /* Live resolver + shared + DOM — never leave thin “X speaking to Y” when a narrative exists. */
+    var situation = pickBestText(
+      [
+        sanitizeText(ctx.setting || ''),
+        sanitizeText(sh.situation || ''),
+        sanitizeText(sh.setting || ''),
+        sanitizeText(v.setting || ''),
+        sanitizeText(sh.preserveDomSnapshot && sh.preserveDomSnapshot.situation)
+      ],
+      scoreSituationLine
+    );
+    /* Last resort only: speaker-line when nothing longer exists. */
     if (!situation && ctx.about && ctx.to) {
       situation = sanitizeText(ctx.about) + ' speaking to ' + sanitizeText(ctx.to) + '.';
-    } else if (situation && /^.{3,50} speaking to /i.test(situation) && sanitizeText(v.setting) && sanitizeText(v.setting).length > situation.length) {
-      situation = sanitizeText(v.setting);
+    }
+    if (isThinSpeakerLine(situation)) {
+      var upgradeSit = pickBestText(
+        [
+          sanitizeText(v.setting || ''),
+          sanitizeText(sh.situation || sh.setting || ''),
+          sanitizeText(sh.preserveDomSnapshot && sh.preserveDomSnapshot.situation)
+        ],
+        scoreSituationLine
+      );
+      if (upgradeSit && scoreSituationLine(upgradeSit) > scoreSituationLine(situation)) {
+        situation = upgradeSit;
+      }
     }
     var meaningClean = meaningOnly.replace(/^What it means:\s*/i, '');
+    if (isWeakMeaningStamp(meaningClean)) {
+      var upgradeMean = pickBestText(
+        [
+          sanitizeText(v.plain),
+          sanitizeText(sh.plainExplanation || sh.plain || ''),
+          sanitizeText(sh.preserveDomSnapshot && sh.preserveDomSnapshot.meaning)
+        ],
+        scoreMeaningLine
+      );
+      if (upgradeMean && !isWeakMeaningStamp(upgradeMean)) meaningClean = upgradeMean;
+    }
     var simple = meaningClean;
     if (situation && meaningClean) {
       simple =
@@ -731,6 +884,17 @@
         meaningClean;
     }
     var who = aboutA || sanitizeText(v.about) || sanitizeText(v.speaker) || ctx.about;
+    /* Prefer fuller who (“Solomon giving wisdom”) over stripped “Solomon”. */
+    if (who && who.length < 12 && ctx.about && sanitizeText(ctx.about).length > who.length) {
+      who = sanitizeText(ctx.about);
+    }
+    if (
+      sh.preserveDomSnapshot &&
+      sh.preserveDomSnapshot.who &&
+      sanitizeText(sh.preserveDomSnapshot.who).length > sanitizeText(who).length + 4
+    ) {
+      who = sanitizeText(sh.preserveDomSnapshot.who);
+    }
     if (!who) {
       if (row) {
         who = row.s + ' (through the words of Scripture, KJV).';
@@ -739,6 +903,13 @@
       }
     }
     var audience = audienceShared || sanitizeText(v.to) || ctx.to;
+    if (
+      sh.preserveDomSnapshot &&
+      sh.preserveDomSnapshot.audience &&
+      sanitizeText(sh.preserveDomSnapshot.audience).length > sanitizeText(audience).length + 4
+    ) {
+      audience = sanitizeText(sh.preserveDomSnapshot.audience);
+    }
     if (!audience) {
       audience = row
         ? 'Originally for ' + row.a + ' in their time. The same word speaks to us today.'
@@ -811,10 +982,16 @@
     var refKey = normalizeHeroBoundRef(v && v.ref);
     if (!refKey) return;
 
+    /* Snapshot strong SSR/inject lines before wipe — never downgrade teaching quality. */
+    var shIn = shared || {};
+    if (!shIn.preserveDomSnapshot) {
+      shIn = Object.assign({}, shIn, { preserveDomSnapshot: readHeroDigDeeperDomSnapshot() });
+    }
+
     /* Atomic replace: wipe stale dig-deeper before writing this ref’s fields. */
     clearHeroDigDeeperShell();
 
-    var lesson = computeHeroVotdBreakdownLessonFields(v, shared);
+    var lesson = computeHeroVotdBreakdownLessonFields(v, shIn);
     var simple = lesson.simple;
     var who = lesson.who;
     var audience = lesson.audience;
@@ -825,14 +1002,31 @@
         ? simple.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim()
         : simple;
     }
+    /* Final prefer-stronger pass against the pre-clear DOM (catches race with partial engines). */
+    var snap = shIn.preserveDomSnapshot || {};
+    situation = pickBestText([situation, snap.situation], scoreSituationLine);
+    meaningOnly = pickBestText([meaningOnly, snap.meaning], scoreMeaningLine);
+    if (situation && meaningOnly) {
+      simple =
+        'What was going on: ' +
+        situation.replace(/\.$/, '') +
+        '. What it means: ' +
+        meaningOnly;
+    }
     var relatesToday = lesson.relatesToday;
     var relYou = lesson.relYou;
     var oneStep = lesson.oneStep;
     var prayer = lesson.prayer;
     var yr = lesson.year;
+    /* Combined line is a11y-only legacy; keep text but never show it (CSS hard-hides). */
     simpleOut.textContent = simple;
+    simpleOut.setAttribute('aria-hidden', 'true');
+    try {
+      simpleOut.hidden = true;
+    } catch (eHide) { /* non-fatal */ }
     var sitPrimary = document.getElementById('heroSimpleSituation');
     var meanPrimary = document.getElementById('heroSimpleMeaning');
+    /* Always write the same situation/meaning to primary + deep — no desync. */
     if (sitPrimary) sitPrimary.textContent = situation || '';
     if (meanPrimary) meanPrimary.textContent = meaningOnly || '';
     setVotdRowVisible(document.getElementById('heroVbdRowSit'), document.getElementById('heroDeepSituation'), situation);

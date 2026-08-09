@@ -364,6 +364,12 @@
   function plainSpeaker(raw) {
     var s = String(raw || '').trim();
     if (!s) return 'Bible writer';
+    s = s.split('/')[0].split(',')[0].replace(/\(.*?\)/g, '').trim();
+    if (!s) return 'Bible writer';
+    /* Keep short descriptive titles (e.g. “Solomon giving wisdom”) — do not strip to a bare name. */
+    if (s.length <= 56 && s.split(/\s+/).length <= 8 && !/\bspeaking to\b/i.test(s)) {
+      return s;
+    }
     if (/\bjesus\b/i.test(s)) return 'Jesus';
     if (/\bpaul\b/i.test(s)) return 'Paul';
     if (/\bmoses\b/i.test(s)) return 'Moses';
@@ -375,13 +381,18 @@
     if (/\bjohn\b/i.test(s)) return 'John';
     if (/\bdavid\b/i.test(s)) return 'David';
     if (/\bunknown\b/i.test(s)) return 'Bible writer';
-    s = s.split('/')[0].split(',')[0].replace(/\(.*?\)/g, '').trim();
     return s || 'Bible writer';
   }
 
   function plainAudience(raw) {
     var s = String(raw || '').trim();
     if (!s) return 'People listening back then';
+    /* Keep specific range audiences (e.g. “Anyone learning a straight path for work and plans”). */
+    if (s.length <= 72 && !/^(everyone|all humanity)$/i.test(s)) {
+      if (/believers in|church at|friends in|son\b|disciple|exiles|israel|judah|rome|ephesus|philippi|galatia|straight path|work and plans/i.test(s)) {
+        return s.length > 64 ? s.slice(0, 61) + '…' : s;
+      }
+    }
     if (/believers|church/i.test(s)) return 'His friends who needed hope';
     if (/everyone|all humanity|all\b/i.test(s)) return 'People like us';
     if (/rome/i.test(s)) return 'His friends in Rome';
@@ -389,7 +400,7 @@
     if (/philippi/i.test(s)) return 'His friends in Philippi';
     if (/galatia/i.test(s)) return 'His friends in Galatia';
     if (/israel|judah|exiles/i.test(s)) return 'His people in a hard season';
-    return s.length > 46 ? (s.slice(0, 43) + '...') : s;
+    return s.length > 64 ? (s.slice(0, 61) + '…') : s;
   }
 
   function loadRelationsDict() {

@@ -393,6 +393,9 @@ function normalizeVerse(data) {
       lines:   lines,
       app:     sanitizeText(v.app),
       speaker: sanitizeText(v.speaker),
+      about:   sanitizeText(v.about || v.speaker || ''),
+      to:      sanitizeText(v.to || ''),
+      setting: sanitizeText(v.setting || ''),
       plain:   sanitizeText(v.plain),
       today:   sanitizeText(v.today),
       action:  sanitizeText(v.action)
@@ -408,6 +411,9 @@ function normalizeVerse(data) {
     lines,
     app:     appText,
     speaker: sanitizeText(data.speaker || fallback.speaker || ''),
+    about:   sanitizeText(data.about || data.speaker || fallback.speaker || ''),
+    to:      sanitizeText(data.to || ''),
+    setting: sanitizeText(data.setting || ''),
     plain:   sanitizeText(data.plain   || fallback.plain   || (lines[0] || '')),
     today:   sanitizeText(data.today   || fallback.today   || (lines[1] || '')),
     action:  sanitizeText(data.action  || fallback.action  || appText)
@@ -671,15 +677,41 @@ function queueHeroBreakdownRefresh(data, attempt) {
           liveTo = String(ctxHit.to || '').trim();
         }
       } catch (eLiveCtx) { /* non-fatal */ }
+      var engineSit = heroSharedBreakdown
+        ? String(heroSharedBreakdown.situation || heroSharedBreakdown.setting || '').trim()
+        : '';
+      /* Prefer longest real narrative; never hand a thin “X speaking to Y” over range/day copy. */
+      var bestSit = liveSit;
+      if (engineSit && engineSit.length > bestSit.length) bestSit = engineSit;
+      if (v.setting && String(v.setting).length > bestSit.length) bestSit = String(v.setting).trim();
+      if (/ speaking to /i.test(bestSit) && bestSit.length < 100) {
+        if (liveSit && liveSit.length >= 55) bestSit = liveSit;
+        else if (engineSit && engineSit.length >= 55) bestSit = engineSit;
+        else if (v.setting && String(v.setting).length >= 55) bestSit = String(v.setting).trim();
+      }
+      /* Prefer full about (“Solomon giving wisdom”) over stripped “Solomon” from plainSpeaker. */
+      var engineAbout = heroSharedBreakdown ? String(heroSharedBreakdown.about || '').trim() : '';
+      var bestAbout = liveAbout || v.about || v.speaker || '';
+      if (engineAbout && engineAbout.length > bestAbout.length && !/^Solomon$/i.test(engineAbout)) {
+        bestAbout = engineAbout;
+      } else if (liveAbout) {
+        bestAbout = liveAbout;
+      } else if (v.about) {
+        bestAbout = v.about;
+      } else if (engineAbout) {
+        bestAbout = engineAbout;
+      } else {
+        bestAbout = v.speaker || '';
+      }
       window.__TDB_applyHeroVotdFromInputs(v, {
         plainExplanation: bestPlain,
         groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || curatedToday || v.today,
         modernApplication: looksAction ? '' : engineModern,
         practicalStep: curatedStep || v.action || v.app || (looksAction ? engineModern : ''),
-        about: liveAbout || (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker || v.about,
-        to: liveTo || (heroSharedBreakdown && heroSharedBreakdown.to) || v.to,
-        setting: liveSit || v.setting || '',
-        situation: liveSit || v.setting || ''
+        about: bestAbout,
+        to: liveTo || v.to || (heroSharedBreakdown && heroSharedBreakdown.to) || '',
+        setting: bestSit || '',
+        situation: bestSit || ''
       });
       // First paint may have filled a placeholder before the engine loaded — keep polling for a real upgrade.
       if (!sharedReady || (weakPlain && !window.__tdbHeroBreakdownEngineApplied)) {

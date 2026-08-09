@@ -181,10 +181,22 @@ function auditHeroInject(kjv, resolve) {
     }
   }
 
+  // Primary split + deep situation must match when both present (no residual weak combined UI)
+  const sitDeep = stripHtml(sitM ? sitM[1] : '');
+  const sitPrimary = stripHtml(sitPrimaryM ? sitPrimaryM[1] : '');
+  if (sitPrimary && sitDeep && sitPrimary.length >= 40 && /^.{3,50} speaking to /i.test(sitDeep) && sitPrimary.length > sitDeep.length + 15) {
+    fail(`Hero deep situation lagging primary for ${expect}: deep is thin speaker-line while primary has narrative`);
+  }
+  if (html.includes('id="heroSimpleBreakdown"') && !/id="heroSimpleBreakdown"[^>]*(hidden|sr-only)/i.test(html)) {
+    fail('heroSimpleBreakdown must stay hidden (sr-only/hidden) — combined line must not paint');
+  }
   // dig-deeper integrity lock must exist in first-paint
   const fp = fs.readFileSync(path.join(root, 'hero-daily-first-paint.js'), 'utf8');
   if (!fp.includes('ensureHeroDigDeeperMatchesDisplayedVerse')) {
     fail('hero-daily-first-paint.js missing dig-deeper integrity lock');
+  }
+  if (!fp.includes('pickBestText') || !fp.includes('scoreSituationLine')) {
+    fail('hero-daily-first-paint.js missing prefer-stronger situation scoring');
   }
   if (!fp.includes('clearHeroDigDeeperShell')) {
     fail('hero-daily-first-paint.js missing clearHeroDigDeeperShell');

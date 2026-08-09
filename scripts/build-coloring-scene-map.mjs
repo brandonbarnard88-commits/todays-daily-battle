@@ -21,8 +21,12 @@ const catPath = path.join(root, 'kids', 'color-and-tell.js');
 const outPath = path.join(root, 'kids', 'coloring-scene-art-map.json');
 
 /**
- * Full-page line art when multi-panel SVGs are still stick-figure placeholders.
- * Named overrides first; any other `{prefix}.jpg` on disk is auto-discovered.
+ * Full-page line art for multi-panel stories.
+ * Named overrides first; any other `{prefix}.jpg` on disk is auto-discovered
+ * when the panel SVG is still a thin placeholder.
+ *
+ * FORCE_HERO: always use this full-page art even when detailed multi-panel
+ * SVGs exist (featured doors that should match the classic coloring-book look).
  */
 const HERO = {
   'daniel-lions': 'bible-stories/daniel-in-the-lions-den-coloring-page.jpg',
@@ -39,6 +43,9 @@ const HERO = {
   nativity: 'nativity.jpg',
   'prodigal-son': 'prodigal-son.jpg',
 };
+
+/** Always prefer full-page hero over multi-panel detailed SVGs. */
+const FORCE_HERO = new Set(['creation', 'jesus-children', 'empty-tomb']);
 
 /** Resolve hero art for a story prefix: explicit HERO map, else `{prefix}.jpg`. */
 function heroFor(prefix) {
@@ -91,9 +98,12 @@ for (const svgUrl of ordered) {
       break;
     }
   }
-  if (!chosen && fileSize(rel) < 2500) {
+  if (!chosen) {
     const hero = heroFor(prefix);
-    if (hero) chosen = '/coloring-pages/' + hero;
+    // Force full-page heroes for featured doors; otherwise only replace thin placeholders.
+    if (hero && (FORCE_HERO.has(prefix) || fileSize(rel) < 2500)) {
+      chosen = '/coloring-pages/' + hero;
+    }
   }
   if (chosen) mapping[svgUrl] = chosen;
 }

@@ -20,9 +20,11 @@
   <style>
     .mf-board { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; max-width: 22rem; margin: 0.75rem auto; }
     @media (min-width: 400px) { .mf-board { grid-template-columns: repeat(4, 1fr); } }
-    .mf-card { min-height: 72px; border-radius: 12px; border: 2px solid rgba(245, 158, 11, 0.4); background: #fffbeb; font-size: 0.78rem; font-weight: 800; padding: 0.35rem; cursor: pointer; line-height: 1.2; -webkit-tap-highlight-color: transparent; }
-    .mf-card[aria-pressed="false"] { color: transparent; text-shadow: none; background: linear-gradient(180deg, #e0e7ff, #c7d2fe); }
-    .mf-card.mf-match { opacity: 0.45; pointer-events: none; border-color: #22c55e; }
+    .mf-card { min-height: 88px; border-radius: 14px; border: 3px solid rgba(245, 158, 11, 0.55); background: #fffbeb; font-size: 0.82rem; font-weight: 800; padding: 0.45rem; cursor: pointer; line-height: 1.25; -webkit-tap-highlight-color: transparent; color: #0f172a; transition: transform 0.15s; }
+    .mf-card[aria-pressed="false"] { color: #fff; background: linear-gradient(180deg, #818cf8, #6366f1); border-color: #4f46e5; font-size: 1.6rem; text-align: center; }
+    .mf-card.mf-match { opacity: 0.55; pointer-events: none; border-color: #22c55e; background: #ecfdf5; }
+    .mf-again { min-height: 48px; margin: 0.75rem auto; display: none; font-weight: 800; border-radius: 12px; border: 2px solid #f59e0b; background: #fffbeb; padding: 0.5rem 1rem; cursor: pointer; }
+    .mf-again.show { display: inline-block; }
   </style>
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -85,8 +87,9 @@
         </div>
         <p id="mf-st" class="section-note" style="text-align:center;margin:0.5rem 0">Find two that go together.</p>
         <div class="mf-board" id="mf-board" role="group" aria-label="Memory cards"></div>
-        <p id="mf-win" class="section-note" style="text-align:center;margin:0.75rem 0" hidden>All pairs found!</p>
-        <p style="text-align:center"><a href="lost-sheep.html">Find the sheep</a> &middot; <a href="/kids/">Home</a></p>
+        <p id="mf-win" class="section-note" style="text-align:center;margin:0.75rem 0;font-weight:800;color:#14532d" hidden>All pairs found!</p>
+        <p style="text-align:center"><button type="button" id="mf-again" class="mf-again">Play again (shuffle)</button></p>
+        <p style="text-align:center"><a href="lost-sheep.html">Find the sheep</a> &middot; <a href="match-buddies.html">Match game</a> &middot; <a href="/kids/">Home</a></p>
       </div>
     </main>
   </div>
@@ -103,13 +106,17 @@
       { id: 'a', a: "\uD83C\uDF3F The Lord is my shepherd", b: "The Lord is my shepherd; I shall not want." },
       { id: 'b', a: "\uD83C\uDF1F Suffer the children", b: "Suffer the little children to come unto me." },
       { id: 'c', a: "\uD83C\uDF0E Be strong, fear not", b: "Be strong and of a good courage; be not afraid." },
-      { id: 'd', a: "\uD83D\uDCD6 Cast your care on Him", b: "Casting all your care upon him; for he careth for you." }
+      { id: 'd', a: "\uD83D\uDCD6 Cast your care on Him", b: "Casting all your care upon him; for he careth for you." },
+      { id: 'e', a: "\uD83D\uDCA1 Lamp to my feet", b: "Thy word is a lamp unto my feet." },
+      { id: 'f', a: "\uD83D\uDC96 God so loved", b: "For God so loved the world, that he gave his only begotten Son." }
     ];
     var board = document.getElementById('mf-board');
     var st = document.getElementById('mf-st');
     var winEl = document.getElementById('mf-win');
+    var again = document.getElementById('mf-again');
     var first = null;
     var matched = {};
+    var lock = false;
     function shuffle(arr) {
       var x = arr.slice();
       for (var i = x.length - 1; i > 0; i--) {
@@ -118,62 +125,80 @@
       }
       return x;
     }
-    var cards = [];
-    PAIRS.forEach(function (p) {
-      cards.push({ pair: p.id, text: p.a });
-      cards.push({ pair: p.id, text: p.b });
-    });
-    cards = shuffle(cards);
-    cards.forEach(function (c, idx) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'mf-card';
-      b.setAttribute('data-pair', c.pair);
-      b.setAttribute('aria-pressed', 'false');
-      b.textContent = c.text;
-      b.addEventListener('click', function () {
-        if (b.getAttribute('aria-pressed') === 'true' || b.classList.contains('mf-match')) return;
-        b.setAttribute('aria-pressed', 'true');
-        if (!first) {
-          first = b;
-          if (st) st.textContent = 'Pick the matching line.';
-          return;
-        }
-        if (first === b) return;
-        var a = first.getAttribute('data-pair');
-        var b2 = b.getAttribute('data-pair');
-        if (a === b2) {
-          first.classList.add('mf-match');
-          b.classList.add('mf-match');
-          matched[a] = true;
-          first = null;
-          if (Object.keys(matched).length === PAIRS.length) {
-            winEl.hidden = false;
-            if (st) {
-              st.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin) ? tdbLittleShepherd.pickMatchWin() : 'You matched the flock!';
-            }
-            if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
-              try { window.tdbLittleShepherd.notify('gameWin'); } catch (e3) {}
+    function build() {
+      first = null;
+      matched = {};
+      lock = false;
+      if (winEl) winEl.hidden = true;
+      if (again) again.classList.remove('show');
+      if (st) st.textContent = 'Find two that go together—tap a card!';
+      if (board) board.textContent = '';
+      var usePairs = shuffle(PAIRS).slice(0, 4);
+      var cards = [];
+      usePairs.forEach(function (p) {
+        cards.push({ pair: p.id, text: p.a });
+        cards.push({ pair: p.id, text: p.b });
+      });
+      cards = shuffle(cards);
+      cards.forEach(function (c) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'mf-card';
+        b.setAttribute('data-pair', c.pair);
+        b.setAttribute('aria-pressed', 'false');
+        b.setAttribute('data-text', c.text);
+        b.textContent = '?';
+        b.addEventListener('click', function () {
+          if (lock || b.getAttribute('aria-pressed') === 'true' || b.classList.contains('mf-match')) return;
+          b.setAttribute('aria-pressed', 'true');
+          b.textContent = b.getAttribute('data-text') || '';
+          if (!first) {
+            first = b;
+            if (st) st.textContent = 'Pick the matching line.';
+            return;
+          }
+          if (first === b) return;
+          var a = first.getAttribute('data-pair');
+          var b2 = b.getAttribute('data-pair');
+          if (a === b2) {
+            first.classList.add('mf-match');
+            b.classList.add('mf-match');
+            matched[a] = true;
+            first = null;
+            if (Object.keys(matched).length === usePairs.length) {
+              winEl.hidden = false;
+              if (again) again.classList.add('show');
+              if (st) {
+                st.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin) ? tdbLittleShepherd.pickMatchWin() : 'You matched the flock!';
+              }
+              if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+                try { window.tdbLittleShepherd.notify('gameWin'); } catch (e3) {}
+              }
+            } else {
+              if (st) st.textContent = 'Nice! Keep going.';
             }
           } else {
-            if (st) st.textContent = 'Nice! Keep going.';
-            first = null;
+            lock = true;
+            var f = first;
+            setTimeout(function () {
+              f.setAttribute('aria-pressed', 'false');
+              b.setAttribute('aria-pressed', 'false');
+              f.textContent = '?';
+              b.textContent = '?';
+              first = null;
+              lock = false;
+            }, 650);
+            if (st) st.textContent = 'Try again—read slow.';
+            if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+              try { window.tdbLittleShepherd.notify('wrongMatch'); } catch (e4) {}
+            }
           }
-        } else {
-          var f = first;
-          setTimeout(function () {
-            f.setAttribute('aria-pressed', 'false');
-            b.setAttribute('aria-pressed', 'false');
-          }, 550);
-          first = null;
-          if (st) st.textContent = 'Try again—read slow.';
-          if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
-            try { window.tdbLittleShepherd.notify('wrongMatch'); } catch (e4) {}
-          }
-        }
+        });
+        if (board) board.appendChild(b);
       });
-      if (board) board.appendChild(b);
-    });
+    }
+    if (again) again.addEventListener('click', build);
+    build();
   });
   </script>
 </body>

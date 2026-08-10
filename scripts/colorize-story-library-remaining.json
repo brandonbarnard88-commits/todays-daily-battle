@@ -1,22 +1,10 @@
 {
-  "colored_count": 92,
-  "remaining_count": 146,
+  "colored_count": 125,
+  "remaining_count": 133,
   "remaining": [
     {
-      "base": "abigail-wise.jpg",
-      "src": "coloring-pages/abigail-wise.jpg"
-    },
-    {
-      "base": "angel-mary.jpg",
-      "src": "coloring-pages/angel-mary.jpg"
-    },
-    {
-      "base": "anna-prophet.jpg",
-      "src": "coloring-pages/anna-prophet.jpg"
-    },
-    {
-      "base": "baby-moses-s2.jpg",
-      "src": "coloring-pages/baby-moses-s2.jpg"
+      "base": "abraham-sarah.jpg",
+      "src": "coloring-pages/abraham-sarah.jpg"
     },
     {
       "base": "baby-moses-s3.jpg",
@@ -25,14 +13,6 @@
     {
       "base": "baby-moses-s4.jpg",
       "src": "coloring-pages/baby-moses-s4.jpg"
-    },
-    {
-      "base": "balaam-king.jpg",
-      "src": "coloring-pages/balaam-king.jpg"
-    },
-    {
-      "base": "barnabas.jpg",
-      "src": "coloring-pages/barnabas.jpg"
     },
     {
       "base": "blind-man-s2.jpg",
@@ -47,76 +27,16 @@
       "src": "coloring-pages/blind-man-s4.jpg"
     },
     {
-      "base": "boy-samuel.jpg",
-      "src": "coloring-pages/boy-samuel.jpg"
+      "base": "daniel-in-the-lions-den.jpg",
+      "src": "coloring-pages/daniel-in-the-lions-den.jpg"
     },
     {
-      "base": "centurion-servant.jpg",
-      "src": "coloring-pages/centurion-servant.jpg"
+      "base": "david-and-goliath.jpg",
+      "src": "coloring-pages/david-and-goliath.jpg"
     },
     {
-      "base": "come-lord-jesus.jpg",
-      "src": "coloring-pages/come-lord-jesus.jpg"
-    },
-    {
-      "base": "creation.jpg",
-      "src": "coloring-pages/creation.jpg"
-    },
-    {
-      "base": "cross-carry.jpg",
-      "src": "coloring-pages/cross-carry.jpg"
-    },
-    {
-      "base": "david-repent.jpg",
-      "src": "coloring-pages/david-repent.jpg"
-    },
-    {
-      "base": "david-spares-saul.jpg",
-      "src": "coloring-pages/david-spares-saul.jpg"
-    },
-    {
-      "base": "early-church.jpg",
-      "src": "coloring-pages/early-church.jpg"
-    },
-    {
-      "base": "elijah-taken-up.jpg",
-      "src": "coloring-pages/elijah-taken-up.jpg"
-    },
-    {
-      "base": "elisha-axe.jpg",
-      "src": "coloring-pages/elisha-axe.jpg"
-    },
-    {
-      "base": "elisha-bones.jpg",
-      "src": "coloring-pages/elisha-bones.jpg"
-    },
-    {
-      "base": "elisha-chariots.jpg",
-      "src": "coloring-pages/elisha-chariots.jpg"
-    },
-    {
-      "base": "elisha-oil.jpg",
-      "src": "coloring-pages/elisha-oil.jpg"
-    },
-    {
-      "base": "eutychus.jpg",
-      "src": "coloring-pages/eutychus.jpg"
-    },
-    {
-      "base": "ezekiel-bones.jpg",
-      "src": "coloring-pages/ezekiel-bones.jpg"
-    },
-    {
-      "base": "ezra-return.jpg",
-      "src": "coloring-pages/ezra-return.jpg"
-    },
-    {
-      "base": "faith-mountain.jpg",
-      "src": "coloring-pages/faith-mountain.jpg"
-    },
-    {
-      "base": "feeding-5000-s2.jpg",
-      "src": "coloring-pages/feeding-5000-s2.jpg"
+      "base": "empty-tomb.jpg",
+      "src": "coloring-pages/empty-tomb.jpg"
     },
     {
       "base": "feeding-5000-s3.jpg",
@@ -125,6 +45,10 @@
     {
       "base": "feeding-5000-s4.jpg",
       "src": "coloring-pages/feeding-5000-s4.jpg"
+    },
+    {
+      "base": "feeding-of-the-five-thousand.jpg",
+      "src": "coloring-pages/feeding-of-the-five-thousand.jpg"
     },
     {
       "base": "fishers-of-men-s2.jpg",
@@ -139,20 +63,16 @@
       "src": "coloring-pages/fishers-of-men-s4.jpg"
     },
     {
-      "base": "fruit-spirit.jpg",
-      "src": "coloring-pages/fruit-spirit.jpg"
-    },
-    {
-      "base": "good-samaritan-s2.jpg",
-      "src": "coloring-pages/good-samaritan-s2.jpg"
-    },
-    {
       "base": "good-samaritan-s3.jpg",
       "src": "coloring-pages/good-samaritan-s3.jpg"
     },
     {
       "base": "good-samaritan-s4.jpg",
       "src": "coloring-pages/good-samaritan-s4.jpg"
+    },
+    {
+      "base": "good-samaritan.jpg",
+      "src": "coloring-pages/good-samaritan.jpg"
     },
     {
       "base": "good-shepherd-s2.jpg",
@@ -211,12 +131,16 @@
       "src": "coloring-pages/jeremiah-call.jpg"
     },
     {
+      "base": "jesus-and-the-children.jpg",
+      "src": "coloring-pages/jesus-and-the-children.jpg"
+    },
+    {
       "base": "jesus-baptism.jpg",
       "src": "coloring-pages/jesus-baptism.jpg"
     },
     {
-      "base": "jesus-storm-s2.jpg",
-      "src": "coloring-pages/jesus-storm-s2.jpg"
+      "base": "jesus-calms-the-storm.jpg",
+      "src": "coloring-pages/jesus-calms-the-storm.jpg"
     },
     {
       "base": "jesus-storm-s3.jpg",
@@ -231,6 +155,10 @@
       "src": "coloring-pages/jesus-temple-boy.jpg"
     },
     {
+      "base": "jesus-welcomes-the-little-children.jpg",
+      "src": "coloring-pages/jesus-welcomes-the-little-children.jpg"
+    },
+    {
       "base": "job-trust.jpg",
       "src": "coloring-pages/job-trust.jpg"
     },
@@ -243,8 +171,8 @@
       "src": "coloring-pages/john-patmos.jpg"
     },
     {
-      "base": "jonah-s2.jpg",
-      "src": "coloring-pages/jonah-s2.jpg"
+      "base": "jonah-and-the-great-fish.jpg",
+      "src": "coloring-pages/jonah-and-the-great-fish.jpg"
     },
     {
       "base": "jonah-s3.jpg",
@@ -279,8 +207,12 @@
       "src": "coloring-pages/lazarus-s4.jpg"
     },
     {
-      "base": "lost-sheep-s2.jpg",
-      "src": "coloring-pages/lost-sheep-s2.jpg"
+      "base": "ll-commandments.jpg",
+      "src": "coloring-pages/ll-commandments.jpg"
+    },
+    {
+      "base": "ll-honesty.jpg",
+      "src": "coloring-pages/ll-honesty.jpg"
     },
     {
       "base": "lost-sheep-s3.jpg",
@@ -319,6 +251,10 @@
       "src": "coloring-pages/miriam-song.jpg"
     },
     {
+      "base": "moses-and-the-red-sea.jpg",
+      "src": "coloring-pages/moses-and-the-red-sea.jpg"
+    },
+    {
       "base": "moses-red-sea-s2.jpg",
       "src": "coloring-pages/moses-red-sea-s2.jpg"
     },
@@ -347,12 +283,12 @@
       "src": "coloring-pages/nativity-s4.jpg"
     },
     {
-      "base": "nehemiah-walls.jpg",
-      "src": "coloring-pages/nehemiah-walls.jpg"
+      "base": "nativity.jpg",
+      "src": "coloring-pages/nativity.jpg"
     },
     {
-      "base": "noah-s2.jpg",
-      "src": "coloring-pages/noah-s2.jpg"
+      "base": "nehemiah-walls.jpg",
+      "src": "coloring-pages/nehemiah-walls.jpg"
     },
     {
       "base": "noah-s3.jpg",
@@ -361,6 +297,10 @@
     {
       "base": "noah-s4.jpg",
       "src": "coloring-pages/noah-s4.jpg"
+    },
+    {
+      "base": "noahs-ark.jpg",
+      "src": "coloring-pages/noahs-ark.jpg"
     },
     {
       "base": "parable-net.jpg",
@@ -403,6 +343,10 @@
       "src": "coloring-pages/peter-lame.jpg"
     },
     {
+      "base": "pharisee-tax-collector.jpg",
+      "src": "coloring-pages/pharisee-tax-collector.jpg"
+    },
+    {
       "base": "philemon.jpg",
       "src": "coloring-pages/philemon.jpg"
     },
@@ -423,16 +367,16 @@
       "src": "coloring-pages/priscilla-aquila.jpg"
     },
     {
-      "base": "prodigal-son-s2.jpg",
-      "src": "coloring-pages/prodigal-son-s2.jpg"
-    },
-    {
       "base": "prodigal-son-s3.jpg",
       "src": "coloring-pages/prodigal-son-s3.jpg"
     },
     {
       "base": "prodigal-son-s4.jpg",
       "src": "coloring-pages/prodigal-son-s4.jpg"
+    },
+    {
+      "base": "prodigal-son.jpg",
+      "src": "coloring-pages/prodigal-son.jpg"
     },
     {
       "base": "psalm-91.jpg",
@@ -479,6 +423,10 @@
       "src": "coloring-pages/shunammite.jpg"
     },
     {
+      "base": "six-days-of-creation.jpg",
+      "src": "coloring-pages/six-days-of-creation.jpg"
+    },
+    {
       "base": "solomon-temple.jpg",
       "src": "coloring-pages/solomon-temple.jpg"
     },
@@ -489,10 +437,6 @@
     {
       "base": "solomon-wisdom.jpg",
       "src": "coloring-pages/solomon-wisdom.jpg"
-    },
-    {
-      "base": "sun-stands-still.jpg",
-      "src": "coloring-pages/sun-stands-still.jpg"
     },
     {
       "base": "tabitha-dorcas.jpg",
@@ -511,6 +455,10 @@
       "src": "coloring-pages/ten-virgins.jpg"
     },
     {
+      "base": "the-empty-tomb.jpg",
+      "src": "coloring-pages/the-empty-tomb.jpg"
+    },
+    {
       "base": "transfiguration.jpg",
       "src": "coloring-pages/transfiguration.jpg"
     },
@@ -521,10 +469,6 @@
     {
       "base": "unforgiving-servant.jpg",
       "src": "coloring-pages/unforgiving-servant.jpg"
-    },
-    {
-      "base": "walks-on-water-s2.jpg",
-      "src": "coloring-pages/walks-on-water-s2.jpg"
     },
     {
       "base": "walks-on-water-s3.jpg",
@@ -571,6 +515,10 @@
       "src": "coloring-pages/worry-birds.jpg"
     },
     {
+      "base": "writing-on-wall.jpg",
+      "src": "coloring-pages/writing-on-wall.jpg"
+    },
+    {
       "base": "young-timothy.jpg",
       "src": "coloring-pages/young-timothy.jpg"
     },
@@ -587,5 +535,5 @@
       "src": "coloring-pages/zacchaeus-s4.jpg"
     }
   ],
-  "note": "Continue soft-coloring same Color & Tell line art into coloring-pages/colored/. Library auto-prefers colored/ with line-art fallback."
+  "note": "Continue soft-coloring Color & Tell line art into coloring-pages/colored/."
 }

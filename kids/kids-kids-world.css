@@ -1919,3 +1919,54 @@ body.kids-world-surface .kids-site-porch {
   font-size: 0.82rem !important;
   color: #475569 !important;
 }
+
+
+/* Story chooser: big tappable picture grid (from kids hub Story door) */
+.kids-library-grid--pick {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)) !important;
+  gap: 0.85rem !important;
+}
+.kids-library-grid--pick .kids-library-card {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.kids-library-grid--pick .kids-library-card-thumb,
+.kids-library-grid--pick .kids-library-card img,
+.kids-library-grid--pick .kids-library-card picture {
+  width: 100%;
+  max-height: 9rem;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fff;
+}
+.kids-library-grid--pick .kids-library-card-desc {
+  display: none;
+}
+.kids-library-grid--pick .kids-library-card-meta {
+  display: none;
+}
+.kids-library-grid--pick .kids-library-card-title {
+  font-size: 0.92rem;
+  line-height: 1.25;
+  margin-top: 0.4rem;
+}
+.kids-library-grid--pick .kids-card-color-btn {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.45rem;
+}
+.kids-story-choose-note {
+  margin: 0 0 0.75rem !important;
+  font-weight: 600;
+  color: #0f172a !important;
+  font-size: 1.05rem !important;
+}
+@media (min-width: 640px) {
+  .kids-library-grid--pick {
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)) !important;
+  }
+  .kids-library-grid--pick .kids-library-card-thumb,
+  .kids-library-grid--pick .kids-library-card img {
+    max-height: 11rem;
+  }
+}

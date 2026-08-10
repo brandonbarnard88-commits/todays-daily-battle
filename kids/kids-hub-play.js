@@ -346,7 +346,7 @@
         var target = document.getElementById('kids-library-random-btn');
         if (target) target.click();
         else {
-          globalThis.location.href = 'corner.html?random=1';
+          globalThis.location.href = 'corner.html?choose=1#kids-library-grid';
         }
       });
     }

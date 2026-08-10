@@ -774,12 +774,14 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
     }
 
     /**
-     * Cache line-art pixels used as flood-fill walls.
-     * Dark ink / high-contrast outlines block fill; paper stays open.
+     * Cache a binary barrier mask for flood-fill walls.
+     * Soft gray shading is treated as open paper; only real dark ink
+     * becomes a wall, then walls are dilated so thin/anti-aliased
+     * outlines seal (fixes shaded coloring JPGs like Jesus & children).
      */
     ensureLineArtData() {
         if (!this.img || !this.img.naturalWidth) return null;
-        const key = this.src + '|' + this.img.naturalWidth + 'x' + this.img.naturalHeight;
+        const key = this.src + '|' + this.img.naturalWidth + 'x' + this.img.naturalHeight + '|mask-v2';
         if (this._lineArtData && this._lineArtKey === key) return this._lineArtData;
         const w = this.img.naturalWidth;
         const h = this.img.naturalHeight;
@@ -794,21 +796,91 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
         } catch (e) {
             return null;
         }
-        this._lineArtData = ctx.getImageData(0, 0, w, h);
+        const src = ctx.getImageData(0, 0, w, h);
+        const sd = src.data;
+        const n = w * h;
+        // Pass 1: mark true ink (dark lines only — ignore soft gray washes)
+        const ink = new Uint8Array(n);
+        const INK_LUMA = 105; // stricter than paint gray (was 148)
+        for (let p = 0, i = 0; p < n; p++, i += 4) {
+            const a = sd[i + 3];
+            if (a < 28) {
+                ink[p] = 0;
+                continue;
+            }
+            const lum = sd[i] * 0.299 + sd[i + 1] * 0.587 + sd[i + 2] * 0.114;
+            ink[p] = lum < INK_LUMA ? 1 : 0;
+        }
+        // Pass 2: light despeckle — drop isolated single-pixel ink
+        const cleaned = new Uint8Array(n);
+        for (let y = 1; y < h - 1; y++) {
+            for (let x = 1; x < w - 1; x++) {
+                const p = y * w + x;
+                if (!ink[p]) {
+                    cleaned[p] = 0;
+                    continue;
+                }
+                let neighbors = 0;
+                neighbors += ink[p - 1];
+                neighbors += ink[p + 1];
+                neighbors += ink[p - w];
+                neighbors += ink[p + w];
+                neighbors += ink[p - w - 1];
+                neighbors += ink[p - w + 1];
+                neighbors += ink[p + w - 1];
+                neighbors += ink[p + w + 1];
+                cleaned[p] = neighbors >= 1 ? 1 : 0;
+            }
+        }
+        // copy edges
+        for (let x = 0; x < w; x++) {
+            cleaned[x] = ink[x];
+            cleaned[(h - 1) * w + x] = ink[(h - 1) * w + x];
+        }
+        for (let y = 0; y < h; y++) {
+            cleaned[y * w] = ink[y * w];
+            cleaned[y * w + w - 1] = ink[y * w + w - 1];
+        }
+        // Pass 3: dilate ink 1px (plus corners) so thin strokes seal closed regions
+        const dilated = new Uint8Array(n);
+        for (let y = 0; y < h; y++) {
+            for (let x = 0; x < w; x++) {
+                const p = y * w + x;
+                if (cleaned[p]) {
+                    dilated[p] = 1;
+                    continue;
+                }
+                let wall = 0;
+                if (x > 0) wall |= cleaned[p - 1];
+                if (x + 1 < w) wall |= cleaned[p + 1];
+                if (y > 0) wall |= cleaned[p - w];
+                if (y + 1 < h) wall |= cleaned[p + w];
+                if (x > 0 && y > 0) wall |= cleaned[p - w - 1];
+                if (x + 1 < w && y > 0) wall |= cleaned[p - w + 1];
+                if (x > 0 && y + 1 < h) wall |= cleaned[p + w - 1];
+                if (x + 1 < w && y + 1 < h) wall |= cleaned[p + w + 1];
+                dilated[p] = wall ? 1 : 0;
+            }
+        }
+        // Write binary mask into ImageData (black = wall, white = open)
+        const out = ctx.createImageData(w, h);
+        const od = out.data;
+        for (let p = 0, i = 0; p < n; p++, i += 4) {
+            const v = dilated[p] ? 0 : 255;
+            od[i] = v;
+            od[i + 1] = v;
+            od[i + 2] = v;
+            od[i + 3] = 255;
+        }
+        this._lineArtData = out;
         this._lineArtKey = key;
         return this._lineArtData;
     }
 
     isLineBarrier(data, idx) {
-        const r = data[idx];
-        const g = data[idx + 1];
-        const b = data[idx + 2];
-        const a = data[idx + 3];
-        // Transparent SVG gaps are open paper
-        if (a < 28) return false;
-        const lum = (r * 0.299 + g * 0.587 + b * 0.114);
-        // Near-white paper is open; dark/gray outline is a wall.
-        return lum < 148;
+        // Mask is pure black/white after ensureLineArtData
+        const lum = data[idx] * 0.299 + data[idx + 1] * 0.587 + data[idx + 2] * 0.114;
+        return lum < 128;
     }
 
     parseCssColor(css) {

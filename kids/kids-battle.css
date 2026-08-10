@@ -1594,6 +1594,58 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
+/* Story open modal: paper surface + dark text (readable on kids-world light pages) */
+.kids-video-modal-content.kids-library-modal {
+  background: #fffef8 !important;
+  color: #0f172a !important;
+  border-color: #f59e0b !important;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.28);
+}
+.kids-video-modal-content.kids-library-modal .kids-video-modal-title {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+.kids-video-modal-content.kids-library-modal .kids-story-modal-breadcrumb,
+.kids-video-modal-content.kids-library-modal .kids-story-modal-breadcrumb a,
+.kids-video-modal-content.kids-library-modal .kids-bc-current,
+.kids-video-modal-content.kids-library-modal .section-note,
+.kids-video-modal-content.kids-library-modal .kids-story-modal-footnote {
+  color: #334155 !important;
+}
+.kids-video-modal-content.kids-library-modal .kids-story-ls-intro-text {
+  color: #0f172a !important;
+}
+.kids-video-modal-content.kids-library-modal .comic-caption {
+  color: #0f172a !important;
+  background: #fff !important;
+  border: 2px solid rgba(245, 158, 11, 0.4) !important;
+}
+.kids-video-modal-content.kids-library-modal .kids-story-narration {
+  background: #fff !important;
+  border-color: rgba(245, 158, 11, 0.45) !important;
+}
+.kids-video-modal-content.kids-library-modal .kids-story-narration-text {
+  color: #0f172a !important;
+}
+.kids-video-modal-content.kids-library-modal .kids-ctx-block {
+  color: #0f172a !important;
+  background: #fffbeb !important;
+}
+.kids-video-modal-content.kids-library-modal .kids-ctx-block p,
+.kids-video-modal-content.kids-library-modal .kids-ctx-block strong {
+  color: #0f172a !important;
+}
+.kids-video-modal-content.kids-library-modal .kids-modal-back-library-btn {
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+  background: #fff !important;
+}
+.kids-video-modal-content.kids-library-modal .kids-video-modal-close {
+  background: #fff !important;
+  color: #0f172a !important;
+  border-color: #f59e0b !important;
+}
+
 .kids-video-modal-close {
   position: absolute;
   top: 0.5rem;

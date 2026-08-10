@@ -737,16 +737,83 @@
     return out;
   }
 
+  /**
+   * All Color & Tell picture URLs for a story, already preferring /colored/ fills.
+   * Also lifts coloring-pages paths from bibleStories.panels when the slug map is empty.
+   * Never returns panel-*.svg stick figures.
+   */
+  function getStoryDisplayArtUrls(storyKey) {
+    var urls = getColoringArtUrlsForLibraryKey(storyKey) || [];
+    var out = [];
+    var seen = {};
+    var i;
+    function pushUrl(u) {
+      if (!u || typeof u !== 'string') return;
+      var s = u.trim();
+      if (!isSafeColoringPagePath(s)) return;
+      var preferred = preferColoredStoryArt(s);
+      if (!preferred || seen[preferred]) return;
+      seen[preferred] = 1;
+      out.push(preferred);
+    }
+    for (i = 0; i < urls.length; i++) pushUrl(urls[i]);
+    if (!out.length) {
+      var st = getStories()[storyKey] || {};
+      var panels = st.panels || [];
+      for (i = 0; i < panels.length; i++) {
+        var src = panels[i] && panels[i].src != null ? String(panels[i].src) : '';
+        if (src.indexOf('/coloring-pages/') === 0) pushUrl(src);
+      }
+    }
+    return out;
+  }
+
   /** First Color & Tell URL for library shelf thumbs (never panel stick figures). */
   function getColoringThumbForLibraryKey(storyKey) {
-    var urls = getColoringArtUrlsForLibraryKey(storyKey);
-    for (var i = 0; i < urls.length; i++) {
-      if (!isSafeColoringPagePath(urls[i])) continue;
-      /* Prefer full-color story art when we have it */
-      var colored = preferColoredStoryArt(urls[i]);
-      return colored || urls[i];
+    var urls = getStoryDisplayArtUrls(storyKey);
+    return urls.length ? urls[0] : '';
+  }
+
+  /** Attach error fallback: colored → line art → remove (never stick panels). */
+  function attachColorArtImgFallback(imgEl, preferredSrc) {
+    if (!imgEl || !preferredSrc) return;
+    var lineArt = preferredSrc;
+    if (preferredSrc.indexOf('/coloring-pages/colored/') !== -1) {
+      var base = preferredSrc.split('/').pop() || '';
+      lineArt = '/coloring-pages/' + base;
+      if (base.indexOf('coloring-page') !== -1) {
+        /* heroes also live under bible-stories/ */
+        imgEl.setAttribute('data-line-art-bible', '/coloring-pages/bible-stories/' + base);
+      }
     }
-    return '';
+    imgEl.setAttribute('data-line-art', lineArt);
+    imgEl.addEventListener('error', function onColorArtErr() {
+      imgEl.removeEventListener('error', onColorArtErr);
+      var next = imgEl.getAttribute('data-line-art');
+      var bible = imgEl.getAttribute('data-line-art-bible');
+      var cur = imgEl.getAttribute('src') || '';
+      if (next && cur !== next) {
+        imgEl.src = next;
+        imgEl.addEventListener('error', function onLineErr() {
+          imgEl.removeEventListener('error', onLineErr);
+          if (bible && imgEl.getAttribute('src') !== bible) {
+            imgEl.src = bible;
+            imgEl.addEventListener('error', function onBibleErr() {
+              imgEl.removeEventListener('error', onBibleErr);
+              if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
+            });
+            return;
+          }
+          if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
+        });
+        return;
+      }
+      if (bible && cur !== bible) {
+        imgEl.src = bible;
+        return;
+      }
+      if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
+    });
   }
 
   /* ────────────────────────────────────────────────────
@@ -7553,31 +7620,22 @@
         hint0.textContent = tdbPlainTextForUi(pack.hintAboveQuiz);
         wrap.appendChild(hint0);
       }
-      /* Prefer Color & Tell line art — never show stick panel-*.svg when real art exists */
-      var colorArtSec = getColoringArtUrlsForLibraryKey(key);
-      var colorArtSafe = [];
+      /* Full-color Color & Tell art — never stick panel-*.svg when real art exists */
+      var colorArtSafe = getStoryDisplayArtUrls(key);
       var csi;
-      for (csi = 0; csi < colorArtSec.length; csi++) {
-        if (isSafeColoringPagePath(colorArtSec[csi])) colorArtSafe.push(colorArtSec[csi]);
-      }
       if (colorArtSafe.length) {
         var colorRow = document.createElement('div');
         colorRow.className = 'kids-read-quiz-images';
         colorRow.setAttribute('role', 'group');
-        colorRow.setAttribute('aria-label', 'Coloring pictures for this story');
+        colorRow.setAttribute('aria-label', 'Story pictures for this Bible story');
         for (csi = 0; csi < colorArtSafe.length; csi++) {
           var cImg = document.createElement('img');
           cImg.src = colorArtSafe[csi];
-          cImg.alt = tdbPlainTextForUi(storyTitle) + ' — Bible coloring picture';
+          cImg.alt = tdbPlainTextForUi(storyTitle) + ' — Bible story picture';
           cImg.className = 'kids-read-quiz-panel-img kids-read-quiz-panel-img--coloring';
           cImg.setAttribute('loading', csi === 0 ? 'eager' : 'lazy');
           cImg.setAttribute('decoding', 'async');
-          (function (imgEl) {
-            imgEl.addEventListener('error', function onSecColorErr() {
-              imgEl.removeEventListener('error', onSecColorErr);
-              if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
-            });
-          })(cImg);
+          attachColorArtImgFallback(cImg, colorArtSafe[csi]);
           colorRow.appendChild(cImg);
         }
         if (colorRow.childNodes.length) wrap.appendChild(colorRow);
@@ -7640,16 +7698,18 @@
     } else {
       var imgs = pack.readAlongImages;
       var imageSources = [];
-      /* 1) Color & Tell line art only when available (the planned story pictures) */
-      var colorArt = getColoringArtUrlsForLibraryKey(key);
-      for (var ca = 0; ca < colorArt.length; ca++) {
-        if (isSafeColoringPagePath(colorArt[ca])) imageSources.push(colorArt[ca]);
-      }
-      /* 2–4) Fallbacks only when no Color & Tell art maps for this story */
+      /* 1) Full-color Color & Tell pictures */
+      var colorArt = getStoryDisplayArtUrls(key);
+      for (var ca = 0; ca < colorArt.length; ca++) imageSources.push(colorArt[ca]);
+      /* 2–3) Fallbacks only when no Color & Tell art maps for this story (never panel sticks first) */
       if (!imageSources.length && imgs && imgs.length) {
         for (var im = 0; im < imgs.length; im++) {
           var srcM = imgs[im];
-          if (isSafeReadAlongImagePath(srcM)) imageSources.push(String(srcM));
+          if (isSafeColoringPagePath(String(srcM || ''))) {
+            imageSources.push(preferColoredStoryArt(String(srcM)));
+          } else if (isSafeReadAlongImagePath(srcM)) {
+            imageSources.push(String(srcM));
+          }
         }
       }
       if (!imageSources.length && window.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED) {
@@ -7660,14 +7720,7 @@
           if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
         }
       }
-      if (!imageSources.length) {
-        var panelsMeta = stMeta.panels || [];
-        for (var pi = 0; pi < panelsMeta.length; pi++) {
-          var relP = panelsMeta[pi] && panelsMeta[pi].src;
-          var panelAbs2 = safeKidsPanelSvgAbsFromRel(String(relP || ''));
-          if (panelAbs2) imageSources.push(panelAbs2);
-        }
-      }
+      /* Skip panel-*.svg sticks entirely — better empty than stick figures */
       if (imageSources.length) {
         var imgRow = document.createElement('div');
         imgRow.className = 'kids-read-quiz-images';
@@ -7680,27 +7733,27 @@
           var srcOne = imageSources[ix];
           var elImg = document.createElement('img');
           elImg.src = srcOne;
-          var panelAltIx = (stMeta.panels && stMeta.panels[ix] && stMeta.panels[ix].alt) ? String(stMeta.panels[ix].alt) : '';
-          var isPanelThumb = /^\/kids\/panel-[a-zA-Z0-9._-]+\.svg$/i.test(srcOne);
-          var isColorArt = isSafeColoringPagePath(srcOne);
-          elImg.alt =
-            isColorArt
-              ? storyTitle + ' — Bible coloring picture'
-              : isPanelThumb && panelAltIx
-                ? panelAltIx + ' — ' + storyTitle
-                : 'Story picture ' + (ix + 1) + ' — ' + storyTitle;
+          var isColorArt =
+            isSafeColoringPagePath(srcOne) ||
+            String(srcOne).indexOf('/coloring-pages/colored/') !== -1;
+          elImg.alt = isColorArt
+            ? storyTitle + ' — Bible story picture'
+            : 'Story picture ' + (ix + 1) + ' — ' + storyTitle;
           elImg.className =
             'kids-read-quiz-panel-img' + (isColorArt ? ' kids-read-quiz-panel-img--coloring' : '');
           elImg.setAttribute('loading', ix === 0 ? 'eager' : 'lazy');
           elImg.setAttribute('decoding', 'async');
-          (function (imgEl) {
-            imgEl.addEventListener('error', function onReadQuizImgErr() {
-              imgEl.removeEventListener('error', onReadQuizImgErr);
-              var row = imgEl.parentNode;
-              if (row) row.removeChild(imgEl);
-              if (row && !row.childNodes.length && row.parentNode) row.parentNode.removeChild(row);
-            });
-          })(elImg);
+          if (isColorArt) attachColorArtImgFallback(elImg, srcOne);
+          else {
+            (function (imgEl) {
+              imgEl.addEventListener('error', function onReadQuizImgErr() {
+                imgEl.removeEventListener('error', onReadQuizImgErr);
+                var row = imgEl.parentNode;
+                if (row) row.removeChild(imgEl);
+                if (row && !row.childNodes.length && row.parentNode) row.parentNode.removeChild(row);
+              });
+            })(elImg);
+          }
           imgRow.appendChild(elImg);
         }
         if (imgRow.childNodes.length) wrap.appendChild(imgRow);
@@ -9224,13 +9277,11 @@
       prependLittleShepherdIntro(carouselRoot, key, s);
       var panelsWrap = document.createElement('div');
       panelsWrap.className = 'panels-container';
-      /* Prefer Color & Tell line art — never lead with stick panel-*.svg when art exists */
-      var colorArtUrls = getColoringArtUrlsForLibraryKey(key);
+      /* Full-color Color & Tell pictures only — never lead with stick panel-*.svg */
+      var colorArtUrls = getStoryDisplayArtUrls(key);
       var usedColorArt = false;
-      var colorArtNodes = [];
       if (colorArtUrls && colorArtUrls.length) {
         for (var cai = 0; cai < colorArtUrls.length; cai++) {
-          if (!isSafeColoringPagePath(colorArtUrls[cai])) continue;
           usedColorArt = true;
           var imC = document.createElement('img');
           imC.className = 'comic-panel comic-panel--coloring-art comic-panel--story-color';
@@ -9240,66 +9291,31 @@
             tdbPlainTextForUi(s.title || key) +
             ' — Bible story picture' +
             (themeSnippet ? ' – ' + tdbPlainTextForUi(themeSnippet) : '');
-          /* Prefer full-color story art; fall back to line art on error */
-          var lineArtSrc = colorArtUrls[cai];
-          var colorSrc = preferColoredStoryArt(lineArtSrc);
-          imC.src = colorSrc;
-          imC.setAttribute('data-line-art', lineArtSrc);
-          (function (imgEl, wrapEl, lineFallback) {
-            imgEl.addEventListener('error', function onColorArtErr() {
-              imgEl.removeEventListener('error', onColorArtErr);
-              if (lineFallback && imgEl.getAttribute('src') !== lineFallback) {
-                imgEl.src = lineFallback;
-                return;
-              }
-              if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
-              /* If every Color & Tell file 404s, fall back once to story-specific panels only when
-                 they are not the shared panel-jesus stick pack (wrong art for OT stories). */
-              if (wrapEl && !wrapEl.querySelector('.comic-panel--coloring-art')) {
-                var st = (window.TDB_BIBLE_STORIES || {})[key] || {};
-                var pans = st.panels || [];
-                var onlyJesus = pans.length > 0;
-                var pii;
-                for (pii = 0; pii < pans.length; pii++) {
-                  var srcP = String((pans[pii] && pans[pii].src) || '');
-                  if (!/^panel-jesus-\d+\.svg$/i.test(srcP.replace(/^.*\//, ''))) {
-                    onlyJesus = false;
-                    break;
-                  }
-                }
-                if (onlyJesus) return; /* keep empty rather than wrong stick Jesus for Naaman etc. */
-                for (pii = 0; pii < pans.length; pii++) {
-                  var panF = pans[pii];
-                  var absF = safeKidsPanelSvgAbsFromRel(String((panF && panF.src) || ''));
-                  if (!absF) continue;
-                  var imF = document.createElement('img');
-                  imF.className = 'comic-panel';
-                  imF.setAttribute('loading', 'lazy');
-                  imF.alt = tdbPlainTextForUi((panF && panF.alt) || s.title || key);
-                  imF.src = absF;
-                  wrapEl.appendChild(imF);
-                }
-              }
-            });
-          })(imC, panelsWrap, lineArtSrc);
+          imC.src = colorArtUrls[cai];
+          attachColorArtImgFallback(imC, colorArtUrls[cai]);
           panelsWrap.appendChild(imC);
-          colorArtNodes.push(imC);
         }
       }
-      /* Legacy stick panels only when no Color & Tell map — and never reuse panel-jesus for non-Jesus stories */
+      /* Last resort only: story-specific panels that are already coloring-pages (not sticks) */
       if (!usedColorArt) {
         for (var pi = 0; pi < panels.length; pi++) {
           var pan = panels[pi];
           var relPan = String((pan && pan.src) || '');
-          var basePan = relPan.indexOf('/') === -1 ? relPan : relPan.split('/').pop() || '';
-          var titleLow = String(s.title || key || '').toLowerCase();
-          var isJesusStory =
-            /jesus|christ|nativity|manger|disciples|crucifix|tomb|resurrection|shepherd|lazarus|zacchaeus|parable|sermon|baptism|tempt|calms|feeds|walks|anoint|pilate|gethsemane|emmaus/i.test(
-              titleLow + ' ' + key
-            );
-          if (/^panel-jesus-\d+\.svg$/i.test(basePan) && !isJesusStory) {
-            continue; /* wrong generic art — leave blank rather than stick Jesus for OT heroes */
+          if (relPan.indexOf('/coloring-pages/') === 0 && isSafeColoringPagePath(relPan)) {
+            var imCol = document.createElement('img');
+            imCol.className = 'comic-panel comic-panel--coloring-art comic-panel--story-color';
+            imCol.setAttribute('loading', pi === 0 ? 'eager' : 'lazy');
+            imCol.setAttribute('decoding', 'async');
+            imCol.alt = tdbPlainTextForUi(pan.alt || (s.title + ' illustration'));
+            imCol.src = preferColoredStoryArt(relPan);
+            attachColorArtImgFallback(imCol, imCol.src);
+            panelsWrap.appendChild(imCol);
+            usedColorArt = true;
+            continue;
           }
+          /* Skip stick panel-*.svg entirely when we have a full-color library */
+          var basePan = relPan.indexOf('/') === -1 ? relPan : relPan.split('/').pop() || '';
+          if (/^panel-[a-zA-Z0-9._-]+\.svg$/i.test(basePan)) continue;
           var panelAbs = safeKidsPanelSvgAbsFromRel(relPan);
           if (!panelAbs) continue;
           var baseAlt = tdbPlainTextForUi(pan.alt || (s.title + ' illustration'));
@@ -10389,13 +10405,31 @@
     }
 
     if (grid) {
+      function storyKeyFromCard(card) {
+        if (!card) return '';
+        var key = card.getAttribute('data-story');
+        if (key) return key;
+        /* Static HTML starter cards are <a href="...?story=noah"> without data-story */
+        var href = card.getAttribute('href') || '';
+        try {
+          if (href && href.indexOf('story=') !== -1) {
+            var u = new URL(href, location.href);
+            var sk = u.searchParams.get('story');
+            if (sk) return resolveStoryKey(sk) || sk;
+          }
+        } catch (eHref) {}
+        return '';
+      }
       grid.addEventListener('click', function (e) {
         /* Color Me button is handled separately — skip it here */
         if (e.target && e.target.closest && e.target.closest('.kids-card-color-btn')) return;
         var card = e.target && e.target.closest ? e.target.closest('.kids-library-card') : null;
         if (card) {
-          var key = card.getAttribute('data-story');
-          if (key) openStory(key);
+          var key = storyKeyFromCard(card);
+          if (key) {
+            e.preventDefault();
+            openStory(key);
+          }
         }
       });
       grid.addEventListener('keydown', function (e) {
@@ -10404,7 +10438,7 @@
         var card = e.target && e.target.closest ? e.target.closest('.kids-library-card') : null;
         if (card) {
           e.preventDefault();
-          var key = card.getAttribute('data-story');
+          var key = storyKeyFromCard(card);
           if (key) openStory(key);
         }
       });

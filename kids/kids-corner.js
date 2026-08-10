@@ -9923,17 +9923,21 @@
     if (keys.length === 0) {
       if (typeof window._kidsLibraryInitAttempts !== 'number') window._kidsLibraryInitAttempts = 0;
       window._kidsLibraryInitAttempts++;
+      /* Keep static HTML picture cards visible while waiting for kids-battle.js */
       if (window._kidsLibraryInitAttempts < 60) {
         setTimeout(init, 100);
         return;
       }
-      var grid = document.getElementById('kids-library-grid');
-      if (grid && !grid.querySelector('.kids-library-load-error')) {
+      var gridEl = document.getElementById('kids-library-grid');
+      if (gridEl && !gridEl.querySelector('.kids-library-load-error')) {
         var err = document.createElement('p');
         err.className = 'kids-library-load-error kids-search-no-match';
         err.setAttribute('role', 'alert');
-        err.textContent = 'The story list did not load—that happens (often a blocked script or offline). Check your connection, allow scripts for this site, then refresh.';
-        grid.appendChild(err);
+        err.textContent =
+          'The full story list is still loading. You can open any picture above right now—or hard-refresh (Cmd/Ctrl+Shift+R) if nothing new appears.';
+        /* Insert note above cards; do not clear static picture cards */
+        if (gridEl.firstChild) gridEl.insertBefore(err, gridEl.firstChild);
+        else gridEl.appendChild(err);
       }
       return;
     }
@@ -9971,7 +9975,16 @@
       if (params.get('gentle') === '1' || params.get('navMode') === 'gentle') pendingStoryNavMode = 'gentle';
     } catch (e) {}
     populateBookFilterOptions();
-    renderGrid(applyFilters());
+    try {
+      renderGrid(applyFilters());
+    } catch (eGrid) {
+      try {
+        if (typeof console !== 'undefined' && console.warn) {
+          console.warn('Kids library grid render failed; static picture cards stay.', eGrid);
+        }
+      } catch (eLog) {}
+      /* Leave static HTML story cards in place if dynamic render throws */
+    }
     if (pendingStoryUrlParam) {
       var deepTries = 0;
       var storyParamForOpen = pendingStoryUrlParam;
@@ -10175,10 +10188,10 @@
           'goodSamaritan',
           'lostSheep',
           'prodigalSon',
-          'babyMoses',
+          'mosesBaby',
           'mosesSea',
           'creation',
-          'emptyTomb',
+          'tombEmpty',
           'jesusBlessKids',
           'zacchaeus',
           'naamanHealed',
@@ -10544,10 +10557,10 @@
         'goodSamaritan',
         'lostSheep',
         'prodigalSon',
-        'babyMoses',
+        'mosesBaby',
         'mosesSea',
         'creation',
-        'emptyTomb',
+        'tombEmpty',
         'jesusBlessKids',
         'zacchaeus',
         'naamanHealed',

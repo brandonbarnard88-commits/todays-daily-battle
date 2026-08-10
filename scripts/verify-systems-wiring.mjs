@@ -418,8 +418,36 @@ function checkHandoffs() {
 }
 
 // —— main ——
+
+// —— Gospel porch doors (mission: help people know Jesus) ——
+function checkGospelPathMarkers() {
+  const fs = read('first-steps.html');
+  if (!/id=["']come-to-christ["']/.test(fs)) {
+    errors.push('first-steps.html missing #come-to-christ gospel doorway');
+  }
+  if (!/John 3:16/.test(fs) || !/Romans 10:9/.test(fs) || !/Romans 10:13/.test(fs)) {
+    errors.push('first-steps.html gospel doorway should include John 3:16 and Romans 10:9, 10:13 (KJV)');
+  }
+  if (!/data-bbe-ref=["']John 3:16["']/.test(fs)) {
+    errors.push('first-steps.html should offer BBE for the same John 3:16 ref under KJV');
+  }
+  const calm = read('calm.html');
+  if (!/calm-gospel-door|first-steps\.html#come-to-christ/.test(calm)) {
+    errors.push('calm.html missing gentle gospel door to first-steps / salvation path');
+  }
+  const home = read('index.html');
+  if (!/first-steps\.html#come-to-christ|first-steps\.html/.test(home) || !/roadtosalvation/.test(home)) {
+    errors.push('index.html should soft-link first-steps and Road to Salvation for seekers');
+  }
+  const little = read('little-ones.html');
+  if (!/littleOnesBbeSimple/.test(little)) {
+    errors.push('little-ones.html should show optional BBE under daily KJV verse');
+  }
+}
+
 function main() {
   checkCriticalPages();
+  checkGospelPathMarkers();
   checkExploreTopicsHash();
   checkHubAssets();
   checkKnownAssets();

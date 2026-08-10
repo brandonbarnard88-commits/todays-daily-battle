@@ -147,7 +147,7 @@
       }
       /* Optional BBE simpler English on kids corner / family hub */
       try {
-        var bbeEl = byId('kidsBbeSimple') || byId('familyBbeSimple');
+        var bbeEl = byId('kidsBbeSimple') || byId('familyBbeSimple') || byId('littleOnesBbeSimple');
         if (bbeEl && battle.ref) {
           bbeEl.setAttribute('data-bbe-ref', String(battle.ref).replace(/\s*\(KJV\)\s*$/i, '').trim());
           if (bbeEl.open && window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === 'function') {

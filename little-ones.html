@@ -333,6 +333,14 @@
       <blockquote class="daily-verse-body" aria-labelledby="little-ones-verse-ref">
         <p class="daily-verse-text" id="little-ones-verse-text" aria-live="polite">The same KJV verse from home will appear here. If it is slow to load, give it a moment or open Verse of the Day.</p>
       </blockquote>
+      <details class="tdb-bbe-simple tdb-bbe-simple--kids" id="littleOnesBbeSimple" data-bbe-simple="1" data-bbe-ref="" open>
+        <summary class="tdb-bbe-simple__summary">In simpler words (BBE)</summary>
+        <div class="tdb-bbe-simple__body">
+          <p class="tdb-bbe-simple__note section-note">Easier English for little ears&mdash;same verse as the King James above. <a href="/bible-credits.html#how-we-use-the-bible">How we use the Bible</a></p>
+          <p class="tdb-bbe-simple__status section-note" data-bbe-status="1" aria-live="polite"></p>
+          <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
+        </div>
+      </details>
       <p class="section-note">One calm step: read one line, let your child repeat one word, then keep going only if the room still feels open.</p>
     </section>
 
@@ -602,6 +610,12 @@
   <script defer src="/little-ones.js?v=20260415littleones"></script>
   <script type="module" src="/config.js"></script>
   <script type="module" src="/script.js?v=20260809-vbd-labels" data-cfasync="false"></script>
-  <script src="/kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
+  <script src="/bbe-simple.js?v=20260810gospel" data-tdb-bbe-simple="1" defer></script>
+  <script>
+    window.TDB_DAILY_VERSE_ROOT_ID = 'little-ones-verse-root';
+    window.TDB_DAILY_VERSE_TEXT_ID = 'little-ones-verse-text';
+    window.TDB_DAILY_VERSE_REF_ID = 'little-ones-verse-ref';
+  </script>
+  <script src="/kids-corner-daily-verse.js?v=20260810gospel" defer></script>
 </body>
 </html>

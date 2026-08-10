@@ -10466,43 +10466,95 @@
     try {
       var journeyParam = new URLSearchParams(location.search).get('journey');
       var randomParam = new URLSearchParams(location.search).get('random');
-      if (journeyParam === '1') {
-        continueJourney();
-      } else if (randomParam === '1') {
-        /* Story door: prefer classic kid Bible stories — not thin epistle cards */
-        var classicPool = [
-          'noah',
-          'davidGoliath',
-          'danielLionsDen',
-          'jonah',
-          'jesusCalmsStorm',
-          'jesusFeeds5000',
-          'goodSamaritan',
-          'lostSheep',
-          'prodigalSon',
-          'babyMoses',
-          'mosesSea',
-          'creation',
-          'emptyTomb',
-          'jesusBlessKids',
-          'zacchaeus',
-          'naamanHealed',
-          'esther',
-          'josephCoat',
-          'fieryFurnace',
-          'jesusWalksWater'
-        ];
+      var chooseParam = new URLSearchParams(location.search).get('choose');
+      /* Classic kid Bible stories for pick-a-picture / surprise (not thin epistle cards) */
+      var classicPool = [
+        'noah',
+        'davidGoliath',
+        'danielLionsDen',
+        'jonah',
+        'jesusCalmsStorm',
+        'jesusFeeds5000',
+        'goodSamaritan',
+        'lostSheep',
+        'prodigalSon',
+        'babyMoses',
+        'mosesSea',
+        'creation',
+        'emptyTomb',
+        'jesusBlessKids',
+        'zacchaeus',
+        'naamanHealed',
+        'esther',
+        'josephCoat',
+        'fieryFurnace',
+        'jesusWalksWater'
+      ];
+      function classicKeysReady() {
         var storiesAll = getStories();
-        var poolRand = classicPool.filter(function (k) {
+        var pool = classicPool.filter(function (k) {
           return !!(storiesAll && storiesAll[k]);
         });
-        if (!poolRand.length) poolRand = getKeysForStoryNav();
+        if (!pool.length) pool = getKeysForStoryNav().slice(0, 24);
+        return pool;
+      }
+      if (journeyParam === '1') {
+        continueJourney();
+      } else if (chooseParam === '1' || chooseParam === 'true') {
+        /* Story door: grid of clickable thumbnails — do NOT auto-open a modal */
+        function showChooserGrid() {
+          var pool = classicKeysReady();
+          if (!pool.length) return false;
+          renderGrid(pool);
+          var gridEl = document.getElementById('kids-library-grid');
+          var headEl = document.getElementById('kids-library-grid-heading');
+          if (gridEl) {
+            gridEl.classList.add('kids-library-grid--pick');
+            gridEl.setAttribute('aria-label', 'Pick a Bible story — tap a picture');
+          }
+          if (headEl) {
+            headEl.textContent = 'Pick a story';
+          }
+          var note = document.getElementById('kids-story-choose-note');
+          if (!note && gridEl && gridEl.parentNode) {
+            note = document.createElement('p');
+            note.id = 'kids-story-choose-note';
+            note.className = 'section-note kids-story-choose-note';
+            note.textContent = 'Tap a picture to open that Bible story. Use search below for more.';
+            gridEl.parentNode.insertBefore(note, gridEl);
+          }
+          try {
+            if (gridEl && typeof gridEl.scrollIntoView === 'function') {
+              gridEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else if (headEl && typeof headEl.scrollIntoView === 'function') {
+              headEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          } catch (eScroll) {}
+          try {
+            if (typeof showToast === 'function') {
+              showToast('Pick a picture to open a story.');
+            }
+          } catch (eToast) {}
+          return true;
+        }
+        var chooseTries = 0;
+        function tryChooser() {
+          if (showChooserGrid()) return;
+          chooseTries += 1;
+          if (chooseTries < 50) setTimeout(tryChooser, 100);
+        }
+        window.addEventListener('tdb-kids-bible-stories-ready', tryChooser, { once: true });
+        requestAnimationFrame(function () {
+          requestAnimationFrame(tryChooser);
+        });
+      } else if (randomParam === '1') {
+        var poolRand = classicKeysReady();
         if (poolRand.length) {
           var pick = poolRand[Math.floor(Math.random() * poolRand.length)];
           openStory(pick);
           try {
             if (typeof showToast === 'function') {
-              showToast('Surprise story: a random classic Bible story for kids. Use Previous / next to browse more.');
+              showToast('Surprise story: a random classic. Or go back and pick from the picture grid.');
             }
           } catch (eToast) {}
         }

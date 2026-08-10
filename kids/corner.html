@@ -990,7 +990,7 @@
                 <div class="kids-sheep-run" aria-hidden="true"><span class="kids-sheep-run-emoji" aria-hidden="true">🐑</span><span class="kids-sheep-run-emoji kids-sheep-run-emoji--late" aria-hidden="true">🐑</span></div>
               </div>
               <div class="kids-magic-hero-cta" role="group" aria-label="Bible fun—start here">
-                <a class="kids-magic-btn kids-magic-story" id="kids-play-hero-tap" href="corner.html?choose=1#kids-library-grid">Pick a story<small>tap a picture to open</small></a>
+                <a class="kids-magic-btn kids-magic-story" id="kids-play-hero-tap" href="#kids-library-grid">Pick a story<small>tap a picture to open</small></a>
               </div>
               <div class="kids-magic-duo" role="group" aria-label="Two more quick fun taps">
                 <a class="kids-magic-btn kids-magic-color" href="../coloring.html?story=jesus-children">Kids coloring<small>paint a page</small></a>
@@ -1021,7 +1021,7 @@
               <div class="kids-today-adventure" id="kids-today-adventure" role="region" aria-labelledby="kids-today-adventure-h">
                 <h3 class="kids-today-adventure-h" id="kids-today-adventure-h">Today&rsquo;s adventure</h3>
                 <p class="kids-today-adventure-line" id="kids-today-adventure-line">&nbsp;</p>
-                <a class="kids-today-adventure-go kids-magic-story" id="kids-today-adventure-link" href="corner.html?choose=1#kids-library-grid">Let&rsquo;s go<small>pick a picture</small></a>
+                <a class="kids-today-adventure-go kids-magic-story" id="kids-today-adventure-link" href="#kids-library-grid">Let&rsquo;s go<small>pick a picture</small></a>
               </div>
               <div class="kids-pasture-card" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
                 <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
@@ -1162,32 +1162,136 @@
           </details>
         </section>
 
-        <details class="kids-library-static-fallback glass tdb-porch-paper-glass" id="kids-library-static-fallback" aria-label="Starter Bible stories in this library">
-          <summary><span class="kids-section-title kids-section-title--summary">Starter list&mdash;first twelve (optional)</span></summary>
-          <p class="section-note">Same as the big grid with JavaScript on&mdash;or bookmark a single story link.</p>
-          <ol class="kids-library-static-list">
-            <li><a href="/kids/corner.html?story=david">David &amp; Goliath</a> <span class="kids-library-static-ref">1 Samuel 17</span> — God is bigger than the scary giant.</li>
-            <li><a href="/kids/corner.html?story=noah">Noah's Ark</a> <span class="kids-library-static-ref">Genesis 6–9</span> — God keeps His promise; rainbow sign.</li>
-            <li><a href="/kids/corner.html?story=jesus">Jesus the Good Shepherd</a> <span class="kids-library-static-ref">Gospels</span> — Jesus loves and cares for His sheep.</li>
-            <li><a href="/kids/corner.html?story=jonah">Jonah &amp; the Big Fish</a> <span class="kids-library-static-ref">Jonah 1:17</span> — Running away didn't fool God; He gives second chances.</li>
-            <li><a href="/kids/corner.html?story=daniel">Daniel &amp; the Lions</a> <span class="kids-library-static-ref">Daniel 6:22</span> — Pray brave; God can hush the lions.</li>
-            <li><a href="/kids/corner.html?story=adamEve">Adam &amp; Eve</a> <span class="kids-library-static-ref">Genesis 3</span> — First family, first choice; God still loves.</li>
-            <li><a href="/kids/corner.html?story=cainAbel">Cain &amp; Abel</a> <span class="kids-library-static-ref">Genesis 4</span> — Give God your best; ask Him when you're mad.</li>
-            <li><a href="/kids/corner.html?story=towerBabel">Tower of Babel</a> <span class="kids-library-static-ref">Genesis 11</span> — God is bigger than any tower.</li>
-            <li><a href="/kids/corner.html?story=abrahamIsaac">Abraham &amp; Isaac</a> <span class="kids-library-static-ref">Genesis 22</span> — Trust God; He provides.</li>
-            <li><a href="/kids/corner.html?story=josephCoat">Joseph &amp; the Coat</a> <span class="kids-library-static-ref">Genesis 37:3</span> — Hard days; God turns them for good.</li>
-            <li><a href="/kids/corner.html?story=josephSold">Joseph Sold to Egypt</a> <span class="kids-library-static-ref">Genesis 37:28</span> — God stayed with Joseph in the hurt.</li>
-            <li><a href="/kids/corner.html?story=mosesBush">Moses &amp; the Burning Bush</a> <span class="kids-library-static-ref">Exodus 3</span> — God calls; He helps you say yes.</li>
-          </ol>
-        </details>
-
         <section class="kids-comic-panels glass tdb-porch-paper-glass" role="region" aria-labelledby="kids-library-grid-heading">
           <h2 id="kids-library-grid-heading" class="kids-section-title">All stories</h2>
-          <div id="kids-library-grid" class="kids-library-grid" aria-label="Bible story cards">
-            <!-- Filled by kids-corner.js -->
+          <p id="kids-story-choose-note" class="section-note kids-story-choose-note">Tap a picture to open that Bible story. Search above finds more.</p>
+          <!--
+            Static picture cards always ship in HTML so stories are visible even if JS is slow/blocked.
+            kids-corner.js replaces this grid when the full library loads.
+          -->
+          <div id="kids-library-grid" class="kids-library-grid kids-library-grid--pick" aria-label="Bible story cards">
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=noah">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/noah-s1.jpg" width="280" height="224" alt="Noah&rsquo;s Ark — Bible coloring picture" loading="eager" decoding="async" fetchpriority="high">
+              <span class="kids-library-card-title">Noah&rsquo;s Ark</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=david">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/david-and-goliath-coloring-page.jpg" width="280" height="224" alt="David and Goliath — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">David &amp; Goliath</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=jesusBlessKids">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/jesus-and-the-children-coloring-page.jpg" width="280" height="224" alt="Jesus and the children — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Jesus &amp; the children</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=jonah">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/jonah-s1.jpg" width="280" height="224" alt="Jonah and the big fish — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Jonah &amp; the big fish</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=danielLionsDen">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/daniel-in-the-lions-den-coloring-page.jpg" width="280" height="224" alt="Daniel and the lions — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Daniel &amp; the lions</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=jesusCalmsStorm">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/jesus-storm-s1.jpg" width="280" height="224" alt="Jesus calms the storm — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Jesus calms the storm</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=jesusFeeds5000">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/feeding-5000-s1.jpg" width="280" height="224" alt="Jesus feeds five thousand — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Feeding 5,000</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=goodSamaritan">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/good-samaritan-s1.jpg" width="280" height="224" alt="The good Samaritan — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Good Samaritan</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=lostSheep">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/lost-sheep-s1.jpg" width="280" height="224" alt="The lost sheep — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Lost sheep</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=prodigalSon">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/prodigal-son-s1.jpg" width="280" height="224" alt="The prodigal son — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Prodigal son</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=mosesBaby">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/baby-moses-s1.jpg" width="280" height="224" alt="Baby Moses — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Baby Moses</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=mosesSea">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/moses-red-sea-s1.jpg" width="280" height="224" alt="Moses and the Red Sea — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Red Sea</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=creation">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/creation-six-days-coloring-page.jpg" width="280" height="224" alt="Creation — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Creation</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=tombEmpty">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/empty-tomb-coloring-page.jpg" width="280" height="224" alt="Empty tomb — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Empty tomb</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=jesusWalksWater">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/walks-on-water-s1.jpg" width="280" height="224" alt="Jesus walks on water — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Walks on water</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=zacchaeus">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/zacchaeus-s1.jpg" width="280" height="224" alt="Zacchaeus — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Zacchaeus</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=josephCoat">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/joseph-coat.jpg" width="280" height="224" alt="Joseph and the coat — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Joseph&rsquo;s coat</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=esther">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/esther.jpg" width="280" height="224" alt="Esther — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Esther</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=fieryFurnace">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/fiery-furnace.jpg" width="280" height="224" alt="Fiery furnace — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Fiery furnace</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=naamanHealed">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/naaman.jpg" width="280" height="224" alt="Naaman healed — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Naaman</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
           </div>
           <p id="kids-library-no-match" class="kids-search-no-match hidden">No stories match that search yet. Try a broader word, or switch back to All themes.</p>
         </section>
+
+        <details class="kids-library-static-fallback glass tdb-porch-paper-glass" id="kids-library-static-fallback" aria-label="More starter Bible story links">
+          <summary><span class="kids-section-title kids-section-title--summary">More starter links (text list)</span></summary>
+          <p class="section-note">Same classics as the pictures above&mdash;handy if images are slow.</p>
+          <ol class="kids-library-static-list">
+            <li><a href="/kids/corner.html?story=david">David &amp; Goliath</a> <span class="kids-library-static-ref">1 Samuel 17</span> — God is bigger than the scary giant.</li>
+            <li><a href="/kids/corner.html?story=noah">Noah's Ark</a> <span class="kids-library-static-ref">Genesis 6–9</span> — God keeps His promise; rainbow sign.</li>
+            <li><a href="/kids/corner.html?story=jesusBlessKids">Jesus &amp; the children</a> <span class="kids-library-static-ref">Mark 10</span> — Jesus welcomes little ones.</li>
+            <li><a href="/kids/corner.html?story=jonah">Jonah &amp; the Big Fish</a> <span class="kids-library-static-ref">Jonah 1:17</span> — Running away didn't fool God; He gives second chances.</li>
+            <li><a href="/kids/corner.html?story=danielLionsDen">Daniel &amp; the Lions</a> <span class="kids-library-static-ref">Daniel 6:22</span> — Pray brave; God can hush the lions.</li>
+            <li><a href="/kids/corner.html?story=jesusCalmsStorm">Jesus calms the storm</a> <span class="kids-library-static-ref">Mark 4</span> — Jesus is stronger than the wind.</li>
+            <li><a href="/kids/corner.html?story=jesusFeeds5000">Feeding 5,000</a> <span class="kids-library-static-ref">John 6</span> — Jesus multiplies a small lunch.</li>
+            <li><a href="/kids/corner.html?story=goodSamaritan">Good Samaritan</a> <span class="kids-library-static-ref">Luke 10</span> — Love your neighbor.</li>
+            <li><a href="/kids/corner.html?story=lostSheep">Lost sheep</a> <span class="kids-library-static-ref">Luke 15</span> — The shepherd finds the one.</li>
+            <li><a href="/kids/corner.html?story=prodigalSon">Prodigal son</a> <span class="kids-library-static-ref">Luke 15</span> — The father runs to welcome him home.</li>
+            <li><a href="/kids/corner.html?story=mosesBaby">Baby Moses</a> <span class="kids-library-static-ref">Exodus 2</span> — God watches over the basket baby.</li>
+            <li><a href="/kids/corner.html?story=tombEmpty">Empty tomb</a> <span class="kids-library-static-ref">Matthew 28</span> — Jesus is risen.</li>
+          </ol>
+        </details>
         <details class="kids-corner-grownups-fold glass tdb-porch-paper-glass" id="kids-corner-grownups-fold">
           <summary class="kids-corner-grownups-summary">
             <span class="kids-section-title kids-section-title--summary">Grown-ups &amp; teachers</span>
@@ -2612,7 +2716,7 @@
   </script>
   <script src="loop-library-coloring.js?v=20260524readquiz" defer></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
-  <script src="kids-corner.js?v=20260810storycolor" defer></script>
+  <script src="kids-corner.js?v=20260810storygrid" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260810ears2" defer></script>
   <script type="module" src="../kids-data-loader.js" data-cfasync="false" defer></script>

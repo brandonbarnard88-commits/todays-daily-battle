@@ -630,14 +630,52 @@
   function isSafeColoringPagePath(src) {
     if (typeof src !== 'string') return false;
     var s = src.trim();
-    if (s.length < 20 || s.length > 180) return false;
+    if (s.length < 20 || s.length > 200) return false;
     if (s.indexOf('..') !== -1 || s.indexOf('//') !== -1 || s.charAt(0) !== '/') return false;
     if (s.indexOf('?') !== -1 || s.indexOf('#') !== -1) return false;
     return (
-      /^\/coloring-pages\/(?:bible-stories\/)?[a-z0-9][a-z0-9._-]*\.(?:jpg|jpeg|png|webp|svg)$/i.test(
+      /^\/coloring-pages\/(?:bible-stories\/|colored\/)?[a-z0-9][a-z0-9._-]*\.(?:jpg|jpeg|png|webp|svg)$/i.test(
         s
       )
     );
+  }
+
+  /**
+   * Finished-color story art (soft-filled line art for library/read-aloud).
+   * Coloring pack still uses black-and-white originals under /coloring-pages/.
+   * Only basenames we ship under /coloring-pages/colored/ are listed here.
+   */
+  var COLORED_STORY_ART = {
+    'noah-s1.jpg': 1,
+    'david-and-goliath-coloring-page.jpg': 1,
+    'daniel-in-the-lions-den-coloring-page.jpg': 1,
+    'jonah-s1.jpg': 1,
+    'jesus-storm-s1.jpg': 1,
+    'feeding-5000-s1.jpg': 1,
+    'good-samaritan-s1.jpg': 1,
+    'lost-sheep-s1.jpg': 1,
+    'prodigal-son-s1.jpg': 1,
+    'baby-moses-s1.jpg': 1,
+    'moses-red-sea-s1.jpg': 1,
+    'creation-six-days-coloring-page.jpg': 1,
+    'empty-tomb-coloring-page.jpg': 1,
+    'jesus-and-the-children-coloring-page.jpg': 1,
+    'zacchaeus-s1.jpg': 1,
+    'esther.jpg': 1,
+    'joseph-coat.jpg': 1,
+    'fiery-furnace.jpg': 1,
+    'walks-on-water-s1.jpg': 1,
+    'naaman.jpg': 1
+  };
+
+  function preferColoredStoryArt(url) {
+    if (!url || typeof url !== 'string') return url;
+    var s = url.trim();
+    if (!isSafeColoringPagePath(s)) return s;
+    if (s.indexOf('/coloring-pages/colored/') !== -1) return s;
+    var base = s.split('/').pop() || '';
+    if (!base || !COLORED_STORY_ART[base]) return s;
+    return '/coloring-pages/colored/' + base;
   }
 
   /**
@@ -700,7 +738,10 @@
   function getColoringThumbForLibraryKey(storyKey) {
     var urls = getColoringArtUrlsForLibraryKey(storyKey);
     for (var i = 0; i < urls.length; i++) {
-      if (isSafeColoringPagePath(urls[i])) return urls[i];
+      if (!isSafeColoringPagePath(urls[i])) continue;
+      /* Prefer full-color story art when we have it */
+      var colored = preferColoredStoryArt(urls[i]);
+      return colored || urls[i];
     }
     return '';
   }
@@ -7137,8 +7178,25 @@
       var imgColor = document.createElement('img');
       imgColor.src = raw;
       imgColor.alt = plainAlt;
-      imgColor.className = 'kids-library-card-thumb kids-library-card-thumb--coloring';
+      imgColor.className = 'kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color';
       imgColor.setAttribute('decoding', 'async');
+      if (raw.indexOf('/coloring-pages/colored/') !== -1) {
+        var baseLine = '/coloring-pages/' + (raw.split('/').pop() || '');
+        /* bible-stories basenames also live under bible-stories/ for some heroes */
+        imgColor.setAttribute('data-line-art', baseLine);
+        imgColor.addEventListener('error', function onThumbErr() {
+          imgColor.removeEventListener('error', onThumbErr);
+          var fb = imgColor.getAttribute('data-line-art');
+          if (fb && imgColor.getAttribute('src') !== fb) {
+            /* try bible-stories/ if flat 404 */
+            if (fb.indexOf('coloring-page') !== -1) {
+              imgColor.src = '/coloring-pages/bible-stories/' + (fb.split('/').pop() || '');
+            } else {
+              imgColor.src = fb;
+            }
+          }
+        });
+      }
       if (isFirstCard) {
         imgColor.loading = 'eager';
         try { imgColor.fetchPriority = 'high'; } catch (_) {}
@@ -9170,17 +9228,25 @@
           if (!isSafeColoringPagePath(colorArtUrls[cai])) continue;
           usedColorArt = true;
           var imC = document.createElement('img');
-          imC.className = 'comic-panel comic-panel--coloring-art';
+          imC.className = 'comic-panel comic-panel--coloring-art comic-panel--story-color';
           imC.setAttribute('loading', cai === 0 ? 'eager' : 'lazy');
           imC.setAttribute('decoding', 'async');
           imC.alt =
             tdbPlainTextForUi(s.title || key) +
-            ' — Bible coloring picture' +
+            ' — Bible story picture' +
             (themeSnippet ? ' – ' + tdbPlainTextForUi(themeSnippet) : '');
-          imC.src = colorArtUrls[cai];
-          (function (imgEl, wrapEl) {
+          /* Prefer full-color story art; fall back to line art on error */
+          var lineArtSrc = colorArtUrls[cai];
+          var colorSrc = preferColoredStoryArt(lineArtSrc);
+          imC.src = colorSrc;
+          imC.setAttribute('data-line-art', lineArtSrc);
+          (function (imgEl, wrapEl, lineFallback) {
             imgEl.addEventListener('error', function onColorArtErr() {
               imgEl.removeEventListener('error', onColorArtErr);
+              if (lineFallback && imgEl.getAttribute('src') !== lineFallback) {
+                imgEl.src = lineFallback;
+                return;
+              }
               if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
               /* If every Color & Tell file 404s, fall back once to story-specific panels only when
                  they are not the shared panel-jesus stick pack (wrong art for OT stories). */
@@ -9210,7 +9276,7 @@
                 }
               }
             });
-          })(imC, panelsWrap);
+          })(imC, panelsWrap, lineArtSrc);
           panelsWrap.appendChild(imC);
           colorArtNodes.push(imC);
         }

@@ -1,19 +1,7 @@
 {
-  "colored_count": 155,
-  "remaining_count": 103,
+  "colored_count": 188,
+  "remaining_count": 70,
   "remaining": [
-    {
-      "base": "blind-man-s2.jpg",
-      "src": "coloring-pages/blind-man-s2.jpg"
-    },
-    {
-      "base": "blind-man-s3.jpg",
-      "src": "coloring-pages/blind-man-s3.jpg"
-    },
-    {
-      "base": "blind-man-s4.jpg",
-      "src": "coloring-pages/blind-man-s4.jpg"
-    },
     {
       "base": "daniel-in-the-lions-den.jpg",
       "src": "coloring-pages/daniel-in-the-lions-den.jpg"
@@ -31,44 +19,8 @@
       "src": "coloring-pages/feeding-of-the-five-thousand.jpg"
     },
     {
-      "base": "fishers-of-men-s2.jpg",
-      "src": "coloring-pages/fishers-of-men-s2.jpg"
-    },
-    {
-      "base": "fishers-of-men-s3.jpg",
-      "src": "coloring-pages/fishers-of-men-s3.jpg"
-    },
-    {
-      "base": "fishers-of-men-s4.jpg",
-      "src": "coloring-pages/fishers-of-men-s4.jpg"
-    },
-    {
       "base": "good-samaritan.jpg",
       "src": "coloring-pages/good-samaritan.jpg"
-    },
-    {
-      "base": "good-shepherd-s2.jpg",
-      "src": "coloring-pages/good-shepherd-s2.jpg"
-    },
-    {
-      "base": "good-shepherd-s3.jpg",
-      "src": "coloring-pages/good-shepherd-s3.jpg"
-    },
-    {
-      "base": "good-shepherd-s4.jpg",
-      "src": "coloring-pages/good-shepherd-s4.jpg"
-    },
-    {
-      "base": "jairus-daughter-s2.jpg",
-      "src": "coloring-pages/jairus-daughter-s2.jpg"
-    },
-    {
-      "base": "jairus-daughter-s3.jpg",
-      "src": "coloring-pages/jairus-daughter-s3.jpg"
-    },
-    {
-      "base": "jairus-daughter-s4.jpg",
-      "src": "coloring-pages/jairus-daughter-s4.jpg"
     },
     {
       "base": "jesus-and-the-children.jpg",
@@ -83,40 +35,8 @@
       "src": "coloring-pages/jesus-welcomes-the-little-children.jpg"
     },
     {
-      "base": "john-baptist.jpg",
-      "src": "coloring-pages/john-baptist.jpg"
-    },
-    {
-      "base": "john-patmos.jpg",
-      "src": "coloring-pages/john-patmos.jpg"
-    },
-    {
       "base": "jonah-and-the-great-fish.jpg",
       "src": "coloring-pages/jonah-and-the-great-fish.jpg"
-    },
-    {
-      "base": "joshua-charge.jpg",
-      "src": "coloring-pages/joshua-charge.jpg"
-    },
-    {
-      "base": "josiah-reform.jpg",
-      "src": "coloring-pages/josiah-reform.jpg"
-    },
-    {
-      "base": "lamb-book.jpg",
-      "src": "coloring-pages/lamb-book.jpg"
-    },
-    {
-      "base": "lazarus-s2.jpg",
-      "src": "coloring-pages/lazarus-s2.jpg"
-    },
-    {
-      "base": "lazarus-s3.jpg",
-      "src": "coloring-pages/lazarus-s3.jpg"
-    },
-    {
-      "base": "lazarus-s4.jpg",
-      "src": "coloring-pages/lazarus-s4.jpg"
     },
     {
       "base": "ll-commandments.jpg",
@@ -127,60 +47,8 @@
       "src": "coloring-pages/ll-honesty.jpg"
     },
     {
-      "base": "love-chapter.jpg",
-      "src": "coloring-pages/love-chapter.jpg"
-    },
-    {
-      "base": "lydia-purple.jpg",
-      "src": "coloring-pages/lydia-purple.jpg"
-    },
-    {
-      "base": "malachi-messenger.jpg",
-      "src": "coloring-pages/malachi-messenger.jpg"
-    },
-    {
-      "base": "mary-martha.jpg",
-      "src": "coloring-pages/mary-martha.jpg"
-    },
-    {
-      "base": "mephibosheth.jpg",
-      "src": "coloring-pages/mephibosheth.jpg"
-    },
-    {
-      "base": "micah-justice.jpg",
-      "src": "coloring-pages/micah-justice.jpg"
-    },
-    {
-      "base": "miriam-song.jpg",
-      "src": "coloring-pages/miriam-song.jpg"
-    },
-    {
       "base": "moses-and-the-red-sea.jpg",
       "src": "coloring-pages/moses-and-the-red-sea.jpg"
-    },
-    {
-      "base": "moses-red-sea-s2.jpg",
-      "src": "coloring-pages/moses-red-sea-s2.jpg"
-    },
-    {
-      "base": "moses-red-sea-s3.jpg",
-      "src": "coloring-pages/moses-red-sea-s3.jpg"
-    },
-    {
-      "base": "moses-red-sea-s4.jpg",
-      "src": "coloring-pages/moses-red-sea-s4.jpg"
-    },
-    {
-      "base": "mustard-seed.jpg",
-      "src": "coloring-pages/mustard-seed.jpg"
-    },
-    {
-      "base": "nativity-s2.jpg",
-      "src": "coloring-pages/nativity-s2.jpg"
-    },
-    {
-      "base": "nativity-s3.jpg",
-      "src": "coloring-pages/nativity-s3.jpg"
     },
     {
       "base": "nativity-s4.jpg",

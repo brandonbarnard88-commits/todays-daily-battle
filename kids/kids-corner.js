@@ -8940,73 +8940,54 @@
     carouselRoot.insertBefore(intro, carouselRoot.firstChild);
   }
 
+  /**
+   * Always-visible “where in the Bible” + “for you” helper.
+   * (Old toggle was confusing: “KJV reference” looked like a full reading mode
+   * but only showed the citation, e.g. Luke 15:11–32.)
+   */
   function appendKjvPlainToggle(modalContext, s) {
     if (!modalContext || !s) return;
     var ref = s.kjvRef ? String(s.kjvRef).trim() : '';
     var plain = s.kidContext && s.kidContext.apply ? String(s.kidContext.apply).trim() : '';
     if (!ref && !plain) return;
     var box = document.createElement('div');
-    box.className = 'kids-story-kjv-plain';
+    box.className = 'kids-story-kjv-plain kids-story-kjv-plain--stack';
     box.setAttribute('role', 'region');
-    box.setAttribute('aria-label', 'KJV reference and plain helper');
+    box.setAttribute('aria-label', 'Where this story is in the Bible, and a plain line for you');
+
     var lab = document.createElement('p');
     lab.className = 'kids-story-kjv-plain-label';
-    lab.textContent = 'Same story, two ways in—tap to read KJV or plain helper.';
+    lab.textContent =
+      'This is not two different stories. Below: where it is written in the King James Bible, then a plain line for your family.';
     box.appendChild(lab);
-    var row = document.createElement('div');
-    row.className = 'kids-kjv-plain-toggle-row';
-    var bK = document.createElement('button');
-    bK.type = 'button';
-    bK.className = 'kids-kjv-plain-btn is-on';
-    bK.setAttribute('aria-pressed', 'true');
-    bK.textContent = 'KJV reference';
-    var bP = document.createElement('button');
-    bP.type = 'button';
-    bP.className = 'kids-kjv-plain-btn';
-    bP.setAttribute('aria-pressed', 'false');
-    bP.textContent = 'Plain helper';
-    row.appendChild(bK);
-    row.appendChild(bP);
-    box.appendChild(row);
-    var pK = document.createElement('div');
-    pK.className = 'kids-kjv-plain-body';
-    pK.textContent = ref || plain || '';
-    var pP = document.createElement('div');
-    pP.className = 'kids-kjv-plain-body hidden';
-    pP.setAttribute('hidden', '');
-    pP.textContent = plain || ref || '';
-    if (!ref) {
-      bK.classList.remove('is-on');
-      bK.setAttribute('aria-pressed', 'false');
-      bP.classList.add('is-on');
-      bP.setAttribute('aria-pressed', 'true');
-      pK.classList.add('hidden');
-      pK.setAttribute('hidden', '');
-      pP.classList.remove('hidden');
-      pP.removeAttribute('hidden');
+
+    if (ref) {
+      var whereHead = document.createElement('p');
+      whereHead.className = 'kids-kjv-plain-heading';
+      whereHead.textContent = 'Where in the Bible (KJV)';
+      box.appendChild(whereHead);
+      var pK = document.createElement('div');
+      pK.className = 'kids-kjv-plain-body kids-kjv-plain-body--ref';
+      pK.textContent = ref;
+      box.appendChild(pK);
+      var whereNote = document.createElement('p');
+      whereNote.className = 'kids-kjv-plain-note section-note';
+      whereNote.textContent =
+        'That is the chapter and verse address (like a page number). The full read-aloud is in the story above.';
+      box.appendChild(whereNote);
     }
-    box.appendChild(pK);
-    box.appendChild(pP);
-    bK.addEventListener('click', function () {
-      bK.classList.add('is-on');
-      bP.classList.remove('is-on');
-      bK.setAttribute('aria-pressed', 'true');
-      bP.setAttribute('aria-pressed', 'false');
-      pK.classList.remove('hidden');
-      pK.removeAttribute('hidden');
-      pP.classList.add('hidden');
-      pP.setAttribute('hidden', '');
-    });
-    bP.addEventListener('click', function () {
-      bP.classList.add('is-on');
-      bK.classList.remove('is-on');
-      bP.setAttribute('aria-pressed', 'true');
-      bK.setAttribute('aria-pressed', 'false');
-      pP.classList.remove('hidden');
-      pP.removeAttribute('hidden');
-      pK.classList.add('hidden');
-      pK.setAttribute('hidden', '');
-    });
+
+    if (plain) {
+      var forHead = document.createElement('p');
+      forHead.className = 'kids-kjv-plain-heading';
+      forHead.textContent = 'For you (plain words)';
+      box.appendChild(forHead);
+      var pP = document.createElement('div');
+      pP.className = 'kids-kjv-plain-body kids-kjv-plain-body--for-you';
+      pP.textContent = plain;
+      box.appendChild(pP);
+    }
+
     modalContext.appendChild(box);
   }
 
@@ -10517,7 +10498,13 @@
         });
         if (!poolRand.length) poolRand = getKeysForStoryNav();
         if (poolRand.length) {
-          openStory(poolRand[Math.floor(Math.random() * poolRand.length)]);
+          var pick = poolRand[Math.floor(Math.random() * poolRand.length)];
+          openStory(pick);
+          try {
+            if (typeof showToast === 'function') {
+              showToast('Surprise story: a random classic Bible story for kids. Use Previous / next to browse more.');
+            }
+          } catch (eToast) {}
         }
       }
     } catch (e) {}

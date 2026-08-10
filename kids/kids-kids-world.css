@@ -1874,3 +1874,48 @@ body.kids-world-surface .kids-site-porch {
   color: var(--kw-ink-muted);
   text-align: center;
 }
+
+
+/* Story modal: where in Bible + for you (always visible, no confusing toggle) */
+.kids-story-kjv-plain--stack {
+  display: block;
+  margin: 0.75rem 0 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 252, 245, 0.95);
+  border: 1px solid rgba(120, 90, 40, 0.18);
+}
+.kids-story-kjv-plain--stack .kids-story-kjv-plain-label {
+  margin: 0 0 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #334155;
+}
+.kids-kjv-plain-heading {
+  margin: 0.65rem 0 0.2rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #0f172a;
+}
+.kids-kjv-plain-heading:first-of-type {
+  margin-top: 0.15rem;
+}
+.kids-story-kjv-plain--stack .kids-kjv-plain-body {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #0f172a;
+  font-weight: 600;
+}
+.kids-story-kjv-plain--stack .kids-kjv-plain-body--for-you {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #1e293b;
+}
+.kids-kjv-plain-note {
+  margin: 0.25rem 0 0 !important;
+  font-size: 0.82rem !important;
+  color: #475569 !important;
+}

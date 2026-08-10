@@ -6,7 +6,8 @@
 
     Vendored for todaysdailybattle.com from https://github.com/collinph/jl-coloringbook
     Patches: localStorage keys, first palette selection, cursor max brush, print without document.write, quieter save(),
-      build toolbar with createElement (insertAdjacentHTML + DOMPurify strips <input> under Trusted Types).
+      build toolbar with createElement (insertAdjacentHTML + DOMPurify strips <input> under Trusted Types),
+      tap-to-fill (flood fill inside line art) + brush mode toggle.
 */
 customElements.define('jl-coloringbook', class extends HTMLElement {
     constructor() {
@@ -17,6 +18,9 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
         this.dragging = false;
         this.paths = [];
         this.color = null; // Initialize color
+        this.drawMode = 'fill'; // kids default: pick color, tap area to fill between lines
+        this._lineArtData = null;
+        this._lineArtKey = '';
 
         // Default colors
         this.paletteColors = [
@@ -196,6 +200,23 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
             .clearButton > i::after{ content: "clear"}
             .printButton > i::after{ content: "print"}
             .saveButton > i::after{ content: "save"}
+            .fillButton > i::after{ content: "format_color_fill"}
+            .brushButton > i::after{ content: "brush"}
+            .tools .button.modeSelected {
+                outline: 3px solid #2563eb;
+                background: #dbeafe;
+            }
+            .sizerTool.is-disabled {
+                opacity: 0.35;
+                pointer-events: none;
+            }
+            .modeHint {
+                width: 100%;
+                text-align: center;
+                font: 600 12px/1.35 system-ui, -apple-system, Segoe UI, sans-serif;
+                color: #1e3a5f;
+                padding: 2px 6px 6px;
+            }
         `;
         this.shadowRoot.appendChild(style);
 
@@ -243,19 +264,50 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
             return btn;
         }
 
+        const fillButton = iconButton('fillButton');
+        fillButton.type = 'button';
+        fillButton.setAttribute('aria-label', 'Fill tool: tap an area to color inside the lines');
+        fillButton.title = 'Fill — tap an area';
+        const brushButton = iconButton('brushButton');
+        brushButton.type = 'button';
+        brushButton.setAttribute('aria-label', 'Brush tool: draw freehand');
+        brushButton.title = 'Brush — draw freehand';
         const undoButton = iconButton('undoButton');
+        undoButton.type = 'button';
+        undoButton.setAttribute('aria-label', 'Undo');
+        undoButton.title = 'Undo';
         const clearButton = iconButton('clearButton');
+        clearButton.type = 'button';
+        clearButton.setAttribute('aria-label', 'Clear all color');
+        clearButton.title = 'Clear';
         const printButton = iconButton('printButton');
+        printButton.type = 'button';
+        printButton.setAttribute('aria-label', 'Print');
+        printButton.title = 'Print';
         const saveButton = iconButton('saveButton');
+        saveButton.type = 'button';
+        saveButton.setAttribute('aria-label', 'Save picture');
+        saveButton.title = 'Save';
+        tools.appendChild(fillButton);
+        tools.appendChild(brushButton);
         tools.appendChild(undoButton);
         tools.appendChild(clearButton);
         tools.appendChild(printButton);
         tools.appendChild(saveButton);
 
+        const modeHint = document.createElement('div');
+        modeHint.className = 'modeHint';
+        modeHint.setAttribute('aria-live', 'polite');
+
         const palette = document.createElement('div');
         palette.className = 'palette';
         toolbar.appendChild(tools);
+        toolbar.appendChild(modeHint);
         toolbar.appendChild(palette);
+
+        this.fillButton = fillButton;
+        this.brushButton = brushButton;
+        this.modeHint = modeHint;
 
         const canvasWrapper = document.createElement('div');
         canvasWrapper.className = 'canvasWrapper';
@@ -272,17 +324,16 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
         this.canvasWrapper = canvasWrapper;
 
         sizer.addEventListener('input', this.updateSize.bind(this));
+        fillButton.addEventListener('click', () => this.setDrawMode('fill'));
+        brushButton.addEventListener('click', () => this.setDrawMode('brush'));
         undoButton.addEventListener('click', () => {
             this.paths.pop();
             this.refresh();
+            this.persistPaths();
         });
         clearButton.addEventListener('click', () => {
             this.paths = [];
-            if (this.src) {
-                try {
-                    localStorage.setItem('v2:' + this.src, JSON.stringify(this.paths));
-                } catch (e) {}
-            }
+            this.persistPaths();
             this.refresh();
         });
         printButton.addEventListener('click', this.print.bind(this));
@@ -290,6 +341,34 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
 
         this.generatePalette();
         this.drawImageNav();
+        this.setDrawMode(this.drawMode || 'fill');
+    }
+
+    setDrawMode(mode) {
+        this.drawMode = mode === 'brush' ? 'brush' : 'fill';
+        if (this.fillButton && this.brushButton) {
+            this.fillButton.classList.toggle('modeSelected', this.drawMode === 'fill');
+            this.brushButton.classList.toggle('modeSelected', this.drawMode === 'brush');
+            this.fillButton.setAttribute('aria-pressed', this.drawMode === 'fill' ? 'true' : 'false');
+            this.brushButton.setAttribute('aria-pressed', this.drawMode === 'brush' ? 'true' : 'false');
+        }
+        if (this.sizer) {
+            this.sizer.classList.toggle('is-disabled', this.drawMode === 'fill');
+            this.sizer.disabled = this.drawMode === 'fill';
+        }
+        if (this.modeHint) {
+            this.modeHint.textContent = this.drawMode === 'fill'
+                ? 'Fill mode: pick a color, then tap inside the lines'
+                : 'Brush mode: draw freehand (size slider on the left)';
+        }
+        this.setCursor();
+    }
+
+    persistPaths() {
+        if (!this.src) return;
+        try {
+            localStorage.setItem('v2:' + this.src, JSON.stringify(this.paths));
+        } catch (e) {}
     }
 
    generatePalette() {
@@ -457,6 +536,9 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
     // --- Event Handlers ---
     touchStart(oe) {
         const e = oe; // Original event is directly passed now
+        if (e.touches.length >= 2) return;
+        // Prevent scroll + synthetic mouse double-tap on fill
+        if (e.preventDefault) e.preventDefault();
         const touch = e.touches[0];
         e.clientX = touch.clientX;
         e.clientY = touch.clientY;
@@ -482,6 +564,12 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
 
     mouseDown(e) {
         const pos = this.getCursorPosition(e);
+        if (this.drawMode === 'fill') {
+            if (e.preventDefault) e.preventDefault();
+            this.applyTapFill(pos.x, pos.y);
+            this.dragging = false;
+            return;
+        }
         this.dragging = true;
         pos.c = this.color;
         pos.s = this.sizer.value; // Use .value for input range
@@ -490,19 +578,24 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
     }
 
     mouseUp(e) {
+        if (this.drawMode === 'fill') {
+            this.dragging = false;
+            return;
+        }
         this.commitActivePath();
-        if (this.dragging && this.src) {
-            try {
-                localStorage.setItem('v2:' + this.src, JSON.stringify(this.paths));
-            } catch (err) {}
+        if (this.dragging) {
+            this.persistPaths();
         }
         this.dragging = false;
     }
 
     mouseMove(e) {
+        if (this.drawMode === 'fill') return;
         if (!this.dragging) return;
+        const path = this.paths[this.paths.length - 1];
+        if (!path || path[0] && path[0].fill) return;
         const pos = this.getCursorPosition(e);
-        this.paths[this.paths.length - 1].push(pos); // Append point to current path.
+        path.push(pos); // Append point to current path.
         this.drawActivePath();
     }
 
@@ -646,6 +739,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
         const path = this.paths[this.paths.length - 1];
 
         if (!path || path.length < 1) return; // Guard against empty paths
+        if (path[0].fill) return; // fills are applied on the main canvas only
 
         if (saveToCanvas === true || path[0].c === (this.paletteColors.length - 1)) {
             ctx = this.ctx; // Draw on main canvas for saving or eraser
@@ -679,68 +773,254 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
         ctx.stroke();
     }
 
+    /**
+     * Cache line-art pixels used as flood-fill walls.
+     * Dark ink / high-contrast outlines block fill; paper stays open.
+     */
+    ensureLineArtData() {
+        if (!this.img || !this.img.naturalWidth) return null;
+        const key = this.src + '|' + this.img.naturalWidth + 'x' + this.img.naturalHeight;
+        if (this._lineArtData && this._lineArtKey === key) return this._lineArtData;
+        const w = this.img.naturalWidth;
+        const h = this.img.naturalHeight;
+        const c = document.createElement('canvas');
+        c.width = w;
+        c.height = h;
+        const ctx = c.getContext('2d', { willReadFrequently: true });
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, w, h);
+        try {
+            ctx.drawImage(this.img, 0, 0, w, h);
+        } catch (e) {
+            return null;
+        }
+        this._lineArtData = ctx.getImageData(0, 0, w, h);
+        this._lineArtKey = key;
+        return this._lineArtData;
+    }
+
+    isLineBarrier(data, idx) {
+        const r = data[idx];
+        const g = data[idx + 1];
+        const b = data[idx + 2];
+        const a = data[idx + 3];
+        // Transparent SVG gaps are open paper
+        if (a < 28) return false;
+        const lum = (r * 0.299 + g * 0.587 + b * 0.114);
+        // Near-white paper is open; dark/gray outline is a wall.
+        return lum < 148;
+    }
+
+    parseCssColor(css) {
+        if (!css) return [0, 0, 0, 255];
+        const s = String(css).trim().toLowerCase();
+        if (s === 'white') return [255, 255, 255, 255];
+        if (s === 'black') return [0, 0, 0, 255];
+        let m = s.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)$/);
+        if (m) {
+            const a = m[4] === undefined ? 1 : parseFloat(m[4]);
+            return [
+                Math.round(parseFloat(m[1])),
+                Math.round(parseFloat(m[2])),
+                Math.round(parseFloat(m[3])),
+                Math.round(Math.max(0, Math.min(1, a)) * 255)
+            ];
+        }
+        m = s.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+        if (m) {
+            let h = m[1];
+            if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+            return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16), 255];
+        }
+        return [0, 0, 0, 255];
+    }
+
+    applyTapFill(x, y) {
+        if (this.color === null || this.color === undefined) {
+            const firstColor = this.shadowRoot.querySelector('.paletteColor');
+            if (firstColor) firstColor.click();
+        }
+        if (!this.canvas || !this.ctx) return;
+        const ix = Math.max(0, Math.min(this.canvas.width - 1, Math.round(x)));
+        const iy = Math.max(0, Math.min(this.canvas.height - 1, Math.round(y)));
+        // Apply fill first; only store if pixels changed (so Undo stays clean)
+        const painted = this.floodFillAt(ix, iy, this.color);
+        if (!painted) return;
+        this.paths.push([{ fill: 1, x: ix, y: iy, c: this.color }]);
+        this.persistPaths();
+    }
+
+    /**
+     * Flood-fill paint canvas inside closed line-art regions.
+     * Returns true if any pixels changed.
+     */
+    floodFillAt(x, y, colorIndex) {
+        const line = this.ensureLineArtData();
+        if (!line || !this.ctx) return false;
+        const w = line.width;
+        const h = line.height;
+        const ix = Math.max(0, Math.min(w - 1, x | 0));
+        const iy = Math.max(0, Math.min(h - 1, y | 0));
+        const start = (iy * w + ix) * 4;
+        if (this.isLineBarrier(line.data, start)) return false;
+
+        const isEraser = colorIndex === (this.paletteColors.length - 1);
+        const rgba = isEraser ? [0, 0, 0, 0] : this.parseCssColor(this.paletteColors[colorIndex]);
+
+        const paint = this.ctx.getImageData(0, 0, w, h);
+        const pd = paint.data;
+        const ld = line.data;
+        const visited = new Uint8Array(w * h);
+        const stack = [ix, iy];
+        visited[iy * w + ix] = 1;
+        let count = 0;
+        const maxPx = w * h;
+
+        while (stack.length) {
+            const cy = stack.pop();
+            const cx = stack.pop();
+            const p = cy * w + cx;
+            const i = p * 4;
+            if (this.isLineBarrier(ld, i)) continue;
+
+            if (isEraser) {
+                pd[i] = 0; pd[i + 1] = 0; pd[i + 2] = 0; pd[i + 3] = 0;
+            } else {
+                pd[i] = rgba[0];
+                pd[i + 1] = rgba[1];
+                pd[i + 2] = rgba[2];
+                pd[i + 3] = rgba[3];
+            }
+            count++;
+            if (count > maxPx) break;
+
+            if (cx > 0) {
+                const np = p - 1;
+                if (!visited[np]) { visited[np] = 1; stack.push(cx - 1, cy); }
+            }
+            if (cx + 1 < w) {
+                const np = p + 1;
+                if (!visited[np]) { visited[np] = 1; stack.push(cx + 1, cy); }
+            }
+            if (cy > 0) {
+                const np = p - w;
+                if (!visited[np]) { visited[np] = 1; stack.push(cx, cy - 1); }
+            }
+            if (cy + 1 < h) {
+                const np = p + w;
+                if (!visited[np]) { visited[np] = 1; stack.push(cx, cy + 1); }
+            }
+        }
+
+        // Ignore tiny accidental taps on anti-aliased edge
+        if (count < 8) return false;
+
+        this.ctx.putImageData(paint, 0, 0);
+        this.ctx.globalCompositeOperation = 'source-over';
+        return true;
+    }
+
+    strokePath(ctx, path) {
+        if (!path || path.length < 1 || path[0].fill) return;
+        if (path[0].c === null || path[0].c === undefined) {
+            path[0].c = 0;
+        }
+        const size = path[0].s || 8;
+        ctx.strokeStyle = `${this.paletteColors[path[0].c]}`;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        const naturalW = this.img.naturalWidth || this.canvas.width;
+        const displayW = this.img.width || naturalW;
+        ctx.lineWidth = size * (naturalW / displayW);
+
+        if (path[0].c === (this.paletteColors.length - 1)) {
+            ctx.globalCompositeOperation = "destination-out";
+            ctx.strokeStyle = `white`;
+        } else {
+            ctx.globalCompositeOperation = "source-over";
+        }
+
+        ctx.beginPath();
+        ctx.moveTo(path[0].x, path[0].y);
+        for (let j = 1; j < path.length; ++j) {
+            ctx.lineTo(path[j].x, path[j].y);
+        }
+        ctx.stroke();
+        ctx.globalCompositeOperation = "source-over";
+    }
+
     refresh() {
         this.clearActivePath();
+        if (!this.img || !this.ctx) return;
         const height = this.img.naturalHeight;
         const width = this.img.naturalWidth;
         const ctx = this.ctx;
         ctx.clearRect(0, 0, width, height); // Clear the entire main canvas
+        ctx.globalCompositeOperation = "source-over";
 
         for (let i = 0; i < this.paths.length; ++i) {
             const path = this.paths[i];
-            if (path.length < 1) continue;
-
-            if (path[0].c === null || path[0].c === undefined) {
-                path[0].c = 0; // Default to first color
-            }
-
-            ctx.strokeStyle = `${this.paletteColors[path[0].c]}`;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-            ctx.lineWidth = path[0].s * (this.img.naturalWidth / this.img.width);
-
-            if (path[0].c === (this.paletteColors.length - 1)) {
-                /* eraser*/
-                ctx.globalCompositeOperation = "destination-out";
-                ctx.strokeStyle = `white`;
+            if (!path || path.length < 1) continue;
+            if (path[0].fill) {
+                this.floodFillAt(path[0].x, path[0].y, path[0].c);
             } else {
-                ctx.globalCompositeOperation = "source-over";
+                this.strokePath(ctx, path);
             }
-
-            ctx.beginPath();
-            ctx.moveTo(path[0].x, path[0].y);
-            for (let j = 1; j < path.length; ++j) {
-                ctx.lineTo(path[j].x, path[j].y);
-            }
-            ctx.stroke();
         }
+        ctx.globalCompositeOperation = "source-over";
     }
 
     setCursor() {
-        const size = parseInt(this.sizer.value, 10);
-        const maxBrush = parseInt(this.getAttribute('maxbrushsize') || '32', 10) || 32;
-        const effectiveSize = Math.max(2, Math.min(size, maxBrush));
+        if (!this.wrapper) return;
+        const color = this.paletteColors[this.color] || '#333';
         const canvas = document.createElement('canvas');
         canvas.height = 32;
         canvas.width = 32;
         const context = canvas.getContext('2d');
 
-        context.beginPath();
-        context.arc(16, 16, effectiveSize / 2, 0, 2 * Math.PI, false);
-        context.fillStyle = this.paletteColors[this.color];
-        context.fill();
-        context.strokeStyle = 'black';
-        context.lineWidth = 2; // Use lineWidth for strokeWidth
-        context.stroke();
-
-        context.strokeStyle = 'rgba(0, 0, 0, 0.5)';
-        context.lineWidth = 1; // Thinner for crosshairs
-        context.beginPath();
-        context.moveTo(0, 16);
-        context.lineTo(32, 16);
-        context.moveTo(16, 0);
-        context.lineTo(16, 32);
-        context.stroke();
+        if (this.drawMode === 'fill') {
+            // Paint-bucket style cursor
+            context.fillStyle = color;
+            context.strokeStyle = '#0f172a';
+            context.lineWidth = 2;
+            context.beginPath();
+            context.moveTo(8, 20);
+            context.lineTo(14, 12);
+            context.lineTo(22, 14);
+            context.lineTo(20, 22);
+            context.closePath();
+            context.fill();
+            context.stroke();
+            context.beginPath();
+            context.arc(14, 10, 3, 0, Math.PI * 2);
+            context.fillStyle = color;
+            context.fill();
+            context.stroke();
+            context.beginPath();
+            context.moveTo(20, 22);
+            context.lineTo(24, 28);
+            context.strokeStyle = '#0f172a';
+            context.stroke();
+        } else {
+            const size = parseInt(this.sizer.value, 10);
+            const maxBrush = parseInt(this.getAttribute('maxbrushsize') || '32', 10) || 32;
+            const effectiveSize = Math.max(2, Math.min(size, maxBrush));
+            context.beginPath();
+            context.arc(16, 16, effectiveSize / 2, 0, 2 * Math.PI, false);
+            context.fillStyle = color;
+            context.fill();
+            context.strokeStyle = 'black';
+            context.lineWidth = 2;
+            context.stroke();
+            context.strokeStyle = 'rgba(0, 0, 0, 0.5)';
+            context.lineWidth = 1;
+            context.beginPath();
+            context.moveTo(0, 16);
+            context.lineTo(32, 16);
+            context.moveTo(16, 0);
+            context.lineTo(16, 32);
+            context.stroke();
+        }
 
         const url = canvas.toDataURL();
         this.wrapper.style.cursor = `url(${url}) 16 16, pointer`;

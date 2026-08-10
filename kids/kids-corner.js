@@ -7107,11 +7107,14 @@
     return n >= 1 && n <= 195;
   }
 
-  /** First comic panel from bibleStories (same files as the modal carousel). */
+  /** Story picture from bibleStories: Color & Tell paths or legacy panel-*.svg. */
   function safeKidsPanelSvgAbsFromRel(rel) {
     if (typeof rel !== 'string') return '';
     var r = rel.trim();
-    if (!r || r.indexOf('..') !== -1 || r.indexOf('//') !== -1) return '';
+    if (!r || r.indexOf('..') !== -1) return '';
+    /* Upgraded stories store real coloring art on panels[] */
+    if (isSafeColoringPagePath(r)) return r;
+    if (r.indexOf('//') !== -1) return '';
     var base = r.indexOf('/') === -1 ? r : r.split('/').pop() || '';
     if (!/^panel-[a-zA-Z0-9._-]+\.svg$/i.test(base)) return '';
     var abs = '/kids/' + base;

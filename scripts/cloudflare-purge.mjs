@@ -523,6 +523,7 @@ const SOCIAL_PURGE_PATHS = [
   '/kids/bible-story-tool-index.js?v=20260327kidsmax',
   /** Keep ?v= in sync with kids/index.html <script src="kids-battle.js?v=…"> */
   '/kids/kids-battle.js',
+  '/kids/kids-battle.js?v=20260809realart',
   '/kids/kids-battle.js?v=20260809romans',
   '/kids/kids-battle.js?v=20260326clean',
   '/kids/kids-battle.js?v=20260331tierschallenge',
@@ -603,6 +604,7 @@ const SOCIAL_PURGE_PATHS = [
   '/kids/kids-battle.js?v=20260423caesarcoin',
   '/kids/kids-battle.js?v=20260524readquiz',
   '/kids/kids-corner.js',
+  '/kids/kids-corner.js?v=20260809realart',
   '/kids/kids-corner.js?v=20260809noage',
   '/kids/kids-corner.js?v=20260809colorart',
   '/kids/kids-corner.js?v=20260809romans',

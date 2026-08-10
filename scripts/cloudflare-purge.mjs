@@ -1092,3 +1092,8 @@ function printCloudflareRecoveryHints(error) {
 })();
 
 //   '/coloring-pages/romans-road-kids.jpg',
+//   '/coloring-pages/samson.jpg',
+
+//   '/coloring-pages/good-samaritan-s1.jpg',
+
+//   '/coloring-pages/jonah-s1.jpg',

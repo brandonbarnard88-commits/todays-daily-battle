@@ -641,42 +641,45 @@
   }
 
   /**
-   * Finished-color story art (soft-filled line art for library/read-aloud).
+   * Finished-color story art for library/read-aloud (same Color & Tell drawing).
    * Coloring pack still uses black-and-white originals under /coloring-pages/.
-   * Only basenames we ship under /coloring-pages/colored/ are listed here.
+   * Prefer /coloring-pages/colored/{basename} when present; img onerror falls back to line art.
    */
-  var COLORED_STORY_ART = {
-    'noah-s1.jpg': 1,
-    'david-and-goliath-coloring-page.jpg': 1,
-    'daniel-in-the-lions-den-coloring-page.jpg': 1,
-    'jonah-s1.jpg': 1,
-    'jesus-storm-s1.jpg': 1,
-    'feeding-5000-s1.jpg': 1,
-    'good-samaritan-s1.jpg': 1,
-    'lost-sheep-s1.jpg': 1,
-    'prodigal-son-s1.jpg': 1,
-    'baby-moses-s1.jpg': 1,
-    'moses-red-sea-s1.jpg': 1,
-    'creation-six-days-coloring-page.jpg': 1,
-    'empty-tomb-coloring-page.jpg': 1,
-    'jesus-and-the-children-coloring-page.jpg': 1,
-    'zacchaeus-s1.jpg': 1,
-    'esther.jpg': 1,
-    'joseph-coat.jpg': 1,
-    'fiery-furnace.jpg': 1,
-    'walks-on-water-s1.jpg': 1,
-    'naaman.jpg': 1
-  };
-
   function preferColoredStoryArt(url) {
     if (!url || typeof url !== 'string') return url;
     var s = url.trim();
     if (!isSafeColoringPagePath(s)) return s;
     if (s.indexOf('/coloring-pages/colored/') !== -1) return s;
     var base = s.split('/').pop() || '';
-    if (!base || !COLORED_STORY_ART[base]) return s;
+    if (!base) return s;
     return '/coloring-pages/colored/' + base;
   }
+
+  /** Classic keys shown first on the shelf (color picture starters). */
+  var LIBRARY_STARTER_KEYS = [
+    'noah',
+    'davidGoliath',
+    'jesusBlessKids',
+    'jonah',
+    'danielLionsDen',
+    'jesusCalmsStorm',
+    'jesusFeeds5000',
+    'goodSamaritan',
+    'lostSheep',
+    'prodigalSon',
+    'mosesBaby',
+    'mosesSea',
+    'creation',
+    'tombEmpty',
+    'jesusWalksWater',
+    'zacchaeus',
+    'josephCoat',
+    'esther',
+    'fieryFurnace',
+    'naamanHealed'
+  ];
+  var libraryShowAll = false;
+  var libraryLastFilteredKeys = [];
 
   /**
    * Prefer real Color & Tell art for story pictures (never stick panel-*.svg when these exist).
@@ -6905,16 +6908,18 @@
     if (ageSelect) ageSelect.value = '';
     if (lengthSelect) lengthSelect.value = '';
     if (bookSelect) bookSelect.value = '';
-    renderGrid(applyFilters());
+    /* Clearing filters returns to starter shelf; theme/search shows matching stories */
+    if (!query && !theme) libraryShowAll = false;
+    renderLibraryShelf();
     if (quickFilterStatusEl) {
       if (!query && !theme) {
-        quickFilterStatusEl.textContent = 'Showing the full library again.';
+        quickFilterStatusEl.textContent = 'Starter pictures again — use Show more stories for the full shelf.';
       } else {
         var parts = [];
         if (label) parts.push(label);
         if (theme) parts.push('theme: ' + theme);
         if (query) parts.push('search: ' + query);
-        quickFilterStatusEl.textContent = 'Starter view applied — ' + parts.join(' · ') + '.';
+        quickFilterStatusEl.textContent = 'Filtered view — ' + parts.join(' · ') + '.';
       }
     }
     if (searchInput && typeof searchInput.focus === 'function') searchInput.focus();
@@ -9598,6 +9603,79 @@
     return filterStories(q, theme);
   }
 
+  /** True when user is searching or using theme/age/length/book filters. */
+  function libraryHasActiveNarrow() {
+    var q = searchInput ? String(searchInput.value || '').trim() : '';
+    var theme = themeSelect ? String(themeSelect.value || '').trim() : '';
+    var age = ageSelect ? String(ageSelect.value || '').trim() : '';
+    var length = lengthSelect ? String(lengthSelect.value || '').trim() : '';
+    var book = bookSelect ? String(bookSelect.value || '').trim() : '';
+    return !!(q || theme || age || length || book);
+  }
+
+  /**
+   * Starter shelf first (classics), then remaining filtered keys — unless expanded or narrowed.
+   */
+  function keysForLibraryShelf(filteredKeys) {
+    var all = Array.isArray(filteredKeys) ? filteredKeys.slice() : [];
+    libraryLastFilteredKeys = all;
+    if (libraryShowAll || libraryHasActiveNarrow() || all.length <= LIBRARY_STARTER_KEYS.length) {
+      return all;
+    }
+    var want = {};
+    var i;
+    for (i = 0; i < LIBRARY_STARTER_KEYS.length; i++) want[LIBRARY_STARTER_KEYS[i]] = 1;
+    var starters = [];
+    var rest = [];
+    for (i = 0; i < all.length; i++) {
+      if (want[all[i]]) starters.push(all[i]);
+      else rest.push(all[i]);
+    }
+    /* Keep classic order for starters that exist in the filter result */
+    starters.sort(function (a, b) {
+      return LIBRARY_STARTER_KEYS.indexOf(a) - LIBRARY_STARTER_KEYS.indexOf(b);
+    });
+    return starters.concat(rest.slice(0, 0)); /* starters only until Show more */
+  }
+
+  function syncLibraryShowMoreUi(filteredTotal, shownCount) {
+    var btn = document.getElementById('kids-library-show-more');
+    var note = document.getElementById('kids-library-show-more-note');
+    if (!btn) return;
+    var narrowed = libraryHasActiveNarrow();
+    var remaining = Math.max(0, (filteredTotal || 0) - (shownCount || 0));
+    if (narrowed || libraryShowAll || remaining <= 0) {
+      if (libraryShowAll && !narrowed && filteredTotal > LIBRARY_STARTER_KEYS.length) {
+        btn.hidden = false;
+        btn.textContent = 'Show fewer stories';
+        btn.setAttribute('aria-expanded', 'true');
+        if (note) {
+          note.hidden = false;
+          note.textContent = 'Showing all ' + filteredTotal + ' stories. Tap to return to the starter pictures.';
+        }
+      } else {
+        btn.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+        if (note) note.hidden = true;
+      }
+      return;
+    }
+    btn.hidden = false;
+    btn.textContent = 'Show more stories (' + remaining + ' more)';
+    btn.setAttribute('aria-expanded', 'false');
+    if (note) {
+      note.hidden = false;
+      note.textContent = 'Starter color pictures first — ' + remaining + ' more Bible stories ready with real Color & Tell art.';
+    }
+  }
+
+  function renderLibraryShelf() {
+    var filtered = applyFilters();
+    var shelf = keysForLibraryShelf(filtered);
+    renderGrid(shelf);
+    syncLibraryShowMoreUi(filtered.length, shelf.length);
+  }
+
   /** Web Speech voices often load after first paint; refresh on voiceschanged. Prefer en-US, then Google / common neural names. */
   var kidsPreferredNarrationVoice = null;
   function refreshKidsPreferredNarrationVoice() {
@@ -9976,7 +10054,7 @@
     } catch (e) {}
     populateBookFilterOptions();
     try {
-      renderGrid(applyFilters());
+      renderLibraryShelf();
     } catch (eGrid) {
       try {
         if (typeof console !== 'undefined' && console.warn) {
@@ -10138,10 +10216,10 @@
       searchForm.addEventListener('submit', function (e) {
         e.preventDefault();
         hideLibrarySearchSuggest();
-        renderGrid(applyFilters());
+        renderLibraryShelf();
       });
       searchInput.addEventListener('input', function () {
-        renderGrid(applyFilters());
+        renderLibraryShelf();
         scheduleLibrarySearchSuggest();
       });
       searchInput.addEventListener('keydown', function (ev) {
@@ -10151,17 +10229,31 @@
 
     if (themeSelect) {
       themeSelect.addEventListener('change', function () {
-        renderGrid(applyFilters());
+        renderLibraryShelf();
         scheduleLibrarySearchSuggest();
       });
     }
     [ageSelect, lengthSelect, bookSelect].forEach(function (selectEl) {
       if (!selectEl) return;
       selectEl.addEventListener('change', function () {
-        renderGrid(applyFilters());
+        renderLibraryShelf();
         scheduleLibrarySearchSuggest();
       });
     });
+
+    var showMoreBtn = document.getElementById('kids-library-show-more');
+    if (showMoreBtn) {
+      showMoreBtn.addEventListener('click', function () {
+        libraryShowAll = !libraryShowAll;
+        renderLibraryShelf();
+        try {
+          var gridEl = document.getElementById('kids-library-grid');
+          if (gridEl && typeof gridEl.scrollIntoView === 'function' && libraryShowAll) {
+            gridEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        } catch (eSm) {}
+      });
+    }
 
     var quickFilterButtons = document.querySelectorAll('.kids-story-quick-filter');
     if (quickFilterButtons && quickFilterButtons.length) {

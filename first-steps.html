@@ -120,12 +120,35 @@
       <p class="lead">Whether you are brand-new or starting again, this page gathers the same KJV Battle Plans the site already uses&mdash;one verse a day, plain words, a small step, a short prayer. Progress stays on your device; use <strong>Listen</strong> on any day if you want it read aloud.</p>
     </header>
 
-    <section aria-labelledby="fs-gospel-h2">
+    <section class="glass tdb-porch-paper-glass" aria-labelledby="fs-gospel-h2" id="come-to-christ" style="padding:1rem 1.1rem;margin:0 0 1.25rem;border-radius:14px;">
       <h2 id="fs-gospel-h2">If you are wondering how to come to Christ</h2>
-      <p><a href="plans.html?plan=roadtosalvation">The Road to Salvation</a> is five quiet days in the KJV&mdash;our need, God&apos;s love, the cross, faith, and new life. No test at the end. Come as you are. When you only want the Lord Jesus&apos;s own words, <a href="plans.html?plan=hisownwords">Only His Voice</a> (red letters only) is five quiet days of listening.</p>
+      <p>You are welcome here&mdash;no test, no performance. The Bible says God loves you and that life is in His Son, Jesus.</p>
+
+      <p class="daily-verse-ref" style="margin:0.85rem 0 0.25rem;"><strong>John 3:16</strong> (KJV)</p>
+      <blockquote class="daily-verse-body" style="margin:0 0 0.5rem;">
+        <p class="daily-verse-text" style="margin:0;">For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.</p>
+      </blockquote>
+      <div class="tdb-bbe-simple tdb-bbe-simple--inline" id="fsGospelBbe" data-bbe-simple="1" data-bbe-ref="John 3:16" data-bbe-always-open="1">
+        <h3 class="tdb-bbe-simple__heading" style="font-size:0.95rem;margin:0.5rem 0 0.25rem;">In simpler words (BBE)</h3>
+        <div class="tdb-bbe-simple__body">
+          <p class="tdb-bbe-simple__status section-note" data-bbe-status="1" aria-live="polite" hidden></p>
+          <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
+        </div>
+        <p class="section-note util-mb-0" style="font-size:0.85rem;">Same verse&mdash;plainer English. The KJV above is still the main Scripture. <a href="/bible-credits.html#how-we-use-the-bible">How we use the Bible</a></p>
+      </div>
+
+      <p class="section-note" style="margin-top:0.85rem;"><strong>Romans 10:9</strong> (KJV) &mdash; That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved.</p>
+      <p class="section-note"><strong>Romans 10:13</strong> (KJV) &mdash; For whosoever shall call upon the name of the Lord shall be saved.</p>
+
+      <p>You can talk to Him now, in your own words. He hears you.</p>
+      <p class="section-note" style="font-style:italic;">Lord Jesus, I need You. I believe You died for me and rose again. I turn to You&mdash;forgive me, save me, and make me Yours. Amen.</p>
+      <p class="section-note">If you prayed that, tell a trusted believer, open a quiet plan below, and keep reading His Word. We are not a church membership desk&mdash;we are a porch with an open Bible. A local church that loves Jesus can walk with you next.</p>
+
+      <p><a href="plans.html?plan=roadtosalvation">The Road to Salvation</a> is five quiet days in the KJV&mdash;our need, God&apos;s love, the cross, faith, and new life. No test at the end. When you only want the Lord Jesus&apos;s own words, <a href="plans.html?plan=hisownwords">Only His Voice</a> (red letters only) is five quiet days of listening.</p>
       <div class="cta-row">
         <a class="btn" href="plans.html?plan=roadtosalvation">Open the gospel path</a>
         <a class="btn btn-secondary" href="road-to-salvation-one-page-print.html">Print all five days</a>
+        <a class="btn btn-secondary" href="plans.html?plan=firststeps">14-day first steps</a>
       </div>
     </section>
 
@@ -288,7 +311,29 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
+  <script defer src="/bbe-simple.js?v=20260810gospel" data-tdb-bbe-simple="1"></script>
   <script defer src="/language-switcher.js?v=20260809-vbd-labels"></script>
 </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var host = document.getElementById('fsGospelBbe');
+    if (!host) return;
+    function fill() {
+      if (window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === 'function') {
+        window.TDBBbeSimple.fillHost(host.querySelector('.tdb-bbe-simple__body') || host, 'John 3:16');
+        return true;
+      }
+      return false;
+    }
+    if (!fill()) {
+      var n = 0;
+      var t = setInterval(function () {
+        if (fill() || ++n > 40) clearInterval(t);
+      }, 150);
+    }
+  });
+  </script>
+
 </body>
 </html>

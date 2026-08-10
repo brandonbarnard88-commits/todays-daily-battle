@@ -1165,6 +1165,15 @@ body.kids-world-surface.kids-parent-dashboard .content-inner {
 /* Root coloring page: soft pasture paper behind existing layout */
 body.tdb-kids-coloring-page.kids-world-surface {
   --kw-ink: #0f172a;
+  /* Paper ink vars so descendants using --text / --muted stay readable */
+  --text: #172230;
+  --color-text: #172230;
+  --text-dark: #172230;
+  --muted: #4d5f72;
+  --muted-readable: #5a6778;
+  --text-muted: #4d5f72;
+  --tdb-surface-panel-bg: #fffdf7;
+  --tdb-surface-panel-border: rgba(76, 90, 108, 0.2);
 }
 body.tdb-kids-coloring-page.kids-world-surface::before {
   content: "";
@@ -1180,6 +1189,88 @@ body.tdb-kids-coloring-page.kids-world-surface .app-content,
 body.tdb-kids-coloring-page.kids-world-surface .content-inner {
   position: relative;
   z-index: 1;
+  color: var(--kw-ink);
+}
+
+/*
+ * High contrast for After you color / Daily Prompt / Family / Short Verses.
+ * body.dark-mode forces pale #eef1f6 strong titles and light section-notes;
+ * glass list rows sit on cream/paper so pale text washes out. Force ink on paper.
+ */
+body.tdb-kids-coloring-page .content-inner > section.glass,
+body.tdb-kids-coloring-page .content-inner > section.glass.tdb-porch-paper-glass {
+  color: #172230;
+  background:
+    radial-gradient(ellipse 90% 55% at 18% 0%, rgba(227, 188, 103, 0.12) 0%, transparent 58%),
+    #fffdf7 !important;
+  border-color: rgba(120, 90, 40, 0.22) !important;
+  box-shadow:
+    0 8px 28px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+body.tdb-kids-coloring-page .content-inner > section.glass .section-divider,
+body.tdb-kids-coloring-page .content-inner > section.glass h2,
+body.tdb-kids-coloring-page .content-inner > section.glass h3 {
+  color: #0f172a !important;
+  border-bottom-color: rgba(76, 90, 108, 0.18);
+  box-shadow: 0 2px 0 rgba(212, 175, 55, 0.55);
+}
+
+body.tdb-kids-coloring-page .content-inner > section.glass .section-note,
+body.tdb-kids-coloring-page .content-inner > section.glass p.section-note,
+body.tdb-kids-coloring-page.dark-mode .content-inner > section.glass .section-note,
+body.tdb-kids-coloring-page .content-inner #kids-streak,
+body.tdb-kids-coloring-page .content-inner #kids-daily-verse,
+body.tdb-kids-coloring-page .content-inner .kids-daily-history-heading {
+  color: #334155 !important;
+  opacity: 1;
+}
+
+body.tdb-kids-coloring-page .content-inner > section.glass p,
+body.tdb-kids-coloring-page .content-inner > section.glass li,
+body.tdb-kids-coloring-page .content-inner > section.glass .list-item,
+body.tdb-kids-coloring-page .content-inner > section.glass .list-item p,
+body.tdb-kids-coloring-page .content-inner #kids-daily-prompt,
+body.tdb-kids-coloring-page .content-inner #kids-history {
+  color: #1e293b !important;
+}
+
+body.tdb-kids-coloring-page .content-inner .list .list-item,
+body.tdb-kids-coloring-page .content-inner section.glass .list .list-item {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid rgba(76, 90, 108, 0.16) !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+  color: #1e293b !important;
+}
+
+body.tdb-kids-coloring-page .content-inner .list .list-item strong,
+body.tdb-kids-coloring-page.dark-mode .content-inner .list .list-item strong,
+body.tdb-kids-coloring-page .content-inner #kids-daily-title {
+  color: #0f172a !important;
+  font-weight: 700;
+}
+
+body.tdb-kids-coloring-page .content-inner > section.glass a:not(.btn) {
+  color: #1d4ed8 !important;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+body.tdb-kids-coloring-page .content-inner > section.glass a:not(.btn):hover,
+body.tdb-kids-coloring-page .content-inner > section.glass a:not(.btn):focus-visible {
+  color: #1e3a8a !important;
+}
+
+/* History rows injected into #kids-history */
+body.tdb-kids-coloring-page #kids-history .list-item,
+body.tdb-kids-coloring-page #kids-history .list-item p,
+body.tdb-kids-coloring-page #kids-history .list-item strong,
+body.tdb-kids-coloring-page #kids-history .section-note {
+  color: #1e293b !important;
+}
+body.tdb-kids-coloring-page #kids-history .list-item strong {
+  color: #0f172a !important;
 }
 /* Magic button rows: small warm “bloom” dot per kind (hub + library grids) */
 .kids-wonder .kids-magic-btn,

@@ -45,7 +45,7 @@
     "build:church-qr": "node scripts/generate-church-share-qr.cjs",
     "curriculum": "node build-curriculum.js",
     "characters": "node build-characters.js",
-    "test": "node scripts/verify-teaching-integrity.mjs && node scripts/verify-homepage-search-wiring.mjs && node scripts/verify-crisis-help.mjs && node scripts/verify-viewport-baseline.mjs && node scripts/verify-url-truth-table.mjs && node scripts/verify-systems-wiring.mjs && python3 test-site.py --offline && node scripts/verify-structured-data.mjs",
+    "test": "node scripts/verify-teaching-integrity.mjs && node scripts/verify-homepage-search-wiring.mjs && node scripts/verify-crisis-help.mjs && node scripts/verify-viewport-baseline.mjs && node scripts/verify-url-truth-table.mjs && node scripts/verify-systems-wiring.mjs && node scripts/verify-kids-scripture-integrity.mjs && node scripts/verify-characters-integrity.mjs && node scripts/verify-plans-scripture-integrity.mjs && python3 test-site.py --offline && node scripts/verify-structured-data.mjs",
     "test:search-wiring": "node scripts/verify-homepage-search-wiring.mjs",
     "test:crisis-help": "node scripts/verify-crisis-help.mjs",
     "test:security": "node test-security.js",
@@ -86,7 +86,7 @@
     "assets:story-svg": "node scripts/generate-story-svg-assets.mjs",
     "actionbible": "node build-action-bible.js",
     "actionbible:packs": "node build-action-bible-packs.js",
-    "quality:gate": "npm run build && npm run audit:paranoid && npm run test:systems && node scripts/audit-links.mjs && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
+    "quality:gate": "npm run build && npm run audit:paranoid && npm run test:systems && npm run verify:integrity:fast && node scripts/audit-links.mjs && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
     "qa:smoke:local": "node scripts/qa-smoke-local.mjs",
     "quality:gate:full": "npm run quality:gate && npm run qa:smoke:local",
     "quality:gate:browser": "npm run build && npx playwright install chromium && npx playwright test tests/a11y-critical.spec.ts tests/smoke-core.spec.ts tests/calm.spec.ts tests/prayer-wall-seeds.spec.ts tests/embed-widget.spec.ts tests/site-guide.spec.ts tests/mobius.spec.ts tests/spanish-deploy-hygiene.spec.ts && npm run verify:live:critical",
@@ -138,7 +138,13 @@
     "verify:coloring-art": "node scripts/verify-coloring-art.mjs",
     "verify:coloring-art:report": "node scripts/verify-coloring-art.mjs --report",
     "verify:systems": "node scripts/verify-systems-wiring.mjs",
-    "test:systems": "node scripts/verify-systems-wiring.mjs"
+    "test:systems": "node scripts/verify-systems-wiring.mjs",
+    "verify:integrity": "node scripts/verify-biblical-integrity.mjs",
+    "test:integrity": "node scripts/verify-biblical-integrity.mjs",
+    "verify:integrity:fast": "node scripts/verify-biblical-integrity.mjs --fast",
+    "verify:kids-scripture": "node scripts/verify-kids-scripture-integrity.mjs",
+    "verify:characters": "node scripts/verify-characters-integrity.mjs",
+    "verify:plans-scripture": "node scripts/verify-plans-scripture-integrity.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",

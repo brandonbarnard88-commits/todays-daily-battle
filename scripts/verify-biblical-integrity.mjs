@@ -55,6 +55,12 @@ const layers = [
     required: true,
   },
   {
+    id: '3b',
+    name: 'BBE help pairs with KJV truth (same ref)',
+    script: 'scripts/verify-bbe-kjv-pairing.mjs',
+    required: true,
+  },
+  {
     id: 4,
     name: 'Characters / who-is-in-the-Bible',
     script: 'scripts/verify-characters-integrity.mjs',

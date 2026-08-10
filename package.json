@@ -45,7 +45,7 @@
     "build:church-qr": "node scripts/generate-church-share-qr.cjs",
     "curriculum": "node build-curriculum.js",
     "characters": "node build-characters.js",
-    "test": "node scripts/verify-teaching-integrity.mjs && node scripts/verify-homepage-search-wiring.mjs && node scripts/verify-crisis-help.mjs && node scripts/verify-viewport-baseline.mjs && node scripts/verify-url-truth-table.mjs && node scripts/verify-systems-wiring.mjs && node scripts/verify-kids-scripture-integrity.mjs && node scripts/verify-characters-integrity.mjs && node scripts/verify-plans-scripture-integrity.mjs && python3 test-site.py --offline && node scripts/verify-structured-data.mjs",
+    "test": "node scripts/verify-teaching-integrity.mjs && node scripts/verify-homepage-search-wiring.mjs && node scripts/verify-crisis-help.mjs && node scripts/verify-viewport-baseline.mjs && node scripts/verify-url-truth-table.mjs && node scripts/verify-systems-wiring.mjs && node scripts/verify-kids-scripture-integrity.mjs && node scripts/verify-characters-integrity.mjs && node scripts/verify-plans-scripture-integrity.mjs && node scripts/verify-bbe-kjv-pairing.mjs && python3 test-site.py --offline && node scripts/verify-structured-data.mjs",
     "test:search-wiring": "node scripts/verify-homepage-search-wiring.mjs",
     "test:crisis-help": "node scripts/verify-crisis-help.mjs",
     "test:security": "node test-security.js",
@@ -144,7 +144,8 @@
     "verify:integrity:fast": "node scripts/verify-biblical-integrity.mjs --fast",
     "verify:kids-scripture": "node scripts/verify-kids-scripture-integrity.mjs",
     "verify:characters": "node scripts/verify-characters-integrity.mjs",
-    "verify:plans-scripture": "node scripts/verify-plans-scripture-integrity.mjs"
+    "verify:plans-scripture": "node scripts/verify-plans-scripture-integrity.mjs",
+    "verify:bbe-kjv": "node scripts/verify-bbe-kjv-pairing.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",

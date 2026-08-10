@@ -3841,7 +3841,7 @@
   function createJl(scene) {
     var jl = document.createElement('jl-coloringbook');
     jl.setAttribute('maxbrushsize', '56');
-    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=30');
+    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=32fill');
     var im = document.createElement('img');
     im.src = bestSceneSrc(scene);
     im.alt = scene.alt || scene.caption || '';

@@ -9509,6 +9509,14 @@
     bibleStories.jesusAndChildren = bibleStories.jesusBlessKids;
     /** Alternate library name — same Luke 19 card (Zacchaeus, gentle). */
     bibleStories.jesusAndZacchaeus = bibleStories.zacchaeus;
+    /** Loop library / older links — same card as jesusCalmsStorm. */
+    bibleStories.storm = bibleStories.jesusCalmsStorm;
+    /** Porch read + classroom links (Isaiah 41:10 “fear not”) — comfort card. */
+    bibleStories.doNotFearIsaiah41 = bibleStories.psalm23Shepherd || bibleStories.psalm23 || bibleStories.jesusCalmsStorm;
+    /** Family bridge / short links — default Joshua card (Jericho). */
+    bibleStories.joshua = bibleStories.fallOfJericho || bibleStories.joshuaJordan || bibleStories.jerichoWalls;
+
+
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {

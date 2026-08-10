@@ -45,7 +45,7 @@
     "build:church-qr": "node scripts/generate-church-share-qr.cjs",
     "curriculum": "node build-curriculum.js",
     "characters": "node build-characters.js",
-    "test": "node scripts/verify-teaching-integrity.mjs && node scripts/verify-homepage-search-wiring.mjs && node scripts/verify-crisis-help.mjs && node scripts/verify-viewport-baseline.mjs && node scripts/verify-url-truth-table.mjs && python3 test-site.py --offline && node scripts/verify-structured-data.mjs",
+    "test": "node scripts/verify-teaching-integrity.mjs && node scripts/verify-homepage-search-wiring.mjs && node scripts/verify-crisis-help.mjs && node scripts/verify-viewport-baseline.mjs && node scripts/verify-url-truth-table.mjs && node scripts/verify-systems-wiring.mjs && python3 test-site.py --offline && node scripts/verify-structured-data.mjs",
     "test:search-wiring": "node scripts/verify-homepage-search-wiring.mjs",
     "test:crisis-help": "node scripts/verify-crisis-help.mjs",
     "test:security": "node test-security.js",
@@ -86,7 +86,7 @@
     "assets:story-svg": "node scripts/generate-story-svg-assets.mjs",
     "actionbible": "node build-action-bible.js",
     "actionbible:packs": "node build-action-bible-packs.js",
-    "quality:gate": "npm run build && npm run audit:paranoid && node scripts/audit-links.mjs && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
+    "quality:gate": "npm run build && npm run audit:paranoid && npm run test:systems && node scripts/audit-links.mjs && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
     "qa:smoke:local": "node scripts/qa-smoke-local.mjs",
     "quality:gate:full": "npm run quality:gate && npm run qa:smoke:local",
     "quality:gate:browser": "npm run build && npx playwright install chromium && npx playwright test tests/a11y-critical.spec.ts tests/smoke-core.spec.ts tests/calm.spec.ts tests/prayer-wall-seeds.spec.ts tests/embed-widget.spec.ts tests/site-guide.spec.ts tests/mobius.spec.ts tests/spanish-deploy-hygiene.spec.ts && npm run verify:live:critical",
@@ -95,7 +95,7 @@
     "verify:live": "node scripts/verify-live-suite.mjs",
     "verify:live-kids": "node scripts/verify-live-kids.mjs",
     "verify:live-kids-scripts": "node scripts/verify-live-kids.mjs --scripts-only",
-    "verify:kids-dist": "node scripts/verify-kids-dist.mjs && node scripts/verify-coloring-art.mjs",
+    "verify:kids-dist": "node scripts/verify-kids-dist.mjs && node scripts/verify-coloring-art.mjs && node scripts/verify-systems-wiring.mjs",
     "verify:kids": "npm run build && npm run verify:kids-dist && npm run verify:live-kids",
     "suggest:fetch": "node scripts/fetch-feeling-suggestions.mjs",
     "deploy:webhook": "bash scripts/deploy-stripe-webhook.sh",
@@ -136,7 +136,9 @@
     "verify:topics": "node scripts/verify-all-topics.mjs",
     "build:coloring-art-map": "node scripts/build-coloring-scene-map.mjs && node scripts/inject-coloring-scene-map.mjs && node scripts/verify-coloring-art.mjs",
     "verify:coloring-art": "node scripts/verify-coloring-art.mjs",
-    "verify:coloring-art:report": "node scripts/verify-coloring-art.mjs --report"
+    "verify:coloring-art:report": "node scripts/verify-coloring-art.mjs --report",
+    "verify:systems": "node scripts/verify-systems-wiring.mjs",
+    "test:systems": "node scripts/verify-systems-wiring.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",

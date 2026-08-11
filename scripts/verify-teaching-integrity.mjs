@@ -296,6 +296,9 @@ function auditHeroInject(kjv, resolve) {
   if (!fp.includes('snapshotMatchesTargetRef')) {
     fail('hero-daily-first-paint.js missing snapshotMatchesTargetRef (same-ref dig-deeper safety net)');
   }
+  if (!fp.includes('sanitizeDigDeeperFieldsForRef')) {
+    fail('hero-daily-first-paint.js missing sanitizeDigDeeperFieldsForRef (runtime blank-over-wrong)');
+  }
 }
 
 /* ─── 2. Feeling search relevance ─── */

@@ -690,6 +690,118 @@
     return !!(displayed && displayed === target && !bound);
   }
 
+  /** Book name for attribution checks (aligned with build-time verse-teaching-guard). */
+  function bookOfHeroRef(ref) {
+    var m = String(ref || '').match(/^((?:[1-3]\s+)?[A-Za-z][A-Za-z\s.]+?)\s+\d+:/);
+    return m ? m[1].replace(/\./g, '').replace(/\s+/g, ' ').trim() : '';
+  }
+
+  function chapterOfHeroRef(ref) {
+    var m = String(ref || '').match(/\s+(\d+):\d+/);
+    return m ? Number(m[1]) : 0;
+  }
+
+  /** Runtime fail-safe: wrong speaker must never paint (blank better than Solomon under a Psalm). */
+  function speakerBelongsToBookRuntime(about, ref) {
+    var a = String(about || '').toLowerCase();
+    var book = bookOfHeroRef(ref).toLowerCase();
+    if (!a || !book) return true;
+    if (/^isaiah\b/.test(book) && /\bdavid\b/.test(a) && !/isaiah/.test(a)) return false;
+    if (/^joshua\b/.test(book) && /\bdavid\b/.test(a) && !/joshua/.test(a)) return false;
+    if (/^deuteronomy\b/.test(book) && /\bdavid\b/.test(a) && !/moses/.test(a)) return false;
+    if (/^matthew\b|^mark\b|^luke\b|^john\b/.test(book) && /\bdavid\b/.test(a) && !/jesus/.test(a)) return false;
+    if (/^proverbs\b|^ecclesiastes\b/.test(book) && /\bdavid\b/.test(a) && !/solomon/.test(a)) return false;
+    if (
+      /^romans\b|^corinthians\b|^galatians\b|^ephesians\b|^philippians\b|^colossians\b|^timothy\b/.test(book) &&
+      /\bdavid\b/.test(a) &&
+      !/paul/.test(a)
+    ) {
+      return false;
+    }
+    if (/\bsolomon\b/.test(a)) {
+      if (/^psalm/.test(book)) {
+        var ch = chapterOfHeroRef(ref);
+        if (ch === 72 && /prayer for solomon|for the king|solomon \(or/i.test(a)) return true;
+        return false;
+      }
+      if (/^matthew\b|^mark\b|^luke\b|^john\b|^acts\b/.test(book)) return false;
+      if (
+        /^romans\b|^corinthians\b|^galatians\b|^ephesians\b|^philippians\b|^colossians\b|^thessalonians\b|^timothy\b|^titus\b|^philemon\b|^hebrews\b|^james\b|^peter\b|^jude\b|^revelation\b/.test(
+          book
+        )
+      ) {
+        return false;
+      }
+    }
+    if (/\bpaul\b/.test(a) && /^psalm|^matthew\b|^mark\b|^luke\b|^john\b/.test(book) && !/paul/.test(book)) {
+      return false;
+    }
+    return true;
+  }
+
+  function situationLooksWrongForRefRuntime(sit, ref) {
+    var s = String(sit || '');
+    var r = String(ref || '');
+    if (!s || !r) return false;
+    if (!/^Psalm(s)?\s+92:/i.test(r) && /Sabbath song of thanksgiving/i.test(s)) return true;
+    if (/floods,\s*thrones,\s*and idols|floods and noise cannot unseat/i.test(s)) {
+      if (!/^Psalm(s)?\s+(93|95|96|97):/i.test(r)) return true;
+    }
+    if (/straight path for work and plans|learning a straight path/i.test(s) && !/^Proverbs\b/i.test(r)) {
+      return true;
+    }
+    return false;
+  }
+
+  function audienceLooksWrongForRefRuntime(aud, ref) {
+    var a = String(aud || '');
+    var r = String(ref || '');
+    if (!a || !r) return false;
+    if (/^Psalm/i.test(r) && /straight path for work and plans/i.test(a)) return true;
+    if (!/^Proverbs\b/i.test(r) && /straight path for work and plans/i.test(a)) return true;
+    return false;
+  }
+
+  /**
+   * Missing is better than wrong. Drop Who/Situation/Audience that cannot belong to this verse.
+   * Prefer safe resolver fallbacks when available.
+   */
+  function sanitizeDigDeeperFieldsForRef(ref, fields) {
+    var f = fields || {};
+    var who = sanitizeText(f.who);
+    var situation = sanitizeText(f.situation);
+    var audience = sanitizeText(f.audience);
+    var blocked = [];
+    if (who && !speakerBelongsToBookRuntime(who, ref)) {
+      blocked.push('who');
+      who = '';
+    }
+    if (situation && situationLooksWrongForRefRuntime(situation, ref)) {
+      blocked.push('situation');
+      situation = '';
+    }
+    if (audience && audienceLooksWrongForRefRuntime(audience, ref)) {
+      blocked.push('audience');
+      audience = '';
+    }
+    if (blocked.length && typeof console !== 'undefined' && console.warn) {
+      try {
+        console.warn('[TDB dig-deeper] blocked mismatched fields for', ref, blocked.join(','));
+      } catch (eW) { /* non-fatal */ }
+    }
+    if (blocked.length && typeof window !== 'undefined' && window.tdbTrack) {
+      try {
+        window.tdbTrack('tdb_dig_deeper_blocked', { ref: String(ref || ''), fields: blocked.join(',') });
+      } catch (eT) { /* non-fatal */ }
+    }
+    return {
+      who: who,
+      situation: situation,
+      audience: audience,
+      blocked: blocked
+    };
+  }
+
   /** Thin speaker-line or weak plain stamp — force upgrade when better data is available. */
   function heroDigDeeperLooksWeak() {
     var snap = readHeroDigDeeperDomSnapshot();
@@ -970,6 +1082,26 @@
     }
     var prayer = sanitizeText(sh.heroPrayer || sh.simplePrayer);
     if (!prayer) prayer = buildHeroVotdPrayer(v.ref);
+    /* Runtime fail-safe: never return Solomon/wrong-cluster copy for this ref. */
+    var safe = sanitizeDigDeeperFieldsForRef(v.ref, {
+      who: who,
+      situation: situation,
+      audience: audience
+    });
+    who = safe.who;
+    situation = safe.situation;
+    audience = safe.audience;
+    if (situation && meaningClean) {
+      simple =
+        'What was going on: ' +
+        situation.replace(/\.$/, '') +
+        '. What it means: ' +
+        meaningClean;
+    } else if (meaningClean) {
+      simple = meaningClean;
+    } else {
+      simple = situation || '';
+    }
     return {
       simple: simple,
       meaningOnly: meaningClean || meaningOnly,
@@ -981,7 +1113,7 @@
       oneStep: oneStep,
       prayer: prayer,
       year: yr,
-      setting: sanitizeText(ctx.setting || situation || '')
+      setting: sanitizeText(situation || ctx.setting || '')
     };
   }
 
@@ -1022,12 +1154,25 @@
       situation = pickBestText([situation, snap.situation], scoreSituationLine);
       meaningOnly = pickBestText([meaningOnly, snap.meaning], scoreMeaningLine);
     }
+    /* Last line of defense before paint — blank mismatched fields rather than show them. */
+    var paintSafe = sanitizeDigDeeperFieldsForRef(refKey, {
+      who: who,
+      situation: situation,
+      audience: audience
+    });
+    who = paintSafe.who;
+    situation = paintSafe.situation;
+    audience = paintSafe.audience;
     if (situation && meaningOnly) {
       simple =
         'What was going on: ' +
         situation.replace(/\.$/, '') +
         '. What it means: ' +
         meaningOnly;
+    } else if (meaningOnly) {
+      simple = meaningOnly;
+    } else {
+      simple = situation || '';
     }
     var relatesToday = lesson.relatesToday;
     var relYou = lesson.relYou;

@@ -9223,9 +9223,8 @@
   }
 
   /**
-   * Always-visible “where in the Bible” + “for you” helper.
-   * (Old toggle was confusing: “KJV reference” looked like a full reading mode
-   * but only showed the citation, e.g. Luke 15:11–32.)
+   * Quiet “where in the Bible” citation + short family takeaway.
+   * No preamble — headings are enough (meta copy was confusing).
    */
   function appendKjvPlainToggle(modalContext, s) {
     if (!modalContext || !s) return;
@@ -9235,34 +9234,23 @@
     var box = document.createElement('div');
     box.className = 'kids-story-kjv-plain kids-story-kjv-plain--stack';
     box.setAttribute('role', 'region');
-    box.setAttribute('aria-label', 'Where this story is in the Bible, and a plain line for you');
-
-    var lab = document.createElement('p');
-    lab.className = 'kids-story-kjv-plain-label';
-    lab.textContent =
-      'This is not two different stories. Below: where it is written in the King James Bible, then a plain line for your family.';
-    box.appendChild(lab);
+    box.setAttribute('aria-label', 'Bible place and family takeaway');
 
     if (ref) {
       var whereHead = document.createElement('p');
       whereHead.className = 'kids-kjv-plain-heading';
-      whereHead.textContent = 'Where in the Bible (KJV)';
+      whereHead.textContent = 'In the Bible';
       box.appendChild(whereHead);
       var pK = document.createElement('div');
       pK.className = 'kids-kjv-plain-body kids-kjv-plain-body--ref';
       pK.textContent = ref;
       box.appendChild(pK);
-      var whereNote = document.createElement('p');
-      whereNote.className = 'kids-kjv-plain-note section-note';
-      whereNote.textContent =
-        'That is the chapter and verse address (like a page number). The full read-aloud is in the story above.';
-      box.appendChild(whereNote);
     }
 
     if (plain) {
       var forHead = document.createElement('p');
       forHead.className = 'kids-kjv-plain-heading';
-      forHead.textContent = 'For you (plain words)';
+      forHead.textContent = 'For your family';
       box.appendChild(forHead);
       var pP = document.createElement('div');
       pP.className = 'kids-kjv-plain-body kids-kjv-plain-body--for-you';

@@ -51,7 +51,7 @@ export const STORY_HTML_MARKERS = [
   'kids-corner.js?v=20260811simple',
   'kids-gentle-shepherd.js?v=20260811simple',
   'kids-battle.js?v=20260810nostick',
-  'kids-battle.css?v=20260810nostick',
+  'kids-battle.css?v=20260811simple',
   'kids-library-card--static',
   'kids-library-show-more',
   '/coloring-pages/colored/noah-s1.jpg',

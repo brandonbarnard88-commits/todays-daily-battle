@@ -11861,11 +11861,27 @@
     panelsC.className = 'panels-container';
     (story.panels || []).forEach(function (pan) {
       var img = document.createElement('img');
-      img.src = String(pan.src || '');
+      var rawSrc = String(pan.src || '');
+      /* Prefer soft-color Color & Tell art when panels point at coloring-pages line art */
+      var src = rawSrc;
+      if (rawSrc.indexOf('/coloring-pages/') === 0 && rawSrc.indexOf('/coloring-pages/colored/') === -1) {
+        var base = rawSrc.split('/').pop() || '';
+        if (base) src = '/coloring-pages/colored/' + base;
+      }
+      img.src = src;
       img.alt = tdbPlainTextForUi(pan.alt || '');
-      img.className = 'comic-panel';
+      img.className =
+        'comic-panel' +
+        (src.indexOf('/coloring-pages/') === 0 ? ' comic-panel--coloring-art comic-panel--story-color' : '');
       img.setAttribute('width', '200');
       img.setAttribute('height', '160');
+      if (src !== rawSrc) {
+        img.setAttribute('data-line-art', rawSrc);
+        img.addEventListener('error', function onCol() {
+          img.removeEventListener('error', onCol);
+          if (img.getAttribute('src') !== rawSrc) img.src = rawSrc;
+        });
+      }
       panelsC.appendChild(img);
     });
     wrap.appendChild(panelsC);

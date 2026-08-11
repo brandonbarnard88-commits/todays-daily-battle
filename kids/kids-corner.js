@@ -6397,26 +6397,81 @@
     };
   }
 
-  /* Load the SVG outline onto an off-screen canvas for compositing */
-  function loadOutlineCanvas(svgStr, width, height, dpr, cb) {
+  /* Prefer real Color & Tell line art for Color Me (not soft-color fill, not generic stick SVG). */
+  function resolveLineArtUrlForColorMe(storyKey) {
+    try {
+      var urls = typeof getColoringArtUrlsForLibraryKey === 'function' ? getColoringArtUrlsForLibraryKey(storyKey) : [];
+      var i;
+      var u;
+      var base;
+      for (i = 0; i < urls.length; i++) {
+        u = String(urls[i] || '');
+        if (!u) continue;
+        if (u.indexOf('/coloring-pages/colored/') !== -1) {
+          base = u.split('/').pop() || '';
+          if (!base) continue;
+          if (base.indexOf('coloring-page') !== -1) return '/coloring-pages/bible-stories/' + base;
+          return '/coloring-pages/' + base;
+        }
+        if (u.indexOf('/coloring-pages/') === 0) return u;
+      }
+    } catch (eLine) {}
+    return '';
+  }
+
+  /* Draw outline image (SVG data URL or line-art JPG) onto off-screen canvas */
+  function loadOutlineFromImageSrc(src, width, height, dpr, cb) {
     var oc = document.createElement('canvas');
-    oc.width = width * dpr;
-    oc.height = height * dpr;
+    oc.width = Math.max(1, Math.floor(width * dpr));
+    oc.height = Math.max(1, Math.floor(height * dpr));
     var ctx = oc.getContext('2d');
-    ctx.scale(dpr, dpr);
-    var blob = new Blob([svgStr], { type: 'image/svg+xml' });
-    var url = URL.createObjectURL(blob);
+    if (!ctx) {
+      cb(oc);
+      return;
+    }
     var img = new Image();
     img.onload = function () {
-      ctx.drawImage(img, 0, 0, width, height);
-      URL.revokeObjectURL(url);
+      try {
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        /* letterbox image inside canvas so kids see full outline */
+        var iw = img.naturalWidth || img.width || width;
+        var ih = img.naturalHeight || img.height || height;
+        var scale = Math.min(width / iw, height / ih);
+        var dw = iw * scale;
+        var dh = ih * scale;
+        var dx = (width - dw) / 2;
+        var dy = (height - dh) / 2;
+        ctx.clearRect(0, 0, width, height);
+        ctx.drawImage(img, dx, dy, dw, dh);
+      } catch (eDraw) {}
       cb(oc);
     };
     img.onerror = function () {
-      URL.revokeObjectURL(url);
-      cb(oc);
+      cb(null);
     };
-    img.src = url;
+    try {
+      img.src = src;
+    } catch (eSrc) {
+      cb(null);
+    }
+  }
+
+  /* Load built-in SVG outline (data: URL — more reliable than blob under CSP/TT) */
+  function loadOutlineCanvas(svgStr, width, height, dpr, cb) {
+    var src =
+      'data:image/svg+xml;charset=utf-8,' +
+      encodeURIComponent(String(svgStr || '').replace(/#/g, '%23'));
+    loadOutlineFromImageSrc(src, width, height, dpr, function (oc) {
+      if (oc) {
+        cb(oc);
+        return;
+      }
+      /* Empty fallback so paint still works on white paper */
+      var empty = document.createElement('canvas');
+      empty.width = Math.max(1, Math.floor(width * dpr));
+      empty.height = Math.max(1, Math.floor(height * dpr));
+      cb(empty);
+    });
   }
 
   function initColoringCanvas(storyKey, storyTitle) {
@@ -6424,32 +6479,70 @@
     var canvasEl = document.getElementById('kids-coloring-canvas');
     var wrap = document.getElementById('kids-coloring-canvas-wrap');
     var titleEl = document.getElementById('kids-coloring-title');
+    var hintEl = document.getElementById('kids-coloring-hint');
     if (!overlay || !canvasEl || !wrap) return;
 
     coloringState.open = true;
     coloringState.storyKey = storyKey;
     coloringState.storyTitle = storyTitle || storyKey;
     coloringState.undoStack = [];
+    coloringState.outlineCanvas = null;
+    coloringState.painting = false;
 
-    if (titleEl) titleEl.textContent = tdbPlainTextForUi((storyTitle || 'Color Me!') + ' - Funny Clips');
+    if (titleEl) titleEl.textContent = tdbPlainTextForUi(storyTitle || 'Color Me!');
+    if (hintEl) {
+      hintEl.textContent =
+        'Pick a color and brush, then paint on the picture. Undo or Clear if you need a fresh start. Save when you are happy.';
+    }
 
     overlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 
-    var svgStr = getOutlineSvg(storyKey);
-    var size = getCanvasSize(wrap);
-    var dpr = size.dpr;
-    var W = size.w || 400;
-    var H = size.h || 300;
+    /* Measure after layout — synchronous measure while overlay was display:none yields 0×0 and a dead canvas. */
+    function layoutAndPaint() {
+      if (!coloringState.open) return;
+      void wrap.offsetHeight;
+      var size = getCanvasSize(wrap);
+      var dpr = size.dpr || 1;
+      var W = Math.max(Math.floor(size.w || 0), 320);
+      var H = Math.max(Math.floor(size.h || 0), 280);
 
-    canvasEl.width = W * dpr;
-    canvasEl.height = H * dpr;
-    canvasEl.style.width = W + 'px';
-    canvasEl.style.height = H + 'px';
+      canvasEl.width = Math.floor(W * dpr);
+      canvasEl.height = Math.floor(H * dpr);
+      canvasEl.style.width = W + 'px';
+      canvasEl.style.height = H + 'px';
+      /* White paper immediately so kids never stare at a blank dark hole */
+      try {
+        var ctx0 = canvasEl.getContext('2d');
+        if (ctx0) {
+          ctx0.setTransform(1, 0, 0, 1, 0, 0);
+          ctx0.fillStyle = '#ffffff';
+          ctx0.fillRect(0, 0, canvasEl.width, canvasEl.height);
+        }
+      } catch (eFill) {}
 
-    loadOutlineCanvas(svgStr, W, H, dpr, function (oc) {
-      coloringState.outlineCanvas = oc;
-      redrawCanvas();
+      function setOutline(oc) {
+        coloringState.outlineCanvas = oc;
+        redrawCanvas();
+      }
+
+      var lineArt = resolveLineArtUrlForColorMe(storyKey);
+      if (lineArt) {
+        loadOutlineFromImageSrc(lineArt, W, H, dpr, function (oc) {
+          if (oc) {
+            setOutline(oc);
+            return;
+          }
+          /* Line art missing — fall back to built-in SVG outline */
+          loadOutlineCanvas(getOutlineSvg(storyKey), W, H, dpr, setOutline);
+        });
+      } else {
+        loadOutlineCanvas(getOutlineSvg(storyKey), W, H, dpr, setOutline);
+      }
+    }
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(layoutAndPaint);
     });
   }
 
@@ -6457,22 +6550,30 @@
     var canvasEl = document.getElementById('kids-coloring-canvas');
     if (!canvasEl) return;
     var ctx = canvasEl.getContext('2d');
-    var dpr = window.devicePixelRatio || 1;
+    if (!ctx) return;
     var W = canvasEl.width;
     var H = canvasEl.height;
 
-    /* White background */
+    /* White paper */
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.globalCompositeOperation = 'source-over';
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, W, H);
 
-    /* Paint layer: top item in undoStack is current painting */
+    /* Paint layer under the lines */
     if (coloringState.undoStack.length > 0) {
       ctx.putImageData(coloringState.undoStack[coloringState.undoStack.length - 1], 0, 0);
     }
 
-    /* Outline on top so lines always show */
+    /*
+     * Outline on top with multiply: white paper in the outline becomes invisible,
+     * black line art stays crisp. Without multiply, an opaque white outline JPG/SVG
+     * completely covers the paint (blank/unpaintable page).
+     */
     if (coloringState.outlineCanvas) {
+      ctx.globalCompositeOperation = 'multiply';
       ctx.drawImage(coloringState.outlineCanvas, 0, 0);
+      ctx.globalCompositeOperation = 'source-over';
     }
   }
 
@@ -6582,18 +6683,21 @@
   function saveColoringAsPng() {
     var canvasEl = document.getElementById('kids-coloring-canvas');
     if (!canvasEl) return;
-    /* Export: white bg + paint layer + outline */
+    /* Export: white bg + paint layer + outline (multiply so white outline paper vanishes) */
     var exp = document.createElement('canvas');
     exp.width = canvasEl.width;
     exp.height = canvasEl.height;
     var ctx = exp.getContext('2d');
+    if (!ctx) return;
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, exp.width, exp.height);
     if (coloringState.undoStack.length > 0) {
       ctx.putImageData(coloringState.undoStack[coloringState.undoStack.length - 1], 0, 0);
     }
     if (coloringState.outlineCanvas) {
+      ctx.globalCompositeOperation = 'multiply';
       ctx.drawImage(coloringState.outlineCanvas, 0, 0);
+      ctx.globalCompositeOperation = 'source-over';
     }
     try {
       var dataUrl = exp.toDataURL('image/png');
@@ -6620,89 +6724,124 @@
 
   function wireColoringCanvas() {
     var canvasEl = document.getElementById('kids-coloring-canvas');
-    if (!canvasEl) return;
+    if (!canvasEl || canvasEl.getAttribute('data-color-wired') === '1') return;
+    canvasEl.setAttribute('data-color-wired', '1');
 
-    /* ── Mouse events ── */
-    canvasEl.addEventListener('mousedown', function (e) {
+    function beginPaint(clientX, clientY) {
       if (!coloringState.open) return;
-      e.preventDefault();
       snapshotForUndo();
       coloringState.painting = true;
-      var pt = clientToCanvas(canvasEl, e.clientX, e.clientY);
+      var pt = clientToCanvas(canvasEl, clientX, clientY);
       coloringState.lastX = pt.x;
       coloringState.lastY = pt.y;
       applyStroke(pt.x, pt.y, pt.x, pt.y);
-    });
+    }
 
-    canvasEl.addEventListener('mousemove', function (e) {
+    function movePaint(clientX, clientY) {
       if (!coloringState.open || !coloringState.painting) return;
-      e.preventDefault();
-      var pt = clientToCanvas(canvasEl, e.clientX, e.clientY);
+      var pt = clientToCanvas(canvasEl, clientX, clientY);
       applyStroke(coloringState.lastX, coloringState.lastY, pt.x, pt.y);
       coloringState.lastX = pt.x;
       coloringState.lastY = pt.y;
-    });
+    }
 
-    canvasEl.addEventListener('mouseup', function (e) {
+    function endPaint() {
       coloringState.painting = false;
-    });
+    }
 
-    canvasEl.addEventListener('mouseleave', function (e) {
-      coloringState.painting = false;
-    });
+    /* Pointer events cover mouse + touch + pen in one path */
+    if (window.PointerEvent) {
+      canvasEl.addEventListener('pointerdown', function (e) {
+        if (!coloringState.open) return;
+        if (e.pointerType === 'touch' && e.isPrimary === false) return;
+        e.preventDefault();
+        try {
+          canvasEl.setPointerCapture(e.pointerId);
+        } catch (eCap) {}
+        beginPaint(e.clientX, e.clientY);
+      });
+      canvasEl.addEventListener('pointermove', function (e) {
+        if (!coloringState.open || !coloringState.painting) return;
+        e.preventDefault();
+        movePaint(e.clientX, e.clientY);
+      });
+      canvasEl.addEventListener('pointerup', function (e) {
+        endPaint();
+        try {
+          canvasEl.releasePointerCapture(e.pointerId);
+        } catch (eRel) {}
+      });
+      canvasEl.addEventListener('pointercancel', endPaint);
+      canvasEl.addEventListener('pointerleave', function (e) {
+        if (e.buttons === 0) endPaint();
+      });
+    } else {
+      /* ── Mouse events ── */
+      canvasEl.addEventListener('mousedown', function (e) {
+        if (!coloringState.open) return;
+        e.preventDefault();
+        beginPaint(e.clientX, e.clientY);
+      });
 
-    /* ── Touch events ── */
-    canvasEl.addEventListener('touchstart', function (e) {
-      if (!coloringState.open) return;
-      e.preventDefault();
-      if (e.touches.length === 2) {
-        /* Pinch begin */
-        pinchState.active = true;
-        pinchState.startDist = getPinchDist(e.touches);
-        pinchState.startScale = pinchState.scale;
-        coloringState.painting = false;
-        return;
-      }
-      pinchState.active = false;
-      snapshotForUndo();
-      coloringState.painting = true;
-      var touch = e.touches[0];
-      var pt = clientToCanvas(canvasEl, touch.clientX, touch.clientY);
-      coloringState.lastX = pt.x;
-      coloringState.lastY = pt.y;
-      applyStroke(pt.x, pt.y, pt.x, pt.y);
-    }, { passive: false });
+      canvasEl.addEventListener('mousemove', function (e) {
+        if (!coloringState.open || !coloringState.painting) return;
+        e.preventDefault();
+        movePaint(e.clientX, e.clientY);
+      });
 
-    canvasEl.addEventListener('touchmove', function (e) {
-      if (!coloringState.open) return;
-      e.preventDefault();
-      if (e.touches.length === 2 && pinchState.active) {
-        /* Pinch zoom — scale the canvas wrap transform */
-        var dist = getPinchDist(e.touches);
-        var newScale = Math.min(4, Math.max(0.5, pinchState.startScale * (dist / pinchState.startDist)));
-        pinchState.scale = newScale;
-        var wrap = document.getElementById('kids-coloring-canvas-wrap');
-        if (wrap) {
-          canvasEl.style.transformOrigin = 'center center';
-          canvasEl.style.transform = 'scale(' + newScale + ')';
-        }
-        return;
-      }
-      if (!coloringState.painting) return;
-      var touch = e.touches[0];
-      var pt = clientToCanvas(canvasEl, touch.clientX, touch.clientY);
-      applyStroke(coloringState.lastX, coloringState.lastY, pt.x, pt.y);
-      coloringState.lastX = pt.x;
-      coloringState.lastY = pt.y;
-    }, { passive: false });
+      canvasEl.addEventListener('mouseup', endPaint);
+      canvasEl.addEventListener('mouseleave', endPaint);
 
-    canvasEl.addEventListener('touchend', function (e) {
-      if (e.touches.length < 2) pinchState.active = false;
-      if (e.touches.length === 0) coloringState.painting = false;
-    });
+      /* ── Touch events ── */
+      canvasEl.addEventListener(
+        'touchstart',
+        function (e) {
+          if (!coloringState.open) return;
+          e.preventDefault();
+          if (e.touches.length === 2) {
+            pinchState.active = true;
+            pinchState.startDist = getPinchDist(e.touches);
+            pinchState.startScale = pinchState.scale;
+            coloringState.painting = false;
+            return;
+          }
+          pinchState.active = false;
+          var touch = e.touches[0];
+          beginPaint(touch.clientX, touch.clientY);
+        },
+        { passive: false }
+      );
+
+      canvasEl.addEventListener(
+        'touchmove',
+        function (e) {
+          if (!coloringState.open) return;
+          e.preventDefault();
+          if (e.touches.length === 2 && pinchState.active) {
+            var dist = getPinchDist(e.touches);
+            var newScale = Math.min(4, Math.max(0.5, pinchState.startScale * (dist / pinchState.startDist)));
+            pinchState.scale = newScale;
+            canvasEl.style.transformOrigin = 'center center';
+            canvasEl.style.transform = 'scale(' + newScale + ')';
+            return;
+          }
+          if (!coloringState.painting) return;
+          var touch = e.touches[0];
+          movePaint(touch.clientX, touch.clientY);
+        },
+        { passive: false }
+      );
+
+      canvasEl.addEventListener('touchend', function (e) {
+        if (e.touches.length < 2) pinchState.active = false;
+        if (e.touches.length === 0) endPaint();
+      });
+    }
   }
 
   function wireColoringControls() {
+    if (document.documentElement.getAttribute('data-kids-color-controls') === '1') return;
+    document.documentElement.setAttribute('data-kids-color-controls', '1');
     /* Brush size buttons */
     document.querySelectorAll('.kids-brush-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -6798,15 +6937,23 @@
   /* Wire the "Color Me" click from the grid (event delegation) */
   function wireColorMeButtons() {
     var grid = document.getElementById('kids-library-grid');
-    if (!grid) return;
+    if (!grid || grid.getAttribute('data-color-me-wired') === '1') return;
+    grid.setAttribute('data-color-me-wired', '1');
     grid.addEventListener('click', function (e) {
       var colorBtn = e.target && e.target.closest ? e.target.closest('.kids-card-color-btn') : null;
       if (!colorBtn) return;
+      e.preventDefault();
       e.stopPropagation();
       var key = colorBtn.getAttribute('data-story');
       var title = colorBtn.getAttribute('data-title') || key;
       if (key) initColoringCanvas(key, title);
     });
+  }
+
+  function ensureColorMeWired() {
+    wireColoringCanvas();
+    wireColoringControls();
+    wireColorMeButtons();
   }
 
   /* ── End of coloring module ── */
@@ -10007,6 +10154,8 @@
     }
     grid = document.getElementById('kids-library-grid');
     if (!grid) return;
+    /* Wire Color Me as soon as the grid exists — do not wait for full story catalog. */
+    ensureColorMeWired();
     removeQuizChallengeOverlay();
     var keys = getStoryKeys();
     if (keys.length === 0) {
@@ -10129,9 +10278,7 @@
       }
     } catch (e) {}
 
-    wireColoringCanvas();
-    wireColoringControls();
-    wireColorMeButtons();
+    ensureColorMeWired();
 
     var searchSuggestEl = document.getElementById('kids-library-search-suggest');
     var searchSuggestTimer = null;

@@ -91,184 +91,729 @@
   }
 
   /**
-   * Maps Bible Story Library keys to coloring.html ?story= ids (Color & Tell story ids).
-   * Returns '' when no close match — avoids sending kids to the wrong outline.
+   * Maps Bible Story Library keys → Color & Tell ?story= ids (kebab-case).
+   * Used for coloring.html links AND story pictures from /coloring-pages/.
    */
   function tdbColoringSlugForLibraryKey(storyKey) {
     if (!storyKey) return '';
     var k = String(storyKey);
     var map = {
-      david: 'david',
-      davidGoliath: 'davidGoliath',
-      davidSheep: 'david',
-      davidHarp: 'davidHarp',
-      davidAnointed: 'david',
-      davidCave: 'davidCave',
-      davidSaul: 'david',
-      davidSaulJealousy: 'david',
-      davidJonathan: 'davidJonathan',
-      davidJonathanFriendship: 'davidJonathan',
-      davidAbigail: 'abigailWise',
-      davidKing: 'davidKing',
-      mephibosheth: 'mephibosheth',
-      davidBathsheba: 'davidBathsheba',
-      absalomRebellion: 'absalomRebellion',
-      solomonWisdom: 'solomonWisdom',
-      solomonTwoMothers: 'solomonTwoMothers',
-      solomonTemple: 'solomonTemple',
-      elijahRavens: 'elijahRavens',
-      elijahWidow: 'elijahWidow',
-      elijahHoreb: 'elijahHoreb',
-      elishaMiracles: 'elishaMiracles',
-      elishaShunammite: 'elishaShunammite',
-      psalm23: 'psalm23Shepherd',
-      psalm23Shepherd: 'psalm23Shepherd',
-      goliathChallenge: 'david',
-      noah: 'noah',
-      jonah: 'jonah',
-      jonahVine: 'jonahVine',
+      "1corinthiansLoveChapter": 'love-chapter',
+      "1corinthiansLoveChapterRevisited": 'love-chapter',
+      "1johnLoveGod": 'paul-rome',
+      "1peterHopeLiving": 'paul-rome',
+      "1peterHopeLivingRevisited": 'paul-rome',
+      "1thessaloniansRapture": 'come-lord-jesus',
+      "1thessaloniansRaptureRevisited": 'come-lord-jesus',
+      "1timothyYoungLeader": 'young-timothy',
+      "1timothyYoungLeaderRevisited": 'young-timothy',
+      "2johnTruth": 'paul-rome',
+      "2peterKnowledge": 'paul-rome',
+      "2thessaloniansStandFirm": 'paul-rome',
+      "2thessaloniansStandFirmRevisited": 'paul-rome',
+      "2timothyFaithPassed": 'young-timothy',
+      "2timothyFaithPassedRevisited": 'young-timothy',
+      "3johnFaithful": 'paul-rome',
+      abigailWise: 'abigail-wise',
+      abrahamIsaac: 'abraham-isaac',
+      abrahamSarah: 'abraham-sarah',
+      absalomRebellion: 'david-repent',
+      achan: 'joshua-ai',
+      actsApollosPriscilla: 'priscilla-aquila',
+      actsChurchBegins: 'early-church',
+      actsChurchBeginsRevisited: 'early-church',
+      actsPaulBeforeAgrippa: 'paul-rome',
+      actsPaulMarsHill: 'paul-mars-hill',
+      actsPaulMelita: 'paul-rome',
+      adamEve: 'creation',
+      allHeroesPraise: 'hebrews-faith',
+      alphaOmega: 'lamb-book',
+      alphaOmega2: 'lamb-book',
+      angelMary: 'angel-mary',
+      annaProphet: 'anna-prophet',
+      aquilaPriscilla: 'priscilla-aquila',
+      aquilaPriscillaRevisited: 'priscilla-aquila',
+      armorBelt: 'armor-of-god',
+      armorOfGod: 'armor-of-god',
+      armorShield: 'armor-of-god',
+      armorSword: 'armor-of-god',
+      ascension: 'ascension',
+      babyMoses: 'baby-moses',
+      balaakCurse: 'balaam-king',
+      balaamBlessing: 'balaam-king',
+      balaamDonkey: 'balaams-donkey',
+      balaamsDonkey: 'balaams-donkey',
+      barnabasEncourages: 'barnabas',
+      barnabasEncouragesRevisited: 'barnabas',
+      battleOfAi: 'joshua-ai',
+      beastMark: 'revelation-throne',
+      bethesda: 'healing-paralytic',
+      betrayal: 'judas-betrayal',
+      boazRedeemer: 'boaz-redeemer',
+      boyDavid: 'boy-david',
+      boySamuel: 'boy-samuel',
+      bronzeSerpent: 'bronze-serpent',
+      burningBush: 'burning-bush',
+      cainAbel: 'cain-abel',
+      centurionServant: 'centurion-servant',
+      colossiansChristFirst: 'paul-rome',
+      colossiansChristFirstRevisited: 'paul-rome',
+      colossiansChristSupreme: 'paul-rome',
+      comeLordJesus: 'come-lord-jesus',
+      corinthiansOneBody: 'love-chapter',
+      councilJerusalem: 'hebrews-faith',
+      creation: 'creation',
+      creationLight: 'creation',
+      crossCarry: 'cross-carry',
+      crucifixion: 'crucifixion',
       daniel: 'daniel-lions',
+      danielFieryFurnace: 'fiery-furnace',
       danielLionsDen: 'daniel-lions',
       danielPray: 'daniel-lions',
+      david: 'david',
+      davidAbigail: 'abigail-wise',
+      davidAnointed: 'boy-david',
+      davidBathsheba: 'david-repent',
+      davidCave: 'david-spares-saul',
+      davidGoliath: 'david',
+      davidHarp: 'boy-david',
+      davidJonathan: 'david-jonathan',
+      davidJonathanFriendship: 'david-jonathan',
+      davidKing: 'boy-david',
+      davidSaul: 'david-spares-saul',
+      davidSaulJealousy: 'david-spares-saul',
+      davidSheep: 'boy-david',
+      davidSparesSaul: 'david-spares-saul',
+      deborahBarak: 'deborah-barak',
+      deborahJudge: 'deborah-barak',
+      deborahJudgeRevisited: 'deborah-barak',
+      dorcasHelpingRevisited: 'tabitha-dorcas',
+      dorcasRaise: 'tabitha-dorcas',
+      dragonFight: 'revelation-throne',
+      earlyChurchLife: 'early-church',
+      elijahAscension: 'elijah-taken-up',
+      elijahCarmel: 'elijah-carmel',
+      elijahChariot: 'elijah-taken-up',
+      elijahElijahElisha: 'elisha-mantle',
+      elijahFire: 'elijah-carmel',
+      elijahFireFromHeaven: 'elijah-carmel',
+      elijahHoreb: 'elijah-horeb',
+      elijahRavens: 'elijah-ravens',
+      elijahTakenUp: 'elijah-taken-up',
+      elijahWidow: 'elijah-widow',
+      elishaBlindArmy: 'elisha-chariots',
+      elishaBones: 'elisha-bones',
+      elishaChariots: 'elisha-chariots',
+      elishaFinal: 'elisha-bones',
+      elishaFloatingAxe: 'elisha-axe',
+      elishaMiracles: 'elisha-oil',
+      elishaOil: 'elisha-oil',
+      elishaPoisonStew: 'shunammite',
+      elishaShunammite: 'shunammite',
+      emmaus: 'emmaus-road',
+      emmausRoad: 'emmaus-road',
+      emptyTomb: 'empty-tomb',
+      epaphrasPrayerRevisited: 'prayer-knock',
+      ephesiansArmor: 'armor-of-god',
+      ephesiansArmorRevisited: 'armor-of-god',
+      esther: 'esther',
+      estherBanquet: 'esther',
+      estherBrave: 'esther',
+      estherCrown: 'esther',
+      estherFast: 'esther',
+      estherRevisited: 'esther',
+      euniceMother: 'young-timothy',
+      faithMustard: 'mustard-seed',
+      eutychusFallen: 'eutychus',
+      eutychusFallenRevisited: 'eutychus',
+      everyKneeBow: 'armor-of-god',
+      ezekielDryBones: 'ezekiel-bones',
+      ezekielValleyBones: 'ezekiel-bones',
+      ezraLaw: 'ezra-return',
+      ezraReturn: 'ezra-return',
+      faithMountain: 'faith-mountain',
+      fallOfJericho: 'jericho',
+      feeding5000: 'feeding-5000',
+      fieryFurnace: 'fiery-furnace',
+      figTree: 'fig-tree',
+      forgive70x7: 'unforgiving-servant',
+      fourHorsemen: 'revelation-throne',
+      fruitSpirit: 'fruit-spirit',
+      gaiusHospitality: 'early-church',
+      gaiusHospitalityRevisited: 'early-church',
+      galatiansFruit: 'fruit-spirit',
+      galatiansFruitRevisited: 'fruit-spirit',
+      gardenPrayer: 'garden-gethsemane',
+      gehaziGreed: 'hebrews-faith',
+      gideon: 'gideon-fleece',
+      gideonFleece: 'gideon-fleece',
+      gideonFleeceRevisited: 'gideon-fleece',
+      gideonMidianites: 'gideon-fleece',
+      goldenCalf: 'golden-calf',
+      goliathChallenge: 'david',
+      goodSamaritan: 'good-samaritan',
+      goodShepherd: 'good-shepherd',
+      greatCommission: 'great-commission',
+      greatestCommandment: 'greatest-command',
+      habakkukFaith: 'micah-justice',
+      haggaiTemple: 'micah-justice',
+      hannahPray: 'hannah-samuel',
+      hannahPrayer: 'hannah-samuel',
+      hannahSamuel: 'hannah-samuel',
+      healBlind: 'blind-man',
+      healLeper: 'healing-leper',
+      heavenDoor: 'heaven-promise',
+      heavenPromise: 'heaven-promise',
+      hebrewsFaith: 'hebrews-faith',
+      hebrewsFaithHeroes: 'hebrews-faith',
+      hebrewsFaithHeroesRevisited: 'hebrews-faith',
+      holySpiritPentecost: 'pentecost',
+      isaiahMessianic: 'isaiah-vision',
+      isaiahVision: 'isaiah-vision',
+      jacobLadder: 'jacob-ladder',
+      jaelTent: 'jael-tent',
+      jairus: 'jairus-daughter',
+      jairusDaughter: 'jairus-daughter',
+      jamesFaithWorks: 'paul-rome',
+      jamesFaithWorksRevisited: 'paul-rome',
+      jeremiahCall: 'jeremiah-call',
+      jeremiahWeeping: 'jeremiah-call',
+      jericho: 'jericho',
+      jerichoWalls: 'jericho',
       jesus: 'jesus-children',
-      jesusCalmsStorm: 'jesus-storm',
+      jesusAndChildren: 'jesus-children',
+      jesusAndZacchaeus: 'zacchaeus',
+      jesusArrest: 'jesus-arrest',
+      jesusAscension: 'ascension',
+      jesusAuthority: 'jesus-authority',
+      jesusBaptism: 'jesus-baptism',
+      jesusBirth: 'nativity',
+      jesusBlessKids: 'jesus-children',
       jesusCallingDisciples: 'fishers-of-men',
+      jesusCalmsStorm: 'jesus-storm',
+      jesusCleansesTemple: 'temple-clean',
+      jesusCrucifixion: 'crucifixion',
+      jesusDisciples: 'fishers-of-men',
+      jesusFeeds4000: 'feeding-4000',
+      jesusFeeds5000: 'feeding-5000',
+      jesusFigTree: 'fig-tree',
+      jesusFirstMiracle: 'wedding-cana',
+      jesusGardenGethsemane: 'garden-gethsemane',
+      jesusGreatCommission: 'great-commission',
+      jesusHealsBlind: 'blind-man',
+      jesusHealsParalytic: 'healing-paralytic',
+      jesusLastSupper: 'jesus-washes-feet',
+      jesusLazarus: 'lazarus',
+      jesusManger: 'nativity',
+      jesusParableGoodShepherd: 'good-shepherd',
+      jesusParableMustardSeed: 'mustard-seed',
+      jesusParableSower: 'the-sower',
+      jesusPilate: 'jesus-pilate',
+      jesusResurrection: 'empty-tomb',
+      jesusSermon: 'wise-foolish-builders',
+      jesusSermonMount: 'wise-foolish-builders',
+      jesusTemple: 'jesus-temple-boy',
+      jesusTempt: 'jesus-tempted',
+      jesusTemptation: 'jesus-tempted',
+      jesusTempted: 'jesus-tempted',
+      jesusWalksWater: 'walks-on-water',
+      jesusWashesFeet: 'jesus-washes-feet',
+      jesusWaterWine: 'wedding-cana',
+      jesusWeepsJerusalem: 'jesus-weeps',
+      jesusWeptJerusalem: 'jesus-weeps',
+      jobFriends: 'job-trust',
+      jobSuffering: 'job-trust',
+      johnBaptist: 'john-baptist',
+      johnBaptize: 'jesus-baptism',
+      johnFirstLetter: 'paul-rome',
+      johnPatmos: 'john-patmos',
+      johnSecondThirdLetters: 'paul-rome',
+      johnWord: 'paul-rome',
+      johnWordRevisited: 'paul-rome',
+      jonah: 'jonah',
+      jonahVine: 'jonah',
+      jordanCrossing: 'jordan-crossing',
+      josephCoat: 'joseph-coat',
+      josephDreams: 'joseph-dreams',
+      josephPrison: 'joseph-coat',
+      josephRuler: 'joseph-dreams',
+      josephSold: 'joseph-coat',
+      joshuaAi: 'joshua-ai',
+      joshuaCharge: 'joshua-charge',
+      joshuaJericho: 'jericho',
+      joshuaJordan: 'jordan-crossing',
+      josiahReform: 'josiah-reform',
+      judasKiss: 'judas-betrayal',
+      judeWarning: 'paul-rome',
+      juniaApostle: 'hebrews-faith',
+      lambBook: 'lamb-book',
+      lastSupper: 'jesus-washes-feet',
+      lazarus: 'lazarus',
+      llCommandments: 'll-commandments',
+      loisTimothy: 'young-timothy',
+      lostCoin: 'lost-coin',
+      lostSheep: 'lost-sheep',
+      loveChapter: 'love-chapter',
+      loveNeighbor: 'greatest-command',
+      lydia: 'lydia-purple',
+      lydiaConversion: 'lydia-purple',
+      lydiaPurple: 'lydia-purple',
+      lydiaSell: 'lydia-purple',
+      malachiMessage: 'malachi-messenger',
+      malachiMessenger: 'malachi-messenger',
+      manBornBlind: 'blind-man',
+      manna: 'manna',
+      markBeginning: 'great-commission',
+      markBeginningRevisited: 'great-commission',
+      marthaServe: 'mary-martha',
+      maryAnoint: 'great-commission',
+      maryMagdalene: 'empty-tomb',
+      maryMartha: 'mary-martha',
+      marySit: 'mary-martha',
+      matthewGenealogy: 'great-commission',
+      matthewGenealogyRevisited: 'great-commission',
+      mephibosheth: 'mephibosheth',
+      micahJustice: 'micah-justice',
+      miriamSong: 'miriam-song',
       moses: 'moses-red-sea',
+      mosesBaby: 'baby-moses',
+      mosesBush: 'burning-bush',
+      mosesRedSea: 'moses-red-sea',
+      mosesSea: 'moses-red-sea',
+      mosesStaffSnake: 'moses-staff-snake',
+      mustardSeed: 'mustard-seed',
+      naaman: 'naaman',
+      naamanDip: 'naaman',
+      naamanHealed: 'naaman',
+      nativity: 'nativity',
+      lukeNativity: 'nativity',
+      lukeNativityRevisited: 'nativity',
+      nehemiah: 'nehemiah-walls',
+      nehemiahWallRevisited: 'nehemiah-walls',
+      nehemiahWalls: 'nehemiah-walls',
+      newEarth: 'heaven-promise',
+      newHeaven: 'heaven-promise',
+      noNight: 'heaven-promise',
+      noah: 'noah',
+      noahsArk: 'noah',
+      noblemanSon: 'centurion-servant',
+      nymphasHouseChurch: 'early-church',
+      nymphasHouseChurchRevisited: 'early-church',
+      onesiphorusPaulRevisited: 'paul-rome',
+      palmSunday: 'triumphal-entry',
+      parableHiddenTreasure: 'pearl-great-price',
+      parableLostSheep: 'lost-sheep',
+      parableMustardSeed: 'mustard-seed',
+      parableNet: 'parable-net',
+      parablePearl: 'pearl-great-price',
+      parableSower: 'the-sower',
+      parableTalents: 'the-talents',
+      parableTwoSons: 'vineyard-son',
+      parableVineyardWorkers: 'vineyard-son',
+      parableWeddingFeast: 'wedding-feast',
+      parableWickedHusbandmen: 'vineyard-son',
+      passoverLamb: 'passover-lamb',
+      paulBarnabas: 'barnabas',
+      paulConversion: 'paul-damascus',
+      paulDamascus: 'paul-damascus',
+      paulEndurance: 'paul-rome',
+      paulEphesus: 'paul-rome',
+      paulEutychus: 'eutychus',
+      paulFirstJourney: 'paul-rome',
+      paulLetters: 'philippians-joy',
+      paulPhilemon: 'philemon',
+      paulPrisonEpistles: 'philippians-joy',
+      paulRome: 'paul-rome',
+      paulSecondJourney: 'philippians-joy',
+      paulShip: 'paul-shipwreck',
+      paulShipwreck: 'paul-shipwreck',
+      paulShipwreckRevisited: 'paul-shipwreck',
+      paulSilas: 'paul-silas-prison',
+      paulSilasPrison: 'paul-silas-prison',
+      paulThirdJourney: 'paul-rome',
+      paulTimothy: 'paul-rome',
+      paulTitus: 'paul-rome',
+      pearlGreatPrice: 'pearl-great-price',
+      pentecost: 'pentecost',
+      pentecostFire: 'pentecost',
+      pentecostHolySpirit: 'pentecost',
+      pentecostTongues: 'pentecost',
+      persistentWidow: 'persistent-widow',
+      peterCornelius: 'peter-cornelius',
+      peterDenial: 'peter-denial',
+      peterFirstLetter: 'paul-rome',
+      peterHealsLame: 'peter-lame',
+      peterJailBreak: 'peter-jail',
+      peterPentecostSermon: 'pentecost',
+      peterSecondLetter: 'paul-rome',
+      peterShadow: 'peter-lame',
+      pharaohDreams: 'pharaoh-dreams',
+      phariseeTaxCollector: 'pharisee-tax-collector',
+      philemonForgiveness: 'philemon',
+      philemonForgivenessRevisited: 'philemon',
+      philemonOnesimus: 'philemon',
+      philemonOnesimusRevisited: 'philemon',
+      philipChariot: 'philip-ethiopian',
+      philipEthiopian: 'philip-ethiopian',
+      philipEthiopianRevisited: 'philip-ethiopian',
+      philippiansJoy: 'philippians-joy',
+      philippiansJoyRevisited: 'philippians-joy',
+      phoebeDeacon: 'early-church',
+      prayerCloset: 'prayer-knock',
+      prayerKnock: 'prayer-knock',
+      priscillaTeach: 'priscilla-aquila',
+      priscillaTent: 'priscilla-aquila',
+      prodigalSon: 'prodigal-son',
+      prodigalSonWelcome: 'prodigal-son',
+      psalm23: 'good-shepherd',
+      psalm23Shepherd: 'good-shepherd',
+      psalm91: 'psalm-91',
+      rahab: 'rahab-spies',
+      rahabJericho: 'rahab-spies',
+      rahabRope: 'rahab-spies',
+      rahabSpies: 'rahab-spies',
+      rahabWindow: 'rahab-spies',
       redSea: 'moses-red-sea',
       redSeaCrossing: 'moses-red-sea',
-      mosesBush: 'moses-red-sea',
-      mosesBaby: 'baby-moses',
-      creation: 'creation',
-      goodSamaritan: 'goodSamaritanMercy',
-      wiseMen: 'jesus-children',
-      simeonAnna: 'jesus-children',
-      jesusTemple: 'jesus-children',
-      jesusBaptism: 'jesus-children',
-      jesusDisciples: 'jesusDisciples',
-      jesusWaterWine: 'jesusWaterWine',
-      jesusTempted: 'jesusTempted',
-      jesusSermon: 'jesusSermon',
-      jesusSermonMount: 'jesusSermon',
-      samaritanWoman: 'samaritanWoman',
-      noblemanSon: 'noblemanSon',
-      centurionServant: 'centurionServant',
-      jesusHealsParalytic: 'jesusHealsParalytic',
-      witheredHand: 'witheredHand',
-      jairus: 'jairus',
-      jesusWalksWater: 'jesusWalksWater',
-      jesusFeeds5000: 'jesusFeeds5000',
-      jesusFeeds4000: 'jesusFeeds4000',
-      parableSower: 'parableSower',
-      mustardSeed: 'mustardSeed',
-      parableMustardSeed: 'mustardSeed',
-      parableHiddenTreasure: 'parableHiddenTreasure',
-      parableNet: 'parableNet',
-      parablePearl: 'parablePearl',
-      lostSheep: 'parableLostSheep',
-      parableLostSheep: 'parableLostSheep',
-      prodigalSon: 'prodigalSonWelcome',
-      maryMartha: 'maryMarthaVisit',
-      marthaServe: 'maryMarthaVisit',
-      marySit: 'maryMarthaVisit',
-      lazarus: 'lazarus',
-      jesusLazarus: 'lazarus',
-      tenLepers: 'healLeper',
-      healLeper: 'healLeper',
-      manBornBlind: 'healBlind',
-      healBlind: 'healBlind',
-      jesusHealsBlind: 'healBlind',
-      bethesda: 'bethesda',
-      unforgivingServant: 'unforgivingServant',
-      forgive70x7: 'unforgivingServant',
-      jesusAndChildren: 'jesusBlessKids',
-      jesusAndZacchaeus: 'zacchaeus',
-      triumphalEntry: 'triumphalEntry',
-      jesusWeepsJerusalem: 'jesusWeepsJerusalem',
-      jesusWeptJerusalem: 'jesusWeepsJerusalem',
-      figTree: 'figTree',
-      jesusFigTree: 'figTree',
-      jesusAuthority: 'jesusAuthority',
-      parableWickedHusbandmen: 'parableWickedHusbandmen',
-      tributeToCaesar: 'tributeToCaesar',
-      sadduceesResurrection: 'sadduceesResurrection',
-      jesusParableGoodShepherd: 'jesusParableGoodShepherd',
-      jesusResurrection: 'resurrection',
-      resurrection: 'resurrection',
-      tombEmpty: 'tombEmpty',
-      crossCarry: 'crossCarry',
-      crucifixion: 'crucifixion',
-      lastSupper: 'lastSupper',
-      gardenPrayer: 'gardenPrayer',
-      jesusArrest: 'jesusArrest',
-      trialBeforeCaiaphas: 'trialBeforeCaiaphas',
-      peterDenial: 'peterDenial',
-      trial: 'trial',
-      maryMagdalene: 'maryMagdalene',
-      thomasDoubt: 'thomasDoubt'
+      resurrection: 'empty-tomb',
+      revelation: 'john-patmos',
+      revelationBabylonFall: 'revelation-throne',
+      revelationBeasts: 'revelation-throne',
+      revelationBride: 'revelation-throne',
+      revelationLetters: 'revelation-throne',
+      revelationNewHeaven: 'heaven-promise',
+      revelationNewJerusalem: 'heaven-promise',
+      revelationSeals: 'revelation-throne',
+      revelationSongsAndHarvest: 'revelation-throne',
+      revelationSupperAndKing: 'lamb-book',
+      revelationThousandYears: 'revelation-throne',
+      revelationThrone: 'revelation-throne',
+      revelationThroneRoom: 'revelation-throne',
+      revelationTrumpets: 'revelation-throne',
+      revelationWomanDragon: 'revelation-throne',
+      richYoungRuler: 'rich-young-ruler',
+      riverOfLife: 'tree-of-life',
+      roadToEmmaus: 'emmaus-road',
+      romansLove: 'romans-love',
+      romansLoveRevisited: 'romans-love',
+      romansRoadKids: 'romans-road-kids',
+      romansLove: 'romans-love',
+      romansLoveRevisited: 'romans-love',
+      ruth: 'ruth-boaz',
+      ruthBoaz: 'ruth-boaz',
+      ruthGlean: 'ruth-boaz',
+      ruthMoab: 'ruth-naomi',
+      ruthNaomi: 'ruth-naomi',
+      ruthRedemption: 'boaz-redeemer',
+      ruthThreshing: 'boaz-redeemer',
+      sadduceesResurrection: 'empty-tomb',
+      samariaSiege: 'shunammite',
+      samaritanWoman: 'woman-at-well',
+      samson: 'samson',
+      samsonBirth: 'samson',
+      samsonDelilah: 'samson',
+      samsonLion: 'samson',
+      samsonStrength: 'samson',
+      samuelAnointsDavid: 'boy-david',
+      samuelBirth: 'boy-samuel',
+      samuelCall: 'boy-samuel',
+      samuelCalls: 'boy-samuel',
+      sarahLaughs: 'sarah-laughs',
+      sarahPromise: 'sarah-laughs',
+      saulConversion: 'paul-damascus',
+      saulDisobedience: 'saul-king',
+      saulKing: 'saul-king',
+      saulSpear: 'david-spares-saul',
+      sheepAndGoats: 'sheep-goats',
+      shepherdsStar: 'nativity',
+      shunammiteReturn: 'shunammite',
+      silasPaulSinging: 'paul-silas-prison',
+      silasPaulSingingRevisited: 'paul-silas-prison',
+      simeonAnna: 'anna-prophet',
+      solomonTemple: 'solomon-temple',
+      solomonTwoMothers: 'solomon-two-mothers',
+      solomonWisdom: 'solomon-wisdom',
+      spiesInCanaan: 'spies-canaan',
+      stephen: 'stephen',
+      stephenMartyr: 'stephen',
+      stephenStones: 'stephen',
+      sunStandsStill: 'sun-stands-still',
+      tabernacle: 'tabernacle',
+      tabitha: 'tabitha-dorcas',
+      tabithaDorcas: 'tabitha-dorcas',
+      tenCommandments: 'ten-commandments',
+      tenLepers: 'ten-lepers',
+      tenPlagues: 'ten-plagues',
+      tenVirgins: 'ten-virgins',
+      theTalents: 'the-talents',
+      thessaloniansHope: 'come-lord-jesus',
+      thomasDoubt: 'empty-tomb',
+      timothyPaulFriendship: 'young-timothy',
+      timothyPaulFriendshipRevisited: 'young-timothy',
+      timothyYouthExample: 'young-timothy',
+      titusEncouragementRevisited: 'paul-rome',
+      titusGoodWorks: 'paul-rome',
+      titusGoodWorksRevisited: 'paul-rome',
+      tombEmpty: 'empty-tomb',
+      towerBabel: 'tower-babel',
+      transfiguration: 'transfiguration',
+      transfigure: 'transfiguration',
+      treeFruit: 'tree-of-life',
+      treeOfLife: 'tree-of-life',
+      trial: 'jesus-pilate',
+      trialBeforeCaiaphas: 'jesus-caiaphas',
+      tributeToCaesar: 'tribute-caesar',
+      triumphalEntry: 'triumphal-entry',
+      unforgivingServant: 'unforgiving-servant',
+      weddingCana: 'wedding-cana',
+      weddingWine: 'wedding-cana',
+      widowMite: 'widows-mite',
+      widowOil: 'elisha-oil',
+      widowsMite: 'widows-mite',
+      wiseFoolishBuilders: 'wise-foolish-builders',
+      wiseMen: 'nativity',
+      witheredHand: 'withered-hand',
+      womanAtWell: 'woman-at-well',
+      worryBirds: 'worry-birds',
+      writingOnWall: 'writing-on-wall',
+      zacchaeus: 'zacchaeus',
+      zechariahVision: 'micah-justice',
     };
     if (map[k]) return map[k];
-    var low = k.toLowerCase();
-    if (low.indexOf('david') >= 0 || low.indexOf('goliath') >= 0) return 'david';
+    var low = k.toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (low.indexOf('goliath') >= 0 || low === 'david') return 'david';
     if (low.indexOf('noah') >= 0) return 'noah';
     if (low.indexOf('jonah') >= 0) return 'jonah';
-    if (low.indexOf('daniel') >= 0) return 'daniel-lions';
+    if (low.indexOf('daniel') >= 0 && low.indexOf('fiery') >= 0) return 'fiery-furnace';
+    if (low.indexOf('daniel') >= 0 && low.indexOf('lion') >= 0) return 'daniel-lions';
+    if (low.indexOf('daniel') >= 0 && (low.indexOf('pray') >= 0 || low === 'daniel')) return 'daniel-lions';
     if (low.indexOf('storm') >= 0 || low.indexOf('calms') >= 0) return 'jesus-storm';
-    if (low.indexOf('disciple') >= 0 || low.indexOf('fisher') >= 0) return 'fishers-of-men';
-    if (low.indexOf('jesusweepsjerusalem') >= 0 || low === 'jesusweepsjerusalem') return 'jesusWeepsJerusalem';
-    if (low.indexOf('jesusauthority') >= 0 || low === 'jesusauthority') return 'jesusAuthority';
-    if (low.indexOf('jesusfigtree') >= 0 || low === 'jesusfigtree') return 'figTree';
-    if (low.indexOf('parablewickedhusbandmen') >= 0 || low === 'parablewickedhusbandmen')
-      return 'parableWickedHusbandmen';
-    if (low.indexOf('tributetocaesar') >= 0 || low === 'tributetocaesar') return 'tributeToCaesar';
-    if (low.indexOf('sadduceesresurrection') >= 0 || low === 'sadduceesresurrection')
-      return 'sadduceesResurrection';
-    if (low.indexOf('jesusparablegoodshepherd') >= 0 || low === 'jesusparablegoodshepherd')
-      return 'jesusParableGoodShepherd';
-    if (low === 'jesusresurrection' || low === 'resurrection') return 'resurrection';
-    if (low.indexOf('marymagdalene') >= 0 || low === 'marymagdalene') return 'maryMagdalene';
-    if (low.indexOf('thomasdoubt') >= 0 || low === 'thomasdoubt') return 'thomasDoubt';
-    if (low.indexOf('tombempty') >= 0 || low === 'tombempty') return 'tombEmpty';
-    if (low.indexOf('crosscarry') >= 0 || low === 'crosscarry') return 'crossCarry';
-    if (low.indexOf('crucifixion') >= 0 || low === 'crucifixion' || low === 'jesuscrucifixion')
-      return 'crucifixion';
-    if (low.indexOf('jesus') >= 0) return 'jesus-children';
-    if (low.indexOf('moses') >= 0) return low.indexOf('baby') >= 0 ? 'baby-moses' : 'moses-red-sea';
-    if (low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses-red-sea';
-    if (low.indexOf('creation') >= 0 || low.indexOf('adam') >= 0) return 'creation';
-    if (low.indexOf('samaritanwoman') >= 0 || low === 'samaritanwoman') return 'samaritanWoman';
-    if (low.indexOf('noblemanson') >= 0 || low === 'noblemanson') return 'noblemanSon';
-    if (low.indexOf('centurionservant') >= 0 || low === 'centurionservant') return 'centurionServant';
-    if (low.indexOf('jesuscalmsstorm') >= 0 || low === 'jesuscalmsstorm') return 'jesusCalmsStorm';
-    if (low.indexOf('jesushealsparalytic') >= 0 || low === 'jesushealsparalytic') return 'jesusHealsParalytic';
-    if (low.indexOf('witheredhand') >= 0 || low === 'witheredhand') return 'witheredHand';
-    if (low.indexOf('jairus') >= 0 || low === 'jairus') return 'jairus';
-    if (low.indexOf('jesuswalkswater') >= 0 || low === 'jesuswalkswater') return 'jesusWalksWater';
-    if (low.indexOf('jesusfeeds5000') >= 0 || low === 'jesusfeeds5000') return 'jesusFeeds5000';
-    if (low.indexOf('jesusfeeds4000') >= 0 || low === 'jesusfeeds4000') return 'jesusFeeds4000';
-    if (low.indexOf('parablesower') >= 0 || low === 'parablesower') return 'parableSower';
-    if (low.indexOf('parablemustardseed') >= 0 || low === 'parablemustardseed') return 'parableMustardSeed';
-    if (low.indexOf('parablehiddentreasure') >= 0 || low === 'parablehiddentreasure') return 'parableHiddenTreasure';
-    if (low.indexOf('parablenet') >= 0 || low === 'parablenet') return 'parableNet';
-    if (low.indexOf('parablepearl') >= 0 || low === 'parablepearl') return 'parablePearl';
-    if (low.indexOf('parablelostsheep') >= 0 || low === 'parablelostsheep') return 'parableLostSheep';
-    if (low.indexOf('prodigal') >= 0 || low === 'prodigalson') return 'prodigalSon';
-    if (low.indexOf('marymartha') >= 0 || low.indexOf('maryandmartha') >= 0) return 'maryMartha';
-    if (low.indexOf('marthaserve') >= 0 || low === 'marthaserve') return 'maryMartha';
-    if (low.indexOf('marysit') >= 0 || low === 'marysit') return 'maryMartha';
-    if (low.indexOf('jesuslazarus') >= 0 || low === 'jesuslazarus') return 'lazarus';
-    if (low.indexOf('tenlepers') >= 0 || low.indexOf('ten-lepers') >= 0) return 'tenLepers';
-    if (low.indexOf('unforgivingservant') >= 0 || low === 'unforgivingservant') return 'unforgivingServant';
-    if (low.indexOf('forgive70') >= 0 || low === 'forgive70x7') return 'unforgivingServant';
-    if (low.indexOf('jesusandchildren') >= 0 || low === 'jesusandchildren') return 'jesusBlessKids';
-    if (low.indexOf('jesusandzacchaeus') >= 0 || low === 'jesusandzacchaeus') return 'zacchaeus';
-    if (low.indexOf('figtree') >= 0 || low === 'figtree') return 'figTree';
-    if (low.indexOf('triumphalentry') >= 0 || low === 'triumphalentry') return 'triumphalEntry';
-    if (low.indexOf('bethesda') >= 0 || low === 'bethesda' || low.indexOf('poolofbethesda') >= 0) return 'bethesda';
-    if (low.indexOf('manbornblind') >= 0 || low === 'manbornblind') return 'healBlind';
-    if (low.indexOf('healblind') >= 0 || low === 'healblind' || low.indexOf('jesushealsblind') >= 0) return 'healBlind';
-    if (low.indexOf('goodsamaritan') >= 0 || low === 'goodsamaritan') return 'goodSamaritan';
-    if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
+    if (low.indexOf('fisher') >= 0) return 'fishers-of-men';
+    if (low.indexOf('resurrection') >= 0 || low.indexOf('emptytomb') >= 0 || low.indexOf('tombempty') >= 0)
+      return 'empty-tomb';
+    /* Do not map crucifixion / trial / garden / arbitrary Jesus keys to empty-tomb or children */
+    if (low.indexOf('creation') >= 0 || low.indexOf('adameve') >= 0) return 'creation';
+    if (low.indexOf('babymoses') >= 0) return 'baby-moses';
+    if (low.indexOf('redsea') >= 0) return 'moses-red-sea';
+    if (low.indexOf('burning') >= 0 || low.indexOf('mosesbush') >= 0) return 'burning-bush';
+    if (low.indexOf('samaritanwoman') >= 0 || low.indexOf('womanatwell') >= 0) return 'woman-at-well';
+    if (low.indexOf('goodsamaritan') >= 0) return 'good-samaritan';
+    if (low.indexOf('shepherd') >= 0 || low.indexOf('psalm23') >= 0) return 'good-shepherd';
+    if (low.indexOf('nativity') >= 0 || low.indexOf('wisemen') >= 0) return 'nativity';
+    if (low.indexOf('feeds5000') >= 0 || low.indexOf('feeding5000') >= 0) return 'feeding-5000';
+    if (low.indexOf('feeds4000') >= 0) return 'feeding-4000';
+    if (low.indexOf('walkswater') >= 0) return 'walks-on-water';
+    if (low.indexOf('prodigal') >= 0) return 'prodigal-son';
+    if (low.indexOf('lostsheep') >= 0) return 'lost-sheep';
+    if (low.indexOf('mustard') >= 0) return 'mustard-seed';
+    if (low.indexOf('sower') >= 0) return 'the-sower';
+    if (low.indexOf('zacchaeus') >= 0) return 'zacchaeus';
+    if (low.indexOf('lazarus') >= 0) return 'lazarus';
+    if (low.indexOf('esther') >= 0) return 'esther';
+    if (low.indexOf('baptism') >= 0) return 'jesus-baptism';
+    if (low.indexOf('emmaus') >= 0) return 'emmaus-road';
+    if (low.indexOf('naaman') >= 0) return 'naaman';
+    if (low.indexOf('jericho') >= 0) return 'jericho';
+    if (low.indexOf('samson') >= 0) return 'samson';
+    if (low.indexOf('gideon') >= 0) return 'gideon-fleece';
+    if (low.indexOf('nehemiah') >= 0) return 'nehemiah-walls';
+    if (low.indexOf('solomon') >= 0 && low.indexOf('mother') >= 0) return 'solomon-two-mothers';
+    if (low.indexOf('solomon') >= 0 && low.indexOf('temple') >= 0) return 'solomon-temple';
+    if (low.indexOf('solomon') >= 0) return 'solomon-wisdom';
+    if (low.indexOf('jesus') >= 0 && low.indexOf('child') >= 0) return 'jesus-children';
     return '';
+  }
+
+  /**
+   * Safe /coloring-pages/ art only (Color & Tell line art).
+   */
+  function isSafeColoringPagePath(src) {
+    if (typeof src !== 'string') return false;
+    var s = src.trim();
+    if (s.length < 20 || s.length > 200) return false;
+    if (s.indexOf('..') !== -1 || s.indexOf('//') !== -1 || s.charAt(0) !== '/') return false;
+    if (s.indexOf('?') !== -1 || s.indexOf('#') !== -1) return false;
+    return (
+      /^\/coloring-pages\/(?:bible-stories\/|colored\/)?[a-z0-9][a-z0-9._-]*\.(?:jpg|jpeg|png|webp|svg)$/i.test(
+        s
+      )
+    );
+  }
+
+  /**
+   * Finished-color story art for library/read-aloud (same Color & Tell drawing).
+   * Coloring pack still uses black-and-white originals under /coloring-pages/.
+   * Prefer /coloring-pages/colored/{basename} when present; img onerror falls back to line art.
+   */
+  function preferColoredStoryArt(url) {
+    if (!url || typeof url !== 'string') return url;
+    var s = url.trim();
+    if (!isSafeColoringPagePath(s)) return s;
+    if (s.indexOf('/coloring-pages/colored/') !== -1) return s;
+    var base = s.split('/').pop() || '';
+    if (!base) return s;
+    return '/coloring-pages/colored/' + base;
+  }
+
+  /** Classic keys shown first on the shelf (color picture starters). */
+  var LIBRARY_STARTER_KEYS = [
+    'noah',
+    'davidGoliath',
+    'jesusBlessKids',
+    'jonah',
+    'danielLionsDen',
+    'jesusCalmsStorm',
+    'jesusFeeds5000',
+    'goodSamaritan',
+    'lostSheep',
+    'prodigalSon',
+    'mosesBaby',
+    'mosesSea',
+    'creation',
+    'tombEmpty',
+    'jesusWalksWater',
+    'zacchaeus',
+    'josephCoat',
+    'esther',
+    'fieryFurnace',
+    'naamanHealed'
+  ];
+  var libraryShowAll = false;
+  var libraryLastFilteredKeys = [];
+
+  /**
+   * Prefer real Color & Tell art for story pictures (never stick panel-*.svg when these exist).
+   * Returns one or more /coloring-pages/ URLs; missing files are dropped on img error.
+   */
+  function getColoringArtUrlsForLibraryKey(storyKey) {
+    var slug = tdbColoringSlugForLibraryKey(storyKey);
+    if (!slug) return [];
+    /* Premium full-page Color & Tell heroes (bible-stories folder) */
+    var heroes = {
+      david: ['/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg'],
+      creation: [
+        '/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg',
+        '/coloring-pages/creation.jpg'
+      ],
+      'jesus-children': ['/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg'],
+      'empty-tomb': ['/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg'],
+      'daniel-lions': ['/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg']
+    };
+    if (heroes[slug]) return heroes[slug].slice();
+    /* Multi-panel JPG stories (scene 1…n) */
+    var multi = {
+      jonah: 4,
+      noah: 4,
+      'baby-moses': 4,
+      'moses-red-sea': 4,
+      'good-samaritan': 4,
+      'jesus-storm': 4,
+      'feeding-5000': 4,
+      'good-shepherd': 4,
+      'prodigal-son': 4,
+      'walks-on-water': 4,
+      zacchaeus: 4,
+      'woman-at-well': 4,
+      'ruth-naomi': 4,
+      lazarus: 4,
+      'lost-sheep': 4,
+      'jairus-daughter': 4,
+      'blind-man': 4,
+      'fishers-of-men': 4,
+      'wedding-cana': 4,
+      nativity: 4
+    };
+    var out = [];
+    var n = multi[slug];
+    var i;
+    if (n) {
+      for (i = 1; i <= n; i++) {
+        out.push('/coloring-pages/' + slug + '-s' + i + '.jpg');
+      }
+      return out;
+    }
+    /* Single full-page heroes generated for the long-tail library */
+    out.push('/coloring-pages/' + slug + '.jpg');
+    return out;
+  }
+
+  /**
+   * All Color & Tell picture URLs for a story, already preferring /colored/ fills.
+   * Also lifts coloring-pages paths from bibleStories.panels when the slug map is empty.
+   * Never returns panel-*.svg stick figures.
+   */
+  function getStoryDisplayArtUrls(storyKey) {
+    var urls = getColoringArtUrlsForLibraryKey(storyKey) || [];
+    var out = [];
+    var seen = {};
+    var i;
+    function pushUrl(u) {
+      if (!u || typeof u !== 'string') return;
+      var s = u.trim();
+      if (!isSafeColoringPagePath(s)) return;
+      var preferred = preferColoredStoryArt(s);
+      if (!preferred || seen[preferred]) return;
+      seen[preferred] = 1;
+      out.push(preferred);
+    }
+    for (i = 0; i < urls.length; i++) pushUrl(urls[i]);
+    if (!out.length) {
+      var st = getStories()[storyKey] || {};
+      var panels = st.panels || [];
+      for (i = 0; i < panels.length; i++) {
+        var src = panels[i] && panels[i].src != null ? String(panels[i].src) : '';
+        if (src.indexOf('/coloring-pages/') === 0) pushUrl(src);
+      }
+    }
+    return out;
+  }
+
+  /** First Color & Tell URL for library shelf thumbs (never panel stick figures). */
+  function getColoringThumbForLibraryKey(storyKey) {
+    var urls = getStoryDisplayArtUrls(storyKey);
+    return urls.length ? urls[0] : '';
+  }
+
+  /** Attach error fallback: colored → line art → remove (never stick panels). */
+  function attachColorArtImgFallback(imgEl, preferredSrc) {
+    if (!imgEl || !preferredSrc) return;
+    var lineArt = preferredSrc;
+    if (preferredSrc.indexOf('/coloring-pages/colored/') !== -1) {
+      var base = preferredSrc.split('/').pop() || '';
+      lineArt = '/coloring-pages/' + base;
+      if (base.indexOf('coloring-page') !== -1) {
+        /* heroes also live under bible-stories/ */
+        imgEl.setAttribute('data-line-art-bible', '/coloring-pages/bible-stories/' + base);
+      }
+    }
+    imgEl.setAttribute('data-line-art', lineArt);
+    imgEl.addEventListener('error', function onColorArtErr() {
+      imgEl.removeEventListener('error', onColorArtErr);
+      var next = imgEl.getAttribute('data-line-art');
+      var bible = imgEl.getAttribute('data-line-art-bible');
+      var cur = imgEl.getAttribute('src') || '';
+      if (next && cur !== next) {
+        imgEl.src = next;
+        imgEl.addEventListener('error', function onLineErr() {
+          imgEl.removeEventListener('error', onLineErr);
+          if (bible && imgEl.getAttribute('src') !== bible) {
+            imgEl.src = bible;
+            imgEl.addEventListener('error', function onBibleErr() {
+              imgEl.removeEventListener('error', onBibleErr);
+              if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
+            });
+            return;
+          }
+          if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
+        });
+        return;
+      }
+      if (bible && cur !== bible) {
+        imgEl.src = bible;
+        return;
+      }
+      if (imgEl.parentNode) imgEl.parentNode.removeChild(imgEl);
+    });
   }
 
   /* ────────────────────────────────────────────────────
@@ -5852,26 +6397,81 @@
     };
   }
 
-  /* Load the SVG outline onto an off-screen canvas for compositing */
-  function loadOutlineCanvas(svgStr, width, height, dpr, cb) {
+  /* Prefer real Color & Tell line art for Color Me (not soft-color fill, not generic stick SVG). */
+  function resolveLineArtUrlForColorMe(storyKey) {
+    try {
+      var urls = typeof getColoringArtUrlsForLibraryKey === 'function' ? getColoringArtUrlsForLibraryKey(storyKey) : [];
+      var i;
+      var u;
+      var base;
+      for (i = 0; i < urls.length; i++) {
+        u = String(urls[i] || '');
+        if (!u) continue;
+        if (u.indexOf('/coloring-pages/colored/') !== -1) {
+          base = u.split('/').pop() || '';
+          if (!base) continue;
+          if (base.indexOf('coloring-page') !== -1) return '/coloring-pages/bible-stories/' + base;
+          return '/coloring-pages/' + base;
+        }
+        if (u.indexOf('/coloring-pages/') === 0) return u;
+      }
+    } catch (eLine) {}
+    return '';
+  }
+
+  /* Draw outline image (SVG data URL or line-art JPG) onto off-screen canvas */
+  function loadOutlineFromImageSrc(src, width, height, dpr, cb) {
     var oc = document.createElement('canvas');
-    oc.width = width * dpr;
-    oc.height = height * dpr;
+    oc.width = Math.max(1, Math.floor(width * dpr));
+    oc.height = Math.max(1, Math.floor(height * dpr));
     var ctx = oc.getContext('2d');
-    ctx.scale(dpr, dpr);
-    var blob = new Blob([svgStr], { type: 'image/svg+xml' });
-    var url = URL.createObjectURL(blob);
+    if (!ctx) {
+      cb(oc);
+      return;
+    }
     var img = new Image();
     img.onload = function () {
-      ctx.drawImage(img, 0, 0, width, height);
-      URL.revokeObjectURL(url);
+      try {
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        /* letterbox image inside canvas so kids see full outline */
+        var iw = img.naturalWidth || img.width || width;
+        var ih = img.naturalHeight || img.height || height;
+        var scale = Math.min(width / iw, height / ih);
+        var dw = iw * scale;
+        var dh = ih * scale;
+        var dx = (width - dw) / 2;
+        var dy = (height - dh) / 2;
+        ctx.clearRect(0, 0, width, height);
+        ctx.drawImage(img, dx, dy, dw, dh);
+      } catch (eDraw) {}
       cb(oc);
     };
     img.onerror = function () {
-      URL.revokeObjectURL(url);
-      cb(oc);
+      cb(null);
     };
-    img.src = url;
+    try {
+      img.src = src;
+    } catch (eSrc) {
+      cb(null);
+    }
+  }
+
+  /* Load built-in SVG outline (data: URL — more reliable than blob under CSP/TT) */
+  function loadOutlineCanvas(svgStr, width, height, dpr, cb) {
+    var src =
+      'data:image/svg+xml;charset=utf-8,' +
+      encodeURIComponent(String(svgStr || '').replace(/#/g, '%23'));
+    loadOutlineFromImageSrc(src, width, height, dpr, function (oc) {
+      if (oc) {
+        cb(oc);
+        return;
+      }
+      /* Empty fallback so paint still works on white paper */
+      var empty = document.createElement('canvas');
+      empty.width = Math.max(1, Math.floor(width * dpr));
+      empty.height = Math.max(1, Math.floor(height * dpr));
+      cb(empty);
+    });
   }
 
   function initColoringCanvas(storyKey, storyTitle) {
@@ -5879,32 +6479,70 @@
     var canvasEl = document.getElementById('kids-coloring-canvas');
     var wrap = document.getElementById('kids-coloring-canvas-wrap');
     var titleEl = document.getElementById('kids-coloring-title');
+    var hintEl = document.getElementById('kids-coloring-hint');
     if (!overlay || !canvasEl || !wrap) return;
 
     coloringState.open = true;
     coloringState.storyKey = storyKey;
     coloringState.storyTitle = storyTitle || storyKey;
     coloringState.undoStack = [];
+    coloringState.outlineCanvas = null;
+    coloringState.painting = false;
 
-    if (titleEl) titleEl.textContent = tdbPlainTextForUi((storyTitle || 'Color Me!') + ' - Funny Clips');
+    if (titleEl) titleEl.textContent = tdbPlainTextForUi(storyTitle || 'Color Me!');
+    if (hintEl) {
+      hintEl.textContent =
+        'Pick a color and brush, then paint on the picture. Undo or Clear if you need a fresh start. Save when you are happy.';
+    }
 
     overlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 
-    var svgStr = getOutlineSvg(storyKey);
-    var size = getCanvasSize(wrap);
-    var dpr = size.dpr;
-    var W = size.w || 400;
-    var H = size.h || 300;
+    /* Measure after layout — synchronous measure while overlay was display:none yields 0×0 and a dead canvas. */
+    function layoutAndPaint() {
+      if (!coloringState.open) return;
+      void wrap.offsetHeight;
+      var size = getCanvasSize(wrap);
+      var dpr = size.dpr || 1;
+      var W = Math.max(Math.floor(size.w || 0), 320);
+      var H = Math.max(Math.floor(size.h || 0), 280);
 
-    canvasEl.width = W * dpr;
-    canvasEl.height = H * dpr;
-    canvasEl.style.width = W + 'px';
-    canvasEl.style.height = H + 'px';
+      canvasEl.width = Math.floor(W * dpr);
+      canvasEl.height = Math.floor(H * dpr);
+      canvasEl.style.width = W + 'px';
+      canvasEl.style.height = H + 'px';
+      /* White paper immediately so kids never stare at a blank dark hole */
+      try {
+        var ctx0 = canvasEl.getContext('2d');
+        if (ctx0) {
+          ctx0.setTransform(1, 0, 0, 1, 0, 0);
+          ctx0.fillStyle = '#ffffff';
+          ctx0.fillRect(0, 0, canvasEl.width, canvasEl.height);
+        }
+      } catch (eFill) {}
 
-    loadOutlineCanvas(svgStr, W, H, dpr, function (oc) {
-      coloringState.outlineCanvas = oc;
-      redrawCanvas();
+      function setOutline(oc) {
+        coloringState.outlineCanvas = oc;
+        redrawCanvas();
+      }
+
+      var lineArt = resolveLineArtUrlForColorMe(storyKey);
+      if (lineArt) {
+        loadOutlineFromImageSrc(lineArt, W, H, dpr, function (oc) {
+          if (oc) {
+            setOutline(oc);
+            return;
+          }
+          /* Line art missing — fall back to built-in SVG outline */
+          loadOutlineCanvas(getOutlineSvg(storyKey), W, H, dpr, setOutline);
+        });
+      } else {
+        loadOutlineCanvas(getOutlineSvg(storyKey), W, H, dpr, setOutline);
+      }
+    }
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(layoutAndPaint);
     });
   }
 
@@ -5912,22 +6550,30 @@
     var canvasEl = document.getElementById('kids-coloring-canvas');
     if (!canvasEl) return;
     var ctx = canvasEl.getContext('2d');
-    var dpr = window.devicePixelRatio || 1;
+    if (!ctx) return;
     var W = canvasEl.width;
     var H = canvasEl.height;
 
-    /* White background */
+    /* White paper */
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.globalCompositeOperation = 'source-over';
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, W, H);
 
-    /* Paint layer: top item in undoStack is current painting */
+    /* Paint layer under the lines */
     if (coloringState.undoStack.length > 0) {
       ctx.putImageData(coloringState.undoStack[coloringState.undoStack.length - 1], 0, 0);
     }
 
-    /* Outline on top so lines always show */
+    /*
+     * Outline on top with multiply: white paper in the outline becomes invisible,
+     * black line art stays crisp. Without multiply, an opaque white outline JPG/SVG
+     * completely covers the paint (blank/unpaintable page).
+     */
     if (coloringState.outlineCanvas) {
+      ctx.globalCompositeOperation = 'multiply';
       ctx.drawImage(coloringState.outlineCanvas, 0, 0);
+      ctx.globalCompositeOperation = 'source-over';
     }
   }
 
@@ -6037,18 +6683,21 @@
   function saveColoringAsPng() {
     var canvasEl = document.getElementById('kids-coloring-canvas');
     if (!canvasEl) return;
-    /* Export: white bg + paint layer + outline */
+    /* Export: white bg + paint layer + outline (multiply so white outline paper vanishes) */
     var exp = document.createElement('canvas');
     exp.width = canvasEl.width;
     exp.height = canvasEl.height;
     var ctx = exp.getContext('2d');
+    if (!ctx) return;
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, exp.width, exp.height);
     if (coloringState.undoStack.length > 0) {
       ctx.putImageData(coloringState.undoStack[coloringState.undoStack.length - 1], 0, 0);
     }
     if (coloringState.outlineCanvas) {
+      ctx.globalCompositeOperation = 'multiply';
       ctx.drawImage(coloringState.outlineCanvas, 0, 0);
+      ctx.globalCompositeOperation = 'source-over';
     }
     try {
       var dataUrl = exp.toDataURL('image/png');
@@ -6075,89 +6724,124 @@
 
   function wireColoringCanvas() {
     var canvasEl = document.getElementById('kids-coloring-canvas');
-    if (!canvasEl) return;
+    if (!canvasEl || canvasEl.getAttribute('data-color-wired') === '1') return;
+    canvasEl.setAttribute('data-color-wired', '1');
 
-    /* ── Mouse events ── */
-    canvasEl.addEventListener('mousedown', function (e) {
+    function beginPaint(clientX, clientY) {
       if (!coloringState.open) return;
-      e.preventDefault();
       snapshotForUndo();
       coloringState.painting = true;
-      var pt = clientToCanvas(canvasEl, e.clientX, e.clientY);
+      var pt = clientToCanvas(canvasEl, clientX, clientY);
       coloringState.lastX = pt.x;
       coloringState.lastY = pt.y;
       applyStroke(pt.x, pt.y, pt.x, pt.y);
-    });
+    }
 
-    canvasEl.addEventListener('mousemove', function (e) {
+    function movePaint(clientX, clientY) {
       if (!coloringState.open || !coloringState.painting) return;
-      e.preventDefault();
-      var pt = clientToCanvas(canvasEl, e.clientX, e.clientY);
+      var pt = clientToCanvas(canvasEl, clientX, clientY);
       applyStroke(coloringState.lastX, coloringState.lastY, pt.x, pt.y);
       coloringState.lastX = pt.x;
       coloringState.lastY = pt.y;
-    });
+    }
 
-    canvasEl.addEventListener('mouseup', function (e) {
+    function endPaint() {
       coloringState.painting = false;
-    });
+    }
 
-    canvasEl.addEventListener('mouseleave', function (e) {
-      coloringState.painting = false;
-    });
+    /* Pointer events cover mouse + touch + pen in one path */
+    if (window.PointerEvent) {
+      canvasEl.addEventListener('pointerdown', function (e) {
+        if (!coloringState.open) return;
+        if (e.pointerType === 'touch' && e.isPrimary === false) return;
+        e.preventDefault();
+        try {
+          canvasEl.setPointerCapture(e.pointerId);
+        } catch (eCap) {}
+        beginPaint(e.clientX, e.clientY);
+      });
+      canvasEl.addEventListener('pointermove', function (e) {
+        if (!coloringState.open || !coloringState.painting) return;
+        e.preventDefault();
+        movePaint(e.clientX, e.clientY);
+      });
+      canvasEl.addEventListener('pointerup', function (e) {
+        endPaint();
+        try {
+          canvasEl.releasePointerCapture(e.pointerId);
+        } catch (eRel) {}
+      });
+      canvasEl.addEventListener('pointercancel', endPaint);
+      canvasEl.addEventListener('pointerleave', function (e) {
+        if (e.buttons === 0) endPaint();
+      });
+    } else {
+      /* ── Mouse events ── */
+      canvasEl.addEventListener('mousedown', function (e) {
+        if (!coloringState.open) return;
+        e.preventDefault();
+        beginPaint(e.clientX, e.clientY);
+      });
 
-    /* ── Touch events ── */
-    canvasEl.addEventListener('touchstart', function (e) {
-      if (!coloringState.open) return;
-      e.preventDefault();
-      if (e.touches.length === 2) {
-        /* Pinch begin */
-        pinchState.active = true;
-        pinchState.startDist = getPinchDist(e.touches);
-        pinchState.startScale = pinchState.scale;
-        coloringState.painting = false;
-        return;
-      }
-      pinchState.active = false;
-      snapshotForUndo();
-      coloringState.painting = true;
-      var touch = e.touches[0];
-      var pt = clientToCanvas(canvasEl, touch.clientX, touch.clientY);
-      coloringState.lastX = pt.x;
-      coloringState.lastY = pt.y;
-      applyStroke(pt.x, pt.y, pt.x, pt.y);
-    }, { passive: false });
+      canvasEl.addEventListener('mousemove', function (e) {
+        if (!coloringState.open || !coloringState.painting) return;
+        e.preventDefault();
+        movePaint(e.clientX, e.clientY);
+      });
 
-    canvasEl.addEventListener('touchmove', function (e) {
-      if (!coloringState.open) return;
-      e.preventDefault();
-      if (e.touches.length === 2 && pinchState.active) {
-        /* Pinch zoom — scale the canvas wrap transform */
-        var dist = getPinchDist(e.touches);
-        var newScale = Math.min(4, Math.max(0.5, pinchState.startScale * (dist / pinchState.startDist)));
-        pinchState.scale = newScale;
-        var wrap = document.getElementById('kids-coloring-canvas-wrap');
-        if (wrap) {
-          canvasEl.style.transformOrigin = 'center center';
-          canvasEl.style.transform = 'scale(' + newScale + ')';
-        }
-        return;
-      }
-      if (!coloringState.painting) return;
-      var touch = e.touches[0];
-      var pt = clientToCanvas(canvasEl, touch.clientX, touch.clientY);
-      applyStroke(coloringState.lastX, coloringState.lastY, pt.x, pt.y);
-      coloringState.lastX = pt.x;
-      coloringState.lastY = pt.y;
-    }, { passive: false });
+      canvasEl.addEventListener('mouseup', endPaint);
+      canvasEl.addEventListener('mouseleave', endPaint);
 
-    canvasEl.addEventListener('touchend', function (e) {
-      if (e.touches.length < 2) pinchState.active = false;
-      if (e.touches.length === 0) coloringState.painting = false;
-    });
+      /* ── Touch events ── */
+      canvasEl.addEventListener(
+        'touchstart',
+        function (e) {
+          if (!coloringState.open) return;
+          e.preventDefault();
+          if (e.touches.length === 2) {
+            pinchState.active = true;
+            pinchState.startDist = getPinchDist(e.touches);
+            pinchState.startScale = pinchState.scale;
+            coloringState.painting = false;
+            return;
+          }
+          pinchState.active = false;
+          var touch = e.touches[0];
+          beginPaint(touch.clientX, touch.clientY);
+        },
+        { passive: false }
+      );
+
+      canvasEl.addEventListener(
+        'touchmove',
+        function (e) {
+          if (!coloringState.open) return;
+          e.preventDefault();
+          if (e.touches.length === 2 && pinchState.active) {
+            var dist = getPinchDist(e.touches);
+            var newScale = Math.min(4, Math.max(0.5, pinchState.startScale * (dist / pinchState.startDist)));
+            pinchState.scale = newScale;
+            canvasEl.style.transformOrigin = 'center center';
+            canvasEl.style.transform = 'scale(' + newScale + ')';
+            return;
+          }
+          if (!coloringState.painting) return;
+          var touch = e.touches[0];
+          movePaint(touch.clientX, touch.clientY);
+        },
+        { passive: false }
+      );
+
+      canvasEl.addEventListener('touchend', function (e) {
+        if (e.touches.length < 2) pinchState.active = false;
+        if (e.touches.length === 0) endPaint();
+      });
+    }
   }
 
   function wireColoringControls() {
+    if (document.documentElement.getAttribute('data-kids-color-controls') === '1') return;
+    document.documentElement.setAttribute('data-kids-color-controls', '1');
     /* Brush size buttons */
     document.querySelectorAll('.kids-brush-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -6253,15 +6937,23 @@
   /* Wire the "Color Me" click from the grid (event delegation) */
   function wireColorMeButtons() {
     var grid = document.getElementById('kids-library-grid');
-    if (!grid) return;
+    if (!grid || grid.getAttribute('data-color-me-wired') === '1') return;
+    grid.setAttribute('data-color-me-wired', '1');
     grid.addEventListener('click', function (e) {
       var colorBtn = e.target && e.target.closest ? e.target.closest('.kids-card-color-btn') : null;
       if (!colorBtn) return;
+      e.preventDefault();
       e.stopPropagation();
       var key = colorBtn.getAttribute('data-story');
       var title = colorBtn.getAttribute('data-title') || key;
       if (key) initColoringCanvas(key, title);
     });
+  }
+
+  function ensureColorMeWired() {
+    wireColoringCanvas();
+    wireColoringControls();
+    wireColorMeButtons();
   }
 
   /* ── End of coloring module ── */
@@ -6430,16 +7122,18 @@
     if (ageSelect) ageSelect.value = '';
     if (lengthSelect) lengthSelect.value = '';
     if (bookSelect) bookSelect.value = '';
-    renderGrid(applyFilters());
+    /* Clearing filters returns to starter shelf; theme/search shows matching stories */
+    if (!query && !theme) libraryShowAll = false;
+    renderLibraryShelf();
     if (quickFilterStatusEl) {
       if (!query && !theme) {
-        quickFilterStatusEl.textContent = 'Showing the full library again.';
+        quickFilterStatusEl.textContent = 'Starter pictures again — use Show more stories for the full shelf.';
       } else {
         var parts = [];
         if (label) parts.push(label);
         if (theme) parts.push('theme: ' + theme);
         if (query) parts.push('search: ' + query);
-        quickFilterStatusEl.textContent = 'Starter view applied — ' + parts.join(' · ') + '.';
+        quickFilterStatusEl.textContent = 'Filtered view — ' + parts.join(' · ') + '.';
       }
     }
     if (searchInput && typeof searchInput.focus === 'function') searchInput.focus();
@@ -6673,16 +7367,14 @@
     return n >= 1 && n <= 195;
   }
 
-  /** First comic panel from bibleStories (same files as the modal carousel). */
+  /** Story picture from bibleStories: Color & Tell paths or legacy panel-*.svg. */
   function safeKidsPanelSvgAbsFromRel(rel) {
     if (typeof rel !== 'string') return '';
     var r = rel.trim();
-    if (!r || r.indexOf('..') !== -1 || r.indexOf('//') !== -1) return '';
-    var base = r.indexOf('/') === -1 ? r : r.split('/').pop() || '';
-    if (!/^panel-[a-zA-Z0-9._-]+\.svg$/i.test(base)) return '';
-    var abs = '/kids/' + base;
-    if (abs.length > 80) return '';
-    return abs;
+    if (!r || r.indexOf('..') !== -1) return '';
+    /* Stick panel-*.svg art removed — only Color & Tell /coloring-pages/ paths remain */
+    if (isSafeColoringPagePath(r)) return r;
+    return '';
   }
 
   /** When true, grid thumbs use a picture stack: /assets/panels/*.avif, *.webp, SVG fallback (add rasters first). */
@@ -6691,15 +7383,48 @@
   }
 
   /**
-   * Story grid card thumbnail: optional AVIF/WebP + SVG fallback for LCP when raster assets exist.
+   * Story grid card thumbnail: Color & Tell JPG first; optional AVIF/WebP + SVG only as last resort.
    */
   function buildLibraryCardThumb(thumbSrc, plainAlt, isFirstCard) {
     var raw = String(thumbSrc || '').trim();
+    /* Color & Tell paths (/coloring-pages/…) — never route through panel SVG logic */
+    if (isSafeColoringPagePath(raw)) {
+      var imgColor = document.createElement('img');
+      imgColor.src = raw;
+      imgColor.alt = plainAlt;
+      imgColor.className = 'kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color';
+      imgColor.setAttribute('decoding', 'async');
+      if (raw.indexOf('/coloring-pages/colored/') !== -1) {
+        var baseLine = '/coloring-pages/' + (raw.split('/').pop() || '');
+        /* bible-stories basenames also live under bible-stories/ for some heroes */
+        imgColor.setAttribute('data-line-art', baseLine);
+        imgColor.addEventListener('error', function onThumbErr() {
+          imgColor.removeEventListener('error', onThumbErr);
+          var fb = imgColor.getAttribute('data-line-art');
+          if (fb && imgColor.getAttribute('src') !== fb) {
+            /* try bible-stories/ if flat 404 */
+            if (fb.indexOf('coloring-page') !== -1) {
+              imgColor.src = '/coloring-pages/bible-stories/' + (fb.split('/').pop() || '');
+            } else {
+              imgColor.src = fb;
+            }
+          }
+        });
+      }
+      if (isFirstCard) {
+        imgColor.loading = 'eager';
+        try { imgColor.fetchPriority = 'high'; } catch (_) {}
+      } else {
+        imgColor.loading = 'lazy';
+      }
+      return imgColor;
+    }
     var absSvg = safeKidsPanelSvgAbsFromRel(raw);
     if (!absSvg) {
       var img0 = document.createElement('img');
       img0.src = raw;
       img0.alt = plainAlt;
+      img0.className = 'kids-library-card-thumb';
       if (isFirstCard) {
         img0.loading = 'eager';
         try { img0.fetchPriority = 'high'; } catch (_) {}
@@ -7037,6 +7762,26 @@
         hint0.textContent = tdbPlainTextForUi(pack.hintAboveQuiz);
         wrap.appendChild(hint0);
       }
+      /* Full-color Color & Tell art — never stick panel-*.svg when real art exists */
+      var colorArtSafe = getStoryDisplayArtUrls(key);
+      var csi;
+      if (colorArtSafe.length) {
+        var colorRow = document.createElement('div');
+        colorRow.className = 'kids-read-quiz-images';
+        colorRow.setAttribute('role', 'group');
+        colorRow.setAttribute('aria-label', 'Story pictures for this Bible story');
+        for (csi = 0; csi < colorArtSafe.length; csi++) {
+          var cImg = document.createElement('img');
+          cImg.src = colorArtSafe[csi];
+          cImg.alt = tdbPlainTextForUi(storyTitle) + ' — Bible story picture';
+          cImg.className = 'kids-read-quiz-panel-img kids-read-quiz-panel-img--coloring';
+          cImg.setAttribute('loading', csi === 0 ? 'eager' : 'lazy');
+          cImg.setAttribute('decoding', 'async');
+          attachColorArtImgFallback(cImg, colorArtSafe[csi]);
+          colorRow.appendChild(cImg);
+        }
+        if (colorRow.childNodes.length) wrap.appendChild(colorRow);
+      }
       var panelList = stMeta.panels || [];
       pack.readAlongSections.forEach(function (sec, si) {
         if (!sec || typeof sec !== 'object') return;
@@ -7044,7 +7789,11 @@
         block.className = 'kids-read-quiz-section';
         block.setAttribute('role', 'group');
         block.setAttribute('aria-label', 'Story part ' + (si + 1));
-        var imgSrc = resolveReadAlongSectionImageSrc(sec.image || '');
+        /* Skip stick-figure panel SVGs when Color & Tell art is already shown above */
+        var imgSrc = '';
+        if (!colorArtSafe.length) {
+          imgSrc = resolveReadAlongSectionImageSrc(sec.image || '');
+        }
         var ph = sec.placeholder ? String(sec.placeholder).trim() : '';
         if (imgSrc) {
           var fig = document.createElement('figure');
@@ -7068,11 +7817,17 @@
             fig.appendChild(cap);
           }
           block.appendChild(fig);
-        } else if (ph) {
+        } else if (ph && !colorArtSafe.length) {
           var pl = document.createElement('p');
           pl.className = 'kids-read-quiz-section-placeholder';
           pl.textContent = tdbPlainTextForUi(ph);
           block.appendChild(pl);
+        } else if (sec.caption && colorArtSafe.length) {
+          /* Keep part caption as text when we already showed real art above */
+          var capOnly = document.createElement('p');
+          capOnly.className = 'kids-read-quiz-section-caption';
+          capOnly.textContent = tdbPlainTextForUi(sec.caption);
+          block.appendChild(capOnly);
         }
         if (sec.text) {
           var pt = document.createElement('p');
@@ -7085,10 +7840,18 @@
     } else {
       var imgs = pack.readAlongImages;
       var imageSources = [];
-      if (imgs && imgs.length) {
+      /* 1) Full-color Color & Tell pictures */
+      var colorArt = getStoryDisplayArtUrls(key);
+      for (var ca = 0; ca < colorArt.length; ca++) imageSources.push(colorArt[ca]);
+      /* 2–3) Fallbacks only when no Color & Tell art maps for this story (never panel sticks first) */
+      if (!imageSources.length && imgs && imgs.length) {
         for (var im = 0; im < imgs.length; im++) {
           var srcM = imgs[im];
-          if (isSafeReadAlongImagePath(srcM)) imageSources.push(String(srcM));
+          if (isSafeColoringPagePath(String(srcM || ''))) {
+            imageSources.push(preferColoredStoryArt(String(srcM)));
+          } else if (isSafeReadAlongImagePath(srcM)) {
+            imageSources.push(String(srcM));
+          }
         }
       }
       if (!imageSources.length && window.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED) {
@@ -7099,14 +7862,7 @@
           if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
         }
       }
-      if (!imageSources.length) {
-        var panelsMeta = stMeta.panels || [];
-        for (var pi = 0; pi < panelsMeta.length; pi++) {
-          var relP = panelsMeta[pi] && panelsMeta[pi].src;
-          var panelAbs2 = safeKidsPanelSvgAbsFromRel(String(relP || ''));
-          if (panelAbs2) imageSources.push(panelAbs2);
-        }
-      }
+      /* Skip panel-*.svg sticks entirely — better empty than stick figures */
       if (imageSources.length) {
         var imgRow = document.createElement('div');
         imgRow.className = 'kids-read-quiz-images';
@@ -7119,23 +7875,27 @@
           var srcOne = imageSources[ix];
           var elImg = document.createElement('img');
           elImg.src = srcOne;
-          var panelAltIx = (stMeta.panels && stMeta.panels[ix] && stMeta.panels[ix].alt) ? String(stMeta.panels[ix].alt) : '';
-          var isPanelThumb = /^\/kids\/panel-[a-zA-Z0-9._-]+\.svg$/i.test(srcOne);
-          elImg.alt =
-            isPanelThumb && panelAltIx
-              ? panelAltIx + ' — ' + storyTitle
-              : 'Story picture ' + (ix + 1) + ' — ' + storyTitle;
-          elImg.className = 'kids-read-quiz-panel-img';
-          elImg.setAttribute('loading', 'lazy');
+          var isColorArt =
+            isSafeColoringPagePath(srcOne) ||
+            String(srcOne).indexOf('/coloring-pages/colored/') !== -1;
+          elImg.alt = isColorArt
+            ? storyTitle + ' — Bible story picture'
+            : 'Story picture ' + (ix + 1) + ' — ' + storyTitle;
+          elImg.className =
+            'kids-read-quiz-panel-img' + (isColorArt ? ' kids-read-quiz-panel-img--coloring' : '');
+          elImg.setAttribute('loading', ix === 0 ? 'eager' : 'lazy');
           elImg.setAttribute('decoding', 'async');
-          (function (imgEl) {
-            imgEl.addEventListener('error', function onReadQuizImgErr() {
-              imgEl.removeEventListener('error', onReadQuizImgErr);
-              var row = imgEl.parentNode;
-              if (row) row.removeChild(imgEl);
-              if (row && !row.childNodes.length && row.parentNode) row.parentNode.removeChild(row);
-            });
-          })(elImg);
+          if (isColorArt) attachColorArtImgFallback(elImg, srcOne);
+          else {
+            (function (imgEl) {
+              imgEl.addEventListener('error', function onReadQuizImgErr() {
+                imgEl.removeEventListener('error', onReadQuizImgErr);
+                var row = imgEl.parentNode;
+                if (row) row.removeChild(imgEl);
+                if (row && !row.childNodes.length && row.parentNode) row.parentNode.removeChild(row);
+              });
+            })(elImg);
+          }
           imgRow.appendChild(elImg);
         }
         if (imgRow.childNodes.length) wrap.appendChild(imgRow);
@@ -7603,11 +8363,38 @@
   function splitKidsNarrationParagraphs(raw) {
     var t = tdbPlainTextForUi(raw || '').trim();
     if (!t) return [];
+    var forYou = '';
     var fu = t.indexOf(' For you:');
+    if (fu < 0) fu = t.indexOf('For you:');
     if (fu >= 0) {
-      return [t.slice(0, fu).trim(), t.slice(fu + 1).trim()];
+      forYou = t.slice(fu).trim();
+      t = t.slice(0, fu).trim();
     }
-    return [t];
+    var out = [];
+    /* Short chunks so kids (and grown-ups) can actually read the story */
+    if (t.length > 200) {
+      var sentences = t.match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g);
+      if (sentences && sentences.length > 1) {
+        var buf = '';
+        for (var si = 0; si < sentences.length; si++) {
+          var sent = String(sentences[si] || '').trim();
+          if (!sent) continue;
+          if (buf && buf.length + sent.length > 150) {
+            out.push(buf);
+            buf = sent;
+          } else {
+            buf = buf ? buf + ' ' + sent : sent;
+          }
+        }
+        if (buf) out.push(buf);
+      } else {
+        out.push(t);
+      }
+    } else if (t) {
+      out.push(t);
+    }
+    if (forYou) out.push(forYou);
+    return out;
   }
 
   function getStories() {
@@ -7668,8 +8455,19 @@
       'noahark': 'noah',
       'noahsark': 'noah',
       'noah-ark': 'noah',
-      'good-shepherd': 'jesus',
-      'goodshepherd': 'jesus',
+      'good-shepherd': 'psalm23Shepherd',
+      'goodshepherd': 'psalm23Shepherd',
+      storm: 'jesusCalmsStorm',
+      'jesus-storm': 'jesusCalmsStorm',
+      jesusstorm: 'jesusCalmsStorm',
+      'calms-storm': 'jesusCalmsStorm',
+      donotfearisaiah41: 'doNotFearIsaiah41',
+      joshua: 'fallOfJericho',
+      jericho: 'fallOfJericho',
+      'fall-of-jericho': 'fallOfJericho',
+      'do-not-fear': 'doNotFearIsaiah41',
+      'do-not-fear-isaiah-41': 'doNotFearIsaiah41',
+      'do-not-fear-isaiah41': 'doNotFearIsaiah41',
       'seven-seals': 'revelationSeals',
       'sevenseels': 'revelationSeals',
       'sevenseals': 'revelationSeals',
@@ -8235,16 +9033,22 @@
       var s = stories[key];
       if (!s) continue;
       var panels = s.panels || [];
-      var thumb = panels[0] ? String(panels[0].src || '') : '';
-      if (!thumb) thumb = 'panel-noah-1.svg';
+      /* Prefer Color & Tell art on the shelf — panel-*.svg are generic stick figures */
+      var colorThumb = getColoringThumbForLibraryKey(key);
+      var thumb = colorThumb || (panels[0] ? String(panels[0].src || '') : '');
+      if (!thumb) thumb = '/coloring-pages/colored/noah-s1.jpg';
       var plainTitle = tdbPlainTextForUi(s.title || key);
-      var altRaw = panels[0] && panels[0].alt != null ? String(panels[0].alt) : String(s.title || key);
+      var altRaw = colorThumb
+        ? plainTitle + ' — Bible coloring picture'
+        : panels[0] && panels[0].alt != null
+          ? String(panels[0].alt)
+          : String(s.title || key);
       var plainAlt = tdbPlainTextForUi(altRaw);
       var meta = storyMeta(key, s, themes);
       var descText = tdbPlainTextForUi((s.caption || (s.kidContext && s.kidContext.apply) || '').trim());
 
       var card = document.createElement('div');
-      card.className = 'kids-library-card';
+      card.className = 'kids-library-card' + (colorThumb ? ' kids-library-card--color-art' : '');
       card.setAttribute('data-story', key);
       card.setAttribute('role', 'button');
       card.setAttribute('tabindex', '0');
@@ -8344,41 +9148,6 @@
     el.textContent = total + ' titles in this PDF • full library (ignores search/filter)';
   }
 
-  function buildLiveItOutCards(key, storyObj, pack) {
-    var wrap = document.createElement('div');
-    wrap.className = 'kids-live-it-out';
-    wrap.setAttribute('aria-label', 'Live it out for different ages');
-    var apply = tdbPlainTextForUi((storyObj && storyObj.kidContext && storyObj.kidContext.apply) || (pack && pack.takeaway) || '');
-    var prayer = tdbPlainTextForUi((pack && pack.prayer) || '');
-    var storyTitle = tdbPlainTextForUi((storyObj && storyObj.title) || key || 'this story');
-    var cards = [
-      {
-        label: 'Littles 5-7',
-        text: (apply || 'Hold the big truth in one simple line.') + ' Then draw one part of ' + storyTitle + ' and say one thank-You prayer.'
-      },
-      {
-        label: 'Middles 8-10',
-        text: 'Tell a grown-up what happened in ' + storyTitle + ', then choose one small act of obedience or kindness to do before bed.'
-      },
-      {
-        label: 'Older 11+',
-        text: 'Say what this story shows you about God, where it meets real life, and answer it with one honest step today.' + (prayer ? ' Prayer idea: ' + prayer : '')
-      }
-    ];
-    for (var i = 0; i < cards.length; i++) {
-      var card = document.createElement('div');
-      card.className = 'kids-live-it-out-card';
-      var strong = document.createElement('strong');
-      strong.textContent = cards[i].label;
-      var body = document.createElement('p');
-      body.textContent = cards[i].text;
-      card.appendChild(strong);
-      card.appendChild(body);
-      wrap.appendChild(card);
-    }
-    return wrap;
-  }
-
   function updateDocumentStoryMeta(storyKey, storyObj) {
     try {
       var t = tdbPlainTextForUi((storyObj && storyObj.title) || storyKey);
@@ -8407,7 +9176,7 @@
     fig.setAttribute('aria-hidden', 'true');
     var img = document.createElement('img');
     img.className = 'kids-story-ls-intro-mascot';
-    img.src = '/kids/shepherd-mascot-welcome.svg';
+    img.src = '/kids/shepherd-mascot-welcome.png?v=20260810ears';
     img.alt = '';
     img.setAttribute('width', '72');
     img.setAttribute('height', '80');
@@ -8429,73 +9198,54 @@
     carouselRoot.insertBefore(intro, carouselRoot.firstChild);
   }
 
+  /**
+   * Always-visible “where in the Bible” + “for you” helper.
+   * (Old toggle was confusing: “KJV reference” looked like a full reading mode
+   * but only showed the citation, e.g. Luke 15:11–32.)
+   */
   function appendKjvPlainToggle(modalContext, s) {
     if (!modalContext || !s) return;
     var ref = s.kjvRef ? String(s.kjvRef).trim() : '';
     var plain = s.kidContext && s.kidContext.apply ? String(s.kidContext.apply).trim() : '';
     if (!ref && !plain) return;
     var box = document.createElement('div');
-    box.className = 'kids-story-kjv-plain';
+    box.className = 'kids-story-kjv-plain kids-story-kjv-plain--stack';
     box.setAttribute('role', 'region');
-    box.setAttribute('aria-label', 'KJV reference and plain helper');
+    box.setAttribute('aria-label', 'Where this story is in the Bible, and a plain line for you');
+
     var lab = document.createElement('p');
     lab.className = 'kids-story-kjv-plain-label';
-    lab.textContent = 'Same story, two ways in—tap to read KJV or plain helper.';
+    lab.textContent =
+      'This is not two different stories. Below: where it is written in the King James Bible, then a plain line for your family.';
     box.appendChild(lab);
-    var row = document.createElement('div');
-    row.className = 'kids-kjv-plain-toggle-row';
-    var bK = document.createElement('button');
-    bK.type = 'button';
-    bK.className = 'kids-kjv-plain-btn is-on';
-    bK.setAttribute('aria-pressed', 'true');
-    bK.textContent = 'KJV reference';
-    var bP = document.createElement('button');
-    bP.type = 'button';
-    bP.className = 'kids-kjv-plain-btn';
-    bP.setAttribute('aria-pressed', 'false');
-    bP.textContent = 'Plain helper';
-    row.appendChild(bK);
-    row.appendChild(bP);
-    box.appendChild(row);
-    var pK = document.createElement('div');
-    pK.className = 'kids-kjv-plain-body';
-    pK.textContent = ref || plain || '';
-    var pP = document.createElement('div');
-    pP.className = 'kids-kjv-plain-body hidden';
-    pP.setAttribute('hidden', '');
-    pP.textContent = plain || ref || '';
-    if (!ref) {
-      bK.classList.remove('is-on');
-      bK.setAttribute('aria-pressed', 'false');
-      bP.classList.add('is-on');
-      bP.setAttribute('aria-pressed', 'true');
-      pK.classList.add('hidden');
-      pK.setAttribute('hidden', '');
-      pP.classList.remove('hidden');
-      pP.removeAttribute('hidden');
+
+    if (ref) {
+      var whereHead = document.createElement('p');
+      whereHead.className = 'kids-kjv-plain-heading';
+      whereHead.textContent = 'Where in the Bible (KJV)';
+      box.appendChild(whereHead);
+      var pK = document.createElement('div');
+      pK.className = 'kids-kjv-plain-body kids-kjv-plain-body--ref';
+      pK.textContent = ref;
+      box.appendChild(pK);
+      var whereNote = document.createElement('p');
+      whereNote.className = 'kids-kjv-plain-note section-note';
+      whereNote.textContent =
+        'That is the chapter and verse address (like a page number). The full read-aloud is in the story above.';
+      box.appendChild(whereNote);
     }
-    box.appendChild(pK);
-    box.appendChild(pP);
-    bK.addEventListener('click', function () {
-      bK.classList.add('is-on');
-      bP.classList.remove('is-on');
-      bK.setAttribute('aria-pressed', 'true');
-      bP.setAttribute('aria-pressed', 'false');
-      pK.classList.remove('hidden');
-      pK.removeAttribute('hidden');
-      pP.classList.add('hidden');
-      pP.setAttribute('hidden', '');
-    });
-    bP.addEventListener('click', function () {
-      bP.classList.add('is-on');
-      bK.classList.remove('is-on');
-      bP.setAttribute('aria-pressed', 'true');
-      bK.setAttribute('aria-pressed', 'false');
-      pP.classList.remove('hidden');
-      pP.removeAttribute('hidden');
-      pK.classList.add('hidden');
-      pK.setAttribute('hidden', '');
-    });
+
+    if (plain) {
+      var forHead = document.createElement('p');
+      forHead.className = 'kids-kjv-plain-heading';
+      forHead.textContent = 'For you (plain words)';
+      box.appendChild(forHead);
+      var pP = document.createElement('div');
+      pP.className = 'kids-kjv-plain-body kids-kjv-plain-body--for-you';
+      pP.textContent = plain;
+      box.appendChild(pP);
+    }
+
     modalContext.appendChild(box);
   }
 
@@ -8669,21 +9419,59 @@
       prependLittleShepherdIntro(carouselRoot, key, s);
       var panelsWrap = document.createElement('div');
       panelsWrap.className = 'panels-container';
-      for (var pi = 0; pi < panels.length; pi++) {
-        var pan = panels[pi];
-        var baseAlt = tdbPlainTextForUi(pan.alt || (s.title + ' illustration'));
-        var fullAlt = themeSnippet
-          ? baseAlt + ' – ' + tdbPlainTextForUi(themeSnippet)
-          : baseAlt + ' – ' + tdbPlainTextForUi(s.kjvRef || s.title);
-        var im = document.createElement('img');
-        im.className = 'comic-panel';
-        im.setAttribute('width', '200');
-        im.setAttribute('height', '160');
-        im.setAttribute('loading', 'lazy');
-        im.setAttribute('decoding', 'async');
-        im.alt = fullAlt;
-        im.src = String(pan.src || '').trim();
-        panelsWrap.appendChild(im);
+      /* Full-color Color & Tell pictures only — never lead with stick panel-*.svg */
+      var colorArtUrls = getStoryDisplayArtUrls(key);
+      var usedColorArt = false;
+      if (colorArtUrls && colorArtUrls.length) {
+        for (var cai = 0; cai < colorArtUrls.length; cai++) {
+          usedColorArt = true;
+          var imC = document.createElement('img');
+          imC.className = 'comic-panel comic-panel--coloring-art comic-panel--story-color';
+          imC.setAttribute('loading', cai === 0 ? 'eager' : 'lazy');
+          imC.setAttribute('decoding', 'async');
+          imC.alt =
+            tdbPlainTextForUi(s.title || key) +
+            ' — Bible story picture' +
+            (themeSnippet ? ' – ' + tdbPlainTextForUi(themeSnippet) : '');
+          imC.src = colorArtUrls[cai];
+          attachColorArtImgFallback(imC, colorArtUrls[cai]);
+          panelsWrap.appendChild(imC);
+        }
+      }
+      /* Last resort only: story-specific panels that are already coloring-pages (not sticks) */
+      if (!usedColorArt) {
+        for (var pi = 0; pi < panels.length; pi++) {
+          var pan = panels[pi];
+          var relPan = String((pan && pan.src) || '');
+          if (relPan.indexOf('/coloring-pages/') === 0 && isSafeColoringPagePath(relPan)) {
+            var imCol = document.createElement('img');
+            imCol.className = 'comic-panel comic-panel--coloring-art comic-panel--story-color';
+            imCol.setAttribute('loading', pi === 0 ? 'eager' : 'lazy');
+            imCol.setAttribute('decoding', 'async');
+            imCol.alt = tdbPlainTextForUi(pan.alt || (s.title + ' illustration'));
+            imCol.src = preferColoredStoryArt(relPan);
+            attachColorArtImgFallback(imCol, imCol.src);
+            panelsWrap.appendChild(imCol);
+            usedColorArt = true;
+            continue;
+          }
+          /* Skip stick panel-*.svg entirely when we have a full-color library */
+          var basePan = relPan.indexOf('/') === -1 ? relPan : relPan.split('/').pop() || '';
+          if (/^panel-[a-zA-Z0-9._-]+\.svg$/i.test(basePan)) continue;
+          var panelAbs = safeKidsPanelSvgAbsFromRel(relPan);
+          if (!panelAbs) continue;
+          var baseAlt = tdbPlainTextForUi(pan.alt || (s.title + ' illustration'));
+          var fullAlt = themeSnippet
+            ? baseAlt + ' – ' + tdbPlainTextForUi(themeSnippet)
+            : baseAlt + ' – ' + tdbPlainTextForUi(s.kjvRef || s.title);
+          var im = document.createElement('img');
+          im.className = 'comic-panel';
+          im.setAttribute('loading', 'lazy');
+          im.setAttribute('decoding', 'async');
+          im.alt = fullAlt;
+          im.src = panelAbs;
+          panelsWrap.appendChild(im);
+        }
       }
       carouselRoot.appendChild(panelsWrap);
       var cap = document.createElement('p');
@@ -8802,7 +9590,6 @@
         pr.textContent = tdbPlainTextForUi(ref);
         modalContext.appendChild(pr);
       }
-      modalContext.appendChild(buildLiveItOutCards(key, s, pack));
       appendWonderQuestionBlock(modalContext, key, s, pack);
       appendAdultReflectionPrompts(modalContext, key);
       if (modalContext.childNodes.length) {
@@ -8972,6 +9759,79 @@
     var q = searchInput ? searchInput.value : '';
     var theme = themeSelect ? themeSelect.value : '';
     return filterStories(q, theme);
+  }
+
+  /** True when user is searching or using theme/age/length/book filters. */
+  function libraryHasActiveNarrow() {
+    var q = searchInput ? String(searchInput.value || '').trim() : '';
+    var theme = themeSelect ? String(themeSelect.value || '').trim() : '';
+    var age = ageSelect ? String(ageSelect.value || '').trim() : '';
+    var length = lengthSelect ? String(lengthSelect.value || '').trim() : '';
+    var book = bookSelect ? String(bookSelect.value || '').trim() : '';
+    return !!(q || theme || age || length || book);
+  }
+
+  /**
+   * Starter shelf first (classics), then remaining filtered keys — unless expanded or narrowed.
+   */
+  function keysForLibraryShelf(filteredKeys) {
+    var all = Array.isArray(filteredKeys) ? filteredKeys.slice() : [];
+    libraryLastFilteredKeys = all;
+    if (libraryShowAll || libraryHasActiveNarrow() || all.length <= LIBRARY_STARTER_KEYS.length) {
+      return all;
+    }
+    var want = {};
+    var i;
+    for (i = 0; i < LIBRARY_STARTER_KEYS.length; i++) want[LIBRARY_STARTER_KEYS[i]] = 1;
+    var starters = [];
+    var rest = [];
+    for (i = 0; i < all.length; i++) {
+      if (want[all[i]]) starters.push(all[i]);
+      else rest.push(all[i]);
+    }
+    /* Keep classic order for starters that exist in the filter result */
+    starters.sort(function (a, b) {
+      return LIBRARY_STARTER_KEYS.indexOf(a) - LIBRARY_STARTER_KEYS.indexOf(b);
+    });
+    return starters.concat(rest.slice(0, 0)); /* starters only until Show more */
+  }
+
+  function syncLibraryShowMoreUi(filteredTotal, shownCount) {
+    var btn = document.getElementById('kids-library-show-more');
+    var note = document.getElementById('kids-library-show-more-note');
+    if (!btn) return;
+    var narrowed = libraryHasActiveNarrow();
+    var remaining = Math.max(0, (filteredTotal || 0) - (shownCount || 0));
+    if (narrowed || libraryShowAll || remaining <= 0) {
+      if (libraryShowAll && !narrowed && filteredTotal > LIBRARY_STARTER_KEYS.length) {
+        btn.hidden = false;
+        btn.textContent = 'Show fewer stories';
+        btn.setAttribute('aria-expanded', 'true');
+        if (note) {
+          note.hidden = false;
+          note.textContent = 'Showing all ' + filteredTotal + ' stories. Tap to return to the starter pictures.';
+        }
+      } else {
+        btn.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+        if (note) note.hidden = true;
+      }
+      return;
+    }
+    btn.hidden = false;
+    btn.textContent = 'Show more stories (' + remaining + ' more)';
+    btn.setAttribute('aria-expanded', 'false');
+    if (note) {
+      note.hidden = false;
+      note.textContent = 'Starter color pictures first — ' + remaining + ' more Bible stories ready with real Color & Tell art.';
+    }
+  }
+
+  function renderLibraryShelf() {
+    var filtered = applyFilters();
+    var shelf = keysForLibraryShelf(filtered);
+    renderGrid(shelf);
+    syncLibraryShowMoreUi(filtered.length, shelf.length);
   }
 
   /** Web Speech voices often load after first paint; refresh on voiceschanged. Prefer en-US, then Google / common neural names. */
@@ -9294,22 +10154,28 @@
     }
     grid = document.getElementById('kids-library-grid');
     if (!grid) return;
+    /* Wire Color Me as soon as the grid exists — do not wait for full story catalog. */
+    ensureColorMeWired();
     removeQuizChallengeOverlay();
     var keys = getStoryKeys();
     if (keys.length === 0) {
       if (typeof window._kidsLibraryInitAttempts !== 'number') window._kidsLibraryInitAttempts = 0;
       window._kidsLibraryInitAttempts++;
+      /* Keep static HTML picture cards visible while waiting for kids-battle.js */
       if (window._kidsLibraryInitAttempts < 60) {
         setTimeout(init, 100);
         return;
       }
-      var grid = document.getElementById('kids-library-grid');
-      if (grid && !grid.querySelector('.kids-library-load-error')) {
+      var gridEl = document.getElementById('kids-library-grid');
+      if (gridEl && !gridEl.querySelector('.kids-library-load-error')) {
         var err = document.createElement('p');
         err.className = 'kids-library-load-error kids-search-no-match';
         err.setAttribute('role', 'alert');
-        err.textContent = 'The story list did not load—that happens (often a blocked script or offline). Check your connection, allow scripts for this site, then refresh.';
-        grid.appendChild(err);
+        err.textContent =
+          'The full story list is still loading. You can open any picture above right now—or hard-refresh (Cmd/Ctrl+Shift+R) if nothing new appears.';
+        /* Insert note above cards; do not clear static picture cards */
+        if (gridEl.firstChild) gridEl.insertBefore(err, gridEl.firstChild);
+        else gridEl.appendChild(err);
       }
       return;
     }
@@ -9347,7 +10213,16 @@
       if (params.get('gentle') === '1' || params.get('navMode') === 'gentle') pendingStoryNavMode = 'gentle';
     } catch (e) {}
     populateBookFilterOptions();
-    renderGrid(applyFilters());
+    try {
+      renderLibraryShelf();
+    } catch (eGrid) {
+      try {
+        if (typeof console !== 'undefined' && console.warn) {
+          console.warn('Kids library grid render failed; static picture cards stay.', eGrid);
+        }
+      } catch (eLog) {}
+      /* Leave static HTML story cards in place if dynamic render throws */
+    }
     if (pendingStoryUrlParam) {
       var deepTries = 0;
       var storyParamForOpen = pendingStoryUrlParam;
@@ -9403,9 +10278,7 @@
       }
     } catch (e) {}
 
-    wireColoringCanvas();
-    wireColoringControls();
-    wireColorMeButtons();
+    ensureColorMeWired();
 
     var searchSuggestEl = document.getElementById('kids-library-search-suggest');
     var searchSuggestTimer = null;
@@ -9501,10 +10374,10 @@
       searchForm.addEventListener('submit', function (e) {
         e.preventDefault();
         hideLibrarySearchSuggest();
-        renderGrid(applyFilters());
+        renderLibraryShelf();
       });
       searchInput.addEventListener('input', function () {
-        renderGrid(applyFilters());
+        renderLibraryShelf();
         scheduleLibrarySearchSuggest();
       });
       searchInput.addEventListener('keydown', function (ev) {
@@ -9514,17 +10387,31 @@
 
     if (themeSelect) {
       themeSelect.addEventListener('change', function () {
-        renderGrid(applyFilters());
+        renderLibraryShelf();
         scheduleLibrarySearchSuggest();
       });
     }
     [ageSelect, lengthSelect, bookSelect].forEach(function (selectEl) {
       if (!selectEl) return;
       selectEl.addEventListener('change', function () {
-        renderGrid(applyFilters());
+        renderLibraryShelf();
         scheduleLibrarySearchSuggest();
       });
     });
+
+    var showMoreBtn = document.getElementById('kids-library-show-more');
+    if (showMoreBtn) {
+      showMoreBtn.addEventListener('click', function () {
+        libraryShowAll = !libraryShowAll;
+        renderLibraryShelf();
+        try {
+          var gridEl = document.getElementById('kids-library-grid');
+          if (gridEl && typeof gridEl.scrollIntoView === 'function' && libraryShowAll) {
+            gridEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        } catch (eSm) {}
+      });
+    }
 
     var quickFilterButtons = document.querySelectorAll('.kids-story-quick-filter');
     if (quickFilterButtons && quickFilterButtons.length) {
@@ -9541,11 +10428,37 @@
 
     if (randomBtn) {
       randomBtn.addEventListener('click', function () {
+        var classicPool = [
+          'noah',
+          'davidGoliath',
+          'danielLionsDen',
+          'jonah',
+          'jesusCalmsStorm',
+          'jesusFeeds5000',
+          'goodSamaritan',
+          'lostSheep',
+          'prodigalSon',
+          'mosesBaby',
+          'mosesSea',
+          'creation',
+          'tombEmpty',
+          'jesusBlessKids',
+          'zacchaeus',
+          'naamanHealed',
+          'esther',
+          'josephCoat',
+          'fieryFurnace',
+          'jesusWalksWater'
+        ];
         var keys = applyFilters();
         if (keys.length === 0) keys = getStoryKeys();
-        if (keys.length === 0) return;
-        var idx = Math.floor(Math.random() * keys.length);
-        openStory(keys[idx]);
+        var pool = classicPool.filter(function (k) {
+          return keys.indexOf(k) !== -1;
+        });
+        if (!pool.length) pool = keys;
+        if (pool.length === 0) return;
+        var idx = Math.floor(Math.random() * pool.length);
+        openStory(pool[idx]);
       });
     }
 
@@ -9634,13 +10547,31 @@
     }
 
     if (grid) {
+      function storyKeyFromCard(card) {
+        if (!card) return '';
+        var key = card.getAttribute('data-story');
+        if (key) return key;
+        /* Static HTML starter cards are <a href="...?story=noah"> without data-story */
+        var href = card.getAttribute('href') || '';
+        try {
+          if (href && href.indexOf('story=') !== -1) {
+            var u = new URL(href, location.href);
+            var sk = u.searchParams.get('story');
+            if (sk) return resolveStoryKey(sk) || sk;
+          }
+        } catch (eHref) {}
+        return '';
+      }
       grid.addEventListener('click', function (e) {
         /* Color Me button is handled separately — skip it here */
         if (e.target && e.target.closest && e.target.closest('.kids-card-color-btn')) return;
         var card = e.target && e.target.closest ? e.target.closest('.kids-library-card') : null;
         if (card) {
-          var key = card.getAttribute('data-story');
-          if (key) openStory(key);
+          var key = storyKeyFromCard(card);
+          if (key) {
+            e.preventDefault();
+            openStory(key);
+          }
         }
       });
       grid.addEventListener('keydown', function (e) {
@@ -9649,7 +10580,7 @@
         var card = e.target && e.target.closest ? e.target.closest('.kids-library-card') : null;
         if (card) {
           e.preventDefault();
-          var key = card.getAttribute('data-story');
+          var key = storyKeyFromCard(card);
           if (key) openStory(key);
         }
       });
@@ -9882,12 +10813,97 @@
     try {
       var journeyParam = new URLSearchParams(location.search).get('journey');
       var randomParam = new URLSearchParams(location.search).get('random');
+      var chooseParam = new URLSearchParams(location.search).get('choose');
+      /* Classic kid Bible stories for pick-a-picture / surprise (not thin epistle cards) */
+      var classicPool = [
+        'noah',
+        'davidGoliath',
+        'danielLionsDen',
+        'jonah',
+        'jesusCalmsStorm',
+        'jesusFeeds5000',
+        'goodSamaritan',
+        'lostSheep',
+        'prodigalSon',
+        'mosesBaby',
+        'mosesSea',
+        'creation',
+        'tombEmpty',
+        'jesusBlessKids',
+        'zacchaeus',
+        'naamanHealed',
+        'esther',
+        'josephCoat',
+        'fieryFurnace',
+        'jesusWalksWater'
+      ];
+      function classicKeysReady() {
+        var storiesAll = getStories();
+        var pool = classicPool.filter(function (k) {
+          return !!(storiesAll && storiesAll[k]);
+        });
+        if (!pool.length) pool = getKeysForStoryNav().slice(0, 24);
+        return pool;
+      }
       if (journeyParam === '1') {
         continueJourney();
+      } else if (chooseParam === '1' || chooseParam === 'true') {
+        /* Story door: grid of clickable thumbnails — do NOT auto-open a modal */
+        function showChooserGrid() {
+          var pool = classicKeysReady();
+          if (!pool.length) return false;
+          renderGrid(pool);
+          var gridEl = document.getElementById('kids-library-grid');
+          var headEl = document.getElementById('kids-library-grid-heading');
+          if (gridEl) {
+            gridEl.classList.add('kids-library-grid--pick');
+            gridEl.setAttribute('aria-label', 'Pick a Bible story — tap a picture');
+          }
+          if (headEl) {
+            headEl.textContent = 'Pick a story';
+          }
+          var note = document.getElementById('kids-story-choose-note');
+          if (!note && gridEl && gridEl.parentNode) {
+            note = document.createElement('p');
+            note.id = 'kids-story-choose-note';
+            note.className = 'section-note kids-story-choose-note';
+            note.textContent = 'Tap a picture to open that Bible story. Use search below for more.';
+            gridEl.parentNode.insertBefore(note, gridEl);
+          }
+          try {
+            if (gridEl && typeof gridEl.scrollIntoView === 'function') {
+              gridEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else if (headEl && typeof headEl.scrollIntoView === 'function') {
+              headEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          } catch (eScroll) {}
+          try {
+            if (typeof showToast === 'function') {
+              showToast('Pick a picture to open a story.');
+            }
+          } catch (eToast) {}
+          return true;
+        }
+        var chooseTries = 0;
+        function tryChooser() {
+          if (showChooserGrid()) return;
+          chooseTries += 1;
+          if (chooseTries < 50) setTimeout(tryChooser, 100);
+        }
+        window.addEventListener('tdb-kids-bible-stories-ready', tryChooser, { once: true });
+        requestAnimationFrame(function () {
+          requestAnimationFrame(tryChooser);
+        });
       } else if (randomParam === '1') {
-        var poolRand = getKeysForStoryNav();
+        var poolRand = classicKeysReady();
         if (poolRand.length) {
-          openStory(poolRand[Math.floor(Math.random() * poolRand.length)]);
+          var pick = poolRand[Math.floor(Math.random() * poolRand.length)];
+          openStory(pick);
+          try {
+            if (typeof showToast === 'function') {
+              showToast('Surprise story: a random classic. Or go back and pick from the picture grid.');
+            }
+          } catch (eToast) {}
         }
       }
     } catch (e) {}

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260805-four-pillars"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -34,7 +33,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/bangers-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- Common lead art remains /kids/panel-david-1.svg; we do not preload it because the library grid may not paint it immediately. -->
+  <!-- Stick panel SVGs removed; Story Library uses Color & Tell colored art. -->
   <!-- Optional rasters (uncomment after upload to /assets/panels/):
        <link rel="preload" href="/assets/panels/panel-david-1.avif" as="image" type="image/avif">
        <link rel="preload" href="/assets/panels/panel-david-1.jpg" as="image"> -->
@@ -43,19 +42,16 @@
   <link rel="stylesheet" href="story-library-fonts.css?v=1">
   <link rel="preload" href="../styles.css?v=20260809-vbd-labels" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260809-vbd-labels">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
-  <link rel="preload" href="kids-battle.css?v=20260405kidsfollowup" as="style">
-  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
-  <link rel="preload" href="kids-hub-play.css?v=20260508porchsheep" as="style">
-  <link rel="stylesheet" href="kids-hub-play.css?v=20260508porchsheep">
-  <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
-  <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
+  <link rel="preload" href="kids-battle.css?v=20260810nostick" as="style">
+  <link rel="stylesheet" href="kids-battle.css?v=20260810nostick">
+  <link rel="preload" href="kids-hub-play.css?v=20260810ls" as="style">
+  <link rel="stylesheet" href="kids-hub-play.css?v=20260810ls">
+  <link rel="preload" href="kids-kids-world.css?v=20260810choosegrid" as="style">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260810choosegrid">
   <link rel="preload" href="kids-page-sky.css?v=20260326playful" as="style">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
-  <link rel="preload" href="canvas.css?v=1" as="style">
-  <link rel="stylesheet" href="canvas.css?v=1">
+  <link rel="preload" href="canvas.css?v=20260811paint" as="style">
+  <link rel="stylesheet" href="canvas.css?v=20260811paint">
   <style>
     .kids-library-grid {
       display: grid;
@@ -159,19 +155,23 @@
     .kids-library-search { margin-bottom: 1.5rem; }
     .kids-library-modal .comic-carousel { margin: 0 0 1rem; }
     .kids-library-modal .kids-ctx-block {
-      font-family: 'Comic Neue', cursive;
-      font-size: 0.95rem;
-      color: #cbd5e1;
-      margin: 0.75rem 0;
-      padding: 1rem;
-      background: rgba(255,217,61,0.08);
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin: 0.75rem 0.75rem;
+      padding: 1rem 1.1rem;
+      background: #fffef8;
       border-radius: 12px;
-      border-left: 4px solid var(--kids-yellow);
+      border: 2px solid rgba(251, 191, 36, 0.45);
+      border-left: 4px solid #f59e0b;
+      line-height: 1.6;
     }
     .kids-library-modal .kids-kjv-ref {
-      font-size: 0.75rem;
-      color: var(--kids-yellow);
-      opacity: 0.85;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #92400e;
+      opacity: 1;
       margin: 0.5rem 0 0;
     }
     .kids-library-random-btn {
@@ -256,32 +256,35 @@
         font-size: clamp(1rem, 2.8vw, 1.2rem);
       }
     }
-    /* Read + quiz (modal) */
+    /* Read + quiz (modal) — cream paper + dark type (must override dark comic theme) */
     #kids-story-modal-read-quiz:not(.hidden) { margin: 0 0 1rem; }
     .kids-read-quiz-wrap {
-      margin-top: 0.75rem;
-      padding: 1rem 1.1rem 1.15rem;
-      border: 3px solid var(--kids-yellow);
-      border-radius: 14px;
-      background: rgba(15, 23, 42, 0.85);
-      max-height: min(55vh, 420px);
+      margin: 0.75rem 0.65rem 1rem;
+      padding: 1.1rem 1.15rem 1.2rem;
+      border: 3px solid #f59e0b;
+      border-radius: 16px;
+      background: #fffef8;
+      color: #0f172a;
+      max-height: min(70vh, 640px);
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      box-shadow: 0 2px 14px rgba(15, 23, 42, 0.12);
     }
     .kids-read-quiz-wrap.kids-read-quiz-wrap--sections {
-      max-height: min(65vh, 560px);
+      max-height: min(75vh, 720px);
     }
     .kids-read-quiz-verse-excerpt {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.88rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
       font-style: italic;
-      line-height: 1.45;
-      color: #cbd5e1;
-      margin: 0 0 0.75rem;
-      padding: 0.65rem 0.75rem;
-      border-left: 3px solid rgba(250, 204, 21, 0.45);
-      background: rgba(250, 204, 21, 0.06);
-      border-radius: 0 10px 10px 0;
+      font-weight: 600;
+      line-height: 1.6;
+      color: #1e293b;
+      margin: 0 0 0.85rem;
+      padding: 0.75rem 0.85rem;
+      border-left: 4px solid #f59e0b;
+      background: #fffbeb;
+      border-radius: 0 12px 12px 0;
     }
     .kids-read-quiz-section {
       margin: 0 0 1rem;
@@ -291,68 +294,79 @@
       text-align: center;
     }
     .kids-read-quiz-section-caption {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.82rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1rem;
       font-weight: 700;
-      color: #fde68a;
+      color: #0f172a;
       margin: 0.35rem 0 0.5rem;
-      line-height: 1.35;
+      line-height: 1.45;
     }
     .kids-read-quiz-section-placeholder {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.88rem;
-      color: #94a3b8;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1rem;
+      color: #334155;
       font-style: italic;
       margin: 0 0 0.5rem;
     }
     .kids-read-quiz-ref {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--kids-yellow);
-      margin: 0 0 0.5rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #92400e;
+      margin: 0 0 0.55rem;
     }
     .kids-read-quiz-images {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
-      gap: 0.45rem;
-      margin: 0 0 0.65rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      justify-content: center;
+      margin: 0 0 0.85rem;
     }
     .kids-read-quiz-panel-img {
-      width: 100%;
+      width: min(100%, 420px);
       height: auto;
-      max-height: 120px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 2px solid rgba(250, 204, 21, 0.35);
+      max-height: none;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 3px solid #e2e8f0;
+      background: #fff;
+      box-shadow: 0 3px 12px rgba(15, 23, 42, 0.1);
+    }
+    .kids-read-quiz-panel-img--coloring {
+      width: min(100%, 520px);
+      border-color: #f59e0b;
     }
     .kids-read-quiz-h4 {
-      font-family: 'Bangers', cursive;
-      font-size: 1.2rem;
-      color: var(--kids-yellow);
-      margin: 0.75rem 0 0.35rem;
-      letter-spacing: 0.04em;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #0f172a;
+      margin: 0.85rem 0 0.45rem;
+      letter-spacing: 0.01em;
     }
     .kids-read-quiz-hint {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.9rem;
-      color: #94a3b8;
-      margin: 0 0 0.5rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #334155;
+      margin: 0 0 0.55rem;
+      line-height: 1.5;
     }
     .kids-read-quiz-para {
-      font-family: 'Comic Neue', cursive;
-      font-size: 1rem;
-      line-height: 1.55;
-      color: #e2e8f0;
-      margin: 0 0 0.75rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.7;
+      color: #0f172a;
+      margin: 0 0 0.85rem;
     }
     .kids-read-quiz-qtext {
-      font-family: 'Comic Neue', cursive;
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: #f8fafc;
-      margin: 0 0 0.65rem;
-      line-height: 1.4;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 0.75rem;
+      line-height: 1.45;
     }
     .kids-read-quiz-fieldset {
       border: none;
@@ -362,127 +376,159 @@
     .kids-read-quiz-choice {
       display: flex;
       align-items: flex-start;
-      gap: 0.5rem;
-      margin-bottom: 0.45rem;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.95rem;
-      color: #e2e8f0;
+      gap: 0.55rem;
+      margin-bottom: 0.55rem;
+      padding: 0.55rem 0.65rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0f172a;
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+    }
+    .kids-read-quiz-choice:has(input:checked) {
+      border-color: #f59e0b;
+      background: #fffbeb;
     }
     .kids-read-quiz-choice input {
       margin-top: 0.2rem;
-      width: 1.15rem;
-      height: 1.15rem;
+      width: 1.2rem;
+      height: 1.2rem;
       flex-shrink: 0;
+      accent-color: #d97706;
     }
     .kids-read-quiz-choice label {
       cursor: pointer;
-      line-height: 1.35;
+      line-height: 1.4;
+      color: #0f172a;
     }
     .kids-read-quiz-check,
     .kids-read-quiz-next {
-      min-height: 44px;
-      margin-top: 0.25rem;
+      min-height: 48px;
+      margin-top: 0.35rem;
+      font-weight: 800;
     }
     .kids-read-quiz-feedback {
       min-height: 2.5rem;
-      margin: 0.5rem 0;
-      font-family: 'Comic Neue', cursive;
-      font-size: 0.98rem;
-      line-height: 1.45;
-      padding: 0.5rem 0.65rem;
-      border-radius: 10px;
+      margin: 0.55rem 0;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.5;
+      padding: 0.65rem 0.75rem;
+      border-radius: 12px;
     }
     .kids-read-quiz-feedback.feedback-correct {
-      background: rgba(34, 197, 94, 0.15);
-      color: #bbf7d0;
-      border: 2px solid rgba(34, 197, 94, 0.45);
+      background: #ecfdf5;
+      color: #065f46;
+      border: 2px solid #34d399;
     }
     .kids-read-quiz-feedback.feedback-wrong {
-      background: rgba(248, 113, 113, 0.12);
-      color: #fecaca;
-      border: 2px solid rgba(248, 113, 113, 0.35);
+      background: #fef2f2;
+      color: #991b1b;
+      border: 2px solid #f87171;
     }
     .kids-read-quiz-feedback.feedback-neutral {
-      background: rgba(148, 163, 184, 0.12);
-      color: #cbd5e1;
-      border: 2px solid rgba(148, 163, 184, 0.35);
+      background: #f1f5f9;
+      color: #1e293b;
+      border: 2px solid #94a3b8;
     }
     .kids-read-quiz-feedback-main {
       margin: 0;
-      font-family: 'Comic Neue', cursive;
-      font-size: 0.98rem;
-      line-height: 1.45;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: inherit;
     }
     .kids-read-quiz-feedback-humility {
       margin: 0.45rem 0 0;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.85rem;
-      line-height: 1.4;
-      color: #cbd5e1;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: #334155;
       font-style: italic;
-      opacity: 0.95;
+      opacity: 1;
     }
     .kids-read-quiz-done-title {
-      font-family: 'Bangers', cursive;
-      font-size: 1.25rem;
-      color: var(--kids-yellow);
-      margin: 0 0 0.35rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #0f172a;
+      margin: 0 0 0.45rem;
     }
     .kids-read-quiz-takeaway,
     .kids-read-quiz-prayer {
-      font-family: 'Comic Neue', cursive;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #e2e8f0;
-      margin: 0.5rem 0 0;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.6;
+      color: #0f172a;
+      margin: 0.55rem 0 0;
     }
-    .kids-live-it-out {
-      margin-top: 0.95rem;
-      display: grid;
-      gap: 0.7rem;
-    }
-    .kids-live-it-out-card {
-      padding: 0.8rem 0.9rem;
+    .kids-read-quiz-quiz-banner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+      margin: 0.75rem 0 0.5rem;
+      padding: 0.7rem 0.85rem;
       border-radius: 12px;
-      border: 1px solid rgba(255, 217, 61, 0.16);
-      background: rgba(255,255,255,0.03);
+      border: 2px solid #f59e0b;
+      background: #fffbeb;
     }
-    .kids-live-it-out-card strong {
-      display: block;
-      margin-bottom: 0.25rem;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.82rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--kids-yellow);
+    .kids-read-quiz-progress {
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #92400e;
     }
-    .kids-live-it-out-card p {
-      margin: 0;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.92rem;
-      line-height: 1.5;
-      color: #e2e8f0;
-    }
-    @media (min-width: 820px) {
-      .kids-live-it-out {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+    .kids-read-quiz-mission-foot {
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0f172a;
     }
     .kids-read-quiz-unavailable .kids-read-quiz-unavailable-msg {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.95rem;
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
       line-height: 1.5;
-      color: #e2e8f0;
+      color: #0f172a;
       margin: 0 0 0.75rem;
     }
     .kids-read-quiz-retry-btn {
-      min-height: 44px;
+      min-height: 48px;
       margin-top: 0.25rem;
     }
     .kids-read-quiz-wrap.kids-read-quiz-unavailable {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+    }
+    /* Print Q&A strip under modal — readable on dark shell */
+    .kids-print-qa-sheet-wrap {
+      margin: 0.75rem 0.65rem 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 2px solid #22c55e;
+      background: #ecfdf5;
+    }
+    .kids-print-qa-sheet-btn {
+      min-height: 48px;
+      font-weight: 800 !important;
+      color: #065f46 !important;
+      border-color: #16a34a !important;
+      background: #fff !important;
+    }
+    .kids-print-qa-sheet-hint {
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #14532d;
+      max-width: 36rem;
     }
     /* Static starter list: visible before JS hydrates the grid (SEO + noscript) */
     .kids-library-static-fallback {
@@ -784,6 +830,42 @@
     #kids-corner-grown-up-plans {
       scroll-margin-top: 5.5rem;
     }
+  
+    /* Story-first Corner: grown-ups content tucked away */
+    .kids-corner-grownups-fold {
+      margin: 1.25rem 0 1.5rem;
+      padding: 0.35rem 0.85rem 0.85rem;
+      border-radius: 14px;
+      border: 2px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.45);
+    }
+    .kids-corner-grownups-summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.65rem 0.25rem;
+    }
+    .kids-corner-grownups-summary::-webkit-details-marker { display: none; }
+    .kids-corner-grownups-hint {
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #94a3b8;
+    }
+    .kids-corner-grownups-body {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .kids-corner-grownups-body > .glass,
+    .kids-corner-grownups-body > section,
+    .kids-corner-grownups-body > details {
+      margin-top: 0 !important;
+    }
+
   </style>
   <link rel="preload" href="kids-design-tokens.css" as="style">
   <link rel="stylesheet" href="kids-design-tokens.css">
@@ -868,9 +950,10 @@
         </nav>
         <nav class="kids-corner-page-nav kids-corner-page-nav--compact" aria-label="Jump on this page">
           <span class="kids-corner-page-nav-label">Jump</span>
-          <a href="#kids-library-grid">All stories</a>
+          <a href="#kids-play-zone">Start</a>
           <a href="#kids-library-search-section">Search</a>
-          <a href="#kids-corner-top">Top</a>
+          <a href="#kids-library-grid">All stories</a>
+          <a href="#kids-corner-grownups-fold">Grown-ups</a>
         </nav>
 
         <section class="kids-play-zone kids-play-zone--shepherdfield kids-wonder" id="kids-play-zone" aria-labelledby="kids-play-zone-title">
@@ -884,7 +967,7 @@
                     <div class="kids-buddy-mascot-row">
                       <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap to hear a new line">
                         <span class="kids-shepherd-hero-wrap">
-                          <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="200" height="220" alt="Little Shepherd waves hello" decoding="async" loading="lazy"/>
+                          <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.png?v=20260810ears2" width="200" height="220" alt="Little Shepherd waves hello" decoding="async" loading="lazy"/>
                         </span>
                       </button>
                       <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
@@ -907,7 +990,7 @@
                 <div class="kids-sheep-run" aria-hidden="true"><span class="kids-sheep-run-emoji" aria-hidden="true">🐑</span><span class="kids-sheep-run-emoji kids-sheep-run-emoji--late" aria-hidden="true">🐑</span></div>
               </div>
               <div class="kids-magic-hero-cta" role="group" aria-label="Bible fun—start here">
-                <a class="kids-magic-btn kids-magic-story" id="kids-play-hero-tap" href="corner.html?random=1">Tell me a Bible story<small>tap for a KJV read-aloud</small></a>
+                <a class="kids-magic-btn kids-magic-story" id="kids-play-hero-tap" href="#kids-library-grid">Pick a story<small>tap a picture to open</small></a>
               </div>
               <div class="kids-magic-duo" role="group" aria-label="Two more quick fun taps">
                 <a class="kids-magic-btn kids-magic-color" href="../coloring.html?story=jesus-children">Kids coloring<small>paint a page</small></a>
@@ -923,7 +1006,7 @@
                 <summary class="kids-magic-more-summary">Let&rsquo;s play<small>more adventures</small></summary>
                 <div class="kids-magic-grid kids-magic-grid--more" role="group" aria-label="More fun on the story page">
                   <button type="button" class="kids-magic-btn kids-magic-journey" id="kids-play-zone-journey">Gentle Journey<small>next story</small></button>
-                  <a class="kids-magic-btn kids-magic-surprise kids-surprise-random" href="corner.html?random=1">Surprise story<small>another random</small></a>
+                  <a class="kids-magic-btn kids-magic-surprise kids-surprise-random" href="corner.html?random=1">Surprise story<small>one random classic (pops open)</small></a>
                   <button type="button" class="kids-magic-btn kids-magic-random" id="kids-play-zone-random">Surprise card<small>this shelf</small></button>
                   <a class="kids-magic-btn kids-magic-loop" href="../kids-corner.html">Quick loop<small>short replay</small></a>
                   <a class="kids-magic-btn kids-magic-shelf" href="corner.html?story=david">Draw a story<small>David + Color Me</small></a>
@@ -938,7 +1021,7 @@
               <div class="kids-today-adventure" id="kids-today-adventure" role="region" aria-labelledby="kids-today-adventure-h">
                 <h3 class="kids-today-adventure-h" id="kids-today-adventure-h">Today&rsquo;s adventure</h3>
                 <p class="kids-today-adventure-line" id="kids-today-adventure-line">&nbsp;</p>
-                <a class="kids-today-adventure-go kids-magic-story" id="kids-today-adventure-link" href="corner.html?random=1">Let&rsquo;s go</a>
+                <a class="kids-today-adventure-go kids-magic-story" id="kids-today-adventure-link" href="#kids-library-grid">Let&rsquo;s go<small>pick a picture</small></a>
               </div>
               <div class="kids-pasture-card" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
                 <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
@@ -989,7 +1072,239 @@
           </div>
         </section>
 
-        <details class="kids-corner-details glass tdb-porch-paper-glass">
+        <header class="kids-battle-hero tdb-micro-hero-dawn">
+          <h1 class="kids-battle-title">Bible Story Library</h1>
+          <p class="kids-battle-tagline">Tap the big yellow story button above, search here, or pick a card on the shelf.</p>
+          <details class="kids-tech-hint">
+            <summary>Story won&rsquo;t open right? (tap)</summary>
+            <p class="section-note util-mb-0 kids-lib-cache-hint">Pull down to refresh on your phone, or hard-refresh on a computer (Ctrl+Shift+R / Cmd+Shift+R) so the newest library is loaded.</p>
+          </details>
+          <p id="kids-library-count" class="section-note util-mb-0_25" aria-live="polite"></p>
+        </header>
+
+        <section class="kids-search-section glass tdb-porch-paper-glass" id="kids-library-search-section" role="region" aria-label="Search stories">
+          <h2 class="kids-section-title">Find a story</h2>
+          <p class="section-note util-mb-0_5">Type a name, or tap Comfort / Brave.</p>
+          <div class="kids-library-quick-picks kids-library-quick-picks--primary" role="group" aria-label="Main story theme picks">
+            <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="" data-story-filter-theme="">All stories</button>
+            <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="jesus noah sheep children" data-story-filter-theme="Love">Comfort</button>
+            <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="david daniel esther jonah" data-story-filter-theme="Protection">Brave</button>
+          </div>
+          <details class="kids-quick-themes">
+            <summary>More story themes (tap to open)</summary>
+            <div class="kids-library-quick-picks kids-library-quick-picks--more" role="group" aria-label="More story theme picks">
+              <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="friend friends jonathan naomi ruth children" data-story-filter-theme="Love">Friends</button>
+              <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="jesus shepherd prodigal sheep children love prodigalSon womanAtWell zacchaeus feedingFiveThousand hagarGodSees josephDreams mosesBurningBush abrahamIsaacAltar jacobLadder josephForgivesBrothers babyMosesBasket mannaFromHeaven waterFromRock elijahWidowZarephath blindBartimaeus paralyzedManFriends centurionFaith syrophoenicianWoman jesusCallsDisciples lazarusRaised goodSamaritan lostCoin jesusWeptWithMary sheepKnowVoice jesusBlessesLoaves" data-story-filter-theme="Love">God loves me</button>
+              <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="miracle jesus water bread storm" data-story-filter-theme="Miracles">Miracles</button>
+              <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="obey obeyed jonah noah moses" data-story-filter-theme="Obedience">Obedience</button>
+            </div>
+          </details>
+          <p id="kids-library-quick-filter-status" class="section-note util-mb-0_5" aria-live="polite">Themes fill the search box for you&mdash;no typing needed.</p>
+          <form id="kids-library-search-form" class="kids-search-form kids-library-search-form-wrap" action="#" novalidate>
+            <input type="search" id="kids-library-search-input" class="kids-search-input" placeholder="Type story, character, or theme (typos ok!)" autocomplete="off" aria-describedby="kids-library-search-hint" aria-autocomplete="list" aria-controls="kids-library-search-suggest" aria-expanded="false">
+            <button type="submit" class="btn kids-btn-primary kids-search-btn">Search</button>
+            <div id="kids-library-search-suggest" class="kids-library-search-suggest hidden" role="listbox" aria-label="Top story matches"></div>
+          </form>
+          <p id="kids-library-search-hint" class="section-note util-mb-0_5">Search forgives small typos. Stuck? Hard-refresh once.</p>
+          <div class="kids-library-filters">
+            <label for="kids-library-theme" class="kids-library-theme-label">Theme</label>
+            <select id="kids-library-theme" class="kids-library-theme-select" aria-label="Filter by theme">
+              <option value="">All themes</option>
+              <option value="Obedience">Obedience</option>
+              <option value="Miracles">Miracles</option>
+              <option value="Love">Love</option>
+              <option value="Protection">Protection</option>
+            </select>
+          </div>
+          <details class="kids-corner-details">
+            <summary>Narrow results (age, length, Bible book)</summary>
+            <div class="kids-library-filter-cluster" role="group" aria-label="Extra story filters">
+              <label for="kids-library-age" class="kids-library-theme-label">Age</label>
+              <select id="kids-library-age" class="kids-library-theme-select" aria-label="Filter by age">
+                <option value="">All ages</option>
+                <option value="littles">Littles 5-7</option>
+                <option value="middles">Middles 8-10</option>
+                <option value="older">Older 11+</option>
+              </select>
+              <label for="kids-library-length" class="kids-library-theme-label">Length</label>
+              <select id="kids-library-length" class="kids-library-theme-select" aria-label="Filter by reading length">
+                <option value="">Any length</option>
+                <option value="quick">Quick read</option>
+                <option value="medium">Read-along</option>
+                <option value="long">Longer sit-down</option>
+              </select>
+              <label for="kids-library-book" class="kids-library-theme-label">Book</label>
+              <select id="kids-library-book" class="kids-library-theme-select" aria-label="Filter by Bible book">
+                <option value="">Any book</option>
+              </select>
+            </div>
+            <p class="section-note util-mb-0_5">Use age, length, and book if you need a quicker fit for littles, older readers, homeschool, or bedtime.</p>
+          </details>
+          <p id="kids-library-story-master" class="kids-library-story-master hidden">🏆 Story Master — you finished 7+ read-and-quiz stories (or stories without a quiz yet)!</p>
+          <details class="kids-gj-details">
+            <summary>Gentle Journey&mdash;let the library pick the next story (optional)</summary>
+            <div class="kids-library-filters kids-library-filters--journey" role="region" aria-label="Gentle story journey">
+              <button type="button" id="kids-journey-start-btn" class="btn kids-btn-primary">Start Gentle Journey</button>
+              <button type="button" id="kids-journey-continue-btn" class="btn btn-secondary">Continue</button>
+              <button type="button" id="kids-journey-next-btn" class="btn btn-secondary">Next Gentle Story</button>
+              <button type="button" id="kids-journey-reset-btn" class="btn btn-secondary">Reset</button>
+            </div>
+            <p class="section-note util-mb-0_25">The grid still works the normal way&mdash;Journey is just a calmer &ldquo;what&rsquo;s next&rdquo; path.</p>
+            <p id="kids-journey-status" class="section-note util-mb-0_25" aria-live="polite"></p>
+          </details>
+          <details class="kids-corner-details">
+            <summary>Extra tools: random story, quiz game, PDF list</summary>
+            <button type="button" id="kids-library-random-btn" class="btn kids-btn-primary kids-library-random-btn">🎲 Random Story</button>
+            <button type="button" id="global-quiz-challenge" class="btn btn-secondary kids-library-random-btn" style="margin-top: 0.5rem;">Quiz Challenge (5 Questions)</button>
+            <button type="button" id="pdf-export" class="btn kids-btn-primary kids-library-random-btn" style="margin-top: 0.5rem;" aria-describedby="pdf-export-count-hint pdf-export-hint" aria-label="Generate PDF of the full Kids Bible Story Library titles and references">📄 Download Story Library List (PDF)</button>
+            <p id="pdf-export-count-hint" class="kids-pdf-hint" aria-live="polite"></p>
+            <p id="pdf-export-hint" class="kids-pdf-hint">Each download lists every title in the library (not the 10–15s loops on Kids Corner home). Search filters only change the grid—the PDF stays the full list. If the first tap does nothing, wait a second for the PDF helper to load, then try again.</p>
+          </details>
+        </section>
+
+        <section class="kids-comic-panels glass tdb-porch-paper-glass" role="region" aria-labelledby="kids-library-grid-heading">
+          <h2 id="kids-library-grid-heading" class="kids-section-title">All stories</h2>
+          <p id="kids-story-choose-note" class="section-note kids-story-choose-note">Tap a picture to open that Bible story. Search above finds more.</p>
+          <!--
+            Static picture cards always ship in HTML so stories are visible even if JS is slow/blocked.
+            kids-corner.js replaces this grid when the full library loads.
+          -->
+          <div id="kids-library-grid" class="kids-library-grid kids-library-grid--pick" aria-label="Bible story cards">
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=noah">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/noah-s1.jpg" width="280" height="224" alt="Noah&rsquo;s Ark — Bible coloring picture" loading="eager" decoding="async" fetchpriority="high">
+              <span class="kids-library-card-title">Noah&rsquo;s Ark</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=david">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/david-and-goliath-coloring-page.jpg" width="280" height="224" alt="David and Goliath — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">David &amp; Goliath</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=jesusBlessKids">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/jesus-and-the-children-coloring-page.jpg" width="280" height="224" alt="Jesus and the children — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Jesus &amp; the children</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=jonah">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/jonah-s1.jpg" width="280" height="224" alt="Jonah and the big fish — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Jonah &amp; the big fish</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=danielLionsDen">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/daniel-in-the-lions-den-coloring-page.jpg" width="280" height="224" alt="Daniel and the lions — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Daniel &amp; the lions</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=jesusCalmsStorm">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/jesus-storm-s1.jpg" width="280" height="224" alt="Jesus calms the storm — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Jesus calms the storm</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=jesusFeeds5000">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/feeding-5000-s1.jpg" width="280" height="224" alt="Jesus feeds five thousand — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Feeding 5,000</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=goodSamaritan">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/good-samaritan-s1.jpg" width="280" height="224" alt="The good Samaritan — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Good Samaritan</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=lostSheep">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/lost-sheep-s1.jpg" width="280" height="224" alt="The lost sheep — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Lost sheep</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=prodigalSon">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/prodigal-son-s1.jpg" width="280" height="224" alt="The prodigal son — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Prodigal son</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=mosesBaby">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/baby-moses-s1.jpg" width="280" height="224" alt="Baby Moses — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Baby Moses</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=mosesSea">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/moses-red-sea-s1.jpg" width="280" height="224" alt="Moses and the Red Sea — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Red Sea</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=creation">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/creation-six-days-coloring-page.jpg" width="280" height="224" alt="Creation — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Creation</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=tombEmpty">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/empty-tomb-coloring-page.jpg" width="280" height="224" alt="Empty tomb — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Empty tomb</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=jesusWalksWater">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/walks-on-water-s1.jpg" width="280" height="224" alt="Jesus walks on water — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Walks on water</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=zacchaeus">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/zacchaeus-s1.jpg" width="280" height="224" alt="Zacchaeus — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Zacchaeus</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=josephCoat">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/joseph-coat.jpg" width="280" height="224" alt="Joseph and the coat — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Joseph&rsquo;s coat</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=esther">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/esther.jpg" width="280" height="224" alt="Esther — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Esther</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=fieryFurnace">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/fiery-furnace.jpg" width="280" height="224" alt="Fiery furnace — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Fiery furnace</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+            <a class="kids-library-card kids-library-card--color-art kids-library-card--static" href="/kids/corner.html?story=naamanHealed">
+              <img class="kids-library-card-thumb kids-library-card-thumb--coloring kids-library-card-thumb--story-color" src="/coloring-pages/colored/naaman.jpg" width="280" height="224" alt="Naaman healed — Bible coloring picture" loading="lazy" decoding="async">
+              <span class="kids-library-card-title">Naaman</span>
+              <span class="kids-library-card-btn">Open story</span>
+            </a>
+          </div>
+          <p id="kids-library-no-match" class="kids-search-no-match hidden">No stories match that search yet. Try a broader word, or switch back to All themes.</p>
+          <div class="kids-library-show-more-wrap" style="margin:1rem 0 0.25rem;text-align:center;">
+            <p id="kids-library-show-more-note" class="section-note" hidden></p>
+            <button type="button" id="kids-library-show-more" class="btn kids-btn-primary kids-library-show-more" hidden aria-controls="kids-library-grid" aria-expanded="false">
+              Show more stories
+            </button>
+          </div>
+        </section>
+
+        <details class="kids-library-static-fallback glass tdb-porch-paper-glass" id="kids-library-static-fallback" aria-label="More starter Bible story links">
+          <summary><span class="kids-section-title kids-section-title--summary">More starter links (text list)</span></summary>
+          <p class="section-note">Same classics as the pictures above&mdash;handy if images are slow.</p>
+          <ol class="kids-library-static-list">
+            <li><a href="/kids/corner.html?story=david">David &amp; Goliath</a> <span class="kids-library-static-ref">1 Samuel 17</span> — God is bigger than the scary giant.</li>
+            <li><a href="/kids/corner.html?story=noah">Noah's Ark</a> <span class="kids-library-static-ref">Genesis 6–9</span> — God keeps His promise; rainbow sign.</li>
+            <li><a href="/kids/corner.html?story=jesusBlessKids">Jesus &amp; the children</a> <span class="kids-library-static-ref">Mark 10</span> — Jesus welcomes little ones.</li>
+            <li><a href="/kids/corner.html?story=jonah">Jonah &amp; the Big Fish</a> <span class="kids-library-static-ref">Jonah 1:17</span> — Running away didn't fool God; He gives second chances.</li>
+            <li><a href="/kids/corner.html?story=danielLionsDen">Daniel &amp; the Lions</a> <span class="kids-library-static-ref">Daniel 6:22</span> — Pray brave; God can hush the lions.</li>
+            <li><a href="/kids/corner.html?story=jesusCalmsStorm">Jesus calms the storm</a> <span class="kids-library-static-ref">Mark 4</span> — Jesus is stronger than the wind.</li>
+            <li><a href="/kids/corner.html?story=jesusFeeds5000">Feeding 5,000</a> <span class="kids-library-static-ref">John 6</span> — Jesus multiplies a small lunch.</li>
+            <li><a href="/kids/corner.html?story=goodSamaritan">Good Samaritan</a> <span class="kids-library-static-ref">Luke 10</span> — Love your neighbor.</li>
+            <li><a href="/kids/corner.html?story=lostSheep">Lost sheep</a> <span class="kids-library-static-ref">Luke 15</span> — The shepherd finds the one.</li>
+            <li><a href="/kids/corner.html?story=prodigalSon">Prodigal son</a> <span class="kids-library-static-ref">Luke 15</span> — The father runs to welcome him home.</li>
+            <li><a href="/kids/corner.html?story=mosesBaby">Baby Moses</a> <span class="kids-library-static-ref">Exodus 2</span> — God watches over the basket baby.</li>
+            <li><a href="/kids/corner.html?story=tombEmpty">Empty tomb</a> <span class="kids-library-static-ref">Matthew 28</span> — Jesus is risen.</li>
+          </ol>
+        </details>
+        <details class="kids-corner-grownups-fold glass tdb-porch-paper-glass" id="kids-corner-grownups-fold">
+          <summary class="kids-corner-grownups-summary">
+            <span class="kids-section-title kids-section-title--summary">Grown-ups &amp; teachers</span>
+            <span class="kids-corner-grownups-hint">Optional — feelings, porch reads, classroom tools</span>
+          </summary>
+          <div class="kids-corner-grownups-body">
+<details class="kids-corner-details glass tdb-porch-paper-glass">
           <summary>For parents &amp; teachers (tap to open)</summary>
           <aside class="kids-parent-today-strip" aria-labelledby="kids-parent-today-heading">
             <h2 id="kids-parent-today-heading">What your child sees here</h2>
@@ -1025,17 +1340,8 @@
             </div>
           </section>
         </details>
-        <header class="kids-battle-hero tdb-micro-hero-dawn">
-          <h1 class="kids-battle-title">Bible Story Library</h1>
-          <p class="kids-battle-tagline">Start with Little Shepherd&rsquo;s big yellow &ldquo;story&rdquo; button&mdash;then scroll the shelf when you want more.</p>
-          <details class="kids-tech-hint">
-            <summary>Story won&rsquo;t open right? (tap)</summary>
-            <p class="section-note util-mb-0 kids-lib-cache-hint">Pull down to refresh on your phone, or hard-refresh on a computer (Ctrl+Shift+R / Cmd+Shift+R) so the newest library is loaded.</p>
-          </details>
-          <p id="kids-library-count" class="section-note util-mb-0_25" aria-live="polite"></p>
-        </header>
-
-        <section class="glass tdb-porch-paper-glass kids-when-i-feel" id="kids-when-i-feel" aria-labelledby="kids-when-i-feel-h">
+        
+<section class="glass tdb-porch-paper-glass kids-when-i-feel" id="kids-when-i-feel" aria-labelledby="kids-when-i-feel-h">
           <h2 class="kids-section-title" id="kids-when-i-feel-h">When I feel&hellip;</h2>
           <p class="section-note util-mb-0_5">Gentle Journey read-alouds for real feelings&mdash;KJV verses, one small step, a short prayer. No quiz pressure.</p>
           <div class="kids-porch-bundle-grid" role="list">
@@ -2191,107 +2497,8 @@
         </section>
         </details>
 
-        <section class="kids-search-section glass tdb-porch-paper-glass" id="kids-library-search-section" role="region" aria-label="Search stories">
-          <h2 class="kids-section-title">Find a story (after the surprise tap&mdash;or anytime)</h2>
-          <p class="section-note util-mb-0_5">Need a nudge? Pick one theme&mdash;or open more.</p>
-          <div class="kids-library-quick-picks kids-library-quick-picks--primary" role="group" aria-label="Main story theme picks">
-            <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="" data-story-filter-theme="">All stories</button>
-            <a href="#kids-porch-readalouds" class="btn btn-secondary kids-porch-readalouds-jump">Porch read-alouds</a>
-            <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="jesus noah sheep children" data-story-filter-theme="Love">Comfort</button>
-            <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="david daniel esther jonah" data-story-filter-theme="Protection">Brave</button>
-          </div>
-          <details class="kids-quick-themes">
-            <summary>More story themes (tap to open)</summary>
-            <div class="kids-library-quick-picks kids-library-quick-picks--more" role="group" aria-label="More story theme picks">
-              <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="friend friends jonathan naomi ruth children" data-story-filter-theme="Love">Friends</button>
-              <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="jesus shepherd prodigal sheep children love prodigalSon womanAtWell zacchaeus feedingFiveThousand hagarGodSees josephDreams mosesBurningBush abrahamIsaacAltar jacobLadder josephForgivesBrothers babyMosesBasket mannaFromHeaven waterFromRock elijahWidowZarephath blindBartimaeus paralyzedManFriends centurionFaith syrophoenicianWoman jesusCallsDisciples lazarusRaised goodSamaritan lostCoin jesusWeptWithMary sheepKnowVoice jesusBlessesLoaves" data-story-filter-theme="Love">God loves me</button>
-              <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="miracle jesus water bread storm" data-story-filter-theme="Miracles">Miracles</button>
-              <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="obey obeyed jonah noah moses" data-story-filter-theme="Obedience">Obedience</button>
-            </div>
-          </details>
-          <p id="kids-library-quick-filter-status" class="section-note util-mb-0_5" aria-live="polite">Themes fill the search box for you&mdash;no typing needed.</p>
-          <form id="kids-library-search-form" class="kids-search-form kids-library-search-form-wrap" action="#" novalidate>
-            <input type="search" id="kids-library-search-input" class="kids-search-input" placeholder="Type story, character, or theme (typos ok!)" autocomplete="off" aria-describedby="kids-library-search-hint" aria-autocomplete="list" aria-controls="kids-library-search-suggest" aria-expanded="false">
-            <button type="submit" class="btn kids-btn-primary kids-search-btn">Search</button>
-            <div id="kids-library-search-suggest" class="kids-library-search-suggest hidden" role="listbox" aria-label="Top story matches"></div>
-          </form>
-          <p id="kids-library-search-hint" class="section-note util-mb-0_5">Search forgives small typos. Stuck? Hard-refresh once.</p>
-          <div class="kids-library-filters">
-            <label for="kids-library-theme" class="kids-library-theme-label">Theme</label>
-            <select id="kids-library-theme" class="kids-library-theme-select" aria-label="Filter by theme">
-              <option value="">All themes</option>
-              <option value="Obedience">Obedience</option>
-              <option value="Miracles">Miracles</option>
-              <option value="Love">Love</option>
-              <option value="Protection">Protection</option>
-            </select>
-          </div>
-          <details class="kids-corner-details">
-            <summary>Narrow results (age, length, Bible book)</summary>
-            <div class="kids-library-filter-cluster" role="group" aria-label="Extra story filters">
-              <label for="kids-library-age" class="kids-library-theme-label">Age</label>
-              <select id="kids-library-age" class="kids-library-theme-select" aria-label="Filter by age">
-                <option value="">All ages</option>
-                <option value="littles">Littles 5-7</option>
-                <option value="middles">Middles 8-10</option>
-                <option value="older">Older 11+</option>
-              </select>
-              <label for="kids-library-length" class="kids-library-theme-label">Length</label>
-              <select id="kids-library-length" class="kids-library-theme-select" aria-label="Filter by reading length">
-                <option value="">Any length</option>
-                <option value="quick">Quick read</option>
-                <option value="medium">Read-along</option>
-                <option value="long">Longer sit-down</option>
-              </select>
-              <label for="kids-library-book" class="kids-library-theme-label">Book</label>
-              <select id="kids-library-book" class="kids-library-theme-select" aria-label="Filter by Bible book">
-                <option value="">Any book</option>
-              </select>
-            </div>
-            <p class="section-note util-mb-0_5">Use age, length, and book if you need a quicker fit for littles, older readers, homeschool, or bedtime.</p>
-          </details>
-          <p id="kids-library-story-master" class="kids-library-story-master hidden">🏆 Story Master — you finished 7+ read-and-quiz stories (or stories without a quiz yet)!</p>
-          <details class="kids-gj-details">
-            <summary>Gentle Journey&mdash;let the library pick the next story (optional)</summary>
-            <div class="kids-library-filters kids-library-filters--journey" role="region" aria-label="Gentle story journey">
-              <button type="button" id="kids-journey-start-btn" class="btn kids-btn-primary">Start Gentle Journey</button>
-              <button type="button" id="kids-journey-continue-btn" class="btn btn-secondary">Continue</button>
-              <button type="button" id="kids-journey-next-btn" class="btn btn-secondary">Next Gentle Story</button>
-              <button type="button" id="kids-journey-reset-btn" class="btn btn-secondary">Reset</button>
-            </div>
-            <p class="section-note util-mb-0_25">The grid still works the normal way&mdash;Journey is just a calmer &ldquo;what&rsquo;s next&rdquo; path.</p>
-            <p id="kids-journey-status" class="section-note util-mb-0_25" aria-live="polite"></p>
-          </details>
-          <details class="kids-corner-details">
-            <summary>Extra tools: random story, quiz game, PDF list</summary>
-            <button type="button" id="kids-library-random-btn" class="btn kids-btn-primary kids-library-random-btn">🎲 Random Story</button>
-            <button type="button" id="global-quiz-challenge" class="btn btn-secondary kids-library-random-btn" style="margin-top: 0.5rem;">Quiz Challenge (5 Questions)</button>
-            <button type="button" id="pdf-export" class="btn kids-btn-primary kids-library-random-btn" style="margin-top: 0.5rem;" aria-describedby="pdf-export-count-hint pdf-export-hint" aria-label="Generate PDF of the full Kids Bible Story Library titles and references">📄 Download Story Library List (PDF)</button>
-            <p id="pdf-export-count-hint" class="kids-pdf-hint" aria-live="polite"></p>
-            <p id="pdf-export-hint" class="kids-pdf-hint">Each download lists every title in the library (not the 10–15s loops on Kids Corner home). Search filters only change the grid—the PDF stays the full list. If the first tap does nothing, wait a second for the PDF helper to load, then try again.</p>
-          </details>
-        </section>
-
-        <details class="kids-library-static-fallback glass tdb-porch-paper-glass" id="kids-library-static-fallback" aria-label="Starter Bible stories in this library">
-          <summary><span class="kids-section-title kids-section-title--summary">Starter list&mdash;first twelve (optional)</span></summary>
-          <p class="section-note">Same as the big grid with JavaScript on&mdash;or bookmark a single story link.</p>
-          <ol class="kids-library-static-list">
-            <li><a href="/kids/corner.html?story=david">David &amp; Goliath</a> <span class="kids-library-static-ref">1 Samuel 17</span> — God is bigger than the scary giant.</li>
-            <li><a href="/kids/corner.html?story=noah">Noah's Ark</a> <span class="kids-library-static-ref">Genesis 6–9</span> — God keeps His promise; rainbow sign.</li>
-            <li><a href="/kids/corner.html?story=jesus">Jesus the Good Shepherd</a> <span class="kids-library-static-ref">Gospels</span> — Jesus loves and cares for His sheep.</li>
-            <li><a href="/kids/corner.html?story=jonah">Jonah &amp; the Big Fish</a> <span class="kids-library-static-ref">Jonah 1:17</span> — Running away didn't fool God; He gives second chances.</li>
-            <li><a href="/kids/corner.html?story=daniel">Daniel &amp; the Lions</a> <span class="kids-library-static-ref">Daniel 6:22</span> — Pray brave; God can hush the lions.</li>
-            <li><a href="/kids/corner.html?story=adamEve">Adam &amp; Eve</a> <span class="kids-library-static-ref">Genesis 3</span> — First family, first choice; God still loves.</li>
-            <li><a href="/kids/corner.html?story=cainAbel">Cain &amp; Abel</a> <span class="kids-library-static-ref">Genesis 4</span> — Give God your best; ask Him when you're mad.</li>
-            <li><a href="/kids/corner.html?story=towerBabel">Tower of Babel</a> <span class="kids-library-static-ref">Genesis 11</span> — God is bigger than any tower.</li>
-            <li><a href="/kids/corner.html?story=abrahamIsaac">Abraham &amp; Isaac</a> <span class="kids-library-static-ref">Genesis 22</span> — Trust God; He provides.</li>
-            <li><a href="/kids/corner.html?story=josephCoat">Joseph &amp; the Coat</a> <span class="kids-library-static-ref">Genesis 37:3</span> — Hard days; God turns them for good.</li>
-            <li><a href="/kids/corner.html?story=josephSold">Joseph Sold to Egypt</a> <span class="kids-library-static-ref">Genesis 37:28</span> — God stayed with Joseph in the hurt.</li>
-            <li><a href="/kids/corner.html?story=mosesBush">Moses &amp; the Burning Bush</a> <span class="kids-library-static-ref">Exodus 3</span> — God calls; He helps you say yes.</li>
-          </ol>
-        </details>
-
-        <section class="glass tdb-porch-paper-glass kids-corner-grownup-nudge kids-corner-grownup-nudge--lift" id="kids-corner-grown-up-plans" aria-label="Plans with a grown-up" style="margin-top:1rem;padding:0.85rem 1rem 1rem;border-radius:12px;">
+        
+<section class="glass tdb-porch-paper-glass kids-corner-grownup-nudge kids-corner-grownup-nudge--lift" id="kids-corner-grown-up-plans" aria-label="Plans with a grown-up" style="margin-top:1rem;padding:0.85rem 1rem 1rem;border-radius:12px;">
           <h3 class="kids-corner-grownup-heading" style="margin:0 0 0.45rem;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;color:#1e293b;letter-spacing:0.02em">With a grown-up this week</h3>
           <p class="section-note kids-corner-grownup-summary" id="kids-corner-grownup-summary" style="margin:0 0 0.55rem;line-height:1.5;font-family:'Nunito',sans-serif;font-size:0.88rem;color:#e2e8f0;font-weight:600">Checking this device for recent story picks&hellip;</p>
           <p class="section-note kids-grownup-peek" style="margin:0 0 0.55rem;line-height:1.5;font-family:'Nunito',sans-serif;font-size:0.92rem;color:#cbd5e1">With a grown-up&mdash;quick picks: <a href="/plans.html?plan=sower-kids">Parable of the Sower for Kids</a> &middot; <a href="/plans.html?plan=lordsprayer-kids">The Lord&rsquo;s Prayer for Kids</a> &middot; <a href="/plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> &middot; <a href="/family.html">Family hub</a> &middot; <a href="/yearly-rhythm.html">Year-round rhythm</a> &middot; <a href="/plans.html?plan=summer-seeds">Summer Seeds for Kids</a> &middot; <a href="/church-sharing-kit.html#csk-memory-verse-activities">Memory Verse Activities</a> (Church kit).</p>
@@ -2301,13 +2508,10 @@
           </details>
         </section>
 
-        <section class="kids-comic-panels glass tdb-porch-paper-glass" role="region" aria-labelledby="kids-library-grid-heading">
-          <h2 id="kids-library-grid-heading" class="kids-section-title">All stories</h2>
-          <div id="kids-library-grid" class="kids-library-grid" aria-label="Bible story cards">
-            <!-- Filled by kids-corner.js -->
+        
           </div>
-          <p id="kids-library-no-match" class="kids-search-no-match hidden">No stories match that search yet. Try a broader word, or switch back to All themes.</p>
-        </section>
+        </details>
+
 
       </div>
     </main>
@@ -2472,13 +2676,13 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <link rel="preload" href="kids-story-remember.css?v=20260803remember" as="style">
   <link rel="stylesheet" href="kids-story-remember.css?v=20260803remember">
-  <script src="kids-read-quiz-data.js?v=20260524readquiz"></script>
+  <script src="kids-read-quiz-data.js?v=20260810nostick"></script>
   <script src="kids-story-remember-data.js?v=20260803remember2"></script>
   <script src="kids-story-remember.js?v=20260803remember"></script>
   <script src="kids-read-quiz-loop-posters.js"></script>
   <script src="kids-verses-365.js?v=20260802-calendar-mix" defer></script>
   <script src="kids-shared.js?v=20260413efficiency" defer></script>
-  <script src="kids-battle.js?v=20260803softquiz" defer></script>
+  <script src="kids-battle.js?v=20260810nostick" defer></script>
   <script src="/kids/kids-gentle-journey.js?v=20260524readquiz" defer></script>
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt" crossorigin="anonymous" defer></script>
@@ -2490,28 +2694,37 @@
     if (!el) return;
     function prettyKey(k) {
       if (!k) return '';
+      try {
+        var stories = window.TDB_BIBLE_STORIES || {};
+        if (stories[k] && stories[k].title) return String(stories[k].title);
+      } catch (e0) {}
       var s = String(k).replace(/([A-Z])/g, ' $1').trim();
       return s.charAt(0).toUpperCase() + s.slice(1);
     }
-    try {
-      var raw = localStorage.getItem('kidsLibraryRecentStoryKeys');
-      var arr = raw ? JSON.parse(raw) : [];
-      if (!Array.isArray(arr) || !arr.length) {
-        el.textContent = 'On this device: open a story below when you are ready. A grown-up can check Family hub for plan progress with you.';
-        return;
+    function paintRecent() {
+      try {
+        var raw = localStorage.getItem('kidsLibraryRecentStoryKeys');
+        var arr = raw ? JSON.parse(raw) : [];
+        if (!Array.isArray(arr) || !arr.length) {
+          el.textContent = 'On this device: open a story when you are ready. Family hub is there for plan progress with a grown-up.';
+          return;
+        }
+        var recent = arr.slice(0, 3).map(prettyKey).join(', ');
+        el.textContent = 'Lately on this device: ' + recent + '. Family hub can show the fuller week path.';
+      } catch (e) {
+        el.textContent = 'With a grown-up, open Family hub for a calm read on what your household is walking through.';
       }
-      var recent = arr.slice(0, 3).map(prettyKey).join(', ');
-      el.textContent = 'Lately on this device: stories touched include ' + recent + '. Ask a grown-up to peek at Family hub for what you studied this week in Battle Plans.';
-    } catch (e) {
-      el.textContent = 'With a grown-up, open Family hub for a calm read on what your household is walking through.';
     }
+    paintRecent();
+    setTimeout(paintRecent, 400);
+    setTimeout(paintRecent, 1200);
   });
   </script>
   <script src="loop-library-coloring.js?v=20260524readquiz" defer></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
-  <script src="kids-corner.js?v=20260806mascot" defer></script>
+  <script src="kids-corner.js?v=20260811paint" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
-  <script src="kids-gentle-shepherd.js?v=20260806mascot" defer></script>
+  <script src="kids-gentle-shepherd.js?v=20260810ears2" defer></script>
   <script type="module" src="../kids-data-loader.js" data-cfasync="false" defer></script>
   <script src="../tdb-offline-strip.js?v=20260421pwa1"></script>
   <script type="module" src="../script.js?v=20260809-vbd-labels" data-cfasync="false" defer></script>
@@ -2720,14 +2933,5 @@
   </style>
   <script src="../sky-ip-geo.js?v=20260327ipgeo" defer></script>
   <script src="kids-page-sky.js?v=20260327ipgeo" defer></script>
-
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
-    <nav class="tdb-bottom-dock" aria-label="Campus navigation">
-      <a href="/" aria-label="The Grove — today’s verse">🌳 Grove</a>
-      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
-      <a href="/plans.html" aria-label="The Paths">🗓️ Paths</a>
-      <a href="/calm.html" aria-label="Quiet Hall — one steady verse">🌿 Quiet Hall</a>
-      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="Explore — full map">🗺️ Explore</a>
-    </nav>
 </body>
 </html>

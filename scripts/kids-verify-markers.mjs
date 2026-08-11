@@ -48,7 +48,7 @@ export const STORY_HTML_MARKERS = [
   '/coloring.html?story=prodigal-son',
   'story-library-fonts.css?v=1',
   'loop-library-coloring.js?v=20260524readquiz',
-  'kids-corner.js?v=20260810nostick',
+  'kids-corner.js?v=20260811paint',
   'kids-battle.js?v=20260810nostick',
   'kids-battle.css?v=20260810nostick',
   'kids-library-card--static',

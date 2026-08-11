@@ -165,7 +165,7 @@
   }
 
   var ADVENTURES = [
-    { line: "Today’s pick: a surprise Bible story—tap the big button.", href: '/kids/corner.html?random=1', label: 'Open a story' },
+    { line: "Today’s pick: a surprise Bible story—tap the big button.", href: '/kids/corner.html?choose=1#kids-library-grid', label: 'Pick a story' },
     { line: "Today’s pick: one calm color page you can actually paint.", href: '/coloring.html?story=jesus-children', label: 'Open coloring' },
     { line: "Today’s pick: a tiny loop to watch—good for a reset.", href: '/kids-corner.html', label: 'Open a short loop' },
     { line: "Today’s pick: match a few verse friends together.", href: '/kids/match-buddies.html', label: 'Open match game' },
@@ -236,8 +236,26 @@
         global.speechSynthesis.cancel();
         var u = new global.SpeechSynthesisUtterance(t);
         u.lang = 'en-US';
-        u.rate = 0.9;
-        u.pitch = 1.02;
+        /* Calm and clear — avoid chipmunk/robot defaults. */
+        u.rate = 0.84;
+        u.pitch = 1.0;
+        u.volume = 1;
+        try {
+          if (typeof global.speechSynthesis.getVoices === 'function') {
+            var voices = global.speechSynthesis.getVoices() || [];
+            var pick =
+              voices.find(function (v) {
+                return v.lang && /^en-us/i.test(v.lang) && /samantha|karen|neural|natural|premium|google us english|moira|daniel/i.test(v.name || '');
+              }) ||
+              voices.find(function (v) {
+                return v.lang && /^en-us/i.test(v.lang);
+              }) ||
+              voices.find(function (v) {
+                return v.lang && /^en/i.test(v.lang);
+              });
+            if (pick) u.voice = pick;
+          }
+        } catch (_v) { /* no-op */ }
         global.speechSynthesis.speak(u);
       } catch (e) {
         /* no-op */
@@ -372,23 +390,24 @@
     } catch (e) { /* no-op */ }
   }
 
-  /* Absolute /kids/ paths so poses resolve from coloring.html, little-ones, and Kids Battle. */
+  /* Absolute /kids/ paths so poses resolve from coloring.html, little-ones, and Kids Battle.
+   * Premium illustrated PNG set (v20260810) — soft kids-book style, not stick SVGs. */
   var MASCOT_POSES = [
-    { src: '/kids/shepherd-mascot-welcome.svg', label: 'Little Shepherd waves hello' },
-    { src: '/kids/shepherd-mascot-point.svg', label: 'Little Shepherd points the way' },
-    { src: '/kids/shepherd-mascot-sheep.svg', label: 'Little Shepherd with a small sheep' },
-    { src: '/kids/shepherd-mascot-cheer.svg', label: 'Little Shepherd cheering for you' },
-    { src: '/kids/shepherd-mascot-sit.svg', label: 'Little Shepherd sitting with a little lamb' },
-    { src: '/kids/shepherd-mascot-listen.svg', label: 'Little Shepherd listens with you' },
-    { src: '/kids/shepherd-mascot-read.svg', label: 'Little Shepherd with Scripture open' },
-    { src: '/kids/shepherd-mascot-pray.svg', label: 'Little Shepherd prays with you' },
-    { src: '/kids/shepherd-mascot-proud.svg', label: 'Little Shepherd is proud of you' },
-    { src: '/kids/shepherd-mascot-comfort.svg', label: 'Little Shepherd is still with you' },
-    { src: '/kids/shepherd-mascot-wonder.svg', label: 'Little Shepherd looks up in wonder' },
-    { src: '/kids/shepherd-mascot-laugh.svg', label: 'Little Shepherd laughs with you' },
-    { src: '/kids/shepherd-mascot-point-excited.svg', label: 'Little Shepherd points to your surprise story' },
-    { src: '/kids/shepherd-mascot-arms-hurray.svg', label: 'Little Shepherd celebrates your surprise with quiet joy' },
-    { src: '/kids/shepherd-mascot-clap-soft.svg', label: 'Little Shepherd is glad for your surprise pick' }
+    { src: '/kids/shepherd-mascot-welcome.png?v=20260810ears2', label: 'Little Shepherd waves hello' },
+    { src: '/kids/shepherd-mascot-point.png?v=20260810ears2', label: 'Little Shepherd points the way' },
+    { src: '/kids/shepherd-mascot-sheep.png?v=20260810ears2', label: 'Little Shepherd with a small sheep' },
+    { src: '/kids/shepherd-mascot-cheer.png?v=20260810ears2', label: 'Little Shepherd cheering for you' },
+    { src: '/kids/shepherd-mascot-sit.png?v=20260810ears2', label: 'Little Shepherd sitting with a little lamb' },
+    { src: '/kids/shepherd-mascot-listen.png?v=20260810ears2', label: 'Little Shepherd listens with you' },
+    { src: '/kids/shepherd-mascot-read.png?v=20260810ears2', label: 'Little Shepherd with Scripture open' },
+    { src: '/kids/shepherd-mascot-pray.png?v=20260810ears2', label: 'Little Shepherd prays with you' },
+    { src: '/kids/shepherd-mascot-proud.png?v=20260810ears2', label: 'Little Shepherd is proud of you' },
+    { src: '/kids/shepherd-mascot-comfort.png?v=20260810ears2', label: 'Little Shepherd is still with you' },
+    { src: '/kids/shepherd-mascot-wonder.png?v=20260810ears2', label: 'Little Shepherd looks up in wonder' },
+    { src: '/kids/shepherd-mascot-laugh.png?v=20260810ears2', label: 'Little Shepherd laughs with you' },
+    { src: '/kids/shepherd-mascot-point-excited.png?v=20260810ears2', label: 'Little Shepherd points to your surprise story' },
+    { src: '/kids/shepherd-mascot-arms-hurray.png?v=20260810ears2', label: 'Little Shepherd celebrates your surprise with quiet joy' },
+    { src: '/kids/shepherd-mascot-clap-soft.png?v=20260810ears2', label: 'Little Shepherd is glad for your surprise pick' }
   ];
 
   var POSE_PROUD = 8;
@@ -479,7 +498,7 @@
    * Optional ~30–60s device-narration text when a story has no `narration` field in data.
    * KJV-centered, calm, not hype.
    */
-  /* For TDB_BIBLE_STORIES entries with no `narration` field — supplies read-aloud + “Read to me” (~40–60s at calm rate). */
+  /* For TDB_BIBLE_STORIES entries with no `narration` field — supplies the single Read-to-me path (~40–60s at calm rate). */
   var BRIEF_NARRATION = {
     jesus:
       "People tried to send the little children away from Jesus, as if He were too busy for them. Jesus wanted the children near. He said, Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. He took them in His arms and blessed them. That is how the real Good Shepherd treats kids who come to Him—gentle, glad, and kind. When you feel small, loud, tired, or unsure, you can still come to Jesus. You do not have to fix everything first. He is not looking for perfect; He is looking for honest hearts that will listen. Today, let one true thing stay in your pocket: Jesus made a way for you to be close to God, and He is still calling your name with love.",

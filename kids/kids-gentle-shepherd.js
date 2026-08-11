@@ -236,8 +236,26 @@
         global.speechSynthesis.cancel();
         var u = new global.SpeechSynthesisUtterance(t);
         u.lang = 'en-US';
-        u.rate = 0.9;
-        u.pitch = 1.02;
+        /* Calm and clear — avoid chipmunk/robot defaults. */
+        u.rate = 0.84;
+        u.pitch = 1.0;
+        u.volume = 1;
+        try {
+          if (typeof global.speechSynthesis.getVoices === 'function') {
+            var voices = global.speechSynthesis.getVoices() || [];
+            var pick =
+              voices.find(function (v) {
+                return v.lang && /^en-us/i.test(v.lang) && /samantha|karen|neural|natural|premium|google us english|moira|daniel/i.test(v.name || '');
+              }) ||
+              voices.find(function (v) {
+                return v.lang && /^en-us/i.test(v.lang);
+              }) ||
+              voices.find(function (v) {
+                return v.lang && /^en/i.test(v.lang);
+              });
+            if (pick) u.voice = pick;
+          }
+        } catch (_v) { /* no-op */ }
         global.speechSynthesis.speak(u);
       } catch (e) {
         /* no-op */
@@ -480,7 +498,7 @@
    * Optional ~30–60s device-narration text when a story has no `narration` field in data.
    * KJV-centered, calm, not hype.
    */
-  /* For TDB_BIBLE_STORIES entries with no `narration` field — supplies read-aloud + “Read to me” (~40–60s at calm rate). */
+  /* For TDB_BIBLE_STORIES entries with no `narration` field — supplies the single Read-to-me path (~40–60s at calm rate). */
   var BRIEF_NARRATION = {
     jesus:
       "People tried to send the little children away from Jesus, as if He were too busy for them. Jesus wanted the children near. He said, Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. He took them in His arms and blessed them. That is how the real Good Shepherd treats kids who come to Him—gentle, glad, and kind. When you feel small, loud, tired, or unsure, you can still come to Jesus. You do not have to fix everything first. He is not looking for perfect; He is looking for honest hearts that will listen. Today, let one true thing stay in your pocket: Jesus made a way for you to be close to God, and He is still calling your name with love.",

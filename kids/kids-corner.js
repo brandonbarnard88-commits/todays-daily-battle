@@ -7036,6 +7036,12 @@
   }
 
   function resetKidsStorySpeakButtonUi() {
+    try {
+      if (typeof cancelKidsNarrationChunks === 'function') cancelKidsNarrationChunks();
+    } catch (_cn) { /* no-op */ }
+    try {
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+    } catch (_sy) { /* no-op */ }
     if (kidsStorySpeakBtn) {
       setKidsReadAloudButtonIdle(kidsStorySpeakBtn);
       kidsStorySpeakBtn = null;
@@ -9606,7 +9612,7 @@
         }
         carouselRoot.appendChild(narrWrap);
       }
-      /* One read-aloud control: prefer recorded clip when present, else device speech. */
+      /* One read-aloud control: calm device speech first (chunked); recorded m4a only as fallback. */
       var shepherdRecUrl = '';
       if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getShepherdNarrationAudioUrl === 'function') {
         try {
@@ -9622,7 +9628,9 @@
         spk.type = 'button';
         spk.className = 'kids-story-speak-btn kids-speak-btn';
         spk.setAttribute('data-story-key', key);
-        if (shepherdRecUrl) spk.setAttribute('data-shepherd-audio-url', shepherdRecUrl);
+        /* Keep clip as fallback only — low-bitrate m4a often sounds thinner/robotic. */
+        if (shepherdRecUrl) spk.setAttribute('data-shepherd-audio-fallback', shepherdRecUrl);
+        if (!canDeviceSpeak && shepherdRecUrl) spk.setAttribute('data-shepherd-audio-url', shepherdRecUrl);
         spk.setAttribute('aria-label', 'Read this story aloud');
         spk.setAttribute('aria-pressed', 'false');
         spk.textContent = KIDS_READ_ALOUD_LABEL;
@@ -9937,10 +9945,21 @@
   }
 
   /**
-   * Web Speech voices often load after first paint. Prefer calm, natural en-US
-   * (neural/premium/enhanced) so story read-aloud is less robotic.
+   * Web Speech voices often load after first paint. Prefer warm, local, natural
+   * en-US storytelling voices; demote compact/novelty chips and thin network voices.
    */
   var kidsPreferredNarrationVoice = null;
+  var kidsNarrationChunkTimer = null;
+  var kidsNarrationChunkQueue = null;
+
+  function cancelKidsNarrationChunks() {
+    if (kidsNarrationChunkTimer) {
+      try { clearTimeout(kidsNarrationChunkTimer); } catch (_t) { /* no-op */ }
+      kidsNarrationChunkTimer = null;
+    }
+    kidsNarrationChunkQueue = null;
+  }
+
   function refreshKidsPreferredNarrationVoice() {
     if (typeof window === 'undefined' || !window.speechSynthesis || typeof window.speechSynthesis.getVoices !== 'function') return;
     var voices = window.speechSynthesis.getVoices();
@@ -9963,14 +9982,17 @@
       var n = voiceNameLower(v);
       if (!n) return 0;
       var s = 0;
-      /* Strongly prefer natural / neural / premium storytelling voices. */
-      if (/neural|natural|premium|enhanced|wavenet|studio|online \(natural\)/.test(n)) s += 8;
-      if (/samantha|karen|moira|daniel|fred|aaron|arthur|google us english|microsoft (aria|jenny|guy|david|mark)|siri|serena|zoe|allison|tessa|fiona|hazel/.test(n)) s += 6;
+      /* Prefer warm, high-quality local story voices (macOS/iOS/Android). */
+      if (/samantha|karen|moira|daniel \(english|fred|victoria|alex|susan|tom|allison|ava|zoe|nicky|serena|tessa|fiona|hazel|siri/.test(n)) s += 12;
+      if (/neural|natural|premium|enhanced|wavenet|studio|online \(natural\)|super/.test(n)) s += 10;
+      if (/microsoft (aria|jenny|guy|david|mark|zira)|google us english|google uk english female|samsung/.test(n)) s += 7;
       if (/google|microsoft|apple|samsung/.test(n)) s += 2;
-      if (/en-us|united states|american/.test(n) || (v.lang && /^en-us/i.test(String(v.lang)))) s += 2;
-      /* Avoid compact / novelty / very robotic local chips. */
-      if (/compact|eloquence|novelty|whisper|robot|zarvox|bad news|pipes|trinoids|boing|bubbles|cellos|good news|hysterical|junior|kathy|organ|superstar|whisper/.test(n)) s -= 10;
-      if (/\b(com\.apple\.eloquence|compact)\b/.test(n)) s -= 8;
+      if (/en-us|united states|american/.test(n) || (v.lang && /^en-us/i.test(String(v.lang)))) s += 3;
+      if (v.localService === true) s += 4; /* local voices usually calmer for kids */
+      if (v.localService === false) s -= 1;
+      /* Avoid compact / novelty / robotic chips. */
+      if (/compact|eloquence|novelty|whisper|robot|zarvox|bad news|pipes|trinoids|boing|bubbles|cellos|good news|hysterical|junior|kathy|organ|superstar|trinoids|deranged|bells|bahh|albert|agnes|princess|ralph/.test(n)) s -= 14;
+      if (/\b(com\.apple\.eloquence|compact)\b/.test(n)) s -= 12;
       return s;
     }
     var scored = pool
@@ -9984,16 +10006,144 @@
     kidsPreferredNarrationVoice = (scored[0] && scored[0].v) || pool[0] || null;
   }
 
-  /** Calm device TTS defaults — slow enough for kids, not chipmunk/robot pitch. */
+  /** Calm device TTS — slow, neutral pitch; warm voice when available. */
   function applyKidsCalmUtteranceDefaults(u) {
     if (!u) return;
     u.lang = 'en-US';
-    u.rate = 0.84;
+    u.rate = 0.8;
     u.pitch = 1.0;
     u.volume = 1;
     refreshKidsPreferredNarrationVoice();
     if (kidsPreferredNarrationVoice) u.voice = kidsPreferredNarrationVoice;
   }
+
+  /**
+   * Split long narration so the browser speaks in short phrases with tiny pauses.
+   * One giant utterance often sounds more robotic.
+   */
+  function splitKidsNarrationSpeechChunks(text) {
+    var raw = String(text || '').replace(/\s+/g, ' ').trim();
+    if (!raw) return [];
+    /* No lookbehind — older WebKit/Safari still need this path. */
+    var parts = [];
+    var re = /[^.!?…]+(?:[.!?…]+|$)/g;
+    var m;
+    while ((m = re.exec(raw))) {
+      var piece = String(m[0] || '').trim();
+      if (piece) parts.push(piece);
+    }
+    if (!parts.length) parts = [raw];
+    var chunks = [];
+    var buf = '';
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i].trim();
+      if (!p) continue;
+      if (buf && (buf.length + 1 + p.length) > 180) {
+        chunks.push(buf);
+        buf = p;
+      } else {
+        buf = buf ? buf + ' ' + p : p;
+      }
+    }
+    if (buf) chunks.push(buf);
+    if (!chunks.length) chunks.push(raw);
+    return chunks;
+  }
+
+  /**
+   * Speak story text in calm chunks. Calls onDone when finished or cancelled.
+   * Returns true if speech was started.
+   */
+  function speakKidsStoryNarration(text, speakBtn, onDone) {
+    var synth = window.speechSynthesis;
+    if (!synth || typeof window.SpeechSynthesisUtterance === 'undefined') return false;
+    var chunks = splitKidsNarrationSpeechChunks(text);
+    if (!chunks.length) return false;
+    cancelKidsNarrationChunks();
+    try { synth.cancel(); } catch (_c) { /* no-op */ }
+    kidsStorySpeakBtn = speakBtn || null;
+    kidsNarrationChunkQueue = chunks.slice();
+    var finished = false;
+    function finish() {
+      if (finished) return;
+      finished = true;
+      cancelKidsNarrationChunks();
+      if (kidsStorySpeakBtn) {
+        setKidsReadAloudButtonIdle(kidsStorySpeakBtn);
+        kidsStorySpeakBtn = null;
+      }
+      if (typeof onDone === 'function') {
+        try { onDone(); } catch (_d) { /* no-op */ }
+      }
+    }
+    function speakNext() {
+      if (!kidsNarrationChunkQueue || !kidsNarrationChunkQueue.length) {
+        finish();
+        return;
+      }
+      if (!synth) {
+        finish();
+        return;
+      }
+      var piece = kidsNarrationChunkQueue.shift();
+      var u = new window.SpeechSynthesisUtterance(piece);
+      applyKidsCalmUtteranceDefaults(u);
+      u.onstart = function () {
+        if (kidsStorySpeakBtn) setKidsReadAloudButtonPlaying(kidsStorySpeakBtn);
+      };
+      u.onpause = function () {
+        if (kidsStorySpeakBtn) setKidsReadAloudButtonPaused(kidsStorySpeakBtn);
+      };
+      u.onresume = function () {
+        if (kidsStorySpeakBtn) setKidsReadAloudButtonPlaying(kidsStorySpeakBtn);
+      };
+      u.onerror = function () {
+        finish();
+      };
+      u.onend = function () {
+        if (!kidsNarrationChunkQueue) return;
+        /* Short breath between sentences — less “robot run-on”. */
+        kidsNarrationChunkTimer = setTimeout(function () {
+          kidsNarrationChunkTimer = null;
+          speakNext();
+        }, 220);
+      };
+      try {
+        synth.speak(u);
+      } catch (_s) {
+        finish();
+      }
+    }
+    speakNext();
+    return true;
+  }
+
+  function getKidsStoryNarrationText(key, story) {
+    var text = (story && story.narration && story.narration.trim()) || '';
+    if (!text && window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getBriefNarration === 'function') {
+      try {
+        var bn = window.tdbLittleShepherd.getBriefNarration(key);
+        if (bn && String(bn).trim()) text = String(bn).trim();
+      } catch (eB2) { /* no-op */ }
+    }
+    if (!text && story) {
+      text = (function () {
+        var parts = [story.title || key, story.caption || ''];
+        if (story.kidContext && story.kidContext.apply) parts.push(story.kidContext.apply);
+        if (story.kjvRef) parts.push(story.kjvRef);
+        return parts.filter(Boolean).join('. ').trim();
+      })();
+    }
+    return text;
+  }
+
+  /* Shared for mascot Hear it (gentle shepherd). */
+  try {
+    window.tdbKidsSpeakCalm = function (text) {
+      return speakKidsStoryNarration(text, null, null);
+    };
+    window.tdbKidsPickCalmVoice = refreshKidsPreferredNarrationVoice;
+  } catch (_exp) { /* no-op */ }
 
   function shuffleChallengePool(arr) {
     var a = arr.slice();
@@ -10721,13 +10871,20 @@
         : null;
       if (speakBtn) {
         e.preventDefault();
-        var surl = speakBtn.getAttribute('data-shepherd-audio-url') || '';
-        /* Prefer recorded clip when present — one button, best source. */
-        if (surl) {
-          try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_sc) { /* no-op */ }
+        var surl =
+          speakBtn.getAttribute('data-shepherd-audio-url') ||
+          '';
+        var fallbackSurl = speakBtn.getAttribute('data-shepherd-audio-fallback') || surl || '';
+        var synth = window.speechSynthesis;
+        var canSynth = !!(synth && typeof window.SpeechSynthesisUtterance !== 'undefined');
+
+        function playRecordedClip(url) {
+          if (!url) return false;
+          try { if (synth) synth.cancel(); } catch (_sc) { /* no-op */ }
+          cancelKidsNarrationChunks();
           resetKidsStorySpeakButtonUi();
           var a = kidsShepherdAudioEl;
-          if (a && a.dataset && a.dataset.tdbUrl === surl) {
+          if (a && a.dataset && a.dataset.tdbUrl === url) {
             if (a.paused) {
               a.play()
                 .then(function () {
@@ -10737,16 +10894,16 @@
                 .catch(function () {
                   showToast('Playback did not start. Check your connection and try again.');
                 });
-              return;
+              return true;
             }
             a.pause();
             setKidsReadAloudButtonPaused(speakBtn);
-            return;
+            return true;
           }
           try { hardStopShepherdRecordedAudio(); } catch (_hd) { /* no-op */ }
           if (!kidsShepherdAudioEl) kidsShepherdAudioEl = new Audio();
           var aud = kidsShepherdAudioEl;
-          aud.dataset.tdbUrl = surl;
+          aud.dataset.tdbUrl = url;
           aud.onended = function () {
             try {
               if (aud.dataset) delete aud.dataset.tdbUrl;
@@ -10755,15 +10912,10 @@
             if (kidsShepherdAudioBtn === speakBtn) kidsShepherdAudioBtn = null;
           };
           aud.onerror = function () {
-            showToast('That voice clip did not load—trying device voice instead.');
+            showToast('That voice clip did not load.');
             try { hardStopShepherdRecordedAudio(); } catch (_e2) { /* no-op */ }
-            /* Fall through to device speech by clearing URL and re-dispatching. */
-            try {
-              speakBtn.removeAttribute('data-shepherd-audio-url');
-              speakBtn.click();
-            } catch (_fb) { /* no-op */ }
           };
-          aud.src = surl;
+          aud.src = url;
           aud
             .play()
             .then(function () {
@@ -10771,70 +10923,44 @@
               kidsShepherdAudioBtn = speakBtn;
             })
             .catch(function () {
-              showToast('Playback did not start—trying device voice instead.');
+              showToast('Playback did not start.');
               try { hardStopShepherdRecordedAudio(); } catch (_e3) { /* no-op */ }
-              try {
-                speakBtn.removeAttribute('data-shepherd-audio-url');
-                speakBtn.click();
-              } catch (_fb2) { /* no-op */ }
             });
+          return true;
+        }
+
+        /* Prefer calm device speech (chunked). Recorded clips are low-bitrate fallback only. */
+        if (canSynth) {
+          if (synth.speaking && !synth.paused) {
+            try { synth.pause(); } catch (_p) { /* no-op */ }
+            setKidsReadAloudButtonPaused(speakBtn);
+            kidsStorySpeakBtn = speakBtn;
+            return;
+          }
+          if (synth.paused) {
+            try { synth.resume(); } catch (_r) { /* no-op */ }
+            setKidsReadAloudButtonPlaying(speakBtn);
+            kidsStorySpeakBtn = speakBtn;
+            return;
+          }
+          try { hardStopShepherdRecordedAudio(); } catch (_hx) { /* no-op */ }
+          var key = speakBtn.getAttribute('data-story-key') || currentOpenStoryKey;
+          var stories = getStories();
+          var story = stories[key];
+          if (!story) return;
+          var text = getKidsStoryNarrationText(key, story);
+          if (!text) {
+            if (fallbackSurl) playRecordedClip(fallbackSurl);
+            return;
+          }
+          var started = speakKidsStoryNarration(text, speakBtn, null);
+          if (!started && fallbackSurl) playRecordedClip(fallbackSurl);
           return;
         }
-        /* Device speech fallback (or only option when no recorded clip). */
-        var synth = window.speechSynthesis;
-        var key = speakBtn.getAttribute('data-story-key') || currentOpenStoryKey;
-        var stories = getStories();
-        var story = stories[key];
-        if (!story || !synth || typeof window.SpeechSynthesisUtterance === 'undefined') return;
-        if (synth.speaking && !synth.paused) {
-          synth.pause();
-          setKidsReadAloudButtonPaused(speakBtn);
-          kidsStorySpeakBtn = speakBtn;
-          return;
-        }
-        if (synth.paused) {
-          synth.resume();
-          setKidsReadAloudButtonPlaying(speakBtn);
-          kidsStorySpeakBtn = speakBtn;
-          return;
-        }
-        try { hardStopShepherdRecordedAudio(); } catch (_hx) { /* no-op */ }
-        try { synth.cancel(); } catch (_) {}
-        var text = (story.narration && story.narration.trim()) || '';
-        if (!text && window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getBriefNarration === 'function') {
-          try {
-            var bn = window.tdbLittleShepherd.getBriefNarration(key);
-            if (bn && String(bn).trim()) text = String(bn).trim();
-          } catch (eB2) { /* no-op */ }
-        }
-        if (!text) {
-          text = (function () {
-            var parts = [story.title || key, story.caption || ''];
-            if (story.kidContext && story.kidContext.apply) parts.push(story.kidContext.apply);
-            if (story.kjvRef) parts.push(story.kjvRef);
-            return parts.filter(Boolean).join('. ').trim();
-          })();
-        }
-        if (text) {
-          kidsStorySpeakBtn = speakBtn;
-          var u = new window.SpeechSynthesisUtterance(text);
-          applyKidsCalmUtteranceDefaults(u);
-          u.onstart = function () {
-            if (kidsStorySpeakBtn) setKidsReadAloudButtonPlaying(kidsStorySpeakBtn);
-          };
-          u.onend = u.onerror = function () {
-            if (kidsStorySpeakBtn) {
-              setKidsReadAloudButtonIdle(kidsStorySpeakBtn);
-              kidsStorySpeakBtn = null;
-            }
-          };
-          u.onpause = function () {
-            if (kidsStorySpeakBtn) setKidsReadAloudButtonPaused(kidsStorySpeakBtn);
-          };
-          u.onresume = function () {
-            if (kidsStorySpeakBtn) setKidsReadAloudButtonPlaying(kidsStorySpeakBtn);
-          };
-          synth.speak(u);
+
+        /* No speechSynthesis — use recorded clip if present. */
+        if (fallbackSurl || surl) {
+          playRecordedClip(fallbackSurl || surl);
         }
         return;
       }

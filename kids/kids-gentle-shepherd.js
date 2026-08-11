@@ -233,11 +233,18 @@
       var t = raw.replace(/\u00a0/g, ' ').trim();
       if (!t) return;
       try {
+        /* Prefer shared calm speaker from kids-corner when present. */
+        if (typeof global.tdbKidsSpeakCalm === 'function') {
+          try {
+            if (global.speechSynthesis) global.speechSynthesis.cancel();
+          } catch (_c0) { /* no-op */ }
+          global.tdbKidsSpeakCalm(t);
+          return;
+        }
         global.speechSynthesis.cancel();
         var u = new global.SpeechSynthesisUtterance(t);
         u.lang = 'en-US';
-        /* Calm and clear — avoid chipmunk/robot defaults. */
-        u.rate = 0.84;
+        u.rate = 0.8;
         u.pitch = 1.0;
         u.volume = 1;
         try {
@@ -245,7 +252,10 @@
             var voices = global.speechSynthesis.getVoices() || [];
             var pick =
               voices.find(function (v) {
-                return v.lang && /^en-us/i.test(v.lang) && /samantha|karen|neural|natural|premium|google us english|moira|daniel/i.test(v.name || '');
+                return v.lang && /^en-us/i.test(v.lang) && /samantha|karen|moira|daniel|neural|natural|premium|google us english|aria|jenny/i.test(v.name || '');
+              }) ||
+              voices.find(function (v) {
+                return v.lang && /^en-us/i.test(v.lang) && v.localService;
               }) ||
               voices.find(function (v) {
                 return v.lang && /^en-us/i.test(v.lang);

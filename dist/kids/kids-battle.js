@@ -580,11 +580,11 @@
 
   /** When a carousel story key is missing from bibleStories, show a safe single-panel strip (matches getCartoonForVerse fallbacks). */
   const KIDS_SINGLE_CARTOON_FALLBACKS = [
-    { type: 'single', src: 'panel-david.svg', alt: 'David with slingshot', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
-    { type: 'single', src: 'panel-noah.svg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
-    { type: 'single', src: 'panel-jesus.svg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
-    { type: 'single', src: 'panel-jonah.svg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
-    { type: 'single', src: 'panel-daniel.svg', alt: 'Daniel in the lions den', caption: 'God protects when you pray!', anim: 'cartoon-slide-daniel' }
+    { type: 'single', src: '/coloring-pages/colored/david-and-goliath-coloring-page.jpg', alt: 'Boy David with one sling facing giant Goliath', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
+    { type: 'single', src: '/coloring-pages/colored/noah-s1.jpg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
+    { type: 'single', src: '/coloring-pages/colored/jesus-and-the-children-coloring-page.jpg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
+    { type: 'single', src: '/coloring-pages/colored/jonah-s1.jpg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
+    { type: 'single', src: '/coloring-pages/colored/daniel-in-the-lions-den-coloring-page.jpg', alt: 'Daniel in the lions den', caption: 'God protects when you pray!', anim: 'cartoon-slide-daniel' }
   ];
 
   function getDailyKey() {
@@ -612,10 +612,8 @@
   var bibleStories = {
     david: {
       title: 'David & Goliath',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Goliath defies Israel — the armies stand afraid in the valley' },
-        { src: 'panel-david-2.svg', alt: 'David trusts the living God — five stones, a sling, no sword in his hand' },
-        { src: 'panel-david-3.svg', alt: 'In the name of the LORD of hosts — one stone; the Lord gives victory' }
+            panels: [
+        { src: '/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg', alt: 'Boy David with a sling faces giant Goliath in the valley' }
       ],
       caption: 'Swipe to see courage that trusts the Lord — not size or armor.',
       videoId: '',
@@ -652,10 +650,11 @@
     },
     noah: {
       title: "Noah's Ark",
-      panels: [
-        { src: 'panel-noah-1.svg', alt: "Noah building the huge ark – Obeying God's instructions" },
-        { src: 'panel-noah-2.svg', alt: 'Animals marching two by two into the ark – God saves His creation' },
-        { src: 'panel-noah-3.svg', alt: "Rainbow in the sky after the flood – God's promise never to flood the earth again" }
+            panels: [
+        { src: '/coloring-pages/noah-s1.jpg', alt: 'Animals marching two by two into the ark – God saves His creation' },
+        { src: '/coloring-pages/noah-s2.jpg', alt: 'Animals marching two by two into the ark – God saves His creation' },
+        { src: '/coloring-pages/noah-s3.jpg', alt: 'Animals marching two by two into the ark – God saves His creation' },
+        { src: '/coloring-pages/noah-s4.jpg', alt: 'Animals marching two by two into the ark – God saves His creation' }
       ],
       caption: "Swipe to see God's promise with Noah and the rainbow! 🌈",
       videoId: 'qzYjy6lhRag',
@@ -667,10 +666,8 @@
     },
     jesus: {
       title: 'Jesus the Good Shepherd',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus the good shepherd' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus calling the children' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus loves you!' }
+            panels: [
+        { src: '/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg', alt: 'Jesus the good shepherd' }
       ],
       caption: 'Swipe to see Jesus loving the children and being our shepherd! ❤️',
       videoId: '8qPP0SgxAvw',
@@ -681,10 +678,11 @@
     },
     jonah: {
       title: 'Jonah & the Big Fish',
-      panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Jonah running away on a ship – Disobeying God' },
-        { src: 'panel-jonah-2.svg', alt: 'Big fish swallowing Jonah – God gets his attention' },
-        { src: 'panel-jonah-3.svg', alt: 'Jonah praying inside the fish – God hears and forgives' }
+            panels: [
+        { src: '/coloring-pages/jonah-s1.jpg', alt: 'Jonah running away on a ship – Disobeying God' },
+        { src: '/coloring-pages/jonah-s2.jpg', alt: 'Big fish swallowing Jonah – God gets his attention' },
+        { src: '/coloring-pages/jonah-s3.jpg', alt: 'Jonah praying inside the fish – God hears and forgives' },
+        { src: '/coloring-pages/jonah-s4.jpg', alt: 'Jonah praying inside the fish – God hears and forgives' }
       ],
       caption: 'Swipe to see Jonah learn to obey God! 🐋',
       videoId: 'WOSadLyqshg',
@@ -696,10 +694,8 @@
     },
     daniel: {
       title: 'Daniel & the Lions',
-      panels: [
-        { src: 'panel-daniel-1.svg', alt: "Daniel praying at his window – Staying faithful to God" },
-        { src: 'panel-daniel-2.svg', alt: "Daniel thrown into the lions' den – Facing danger bravely" },
-        { src: 'panel-daniel-3.svg', alt: "Daniel safe among the lions – God shuts their mouths" }
+            panels: [
+        { src: '/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg', alt: 'Daniel praying at his window – Staying faithful to God' }
       ],
       caption: 'Swipe to see God protect Daniel! 🦁',
       videoId: 'odcRHDqcVlc',
@@ -711,10 +707,8 @@
     },
     adamEve: {
       title: 'Adam & Eve',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Adam and Eve in the garden' },
-        { src: 'panel-jesus-2.svg', alt: 'The serpent and the apple' },
-        { src: 'panel-jesus-3.svg', alt: 'God still loves them' }
+            panels: [
+        { src: '/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg', alt: 'Adam and Eve in the garden' }
       ],
       caption: 'Swipe to see the first family in God\'s garden! 🌳',
       videoId: 'l7TDvJrjjz0',
@@ -725,10 +719,8 @@
     },
     cainAbel: {
       title: 'Cain & Abel',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Cain and Abel bring offerings' },
-        { src: 'panel-jesus-2.svg', alt: 'God is pleased with Abel' },
-        { src: 'panel-jesus-3.svg', alt: 'God warns Cain about anger' }
+            panels: [
+        { src: '/coloring-pages/cain-abel.jpg', alt: 'Cain and Abel bring offerings' }
       ],
       caption: 'Swipe to see why giving our best to God matters! 🐑',
       videoId: 'vT8Yjc-4es8',
@@ -739,10 +731,8 @@
     },
     towerBabel: {
       title: 'Tower of Babel',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'People build a tall tower' },
-        { src: 'panel-noah-2.svg', alt: 'God mixes up their words' },
-        { src: 'panel-noah-3.svg', alt: 'Everyone speaks different languages' }
+            panels: [
+        { src: '/coloring-pages/tower-babel.jpg', alt: 'People build a tall tower' }
       ],
       caption: 'Swipe to see how God made many languages! 🌍',
       videoId: '4EQh7C-IUcM',
@@ -753,10 +743,8 @@
     },
     abrahamIsaac: {
       title: 'Abraham & Isaac',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Abraham and Isaac walk up the mountain' },
-        { src: 'panel-jesus-2.svg', alt: 'Abraham trusts God' },
-        { src: 'panel-jesus-3.svg', alt: 'God provides a ram!' }
+            panels: [
+        { src: '/coloring-pages/abraham-isaac.jpg', alt: 'Abraham and Isaac walk up the mountain' }
       ],
       caption: 'Swipe to see Abraham trust God—and God provide! 🐏',
       videoId: '8QTk848O-yQ',
@@ -767,10 +755,8 @@
     },
     josephCoat: {
       title: "Joseph & the Coat",
-      panels: [
-        { src: 'panel-david-1.svg', alt: "Joseph wearing his coat of many colors – Loved by his father" },
-        { src: 'panel-david-2.svg', alt: "Brothers selling Joseph to traders – Jealousy turns to betrayal" },
-        { src: 'panel-david-3.svg', alt: "Joseph as leader in Egypt – God turns bad into good" }
+            panels: [
+        { src: '/coloring-pages/joseph-coat.jpg', alt: 'Joseph wearing his coat of many colors – Loved by his father' }
       ],
       caption: 'Swipe to see Joseph\'s dreams and his special coat! 🌈',
       videoId: 'MKW6ylouF1s',
@@ -782,10 +768,8 @@
     },
     josephSold: {
       title: 'Joseph Sold to Egypt',
-      panels: [
-        { src: 'panel-david-2.svg', alt: 'Joseph\'s brothers see him coming — anger and jealousy' },
-        { src: 'panel-noah-1.svg', alt: 'Joseph alone in a pit — scary moment, God still sees him' },
-        { src: 'panel-david-3.svg', alt: 'Merchants traveling toward Egypt — Joseph\'s hard road begins' }
+            panels: [
+        { src: '/coloring-pages/joseph-coat.jpg', alt: 'Joseph\'s brothers see him coming — anger and jealousy' }
       ],
       caption: 'Swipe to see a hard day for Joseph — God did not leave him! 🐪',
       videoId: '',
@@ -796,10 +780,8 @@
     },
     mosesBush: {
       title: 'Moses & the Burning Bush',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Moses sees a bush on fire' },
-        { src: 'panel-jesus-2.svg', alt: 'God calls Moses from the bush' },
-        { src: 'panel-jesus-3.svg', alt: 'Moses takes his staff—God sends him' }
+            panels: [
+        { src: '/coloring-pages/burning-bush.jpg', alt: 'Moses sees a bush on fire' }
       ],
       caption: 'Swipe to see God call Moses from the burning bush! 🔥',
       videoId: 'bWcwZIV-ip8',
@@ -811,10 +793,11 @@
     },
     redSea: {
       title: 'Red Sea Crossing',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: "Israelites trapped by the Red Sea – Pharaoh's army chasing" },
-        { src: 'panel-noah-2.svg', alt: "Moses stretching his hand over the sea – God parts the waters" },
-        { src: 'panel-noah-3.svg', alt: "People walking on dry ground between walls of water – God makes a way" }
+            panels: [
+        { src: '/coloring-pages/moses-red-sea-s1.jpg', alt: 'Israelites trapped by the Red Sea – Pharaoh\'s army chasing' },
+        { src: '/coloring-pages/moses-red-sea-s2.jpg', alt: 'Moses stretching his hand over the sea – God parts the waters' },
+        { src: '/coloring-pages/moses-red-sea-s3.jpg', alt: 'People walking on dry ground between walls of water – God makes a way' },
+        { src: '/coloring-pages/moses-red-sea-s4.jpg', alt: 'People walking on dry ground between walls of water – God makes a way' }
       ],
       caption: 'Swipe to see God make a way through the sea! 🌊',
       videoId: 'GYZh5eY6FGg',
@@ -826,10 +809,8 @@
     },
     manna: {
       title: 'Manna from Heaven',
-      panels: [
-        { src: 'panel-jonah-1.svg', alt: "Israelites hungry in the desert – Complaining to Moses" },
-        { src: 'panel-jonah-2.svg', alt: "Manna falling from heaven – God sends bread" },
-        { src: 'panel-jonah-3.svg', alt: "People gathering manna each morning – God provides daily" }
+            panels: [
+        { src: '/coloring-pages/manna.jpg', alt: 'Israelites hungry in the desert – Complaining to Moses' }
       ],
       caption: 'Swipe to see God give bread from heaven! 🍞',
       videoId: 'Ln5Aa8jiEAM',
@@ -841,10 +822,8 @@
     },
     tenCommandments: {
       title: 'Ten Commandments',
-      panels: [
-        { src: 'panel-david-1.svg', alt: "Moses on Mount Sinai – God speaks to him" },
-        { src: 'panel-david-2.svg', alt: "God writing the Ten Commandments on stone tablets" },
-        { src: 'panel-david-3.svg', alt: "Moses bringing the tablets down – God's good rules for His people" }
+            panels: [
+        { src: '/coloring-pages/ten-commandments.jpg', alt: 'Moses on Mount Sinai – God speaks to him' }
       ],
       caption: 'Swipe to see God give rules to keep us safe! 📜',
       videoId: 'P12cLzy1-3Q',
@@ -856,10 +835,8 @@
     },
     goldenCalf: {
       title: 'The Golden Calf',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Israel waits at the mountain while Moses is with God' },
-        { src: 'panel-david-2.svg', alt: 'A golden calf — the people worship wrongly' },
-        { src: 'panel-david-3.svg', alt: 'Moses breaks the tablets — God still forgives His people' }
+            panels: [
+        { src: '/coloring-pages/golden-calf.jpg', alt: 'Israel waits at the mountain while Moses is with God' }
       ],
       caption: 'Swipe to see why we worship God alone! 🐂',
       videoId: '',
@@ -877,10 +854,8 @@
     },
     bronzeSerpent: {
       title: 'The Bronze Serpent',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Israel weary in the wilderness — hard words and a hard lesson' },
-        { src: 'panel-david-2.svg', alt: 'The people tell Moses they have sinned — please pray' },
-        { src: 'panel-david-3.svg', alt: 'Brass serpent on a pole — look and live' }
+            panels: [
+        { src: '/coloring-pages/bronze-serpent.jpg', alt: 'Israel weary in the wilderness — hard words and a hard lesson' }
       ],
       caption: 'Swipe to see God give a way to live — look and trust! 🐍',
       videoId: '',
@@ -909,10 +884,8 @@
     },
     tabernacle: {
       title: 'The Tabernacle',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'God\'s special tent in the camp — a place for His presence' },
-        { src: 'panel-david-2.svg', alt: 'Glad gifts and skilled hands — building what God commanded' },
-        { src: 'panel-david-3.svg', alt: 'Cloud and glory — the Lord dwells with His people' }
+            panels: [
+        { src: '/coloring-pages/tabernacle.jpg', alt: 'God\'s special tent in the camp — a place for His presence' }
       ],
       caption: 'Swipe to see God come close to His people in the tabernacle! ⛺',
       videoId: '',
@@ -941,10 +914,8 @@
     },
     spiesInCanaan: {
       title: 'Spies in Canaan',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Twelve spies explore the good land God promised' },
-        { src: 'panel-noah-2.svg', alt: 'A cluster of beautiful grapes from Canaan' },
-        { src: 'panel-noah-3.svg', alt: 'Joshua and Caleb say the Lord is with us—do not fear' }
+            panels: [
+        { src: '/coloring-pages/spies-canaan.jpg', alt: 'Twelve spies explore the good land God promised' }
       ],
       caption: 'Swipe to see faith beat fear! 🍇',
       videoId: '',
@@ -974,10 +945,8 @@
     },
     samson: {
       title: 'Samson and the Pillars',
-      panels: [
-        { src: 'panel-daniel-1.svg', alt: 'They set Samson between the pillars — he asks to lean upon the house' },
-        { src: 'panel-daniel-2.svg', alt: 'Samson prays — O Lord God, remember me, and strengthen me only this once' },
-        { src: 'panel-daniel-3.svg', alt: 'He bowed himself with all his might — the Lord heard his prayer' }
+            panels: [
+        { src: '/coloring-pages/samson.jpg', alt: 'They set Samson between the pillars — he asks to lean upon the house' }
       ],
       caption: 'Swipe to see God hear one last honest prayer — and give strength for His people.',
       videoId: 'vnRAdASpsz4',
@@ -1008,10 +977,8 @@
     },
     fieryFurnace: {
       title: 'God Walks with His Servants in the Fire',
-      panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Big golden image — Shadrach, Meshach, and Abednego would not bow' },
-        { src: 'panel-daniel-2.svg', alt: 'The furnace heated seven times hotter — cast into the fire' },
-        { src: 'panel-daniel-3.svg', alt: 'Four loose in the fire — the form of the fourth like the Son of God' }
+            panels: [
+        { src: '/coloring-pages/fiery-furnace.jpg', alt: 'Big golden image — Shadrach, Meshach, and Abednego would not bow' }
       ],
       caption: 'Swipe to see brave trust, soft flames, and the fourth walking with them unhurt.',
       videoId: 'kAzX-Icrbm0',
@@ -1029,10 +996,8 @@
     },
     esther: {
       title: 'Esther Helps Her People',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Chosen queen — Esther’s heart belongs to the LORD' },
-        { src: 'panel-jesus-2.svg', alt: 'Prayer and fasting — who knoweth whether thou art come… for such a time as this?' },
-        { src: 'panel-jesus-3.svg', alt: 'Brave words to the king — God turns the king’s heart to save His people' }
+            panels: [
+        { src: '/coloring-pages/esther.jpg', alt: 'Chosen queen — Esther’s heart belongs to the LORD' }
       ],
       caption: 'Swipe to see prayer, courage, and God’s quiet protection for His people.',
       videoId: '7945Bh5iG_A',
@@ -1064,13 +1029,11 @@
     },
     jesusBirth: {
       title: 'Jesus Is Born in Bethlehem',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Mary and Joseph travel to Bethlehem — no room at the inn' },
-        { src: 'panel-jesus-2.svg', alt: 'In a quiet stable, baby Jesus is wrapped and laid in a manger' },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Angels tell shepherds good tidings — they find Jesus, just as God promised'
-        }
+            panels: [
+        { src: '/coloring-pages/nativity-s1.jpg', alt: 'Mary and Joseph travel to Bethlehem — no room at the inn' },
+        { src: '/coloring-pages/nativity-s2.jpg', alt: 'In a quiet stable, baby Jesus is wrapped and laid in a manger' },
+        { src: '/coloring-pages/nativity-s3.jpg', alt: 'Angels tell shepherds good tidings — they find Jesus, just as God promised' },
+        { src: '/coloring-pages/nativity-s4.jpg', alt: 'Angels tell shepherds good tidings — they find Jesus, just as God promised' }
       ],
       caption: 'Swipe to see the night God’s Son was born — wonder, angels’ joy, and shepherds who hurried to worship.',
       videoId: 'v3656G6tWuI',
@@ -1101,19 +1064,11 @@
     },
     jesusCalmsStorm: {
       title: 'Jesus Calms the Wind and the Waves',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Jesus and His friends in a boat — wind and waves rise on the sea'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'They wake Jesus — Master, carest thou not that we perish?'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Jesus says, Peace, be still — the wind and sea obey Him'
-        }
+            panels: [
+        { src: '/coloring-pages/jesus-storm-s1.jpg', alt: 'Jesus and His friends in a boat — wind and waves rise on the sea' },
+        { src: '/coloring-pages/jesus-storm-s2.jpg', alt: 'They wake Jesus — Master, carest thou not that we perish?' },
+        { src: '/coloring-pages/jesus-storm-s3.jpg', alt: 'Jesus says, Peace, be still — the wind and sea obey Him' },
+        { src: '/coloring-pages/jesus-storm-s4.jpg', alt: 'Jesus says, Peace, be still — the wind and sea obey Him' }
       ],
       caption:
         'Swipe to see Jesus calm the wind and the waves — His word brings peace. ⛵',
@@ -1143,19 +1098,8 @@
     },
     witheredHand: {
       title: 'Jesus Heals a Man on the Sabbath',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Jesus teaches in the synagogue — a man is there whose hand is withered'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus asks, Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill?'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Jesus says, Stretch forth thine hand — and his hand was restored whole as the other'
-        }
+            panels: [
+        { src: '/coloring-pages/withered-hand.jpg', alt: 'Jesus teaches in the synagogue — a man is there whose hand is withered' }
       ],
       caption:
         'Swipe to see Jesus heal with kindness in the synagogue — Stretch forth thine hand. ✋',
@@ -1185,19 +1129,11 @@
     },
     jesusFeeds5000: {
       title: 'Jesus Feeds a Hungry Crowd',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'A great multitude — Give ye them to eat; a boy with five loaves and two fishes'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus blessed the loaves and fishes, looking up to heaven — sit down on the grass'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'They all did eat and were filled — twelve baskets of fragments remained'
-        }
+            panels: [
+        { src: '/coloring-pages/feeding-5000-s1.jpg', alt: 'A great multitude — Give ye them to eat; a boy with five loaves and two fishes' },
+        { src: '/coloring-pages/feeding-5000-s2.jpg', alt: 'Jesus blessed the loaves and fishes, looking up to heaven — sit down on the grass' },
+        { src: '/coloring-pages/feeding-5000-s3.jpg', alt: 'They all did eat and were filled — twelve baskets of fragments remained' },
+        { src: '/coloring-pages/feeding-5000-s4.jpg', alt: 'They all did eat and were filled — twelve baskets of fragments remained' }
       ],
       caption:
         'Swipe to see Jesus bless a boy’s lunch until everyone is fed — He cares. 🍞🐟',
@@ -1229,19 +1165,8 @@
     },
     jesusFeeds4000: {
       title: 'Jesus Feeds Another Hungry Crowd',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'A great multitude — three days with Jesus; I have compassion on the multitude'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Seven loaves and a few small fishes — He commanded them to sit down on the ground'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'They did all eat and were filled — seven baskets of broken meat; about four thousand men'
-        }
+            panels: [
+        { src: '/coloring-pages/feeding-4000.jpg', alt: 'A great multitude — three days with Jesus; I have compassion on the multitude' }
       ],
       caption: 'Swipe to see Jesus feed a multitude again — His compassion never runs out. 🍞',
       videoId: '',
@@ -1271,10 +1196,11 @@
     },
     goodSamaritan: {
       title: 'Jesus Tells About Helping Others',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A man was hurt on the road from Jerusalem to Jericho — priest and Levite passed by' },
-        { src: 'panel-noah-2.svg', alt: 'A Samaritan had compassion — bound up his wounds with oil and wine' },
-        { src: 'panel-noah-3.svg', alt: 'He set him on his own beast, brought him to an inn — Go, and do thou likewise' }
+            panels: [
+        { src: '/coloring-pages/good-samaritan-s1.jpg', alt: 'A man was hurt on the road from Jerusalem to Jericho — priest and Levite passed by' },
+        { src: '/coloring-pages/good-samaritan-s2.jpg', alt: 'A Samaritan had compassion — bound up his wounds with oil and wine' },
+        { src: '/coloring-pages/good-samaritan-s3.jpg', alt: 'He set him on his own beast, brought him to an inn — Go, and do thou likewise' },
+        { src: '/coloring-pages/good-samaritan-s4.jpg', alt: 'He set him on his own beast, brought him to an inn — Go, and do thou likewise' }
       ],
       caption:
         'Swipe to see mercy on the road — bound up, cared for, “Go, and do thou likewise.” 🤝',
@@ -1308,10 +1234,11 @@
     },
     prodigalSon: {
       title: 'The Father Who Welcomes His Son Home',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A father had two sons — the younger asked for his share and went far away' },
-        { src: 'panel-noah-2.svg', alt: 'He spent all and was hungry — he arose and went to his father' },
-        { src: 'panel-noah-3.svg', alt: 'While he was yet a great way off, his father ran and fell on his neck and kissed him' }
+            panels: [
+        { src: '/coloring-pages/prodigal-son-s1.jpg', alt: 'A father had two sons — the younger asked for his share and went far away' },
+        { src: '/coloring-pages/prodigal-son-s2.jpg', alt: 'He spent all and was hungry — he arose and went to his father' },
+        { src: '/coloring-pages/prodigal-son-s3.jpg', alt: 'While he was yet a great way off, his father ran and fell on his neck and kissed him' },
+        { src: '/coloring-pages/prodigal-son-s4.jpg', alt: 'While he was yet a great way off, his father ran and fell on his neck and kissed him' }
       ],
       caption:
         'Swipe to see the father run to his son — dead… alive again; lost… and is found. God welcomes us when we come home. 🏠',
@@ -1344,19 +1271,11 @@
     },
     zacchaeus: {
       title: 'Jesus Loves Zacchaeus',
-      panels: [
-        {
-          src: 'panel-david-1.svg',
-          alt: 'Jericho — Zacchaeus is little of stature; he climbs a sycomore tree to see Jesus pass by'
-        },
-        {
-          src: 'panel-david-2.svg',
-          alt: 'Jesus looks up with kind eyes — Zacchaeus, make haste, and come down; to day I must abide at thy house'
-        },
-        {
-          src: 'panel-david-3.svg',
-          alt: 'Joy and salvation — half to the poor, fourfold restored; the Son of man is come to seek and to save that which was lost'
-        }
+            panels: [
+        { src: '/coloring-pages/zacchaeus-s1.jpg', alt: 'Jericho — Zacchaeus is little of stature; he climbs a sycomore tree to see Jesus pass by' },
+        { src: '/coloring-pages/zacchaeus-s2.jpg', alt: 'Jesus looks up with kind eyes — Zacchaeus, make haste, and come down; to day I must abide at thy house' },
+        { src: '/coloring-pages/zacchaeus-s3.jpg', alt: 'Joy and salvation — half to the poor, fourfold restored; the Son of man is come to seek and to save that which was lost' },
+        { src: '/coloring-pages/zacchaeus-s4.jpg', alt: 'Joy and salvation — half to the poor, fourfold restored; the Son of man is come to seek and to save that which was lost' }
       ],
       caption: 'Swipe slowly — Jesus knows Zacchaeus by name and brings joy and salvation.',
       videoId: 'U-HjFU4wkUY',
@@ -1384,19 +1303,8 @@
     },
     resurrection: {
       title: 'Jesus Is Risen',
-      panels: [
-        {
-          src: 'panel-jesus-resurrection-1.svg',
-          alt: 'Early Sunday — the stone rolled away from the tomb; Mary Magdalene and the other Mary draw near'
-        },
-        {
-          src: 'panel-jesus-resurrection-2.svg',
-          alt: 'The angel — Fear not — He is not here: for he is risen, as he said — Come, see where the Lord lay'
-        },
-        {
-          src: 'panel-jesus-resurrection-3.svg',
-          alt: 'Jesus meets His friends with joy — worship at His feet — later, All power… Go ye therefore… I am with you alway'
-        }
+            panels: [
+        { src: '/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg', alt: 'Early Sunday — the stone rolled away from the tomb; Mary Magdalene and the other Mary draw near' }
       ],
       caption: 'Swipe slowly — Jesus is risen; He meets His friends with love and sends His disciples with peace.',
       videoId: '',
@@ -1431,10 +1339,8 @@
     },
     creation: {
       title: 'Creation',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'God says: Let there be light!' },
-        { src: 'panel-noah-2.svg', alt: 'God makes animals and people' },
-        { src: 'panel-noah-3.svg', alt: 'God rests—He made everything!' }
+            panels: [
+        { src: '/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg', alt: 'God says: Let there be light!' }
       ],
       caption: 'Swipe to see God make the world! 🌍',
       videoId: 'teu7BCZTgDs',
@@ -1445,10 +1351,8 @@
     },
     fallOfJericho: {
       title: 'Fall of Jericho',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Jericho — tall walls, gates shut; God speaks to Joshua' },
-        { src: 'panel-david-2.svg', alt: 'Marching, trumpets, and a great shout — the people obey' },
-        { src: 'panel-david-3.svg', alt: 'The wall falls flat — the Lord gave the city' }
+            panels: [
+        { src: '/coloring-pages/jericho.jpg', alt: 'Jericho — tall walls, gates shut; God speaks to Joshua' }
       ],
       caption: 'Swipe to see God make the walls fall—trust Him! 🏛️',
       videoId: 'Ertlm3D9Cfs',
@@ -1466,10 +1370,8 @@
     },
     davidSheep: {
       title: 'David & the Sheep',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'David watches his sheep' },
-        { src: 'panel-david-2.svg', alt: 'David fights lion and bear' },
-        { src: 'panel-david-3.svg', alt: 'David plays harp—God protects!' }
+            panels: [
+        { src: '/coloring-pages/boy-david.jpg', alt: 'David watches his sheep' }
       ],
       caption: 'Swipe to see David protect sheep—God protects us! 🐑',
       videoId: 'N5zP9YxUaLI',
@@ -1480,10 +1382,8 @@
     },
     elijahRavens: {
       title: 'Elijah & the Ravens',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah speaks God\'s word to Ahab' },
-        { src: 'panel-noah-2.svg', alt: 'By Cherith — ravens bring bread and flesh' },
-        { src: 'panel-noah-3.svg', alt: 'He drinks of the brook — God cares each day' }
+            panels: [
+        { src: '/coloring-pages/elijah-ravens.jpg', alt: 'Elijah speaks God\'s word to Ahab' }
       ],
       caption: 'Swipe for Cherith — God fed Elijah by the brook.',
       videoId: '',
@@ -1498,10 +1398,8 @@
     },
     elijahWidow: {
       title: 'Elijah & the Widow',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'God sends Elijah to Zarephath — a widow will sustain thee' },
-        { src: 'panel-noah-2.svg', alt: 'At the gate — a handful of meal and a little oil' },
-        { src: 'panel-noah-3.svg', alt: 'The barrel wasted not — the cruse failed not' }
+            panels: [
+        { src: '/coloring-pages/elijah-widow.jpg', alt: 'God sends Elijah to Zarephath — a widow will sustain thee' }
       ],
       caption: 'Swipe for Zarephath — God\'s promise at the barrel and the cruse.',
       videoId: '',
@@ -1529,10 +1427,8 @@
     },
     elijahFire: {
       title: 'God Answers by Fire',
-      panels: [
-        { src: 'panel-jonah-1.svg', alt: 'If the Lord be God, follow him — the God that answereth by fire' },
-        { src: 'panel-jonah-2.svg', alt: 'The prophets of Baal call all day — no fire came' },
-        { src: 'panel-jonah-3.svg', alt: 'Fire from heaven — The LORD, he is the God' }
+            panels: [
+        { src: '/coloring-pages/elijah-carmel.jpg', alt: 'If the Lord be God, follow him — the God that answereth by fire' }
       ],
       caption: 'Swipe for Mount Carmel — God answered Elijah’s prayer; the LORD, he is the God.',
       videoId: 'dKcQHonmOi8',
@@ -1569,10 +1465,8 @@
     },
     elijahHoreb: {
       title: 'God Speaks in a Still Small Voice',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah at Horeb — sad, and the LORD asks, What doest thou here?' },
-        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire passed — the LORD was not in them' },
-        { src: 'panel-noah-3.svg', alt: 'A still small voice — Elijah wraps his face; the LORD speaks gently' }
+            panels: [
+        { src: '/coloring-pages/elijah-horeb.jpg', alt: 'Elijah at Horeb — sad, and the LORD asks, What doest thou here?' }
       ],
       caption: 'Swipe for Horeb — after the loud came a still small voice.',
       videoId: '',
@@ -1606,10 +1500,8 @@
     },
     elijahElijahElisha: {
       title: 'Elisha Follows Elijah',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Oxen in the field — Elijah casts his mantle on Elisha' },
-        { src: 'panel-noah-2.svg', alt: 'Let me kiss my father and my mother — then I will follow thee' },
-        { src: 'panel-noah-3.svg', alt: 'He arose and followed — and ministered unto Elijah' }
+            panels: [
+        { src: '/coloring-pages/elisha-mantle.jpg', alt: 'Oxen in the field — Elijah casts his mantle on Elisha' }
       ],
       caption: 'Swipe for the field — mantle, oxen, and a willing heart to follow God’s call.',
       videoId: '',
@@ -1644,10 +1536,8 @@
     },
     naamanHealed: {
       title: 'Naaman Obeys and Is Made Clean',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'A little maid’s words — go to the prophet in Samaria' },
-        { src: 'panel-jesus-2.svg', alt: 'Wash in Jordan seven times — at first angry, then gentle counsel' },
-        { src: 'panel-jesus-3.svg', alt: 'Seven dips in the Jordan — clean like a little child' }
+            panels: [
+        { src: '/coloring-pages/naaman.jpg', alt: 'A little maid’s words — go to the prophet in Samaria' }
       ],
       caption: 'Swipe for Naaman — little maid, gentle servants, seven dips, God’s kindness.',
       videoId: '8Y1Sh5bZAiM',
@@ -1685,19 +1575,11 @@
     },
     jesusWalksWater: {
       title: 'Jesus Walks on the Sea',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Night on the sea — wind and waves; Jesus comes walking on the water'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Be of good cheer; it is I; be not afraid — Peter steps out toward Jesus'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Lord, save me — Jesus stretches forth His hand; the wind ceases'
-        }
+            panels: [
+        { src: '/coloring-pages/walks-on-water-s1.jpg', alt: 'Night on the sea — wind and waves; Jesus comes walking on the water' },
+        { src: '/coloring-pages/walks-on-water-s2.jpg', alt: 'Be of good cheer; it is I; be not afraid — Peter steps out toward Jesus' },
+        { src: '/coloring-pages/walks-on-water-s3.jpg', alt: 'Lord, save me — Jesus stretches forth His hand; the wind ceases' },
+        { src: '/coloring-pages/walks-on-water-s4.jpg', alt: 'Lord, save me — Jesus stretches forth His hand; the wind ceases' }
       ],
       caption:
         'Swipe to see Jesus walk on the sea — “Be not afraid” — He catches us when we call. 🌊',
@@ -1727,10 +1609,11 @@
     },
     lostSheep: {
       title: 'Jesus Tells About the Lost Sheep',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'A shepherd had one hundred sheep — one little sheep was lost' },
-        { src: 'panel-jesus-2.svg', alt: 'He left the ninety-nine and looked until he found the one' },
-        { src: 'panel-jesus-3.svg', alt: 'He layeth it on his shoulders, rejoicing — carry it home with joy' }
+            panels: [
+        { src: '/coloring-pages/lost-sheep-s1.jpg', alt: 'A shepherd had one hundred sheep — one little sheep was lost' },
+        { src: '/coloring-pages/lost-sheep-s2.jpg', alt: 'He left the ninety-nine and looked until he found the one' },
+        { src: '/coloring-pages/lost-sheep-s3.jpg', alt: 'He layeth it on his shoulders, rejoicing — carry it home with joy' },
+        { src: '/coloring-pages/lost-sheep-s4.jpg', alt: 'He layeth it on his shoulders, rejoicing — carry it home with joy' }
       ],
       caption:
         'Swipe to see the good shepherd find the one — carry it home with joy! Heaven rejoices over one sinner that repenteth. 🐑',
@@ -1762,10 +1645,8 @@
     },
     lostCoin: {
       title: 'Lost Coin',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'A woman counts ten silver coins' },
-        { src: 'panel-jesus-2.svg', alt: 'She lights a lamp and sweeps until she finds the one lost coin' },
-        { src: 'panel-jesus-3.svg', alt: 'She calls friends—rejoice! Heaven rejoices over one who turns to God' }
+            panels: [
+        { src: '/coloring-pages/lost-coin.jpg', alt: 'A woman counts ten silver coins' }
       ],
       caption: 'Swipe to see God search for the lost—every one matters! 🪙',
       videoId: '',
@@ -1776,19 +1657,8 @@
     },
     palmSunday: {
       title: 'Jesus Rides into Jerusalem',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Jesus sends two disciples — ass and colt brought; garments laid; He sits on the colt'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'A very great multitude spreads garments and branches on the way — glad, welcoming faces'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Hosanna to the Son of David — the city asks Who is this? — Jesus the prophet of Nazareth of Galilee'
-        }
+            panels: [
+        { src: '/coloring-pages/triumphal-entry.jpg', alt: 'Jesus sends two disciples — ass and colt brought; garments laid; He sits on the colt' }
       ],
       caption: 'Swipe slowly — clothes, branches, and glad Hosannas for Jesus who comes gently.',
       videoId: '',
@@ -1824,19 +1694,8 @@
     },
     triumphalEntry: {
       title: 'Jesus Rides into Jerusalem',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Near Bethphage and the mount of Olives — Jesus sends two disciples; they bring the ass and colt and lay garments for Him to ride'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus rides into Jerusalem — a great multitude spreads garments and branches on the way; joyful, welcoming faces'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Hosanna to the Son of David — the city asks Who is this? and the people answer, Jesus the prophet of Nazareth of Galilee'
-        }
+            panels: [
+        { src: '/coloring-pages/triumphal-entry.jpg', alt: 'Near Bethphage and the mount of Olives — Jesus sends two disciples; they bring the ass and colt and lay garments for Him to ride' }
       ],
       caption: 'Swipe slowly — clothes, branches, and glad Hosannas for the King who comes gently.',
       videoId: '',
@@ -1867,19 +1726,8 @@
     },
     jesusWeepsJerusalem: {
       title: 'Jesus Cares Deeply for the City',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Jesus draws near on the donkey — He beholds Jerusalem spread out before Him with love'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Tears of compassion — Jesus weeps over the city; His heart longs to gather His people close'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'He speaks gently — If thou hadst known the things which belong unto thy peace — Jesus cares for us still'
-        }
+            panels: [
+        { src: '/coloring-pages/jesus-weeps.jpg', alt: 'Jesus draws near on the donkey — He beholds Jerusalem spread out before Him with love' }
       ],
       caption: 'Swipe slowly — Jesus looks on the city with tears of love, not anger toward you.',
       videoId: '',
@@ -1911,19 +1759,8 @@
     },
     figTree: {
       title: 'Jesus Teaches About Faith',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Jesus comes to a fig tree by the road — leaves only, no fruit — He speaks with calm truth'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'The fig tree withers; the disciples marvel — How soon is the fig tree withered away!'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Jesus teaches — have faith and doubt not; ask in prayer, believing, and ye shall receive'
-        }
+            panels: [
+        { src: '/coloring-pages/fig-tree.jpg', alt: 'Jesus comes to a fig tree by the road — leaves only, no fruit — He speaks with calm truth' }
       ],
       caption: 'Swipe slowly — a lesson about honest faith and gentle, trusting prayer.',
       videoId: '',
@@ -1954,19 +1791,8 @@
     },
     jesusAuthority: {
       title: 'Jesus Answers the Chief Priests and Elders',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Jesus teaching in the temple — chief priests and elders ask, By what authority doest thou these things?'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus asks about John’s baptism — from heaven, or of men? — the leaders reason together, thoughtful'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'They say, We cannot tell — Jesus answers, Neither tell I you by what authority I do these things — calm wisdom'
-        }
+            panels: [
+        { src: '/coloring-pages/jesus-authority.jpg', alt: 'Jesus teaching in the temple — chief priests and elders ask, By what authority doest thou these things?' }
       ],
       caption: 'Swipe slowly — Jesus answers hard questions with honest, wise words.',
       videoId: '',
@@ -1996,19 +1822,8 @@
     },
     parableWickedHusbandmen: {
       title: 'Jesus Tells About the Vineyard and the Son',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'A vineyard with fruit on the vines — the householder planted it, hedged it, and let it out to husbandmen'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'The owner sent servants, then last of all his son — They will reverence my son — teaching moment, calm faces'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'The stone the builders rejected is become the head of the corner — hopeful truth, God’s kingdom and good fruit'
-        }
+            panels: [
+        { src: '/coloring-pages/vineyard-son.jpg', alt: 'A vineyard with fruit on the vines — the householder planted it, hedged it, and let it out to husbandmen' }
       ],
       caption: 'Swipe slowly — a story about fruit, the Father’s Son, and God’s good kingdom.',
       videoId: '',
@@ -2042,19 +1857,8 @@
     },
     tributeToCaesar: {
       title: 'Jesus Answers About Taxes',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Pharisees and Herodians ask Jesus — Is it lawful to give tribute unto Caesar? — thoughtful scene'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus asks for the tribute money — they bring a penny — Whose image and superscription?'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Render unto Caesar the things which are Caesar’s; and unto God the things which are God’s — calm wisdom'
-        }
+            panels: [
+        { src: '/coloring-pages/tribute-caesar.jpg', alt: 'Pharisees and Herodians ask Jesus — Is it lawful to give tribute unto Caesar? — thoughtful scene' }
       ],
       caption: 'Swipe slowly — Jesus answers a hard question with truth and wisdom.',
       videoId: '',
@@ -2086,19 +1890,8 @@
     },
     sadduceesResurrection: {
       title: 'Jesus Teaches About the Resurrection',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Sadducees come to Jesus — they say there is no resurrection — a gentle, tricky question — thoughtful listening faces'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus answers — Ye do err, not knowing the scriptures, nor the power of God — calm teaching from God’s Word'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'I am the God of Abraham, Isaac, and Jacob — God is not the God of the dead, but of the living — the multitude astonished at His doctrine'
-        }
+            panels: [
+        { src: '/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg', alt: 'Sadducees come to Jesus — they say there is no resurrection — a gentle, tricky question — thoughtful listening faces' }
       ],
       caption: 'Swipe slowly — gentle teaching about the living God and the resurrection.',
       videoId: '',
@@ -2130,19 +1923,8 @@
     },
     lastSupper: {
       title: 'Jesus Shares the Last Supper',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Passover prepared — Jesus sits with the twelve — one of you shall betray me'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'They were exceeding sorrowful — Lord, is it I? — Jesus teaches of the betrayer'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Take, eat; this is my body — the cup — my blood of the new testament — I will drink it new in my Father\'s kingdom'
-        }
+            panels: [
+        { src: '/coloring-pages/jesus-washes-feet.jpg', alt: 'Passover prepared — Jesus sits with the twelve — one of you shall betray me' }
       ],
       caption: 'Swipe slowly — Jesus shares bread and cup; His love is for you.',
       videoId: '',
@@ -2173,10 +1955,8 @@
     },
     jesusTemptation: {
       title: "Jesus' Temptation",
-      panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Jesus in the desert, hungry' },
-        { src: 'panel-jonah-2.svg', alt: 'Devil tempts Him' },
-        { src: 'panel-jonah-3.svg', alt: 'Jesus says no—uses God\'s word!' }
+            panels: [
+        { src: '/coloring-pages/jesus-tempted.jpg', alt: 'Jesus in the desert, hungry' }
       ],
       caption: "Swipe to see Jesus say no—use God's word! 📖",
       videoId: 'CN77fk1xNPQ',
@@ -2187,10 +1967,8 @@
     },
     parableSower: {
       title: 'Jesus Tells a Story About Good Soil',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A farmer went forth to sow — seeds by the wayside' },
-        { src: 'panel-noah-2.svg', alt: 'Stony ground and thorns — some sprang up but withered or were choked' },
-        { src: 'panel-noah-3.svg', alt: 'Good ground — brought forth fruit, some thirty, some sixty, some an hundred' }
+            panels: [
+        { src: '/coloring-pages/the-sower.jpg', alt: 'A farmer went forth to sow — seeds by the wayside' }
       ],
       caption: 'Swipe to see seeds on path, rocks, thorns, and good soil — God’s Word can grow. 🌱',
       videoId: 'Y01N77fQrTU',
@@ -2222,10 +2000,8 @@
     },
     widowsMite: {
       title: 'Jesus Sees the Poor Widow’s Gift',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus watches as many rich people put large gifts into the temple treasury' },
-        { src: 'panel-jesus-2.svg', alt: 'A poor widow comes and puts in two small coins — two mites' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus tells His disciples: she cast in more than all — she gave all her living' }
+            panels: [
+        { src: '/coloring-pages/widows-mite.jpg', alt: 'Jesus watches as many rich people put large gifts into the temple treasury' }
       ],
       caption: 'Swipe to see the widow’s two coins — Jesus sees a loving heart! 🪙',
       videoId: 'cauP52JaBdQ',
@@ -2254,19 +2030,8 @@
     },
     gardenPrayer: {
       title: 'Jesus Prays in the Garden',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Gethsemane — Jesus asks Peter, James, and John to watch — My soul is exceeding sorrowful'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus falls on His face — O my Father… nevertheless not as I will, but as thou wilt'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Watch and pray — the spirit indeed is willing — He prayed a third time — Thy will be done'
-        }
+            panels: [
+        { src: '/coloring-pages/garden-gethsemane.jpg', alt: 'Gethsemane — Jesus asks Peter, James, and John to watch — My soul is exceeding sorrowful' }
       ],
       caption: 'Swipe slowly — Jesus prays honest tears to His Father, and chooses God\'s will.',
       videoId: '',
@@ -2299,19 +2064,8 @@
     },
     betrayal: {
       title: 'Judas Betrays Jesus',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Judas covenants for thirty pieces of silver — he seeks opportunity to betray Jesus'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Judas comes with a multitude — Whomsoever I shall kiss, that same is he — he kisses Jesus'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Jesus says, Friend, wherefore art thou come? — they lay hands on Jesus and take Him'
-        }
+            panels: [
+        { src: '/coloring-pages/judas-betrayal.jpg', alt: 'Judas covenants for thirty pieces of silver — he seeks opportunity to betray Jesus' }
       ],
       caption: 'Swipe slowly — a hard moment; Jesus stays gentle, and His love does not fail.',
       videoId: '',
@@ -2342,19 +2096,8 @@
     },
     trial: {
       title: 'Jesus Before Pilate',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Jesus stood before the governor — Art thou the King of the Jews? — Thou sayest — accused, yet answered nothing'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Feast custom — Barabbas or Jesus which is called Christ — chief priests persuaded the multitude'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'What shall I do with Jesus? — Let him be crucified — washed hands — delivered to be crucified'
-        }
+            panels: [
+        { src: '/coloring-pages/jesus-pilate.jpg', alt: 'Jesus stood before the governor — Art thou the King of the Jews? — Thou sayest — accused, yet answered nothing' }
       ],
       caption: 'Swipe slowly — Jesus stayed calm and true; His kingdom is truth and love.',
       videoId: '',
@@ -2388,10 +2131,8 @@
     },
     roadToEmmaus: {
       title: 'Road to Emmaus',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Two disciples walk to Emmaus' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus walks with them' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus explains—they recognize Him!' }
+            panels: [
+        { src: '/coloring-pages/emmaus-road.jpg', alt: 'Two disciples walk to Emmaus' }
       ],
       caption: 'Swipe to see Jesus walk with us—He explains! 🛤️',
       videoId: 'PPsWHNa84Tc',
@@ -2402,10 +2143,8 @@
     },
     ascension: {
       title: 'Ascension',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus with His disciples' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus goes up to heaven' },
-        { src: 'panel-jesus-3.svg', alt: 'He\'s with God—He\'ll come back!' }
+            panels: [
+        { src: '/coloring-pages/ascension.jpg', alt: 'Jesus with His disciples' }
       ],
       caption: 'Swipe to see Jesus go up—He\'s with God! ☁️',
       videoId: 'TedR27BUBfw',
@@ -2416,19 +2155,8 @@
     },
     jesusLastSupper: {
       title: 'Jesus Shares the Last Supper',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Passover prepared — Jesus sits with the twelve — one of you shall betray me'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'They were exceeding sorrowful — Lord, is it I? — Jesus teaches of the betrayer'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Take, eat; this is my body — the cup — my blood of the new testament — I will drink it new in my Father\'s kingdom'
-        }
+            panels: [
+        { src: '/coloring-pages/jesus-washes-feet.jpg', alt: 'Passover prepared — Jesus sits with the twelve — one of you shall betray me' }
       ],
       caption: 'Swipe slowly — Jesus shares bread and cup; His love is for you.',
       videoId: '',
@@ -2460,19 +2188,8 @@
     },
     jesusGardenGethsemane: {
       title: 'Jesus Prays in the Garden',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Gethsemane — Jesus asks Peter, James, and John to watch — My soul is exceeding sorrowful'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus falls on His face — O my Father… nevertheless not as I will, but as thou wilt'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Watch and pray — the spirit indeed is willing — He prayed a third time — Thy will be done'
-        }
+            panels: [
+        { src: '/coloring-pages/garden-gethsemane.jpg', alt: 'Gethsemane — Jesus asks Peter, James, and John to watch — My soul is exceeding sorrowful' }
       ],
       caption: 'Swipe slowly — Jesus prays honest tears to His Father, and chooses God\'s will.',
       videoId: '',
@@ -2505,19 +2222,8 @@
     },
     jesusArrest: {
       title: 'Jesus Is Arrested in the Garden',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Judas leads a multitude with swords and staves — the kiss — Friend, wherefore art thou come? — they lay hands on Jesus'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'A sword is drawn — an ear smitten — Put up again thy sword — twelve legions of angels — the scriptures must be fulfilled'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Jesus speaks calmly to the multitudes — scriptures of the prophets fulfilled — all the disciples forsook him, and fled'
-        }
+            panels: [
+        { src: '/coloring-pages/jesus-arrest.jpg', alt: 'Judas leads a multitude with swords and staves — the kiss — Friend, wherefore art thou come? — they lay hands on Jesus' }
       ],
       caption: 'Swipe slowly — Jesus stays calm and strong; He obeys His Father\'s plan.',
       videoId: '',
@@ -2553,19 +2259,8 @@
     },
     trialBeforeCaiaphas: {
       title: 'Jesus Before Caiaphas',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Led to Caiaphas — scribes and elders — false witnesses sought — Peter afar off at the palace'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus held his peace — I adjure thee by the living God — Art thou the Christ, the Son of God?'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Thou hast said — Son of man at the right hand of power — clouds of heaven — He told the truth'
-        }
+            panels: [
+        { src: '/coloring-pages/jesus-caiaphas.jpg', alt: 'Led to Caiaphas — scribes and elders — false witnesses sought — Peter afar off at the palace' }
       ],
       caption: 'Swipe slowly — Jesus speaks the truth with quiet strength; He is the Son of God.',
       videoId: '',
@@ -2599,19 +2294,8 @@
     },
     peterDenial: {
       title: 'Peter Denies Jesus',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Peter without in the palace — a damsel — Thou also wast with Jesus of Galilee — I know not what thou sayest'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'The porch — another maid — Jesus of Nazareth — denied with an oath — I do not know the man'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Thy speech bewrayeth thee — the cock crew — Peter remembered — wept bitterly'
-        }
+            panels: [
+        { src: '/coloring-pages/peter-denial.jpg', alt: 'Peter without in the palace — a damsel — Thou also wast with Jesus of Galilee — I know not what thou sayest' }
       ],
       caption: 'Swipe slowly — Peter felt sorry; Jesus still loved him and forgave him completely.',
       videoId: '',
@@ -2645,19 +2329,8 @@
     },
     jesusCrucifixion: {
       title: 'Jesus on the Cross',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Golgotha — gall and vinegar — crucified — garments parted — THIS IS JESUS THE KING OF THE JEWS'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Two thieves — passersby and rulers revile — darkness from the sixth to the ninth hour — Eli, Eli, lama sabachthani'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Veil of the temple rent — earthquake — centurion: Truly this was the Son of God — women beholding afar off'
-        }
+            panels: [
+        { src: '/coloring-pages/crucifixion.jpg', alt: 'Golgotha — gall and vinegar — crucified — garments parted — THIS IS JESUS THE KING OF THE JEWS' }
       ],
       caption: 'Swipe slowly — Jesus gave His life because He loves us.',
       videoId: '',
@@ -2695,19 +2368,8 @@
     },
     jesusResurrection: {
       title: 'Jesus Is Risen',
-      panels: [
-        {
-          src: 'panel-jesus-resurrection-1.svg',
-          alt: 'Early Sunday — the stone rolled away from the tomb; Mary Magdalene and the other Mary draw near'
-        },
-        {
-          src: 'panel-jesus-resurrection-2.svg',
-          alt: 'The angel — Fear not — He is not here: for he is risen, as he said — Come, see where the Lord lay'
-        },
-        {
-          src: 'panel-jesus-resurrection-3.svg',
-          alt: 'Jesus meets His friends with joy — worship at His feet — later, All power… Go ye therefore… I am with you alway'
-        }
+            panels: [
+        { src: '/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg', alt: 'Early Sunday — the stone rolled away from the tomb; Mary Magdalene and the other Mary draw near' }
       ],
       caption: 'Swipe slowly — Jesus is risen; He meets His friends with love and sends His disciples with peace.',
       videoId: '',
@@ -2742,10 +2404,8 @@
     },
     jesusAscension: {
       title: 'Jesus Ascends',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus blesses the disciples forty days after rising' },
-        { src: 'panel-jesus-2.svg', alt: 'He is taken up — a cloud receives Him' },
-        { src: 'panel-jesus-3.svg', alt: 'He will come again in like manner' }
+            panels: [
+        { src: '/coloring-pages/ascension.jpg', alt: 'Jesus blesses the disciples forty days after rising' }
       ],
       caption: 'Swipe to see Jesus go up — He will return! ☁️',
       videoId: '',
@@ -2756,10 +2416,8 @@
     },
     pentecost: {
       title: 'Pentecost',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Disciples waiting in Jerusalem' },
-        { src: 'panel-jesus-2.svg', alt: 'Holy Spirit comes—wind and fire!' },
-        { src: 'panel-jesus-3.svg', alt: 'They speak in tongues—power for us!' }
+            panels: [
+        { src: '/coloring-pages/pentecost.jpg', alt: 'Disciples waiting in Jerusalem' }
       ],
       caption: 'Swipe to see the Holy Spirit come—power for us! 🔥',
       videoId: '0kWV5-JQ9Yg',
@@ -2770,10 +2428,8 @@
     },
     stephen: {
       title: 'Stephen',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Stephen preaches about Jesus' },
-        { src: 'panel-david-2.svg', alt: 'People throw stones' },
-        { src: 'panel-david-3.svg', alt: 'Stephen forgives—be like him!' }
+            panels: [
+        { src: '/coloring-pages/stephen.jpg', alt: 'Stephen preaches about Jesus' }
       ],
       caption: 'Swipe to see Stephen forgive—be like him! 💎',
       videoId: 'J9wp38EfRqA',
@@ -2784,10 +2440,8 @@
     },
     paulDamascus: {
       title: 'Paul & Damascus',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Saul on the road' },
-        { src: 'panel-jesus-2.svg', alt: 'Bright light—Jesus speaks!' },
-        { src: 'panel-jesus-3.svg', alt: 'Saul becomes Paul—Jesus changes us!' }
+            panels: [
+        { src: '/coloring-pages/paul-damascus.jpg', alt: 'Saul on the road' }
       ],
       caption: 'Swipe to see Jesus change Paul—He changes us! ✨',
       videoId: 'oi95cv0tk9Q',
@@ -2798,10 +2452,8 @@
     },
     heavenPromise: {
       title: 'Heaven Promise',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'New heaven and new earth' },
-        { src: 'panel-noah-2.svg', alt: 'God wipes away every tear' },
-        { src: 'panel-noah-3.svg', alt: 'No more sad—God\'s new home!' }
+            panels: [
+        { src: '/coloring-pages/heaven-promise.jpg', alt: 'New heaven and new earth' }
       ],
       caption: 'Swipe to see God\'s new home—no more sad! 🏠',
       videoId: 'ZWyITw1yuoA',
@@ -2812,10 +2464,8 @@
     },
     ruthBoaz: {
       title: 'Ruth and Boaz in the Field',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Harvest in Bethlehem — Ruth asks to glean in the field' },
-        { src: 'panel-david-2.svg', alt: 'Boaz speaks kindly — abide here, drink when athirst' },
-        { src: 'panel-david-3.svg', alt: 'The Lord recompense thy work — Ruth gathers barley till evening' }
+            panels: [
+        { src: '/coloring-pages/ruth-boaz.jpg', alt: 'Harvest in Bethlehem — Ruth asks to glean in the field' }
       ],
       caption: 'Swipe to see God\'s quiet kindness in the harvest field.',
       videoId: 'irThVpdeSXk',
@@ -2848,10 +2498,8 @@
     },
     ruthThreshing: {
       title: 'Ruth at the Threshing Floor',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Naomi\'s loving plan — rest for Ruth' },
-        { src: 'panel-david-2.svg', alt: 'A quiet night — Ruth at Boaz\'s feet' },
-        { src: 'panel-david-3.svg', alt: 'Kind words — fear not, I will do all thou requirest' }
+            panels: [
+        { src: '/coloring-pages/boaz-redeemer.jpg', alt: 'Naomi\'s loving plan — rest for Ruth' }
       ],
       caption: 'Swipe to see brave obedience and Boaz\'s gentle promise.',
       videoId: 'irThVpdeSXk',
@@ -2887,10 +2535,8 @@
     },
     ruthRedemption: {
       title: 'Ruth\'s Redemption (The Happy Ending)',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'At the city gate — Boaz, the nearer kinsman, and witnesses' },
-        { src: 'panel-david-2.svg', alt: 'Ye are witnesses — Boaz redeems Naomi\'s line and takes Ruth as his wife' },
-        { src: 'panel-david-3.svg', alt: 'Naomi holds baby Obed — joy where sorrow had been' }
+            panels: [
+        { src: '/coloring-pages/boaz-redeemer.jpg', alt: 'At the city gate — Boaz, the nearer kinsman, and witnesses' }
       ],
       caption: 'Swipe to see God\'s faithful happy ending at the gate.',
       videoId: 'irThVpdeSXk',
@@ -2932,10 +2578,8 @@
     },
     hannahPrayer: {
       title: 'Hannah\'s Prayer',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Year after year — Hannah\'s sad heart at the house of the Lord' },
-        { src: 'panel-noah-2.svg', alt: 'She prays with moving lips — Eli watches by the temple door' },
-        { src: 'panel-noah-3.svg', alt: 'Go in peace — the Lord remembers; a son named Samuel' }
+            panels: [
+        { src: '/coloring-pages/hannah-samuel.jpg', alt: 'Year after year — Hannah\'s sad heart at the house of the Lord' }
       ],
       caption: 'Swipe to see God hear a poured-out heart and remember.',
       videoId: '',
@@ -2975,19 +2619,8 @@
     },
     parableTalents: {
       title: 'Jesus Tells About Using What God Gives Us',
-      panels: [
-        {
-          src: 'panel-noah-1.svg',
-          alt: 'A master gives five, two, and one talents to his servants before a long journey'
-        },
-        {
-          src: 'panel-noah-2.svg',
-          alt: 'Two faithful servants trade and gain more — the third hid his talent in the ground'
-        },
-        {
-          src: 'panel-noah-3.svg',
-          alt: 'Well done, thou good and faithful servant — enter into the joy of thy lord'
-        }
+            panels: [
+        { src: '/coloring-pages/the-talents.jpg', alt: 'A master gives five, two, and one talents to his servants before a long journey' }
       ],
       caption: 'Swipe to see faithful servants use what the Master gave — “Well done!” 💰',
       videoId: '4M7BHiN5Ro0',
@@ -3015,10 +2648,8 @@
     },
     armorOfGod: {
       title: 'Armor of God',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Belt of truth, breastplate' },
-        { src: 'panel-david-2.svg', alt: 'Helmet, shield, sword' },
-        { src: 'panel-david-3.svg', alt: 'Put on God\'s armor—you\'re strong!' }
+            panels: [
+        { src: '/coloring-pages/armor-of-god.jpg', alt: 'Belt of truth, breastplate' }
       ],
       caption: 'Swipe to see God\'s armor—you\'re strong! ⚔️',
       videoId: 'pFNzSpXhI_c',
@@ -3030,10 +2661,11 @@
     /* ── Week 1 (13–24) ── */
     mosesSea: {
       title: 'Moses Parts the Sea',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: "Israelites trapped by the Red Sea – Pharaoh's army chasing" },
-        { src: 'panel-noah-2.svg', alt: "Moses stretching his hand over the sea – God parts the waters" },
-        { src: 'panel-noah-3.svg', alt: "People walking on dry ground between walls of water – God makes a way" }
+            panels: [
+        { src: '/coloring-pages/moses-red-sea-s1.jpg', alt: 'Israelites trapped by the Red Sea – Pharaoh\'s army chasing' },
+        { src: '/coloring-pages/moses-red-sea-s2.jpg', alt: 'Moses stretching his hand over the sea – God parts the waters' },
+        { src: '/coloring-pages/moses-red-sea-s3.jpg', alt: 'People walking on dry ground between walls of water – God makes a way' },
+        { src: '/coloring-pages/moses-red-sea-s4.jpg', alt: 'People walking on dry ground between walls of water – God makes a way' }
       ],
       caption: 'Swipe to see God split the sea—He makes a way! 🌊',
       videoId: 'GYZh5eY6FGg',
@@ -3045,10 +2677,8 @@
     },
     burningBush: {
       title: 'The Burning Bush',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: "Moses seeing the burning bush – Fire but no ashes" },
-        { src: 'panel-noah-2.svg', alt: "God speaking from the bush – Calling Moses by name" },
-        { src: 'panel-noah-3.svg', alt: "Moses taking off his shoes – Holy ground with God" }
+            panels: [
+        { src: '/coloring-pages/burning-bush.jpg', alt: 'Moses seeing the burning bush – Fire but no ashes' }
       ],
       caption: 'Swipe to see God call Moses from the burning bush! 🔥',
       videoId: 'bWcwZIV-ip8',
@@ -3060,10 +2690,8 @@
     },
     tenPlagues: {
       title: 'Ten Plagues of Egypt',
-      panels: [
-        { src: 'panel-david-1.svg', alt: "Moses and Aaron before Pharaoh – Asking to let people go" },
-        { src: 'panel-david-2.svg', alt: "Plagues coming on Egypt – God shows His power" },
-        { src: 'panel-david-3.svg', alt: "Passover door with blood – God protects His people" }
+            panels: [
+        { src: '/coloring-pages/ten-plagues.jpg', alt: 'Moses and Aaron before Pharaoh – Asking to let people go' }
       ],
       caption: 'Swipe to see God\'s power over Egypt—nothing stops Him! 🐸',
       videoId: '',
@@ -3075,10 +2703,8 @@
     },
     manna: {
       title: 'Manna from Heaven',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: "Israelites hungry in the desert – Complaining to Moses" },
-        { src: 'panel-noah-2.svg', alt: "Manna falling from heaven – God sends bread" },
-        { src: 'panel-noah-3.svg', alt: "People gathering manna each morning – God provides daily" }
+            panels: [
+        { src: '/coloring-pages/manna.jpg', alt: 'Israelites hungry in the desert – Complaining to Moses' }
       ],
       caption: 'Swipe to see God feed His people with bread from heaven! 🍞',
       videoId: 'Ln5Aa8jiEAM',
@@ -3090,10 +2716,8 @@
     },
     tenCommandments: {
       title: 'Ten Commandments',
-      panels: [
-        { src: 'panel-david-1.svg', alt: "Moses on Mount Sinai – God speaks to him" },
-        { src: 'panel-david-2.svg', alt: "God writing the Ten Commandments on stone tablets" },
-        { src: 'panel-david-3.svg', alt: "Moses bringing the tablets down – God's good rules for His people" }
+            panels: [
+        { src: '/coloring-pages/ten-commandments.jpg', alt: 'Moses on Mount Sinai – God speaks to him' }
       ],
       caption: 'Swipe to see God give rules to keep us safe! 📜',
       videoId: 'P12cLzy1-3Q',
@@ -3105,10 +2729,8 @@
     },
     elijahFire: {
       title: 'God Answers by Fire',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'If the Lord be God, follow him — the God that answereth by fire' },
-        { src: 'panel-david-2.svg', alt: 'The prophets of Baal call all day — no fire came' },
-        { src: 'panel-david-3.svg', alt: 'Elijah prays — fire from heaven; The LORD, he is the God' }
+            panels: [
+        { src: '/coloring-pages/elijah-carmel.jpg', alt: 'If the Lord be God, follow him — the God that answereth by fire' }
       ],
       caption: 'Swipe for Mount Carmel — God answered Elijah’s prayer; the LORD, he is the God.',
       videoId: 'dKcQHonmOi8',
@@ -3144,10 +2766,8 @@
     },
     elijahHoreb: {
       title: 'God Speaks in a Still Small Voice',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah at Horeb — sad, and the LORD asks, What doest thou here?' },
-        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire passed — the LORD was not in them' },
-        { src: 'panel-noah-3.svg', alt: 'A still small voice — Elijah wraps his face; the LORD speaks gently' }
+            panels: [
+        { src: '/coloring-pages/elijah-horeb.jpg', alt: 'Elijah at Horeb — sad, and the LORD asks, What doest thou here?' }
       ],
       caption: 'Swipe for Horeb — after the loud came a still small voice.',
       videoId: '',
@@ -3182,10 +2802,8 @@
     },
     naamanDip: {
       title: 'Naaman Returns with Thanks',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Naaman stands before Elisha — thankful, with company' },
-        { src: 'panel-jesus-2.svg', alt: 'Elisha will take no payment — God gave the healing freely' },
-        { src: 'panel-jesus-3.svg', alt: 'Go in peace — Naaman turns toward home with a glad heart' }
+            panels: [
+        { src: '/coloring-pages/naaman.jpg', alt: 'Naaman stands before Elisha — thankful, with company' }
       ],
       caption: 'Swipe for thanks after the river — God’s healing was not for sale.',
       videoId: '8Y1Sh5bZAiM',
@@ -3220,10 +2838,8 @@
     },
     creationLight: {
       title: '"Let There Be Light"',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: "Dark empty earth – Before God spoke" },
-        { src: 'panel-noah-2.svg', alt: "God saying 'Let there be light' – Creation begins" },
-        { src: 'panel-noah-3.svg', alt: "Light and darkness separated – First day complete" }
+            panels: [
+        { src: '/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg', alt: 'Dark empty earth – Before God spoke' }
       ],
       caption: 'Swipe to see God speak light into darkness! ☀️',
       videoId: 'teu7BCZTgDs',
@@ -3235,10 +2851,8 @@
     },
     adamEve: {
       title: 'Adam and Eve',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: "God making Adam from dust – Breathing life into him" },
-        { src: 'panel-jesus-2.svg', alt: "Adam and Eve in the beautiful Garden of Eden" },
-        { src: 'panel-jesus-3.svg', alt: "God walking with Adam and Eve – Perfect friendship" }
+            panels: [
+        { src: '/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg', alt: 'God making Adam from dust – Breathing life into him' }
       ],
       caption: 'Swipe to see the first family in God\'s garden! 🌳',
       videoId: 'l7TDvJrjjz0',
@@ -3250,10 +2864,8 @@
     },
     towerBabel: {
       title: 'Tower of Babel',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: "People building the tall tower – Trying to reach heaven" },
-        { src: 'panel-noah-2.svg', alt: "God confusing their languages – People can't understand" },
-        { src: 'panel-noah-3.svg', alt: "People scattering across the earth – God scatters pride" }
+            panels: [
+        { src: '/coloring-pages/tower-babel.jpg', alt: 'People building the tall tower – Trying to reach heaven' }
       ],
       caption: 'Swipe to see what happens when people forget God! 🏗️',
       videoId: '4EQh7C-IUcM',
@@ -3266,10 +2878,8 @@
     /* ── Week 2 (25–36) ── */
     abrahamIsaac: {
       title: 'Abraham and Isaac',
-      panels: [
-        { src: 'panel-david-1.svg', alt: "Abraham and Isaac walking up the mountain – Trusting God" },
-        { src: 'panel-david-2.svg', alt: "Isaac on the altar – Abraham ready to obey" },
-        { src: 'panel-david-3.svg', alt: "Ram in the bush – God provides a sacrifice" }
+            panels: [
+        { src: '/coloring-pages/abraham-isaac.jpg', alt: 'Abraham and Isaac walking up the mountain – Trusting God' }
       ],
       caption: 'Swipe to see Abraham trust God—He always provides! 🐏',
       videoId: '8QTk848O-yQ',
@@ -3281,10 +2891,8 @@
     },
     sarahLaughs: {
       title: 'Sarah Laughs',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'An angel visits Abraham\'s tent' },
-        { src: 'panel-noah-2.svg', alt: 'Sarah hears she will have a baby' },
-        { src: 'panel-noah-3.svg', alt: 'Sarah laughs—then holds baby Isaac!' }
+            panels: [
+        { src: '/coloring-pages/sarah-laughs.jpg', alt: 'An angel visits Abraham\'s tent' }
       ],
       caption: 'Swipe to see God do the impossible for Sarah! 😂',
       videoId: '',
@@ -3295,10 +2903,8 @@
     },
     jacobLadder: {
       title: 'Jacob\'s Ladder',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: "Jacob sleeping with a stone pillow – Running away" },
-        { src: 'panel-noah-2.svg', alt: "Ladder from earth to heaven with angels – God's promise" },
-        { src: 'panel-noah-3.svg', alt: "Jacob setting up the stone pillar – God is here" }
+            panels: [
+        { src: '/coloring-pages/jacob-ladder.jpg', alt: 'Jacob sleeping with a stone pillow – Running away' }
       ],
       caption: 'Swipe to see Jacob\'s dream of heaven! 🪜',
       videoId: '',
@@ -3310,10 +2916,8 @@
     },
     josephDreams: {
       title: 'Joseph Interprets Dreams',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Joseph in prison — cupbearer and baker need help' },
-        { src: 'panel-noah-2.svg', alt: 'Joseph explains the vine and the baskets — God shows the meaning' },
-        { src: 'panel-david-3.svg', alt: 'God is still with Joseph — faithful in the hard place' }
+            panels: [
+        { src: '/coloring-pages/joseph-dreams.jpg', alt: 'Joseph in prison — cupbearer and baker need help' }
       ],
       caption: 'Swipe to see God help Joseph understand dreams in prison! 🍇',
       videoId: '',
@@ -3324,10 +2928,8 @@
     },
     josephPrison: {
       title: 'Joseph in Prison',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Joseph is put in prison' },
-        { src: 'panel-noah-2.svg', alt: 'The cupbearer has a dream—Joseph explains' },
-        { src: 'panel-noah-3.svg', alt: 'God is with Joseph even in prison' }
+            panels: [
+        { src: '/coloring-pages/joseph-coat.jpg', alt: 'Joseph is put in prison' }
       ],
       caption: 'Swipe to see God with Joseph in the hard place! 🪣',
       videoId: '',
@@ -3338,10 +2940,8 @@
     },
     pharaohDreams: {
       title: 'Pharaoh\'s Dreams',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Pharaoh dreams of fat and thin cows' },
-        { src: 'panel-david-2.svg', alt: 'Joseph explains: 7 good years, 7 hard years' },
-        { src: 'panel-david-3.svg', alt: 'Joseph is put in charge—God\'s plan works!' }
+            panels: [
+        { src: '/coloring-pages/pharaoh-dreams.jpg', alt: 'Pharaoh dreams of fat and thin cows' }
       ],
       caption: 'Swipe to see God use Joseph to save everyone! 🐄',
       videoId: '',
@@ -3352,10 +2952,8 @@
     },
     josephRuler: {
       title: 'Joseph Ruler in Egypt',
-      panels: [
-        { src: 'panel-david-3.svg', alt: 'Joseph dressed in linen — second in command under Pharaoh' },
-        { src: 'panel-david-2.svg', alt: 'Grain stored in Egypt during the seven full years' },
-        { src: 'panel-david-1.svg', alt: 'God gave Joseph wisdom to feed many people' }
+            panels: [
+        { src: '/coloring-pages/joseph-dreams.jpg', alt: 'Joseph dressed in linen — second in command under Pharaoh' }
       ],
       caption: 'Swipe to see God lift Joseph up to save lives! 🌾',
       videoId: '',
@@ -3366,10 +2964,11 @@
     },
     mosesBaby: {
       title: 'Baby Moses in the Basket',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: "Moses' mom making the basket – Protecting her baby" },
-        { src: 'panel-noah-2.svg', alt: "Basket floating on the river – God keeps Moses safe" },
-        { src: 'panel-noah-3.svg', alt: "Pharaoh's daughter finding Moses – God has a plan" }
+            panels: [
+        { src: '/coloring-pages/baby-moses-s1.jpg', alt: 'Moses\' mom making the basket – Protecting her baby' },
+        { src: '/coloring-pages/baby-moses-s2.jpg', alt: 'Basket floating on the river – God keeps Moses safe' },
+        { src: '/coloring-pages/baby-moses-s3.jpg', alt: 'Pharaoh\'s daughter finding Moses – God has a plan' },
+        { src: '/coloring-pages/baby-moses-s4.jpg', alt: 'Pharaoh\'s daughter finding Moses – God has a plan' }
       ],
       caption: 'Swipe to see God protect baby Moses! 🌿',
       videoId: '',
@@ -3381,10 +2980,8 @@
     },
     mosesStaffSnake: {
       title: 'Moses\' Staff Becomes a Snake',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Moses throws his staff down' },
-        { src: 'panel-david-2.svg', alt: 'It becomes a snake!' },
-        { src: 'panel-david-3.svg', alt: 'God shows His power through Moses' }
+            panels: [
+        { src: '/coloring-pages/moses-staff-snake.jpg', alt: 'Moses throws his staff down' }
       ],
       caption: 'Swipe to see God\'s power through Moses\' staff! 🐍',
       videoId: '',
@@ -3395,10 +2992,8 @@
     },
     passoverLamb: {
       title: 'The Passover Lamb',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A lamb is chosen—spotless and perfect' },
-        { src: 'panel-noah-2.svg', alt: 'Blood painted on the doorposts' },
-        { src: 'panel-noah-3.svg', alt: 'The angel passes over—God saves His people' }
+            panels: [
+        { src: '/coloring-pages/passover-lamb.jpg', alt: 'A lamb is chosen—spotless and perfect' }
       ],
       caption: 'Swipe to see God\'s rescue—the Passover lamb! 🐑',
       videoId: '',
@@ -3410,10 +3005,11 @@
     },
     redSeaCrossing: {
       title: 'Red Sea Crossing',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Egypt\'s army chases Israel' },
-        { src: 'panel-noah-2.svg', alt: 'God tangles the chariot wheels' },
-        { src: 'panel-noah-3.svg', alt: 'Israel is safe—Egypt is stopped!' }
+            panels: [
+        { src: '/coloring-pages/moses-red-sea-s1.jpg', alt: 'Egypt\'s army chases Israel' },
+        { src: '/coloring-pages/moses-red-sea-s2.jpg', alt: 'God tangles the chariot wheels' },
+        { src: '/coloring-pages/moses-red-sea-s3.jpg', alt: 'Israel is safe—Egypt is stopped!' },
+        { src: '/coloring-pages/moses-red-sea-s4.jpg', alt: 'Israel is safe—Egypt is stopped!' }
       ],
       caption: 'Swipe to see God stop the enemy at the sea! 🌊',
       videoId: '',
@@ -3425,10 +3021,8 @@
     /* ── Week 3 (37–48) ── */
     joshuaJordan: {
       title: 'Joshua at the Jordan',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'God\'s people at the Jordan — time to enter the land He promised' },
-        { src: 'panel-noah-2.svg', alt: 'Priests bear the ark into the water — the river stops; a heap of water stands' },
-        { src: 'panel-noah-3.svg', alt: 'Twelve stones — tell the children what the Lord did' }
+            panels: [
+        { src: '/coloring-pages/jordan-crossing.jpg', alt: 'God\'s people at the Jordan — time to enter the land He promised' }
       ],
       caption: 'Swipe to see God stop the Jordan River—He always leads! 🏞️',
       videoId: '',
@@ -3449,10 +3043,8 @@
     },
     jordanCrossing: {
       title: 'Crossing the Jordan',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The camp at the Jordan — the Lord will open the way' },
-        { src: 'panel-noah-2.svg', alt: 'Feet of the priests touch the flood — the waters stand in a heap' },
-        { src: 'panel-noah-3.svg', alt: 'Dry ground and twelve stones — so we never forget His mighty hand' }
+            panels: [
+        { src: '/coloring-pages/jordan-crossing.jpg', alt: 'The camp at the Jordan — the Lord will open the way' }
       ],
       caption: 'Swipe to see God dry up the river — step forward! 🏞️',
       videoId: '',
@@ -3473,10 +3065,8 @@
     },
     jerichoWalls: {
       title: 'Walls of Jericho Fall',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Jericho — strong walls; the Lord\'s plan for Joshua' },
-        { src: 'panel-david-2.svg', alt: 'Seven days of obedience — trumpets and the great shout' },
-        { src: 'panel-david-3.svg', alt: 'The wall falls flat — the Lord gave the city' }
+            panels: [
+        { src: '/coloring-pages/jericho.jpg', alt: 'Jericho — strong walls; the Lord\'s plan for Joshua' }
       ],
       caption: 'Swipe to see God tumble those walls—He wins every battle! 🎺',
       videoId: '',
@@ -3494,10 +3084,8 @@
     },
     joshuaAi: {
       title: 'Joshua and Ai',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'After Jericho — Israel goes up against little Ai' },
-        { src: 'panel-david-2.svg', alt: 'The first attack fails — Joshua falls on his face before God' },
-        { src: 'panel-david-3.svg', alt: 'The Lord says there is sin in the camp — truth must come out' }
+            panels: [
+        { src: '/coloring-pages/joshua-ai.jpg', alt: 'After Jericho — Israel goes up against little Ai' }
       ],
       caption: 'Swipe to see why the first try at Ai failed — God is holy and true. 🏙️',
       videoId: '',
@@ -3515,10 +3103,8 @@
     },
     achan: {
       title: 'Achan\'s Sin and Restoration',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Joshua gathers Israel — tribe by tribe, family by family' },
-        { src: 'panel-david-2.svg', alt: 'Achan kneels and tells the truth — I have sinned against the Lord' },
-        { src: 'panel-david-3.svg', alt: 'The camp is clean again — God can lead His people forward' }
+            panels: [
+        { src: '/coloring-pages/joshua-ai.jpg', alt: 'Joshua gathers Israel — tribe by tribe, family by family' }
       ],
       caption: 'Swipe to see the Lord\'s mercy when we tell the truth. 🙏',
       videoId: '',
@@ -3538,10 +3124,8 @@
     },
     battleOfAi: {
       title: 'Victory at Ai',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'The Lord tells Joshua — Fear not; I have given Ai into thy hand' },
-        { src: 'panel-david-2.svg', alt: 'Men hide in ambush; the army draws the men of Ai out' },
-        { src: 'panel-david-3.svg', alt: 'Joshua stretches out his spear — the Lord gives victory' }
+            panels: [
+        { src: '/coloring-pages/joshua-ai.jpg', alt: 'The Lord tells Joshua — Fear not; I have given Ai into thy hand' }
       ],
       caption: 'Swipe to see God give victory when His people obey! ⚔️',
       videoId: '',
@@ -3561,10 +3145,8 @@
     },
     sunStandsStill: {
       title: 'The Sun Stands Still',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Kings gather against God\'s people — Joshua leads Israel forward' },
-        { src: 'panel-david-2.svg', alt: 'Joshua prays aloud — Sun, stand still; Moon, stay in the valley' },
-        { src: 'panel-david-3.svg', alt: 'Sun and moon hold their places — the Lord fights for Israel' }
+            panels: [
+        { src: '/coloring-pages/sun-stands-still.jpg', alt: 'Kings gather against God\'s people — Joshua leads Israel forward' }
       ],
       caption: 'Swipe to see God hear Joshua — even day and night obey Him! ☀️🌙',
       videoId: '',
@@ -3584,10 +3166,8 @@
     },
     joshuaCharge: {
       title: 'Joshua\'s Charge to the People',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Joshua, old and faithful, speaks God\'s Word to all Israel' },
-        { src: 'panel-david-2.svg', alt: 'Families listen — a quiet moment to choose whom they will serve' },
-        { src: 'panel-david-3.svg', alt: 'Joshua\'s brave words: as for me and my house, we will serve the Lord' }
+            panels: [
+        { src: '/coloring-pages/joshua-charge.jpg', alt: 'Joshua, old and faithful, speaks God\'s Word to all Israel' }
       ],
       caption: 'Swipe to hear Joshua\'s gentle, strong invitation — choose the Lord! 🏠',
       videoId: '',
@@ -3607,10 +3187,8 @@
     },
     gideonFleece: {
       title: 'Gideon\'s Fleece',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The angel finds Gideon threshing wheat — The Lord is with thee, mighty man of valour' },
-        { src: 'panel-noah-2.svg', alt: 'Gideon lays the fleece — dew on the wool only, then the ground wet all around' },
-        { src: 'panel-noah-3.svg', alt: 'God answered twice — Gideon rises to obey' }
+            panels: [
+        { src: '/coloring-pages/gideon-fleece.jpg', alt: 'The angel finds Gideon threshing wheat — The Lord is with thee, mighty man of valour' }
       ],
       caption: 'Swipe to see God meet Gideon gently — and answer his fleece prayer! 🐑',
       videoId: '',
@@ -3630,10 +3208,8 @@
     },
     gideonMidianites: {
       title: 'Gideon\'s Three Hundred',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'The fearful go home — then the water test leaves only three hundred' },
-        { src: 'panel-david-2.svg', alt: 'Three hundred with trumpets, pitchers, and torches in the dark' },
-        { src: 'panel-david-3.svg', alt: 'They blow, break the pitchers, hold up the lights — the Lord wins the night' }
+            panels: [
+        { src: '/coloring-pages/gideon-fleece.jpg', alt: 'The fearful go home — then the water test leaves only three hundred' }
       ],
       caption: 'Swipe to see God win with only three hundred who obeyed! 🎺',
       videoId: '',
@@ -3653,10 +3229,8 @@
     },
     deborahBarak: {
       title: 'Deborah and Barak',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Deborah under the palm tree — the Lord\'s word for the people' },
-        { src: 'panel-noah-2.svg', alt: 'Deborah tells Barak the Lord\'s command — he asks her to go with him' },
-        { src: 'panel-noah-3.svg', alt: 'The Lord delivers Israel — rest after listening to God\'s voice' }
+            panels: [
+        { src: '/coloring-pages/deborah-barak.jpg', alt: 'Deborah under the palm tree — the Lord\'s word for the people' }
       ],
       caption: 'Swipe to see God speak through Deborah — and give His people victory! 🌴',
       videoId: '',
@@ -3676,10 +3250,8 @@
     },
     samsonBirth: {
       title: 'Samson\'s Birth and Call',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The angel of the Lord speaks to Manoah\'s wife — a son, a Nazarite unto God' },
-        { src: 'panel-noah-2.svg', alt: 'Manoah\'s offering — the angel ascends in the flame of the altar' },
-        { src: 'panel-noah-3.svg', alt: 'Samson is born — the child grew, and the Lord blessed him' }
+            panels: [
+        { src: '/coloring-pages/samson.jpg', alt: 'The angel of the Lord speaks to Manoah\'s wife — a son, a Nazarite unto God' }
       ],
       caption: 'Swipe to see God promise a deliverer — before Samson ever took his first step! 👶',
       videoId: '',
@@ -3699,10 +3271,8 @@
     },
     samsonLion: {
       title: 'Samson and the Lion',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A young lion roars — the Spirit of the Lord comes mightily upon Samson' },
-        { src: 'panel-noah-2.svg', alt: 'Later, bees and honey in the lion — a sweet surprise from God' },
-        { src: 'panel-noah-3.svg', alt: 'Samson shares honey with his father and mother' }
+            panels: [
+        { src: '/coloring-pages/samson.jpg', alt: 'A young lion roars — the Spirit of the Lord comes mightily upon Samson' }
       ],
       caption: 'Swipe to see God give strength — and sweetness after something fierce! 🍯',
       videoId: '',
@@ -3731,10 +3301,8 @@
     },
     samsonDelilah: {
       title: 'Samson and Delilah',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Delilah asks — wherein lieth thy great strength?' },
-        { src: 'panel-noah-2.svg', alt: 'Samson tells his heart — no razor; a Nazarite unto God' },
-        { src: 'panel-noah-3.svg', alt: 'His strength went from him — yet the Lord had not left him forever' }
+            panels: [
+        { src: '/coloring-pages/samson.jpg', alt: 'Delilah asks — wherein lieth thy great strength?' }
       ],
       caption: 'Swipe to see why God\'s gifts need wise, honest care — and mercy that lasts.',
       videoId: '',
@@ -3764,10 +3332,11 @@
     },
     ruthNaomi: {
       title: 'Ruth and Naomi',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A famine in Bethlehem — Naomi\'s family sojourns in Moab' },
-        { src: 'panel-noah-2.svg', alt: 'Ruth\'s promise — thy people shall be my people, and thy God my God' },
-        { src: 'panel-noah-3.svg', alt: 'Two women walking together toward Bethlehem — the Lord with them' }
+            panels: [
+        { src: '/coloring-pages/ruth-naomi-s1.jpg', alt: 'A famine in Bethlehem — Naomi\'s family sojourns in Moab' },
+        { src: '/coloring-pages/ruth-naomi-s2.jpg', alt: 'Ruth\'s promise — thy people shall be my people, and thy God my God' },
+        { src: '/coloring-pages/ruth-naomi-s3.jpg', alt: 'Two women walking together toward Bethlehem — the Lord with them' },
+        { src: '/coloring-pages/ruth-naomi-s4.jpg', alt: 'Two women walking together toward Bethlehem — the Lord with them' }
       ],
       caption: 'Swipe to see loyal love — whither thou goest, I will go.',
       videoId: '',
@@ -3799,10 +3368,8 @@
     },
     rahab: {
       title: 'Rahab and the Scarlet Cord',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Two quiet spies — Rahab welcomes them into her home' },
-        { src: 'panel-noah-2.svg', alt: 'Flax on the roof — a gentle hiding place' },
-        { src: 'panel-noah-3.svg', alt: 'Scarlet cord in the window — God\'s promise to keep her safe' }
+            panels: [
+        { src: '/coloring-pages/rahab-spies.jpg', alt: 'Two quiet spies — Rahab welcomes them into her home' }
       ],
       caption: 'Swipe to see Rahab trust the Lord — and the cord that meant rescue! 🔴',
       videoId: '',
@@ -3823,10 +3390,8 @@
     },
     rahabRope: {
       title: 'Rahab\'s Scarlet Cord',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Rahab welcomes the spies — a brave, kind choice' },
-        { src: 'panel-noah-2.svg', alt: 'She ties the scarlet cord in the window' },
-        { src: 'panel-noah-3.svg', alt: 'God keeps His word — Rahab and her family are safe' }
+            panels: [
+        { src: '/coloring-pages/rahab-spies.jpg', alt: 'Rahab welcomes the spies — a brave, kind choice' }
       ],
       caption: 'Swipe to see how faith in God saves! 🔴',
       videoId: '',
@@ -3844,10 +3409,8 @@
     },
     rahabJericho: {
       title: 'Rahab at Jericho',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Rahab hides the two spies beneath flax on the roof' },
-        { src: 'panel-noah-2.svg', alt: 'Scarlet cord in the window — a peaceful sign of trust' },
-        { src: 'panel-noah-3.svg', alt: 'When God gave the city, Rahab and her household were kept safe' }
+            panels: [
+        { src: '/coloring-pages/rahab-spies.jpg', alt: 'Rahab hides the two spies beneath flax on the roof' }
       ],
       caption: 'Swipe to see faith in God save a whole family! 🏠',
       videoId: '',
@@ -3865,10 +3428,8 @@
     },
     balaakCurse: {
       title: 'Balak Sends for Balaam',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'King Balak fears Israel — messengers ride out' },
-        { src: 'panel-david-2.svg', alt: 'Balaam hears the offer — money and honour' },
-        { src: 'panel-david-3.svg', alt: 'Balaam sets out — God will guard His word' }
+            panels: [
+        { src: '/coloring-pages/balaam-king.jpg', alt: 'King Balak fears Israel — messengers ride out' }
       ],
       caption: 'Swipe to see how God guards His people! 👑',
       videoId: '',
@@ -3879,10 +3440,8 @@
     },
     balaamDonkey: {
       title: 'Balaam\'s Talking Donkey',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Balaam rides his donkey' },
-        { src: 'panel-david-2.svg', alt: 'The donkey sees the angel and stops' },
-        { src: 'panel-david-3.svg', alt: 'The donkey speaks—God uses anything!' }
+            panels: [
+        { src: '/coloring-pages/balaams-donkey.jpg', alt: 'Balaam rides his donkey' }
       ],
       caption: 'Swipe to see God speak through a donkey—He uses anyone! 🫏',
       videoId: '',
@@ -3893,10 +3452,8 @@
     },
     balaamBlessing: {
       title: 'Balaam Blesses Israel',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Altars on the hill — Balak waits for a curse' },
-        { src: 'panel-david-2.svg', alt: 'Balaam opens his mouth — blessings pour out' },
-        { src: 'panel-david-3.svg', alt: 'How goodly are thy tents, O Jacob!' }
+            panels: [
+        { src: '/coloring-pages/balaam-king.jpg', alt: 'Altars on the hill — Balak waits for a curse' }
       ],
       caption: 'Swipe to see God turn curses into blessings! ✨',
       videoId: '',
@@ -3907,10 +3464,8 @@
     },
     ruthGlean: {
       title: 'Ruth Gleans in the Field',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: "Ruth with Naomi – Staying loyal in hard times" },
-        { src: 'panel-noah-2.svg', alt: "Ruth gleaning in the fields – Working hard and faithfully" },
-        { src: 'panel-noah-3.svg', alt: "Boaz noticing Ruth – God blesses kindness" }
+            panels: [
+        { src: '/coloring-pages/ruth-boaz.jpg', alt: 'Ruth with Naomi – Staying loyal in hard times' }
       ],
       caption: 'Swipe to see Ruth\'s faithfulness—God sees your hard work! 🌾',
       videoId: '',
@@ -3922,10 +3477,8 @@
     },
     samuelCall: {
       title: 'Samuel Hears God\'s Voice at Night',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Lamp still burning — young Samuel lies down in the Lord\'s house' },
-        { src: 'panel-noah-2.svg', alt: 'Samuel runs to Eli — Here am I; for thou calledst me' },
-        { src: 'panel-noah-3.svg', alt: 'Speak; for thy servant heareth — the Lord calls by name' }
+            panels: [
+        { src: '/coloring-pages/boy-samuel.jpg', alt: 'Lamp still burning — young Samuel lies down in the Lord\'s house' }
       ],
       caption: 'Swipe to see God call a child by name — and teach him how to answer.',
       videoId: '',
@@ -3961,10 +3514,8 @@
     },
     davidHarp: {
       title: 'Young David Plays the Harp for King Saul',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Servants speak — seek a cunning player on an harp' },
-        { src: 'panel-david-2.svg', alt: 'David comes — the LORD is with him' },
-        { src: 'panel-david-3.svg', alt: 'David plays; Saul is refreshed — the evil spirit departs' }
+            panels: [
+        { src: '/coloring-pages/boy-david.jpg', alt: 'Servants speak — seek a cunning player on an harp' }
       ],
       caption: 'Swipe for quiet music and God-given peace before the king.',
       videoId: '',
@@ -4002,10 +3553,8 @@
     },
     goliathChallenge: {
       title: 'Goliath\'s Challenge',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Goliath shouts—who will fight me?' },
-        { src: 'panel-david-2.svg', alt: 'Everyone is afraid—except David' },
-        { src: 'panel-david-3.svg', alt: 'David says: The Lord will deliver you!' }
+            panels: [
+        { src: '/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg', alt: 'Boy David with a sling faces giant Goliath' }
       ],
       caption: 'Swipe to see David face the giant—God wins! ⚔️',
       videoId: '',
@@ -4016,10 +3565,8 @@
     },
     davidAnointed: {
       title: 'David Anointed by Samuel',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Samuel comes to Bethlehem with oil — Jesse and his sons at the sacrifice' },
-        { src: 'panel-david-2.svg', alt: 'The Lord looketh on the heart — not as man seeth' },
-        { src: 'panel-david-3.svg', alt: 'The youngest from the sheep — oil poured; the Spirit of the Lord comes on David' }
+            panels: [
+        { src: '/coloring-pages/boy-david.jpg', alt: 'Samuel comes to Bethlehem with oil — Jesse and his sons at the sacrifice' }
       ],
       caption: 'Swipe to see God choose the shepherd boy — He looketh on the heart.',
       videoId: '',
@@ -4061,10 +3608,8 @@
     },
     saulSpear: {
       title: 'Saul Throws a Spear at David',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'David plays harp for King Saul' },
-        { src: 'panel-noah-2.svg', alt: 'Saul throws a spear in jealousy' },
-        { src: 'panel-noah-3.svg', alt: 'David escapes—trust God, not fear!' }
+            panels: [
+        { src: '/coloring-pages/david-spares-saul.jpg', alt: 'David plays harp for King Saul' }
       ],
       caption: 'Swipe to see David trust God—not react in anger! 🎯',
       videoId: '',
@@ -4075,10 +3620,8 @@
     },
     davidCave: {
       title: 'David Spares Saul — David Trusts God',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'David and his men in the cave — Saul rests; a quiet day to show mercy' },
-        { src: 'panel-david-2.svg', alt: 'David honors the Lord\'s anointed — only the hem of the robe' },
-        { src: 'panel-david-3.svg', alt: 'David shows the robe — Saul\'s heart is touched; mercy wins' }
+            panels: [
+        { src: '/coloring-pages/david-spares-saul.jpg', alt: 'David and his men in the cave — Saul rests; a quiet day to show mercy' }
       ],
       caption: 'Swipe to see David trust God — mercy for the king God chose.',
       videoId: '',
@@ -4113,10 +3656,8 @@
     },
     hannahSamuel: {
       title: 'Hannah & Samuel',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Hannah praying earnestly at the temple' },
-        { src: 'panel-noah-2.svg', alt: 'Eli blesses Hannah—God hears her prayer' },
-        { src: 'panel-noah-3.svg', alt: 'Hannah brings young Samuel to serve God with Eli' }
+            panels: [
+        { src: '/coloring-pages/hannah-samuel.jpg', alt: 'Hannah praying earnestly at the temple' }
       ],
       caption: 'Swipe to see God answer Hannah\'s prayer! 🙏',
       videoId: '',
@@ -4127,10 +3668,8 @@
     },
     samuelAnointsDavid: {
       title: 'David Anointed by Samuel',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Samuel comes to Bethlehem with oil — Jesse and his sons at the sacrifice' },
-        { src: 'panel-david-2.svg', alt: 'The Lord looketh on the heart — not as man seeth' },
-        { src: 'panel-david-3.svg', alt: 'The youngest from the sheep — oil poured; the Spirit of the Lord comes on David' }
+            panels: [
+        { src: '/coloring-pages/boy-david.jpg', alt: 'Samuel comes to Bethlehem with oil — Jesse and his sons at the sacrifice' }
       ],
       caption: 'Swipe to see God choose the shepherd boy — He looketh on the heart.',
       videoId: '',
@@ -4161,10 +3700,8 @@
     },
     davidGoliath: {
       title: 'David & Goliath',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Goliath defies Israel — the armies stand afraid in the valley' },
-        { src: 'panel-david-2.svg', alt: 'David trusts the living God — five stones, a sling, no sword in his hand' },
-        { src: 'panel-david-3.svg', alt: 'In the name of the LORD of hosts — one stone; the Lord gives victory' }
+            panels: [
+        { src: '/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg', alt: 'Boy David with a sling faces giant Goliath in the valley' }
       ],
       caption: 'Swipe to see courage that trusts the Lord — not size or armor.',
       videoId: '',
@@ -4201,10 +3738,8 @@
     },
     davidSaulJealousy: {
       title: 'David & Saul\'s Jealousy',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'People sing David\'s praises — Saul burns with jealousy' },
-        { src: 'panel-noah-2.svg', alt: 'Saul throws a spear while David plays the harp' },
-        { src: 'panel-noah-3.svg', alt: 'God keeps David safe in battle after battle' }
+            panels: [
+        { src: '/coloring-pages/david-spares-saul.jpg', alt: 'People sing David\'s praises — Saul burns with jealousy' }
       ],
       caption: 'Swipe to see God guard David when jealousy gets ugly! 🛡️',
       videoId: '',
@@ -4215,10 +3750,8 @@
     },
     davidSaul: {
       title: 'David & Saul\'s Jealousy',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'People praise David—Saul grows jealous' },
-        { src: 'panel-noah-2.svg', alt: 'Saul hurls a spear—David escapes' },
-        { src: 'panel-noah-3.svg', alt: 'David wins battles—God protects him' }
+            panels: [
+        { src: '/coloring-pages/david-spares-saul.jpg', alt: 'People praise David—Saul grows jealous' }
       ],
       caption: 'Swipe to see God protect David when Saul is jealous! 🛡️',
       videoId: '',
@@ -4229,10 +3762,8 @@
     },
     davidJonathan: {
       title: 'David & Jonathan\'s Friendship',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Souls knit together — Jonathan loved David as his own soul' },
-        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and girdle to David' },
-        { src: 'panel-david-3.svg', alt: 'They weep together — The LORD be between me and thee for ever' }
+            panels: [
+        { src: '/coloring-pages/david-jonathan.jpg', alt: 'Souls knit together — Jonathan loved David as his own soul' }
       ],
       caption: 'Swipe to see loyal friendship—Jonathan and David! 🤝',
       videoId: '',
@@ -4272,10 +3803,8 @@
     },
     davidJonathanFriendship: {
       title: 'David & Jonathan — True Friends',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Souls knit together — covenant of love' },
-        { src: 'panel-david-2.svg', alt: 'Robe, sword, bow, and girdle — costly kindness' },
-        { src: 'panel-david-3.svg', alt: 'Weeping, kiss, and Go in peace — the LORD between us' }
+            panels: [
+        { src: '/coloring-pages/david-jonathan.jpg', alt: 'Souls knit together — covenant of love' }
       ],
       caption: 'Swipe to see friendship that costs something — and keeps its promise! 🤝',
       videoId: '',
@@ -4309,10 +3838,8 @@
     },
     samuelBirth: {
       title: 'The Birth and Dedication of Samuel',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Weaned and brought to Shiloh — Hannah keeps her promise' },
-        { src: 'panel-noah-2.svg', alt: 'For this child I prayed — lent to the Lord all his days' },
-        { src: 'panel-noah-3.svg', alt: 'A little coat each year — Samuel ministers before the Lord' }
+            panels: [
+        { src: '/coloring-pages/boy-samuel.jpg', alt: 'Weaned and brought to Shiloh — Hannah keeps her promise' }
       ],
       caption: 'Swipe to see a thankful heart keep its promise to God.',
       videoId: '',
@@ -4356,10 +3883,8 @@
     },
     samuelCalls: {
       title: 'Samuel Hears God\'s Voice at Night',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Lamp still burning — young Samuel lies down in the Lord\'s house' },
-        { src: 'panel-noah-2.svg', alt: 'Samuel runs to Eli — Here am I; for thou calledst me' },
-        { src: 'panel-noah-3.svg', alt: 'Speak; for thy servant heareth — the Lord calls by name' }
+            panels: [
+        { src: '/coloring-pages/boy-samuel.jpg', alt: 'Lamp still burning — young Samuel lies down in the Lord\'s house' }
       ],
       caption: 'Swipe to see God call a child by name — and teach him how to answer.',
       videoId: '',
@@ -4397,10 +3922,8 @@
     },
     saulKing: {
       title: 'Saul Becomes King',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Israel asks Samuel for a king like other nations' },
-        { src: 'panel-noah-2.svg', alt: 'Tall Saul searches for donkeys and meets Samuel' },
-        { src: 'panel-noah-3.svg', alt: 'Samuel anoints Saul — the people shout Long live the king' }
+            panels: [
+        { src: '/coloring-pages/saul-king.jpg', alt: 'Israel asks Samuel for a king like other nations' }
       ],
       caption: 'Swipe to see Israel\'s first king — God chose Saul! 👑',
       videoId: '',
@@ -4411,10 +3934,8 @@
     },
     saulDisobedience: {
       title: 'Saul Disobeys God',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Saul offers the sacrifice without waiting for Samuel' },
-        { src: 'panel-noah-2.svg', alt: 'Saul spares the king of Amalek and the best animals' },
-        { src: 'panel-noah-3.svg', alt: 'Samuel tells Saul — obedience is better than sacrifice' }
+            panels: [
+        { src: '/coloring-pages/saul-king.jpg', alt: 'Saul offers the sacrifice without waiting for Samuel' }
       ],
       caption: 'Swipe to see why obeying God matters more than looking religious! ⚠️',
       videoId: '',
@@ -4426,10 +3947,8 @@
     /* ── Week 4 (49–60) ── */
     elishaShunammite: {
       title: 'Elisha Prays and the Boy Lives',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'A little chamber for Elisha whenever he passed by — bed, table, stool, and candlestick' },
-        { src: 'panel-jesus-2.svg', alt: 'Elisha prays quietly — the child grows warm; he sneezes seven times and opens his eyes' },
-        { src: 'panel-jesus-3.svg', alt: 'Take up thy son — the mother holds her boy with joy' }
+            panels: [
+        { src: '/coloring-pages/shunammite.jpg', alt: 'A little chamber for Elisha whenever he passed by — bed, table, stool, and candlestick' }
       ],
       caption: 'Swipe for the kind woman’s room, quiet prayer, and a mother’s joy — God’s tender care.',
       videoId: '',
@@ -4468,10 +3987,8 @@
     },
     gehaziGreed: {
       title: 'Honest Hearts Are Better Than Silver',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Naaman wished to give gifts — Elisha would not take them; Gehazi ran after him' },
-        { src: 'panel-jesus-2.svg', alt: 'Silver and garments — Gehazi brought them back' },
-        { src: 'panel-jesus-3.svg', alt: 'Elisha asks kindly — Whence comest thou? Went not mine heart with thee?' }
+            panels: [
+        { src: '/coloring-pages/hebrews-faith.jpg', alt: 'Naaman wished to give gifts — Elisha would not take them; Gehazi ran after him' }
       ],
       caption: 'Swipe to see Elisha’s calm mercy — honesty and a thankful heart matter more than treasure.',
       videoId: '',
@@ -4506,10 +4023,8 @@
     },
     widowOil: {
       title: 'The Widow\'s Oil Multiplied',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'A widow cries — the creditor would take her two sons' },
-        { src: 'panel-jesus-2.svg', alt: 'Borrow many empty vessels — shut the door and pour' },
-        { src: 'panel-jesus-3.svg', alt: 'Every vessel full — sell the oil and pay the debt' }
+            panels: [
+        { src: '/coloring-pages/elisha-oil.jpg', alt: 'A widow cries — the creditor would take her two sons' }
       ],
       caption: 'Swipe to see God multiply little into enough — pour, fill, pay, live.',
       videoId: '6E2WJ0vp4g4',
@@ -4544,10 +4059,8 @@
     },
     shunammiteReturn: {
       title: 'The Shunammite Woman Returns',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Elisha\'s word — take your household; a famine is coming seven years' },
-        { src: 'panel-jesus-2.svg', alt: 'She returns — cry unto the king for her house and for her land' },
-        { src: 'panel-jesus-3.svg', alt: 'The king listens — restore all that was hers, and the fruits of the field' }
+            panels: [
+        { src: '/coloring-pages/shunammite.jpg', alt: 'Elisha\'s word — take your household; a famine is coming seven years' }
       ],
       caption: 'Swipe to see God remember a faithful family — home, land, and quiet kindness from the king.',
       videoId: '',
@@ -4584,10 +4097,8 @@
     },
     samariaSiege: {
       title: 'God Feeds His People at Samaria',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'A great famine — the king of Syria besieged Samaria' },
-        { src: 'panel-jesus-2.svg', alt: 'Elisha speaks God\'s word — tomorrow flour and barley in the gate' },
-        { src: 'panel-jesus-3.svg', alt: 'The people find plenty — according to the word of the LORD' }
+            panels: [
+        { src: '/coloring-pages/shunammite.jpg', alt: 'A great famine — the king of Syria besieged Samaria' }
       ],
       caption: 'Swipe to see God\'s word come true — quiet plenty when the city was hungry.',
       videoId: '',
@@ -4625,10 +4136,8 @@
     },
     elishaFinal: {
       title: 'Elisha\'s Last Words',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'The king weeps beside Elisha — O my father, the chariot of Israel' },
-        { src: 'panel-jesus-2.svg', alt: 'Bow and arrows — Elisha\'s hands upon the king\'s hands at the open window' },
-        { src: 'panel-jesus-3.svg', alt: 'Shoot — the arrow of the LORD\'s deliverance; smite upon the ground' }
+            panels: [
+        { src: '/coloring-pages/elisha-bones.jpg', alt: 'The king weeps beside Elisha — O my father, the chariot of Israel' }
       ],
       caption: 'Swipe to see God\'s faithful prophet speak hope to the very end.',
       videoId: '',
@@ -4662,10 +4171,8 @@
     },
     elishaBones: {
       title: 'God\'s Power in Elisha\'s Bones',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Elisha died and was buried — quiet rest' },
-        { src: 'panel-jesus-2.svg', alt: 'They laid a man in Elisha\'s sepulchre — he touched the bones of Elisha' },
-        { src: 'panel-jesus-3.svg', alt: 'He revived and stood up on his feet — God\'s wonder' }
+            panels: [
+        { src: '/coloring-pages/elisha-bones.jpg', alt: 'Elisha died and was buried — quiet rest' }
       ],
       caption: 'Swipe to see God\'s power still working — life where only wonder fits.',
       videoId: '',
@@ -4695,10 +4202,8 @@
     },
     estherCrown: {
       title: 'Esther Becomes Queen',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Many young women brought to the palace — among them, gentle Esther' },
-        { src: 'panel-jesus-2.svg', alt: 'The king loved Esther above all — she found favour in his sight' },
-        { src: 'panel-jesus-3.svg', alt: 'The royal crown upon her head — God watched over His child' }
+            panels: [
+        { src: '/coloring-pages/esther.jpg', alt: 'Many young women brought to the palace — among them, gentle Esther' }
       ],
       caption: 'Swipe to see kindness, a simple crown, and God watching over Esther in the palace.',
       videoId: '',
@@ -4728,10 +4233,8 @@
     },
     nehemiahWalls: {
       title: 'Nehemiah and the People Rebuild Together',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Broken walls and gates — Nehemiah prays to the God of heaven' },
-        { src: 'panel-noah-2.svg', alt: 'The king sends letters and timber — Nehemiah surveys the city at night' },
-        { src: 'panel-noah-3.svg', alt: 'Let us rise up and build — people strengthen their hands for this good work' }
+            panels: [
+        { src: '/coloring-pages/nehemiah-walls.jpg', alt: 'Broken walls and gates — Nehemiah prays to the God of heaven' }
       ],
       caption: 'Swipe to see prayer, quiet courage, and joyful teamwork as God helps His people rebuild.',
       videoId: '',
@@ -4749,16 +4252,8 @@
     },
     jobSuffering: {
       title: 'Job Trusts God When He Is Sad',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Job was good — he loved God with his whole heart' },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Hard days came — Job felt very sad, but he did not stop loving God'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Three friends sat with him quietly; Job blessed the Lord — still trusting'
-        }
+            panels: [
+        { src: '/coloring-pages/job-trust.jpg', alt: 'Job was good — he loved God with his whole heart' }
       ],
       caption: 'Swipe to see quiet friends, honest sadness, and a heart that keeps trusting God.',
       videoId: '',
@@ -4776,10 +4271,11 @@
     },
     psalm23Shepherd: {
       title: 'Psalm 23 — The Lord Is My Shepherd',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'The LORD is my shepherd — green pastures, still waters' },
-        { src: 'panel-david-2.svg', alt: 'Thou art with me — thy rod and thy staff comfort me' },
-        { src: 'panel-david-3.svg', alt: 'Surely goodness and mercy — I will dwell in the house of the LORD for ever' }
+            panels: [
+        { src: '/coloring-pages/good-shepherd-s1.jpg', alt: 'The LORD is my shepherd — green pastures, still waters' },
+        { src: '/coloring-pages/good-shepherd-s2.jpg', alt: 'Thou art with me — thy rod and thy staff comfort me' },
+        { src: '/coloring-pages/good-shepherd-s3.jpg', alt: 'Surely goodness and mercy — I will dwell in the house of the LORD for ever' },
+        { src: '/coloring-pages/good-shepherd-s4.jpg', alt: 'Surely goodness and mercy — I will dwell in the house of the LORD for ever' }
       ],
       caption: 'Swipe to rest in the whole psalm — the Shepherd who stays with you.',
       videoId: '',
@@ -4813,10 +4309,11 @@
     },
     psalm23: {
       title: 'Psalm 23 — The Lord Is My Shepherd',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Green pastures and still waters — the LORD leads His sheep' },
-        { src: 'panel-david-2.svg', alt: 'Even in the valley — thou art with me; rod and staff comfort' },
-        { src: 'panel-david-3.svg', alt: 'A table prepared — goodness and mercy — home with the LORD for ever' }
+            panels: [
+        { src: '/coloring-pages/good-shepherd-s1.jpg', alt: 'Green pastures and still waters — the LORD leads His sheep' },
+        { src: '/coloring-pages/good-shepherd-s2.jpg', alt: 'Even in the valley — thou art with me; rod and staff comfort' },
+        { src: '/coloring-pages/good-shepherd-s3.jpg', alt: 'A table prepared — goodness and mercy — home with the LORD for ever' },
+        { src: '/coloring-pages/good-shepherd-s4.jpg', alt: 'A table prepared — goodness and mercy — home with the LORD for ever' }
       ],
       caption: 'Swipe for the whole psalm — rest, courage, and home with the Shepherd.',
       videoId: '',
@@ -4851,10 +4348,8 @@
     },
     solomonWisdom: {
       title: 'Solomon Asks God for a Wise Heart',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Night dream — the LORD says, Ask what I shall give thee' },
-        { src: 'panel-david-2.svg', alt: 'I am but a little child — give an understanding heart' },
-        { src: 'panel-david-3.svg', alt: 'God gives a wise heart — Solomon worships before the ark in Jerusalem' }
+            panels: [
+        { src: '/coloring-pages/solomon-wisdom.jpg', alt: 'Night dream — the LORD says, Ask what I shall give thee' }
       ],
       caption: 'Swipe for the dream where Solomon humbly asks God for wisdom — and God is pleased.',
       videoId: '',
@@ -4892,10 +4387,8 @@
     },
     solomonTwoMothers: {
       title: 'Solomon and the Two Mothers',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Two women stand before the king with a hard dispute' },
-        { src: 'panel-david-2.svg', alt: 'Each says the living child is hers' },
-        { src: 'panel-david-3.svg', alt: 'Bring me a sword — the true mother begs, Give her the living child' }
+            panels: [
+        { src: '/coloring-pages/solomon-two-mothers.jpg', alt: 'Two women stand before the king with a hard dispute' }
       ],
       caption: 'Swipe to see how God\'s wisdom showed the real mother\'s love.',
       videoId: '',
@@ -4926,10 +4419,8 @@
     },
     solomonTemple: {
       title: 'Solomon Builds God\'s House',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The house of the LORD finished — cedar, glad offerings' },
-        { src: 'panel-noah-2.svg', alt: 'The ark brought into the most holy place' },
-        { src: 'panel-noah-3.svg', alt: 'The cloud filled the house — Solomon prays with hands toward heaven' }
+            panels: [
+        { src: '/coloring-pages/solomon-temple.jpg', alt: 'The house of the LORD finished — cedar, glad offerings' }
       ],
       caption: 'Swipe for the finished temple — God’s glory filling the house, and Solomon’s prayer of praise.',
       videoId: '',
@@ -4971,10 +4462,8 @@
     },
     elijahRavens: {
       title: 'God Feeds Elijah',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah loves God — God’s word to hide by the brook Cherith' },
-        { src: 'panel-noah-2.svg', alt: 'By the brook — the LORD commanded the ravens to feed thee there' },
-        { src: 'panel-noah-3.svg', alt: 'Bread and flesh morning and evening — he drank of the brook' }
+            panels: [
+        { src: '/coloring-pages/elijah-ravens.jpg', alt: 'Elijah loves God — God’s word to hide by the brook Cherith' }
       ],
       caption: 'Swipe for Cherith — where God fed Elijah every day, just as He promised.',
       videoId: '',
@@ -5011,10 +4500,8 @@
     },
     elijahWidow: {
       title: 'God Multiplies the Widow\'s Oil and Meal',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Zarephath — the Lord sends Elijah; a widow at the gate' },
-        { src: 'panel-noah-2.svg', alt: 'Fear not — make me a little cake first; God’s promise' },
-        { src: 'panel-noah-3.svg', alt: 'The barrel wasted not — the cruse of oil failed not' }
+            panels: [
+        { src: '/coloring-pages/elijah-widow.jpg', alt: 'Zarephath — the Lord sends Elijah; a widow at the gate' }
       ],
       caption: 'Swipe for Zarephath — where God multiplied meal and oil for a mother, her son, and Elijah.',
       videoId: '',
@@ -5053,10 +4540,8 @@
     },
     elijahFireFromHeaven: {
       title: 'God Answers by Fire',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'If the Lord be God, follow him — Carmel' },
-        { src: 'panel-noah-2.svg', alt: 'Elijah prays — soft fire from heaven on the altar' },
-        { src: 'panel-noah-3.svg', alt: 'The people say: The LORD, he is the God' }
+            panels: [
+        { src: '/coloring-pages/elijah-carmel.jpg', alt: 'If the Lord be God, follow him — Carmel' }
       ],
       caption: 'Swipe for Mount Carmel — God answered by fire; the LORD, he is the God.',
       videoId: '',
@@ -5082,10 +4567,8 @@
     },
     elijahElijahElisha: {
       title: 'Elisha Follows Elijah',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Oxen in the field — Elijah casts his mantle on Elisha' },
-        { src: 'panel-noah-2.svg', alt: 'Let me kiss my father and my mother — then I will follow thee' },
-        { src: 'panel-noah-3.svg', alt: 'He arose and followed — and ministered unto Elijah' }
+            panels: [
+        { src: '/coloring-pages/elisha-mantle.jpg', alt: 'Oxen in the field — Elijah casts his mantle on Elisha' }
       ],
       caption: 'Swipe for the field — mantle, oxen, and a willing heart to follow God’s call.',
       videoId: '',
@@ -5120,10 +4603,8 @@
     },
     elijahChariot: {
       title: 'Elijah Taken Up in the Fiery Chariot',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah and Elisha walk the long road — I will not leave thee' },
-        { src: 'panel-noah-2.svg', alt: 'Jordan divides — they cross on dry ground' },
-        { src: 'panel-noah-3.svg', alt: 'Chariot of fire — Elijah goes up by a whirlwind into heaven' }
+            panels: [
+        { src: '/coloring-pages/elijah-taken-up.jpg', alt: 'Elijah and Elisha walk the long road — I will not leave thee' }
       ],
       caption: 'Swipe to see God take Elijah home in wonder! ✨',
       videoId: '',
@@ -5155,10 +4636,8 @@
     },
     elishaMiracles: {
       title: 'Elisha\'s First Miracles',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elisha casts salt into Jericho\'s spring — the waters are healed' },
-        { src: 'panel-noah-2.svg', alt: 'A widow pours oil — vessel after vessel fills up' },
-        { src: 'panel-noah-3.svg', alt: 'Sell the oil, pay the debt — God cares for the family' }
+            panels: [
+        { src: '/coloring-pages/elisha-oil.jpg', alt: 'Elisha casts salt into Jericho\'s spring — the waters are healed' }
       ],
       caption: 'Swipe to see God heal the water and fill every jar! ✨',
       videoId: '',
@@ -5198,10 +4677,8 @@
     },
     elishaFloatingAxe: {
       title: 'God Makes the Iron Swim',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Too strait for us — sons of the prophets go to Jordan for beams' },
-        { src: 'panel-jesus-2.svg', alt: 'The axe head fell — Alas, master! for it was borrowed' },
-        { src: 'panel-jesus-3.svg', alt: 'Where fell it? — the iron did swim — take it up to thee' }
+            panels: [
+        { src: '/coloring-pages/elisha-axe.jpg', alt: 'Too strait for us — sons of the prophets go to Jordan for beams' }
       ],
       caption: 'Swipe for Jordan — borrowed iron, a stick, and God’s kind help.',
       videoId: '',
@@ -5237,10 +4714,8 @@
     },
     elishaChariots: {
       title: 'God’s Army Protects Elisha',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'A great army round the city — the servant cries, Alas, my master! how shall we do?' },
-        { src: 'panel-jesus-2.svg', alt: 'Fear not — and Lord, open his eyes, that he may see' },
-        { src: 'panel-jesus-3.svg', alt: 'The mountain full of horses and chariots of fire round about Elisha' }
+            panels: [
+        { src: '/coloring-pages/elisha-chariots.jpg', alt: 'A great army round the city — the servant cries, Alas, my master! how shall we do?' }
       ],
       caption: 'Swipe for Dothan — Fear not, opened eyes, and God’s greater army.',
       videoId: '',
@@ -5275,10 +4750,8 @@
     },
     elishaPoisonStew: {
       title: 'God Makes the Stew Safe',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Gilgal — great pot, pottage, wild gourds in the stew' },
-        { src: 'panel-jesus-2.svg', alt: 'They cry to the man of God — something wrong in the pot' },
-        { src: 'panel-jesus-3.svg', alt: 'Bring meal — pour out; no harm in the pot' }
+            panels: [
+        { src: '/coloring-pages/shunammite.jpg', alt: 'Gilgal — great pot, pottage, wild gourds in the stew' }
       ],
       caption: 'Swipe for Gilgal — calm words, meal in the pot, stew safe for God’s servants.',
       videoId: '',
@@ -5313,10 +4786,8 @@
     },
     elishaBlindArmy: {
       title: 'God Protects Elisha with Kindness',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Blindness for safety — follow me toward Samaria' },
-        { src: 'panel-jesus-2.svg', alt: 'Open their eyes — they saw they were in the midst of Samaria' },
-        { src: 'panel-jesus-3.svg', alt: 'Thou shalt not smite — bread, water, and peace' }
+            panels: [
+        { src: '/coloring-pages/elisha-chariots.jpg', alt: 'Blindness for safety — follow me toward Samaria' }
       ],
       caption: 'Swipe for Dothan to Samaria — protection, open eyes, and a feast of kindness.',
       videoId: '',
@@ -5353,10 +4824,8 @@
     },
     elishaBones: {
       title: 'God\'s Power Even in Elisha\'s Bones',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elisha rested — God\'s servant buried with honor' },
-        { src: 'panel-noah-2.svg', alt: 'Friends hurry — they lay a man beside Elisha\'s rest' },
-        { src: 'panel-noah-3.svg', alt: 'He stands up alive — God alone gives life!' }
+            panels: [
+        { src: '/coloring-pages/elisha-bones.jpg', alt: 'Elisha rested — God\'s servant buried with honor' }
       ],
       caption: 'Swipe to see God\'s surprising power — He alone gives life! ✨',
       videoId: '',
@@ -5367,13 +4836,8 @@
     },
     isaiahMessianic: {
       title: 'God Promises a Savior',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'God speaks through Isaiah — good news for His people' },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'A promised child — Wonderful, Counsellor, the mighty God, the Prince of Peace'
-        },
-        { src: 'panel-jesus-3.svg', alt: 'Light and joy for people walking in darkness — God keeps His word' }
+            panels: [
+        { src: '/coloring-pages/isaiah-vision.jpg', alt: 'God speaks through Isaiah — good news for His people' }
       ],
       caption: 'Swipe to see God’s gentle promise of a Savior and names full of hope.',
       videoId: '',
@@ -5403,13 +4867,8 @@
     },
     jeremiahWeeping: {
       title: 'Jeremiah Loves God\'s People',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jeremiah loved God — and loved God’s people with his whole heart' },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'The people would not listen — Jeremiah’s heart grew heavy, and he wept for them'
-        },
-        { src: 'panel-jesus-3.svg', alt: 'God stayed with Jeremiah — helping him speak God’s words in love' }
+            panels: [
+        { src: '/coloring-pages/jeremiah-call.jpg', alt: 'Jeremiah loved God — and loved God’s people with his whole heart' }
       ],
       caption: 'Swipe to see a gentle prophet, honest tears, and God staying near.',
       videoId: '',
@@ -5439,19 +4898,8 @@
     },
     ezekielValleyBones: {
       title: 'God Can Make Dry Bones Live',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'God showed Ezekiel a wide valley — dry bones scattered on the ground'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'God asked, Son of man, can these bones live? — Ezekiel trusted: O Lord God, thou knowest'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Ezekiel spoke God’s words — the bones came together, and they stood up as a great army'
-        }
+            panels: [
+        { src: '/coloring-pages/ezekiel-bones.jpg', alt: 'God showed Ezekiel a wide valley — dry bones scattered on the ground' }
       ],
       caption: 'Swipe to see God’s Word bring wonder — dry bones standing full of life.',
       videoId: '',
@@ -5481,10 +4929,8 @@
     },
     danielFieryFurnace: {
       title: 'God Walks with His Servants in the Fire',
-      panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Big golden image — Shadrach, Meshach, and Abednego would not bow' },
-        { src: 'panel-daniel-2.svg', alt: 'The furnace heated seven times hotter — cast into the fire' },
-        { src: 'panel-daniel-3.svg', alt: 'Four loose in the fire — the form of the fourth like the Son of God' }
+            panels: [
+        { src: '/coloring-pages/fiery-furnace.jpg', alt: 'Big golden image — Shadrach, Meshach, and Abednego would not bow' }
       ],
       caption: 'Swipe to see brave trust, soft flames, and the fourth walking with them unhurt.',
       videoId: '',
@@ -5502,10 +4948,8 @@
     },
     danielLionsDen: {
       title: 'Daniel Trusts God in the Lions’ Den',
-      panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Daniel prays to God three times a day — faithful when the law forbids it' },
-        { src: 'panel-daniel-2.svg', alt: 'The den of lions — the king is very sad and cannot sleep' },
-        { src: 'panel-daniel-3.svg', alt: 'My God hath sent his angel, and hath shut the lions’ mouths — no hurt was found' }
+            panels: [
+        { src: '/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg', alt: 'Daniel prays to God three times a day — faithful when the law forbids it' }
       ],
       caption: 'Swipe to see honest prayer, a sad king, and God protecting Daniel in the den.',
       videoId: '',
@@ -5536,10 +4980,8 @@
     },
     ezraReturn: {
       title: 'Coming Home to Worship',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The LORD stirred Cyrus — a proclamation to go up and build God’s house in Jerusalem' },
-        { src: 'panel-noah-2.svg', alt: 'Fathers, priests, and Levites rise with joy on the way home' },
-        { src: 'panel-noah-3.svg', alt: 'The altar in his place upon his bases — burnt offerings and thanks to the LORD' }
+            panels: [
+        { src: '/coloring-pages/ezra-return.jpg', alt: 'The LORD stirred Cyrus — a proclamation to go up and build God’s house in Jerusalem' }
       ],
       caption: 'Swipe to see God stir the king’s heart and bring His people home to worship with thankful hearts.',
       videoId: '',
@@ -5557,19 +4999,8 @@
     },
     malachiMessage: {
       title: 'God Promises to Send a Messenger',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Malachi — God’s last prophet before a long quiet; he tells the people God still loves them'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'God promises to send a special messenger — to prepare hearts for the Savior'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Love God, love one another — God always keeps His promises, even when it feels quiet'
-        }
+            panels: [
+        { src: '/coloring-pages/malachi-messenger.jpg', alt: 'Malachi — God’s last prophet before a long quiet; he tells the people God still loves them' }
       ],
       caption: 'Swipe to see God’s faithful love and the hope He promised long before Christmas.',
       videoId: '',
@@ -5599,19 +5030,11 @@
     },
     jonahVine: {
       title: 'God Gives Jonah a Second Chance',
-      panels: [
-        {
-          src: 'panel-jonah-1.svg',
-          alt: 'God called Jonah to go to Nineveh — Jonah ran away on a ship instead'
-        },
-        {
-          src: 'panel-jonah-2.svg',
-          alt: 'A big storm — sailors afraid; Jonah was thrown into the sea'
-        },
-        {
-          src: 'panel-jonah-3.svg',
-          alt: 'God kept Jonah safe in the fish — Jonah prayed; God heard and gave him another chance'
-        }
+            panels: [
+        { src: '/coloring-pages/jonah-s1.jpg', alt: 'God called Jonah to go to Nineveh — Jonah ran away on a ship instead' },
+        { src: '/coloring-pages/jonah-s2.jpg', alt: 'A big storm — sailors afraid; Jonah was thrown into the sea' },
+        { src: '/coloring-pages/jonah-s3.jpg', alt: 'God kept Jonah safe in the fish — Jonah prayed; God heard and gave him another chance' },
+        { src: '/coloring-pages/jonah-s4.jpg', alt: 'God kept Jonah safe in the fish — Jonah prayed; God heard and gave him another chance' }
       ],
       caption: 'Swipe to see God’s kindness — even when we run, He listens and gives second chances.',
       videoId: '',
@@ -5641,10 +5064,8 @@
     },
     danielPray: {
       title: 'Daniel Prays Three Times a Day',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A new law says no praying' },
-        { src: 'panel-noah-2.svg', alt: 'Daniel opens his window and prays anyway' },
-        { src: 'panel-noah-3.svg', alt: 'God protects Daniel!' }
+            panels: [
+        { src: '/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg', alt: 'A new law says no praying' }
       ],
       caption: 'Swipe to see Daniel pray no matter what—so brave! 🙏',
       videoId: '',
@@ -5655,10 +5076,8 @@
     },
     estherBanquet: {
       title: 'Esther Saves Her People at the Banquet',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Esther prepares a special banquet — the king and Haman come' },
-        { src: 'panel-jesus-2.svg', alt: 'At the right time she tells the king God’s people are in danger' },
-        { src: 'panel-jesus-3.svg', alt: 'The king stops the wicked plan — God saves His people through Esther’s words' }
+            panels: [
+        { src: '/coloring-pages/esther.jpg', alt: 'Esther prepares a special banquet — the king and Haman come' }
       ],
       caption: 'Swipe to see prayer, a welcome feast, and brave truth spoken in love.',
       videoId: '',
@@ -5689,10 +5108,8 @@
     /* ── Week 5 (61–72) ── */
     angelMary: {
       title: 'Angel Visits Mary',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Angel Gabriel appears with a lily' },
-        { src: 'panel-noah-2.svg', alt: 'Gabriel says: Fear not, Mary—you are chosen!' },
-        { src: 'panel-noah-3.svg', alt: 'Mary says: I will do what God says!' }
+            panels: [
+        { src: '/coloring-pages/angel-mary.jpg', alt: 'Angel Gabriel appears with a lily' }
       ],
       caption: 'Swipe to see the angel tell Mary the great news! 🌸',
       videoId: '',
@@ -5703,19 +5120,11 @@
     },
     shepherdsStar: {
       title: 'The Shepherds Find Baby Jesus',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Shepherds watch their sheep — an angel speaks, God’s glory shines around them'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Many angels praise God — good tidings of great joy for all people'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'The shepherds hurry to Bethlehem — they find baby Jesus in the manger, just as God said'
-        }
+            panels: [
+        { src: '/coloring-pages/nativity-s1.jpg', alt: 'Shepherds watch their sheep — an angel speaks, God’s glory shines around them' },
+        { src: '/coloring-pages/nativity-s2.jpg', alt: 'Many angels praise God — good tidings of great joy for all people' },
+        { src: '/coloring-pages/nativity-s3.jpg', alt: 'The shepherds hurry to Bethlehem — they find baby Jesus in the manger, just as God said' },
+        { src: '/coloring-pages/nativity-s4.jpg', alt: 'The shepherds hurry to Bethlehem — they find baby Jesus in the manger, just as God said' }
       ],
       caption:
         'Swipe to see the night angels sang—shepherds hurried, found Jesus, and went home praising God.',
@@ -5745,19 +5154,11 @@
     },
     wiseMen: {
       title: 'The Wise Men Follow the Star',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Wise men see a bright new star in the east — they know a special King is born'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'They follow the star to Bethlehem and find the young child with Mary'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'They bow down, worship Him, and give gifts — gold, frankincense, and myrrh'
-        }
+            panels: [
+        { src: '/coloring-pages/nativity-s1.jpg', alt: 'Wise men see a bright new star in the east — they know a special King is born' },
+        { src: '/coloring-pages/nativity-s2.jpg', alt: 'They follow the star to Bethlehem and find the young child with Mary' },
+        { src: '/coloring-pages/nativity-s3.jpg', alt: 'They bow down, worship Him, and give gifts — gold, frankincense, and myrrh' },
+        { src: '/coloring-pages/nativity-s4.jpg', alt: 'They bow down, worship Him, and give gifts — gold, frankincense, and myrrh' }
       ],
       caption:
         'Swipe to see wise men follow the star — they find Jesus, bow down, and worship the little King.',
@@ -5789,19 +5190,8 @@
     },
     simeonAnna: {
       title: 'Simeon and Anna See the Promised Savior',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Mary and Joseph bring baby Jesus to the temple in Jerusalem'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Simeon takes baby Jesus in his arms — he had waited to see God’s salvation'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Anna praises God and speaks of the child — hearts full of joy'
-        }
+            panels: [
+        { src: '/coloring-pages/anna-prophet.jpg', alt: 'Mary and Joseph bring baby Jesus to the temple in Jerusalem' }
       ],
       caption:
         'Swipe to see Simeon and Anna rejoice — God kept His promise; they saw the promised Savior.',
@@ -5832,10 +5222,11 @@
     },
     jesusManger: {
       title: 'Baby Jesus in the Manger',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mary and Joseph find a stable' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus is born and laid in a manger' },
-        { src: 'panel-noah-3.svg', alt: 'Wise men bring gifts—a King is born!' }
+            panels: [
+        { src: '/coloring-pages/nativity-s1.jpg', alt: 'Mary and Joseph find a stable' },
+        { src: '/coloring-pages/nativity-s2.jpg', alt: 'Jesus is born and laid in a manger' },
+        { src: '/coloring-pages/nativity-s3.jpg', alt: 'Wise men bring gifts—a King is born!' },
+        { src: '/coloring-pages/nativity-s4.jpg', alt: 'Wise men bring gifts—a King is born!' }
       ],
       caption: 'Swipe to see the night Jesus was born! 🎁',
       videoId: '',
@@ -5846,19 +5237,8 @@
     },
     jesusTemple: {
       title: 'Jesus Goes to His Father’s House',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Mary and Joseph travel to Jerusalem for Passover — later they seek Jesus for three days'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'They find boy Jesus in the temple — sitting with the teachers, listening and asking questions'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Jesus says He must be about His Father’s business — then He goes home with them in obedience'
-        }
+            panels: [
+        { src: '/coloring-pages/jesus-temple-boy.jpg', alt: 'Mary and Joseph travel to Jerusalem for Passover — later they seek Jesus for three days' }
       ],
       caption:
         'Swipe to see boy Jesus in the temple — listening, asking, and loving His Father’s house.',
@@ -5889,10 +5269,8 @@
     },
     johnBaptist: {
       title: 'John the Baptist',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'John in the wilderness — repent, the kingdom is near' },
-        { src: 'panel-noah-2.svg', alt: 'John baptizes in the Jordan' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus is baptized — heavens open, dove, God\'s voice' }
+            panels: [
+        { src: '/coloring-pages/john-baptist.jpg', alt: 'John in the wilderness — repent, the kingdom is near' }
       ],
       caption: 'Swipe to see John prepare the way — then Jesus steps into the water! 🕊️',
       videoId: '',
@@ -5903,10 +5281,8 @@
     },
     johnBaptize: {
       title: 'John Baptizes Jesus',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'John preaches by the river Jordan' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus steps into the water' },
-        { src: 'panel-noah-3.svg', alt: 'A dove lands—God says: This is my Son!' }
+            panels: [
+        { src: '/coloring-pages/jesus-baptism.jpg', alt: 'John preaches by the river Jordan' }
       ],
       caption: 'Swipe to see Jesus baptized—the dove and the voice! 🕊️',
       videoId: '',
@@ -5917,19 +5293,8 @@
     },
     jesusBaptism: {
       title: 'Jesus Is Baptized by John',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'John baptizes in the Jordan — Jesus comes to fulfill all righteousness'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus is baptized — coming up from the water as the heavens open'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'The Spirit descends like a dove — the Father’s voice: This is my beloved Son'
-        }
+            panels: [
+        { src: '/coloring-pages/jesus-baptism.jpg', alt: 'John baptizes in the Jordan — Jesus comes to fulfill all righteousness' }
       ],
       caption:
         'Swipe to see Jesus baptized in the river — heavens open, dove, and the Father’s loving voice.',
@@ -5959,19 +5324,11 @@
     },
     jesusDisciples: {
       title: 'Jesus Calls His Helpers',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Jesus walks by the Sea of Galilee — Peter and Andrew casting a net'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus says, Follow me — I will make you fishers of men'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'James and John leave the boat — they follow Jesus too'
-        }
+            panels: [
+        { src: '/coloring-pages/fishers-of-men-s1.jpg', alt: 'Jesus walks by the Sea of Galilee — Peter and Andrew casting a net' },
+        { src: '/coloring-pages/fishers-of-men-s2.jpg', alt: 'Jesus says, Follow me — I will make you fishers of men' },
+        { src: '/coloring-pages/fishers-of-men-s3.jpg', alt: 'James and John leave the boat — they follow Jesus too' },
+        { src: '/coloring-pages/fishers-of-men-s4.jpg', alt: 'James and John leave the boat — they follow Jesus too' }
       ],
       caption:
         'Swipe to see Jesus call helpers by the sea — nets, boats, and His gentle “Follow me.”',
@@ -6002,19 +5359,11 @@
     },
     jesusWaterWine: {
       title: 'Jesus Does His First Miracle',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Wedding at Cana — the feast runs out of wine'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Servants fill the stone waterpots; Mary says, Do what He tells you'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Water becomes the best wine — the disciples believe in Jesus'
-        }
+            panels: [
+        { src: '/coloring-pages/wedding-cana-s1.jpg', alt: 'Wedding at Cana — the feast runs out of wine' },
+        { src: '/coloring-pages/wedding-cana-s2.jpg', alt: 'Servants fill the stone waterpots; Mary says, Do what He tells you' },
+        { src: '/coloring-pages/wedding-cana-s3.jpg', alt: 'Water becomes the best wine — the disciples believe in Jesus' },
+        { src: '/coloring-pages/wedding-cana-s4.jpg', alt: 'Water becomes the best wine — the disciples believe in Jesus' }
       ],
       caption:
         'Swipe to see Jesus’ first miracle — waterpots, obeying, and wonder at the wedding.',
@@ -6045,19 +5394,8 @@
     },
     jesusTempted: {
       title: 'Jesus Says No to Wrong Things',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'The Spirit leads Jesus into the quiet wilderness — forty days of prayer'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus answers with Scripture — God’s Word, not wrong words'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'The tempter left — angels came and ministered to Jesus'
-        }
+            panels: [
+        { src: '/coloring-pages/jesus-tempted.jpg', alt: 'The Spirit leads Jesus into the quiet wilderness — forty days of prayer' }
       ],
       caption:
         'Swipe to see Jesus obey the Father in the wilderness — Scripture, worship, and angels who care.',
@@ -6087,19 +5425,8 @@
     },
     jesusSermon: {
       title: 'Jesus Teaches How to Live God’s Way',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Jesus goes up on a mountain — many people gather to listen'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus teaches — Blessed are the meek, the merciful, the pure in heart'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Love God and neighbor — let your light shine before others'
-        }
+            panels: [
+        { src: '/coloring-pages/wise-foolish-builders.jpg', alt: 'Jesus goes up on a mountain — many people gather to listen' }
       ],
       caption:
         'Swipe to hear Jesus teach on the mountain — blessed, love, and light for God.',
@@ -6130,10 +5457,8 @@
     },
     jesusTempt: {
       title: 'Jesus Is Tempted',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus fasts in the desert for 40 days' },
-        { src: 'panel-noah-2.svg', alt: 'The devil tries to trick Jesus with bread, power, and glory' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus uses God\'s Word—the devil leaves!' }
+            panels: [
+        { src: '/coloring-pages/jesus-tempted.jpg', alt: 'Jesus fasts in the desert for 40 days' }
       ],
       caption: 'Swipe to see Jesus fight temptation with Scripture! 📜',
       videoId: '',
@@ -6144,10 +5469,11 @@
     },
     weddingWine: {
       title: 'Water into Wine',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A wedding runs out of wine' },
-        { src: 'panel-noah-2.svg', alt: 'Mary tells Jesus—He says: Fill the jars' },
-        { src: 'panel-noah-3.svg', alt: 'Water becomes wine—the first miracle!' }
+            panels: [
+        { src: '/coloring-pages/wedding-cana-s1.jpg', alt: 'A wedding runs out of wine' },
+        { src: '/coloring-pages/wedding-cana-s2.jpg', alt: 'Mary tells Jesus—He says: Fill the jars' },
+        { src: '/coloring-pages/wedding-cana-s3.jpg', alt: 'Water becomes wine—the first miracle!' },
+        { src: '/coloring-pages/wedding-cana-s4.jpg', alt: 'Water becomes wine—the first miracle!' }
       ],
       caption: 'Swipe to see Jesus\' first miracle at the wedding! 🍷',
       videoId: '',
@@ -6158,10 +5484,11 @@
     },
     jesusFirstMiracle: {
       title: 'Jesus\' First Miracle',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A wedding in Cana runs out of wine' },
-        { src: 'panel-noah-2.svg', alt: 'Mary tells the servants — do whatever He says' },
-        { src: 'panel-noah-3.svg', alt: 'Water becomes wine — disciples believe!' }
+            panels: [
+        { src: '/coloring-pages/wedding-cana-s1.jpg', alt: 'A wedding in Cana runs out of wine' },
+        { src: '/coloring-pages/wedding-cana-s2.jpg', alt: 'Mary tells the servants — do whatever He says' },
+        { src: '/coloring-pages/wedding-cana-s3.jpg', alt: 'Water becomes wine — disciples believe!' },
+        { src: '/coloring-pages/wedding-cana-s4.jpg', alt: 'Water becomes wine — disciples believe!' }
       ],
       caption: 'Swipe to see water become wine at Cana! 🍇',
       videoId: '',
@@ -6172,10 +5499,11 @@
     },
     jesusCallingDisciples: {
       title: 'Jesus Calls Disciples',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus walks by the sea — Peter and Andrew fishing' },
-        { src: 'panel-noah-2.svg', alt: 'Follow me — I will make you fishers of men' },
-        { src: 'panel-noah-3.svg', alt: 'A huge catch of fish — nets full!' }
+            panels: [
+        { src: '/coloring-pages/fishers-of-men-s1.jpg', alt: 'Jesus walks by the sea — Peter and Andrew fishing' },
+        { src: '/coloring-pages/fishers-of-men-s2.jpg', alt: 'Follow me — I will make you fishers of men' },
+        { src: '/coloring-pages/fishers-of-men-s3.jpg', alt: 'A huge catch of fish — nets full!' },
+        { src: '/coloring-pages/fishers-of-men-s4.jpg', alt: 'A huge catch of fish — nets full!' }
       ],
       caption: 'Swipe to see Jesus call fishermen to follow Him! 🎣',
       videoId: '',
@@ -6186,10 +5514,8 @@
     },
     jesusSermonMount: {
       title: 'Sermon on the Mount',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus teaches crowds on a mountain' },
-        { src: 'panel-noah-2.svg', alt: 'Blessed are the meek, merciful, peacemakers' },
-        { src: 'panel-noah-3.svg', alt: 'Wise man builds his house on the rock' }
+            panels: [
+        { src: '/coloring-pages/wise-foolish-builders.jpg', alt: 'Jesus teaches crowds on a mountain' }
       ],
       caption: 'Swipe to hear Jesus teach — blessed, light, rock! ⛰️',
       videoId: '',
@@ -6200,10 +5526,11 @@
     },
     manBornBlind: {
       title: 'Jesus Gives Sight to a Man Who Was Born Blind',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Works of God — Jesus makes clay and puts it on the eyes of a man born blind' },
-        { src: 'panel-noah-2.svg', alt: 'Go, wash in the pool of Siloam — the man obeys' },
-        { src: 'panel-noah-3.svg', alt: 'He sees — “I was blind, but now I see” — “Lord, I believe”' }
+            panels: [
+        { src: '/coloring-pages/blind-man-s1.jpg', alt: 'Works of God — Jesus makes clay and puts it on the eyes of a man born blind' },
+        { src: '/coloring-pages/blind-man-s2.jpg', alt: 'Go, wash in the pool of Siloam — the man obeys' },
+        { src: '/coloring-pages/blind-man-s3.jpg', alt: 'He sees — “I was blind, but now I see” — “Lord, I believe”' },
+        { src: '/coloring-pages/blind-man-s4.jpg', alt: 'He sees — “I was blind, but now I see” — “Lord, I believe”' }
       ],
       caption: 'Swipe to see clay, washing, sight — Jesus opens eyes and hearts. 👁️',
       videoId: '',
@@ -6230,10 +5557,8 @@
     },
     bethesda: {
       title: 'Jesus Heals a Man Who Waited a Long Time',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Pool of Bethesda — many waiting; Jesus sees a man who could not walk' },
-        { src: 'panel-noah-2.svg', alt: 'Wilt thou be made whole? — Rise, take up thy bed, and walk' },
-        { src: 'panel-noah-3.svg', alt: 'Immediately whole — he took up his bed and walked; behold, thou art made whole' }
+            panels: [
+        { src: '/coloring-pages/healing-paralytic.jpg', alt: 'Pool of Bethesda — many waiting; Jesus sees a man who could not walk' }
       ],
       caption: 'Swipe to see Jesus speak kindness by the pool — rise, take up thy bed, and walk. 💧',
       videoId: '',
@@ -6262,19 +5587,8 @@
     },
     jesusHealsParalytic: {
       title: 'Jesus Forgives and Heals a Man Who Could Not Walk',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'The house is full — four friends carry a man who cannot walk'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'They open the roof and lower him on his bed to Jesus'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Son, thy sins be forgiven thee — Arise, take up thy bed, and walk'
-        }
+            panels: [
+        { src: '/coloring-pages/healing-paralytic.jpg', alt: 'The house is full — four friends carry a man who cannot walk' }
       ],
       caption:
         'Swipe to see friends of faith lower him to Jesus — forgiven, healed, and walking home. 🏠',
@@ -6305,19 +5619,8 @@
     },
     jesusBlessKids: {
       title: 'Jesus Welcomes the Little Children',
-      panels: [
-        {
-          src: 'panel-noah-1.svg',
-          alt: 'People bring little children — disciples try to send them away'
-        },
-        {
-          src: 'panel-noah-2.svg',
-          alt: 'Jesus says: Suffer the little children to come unto me, and forbid them not'
-        },
-        {
-          src: 'panel-noah-3.svg',
-          alt: 'Jesus takes them in His arms, puts His hands on them, and blesses them'
-        }
+            panels: [
+        { src: '/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg', alt: 'People bring little children — disciples try to send them away' }
       ],
       caption: 'Swipe to see Jesus welcome every child — He loves you! ❤️',
       videoId: '',
@@ -6345,10 +5648,8 @@
     /* ── Week 6 (73–84) ── */
     mustardSeed: {
       title: 'Jesus Tells About a Tiny Seed That Grows Big',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a grain of mustard seed — least of all seeds' },
-        { src: 'panel-noah-2.svg', alt: 'Sowed in his field — when it is grown, greatest among herbs' },
-        { src: 'panel-noah-3.svg', alt: 'Becometh a tree — birds of the air lodge in the branches' }
+            panels: [
+        { src: '/coloring-pages/mustard-seed.jpg', alt: 'The kingdom of heaven is like a grain of mustard seed — least of all seeds' }
       ],
       caption: 'Swipe to see a tiny seed grow tall — God’s kingdom grows when we listen to Jesus. 🌱',
       videoId: '',
@@ -6379,10 +5680,8 @@
     },
     jesusParableSower: {
       title: 'The Parable of the Sower',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A sower scatters seed — path, rocks, thorns, good ground' },
-        { src: 'panel-noah-2.svg', alt: 'Birds, shallow soil, thorns — only good soil bears fruit' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus explains — the seed is the word of God' }
+            panels: [
+        { src: '/coloring-pages/the-sower.jpg', alt: 'A sower scatters seed — path, rocks, thorns, good ground' }
       ],
       caption: 'Swipe to see God\'s word grow in good soil! 🌾',
       videoId: '',
@@ -6393,10 +5692,8 @@
     },
     jesusParableMustardSeed: {
       title: 'Jesus Tells About a Tiny Seed That Grows Big',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a grain of mustard seed — least of all seeds' },
-        { src: 'panel-noah-2.svg', alt: 'Sowed in his field — when it is grown, greatest among herbs' },
-        { src: 'panel-noah-3.svg', alt: 'Becometh a tree — birds of the air lodge in the branches' }
+            panels: [
+        { src: '/coloring-pages/mustard-seed.jpg', alt: 'The kingdom of heaven is like a grain of mustard seed — least of all seeds' }
       ],
       caption: 'Swipe to see a tiny seed grow tall — God’s kingdom grows when we listen to Jesus. 🌱',
       videoId: '',
@@ -6427,10 +5724,8 @@
     },
     parableHiddenTreasure: {
       title: 'Jesus Tells About a Treasure Worth Everything',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like treasure hid in a field' },
-        { src: 'panel-noah-2.svg', alt: 'When a man hath found — for joy selleth all that he hath' },
-        { src: 'panel-noah-3.svg', alt: 'He buyeth that field — the kingdom is worth everything' }
+            panels: [
+        { src: '/coloring-pages/pearl-great-price.jpg', alt: 'The kingdom of heaven is like treasure hid in a field' }
       ],
       caption: 'Swipe to see joy over hidden treasure — God’s kingdom is worth everything! ✨',
       videoId: '',
@@ -6461,10 +5756,8 @@
     },
     parablePearl: {
       title: 'Jesus Tells About a Pearl Worth Everything',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a merchant seeking goodly pearls' },
-        { src: 'panel-noah-2.svg', alt: 'He found one pearl of great price' },
-        { src: 'panel-noah-3.svg', alt: 'He sold all that he had, and bought it' }
+            panels: [
+        { src: '/coloring-pages/pearl-great-price.jpg', alt: 'The kingdom of heaven is like a merchant seeking goodly pearls' }
       ],
       caption: 'Swipe to see one pearl worth everything — God’s kingdom is joy! ✨',
       videoId: '',
@@ -6494,10 +5787,8 @@
     },
     parableNet: {
       title: 'Jesus Tells About a Net Full of Fish',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a net cast into the sea — fish of every kind gathered' },
-        { src: 'panel-noah-2.svg', alt: 'When the net was full they drew it to shore — gathered the good into vessels' },
-        { src: 'panel-noah-3.svg', alt: 'So shall it be at the end of the world — the angels sever the wicked from among the just' }
+            panels: [
+        { src: '/coloring-pages/parable-net.jpg', alt: 'The kingdom of heaven is like a net cast into the sea — fish of every kind gathered' }
       ],
       caption: 'Swipe to hear Jesus teach about a net — God’s kingdom is true and sure. 🎣',
       videoId: '',
@@ -6526,19 +5817,8 @@
     },
     parableVineyardWorkers: {
       title: 'Jesus Tells About the Generous Vineyard Owner',
-      panels: [
-        {
-          src: 'panel-noah-1.svg',
-          alt: 'A vineyard owner hires labourers in the morning — agreeing for a penny a day'
-        },
-        {
-          src: 'panel-noah-2.svg',
-          alt: 'More workers come at different hours — he sends them into the vineyard'
-        },
-        {
-          src: 'panel-noah-3.svg',
-          alt: 'At evening every man receives a penny — God is good, loving, and generous'
-        }
+            panels: [
+        { src: '/coloring-pages/vineyard-son.jpg', alt: 'A vineyard owner hires labourers in the morning — agreeing for a penny a day' }
       ],
       caption: 'Swipe to see the householder’s kindness — God’s generosity is not like ours! 🍇',
       videoId: '',
@@ -6566,19 +5846,8 @@
     },
     parableTwoSons: {
       title: 'Jesus Tells About Two Sons and a Vineyard',
-      panels: [
-        {
-          src: 'panel-noah-1.svg',
-          alt: 'A father asks his first son — Go work to day in my vineyard'
-        },
-        {
-          src: 'panel-noah-2.svg',
-          alt: 'The first son said no, then repented and went — the second said I go, sir, and went not'
-        },
-        {
-          src: 'panel-noah-3.svg',
-          alt: 'Which did the father’s will? Jesus teaches us to obey God with our deeds'
-        }
+            panels: [
+        { src: '/coloring-pages/vineyard-son.jpg', alt: 'A father asks his first son — Go work to day in my vineyard' }
       ],
       caption: 'Swipe to see honest obedience — doing what the Father asks, not only saying we will. 🍇',
       videoId: '',
@@ -6607,19 +5876,8 @@
     },
     parableWeddingFeast: {
       title: 'Jesus Tells About a King’s Wedding Feast',
-      panels: [
-        {
-          src: 'panel-noah-1.svg',
-          alt: 'A king prepares a wedding feast for his son — servants call the invited guests'
-        },
-        {
-          src: 'panel-noah-2.svg',
-          alt: 'Come unto the marriage — all things are ready; go into the highways and bid many in'
-        },
-        {
-          src: 'panel-noah-3.svg',
-          alt: 'The wedding is furnished with guests — Jesus invites everyone to come to Him'
-        }
+            panels: [
+        { src: '/coloring-pages/wedding-feast.jpg', alt: 'A king prepares a wedding feast for his son — servants call the invited guests' }
       ],
       caption: 'Swipe to see the king’s joyful feast — Jesus invites everyone to come! 💒',
       videoId: '',
@@ -6649,19 +5907,11 @@
     },
     jesusParableGoodShepherd: {
       title: 'The Good Shepherd',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Sheepfold and the door — the shepherd calls his own sheep by name; the sheep hear his voice'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'He goeth before them, and the sheep follow him — for they know his voice'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'I am the good shepherd — I lay down my life for the sheep — one fold, and one shepherd'
-        }
+            panels: [
+        { src: '/coloring-pages/good-shepherd-s1.jpg', alt: 'Sheepfold and the door — the shepherd calls his own sheep by name; the sheep hear his voice' },
+        { src: '/coloring-pages/good-shepherd-s2.jpg', alt: 'He goeth before them, and the sheep follow him — for they know his voice' },
+        { src: '/coloring-pages/good-shepherd-s3.jpg', alt: 'I am the good shepherd — I lay down my life for the sheep — one fold, and one shepherd' },
+        { src: '/coloring-pages/good-shepherd-s4.jpg', alt: 'I am the good shepherd — I lay down my life for the sheep — one fold, and one shepherd' }
       ],
       caption: 'Swipe slowly — Jesus is the Good Shepherd; He knows you by name.',
       videoId: '',
@@ -6691,10 +5941,8 @@
     },
     tenLepers: {
       title: 'Jesus Heals Ten Men and One Says Thank You',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ten men stand afar off — Jesus, Master, have mercy on us!' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus says — Go shew yourselves unto the priests; as they go they are healed' },
-        { src: 'panel-noah-3.svg', alt: 'One runs back thanking Jesus — Thy faith hath made thee whole' }
+            panels: [
+        { src: '/coloring-pages/ten-lepers.jpg', alt: 'Ten men stand afar off — Jesus, Master, have mercy on us!' }
       ],
       caption: 'Swipe to see mercy, healing, and one thankful heart — say thank you to Jesus. 🙌',
       videoId: '',
@@ -6723,19 +5971,11 @@
     },
     jairus: {
       title: 'Jesus Brings a Girl Back to Life',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Jairus asks Jesus to come — My little daughter lieth at the point of death'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Thy daughter is dead — Jesus says, Be not afraid, only believe'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Damsel, I say unto thee, arise — she got up and walked'
-        }
+            panels: [
+        { src: '/coloring-pages/jairus-daughter-s1.jpg', alt: 'Jairus asks Jesus to come — My little daughter lieth at the point of death' },
+        { src: '/coloring-pages/jairus-daughter-s2.jpg', alt: 'Thy daughter is dead — Jesus says, Be not afraid, only believe' },
+        { src: '/coloring-pages/jairus-daughter-s3.jpg', alt: 'Damsel, I say unto thee, arise — she got up and walked' },
+        { src: '/coloring-pages/jairus-daughter-s4.jpg', alt: 'Damsel, I say unto thee, arise — she got up and walked' }
       ],
       caption:
         'Swipe to see Jesus take her hand and speak life — only believe. 🌸',
@@ -6765,10 +6005,8 @@
     },
     transfigure: {
       title: 'Jesus\' Transfiguration',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus goes up the mountain with Peter, James, and John' },
-        { src: 'panel-noah-2.svg', alt: 'His face shines like the sun—His clothes glow white' },
-        { src: 'panel-noah-3.svg', alt: 'God\'s voice says: This is my Son—listen to Him!' }
+            panels: [
+        { src: '/coloring-pages/transfiguration.jpg', alt: 'Jesus goes up the mountain with Peter, James, and John' }
       ],
       caption: 'Swipe to see Jesus glow on the mountain! ✨',
       videoId: '',
@@ -6779,19 +6017,8 @@
     },
     judasKiss: {
       title: 'Judas Betrays Jesus',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Judas covenants for thirty pieces of silver — he seeks opportunity to betray Jesus'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Judas comes with a multitude — Whomsoever I shall kiss, that same is he — he kisses Jesus'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Jesus says, Friend, wherefore art thou come? — they lay hands on Jesus and take Him'
-        }
+            panels: [
+        { src: '/coloring-pages/judas-betrayal.jpg', alt: 'Judas covenants for thirty pieces of silver — he seeks opportunity to betray Jesus' }
       ],
       caption: 'Swipe slowly — a hard moment; Jesus stays gentle, and His love does not fail.',
       videoId: '',
@@ -6823,19 +6050,8 @@
     /* ── Week 7 (85–96) ── */
     crossCarry: {
       title: 'Jesus Carries His Cross',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'After they mocked Him — His own raiment — led away to crucify him'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Simon of Cyrene — compelled to bear His cross — the road to Golgotha'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Women bewailed and lamented — Daughters of Jerusalem, weep not for me'
-        }
+            panels: [
+        { src: '/coloring-pages/cross-carry.jpg', alt: 'After they mocked Him — His own raiment — led away to crucify him' }
       ],
       caption: 'Swipe slowly — Jesus carried His cross out of love for us.',
       videoId: '',
@@ -6867,19 +6083,8 @@
     },
     crucifixion: {
       title: 'Jesus on the Cross',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Golgotha — gall and vinegar — crucified — garments parted — THIS IS JESUS THE KING OF THE JEWS'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Two thieves — passersby and rulers revile — darkness from the sixth to the ninth hour — Eli, Eli, lama sabachthani'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Veil of the temple rent — earthquake — centurion: Truly this was the Son of God — women beholding afar off'
-        }
+            panels: [
+        { src: '/coloring-pages/crucifixion.jpg', alt: 'Golgotha — gall and vinegar — crucified — garments parted — THIS IS JESUS THE KING OF THE JEWS' }
       ],
       caption: 'Swipe slowly — Jesus gave His life because He loves us.',
       videoId: '',
@@ -6917,19 +6122,8 @@
     },
     tombEmpty: {
       title: 'The Empty Tomb',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'End of the sabbath — dawn — Mary Magdalene and the other Mary come to the sepulchre'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Earthquake — angel of the Lord — stone rolled back — Fear not — He is not here: He is risen'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Come see where the Lord lay — run with joy — Jesus meets them — Be not afraid'
-        }
+            panels: [
+        { src: '/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg', alt: 'End of the sabbath — dawn — Mary Magdalene and the other Mary come to the sepulchre' }
       ],
       caption: 'Swipe slowly — the tomb is empty. Jesus is alive.',
       videoId: '',
@@ -6966,10 +6160,8 @@
     },
     emmausRoad: {
       title: 'Road to Emmaus',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Two disciples walk to Emmaus, sad' },
-        { src: 'panel-noah-2.svg', alt: 'A stranger joins them—it\'s Jesus!' },
-        { src: 'panel-noah-3.svg', alt: 'He breaks bread—their eyes open!' }
+            panels: [
+        { src: '/coloring-pages/emmaus-road.jpg', alt: 'Two disciples walk to Emmaus, sad' }
       ],
       caption: 'Swipe to see Jesus walk with sad hearts—He walks with yours! 🛤️',
       videoId: '',
@@ -6980,19 +6172,8 @@
     },
     thomasDoubt: {
       title: 'Jesus Appears to Thomas',
-      panels: [
-        {
-          src: 'panel-thomas-doubt-1.svg',
-          alt: 'Thomas called Didymus was not with them when Jesus came — Except I shall see the print of the nails… I will not believe'
-        },
-        {
-          src: 'panel-thomas-doubt-2.svg',
-          alt: 'After eight days — doors shut — Jesus stood in the midst — Peace be unto you — Reach hither thy finger… be not faithless, but believing'
-        },
-        {
-          src: 'panel-thomas-doubt-3.svg',
-          alt: 'Thomas: My Lord and my God — blessed are they that have not seen, and yet have believed'
-        }
+            panels: [
+        { src: '/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg', alt: 'Thomas called Didymus was not with them when Jesus came — Except I shall see the print of the nails… I will not believe' }
       ],
       caption: 'Swipe slowly — Jesus meets Thomas with peace and gentle invitation to believe.',
       videoId: '',
@@ -7024,10 +6205,8 @@
     },
     pentecostFire: {
       title: 'Pentecost—Fire and Wind',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Disciples wait together in a room' },
-        { src: 'panel-noah-2.svg', alt: 'Wind fills the house—fire on each head!' },
-        { src: 'panel-noah-3.svg', alt: 'They speak in new languages—the Holy Spirit is here!' }
+            panels: [
+        { src: '/coloring-pages/pentecost.jpg', alt: 'Disciples wait together in a room' }
       ],
       caption: 'Swipe to see the Holy Spirit arrive with fire and wind! 🔥',
       videoId: '',
@@ -7038,10 +6217,8 @@
     },
     holySpiritPentecost: {
       title: 'Pentecost — Wind, Fire, Tongues',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Day of Pentecost — all with one accord in one place' },
-        { src: 'panel-noah-2.svg', alt: 'Rushing mighty wind — cloven tongues like fire on each' },
-        { src: 'panel-noah-3.svg', alt: 'Filled with the Holy Ghost — speaking as the Spirit gave utterance' }
+            panels: [
+        { src: '/coloring-pages/pentecost.jpg', alt: 'Day of Pentecost — all with one accord in one place' }
       ],
       caption: 'Swipe to see the Spirit arrive—no one stays the same! 🔥',
       videoId: '',
@@ -7052,10 +6229,8 @@
     },
     peterPentecostSermon: {
       title: 'Peter’s Pentecost Sermon',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Peter stands with the eleven — hear my words' },
-        { src: 'panel-david-2.svg', alt: 'Not drunk — third hour — this is Joel’s prophecy' },
-        { src: 'panel-david-3.svg', alt: 'Repent, be baptized — about three thousand souls saved' }
+            panels: [
+        { src: '/coloring-pages/pentecost.jpg', alt: 'Peter stands with the eleven — hear my words' }
       ],
       caption: 'Swipe to see one sermon change thousands of hearts! 📣',
       videoId: '',
@@ -7066,10 +6241,8 @@
     },
     earlyChurchLife: {
       title: 'Life in the Early Church',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Doctrine, fellowship, breaking bread, prayers' },
-        { src: 'panel-noah-2.svg', alt: 'All things common — giving to every need' },
-        { src: 'panel-noah-3.svg', alt: 'Praising God daily — the Lord added such as should be saved' }
+            panels: [
+        { src: '/coloring-pages/early-church.jpg', alt: 'Doctrine, fellowship, breaking bread, prayers' }
       ],
       caption: 'Swipe to see the first church—together, glad, generous! 🤝',
       videoId: '',
@@ -7080,10 +6253,8 @@
     },
     peterShadow: {
       title: 'Peter\'s Shadow Heals',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Sick people line the streets' },
-        { src: 'panel-noah-2.svg', alt: 'Peter walks by—his shadow touches them' },
-        { src: 'panel-noah-3.svg', alt: 'They are healed! God\'s power is in His people' }
+            panels: [
+        { src: '/coloring-pages/peter-lame.jpg', alt: 'Sick people line the streets' }
       ],
       caption: 'Swipe to see God\'s power flow through Peter! 🌟',
       videoId: '',
@@ -7094,10 +6265,8 @@
     },
     peterHealsLame: {
       title: 'Peter Heals the Lame Man',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Peter and John at the Beautiful gate' },
-        { src: 'panel-noah-2.svg', alt: 'In the name of Jesus Christ of Nazareth, rise up and walk' },
-        { src: 'panel-noah-3.svg', alt: 'He walks and leaps, praising God' }
+            panels: [
+        { src: '/coloring-pages/peter-lame.jpg', alt: 'Peter and John at the Beautiful gate' }
       ],
       caption: 'Swipe to see Jesus\' name make a lame man walk! 🚶',
       videoId: '',
@@ -7108,10 +6277,8 @@
     },
     peterJailBreak: {
       title: 'Peter Freed from Prison',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Peter asleep in prison between two soldiers' },
-        { src: 'panel-noah-2.svg', alt: 'An angel wakes him — chains fall off' },
-        { src: 'panel-noah-3.svg', alt: 'The iron gate opens — Peter is free!' }
+            panels: [
+        { src: '/coloring-pages/peter-jail.jpg', alt: 'Peter asleep in prison between two soldiers' }
       ],
       caption: 'Swipe to see prayer break prison chains! 🔓',
       videoId: '',
@@ -7122,10 +6289,8 @@
     },
     paulDamascus: {
       title: 'Paul on the Road to Damascus',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Saul rides to persecute Christians' },
-        { src: 'panel-david-2.svg', alt: 'A blinding light—Jesus speaks: Why do you fight me?' },
-        { src: 'panel-david-3.svg', alt: 'Saul becomes Paul—a new man!' }
+            panels: [
+        { src: '/coloring-pages/paul-damascus.jpg', alt: 'Saul rides to persecute Christians' }
       ],
       caption: 'Swipe to see God change Paul completely—He changes hearts! ⚡',
       videoId: 'oi95cv0tk9Q',
@@ -7136,10 +6301,8 @@
     },
     paulConversion: {
       title: 'Paul’s Conversion (Road to Damascus)',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Saul rides with letters—he wants to arrest Christians' },
-        { src: 'panel-david-2.svg', alt: 'A blinding light—Jesus asks, Why persecutest thou Me?' },
-        { src: 'panel-david-3.svg', alt: 'Ananias prays—Saul sees again and preaches Jesus!' }
+            panels: [
+        { src: '/coloring-pages/paul-damascus.jpg', alt: 'Saul rides with letters—he wants to arrest Christians' }
       ],
       caption: 'Swipe to see Jesus turn a fighter into a preacher! ✨',
       videoId: '',
@@ -7150,10 +6313,8 @@
     },
     paulBarnabas: {
       title: 'Paul & Barnabas Sent Out',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The church at Antioch prays and fasts' },
-        { src: 'panel-noah-2.svg', alt: 'Hands laid on Paul and Barnabas—they are sent by the Spirit' },
-        { src: 'panel-noah-3.svg', alt: 'They preach in new places—God works with them!' }
+            panels: [
+        { src: '/coloring-pages/barnabas.jpg', alt: 'The church at Antioch prays and fasts' }
       ],
       caption: 'Swipe to see the church send out missionaries! 🌍',
       videoId: '',
@@ -7164,10 +6325,8 @@
     },
     paulFirstJourney: {
       title: 'Paul’s First Missionary Journey',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul and Barnabas sail to Cyprus' },
-        { src: 'panel-noah-2.svg', alt: 'A sorcerer opposes them—God shows His power' },
-        { src: 'panel-noah-3.svg', alt: 'They preach boldly—some believe, God confirms with signs' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Paul and Barnabas sail to Cyprus' }
       ],
       caption: 'Swipe to see the first big journey for the gospel! ⛵',
       videoId: '',
@@ -7178,10 +6337,8 @@
     },
     councilJerusalem: {
       title: 'The Jerusalem Council',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Leaders meet—how do we welcome Gentile believers?' },
-        { src: 'panel-david-2.svg', alt: 'Peter speaks—God gave Gentiles the Holy Ghost' },
-        { src: 'panel-david-3.svg', alt: 'A letter of peace—the churches rejoice!' }
+            panels: [
+        { src: '/coloring-pages/hebrews-faith.jpg', alt: 'Leaders meet—how do we welcome Gentile believers?' }
       ],
       caption: 'Swipe to see the church choose grace—not a heavy yoke! 📜',
       videoId: '',
@@ -7192,10 +6349,8 @@
     },
     paulSecondJourney: {
       title: 'Paul’s Second Journey (Philippi)',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul and Silas travel—Philippi ahead' },
-        { src: 'panel-noah-2.svg', alt: 'In prison at midnight—they pray and sing praises' },
-        { src: 'panel-noah-3.svg', alt: 'Earthquake—the jailer asks, What must I do to be saved?' }
+            panels: [
+        { src: '/coloring-pages/philippians-joy.jpg', alt: 'Paul and Silas travel—Philippi ahead' }
       ],
       caption: 'Swipe to see praise in chains open doors—and save a family! 🎶',
       videoId: '',
@@ -7206,10 +6361,8 @@
     },
     actsPaulMarsHill: {
       title: 'Paul on Mars\' Hill',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Athens full of idols—Paul stands on Mars\' hill' },
-        { src: 'panel-david-2.svg', alt: 'An altar to the Unknown God—Paul tells who He really is' },
-        { src: 'panel-david-3.svg', alt: 'Some laugh, some listen—Dionysius and Damaris believe' }
+            panels: [
+        { src: '/coloring-pages/paul-mars-hill.jpg', alt: 'Athens full of idols—Paul stands on Mars\' hill' }
       ],
       caption: 'Swipe to see Paul speak truth in a city of statues! 🏛️',
       videoId: '',
@@ -7220,10 +6373,8 @@
     },
     actsApollosPriscilla: {
       title: 'Apollos Learns More Perfectly',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Apollos speaks boldly—he knows John’s baptism' },
-        { src: 'panel-david-2.svg', alt: 'Priscilla and Aquila take him aside—explain God’s way more fully' },
-        { src: 'panel-david-3.svg', alt: 'Apollos goes to Achaia—Scripture shows Jesus is Christ' }
+            panels: [
+        { src: '/coloring-pages/priscilla-aquila.jpg', alt: 'Apollos speaks boldly—he knows John’s baptism' }
       ],
       caption: 'Swipe to see humble learners and kind teachers—truth grows! 📖',
       videoId: '',
@@ -7234,10 +6385,8 @@
     },
     paulThirdJourney: {
       title: 'Paul’s Third Missionary Journey',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul travels—strengthening churches in Galatia and beyond' },
-        { src: 'panel-noah-2.svg', alt: 'Ephesus—Paul teaches; God does special miracles' },
-        { src: 'panel-noah-3.svg', alt: 'From riot to Macedonia—Paul keeps encouraging believers' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Paul travels—strengthening churches in Galatia and beyond' }
       ],
       caption: 'Swipe to see Paul’s long road—God keeps His Word on the move! 🗺️',
       videoId: '',
@@ -7248,10 +6397,8 @@
     },
     paulEphesus: {
       title: 'Paul in Ephesus',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Disciples receive the Holy Ghost—speaking with tongues' },
-        { src: 'panel-david-2.svg', alt: 'Paul teaches daily—many in Asia hear the word' },
-        { src: 'panel-david-3.svg', alt: 'Evil is exposed—believers burn wrong books; the word grows' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Disciples receive the Holy Ghost—speaking with tongues' }
       ],
       caption: 'Swipe to see God’s power in Ephesus—truth wins! ⚡',
       videoId: '',
@@ -7262,10 +6409,8 @@
     },
     paulEutychus: {
       title: 'Paul Raises Eutychus',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Late-night preaching at Troas—lamps burning' },
-        { src: 'panel-noah-2.svg', alt: 'Eutychus falls from the window—taken up dead' },
-        { src: 'panel-noah-3.svg', alt: 'Paul embraces him—his life is in him! God is merciful' }
+            panels: [
+        { src: '/coloring-pages/eutychus.jpg', alt: 'Late-night preaching at Troas—lamps burning' }
       ],
       caption: 'Swipe to see God give life back—listen with care! 🪟',
       videoId: '',
@@ -7276,10 +6421,8 @@
     },
     paulRome: {
       title: 'Paul Preaches in Rome',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Paul in chains—still allowed to teach in his lodging' },
-        { src: 'panel-david-2.svg', alt: 'Jewish leaders hear Paul—for the hope of Israel' },
-        { src: 'panel-david-3.svg', alt: 'Two years—kingdom of God and Jesus—no one forbidding' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Paul in chains—still allowed to teach in his lodging' }
       ],
       caption: 'Swipe to see chains cannot chain the gospel! ⛓️📖',
       videoId: '',
@@ -7290,10 +6433,8 @@
     },
     paulLetters: {
       title: 'Paul’s Letters to the Churches',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Paul writes with care—scrolls for many cities' },
-        { src: 'panel-david-2.svg', alt: 'Romans, Corinthians, Galatians—faith, love, freedom in Christ' },
-        { src: 'panel-david-3.svg', alt: 'Joy in Philippians—Christ first in Colossians—Scripture for us' }
+            panels: [
+        { src: '/coloring-pages/philippians-joy.jpg', alt: 'Paul writes with care—scrolls for many cities' }
       ],
       caption: 'Swipe to see God’s mailroom—letters that still feed the church! ✉️',
       videoId: '',
@@ -7304,10 +6445,8 @@
     },
     paulPrisonEpistles: {
       title: 'Paul’s Prison Letters',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul in chains—still writing with joy' },
-        { src: 'panel-noah-2.svg', alt: 'Ephesians—one body, one Spirit, one hope' },
-        { src: 'panel-noah-3.svg', alt: 'Philemon—forgiveness; Christ supreme in Colossians' }
+            panels: [
+        { src: '/coloring-pages/philippians-joy.jpg', alt: 'Paul in chains—still writing with joy' }
       ],
       caption: 'Swipe to see chains cannot chain the good news! 📜',
       videoId: '',
@@ -7318,10 +6457,8 @@
     },
     paulEndurance: {
       title: 'Paul’s Finish Line',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Paul writes Timothy—a faithful son in the faith' },
-        { src: 'panel-david-2.svg', alt: 'I have fought a good fight… I have kept the faith' },
-        { src: 'panel-david-3.svg', alt: 'A crown of righteousness—for all who love His appearing' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Paul writes Timothy—a faithful son in the faith' }
       ],
       caption: 'Swipe to see faith that crosses the finish line! 🏁',
       videoId: '',
@@ -7332,10 +6469,8 @@
     },
     paulTimothy: {
       title: 'Paul’s Letters to Timothy',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Paul writes Timothy—sound doctrine and a faithful heart' },
-        { src: 'panel-david-2.svg', alt: 'Fight the good fight—be an example in word and love' },
-        { src: 'panel-david-3.svg', alt: 'Preach the word—in season and out of season' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Paul writes Timothy—sound doctrine and a faithful heart' }
       ],
       caption: 'Swipe to see Paul coach Timothy for the long haul! ✉️',
       videoId: '',
@@ -7346,10 +6481,8 @@
     },
     paulTitus: {
       title: 'Paul’s Letter to Titus',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul writes Titus in Crete—set the church in order' },
-        { src: 'panel-noah-2.svg', alt: 'Good leaders—blameless, holding fast faithful teaching' },
-        { src: 'panel-noah-3.svg', alt: 'Grace teaches us to say no to sin—and to do good eagerly' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Paul writes Titus in Crete—set the church in order' }
       ],
       caption: 'Swipe to see grace that cleans house and builds kindness! 🏝️',
       videoId: '',
@@ -7360,10 +6493,8 @@
     },
     paulPhilemon: {
       title: 'Paul’s Letter to Philemon',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Paul writes Philemon—love for Onesimus' },
-        { src: 'panel-david-2.svg', alt: 'Receive him not as a servant only—but a brother beloved' },
-        { src: 'panel-david-3.svg', alt: 'Put it on my account—Paul pays the debt of love' }
+            panels: [
+        { src: '/coloring-pages/philemon.jpg', alt: 'Paul writes Philemon—love for Onesimus' }
       ],
       caption: 'Swipe to see forgiveness knit hearts as family! 🤝',
       videoId: '',
@@ -7374,10 +6505,8 @@
     },
     hebrewsFaith: {
       title: 'Heroes of Faith (Hebrews 11)',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Faith is trusting God—even when you cannot see the end' },
-        { src: 'panel-david-2.svg', alt: 'Abel, Enoch, Noah, Abraham—obeying God’s voice' },
-        { src: 'panel-david-3.svg', alt: 'They looked for a heavenly country—God is proud to be their God' }
+            panels: [
+        { src: '/coloring-pages/hebrews-faith.jpg', alt: 'Faith is trusting God—even when you cannot see the end' }
       ],
       caption: 'Swipe to see faith that walks with God step by step! ⭐',
       videoId: '',
@@ -7388,10 +6517,8 @@
     },
     jamesFaithWorks: {
       title: 'James — Faith That Helps',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'James asks—can faith without works feed a hungry friend?' },
-        { src: 'panel-noah-2.svg', alt: 'Show me your faith by your works—love in action' },
-        { src: 'panel-noah-3.svg', alt: 'Abraham’s faith moved his hands—faith and works together' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'James asks—can faith without works feed a hungry friend?' }
       ],
       caption: 'Swipe to see faith that rolls up its sleeves! 🙌',
       videoId: '',
@@ -7402,10 +6529,8 @@
     },
     peterFirstLetter: {
       title: 'Peter’s First Letter (1 Peter)',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Peter writes to believers in hard days—hope shines in Christ' },
-        { src: 'panel-david-2.svg', alt: 'Love with a pure heart—cast every care on God' },
-        { src: 'panel-david-3.svg', alt: 'Be sober—the devil prowls, but God is your strength' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Peter writes to believers in hard days—hope shines in Christ' }
       ],
       caption: 'Swipe to see hope that holds when life hurts! 💙',
       videoId: '',
@@ -7416,10 +6541,8 @@
     },
     peterSecondLetter: {
       title: 'Peter’s Second Letter (2 Peter)',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Peter says add to your faith—virtue, patience, love' },
-        { src: 'panel-noah-2.svg', alt: 'Watch for teachers who twist the truth for gain' },
-        { src: 'panel-noah-3.svg', alt: 'God is patient—He wants people to repent' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Peter says add to your faith—virtue, patience, love' }
       ],
       caption: 'Swipe to see grow-up faith and wise eyes! 📜',
       videoId: '',
@@ -7430,10 +6553,8 @@
     },
     johnFirstLetter: {
       title: 'John’s First Letter (1 John)',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'God is light—walk honestly with Him' },
-        { src: 'panel-david-2.svg', alt: 'If we sin, Jesus is our righteous advocate' },
-        { src: 'panel-david-3.svg', alt: 'He laid down His life—so we love each other for real' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'God is light—walk honestly with Him' }
       ],
       caption: 'Swipe to see light, love, and a clean heart! ✨',
       videoId: '',
@@ -7444,10 +6565,8 @@
     },
     judeWarning: {
       title: 'Jude — Stand for the Truth',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jude urges—contend for the faith once delivered' },
-        { src: 'panel-noah-2.svg', alt: 'Some creep in and deny the Lord—don’t follow smooth lies' },
-        { src: 'panel-noah-3.svg', alt: 'Build up in faith, pray, stay in God’s love—He keeps you' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Jude urges—contend for the faith once delivered' }
       ],
       caption: 'Swipe to see courage for God’s truth—not fear, faith! ⚔️',
       videoId: '',
@@ -7458,10 +6577,8 @@
     },
     revelationLetters: {
       title: 'Letters to the Seven Churches',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Seven lampstands—Jesus walks among His churches' },
-        { src: 'panel-david-2.svg', alt: 'Letters to Ephesus, Smyrna, Philadelphia, Laodicea…' },
-        { src: 'panel-david-3.svg', alt: 'He that hath an ear—hear what the Spirit saith' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'Seven lampstands—Jesus walks among His churches' }
       ],
       caption: 'Swipe to see Jesus speak to every church—including ours! 🕯️',
       videoId: '',
@@ -7472,10 +6589,8 @@
     },
     revelationSeals: {
       title: 'The Seven Seals',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The Lamb opens the book—horses, seals, heaven’s silence' },
-        { src: 'panel-noah-2.svg', alt: 'Souls under the altar—white robes; sky turns dark' },
-        { src: 'panel-noah-3.svg', alt: 'God is on the throne—judgment is just and true' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'The Lamb opens the book—horses, seals, heaven’s silence' }
       ],
       caption: 'Swipe to see the Lamb open history—God still reigns! 📜',
       videoId: '',
@@ -7486,10 +6601,8 @@
     },
     revelationTrumpets: {
       title: 'The Seven Trumpets',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Silence—then angels sound trumpets from heaven' },
-        { src: 'panel-david-2.svg', alt: 'Fire, sea, stars—God warns the world' },
-        { src: 'panel-david-3.svg', alt: 'The kingdoms of this world become Christ’s—Hallelujah!' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'Silence—then angels sound trumpets from heaven' }
       ],
       caption: 'Swipe to see heaven’s alarm clock—wake up and repent! 🎺',
       videoId: '',
@@ -7500,10 +6613,8 @@
     },
     revelationBeasts: {
       title: 'The Beast & the False Prophet',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A beast from the sea—power from the dragon' },
-        { src: 'panel-noah-2.svg', alt: 'Another beast—looks gentle, speaks lies' },
-        { src: 'panel-noah-3.svg', alt: 'God’s people worship Jesus—not the beast' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'A beast from the sea—power from the dragon' }
       ],
       caption: 'Swipe to see lies that roar—and truth that saves! 🐉',
       videoId: '',
@@ -7514,10 +6625,8 @@
     },
     revelationThousandYears: {
       title: 'A Thousand Years & the Great White Throne',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'An angel binds Satan—locked away a thousand years' },
-        { src: 'panel-david-2.svg', alt: 'Martyrs reign with Christ—blessed first resurrection' },
-        { src: 'panel-david-3.svg', alt: 'Satan’s end—the lake of fire; God judges with truth' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'An angel binds Satan—locked away a thousand years' }
       ],
       caption: 'Swipe to see evil’s last chapter—good wins forever! ⛓️',
       videoId: '',
@@ -7528,10 +6637,8 @@
     },
     revelationNewJerusalem: {
       title: 'The New Jerusalem',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'New heaven, new earth—no more tears' },
-        { src: 'panel-noah-2.svg', alt: 'The holy city comes down—bride bright for the Lamb' },
-        { src: 'panel-noah-3.svg', alt: 'River of life—tree of life—Come, says Jesus' }
+            panels: [
+        { src: '/coloring-pages/heaven-promise.jpg', alt: 'New heaven, new earth—no more tears' }
       ],
       caption: 'Swipe to see the ending that never ends—home with God! ✨',
       videoId: '',
@@ -7542,10 +6649,8 @@
     },
     revelationWomanDragon: {
       title: 'The Woman & the Dragon',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'A woman clothed with the sun—a child who will rule the nations' },
-        { src: 'panel-david-2.svg', alt: 'The dragon waits—but the child is caught up to God’s throne' },
-        { src: 'panel-david-3.svg', alt: 'Michael fights; saints overcome by the Lamb’s blood' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'A woman clothed with the sun—a child who will rule the nations' }
       ],
       caption: 'Swipe to see heaven’s war—and the Lamb’s people winning! 🐉',
       videoId: '',
@@ -7556,10 +6661,8 @@
     },
     revelationSongsAndHarvest: {
       title: 'Songs on Zion & the Harvest',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The Lamb on Zion—144,000 with the Father’s name' },
-        { src: 'panel-noah-2.svg', alt: 'Angels preach fear God—Babylon fallen—don’t take the mark' },
-        { src: 'panel-noah-3.svg', alt: 'Sea of glass, harps—song of Moses and the Lamb' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'The Lamb on Zion—144,000 with the Father’s name' }
       ],
       caption: 'Swipe to hear heaven’s new song—only the redeemed can learn it! 🎵',
       videoId: '',
@@ -7570,10 +6673,8 @@
     },
     revelationSupperAndKing: {
       title: 'Alleluia & the Rider on the White Horse',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Heaven shouts Alleluia—the marriage of the Lamb' },
-        { src: 'panel-david-2.svg', alt: 'Faithful and True rides out—King of kings' },
-        { src: 'panel-david-3.svg', alt: 'The beast and false prophet judged—God omnipotent reigneth' }
+            panels: [
+        { src: '/coloring-pages/lamb-book.jpg', alt: 'Heaven shouts Alleluia—the marriage of the Lamb' }
       ],
       caption: 'Swipe to see the Bride ready and the King who never loses! 👑',
       videoId: '',
@@ -7584,10 +6685,8 @@
     },
     revelationBabylonFall: {
       title: 'Babylon Falls',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A proud city on a beast—rich, cruel, drunk with wrong' },
-        { src: 'panel-noah-2.svg', alt: 'God says Come out of her, my people' },
-        { src: 'panel-noah-3.svg', alt: 'Heaven rejoices—evil’s party ends; God’s justice stands' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'A proud city on a beast—rich, cruel, drunk with wrong' }
       ],
       caption: 'Swipe to see God call His people out—sin’s tower cannot stand! 🏙️',
       videoId: '',
@@ -7598,10 +6697,8 @@
     },
     johnSecondThirdLetters: {
       title: '2 John & 3 John — Truth & Welcome',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Walk in truth and love—keep Christ’s commandments' },
-        { src: 'panel-david-2.svg', alt: 'Gaius welcomes travelling helpers—kind rooms, kind hearts' },
-        { src: 'panel-david-3.svg', alt: 'Follow good like Demetrius—not proud Diotrephes' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Walk in truth and love—keep Christ’s commandments' }
       ],
       caption: 'Swipe to see small letters with big love—truth, tables, and courage! ✉️',
       videoId: '',
@@ -7612,10 +6709,8 @@
     },
     actsPaulBeforeAgrippa: {
       title: 'Paul Before Agrippa',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Paul appeals to Caesar—he wants a fair hearing' },
-        { src: 'panel-david-2.svg', alt: 'King Agrippa listens—Paul tells the risen Christ' },
-        { src: 'panel-david-3.svg', alt: '“Almost persuaded”—Paul wishes everyone knew Jesus' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Paul appeals to Caesar—he wants a fair hearing' }
       ],
       caption: 'Swipe to see courage in chains—truth spoken to power! 👑',
       videoId: '',
@@ -7626,10 +6721,8 @@
     },
     actsPaulMelita: {
       title: 'Paul on Melita',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Kind islanders—fire in the rain' },
-        { src: 'panel-noah-2.svg', alt: 'Viper on Paul’s hand—he shakes it off; God keeps him' },
-        { src: 'panel-noah-3.svg', alt: 'Paul prays—Publius’ father healed; many come' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Kind islanders—fire in the rain' }
       ],
       caption: 'Swipe to see Melita (Malta): kindness, a viper, and healing after the storm! 🏝️',
       videoId: '',
@@ -7640,24 +6733,27 @@
     },
     romansRoadKids: {
       title: 'The Romans Road (for Kids)',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'All have sinned—we need a Saviour' },
-        { src: 'panel-david-2.svg', alt: 'Christ died for us while we were yet sinners' },
-        { src: 'panel-david-3.svg', alt: 'Believe in your heart—confess Jesus is Lord—saved' }
+            panels: [
+        { src: '/coloring-pages/romans-road-kids.jpg', alt: 'All have sinned—we need a Saviour' }
       ],
-      caption: 'Swipe to see God’s rescue plan—straight from Romans! ✝️',
+      caption: 'Four steps from Romans: we need a Saviour, Jesus died for us, life is God’s gift, believe and confess.',
       videoId: '',
       videoTitle: '',
-      keywords: ['romans', 'gospel', 'sin', 'grace', 'saved', 'confess', 'believe', 'eternal life'],
+      keywords: ['romans', 'gospel', 'sin', 'grace', 'saved', 'confess', 'believe', 'eternal life', 'romans road'],
       kjvRef: 'Romans 3:23; 5:8; 6:23; 10:9–10',
-      kidContext: { who: 'Paul', to: 'Us', apply: 'If you trust Jesus died and rose for you, tell Him—and tell a trusted grown-up; baptism and church help you grow.' }
+      kidContext: {
+        who: 'Paul',
+        to: 'Us',
+        apply:
+          'If you trust Jesus died and rose for you, tell Him—and tell a trusted grown-up; baptism and church help you grow.'
+      },
+      narration:
+        "The Romans Road (for Kids) — Romans 3:23; 5:8; 6:23; 10:9–10. Paul wrote about God’s rescue plan. Step one: all have sinned, and come short of the glory of God — we all need a Saviour. Step two: God commendeth his love toward us, in that, while we were yet sinners, Christ died for us. Step three: the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord. Step four: if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved. For you: If you trust Jesus, tell Him in a quiet prayer, and tell a trusted grown-up. He loves you."
     },
     corinthiansOneBody: {
       title: 'One Body, Many Gifts',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'One body—eye, hand, foot—all needed' },
-        { src: 'panel-noah-2.svg', alt: 'Don’t say “I don’t need you” in church' },
-        { src: 'panel-noah-3.svg', alt: 'We hurt together and celebrate together' }
+            panels: [
+        { src: '/coloring-pages/love-chapter.jpg', alt: 'One body—eye, hand, foot—all needed' }
       ],
       caption: 'Swipe to see the church as a team—not a contest! 🤝',
       videoId: '',
@@ -7668,10 +6764,8 @@
     },
     philippiansJoy: {
       title: 'Philippians — Joy in Chains',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Paul in prison—still rejoicing in Christ' },
-        { src: 'panel-david-2.svg', alt: 'Have the mind of Christ—humble, obedient, exalted' },
-        { src: 'panel-david-3.svg', alt: 'Pray with thanks—peace guards you; Christ strengtheneth thee' }
+            panels: [
+        { src: '/coloring-pages/philippians-joy.jpg', alt: 'Paul in prison—still rejoicing in Christ' }
       ],
       caption: 'Swipe to see joy that doesn’t need easy days! ☀️',
       videoId: '',
@@ -7682,10 +6776,8 @@
     },
     colossiansChristSupreme: {
       title: 'Colossians — Christ Is Supreme',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Christ—image of God; all things made by Him' },
-        { src: 'panel-noah-2.svg', alt: 'Head of the church—peace by the cross' },
-        { src: 'panel-noah-3.svg', alt: 'Set your heart on heaven—mercy, kindness, peace rule' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Christ—image of God; all things made by Him' }
       ],
       caption: 'Swipe to see Jesus first—in all things! 👑',
       videoId: '',
@@ -7696,10 +6788,8 @@
     },
     thessaloniansHope: {
       title: 'Thessalonians — Hope When We Grieve',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Comfort for those who sleep in Jesus' },
-        { src: 'panel-david-2.svg', alt: 'The Lord will come—dead in Christ rise first' },
-        { src: 'panel-david-3.svg', alt: 'Caught up to meet the Lord—rejoice, pray, give thanks' }
+            panels: [
+        { src: '/coloring-pages/come-lord-jesus.jpg', alt: 'Comfort for those who sleep in Jesus' }
       ],
       caption: 'Swipe to see tears held by resurrection hope! 🕊️',
       videoId: '',
@@ -7710,10 +6800,8 @@
     },
     timothyYouthExample: {
       title: 'Timothy — Young and Faithful',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Don’t let anyone mock your age—lead by love' },
-        { src: 'panel-noah-2.svg', alt: 'Example in word, love, faith, purity' },
-        { src: 'panel-noah-3.svg', alt: 'Read, teach, use your gift—God sees your growth' }
+            panels: [
+        { src: '/coloring-pages/young-timothy.jpg', alt: 'Don’t let anyone mock your age—lead by love' }
       ],
       caption: 'Swipe to see God use young hearts who obey! 🌱',
       videoId: '',
@@ -7724,10 +6812,8 @@
     },
     paulShipwreck: {
       title: 'Paul\'s Shipwreck',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul sails in a terrible storm' },
-        { src: 'panel-noah-2.svg', alt: 'The ship breaks apart—Paul swims to shore' },
-        { src: 'panel-noah-3.svg', alt: 'A snake bites Paul—he is fine! God protects him' }
+            panels: [
+        { src: '/coloring-pages/paul-shipwreck.jpg', alt: 'Paul sails in a terrible storm' }
       ],
       caption: 'Swipe to see Paul survive the storm—God keeps His own! ⛵',
       videoId: '',
@@ -7738,10 +6824,8 @@
     },
     paulSilas: {
       title: 'Paul and Silas Sing in Jail',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul and Silas are beaten and jailed' },
-        { src: 'panel-noah-2.svg', alt: 'At midnight—they sing and pray!' },
-        { src: 'panel-noah-3.svg', alt: 'An earthquake—the prison opens! They stay and the jailer believes' }
+            panels: [
+        { src: '/coloring-pages/paul-silas-prison.jpg', alt: 'Paul and Silas are beaten and jailed' }
       ],
       caption: 'Swipe to see Paul and Silas worship in the dark! 🎶',
       videoId: '',
@@ -7752,19 +6836,8 @@
     },
     tenVirgins: {
       title: 'Jesus Tells About Being Ready',
-      panels: [
-        {
-          src: 'panel-noah-1.svg',
-          alt: 'Ten young women with lamps go out to meet the bridegroom — five wise with oil, five foolish without'
-        },
-        {
-          src: 'panel-noah-2.svg',
-          alt: 'At midnight a cry: the bridegroom cometh — trim your lamps'
-        },
-        {
-          src: 'panel-noah-3.svg',
-          alt: 'The ready went in with him to the marriage — watch, for ye know neither the day nor the hour'
-        }
+            panels: [
+        { src: '/coloring-pages/ten-virgins.jpg', alt: 'Ten young women with lamps go out to meet the bridegroom — five wise with oil, five foolish without' }
       ],
       caption: 'Swipe to see the wise ones ready with oil — Jesus wants us to be ready! 🪔',
       videoId: '',
@@ -7794,19 +6867,8 @@
     },
     sheepAndGoats: {
       title: 'Jesus Tells About Helping People',
-      panels: [
-        {
-          src: 'panel-noah-1.svg',
-          alt: 'Jesus welcomes with open arms as people bring food, water, and a warm coat to help others'
-        },
-        {
-          src: 'panel-noah-2.svg',
-          alt: 'Giving meat and drink — caring for hungry and thirsty neighbors'
-        },
-        {
-          src: 'panel-noah-3.svg',
-          alt: '“Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me.”'
-        }
+            panels: [
+        { src: '/coloring-pages/sheep-goats.jpg', alt: 'Jesus welcomes with open arms as people bring food, water, and a warm coat to help others' }
       ],
       caption: 'Swipe to see how helping people is like helping Jesus! 🤲',
       videoId: '',
@@ -7837,10 +6899,8 @@
     /* ── Week 8 (97–108) ── */
     armorShield: {
       title: 'The Shield of Faith',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'A knight holds up his shield' },
-        { src: 'panel-david-2.svg', alt: 'Arrows of doubt and fear fly—blocked by faith' },
-        { src: 'panel-david-3.svg', alt: 'Stand firm—faith stops every attack!' }
+            panels: [
+        { src: '/coloring-pages/armor-of-god.jpg', alt: 'A knight holds up his shield' }
       ],
       caption: 'Swipe to see the shield of faith block every arrow! 🛡️',
       videoId: '',
@@ -7851,10 +6911,8 @@
     },
     armorSword: {
       title: 'The Sword of the Spirit',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'A sword labeled "Word of God"' },
-        { src: 'panel-david-2.svg', alt: 'Jesus used Scripture against the devil' },
-        { src: 'panel-david-3.svg', alt: 'Know God\'s Word—it\'s your best weapon!' }
+            panels: [
+        { src: '/coloring-pages/armor-of-god.jpg', alt: 'A sword labeled "Word of God"' }
       ],
       caption: 'Swipe to see the Word of God as your sword! ⚔️',
       videoId: '',
@@ -7865,10 +6923,8 @@
     },
     fruitSpirit: {
       title: 'Fruit of the Spirit',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A tree full of beautiful fruit' },
-        { src: 'panel-noah-2.svg', alt: 'Love, joy, peace, patience—God\'s fruit' },
-        { src: 'panel-noah-3.svg', alt: 'Stay connected to Jesus—grow good fruit!' }
+            panels: [
+        { src: '/coloring-pages/fruit-spirit.jpg', alt: 'A tree full of beautiful fruit' }
       ],
       caption: 'Swipe to see the fruit God grows in you! 🍎',
       videoId: '',
@@ -7879,10 +6935,8 @@
     },
     loveChapter: {
       title: 'Love Is Patient and Kind',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A heart shape glows with light' },
-        { src: 'panel-noah-2.svg', alt: 'Love is patient, love is kind...' },
-        { src: 'panel-noah-3.svg', alt: 'Love never fails—God is love!' }
+            panels: [
+        { src: '/coloring-pages/love-chapter.jpg', alt: 'A heart shape glows with light' }
       ],
       caption: 'Swipe to see what real love looks like! ❤️',
       videoId: '',
@@ -7893,10 +6947,8 @@
     },
     faithMustard: {
       title: 'Faith Like a Mustard Seed',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A tiny seed in someone\'s hand' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus says: this much faith moves mountains' },
-        { src: 'panel-noah-3.svg', alt: 'Even small faith is enough—God does the rest!' }
+            panels: [
+        { src: '/coloring-pages/mustard-seed.jpg', alt: 'A tiny seed in someone\'s hand' }
       ],
       caption: 'Swipe to see how small faith can move mountains! 🏔️',
       videoId: '',
@@ -7907,10 +6959,8 @@
     },
     prayerKnock: {
       title: 'Ask, Seek, Knock',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A person stands at a door and knocks' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus says: Ask and it will be given!' },
-        { src: 'panel-noah-3.svg', alt: 'The door opens—God answers!' }
+            panels: [
+        { src: '/coloring-pages/prayer-knock.jpg', alt: 'A person stands at a door and knocks' }
       ],
       caption: 'Swipe to see the promise: ask, seek, knock—He answers! 🚪',
       videoId: '',
@@ -7921,10 +6971,8 @@
     },
     worryBirds: {
       title: 'Don\'t Worry—Look at the Birds',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Birds fly freely—they don\'t worry' },
-        { src: 'panel-noah-2.svg', alt: 'Lilies grow without stress—God clothes them' },
-        { src: 'panel-noah-3.svg', alt: 'You are worth more—God takes care of you!' }
+            panels: [
+        { src: '/coloring-pages/worry-birds.jpg', alt: 'Birds fly freely—they don\'t worry' }
       ],
       caption: 'Swipe to see why you don\'t need to worry—God\'s got you! 🐦',
       videoId: '',
@@ -7935,10 +6983,8 @@
     },
     unforgivingServant: {
       title: 'Jesus Tells About Forgiving Others',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A king forgives a servant’s huge debt — the servant begs for patience' },
-        { src: 'panel-noah-2.svg', alt: 'The same servant will not forgive a smaller debt — grabs him by the throat' },
-        { src: 'panel-noah-3.svg', alt: 'The king is grieved — forgive from your heart as God forgave you' }
+            panels: [
+        { src: '/coloring-pages/unforgiving-servant.jpg', alt: 'A king forgives a servant’s huge debt — the servant begs for patience' }
       ],
       caption: 'Swipe to see mercy from the king — and the heart Jesus asks of us. 🤲',
       videoId: '',
@@ -7965,10 +7011,8 @@
     },
     widowMite: {
       title: 'Jesus Sees the Poor Widow’s Gift',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus watches people putting money into the temple treasury — many rich give much' },
-        { src: 'panel-noah-2.svg', alt: 'A poor widow puts in two small coins — two mites' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says she gave more than all — she of her want cast in all her living' }
+            panels: [
+        { src: '/coloring-pages/widows-mite.jpg', alt: 'Jesus watches people putting money into the temple treasury — many rich give much' }
       ],
       caption: 'Swipe to see the widow’s gift — Jesus sees a loving heart! 🪙',
       videoId: '',
@@ -7999,19 +7043,8 @@
     },
     jesusCleansesTemple: {
       title: 'Jesus Makes God’s House Clean Again',
-      panels: [
-        {
-          src: 'panel-noah-1.svg',
-          alt: 'Jesus comes to the temple — people buying, selling, and changing money inside'
-        },
-        {
-          src: 'panel-noah-2.svg',
-          alt: 'Jesus drives out the trading — tables over, coins poured out — caring for God’s house'
-        },
-        {
-          src: 'panel-noah-3.svg',
-          alt: 'Jesus speaks: Take these things hence — make not my Father’s house a house of merchandise'
-        }
+            panels: [
+        { src: '/coloring-pages/temple-clean.jpg', alt: 'Jesus comes to the temple — people buying, selling, and changing money inside' }
       ],
       caption: 'Swipe to see Jesus make God’s house clean for prayer again! 🕊️',
       videoId: '',
@@ -8040,19 +7073,8 @@
     },
     greatestCommandment: {
       title: 'Jesus Tells Us the Most Important Command',
-      panels: [
-        {
-          src: 'panel-noah-1.svg',
-          alt: 'A lawyer draws near — Master, which is the great commandment in the law? — Jesus listens with calm kindness'
-        },
-        {
-          src: 'panel-noah-2.svg',
-          alt: 'Jesus speaks God’s law — Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind — the first and great commandment'
-        },
-        {
-          src: 'panel-noah-3.svg',
-          alt: 'The second is like unto it — love thy neighbour as thyself — on these two commandments hang all the law and the prophets'
-        }
+            panels: [
+        { src: '/coloring-pages/greatest-command.jpg', alt: 'A lawyer draws near — Master, which is the great commandment in the law? — Jesus listens with calm kindness' }
       ],
       caption: 'Swipe slowly — Jesus teaches the two commandments every other command rests upon.',
       videoId: '',
@@ -8081,19 +7103,8 @@
     },
     richYoungRuler: {
       title: 'Jesus Talks with a Rich Young Man',
-      panels: [
-        {
-          src: 'panel-noah-1.svg',
-          alt: 'A rich young ruler runs and kneels — Good Master, what shall I do to inherit eternal life?'
-        },
-        {
-          src: 'panel-noah-2.svg',
-          alt: 'Jesus beholds him and loves him — one thing thou lackest: sell, give, take up the cross, follow me'
-        },
-        {
-          src: 'panel-noah-3.svg',
-          alt: 'The young man goes away grieved — Jesus teaches how hard riches are; with God all things are possible'
-        }
+            panels: [
+        { src: '/coloring-pages/rich-young-ruler.jpg', alt: 'A rich young ruler runs and kneels — Good Master, what shall I do to inherit eternal life?' }
       ],
       caption: 'Swipe to see Jesus look with love—and call us to follow Him first. 💎',
       videoId: 'Z5tCVTOLnQ0',
@@ -8120,19 +7131,8 @@
     },
     maryAnoint: {
       title: 'Mary Anoints Jesus\' Feet',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Bethany supper — Martha serves; Lazarus at the table with Jesus'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Mary anoints Jesus\' feet with costly spikenard — wipes with her hair — house filled with the odour'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Judas murmurs about the poor — Jesus says, Let her alone — against the day of my burying hath she kept this'
-        }
+            panels: [
+        { src: '/coloring-pages/great-commission.jpg', alt: 'Bethany supper — Martha serves; Lazarus at the table with Jesus' }
       ],
       caption: 'Swipe slowly — Jesus treasures Mary\'s loving gift and defends her gentle heart.',
       videoId: '',
@@ -8166,10 +7166,8 @@
     /* ── Week 9 (109–120) ── */
     stephenStones: {
       title: 'Stephen Sees Heaven',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Stephen preaches boldly about Jesus' },
-        { src: 'panel-david-2.svg', alt: 'They throw stones—Stephen looks up' },
-        { src: 'panel-david-3.svg', alt: 'He sees Jesus standing—and forgives them!' }
+            panels: [
+        { src: '/coloring-pages/stephen.jpg', alt: 'Stephen preaches boldly about Jesus' }
       ],
       caption: 'Swipe to see Stephen\'s courage and forgiveness—amazing! 💎',
       videoId: '',
@@ -8180,10 +7178,8 @@
     },
     stephenMartyr: {
       title: 'Stephen, First Martyr',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Stephen full of faith — wonders and signs' },
-        { src: 'panel-david-2.svg', alt: 'He sees Jesus standing at God\'s right hand' },
-        { src: 'panel-david-3.svg', alt: 'He forgives those who stone him' }
+            panels: [
+        { src: '/coloring-pages/stephen.jpg', alt: 'Stephen full of faith — wonders and signs' }
       ],
       caption: 'Swipe to see Stephen\'s courage and love for Jesus! 💎',
       videoId: '',
@@ -8194,10 +7190,8 @@
     },
     philipChariot: {
       title: 'Philip and the Ethiopian',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Philip is sent to a desert road' },
-        { src: 'panel-noah-2.svg', alt: 'An Ethiopian reads Isaiah in his chariot' },
-        { src: 'panel-noah-3.svg', alt: 'Philip explains—the Ethiopian believes and is baptized!' }
+            panels: [
+        { src: '/coloring-pages/philip-ethiopian.jpg', alt: 'Philip is sent to a desert road' }
       ],
       caption: 'Swipe to see Philip share the good news on the road! 📖',
       videoId: '',
@@ -8208,10 +7202,8 @@
     },
     philipEthiopian: {
       title: 'Philip & the Ethiopian',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Philip runs to the chariot on the desert road' },
-        { src: 'panel-noah-2.svg', alt: 'Understandest thou what thou readest?' },
-        { src: 'panel-noah-3.svg', alt: 'He is baptized — and goes away rejoicing' }
+            panels: [
+        { src: '/coloring-pages/philip-ethiopian.jpg', alt: 'Philip runs to the chariot on the desert road' }
       ],
       caption: 'Swipe to see Philip open the Scripture — good news travels! 📖',
       videoId: '',
@@ -8222,10 +7214,8 @@
     },
     paulShip: {
       title: 'Paul\'s Ship in the Storm',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul sails toward Rome in a big storm' },
-        { src: 'panel-noah-2.svg', alt: 'An angel says: fear not—all 276 will be safe' },
-        { src: 'panel-noah-3.svg', alt: 'They swim to shore—everyone safe, just like God said!' }
+            panels: [
+        { src: '/coloring-pages/paul-shipwreck.jpg', alt: 'Paul sails toward Rome in a big storm' }
       ],
       caption: 'Swipe to see God keep His word in the storm! ⛵',
       videoId: '',
@@ -8236,10 +7226,8 @@
     },
     johnPatmos: {
       title: 'John on Patmos',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'John on the island—faithful to Jesus’ word' },
-        { src: 'panel-noah-2.svg', alt: 'A voice like a trumpet—Alpha and Omega' },
-        { src: 'panel-noah-3.svg', alt: 'The risen Lord—fear not, I am alive for evermore' }
+            panels: [
+        { src: '/coloring-pages/john-patmos.jpg', alt: 'John on the island—faithful to Jesus’ word' }
       ],
       caption: 'Swipe to see Jesus walk into John’s exile—alive and glorious! 🌅',
       videoId: '',
@@ -8250,10 +7238,8 @@
     },
     revelation: {
       title: 'Revelation: Jesus Is Coming Again',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'John sees Jesus in glory—keys of death and hell' },
-        { src: 'panel-noah-2.svg', alt: 'Door opened in heaven—the Lamb and worship round the throne' },
-        { src: 'panel-noah-3.svg', alt: 'River of life, tree of life—Come, Lord Jesus!' }
+            panels: [
+        { src: '/coloring-pages/john-patmos.jpg', alt: 'John sees Jesus in glory—keys of death and hell' }
       ],
       caption: 'Swipe through the big story of Revelation—Jesus wins, all things new! ✨',
       videoId: '',
@@ -8264,10 +7250,8 @@
     },
     revelationThrone: {
       title: 'The Throne in Heaven',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'John sees an open door to heaven' },
-        { src: 'panel-noah-2.svg', alt: 'A glorious throne surrounded by a rainbow' },
-        { src: 'panel-noah-3.svg', alt: 'Elders bow and worship—heaven is amazing!' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'John sees an open door to heaven' }
       ],
       caption: 'Swipe to see John\'s vision of God\'s throne! 🌈',
       videoId: '',
@@ -8277,10 +7261,8 @@
     },
     revelationThroneRoom: {
       title: 'Heaven’s Throne Room (Revelation 4–5)',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A door opened in heaven — Come up hither' },
-        { src: 'panel-noah-2.svg', alt: 'Throne, rainbow, elders, living creatures — holy worship' },
-        { src: 'panel-noah-3.svg', alt: 'The Lamb is worthy — the sealed book opened — praise forever' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'A door opened in heaven — Come up hither' }
       ],
       caption: 'Swipe to see heaven’s throne—and the Lamb who is worthy! 👑',
       videoId: '',
@@ -8291,10 +7273,8 @@
     },
     fourHorsemen: {
       title: 'The Four Horsemen',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The Lamb opens four seals' },
-        { src: 'panel-noah-2.svg', alt: 'Four horses come: white, red, black, pale' },
-        { src: 'panel-noah-3.svg', alt: 'God shows what will happen—He is in control!' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'The Lamb opens four seals' }
       ],
       caption: 'Swipe to see the four horses of Revelation! 🐎',
       videoId: '',
@@ -8304,10 +7284,8 @@
     },
     alphaOmega: {
       title: 'I Am the Alpha and Omega',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: '"I am the Alpha and Omega" says the Lord' },
-        { src: 'panel-noah-2.svg', alt: 'The first and the last—the beginning and the end' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus is Lord of everything—always!' }
+            panels: [
+        { src: '/coloring-pages/lamb-book.jpg', alt: '"I am the Alpha and Omega" says the Lord' }
       ],
       caption: 'Swipe to see Jesus as the beginning and end of everything! ∞',
       videoId: '',
@@ -8318,10 +7296,8 @@
     },
     newHeaven: {
       title: 'New Heaven and New Earth',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'God makes all things new!' },
-        { src: 'panel-noah-2.svg', alt: 'No more tears, no more pain, no more death' },
-        { src: 'panel-noah-3.svg', alt: 'God\'s home is with His people forever!' }
+            panels: [
+        { src: '/coloring-pages/heaven-promise.jpg', alt: 'God makes all things new!' }
       ],
       caption: 'Swipe to see God\'s brand-new world—no more sad! 🏠',
       videoId: '',
@@ -8331,10 +7307,8 @@
     },
     revelationNewHeaven: {
       title: 'New Jerusalem & All Things New',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A new heaven and earth — the first passed away' },
-        { src: 'panel-noah-2.svg', alt: 'New Jerusalem comes down — God wipes every tear' },
-        { src: 'panel-noah-3.svg', alt: 'River of life, tree of life — Surely I come quickly' }
+            panels: [
+        { src: '/coloring-pages/heaven-promise.jpg', alt: 'A new heaven and earth — the first passed away' }
       ],
       caption: 'Swipe to see the end of the story—everything made new! ✨',
       videoId: '',
@@ -8345,23 +7319,22 @@
     },
     treeOfLife: {
       title: 'The Tree of Life',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A beautiful tree grows by the river' },
-        { src: 'panel-noah-2.svg', alt: 'It bears twelve kinds of fruit every month' },
-        { src: 'panel-noah-3.svg', alt: 'Its leaves heal the nations—God provides!' }
+            panels: [
+        { src: '/coloring-pages/tree-of-life.jpg', alt: 'A beautiful tree grows by the river' }
       ],
-      caption: 'Swipe to see the Tree of Life in the new city! 🌿',
+      caption: 'In God’s new city the tree of life grows by the river.',
       videoId: '',
       videoTitle: '',
-      keywords: ['tree of life', 'revelation 22', 'fruit', 'heal', 'leaves', 'river', 'nations'],
-      kidContext: { who: 'God', to: 'His people in the new creation', apply: 'God\'s healing never runs out! In His new world, everything is made whole.' }
+      keywords: ['tree of life', 'revelation 22', 'revelation 22:2', 'fruit', 'heal', 'leaves', 'river', 'nations'],
+      kjvRef: 'Revelation 22:1–2',
+      kidContext: { who: 'God', to: 'His people in the new creation', apply: 'God\'s healing never runs out! In His new world, everything is made whole.' },
+      narration:
+        'The Tree of Life – Revelation 22:1–2. A pure river of water of life, clear as crystal, proceeds out of the throne of God and of the Lamb. In the midst of the street of it, and on either side of the river, was there the tree of life, which bare twelve manner of fruits, and yielded her fruit every month: and the leaves of the tree were for the healing of the nations. For you: God makes all things new—and He provides forever.'
     },
     riverOfLife: {
       title: 'The River of Life',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A crystal-clear river flows from the throne' },
-        { src: 'panel-noah-2.svg', alt: 'The tree of life grows on both banks' },
-        { src: 'panel-noah-3.svg', alt: 'God\'s throne is there—eternal life!' }
+            panels: [
+        { src: '/coloring-pages/tree-of-life.jpg', alt: 'A crystal-clear river flows from the throne' }
       ],
       caption: 'Swipe to see the river flowing from God\'s throne! 💧',
       videoId: '',
@@ -8371,10 +7344,8 @@
     },
     lambBook: {
       title: 'The Lamb\'s Book of Life',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A great book is opened before the throne' },
-        { src: 'panel-noah-2.svg', alt: 'Names are written—those who belong to Jesus' },
-        { src: 'panel-noah-3.svg', alt: 'Believe in Jesus—your name is in it!' }
+            panels: [
+        { src: '/coloring-pages/lamb-book.jpg', alt: 'A great book is opened before the throne' }
       ],
       caption: 'Swipe to see the Book of Life—is your name written? 📖',
       videoId: '',
@@ -8384,10 +7355,8 @@
     },
     dragonFight: {
       title: 'Michael Fights the Dragon',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'A great dragon fights in heaven' },
-        { src: 'panel-david-2.svg', alt: 'Michael and the angels battle the dragon' },
-        { src: 'panel-david-3.svg', alt: 'The dragon is thrown down—God\'s angels win!' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'A great dragon fights in heaven' }
       ],
       caption: 'Swipe to see Michael fight the dragon—God\'s angels win! ⚔️',
       videoId: '',
@@ -8397,10 +7366,8 @@
     },
     beastMark: {
       title: 'The Number 666',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'John sees a beast—a symbol of evil power' },
-        { src: 'panel-noah-2.svg', alt: '666 is the number—a warning to stay true' },
-        { src: 'panel-noah-3.svg', alt: 'Choose God\'s mark—belong to Jesus, not the world!' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'John sees a beast—a symbol of evil power' }
       ],
       caption: 'Swipe to see why belonging to Jesus is everything! 🔑',
       videoId: '',
@@ -8412,10 +7379,8 @@
     /* ── Week 10 (121–132) ── */
     rahabWindow: {
       title: 'Rahab Hangs the Cord',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Rahab lets the spies down by the window — a gentle escape' },
-        { src: 'panel-noah-2.svg', alt: 'She ties the scarlet cord where they asked — a sign of trust' },
-        { src: 'panel-noah-3.svg', alt: 'God remembers His promise — Rahab and her family are safe' }
+            panels: [
+        { src: '/coloring-pages/rahab-spies.jpg', alt: 'Rahab lets the spies down by the window — a gentle escape' }
       ],
       caption: 'Swipe to see Rahab\'s faith and God\'s promise! 🔴',
       videoId: '',
@@ -8433,10 +7398,8 @@
     },
     deborahJudge: {
       title: 'Deborah the Judge',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Deborah sits under the palm tree judging' },
-        { src: 'panel-noah-2.svg', alt: 'She calls Barak to lead—but goes herself!' },
-        { src: 'panel-noah-3.svg', alt: 'Israel is delivered—God uses Deborah!' }
+            panels: [
+        { src: '/coloring-pages/deborah-barak.jpg', alt: 'Deborah sits under the palm tree judging' }
       ],
       caption: 'Swipe to see Deborah lead Israel with wisdom and courage! 🌴',
       videoId: '',
@@ -8446,10 +7409,8 @@
     },
     jaelTent: {
       title: 'Jael\'s Courage',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The enemy general Sisera flees to Jael\'s tent' },
-        { src: 'panel-noah-2.svg', alt: 'Jael gives him shelter—and courage to act' },
-        { src: 'panel-noah-3.svg', alt: 'God\'s victory comes through unexpected hands!' }
+            panels: [
+        { src: '/coloring-pages/jael-tent.jpg', alt: 'The enemy general Sisera flees to Jael\'s tent' }
       ],
       caption: 'Swipe to see God win through brave Jael! ⛺',
       videoId: '',
@@ -8459,10 +7420,8 @@
     },
     abigailWise: {
       title: 'Abigail\'s Wisdom',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Nabal answers rudely — David\'s men turned away grieved' },
-        { src: 'panel-david-2.svg', alt: 'Abigail makes haste — loaves, wine, sheep, and figs on asses' },
-        { src: 'panel-david-3.svg', alt: 'She bows before David — Blessed be the LORD which sent thee' }
+            panels: [
+        { src: '/coloring-pages/abigail-wise.jpg', alt: 'Nabal answers rudely — David\'s men turned away grieved' }
       ],
       caption: 'Swipe to see wise words and gifts turn anger into peace.',
       videoId: '',
@@ -8499,10 +7458,8 @@
     },
     davidAbigail: {
       title: 'David & Abigail',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Messengers ask Nabal for food — he refuses with harsh words' },
-        { src: 'panel-david-2.svg', alt: 'Abigail meets David on the path — baskets of blessing' },
-        { src: 'panel-david-3.svg', alt: 'David listens — Blessed be the LORD God of Israel which sent thee' }
+            panels: [
+        { src: '/coloring-pages/abigail-wise.jpg', alt: 'Messengers ask Nabal for food — he refuses with harsh words' }
       ],
       caption: 'Swipe to see God send a wise woman to keep the peace.',
       videoId: '',
@@ -8535,10 +7492,8 @@
     },
     davidKing: {
       title: 'David Becomes King — David Is Anointed King',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Elders at Hebron — Behold, we are thy bone and thy flesh' },
-        { src: 'panel-david-2.svg', alt: 'They anointed David king over Israel before the LORD' },
-        { src: 'panel-david-3.svg', alt: 'The city of David — the LORD established him and was with him' }
+            panels: [
+        { src: '/coloring-pages/boy-david.jpg', alt: 'Elders at Hebron — Behold, we are thy bone and thy flesh' }
       ],
       caption: 'God chose and honored David — the elders anointed him, and the LORD was with him.',
       videoId: '',
@@ -8574,10 +7529,8 @@
     },
     mephibosheth: {
       title: 'David Shows Kindness to Mephibosheth',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'David asks — Is there any left of Saul\'s house to show kindness for Jonathan\'s sake?' },
-        { src: 'panel-david-2.svg', alt: 'Fear not — I will shew thee kindness; thou shalt eat bread at my table continually' },
-        { src: 'panel-david-3.svg', alt: 'Mephibosheth dwelt in Jerusalem — welcome at the king\'s table as one of the king\'s sons' }
+            panels: [
+        { src: '/coloring-pages/mephibosheth.jpg', alt: 'David asks — Is there any left of Saul\'s house to show kindness for Jonathan\'s sake?' }
       ],
       caption: 'David remembered Jonathan and gave his son a seat of honor — mercy at the king\'s table.',
       videoId: '',
@@ -8612,10 +7565,8 @@
     },
     davidBathsheba: {
       title: 'David\'s Repentance and God\'s Mercy',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'David prays — Have mercy upon me, O God; blot out my transgressions' },
-        { src: 'panel-david-2.svg', alt: 'Create in me a clean heart, O God — wash me and make me clean' },
-        { src: 'panel-david-3.svg', alt: 'The LORD put away his sin — God hears a sorry, honest heart' }
+            panels: [
+        { src: '/coloring-pages/david-repent.jpg', alt: 'David prays — Have mercy upon me, O God; blot out my transgressions' }
       ],
       caption: 'David turned to God with an honest prayer — and the Lord showed mercy and forgiveness.',
       videoId: '',
@@ -8650,10 +7601,8 @@
     },
     absalomRebellion: {
       title: 'David\'s Sadness and God\'s Care',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'David leaves Jerusalem — loyal friends go with him' },
-        { src: 'panel-david-2.svg', alt: 'Up the Mount of Olives — David wept and prayed to the LORD' },
-        { src: 'panel-david-3.svg', alt: 'God brought David safely back — the king returned over Jordan' }
+            panels: [
+        { src: '/coloring-pages/david-repent.jpg', alt: 'David leaves Jerusalem — loyal friends go with him' }
       ],
       caption: 'When David\'s heart was heavy, he prayed — and God heard him and kept him.',
       videoId: '',
@@ -8689,10 +7638,8 @@
     },
     hannahPray: {
       title: 'Hannah Prays for a Baby',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Hannah weeps and prays at the temple' },
-        { src: 'panel-noah-2.svg', alt: 'She makes a vow to God' },
-        { src: 'panel-noah-3.svg', alt: 'God answers—baby Samuel is born!' }
+            panels: [
+        { src: '/coloring-pages/hannah-samuel.jpg', alt: 'Hannah weeps and prays at the temple' }
       ],
       caption: 'Swipe to see God answer Hannah\'s prayer! 🙏',
       videoId: '',
@@ -8703,19 +7650,8 @@
     },
     maryMagdalene: {
       title: 'Jesus Appears to Mary Magdalene',
-      panels: [
-        {
-          src: 'panel-mary-magdalene-1.svg',
-          alt: 'Mary weeps without the sepulchre — she looks in and seeth two angels in white at head and feet where Jesus had lain'
-        },
-        {
-          src: 'panel-mary-magdalene-2.svg',
-          alt: 'She turns back — Jesus stands — she supposeth Him the gardener — Woman, why weepest thou? whom seekest thou?'
-        },
-        {
-          src: 'panel-mary-magdalene-3.svg',
-          alt: 'Jesus saith, Mary — Rabboni, Master — Touch me not — go tell My brethren — Mary ran with joy to the disciples'
-        }
+            panels: [
+        { src: '/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg', alt: 'Mary weeps without the sepulchre — she looks in and seeth two angels in white at head and feet where Jesus had lain' }
       ],
       caption: 'Swipe slowly — Jesus calls Mary by name; tender joy at the empty tomb.',
       videoId: '',
@@ -8746,10 +7682,8 @@
     },
     lydiaSell: {
       title: 'Lydia Opens Her Heart',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Lydia sells purple cloth by the river' },
-        { src: 'panel-noah-2.svg', alt: 'Paul preaches—Lydia listens carefully' },
-        { src: 'panel-noah-3.svg', alt: 'God opens her heart—she believes and is baptized!' }
+            panels: [
+        { src: '/coloring-pages/lydia-purple.jpg', alt: 'Lydia sells purple cloth by the river' }
       ],
       caption: 'Swipe to see Lydia\'s open heart—God opens our hearts! 💜',
       videoId: '',
@@ -8760,10 +7694,8 @@
     },
     priscillaTeach: {
       title: 'Priscilla and Aquila Teach',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Priscilla and Aquila hear Apollos preach' },
-        { src: 'panel-noah-2.svg', alt: 'They invite him and teach him more fully' },
-        { src: 'panel-noah-3.svg', alt: 'Apollos grows—we all need good teachers!' }
+            panels: [
+        { src: '/coloring-pages/priscilla-aquila.jpg', alt: 'Priscilla and Aquila hear Apollos preach' }
       ],
       caption: 'Swipe to see Priscilla teach Apollos—help each other grow! 📖',
       videoId: '',
@@ -8774,10 +7706,11 @@
     },
     ruthMoab: {
       title: 'Ruth Stays with Naomi',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ruth and Naomi at a crossroads' },
-        { src: 'panel-noah-2.svg', alt: 'Ruth says: wherever you go, I will go!' },
-        { src: 'panel-noah-3.svg', alt: 'Ruth gleans in Boaz\'s field—God provides!' }
+            panels: [
+        { src: '/coloring-pages/ruth-naomi-s1.jpg', alt: 'Ruth and Naomi at a crossroads' },
+        { src: '/coloring-pages/ruth-naomi-s2.jpg', alt: 'Ruth says: wherever you go, I will go!' },
+        { src: '/coloring-pages/ruth-naomi-s3.jpg', alt: 'Ruth gleans in Boaz\'s field—God provides!' },
+        { src: '/coloring-pages/ruth-naomi-s4.jpg', alt: 'Ruth gleans in Boaz\'s field—God provides!' }
       ],
       caption: 'Swipe to see Ruth\'s faithful love for Naomi! 🌾',
       videoId: '',
@@ -8788,13 +7721,8 @@
     },
     estherFast: {
       title: 'Esther Prays and Fasts for Her People',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Haman’s plan — Mordecai asks: who knoweth whether thou art come for such a time as this?' },
-        { src: 'panel-jesus-2.svg', alt: 'Esther asks God’s people to pray and fast with her for three days' },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: '“If I perish, I perish” — then she goes bravely to the king, trusting the Lord'
-        }
+            panels: [
+        { src: '/coloring-pages/esther.jpg', alt: 'Haman’s plan — Mordecai asks: who knoweth whether thou art come for such a time as this?' }
       ],
       caption: 'Swipe to see quiet prayer, fasting together, and brave trust before the king.',
       videoId: '',
@@ -8824,10 +7752,8 @@
     },
     sarahPromise: {
       title: 'Sarah Receives the Promise',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'God promises Sarah a baby—at 90!' },
-        { src: 'panel-noah-2.svg', alt: 'She laughed—but God said: is anything too hard?' },
-        { src: 'panel-noah-3.svg', alt: 'Baby Isaac is born—the promise kept!' }
+            panels: [
+        { src: '/coloring-pages/sarah-laughs.jpg', alt: 'God promises Sarah a baby—at 90!' }
       ],
       caption: 'Swipe to see God keep His promise to Sarah! 👶',
       videoId: '',
@@ -8837,10 +7763,8 @@
     },
     miriamSong: {
       title: 'Miriam Sings to the Lord',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Israel is safe on the other side of the sea' },
-        { src: 'panel-noah-2.svg', alt: 'Miriam takes her tambourine and leads the women' },
-        { src: 'panel-noah-3.svg', alt: 'She sings: The Lord has triumphed gloriously!' }
+            panels: [
+        { src: '/coloring-pages/miriam-song.jpg', alt: 'Israel is safe on the other side of the sea' }
       ],
       caption: 'Swipe to see Miriam lead worship by the sea! 🥁',
       videoId: '',
@@ -8851,10 +7775,8 @@
     /* ── Week 11 (133–144) ── */
     annaProphet: {
       title: 'Anna the Prophetess',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Anna prays in the temple day and night' },
-        { src: 'panel-noah-2.svg', alt: 'Mary and Joseph bring baby Jesus to the temple' },
-        { src: 'panel-noah-3.svg', alt: 'Anna sees Jesus—she praises God!' }
+            panels: [
+        { src: '/coloring-pages/anna-prophet.jpg', alt: 'Anna prays in the temple day and night' }
       ],
       caption: 'Swipe to see Anna recognize baby Jesus—she never stopped praying! 🕍',
       videoId: '',
@@ -8865,10 +7787,8 @@
     },
     persistentWidow: {
       title: 'The Persistent Widow',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A widow goes to the judge day after day' },
-        { src: 'panel-noah-2.svg', alt: 'The judge refuses—but she keeps coming back' },
-        { src: 'panel-noah-3.svg', alt: 'He finally helps her—keep praying, God hears!' }
+            panels: [
+        { src: '/coloring-pages/persistent-widow.jpg', alt: 'A widow goes to the judge day after day' }
       ],
       caption: 'Swipe to see the woman who kept asking—and got her answer! 🚪',
       videoId: '',
@@ -8879,19 +7799,11 @@
     },
     samaritanWoman: {
       title: 'Jesus Offers Living Water',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Jesus sits by Jacob’s well in Samaria — a woman comes to draw water'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus speaks of living water — the gift of God for thirsty hearts'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'She runs to the city — Come, see a man… is not this the Christ?'
-        }
+            panels: [
+        { src: '/coloring-pages/woman-at-well-s1.jpg', alt: 'Jesus sits by Jacob’s well in Samaria — a woman comes to draw water' },
+        { src: '/coloring-pages/woman-at-well-s2.jpg', alt: 'Jesus speaks of living water — the gift of God for thirsty hearts' },
+        { src: '/coloring-pages/woman-at-well-s3.jpg', alt: 'She runs to the city — Come, see a man… is not this the Christ?' },
+        { src: '/coloring-pages/woman-at-well-s4.jpg', alt: 'She runs to the city — Come, see a man… is not this the Christ?' }
       ],
       caption:
         'Swipe to see Jesus offer living water at the well — kind words, thirsty hearts, good news for the town.',
@@ -8921,19 +7833,8 @@
     },
     noblemanSon: {
       title: 'Jesus Heals a Boy from Far Away',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'A nobleman hurries to Jesus — his son is very sick at home'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Jesus speaks peace — Go thy way; thy son liveth'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Servants meet the father — Thy son liveth — at the hour Jesus spoke'
-        }
+            panels: [
+        { src: '/coloring-pages/centurion-servant.jpg', alt: 'A nobleman hurries to Jesus — his son is very sick at home' }
       ],
       caption:
         'Swipe to see Jesus heal a boy from far away — kind words, trusting father, happy news for home.',
@@ -8964,19 +7865,8 @@
     },
     centurionServant: {
       title: "Jesus Heals a Soldier's Servant from Far Away",
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'A centurion kneels before Jesus — his servant is very sick at home'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: "Speak the word only — Jesus marvels at the centurion's faith"
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Go thy way — the servant is healed in the selfsame hour'
-        }
+            panels: [
+        { src: '/coloring-pages/centurion-servant.jpg', alt: 'A centurion kneels before Jesus — his servant is very sick at home' }
       ],
       caption:
         'Swipe to see Jesus heal a servant with a word — great faith, kind Jesus, happy home.',
@@ -9006,10 +7896,8 @@
     },
     maryMartha: {
       title: 'Jesus Visits Mary and Martha',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus comes to Mary and Martha’s house — welcome and quiet room' },
-        { src: 'panel-noah-2.svg', alt: 'Martha busies herself with serving — Mary sits at Jesus’ feet and hears His word' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus answers gently — one thing is needful; Mary chose the good part' }
+            panels: [
+        { src: '/coloring-pages/mary-martha.jpg', alt: 'Jesus comes to Mary and Martha’s house — welcome and quiet room' }
       ],
       caption:
         'Swipe to see Mary listen at Jesus’ feet — one needful thing, a quiet heart. 🏠',
@@ -9040,10 +7928,8 @@
     },
     dorcasRaise: {
       title: 'Dorcas Is Raised to Life',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Dorcas loved people—she made clothes for the poor' },
-        { src: 'panel-noah-2.svg', alt: 'She died—friends mourn and call Peter' },
-        { src: 'panel-noah-3.svg', alt: 'Peter prays—she opens her eyes! Life again!' }
+            panels: [
+        { src: '/coloring-pages/tabitha-dorcas.jpg', alt: 'Dorcas loved people—she made clothes for the poor' }
       ],
       caption: 'Swipe to see Dorcas raised back to life! 🧵',
       videoId: '',
@@ -9054,10 +7940,8 @@
     },
     phoebeDeacon: {
       title: 'Phebe, Servant of the Church',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul writes: Phebe is a servant of the church (KJV)' },
-        { src: 'panel-noah-2.svg', alt: 'She carries Paul\'s letter to Rome' },
-        { src: 'panel-noah-3.svg', alt: 'She serves faithfully—a helper of many!' }
+            panels: [
+        { src: '/coloring-pages/early-church.jpg', alt: 'Paul writes: Phebe is a servant of the church (KJV)' }
       ],
       caption: 'Swipe to see Phoebe faithfully serve God\'s people! ✉️',
       videoId: '',
@@ -9068,10 +7952,8 @@
     },
     juniaApostle: {
       title: 'Junia the Apostle',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul greets Andronicus and Junia in Romans' },
-        { src: 'panel-noah-2.svg', alt: 'He calls them outstanding among the apostles' },
-        { src: 'panel-noah-3.svg', alt: 'Junia was in prison for the gospel—so brave!' }
+            panels: [
+        { src: '/coloring-pages/hebrews-faith.jpg', alt: 'Paul greets Andronicus and Junia in Romans' }
       ],
       caption: 'Swipe to see Junia honored as a brave servant of Jesus! 🌟',
       videoId: '',
@@ -9081,10 +7963,8 @@
     },
     loisTimothy: {
       title: 'Lois Passes Faith to Timothy',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Lois is Timothy\'s grandmother and a woman of faith' },
-        { src: 'panel-noah-2.svg', alt: 'She teaches Timothy God\'s Word from childhood' },
-        { src: 'panel-noah-3.svg', alt: 'Timothy becomes a great minister—faith passed on!' }
+            panels: [
+        { src: '/coloring-pages/young-timothy.jpg', alt: 'Lois is Timothy\'s grandmother and a woman of faith' }
       ],
       caption: 'Swipe to see how Grandma Lois shaped Timothy\'s faith! 📖',
       videoId: '',
@@ -9094,10 +7974,8 @@
     },
     euniceMother: {
       title: 'Eunice: A Faithful Mother',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Eunice is Timothy\'s mother' },
-        { src: 'panel-noah-2.svg', alt: 'She teaches him scripture as a child' },
-        { src: 'panel-noah-3.svg', alt: 'Timothy grows up to serve God—thank you, Mom!' }
+            panels: [
+        { src: '/coloring-pages/young-timothy.jpg', alt: 'Eunice is Timothy\'s mother' }
       ],
       caption: 'Swipe to see how a faithful mom changes the world! 💛',
       videoId: '',
@@ -9108,10 +7986,8 @@
     },
     priscillaTent: {
       title: 'Priscilla and Aquila: Tentmakers',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Priscilla and Aquila make tents for a living' },
-        { src: 'panel-noah-2.svg', alt: 'Paul works with them—they grow together' },
-        { src: 'panel-noah-3.svg', alt: 'Their home becomes a church—faithful servants!' }
+            panels: [
+        { src: '/coloring-pages/priscilla-aquila.jpg', alt: 'Priscilla and Aquila make tents for a living' }
       ],
       caption: 'Swipe to see how Priscilla and Aquila served God together! ⛺',
       videoId: '',
@@ -9123,19 +7999,11 @@
     /* ── Week 12 (145–160) ── */
     lazarus: {
       title: 'Jesus Brings Lazarus Back to Life',
-      panels: [
-        {
-          src: 'panel-jesus-1.svg',
-          alt: 'Bethany — Mary and Martha send word: Lord, behold, he whom thou lovest is sick'
-        },
-        {
-          src: 'panel-jesus-2.svg',
-          alt: 'Martha meets Jesus — I am the resurrection, and the life — believest thou this?'
-        },
-        {
-          src: 'panel-jesus-3.svg',
-          alt: 'Cave tomb — Lazarus, come forth — loose him, and let him go — many believed'
-        }
+            panels: [
+        { src: '/coloring-pages/lazarus-s1.jpg', alt: 'Bethany — Mary and Martha send word: Lord, behold, he whom thou lovest is sick' },
+        { src: '/coloring-pages/lazarus-s2.jpg', alt: 'Martha meets Jesus — I am the resurrection, and the life — believest thou this?' },
+        { src: '/coloring-pages/lazarus-s3.jpg', alt: 'Cave tomb — Lazarus, come forth — loose him, and let him go — many believed' },
+        { src: '/coloring-pages/lazarus-s4.jpg', alt: 'Cave tomb — Lazarus, come forth — loose him, and let him go — many believed' }
       ],
       caption: 'Swipe slowly — Jesus is the resurrection and the life; He calls Lazarus out with love.',
       videoId: '1FT04jjh3Q8',
@@ -9169,10 +8037,8 @@
     },
     greatCommission: {
       title: 'The Great Commission',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus appears on a mountain in Galilee' },
-        { src: 'panel-noah-2.svg', alt: 'He says: Go and make disciples of all nations' },
-        { src: 'panel-noah-3.svg', alt: 'And I am with you always—to the end!' }
+            panels: [
+        { src: '/coloring-pages/great-commission.jpg', alt: 'Jesus appears on a mountain in Galilee' }
       ],
       caption: 'Swipe to see Jesus send His followers to the whole world! 🌍',
       videoId: '',
@@ -9183,10 +8049,8 @@
     },
     jesusGreatCommission: {
       title: 'The Great Commission (Matthew & Mark)',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus on a mountain in Galilee — disciples worship Him' },
-        { src: 'panel-noah-2.svg', alt: 'All power in heaven and earth — go, teach all nations, baptize' },
-        { src: 'panel-noah-3.svg', alt: 'Lo, I am with you alway — preach the gospel to every creature' }
+            panels: [
+        { src: '/coloring-pages/great-commission.jpg', alt: 'Jesus on a mountain in Galilee — disciples worship Him' }
       ],
       caption: 'Swipe to see Jesus send the world mission—with Him to the end! 🌍',
       videoId: '',
@@ -9197,10 +8061,8 @@
     },
     ascension: {
       title: 'Jesus Ascends to Heaven',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus blesses His disciples' },
-        { src: 'panel-noah-2.svg', alt: 'He rises up—a cloud takes Him away' },
-        { src: 'panel-noah-3.svg', alt: 'Angels say: He will come back the same way!' }
+            panels: [
+        { src: '/coloring-pages/ascension.jpg', alt: 'Jesus blesses His disciples' }
       ],
       caption: 'Swipe to see Jesus go up to heaven—He\'s coming back! ☁️',
       videoId: 'TedR27BUBfw',
@@ -9211,10 +8073,8 @@
     },
     pentecostTongues: {
       title: 'Tongues of Fire at Pentecost',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Disciples wait in prayer together' },
-        { src: 'panel-noah-2.svg', alt: 'Fire rests on each one—they speak in new languages' },
-        { src: 'panel-noah-3.svg', alt: 'Three thousand believe that day—the church begins!' }
+            panels: [
+        { src: '/coloring-pages/pentecost.jpg', alt: 'Disciples wait in prayer together' }
       ],
       caption: 'Swipe to see the Holy Spirit arrive with fire! 🔥',
       videoId: '',
@@ -9225,10 +8085,8 @@
     },
     armorBelt: {
       title: 'Belt of Truth',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'A warrior puts on the belt of truth' },
-        { src: 'panel-david-2.svg', alt: 'Truth holds everything together' },
-        { src: 'panel-david-3.svg', alt: 'Stand firm in God\'s truth—it never changes!' }
+            panels: [
+        { src: '/coloring-pages/armor-of-god.jpg', alt: 'A warrior puts on the belt of truth' }
       ],
       caption: 'Swipe to see the belt of truth—God\'s Word holds it all! 🪢',
       videoId: '',
@@ -9239,10 +8097,8 @@
     },
     prayerCloset: {
       title: 'Pray in Your Closet',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus says: go into your room and shut the door' },
-        { src: 'panel-noah-2.svg', alt: 'Pray to your Father in secret' },
-        { src: 'panel-noah-3.svg', alt: 'Your Father who sees in secret will reward you!' }
+            panels: [
+        { src: '/coloring-pages/prayer-knock.jpg', alt: 'Jesus says: go into your room and shut the door' }
       ],
       caption: 'Swipe to see how to pray in private—God loves it! 🚪',
       videoId: '',
@@ -9253,10 +8109,8 @@
     },
     faithMountain: {
       title: 'Faith That Moves Mountains',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus says: if you have faith as a mustard seed' },
-        { src: 'panel-noah-2.svg', alt: 'Nothing will be impossible for you' },
-        { src: 'panel-noah-3.svg', alt: 'A mountain moves—because faith in God does the impossible!' }
+            panels: [
+        { src: '/coloring-pages/faith-mountain.jpg', alt: 'Jesus says: if you have faith as a mustard seed' }
       ],
       caption: 'Swipe to see how faith really moves mountains! 🏔️',
       videoId: '',
@@ -9267,10 +8121,8 @@
     },
     loveNeighbor: {
       title: 'Love Your Neighbor',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A lawyer asks: who is my neighbor?' },
-        { src: 'panel-noah-2.svg', alt: 'The Samaritan stops to help the wounded man' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says: go and do the same!' }
+            panels: [
+        { src: '/coloring-pages/greatest-command.jpg', alt: 'A lawyer asks: who is my neighbor?' }
       ],
       caption: 'Swipe to see what loving your neighbor really looks like! ❤️',
       videoId: '',
@@ -9280,10 +8132,8 @@
     },
     heavenDoor: {
       title: 'The Door to Heaven',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus says: I stand at the door and knock' },
-        { src: 'panel-noah-2.svg', alt: 'If anyone opens—I will come in!' },
-        { src: 'panel-noah-3.svg', alt: 'Open the door to Jesus—He is waiting!' }
+            panels: [
+        { src: '/coloring-pages/heaven-promise.jpg', alt: 'Jesus says: I stand at the door and knock' }
       ],
       caption: 'Swipe to see Jesus knock on your heart\'s door—open it! 🚪',
       videoId: '',
@@ -9293,10 +8143,8 @@
     },
     revelationBride: {
       title: 'The Lamb and His Bride',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The new city comes down—adorned like a bride' },
-        { src: 'panel-noah-2.svg', alt: 'The marriage supper of the Lamb!' },
-        { src: 'panel-noah-3.svg', alt: 'God with His people—forever and ever!' }
+            panels: [
+        { src: '/coloring-pages/revelation-throne.jpg', alt: 'The new city comes down—adorned like a bride' }
       ],
       caption: 'Swipe to see the great wedding day—Jesus and His people! 💍',
       videoId: '',
@@ -9305,24 +8153,38 @@
       kidContext: { who: 'God', to: 'All His people', apply: 'The best day is coming—Jesus\' wedding feast! All who believe are invited—that means you!' }
     },
     treeFruit: {
-      title: 'The Tree That Heals Nations',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The tree of life grows by the river' },
-        { src: 'panel-noah-2.svg', alt: 'Its leaves heal every nation' },
-        { src: 'panel-noah-3.svg', alt: 'In God\'s city—everything is made whole!' }
+      title: 'Tree of Life — Leaves for Healing',
+            panels: [
+        { src: '/coloring-pages/tree-of-life.jpg', alt: 'The tree of life grows by the river of life' }
       ],
-      caption: 'Swipe to see the healing tree in God\'s new city! 🌿',
+      caption: 'In the new city, the tree of life bears fruit—and its leaves heal the nations.',
       videoId: '',
       videoTitle: '',
-      keywords: ['tree', 'fruit', 'revelation 22', 'heal', 'nations', 'leaves', 'life'],
-      kidContext: { who: 'God', to: 'All creation', apply: 'God\'s healing reaches every nation! His love is for everyone—share it.' }
+      keywords: [
+        'tree of life',
+        'tree fruit',
+        'healing leaves',
+        'revelation 22',
+        'revelation 22:2',
+        'heal',
+        'nations',
+        'leaves',
+        'fruit',
+        'river of life'
+      ],
+      kjvRef: 'Revelation 22:1–2',
+      kidContext: {
+        who: 'God',
+        to: 'All His people in the new creation',
+        apply: 'God’s healing love is for every nation—share His kindness today.'
+      },
+      narration:
+        'Tree of Life — Leaves for Healing – Revelation 22:1–2. In the new city a pure river of water of life flows from the throne of God and of the Lamb. On either side of the river is the tree of life, which bears twelve manner of fruits, and yields her fruit every month: and the leaves of the tree were for the healing of the nations. For you: God makes things whole—His love is for everyone.'
     },
     noNight: {
       title: 'No Night in God\'s City',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The new city glows—no sun or moon needed' },
-        { src: 'panel-noah-2.svg', alt: 'God\'s glory is the light' },
-        { src: 'panel-noah-3.svg', alt: 'No night there—God\'s light never goes out!' }
+            panels: [
+        { src: '/coloring-pages/heaven-promise.jpg', alt: 'The new city glows—no sun or moon needed' }
       ],
       caption: 'Swipe to see a world lit only by God\'s glory! ☀️',
       videoId: '',
@@ -9332,10 +8194,8 @@
     },
     everyKneeBow: {
       title: 'Every Knee Shall Bow',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'A great throne of glory' },
-        { src: 'panel-noah-2.svg', alt: 'Every knee bows—in heaven and on earth' },
-        { src: 'panel-noah-3.svg', alt: 'Every tongue confesses: Jesus Christ is Lord!' }
+            panels: [
+        { src: '/coloring-pages/armor-of-god.jpg', alt: 'A great throne of glory' }
       ],
       caption: 'Swipe to see every knee bow to Jesus—the day is coming! 🙇',
       videoId: '',
@@ -9346,10 +8206,8 @@
     },
     newEarth: {
       title: 'The New Earth',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'God says: Behold, I make all things new!' },
-        { src: 'panel-noah-2.svg', alt: 'No more pain, no more crying, no more death' },
-        { src: 'panel-noah-3.svg', alt: 'The new earth—perfected and full of God\'s love!' }
+            panels: [
+        { src: '/coloring-pages/heaven-promise.jpg', alt: 'God says: Behold, I make all things new!' }
       ],
       caption: 'Swipe to see God\'s brand-new perfect earth! 🌍',
       videoId: '',
@@ -9359,10 +8217,8 @@
     },
     alphaOmega2: {
       title: 'Alpha and Omega—The End',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'I am the Alpha and the Omega, the First and Last' },
-        { src: 'panel-noah-2.svg', alt: 'The beginning and the end—Jesus is eternal' },
-        { src: 'panel-noah-3.svg', alt: 'He was, He is, and He is to come—forever!' }
+            panels: [
+        { src: '/coloring-pages/lamb-book.jpg', alt: 'I am the Alpha and the Omega, the First and Last' }
       ],
       caption: 'Swipe to see Jesus: the beginning, middle, and end of everything! ∞',
       videoId: '',
@@ -9373,10 +8229,8 @@
     },
     josiahReform: {
       title: 'Young King Josiah',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Young King Josiah — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/josiah-reform.jpg', alt: 'Young King Josiah — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9393,10 +8247,8 @@
 
     jeremiahCall: {
       title: 'God Calls Young Jeremiah',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'God Calls Young Jeremiah — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/jeremiah-call.jpg', alt: 'God Calls Young Jeremiah — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9413,10 +8265,8 @@
 
     ezekielDryBones: {
       title: 'Ezekiel and the Dry Bones',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ezekiel and the Dry Bones — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/ezekiel-bones.jpg', alt: 'Ezekiel and the Dry Bones — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9433,10 +8283,8 @@
 
     ezraLaw: {
       title: 'Ezra Reads God’s Word',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ezra Reads God’s Word — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/ezra-return.jpg', alt: 'Ezra Reads God’s Word — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9453,10 +8301,8 @@
 
     nehemiahWallRevisited: {
       title: 'Nehemiah Rebuilds the Wall',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Nehemiah Rebuilds the Wall — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/nehemiah-walls.jpg', alt: 'Nehemiah Rebuilds the Wall — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9473,10 +8319,8 @@
 
     samsonStrength: {
       title: 'Samson and God’s Strength',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Samson and God’s Strength — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/samson.jpg', alt: 'Samson and God’s Strength — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9493,10 +8337,8 @@
 
     gideonFleeceRevisited: {
       title: 'Gideon and the Fleece',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Gideon and the Fleece — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/gideon-fleece.jpg', alt: 'Gideon and the Fleece — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9513,10 +8355,8 @@
 
     deborahJudgeRevisited: {
       title: 'Deborah the Judge',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Deborah the Judge — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/deborah-barak.jpg', alt: 'Deborah the Judge — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9533,10 +8373,8 @@
 
     isaiahVision: {
       title: 'Isaiah Sees the Lord',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Isaiah Sees the Lord — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/isaiah-vision.jpg', alt: 'Isaiah Sees the Lord — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9553,10 +8391,8 @@
 
     micahJustice: {
       title: 'Micah Teaches Justice',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Micah Teaches Justice — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/micah-justice.jpg', alt: 'Micah Teaches Justice — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9573,10 +8409,8 @@
 
     habakkukFaith: {
       title: 'Habakkuk Trusts God',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Habakkuk Trusts God — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/micah-justice.jpg', alt: 'Habakkuk Trusts God — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9593,10 +8427,8 @@
 
     haggaiTemple: {
       title: 'Haggai and God’s House',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Haggai and God’s House — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/micah-justice.jpg', alt: 'Haggai and God’s House — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9613,10 +8445,8 @@
 
     zechariahVision: {
       title: 'Zechariah’s Hope',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Zechariah’s Hope — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/micah-justice.jpg', alt: 'Zechariah’s Hope — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9633,10 +8463,8 @@
 
     malachiMessenger: {
       title: 'Malachi’s Messenger',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Malachi’s Messenger — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/malachi-messenger.jpg', alt: 'Malachi’s Messenger — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9653,10 +8481,8 @@
 
     estherRevisited: {
       title: 'Queen Esther Is Brave',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Queen Esther Is Brave — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/esther.jpg', alt: 'Queen Esther Is Brave — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9673,10 +8499,8 @@
 
     boazRedeemer: {
       title: 'Boaz the Redeemer',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Boaz the Redeemer — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/boaz-redeemer.jpg', alt: 'Boaz the Redeemer — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9693,10 +8517,8 @@
 
     jobFriends: {
       title: 'Job’s Friends Sit Quietly',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Job’s Friends Sit Quietly — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/job-trust.jpg', alt: 'Job’s Friends Sit Quietly — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9713,10 +8535,8 @@
 
     elijahAscension: {
       title: 'Elijah Taken to Heaven',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah Taken to Heaven — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/elijah-taken-up.jpg', alt: 'Elijah Taken to Heaven — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9733,10 +8553,8 @@
 
     allHeroesPraise: {
       title: 'All the Heroes Point to Jesus',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'All the Heroes Point to Jesus — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/hebrews-faith.jpg', alt: 'All the Heroes Point to Jesus — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9753,10 +8571,8 @@
 
     psalm91: {
       title: 'Safe in God’s Care',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Safe in God’s Care — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/psalm-91.jpg', alt: 'Safe in God’s Care — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9773,10 +8589,11 @@
 
     mosesRedSea: {
       title: 'God Opens the Red Sea',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'God Opens the Red Sea — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/moses-red-sea-s1.jpg', alt: 'God Opens the Red Sea — gentle Bible story' },
+        { src: '/coloring-pages/moses-red-sea-s2.jpg', alt: 'Quiet moment in the story' },
+        { src: '/coloring-pages/moses-red-sea-s3.jpg', alt: 'God is near and faithful' },
+        { src: '/coloring-pages/moses-red-sea-s4.jpg', alt: 'God is near and faithful' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9793,10 +8610,8 @@
 
     psalm91: {
       title: 'Safe in God’s Care',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Safe in God’s Care — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/psalm-91.jpg', alt: 'Safe in God’s Care — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9808,10 +8623,11 @@
     },
     mosesRedSea: {
       title: 'God Opens the Red Sea',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'God Opens the Red Sea — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/moses-red-sea-s1.jpg', alt: 'God Opens the Red Sea — gentle Bible story' },
+        { src: '/coloring-pages/moses-red-sea-s2.jpg', alt: 'Quiet moment in the story' },
+        { src: '/coloring-pages/moses-red-sea-s3.jpg', alt: 'God is near and faithful' },
+        { src: '/coloring-pages/moses-red-sea-s4.jpg', alt: 'God is near and faithful' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9823,10 +8639,8 @@
     },
     pentecostHolySpirit: {
       title: 'Pentecost — God’s Spirit Comes',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Pentecost — God’s Spirit Comes — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/pentecost.jpg', alt: 'Pentecost — God’s Spirit Comes — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9839,10 +8653,8 @@
 
     philipEthiopianRevisited: {
       title: 'Philip and the Ethiopian',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Philip and the Ethiopian — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/philip-ethiopian.jpg', alt: 'Philip and the Ethiopian — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9855,10 +8667,8 @@
 
     saulConversion: {
       title: 'Saul Meets Jesus',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Saul Meets Jesus — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/paul-damascus.jpg', alt: 'Saul Meets Jesus — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9871,10 +8681,8 @@
 
     dorcasHelpingRevisited: {
       title: 'Dorcas Helps Others',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Dorcas Helps Others — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/tabitha-dorcas.jpg', alt: 'Dorcas Helps Others — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9887,10 +8695,8 @@
 
     peterCornelius: {
       title: 'Peter and Cornelius',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Peter and Cornelius — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/peter-cornelius.jpg', alt: 'Peter and Cornelius — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9903,10 +8709,8 @@
 
     barnabasEncouragesRevisited: {
       title: 'Barnabas the Encourager',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Barnabas the Encourager — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/barnabas.jpg', alt: 'Barnabas the Encourager — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9919,10 +8723,8 @@
 
     lydiaConversion: {
       title: 'Lydia Believes',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Lydia Believes — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/lydia-purple.jpg', alt: 'Lydia Believes — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9935,10 +8737,8 @@
 
     silasPaulSingingRevisited: {
       title: 'Paul and Silas Sing in Jail',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul and Silas Sing in Jail — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/paul-silas-prison.jpg', alt: 'Paul and Silas Sing in Jail — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9951,10 +8751,8 @@
 
     eutychusFallenRevisited: {
       title: 'Eutychus Is Safe',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Eutychus Is Safe — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/eutychus.jpg', alt: 'Eutychus Is Safe — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9967,10 +8765,8 @@
 
     paulShipwreckRevisited: {
       title: 'Paul in the Storm',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul in the Storm — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/paul-shipwreck.jpg', alt: 'Paul in the Storm — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9983,10 +8779,8 @@
 
     onesiphorusPaulRevisited: {
       title: 'Onesiphorus Visits Paul',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Onesiphorus Visits Paul — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Onesiphorus Visits Paul — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -9999,10 +8793,8 @@
 
     timothyPaulFriendshipRevisited: {
       title: 'Timothy and Paul',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Timothy and Paul — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/young-timothy.jpg', alt: 'Timothy and Paul — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10015,10 +8807,8 @@
 
     aquilaPriscillaRevisited: {
       title: 'Aquila and Priscilla',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Aquila and Priscilla — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/priscilla-aquila.jpg', alt: 'Aquila and Priscilla — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10031,10 +8821,8 @@
 
     epaphrasPrayerRevisited: {
       title: 'Epaphras Prays for Friends',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Epaphras Prays for Friends — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/prayer-knock.jpg', alt: 'Epaphras Prays for Friends — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10047,10 +8835,8 @@
 
     philemonOnesimusRevisited: {
       title: 'Philemon Welcomes Onesimus',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Philemon Welcomes Onesimus — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/philemon.jpg', alt: 'Philemon Welcomes Onesimus — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10063,10 +8849,8 @@
 
     titusEncouragementRevisited: {
       title: 'Titus Brings Joy',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Titus Brings Joy — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Titus Brings Joy — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10079,10 +8863,8 @@
 
     nymphasHouseChurchRevisited: {
       title: 'Church in Nymphas’ Home',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Church in Nymphas’ Home — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/early-church.jpg', alt: 'Church in Nymphas’ Home — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10095,10 +8877,8 @@
 
     gaiusHospitalityRevisited: {
       title: 'Gaius Welcomes Travelers',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Gaius Welcomes Travelers — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/early-church.jpg', alt: 'Gaius Welcomes Travelers — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10111,10 +8891,11 @@
 
     lukeNativity: {
       title: 'The Night Jesus Was Born',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The Night Jesus Was Born — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/nativity-s1.jpg', alt: 'The Night Jesus Was Born — gentle Bible story' },
+        { src: '/coloring-pages/nativity-s2.jpg', alt: 'Quiet moment in the story' },
+        { src: '/coloring-pages/nativity-s3.jpg', alt: 'God is near and faithful' },
+        { src: '/coloring-pages/nativity-s4.jpg', alt: 'God is near and faithful' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10127,10 +8908,8 @@
 
     matthewGenealogy: {
       title: 'Jesus’ Family Line',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus’ Family Line — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/great-commission.jpg', alt: 'Jesus’ Family Line — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10143,10 +8922,8 @@
 
     markBeginning: {
       title: 'The Good News Begins',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The Good News Begins — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/great-commission.jpg', alt: 'The Good News Begins — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10159,10 +8936,8 @@
 
     johnWord: {
       title: 'Jesus the Word',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus the Word — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Jesus the Word — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10175,10 +8950,8 @@
 
     actsChurchBegins: {
       title: 'The Church Begins',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The Church Begins — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/early-church.jpg', alt: 'The Church Begins — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10191,10 +8964,8 @@
 
     romansLove: {
       title: 'Nothing Separates God’s Love',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Nothing Separates God’s Love — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/romans-love.jpg', alt: 'Nothing Separates God’s Love — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10208,9 +8979,7 @@
     '1corinthiansLoveChapter': {
       title: 'Love Is Greatest',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Love Is Greatest — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+        { src: '/coloring-pages/romans-love.jpg', alt: 'Love Is Greatest — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10223,10 +8992,8 @@
 
     galatiansFruit: {
       title: 'Fruit of the Spirit',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Fruit of the Spirit — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/fruit-spirit.jpg', alt: 'Fruit of the Spirit — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10239,10 +9006,8 @@
 
     ephesiansArmorRevisited: {
       title: 'God’s Armor',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'God’s Armor — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/armor-of-god.jpg', alt: 'God’s Armor — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10255,10 +9020,8 @@
 
     colossiansChristFirst: {
       title: 'Jesus Is First',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus Is First — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Jesus Is First — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10272,9 +9035,7 @@
     '1thessaloniansRapture': {
       title: 'Jesus Is Coming Back',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus Is Coming Back — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Jesus Is Coming Back — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10288,9 +9049,7 @@
     '2thessaloniansStandFirm': {
       title: 'Stand Firm',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Stand Firm — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Stand Firm — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10304,9 +9063,7 @@
     '1timothyYoungLeader': {
       title: 'Young Timothy',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Young Timothy — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+        { src: '/coloring-pages/young-timothy.jpg', alt: 'Young Timothy — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10320,9 +9077,7 @@
     '2timothyFaithPassed': {
       title: 'Faith Passed Down',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Faith Passed Down — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+        { src: '/coloring-pages/young-timothy.jpg', alt: 'Faith Passed Down — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10335,10 +9090,8 @@
 
     titusGoodWorks: {
       title: 'Eager to Do Good',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Eager to Do Good — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Eager to Do Good — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10351,10 +9104,8 @@
 
     philemonForgiveness: {
       title: 'Philemon Forgives',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Philemon Forgives — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/philemon.jpg', alt: 'Philemon Forgives — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10367,10 +9118,8 @@
 
     hebrewsFaithHeroes: {
       title: 'Heroes of Faith',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Heroes of Faith — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+            panels: [
+        { src: '/coloring-pages/hebrews-faith.jpg', alt: 'Heroes of Faith — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10384,9 +9133,7 @@
     '1peterHopeLiving': {
       title: 'Living Hope',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Living Hope — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
-        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+        { src: '/coloring-pages/hebrews-faith.jpg', alt: 'Living Hope — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10399,10 +9146,11 @@
 
     lukeNativityRevisited: {
       title: 'The Night Jesus Was Born',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The Night Jesus Was Born — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/nativity-s1.jpg', alt: 'The Night Jesus Was Born — gentle Bible story' },
+        { src: '/coloring-pages/nativity-s2.jpg', alt: 'Quiet moment' },
+        { src: '/coloring-pages/nativity-s3.jpg', alt: 'God is near' },
+        { src: '/coloring-pages/nativity-s4.jpg', alt: 'God is near' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10415,10 +9163,8 @@
 
     matthewGenealogyRevisited: {
       title: 'Jesus’ Family Line',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus’ Family Line — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/great-commission.jpg', alt: 'Jesus’ Family Line — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10431,10 +9177,8 @@
 
     markBeginningRevisited: {
       title: 'The Good News Begins',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The Good News Begins — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/great-commission.jpg', alt: 'The Good News Begins — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10447,10 +9191,8 @@
 
     johnWordRevisited: {
       title: 'Jesus the Word',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus the Word — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Jesus the Word — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10463,10 +9205,8 @@
 
     actsChurchBeginsRevisited: {
       title: 'The Church Begins',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'The Church Begins — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/early-church.jpg', alt: 'The Church Begins — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10479,10 +9219,8 @@
 
     romansLoveRevisited: {
       title: 'Nothing Separates God’s Love',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Nothing Separates God’s Love — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/romans-love.jpg', alt: 'Nothing Separates God’s Love — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10496,9 +9234,7 @@
     '1corinthiansLoveChapterRevisited': {
       title: 'Love Is Greatest',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Love Is Greatest — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+        { src: '/coloring-pages/romans-love.jpg', alt: 'Love Is Greatest — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10511,10 +9247,8 @@
 
     galatiansFruitRevisited: {
       title: 'Fruit of the Spirit',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Fruit of the Spirit — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/fruit-spirit.jpg', alt: 'Fruit of the Spirit — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10527,10 +9261,8 @@
 
     philippiansJoyRevisited: {
       title: 'Joy in the Lord',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Joy in the Lord — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/philippians-joy.jpg', alt: 'Joy in the Lord — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10543,10 +9275,8 @@
 
     colossiansChristFirstRevisited: {
       title: 'Jesus Is First',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus Is First — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Jesus Is First — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10560,9 +9290,7 @@
     '1thessaloniansRaptureRevisited': {
       title: 'Jesus Is Coming Back',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus Is Coming Back — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Jesus Is Coming Back — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10576,9 +9304,7 @@
     '2thessaloniansStandFirmRevisited': {
       title: 'Stand Firm',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Stand Firm — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Stand Firm — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10592,9 +9318,7 @@
     '1timothyYoungLeaderRevisited': {
       title: 'Young Timothy',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Young Timothy — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+        { src: '/coloring-pages/young-timothy.jpg', alt: 'Young Timothy — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10608,9 +9332,7 @@
     '2timothyFaithPassedRevisited': {
       title: 'Faith Passed Down',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Faith Passed Down — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+        { src: '/coloring-pages/young-timothy.jpg', alt: 'Faith Passed Down — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10623,10 +9345,8 @@
 
     titusGoodWorksRevisited: {
       title: 'Eager to Do Good',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Eager to Do Good — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Eager to Do Good — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10639,10 +9359,8 @@
 
     philemonForgivenessRevisited: {
       title: 'Philemon Forgives',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Philemon Forgives — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/philemon.jpg', alt: 'Philemon Forgives — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10655,10 +9373,8 @@
 
     hebrewsFaithHeroesRevisited: {
       title: 'Heroes of Faith',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Heroes of Faith — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/hebrews-faith.jpg', alt: 'Heroes of Faith — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10671,10 +9387,8 @@
 
     jamesFaithWorksRevisited: {
       title: 'Faith Shows in Kindness',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Faith Shows in Kindness — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+            panels: [
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Faith Shows in Kindness — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10688,9 +9402,7 @@
     '1peterHopeLivingRevisited': {
       title: 'Living Hope',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Living Hope — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Living Hope — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10704,9 +9416,7 @@
     '2peterKnowledge': {
       title: 'Growing in Knowing Jesus',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Growing in Knowing Jesus — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Growing in Knowing Jesus — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10720,9 +9430,7 @@
     '1johnLoveGod': {
       title: 'Love One Another',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Love One Another — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Love One Another — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10736,9 +9444,7 @@
     '2johnTruth': {
       title: 'Walking in Truth',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Walking in Truth — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Walking in Truth — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10752,9 +9458,7 @@
     '3johnFaithful': {
       title: 'Faithful Friends',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Faithful Friends — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+        { src: '/coloring-pages/paul-rome.jpg', alt: 'Faithful Friends — gentle Bible story' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',
@@ -10767,10 +9471,8 @@
 
     comeLordJesus: {
       title: '"Come, Lord Jesus!"',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'John hears Jesus say: I am coming quickly!' },
-        { src: 'panel-noah-2.svg', alt: 'John answers: Amen—come, Lord Jesus!' },
-        { src: 'panel-noah-3.svg', alt: 'Every heart that loves Him says: come!' }
+            panels: [
+        { src: '/coloring-pages/come-lord-jesus.jpg', alt: 'John hears Jesus say: I am coming quickly!' }
       ],
       caption: 'Swipe to hear the last prayer in the Bible—come, Lord Jesus! 🙏',
       videoId: '',
@@ -10807,6 +9509,14 @@
     bibleStories.jesusAndChildren = bibleStories.jesusBlessKids;
     /** Alternate library name — same Luke 19 card (Zacchaeus, gentle). */
     bibleStories.jesusAndZacchaeus = bibleStories.zacchaeus;
+    /** Loop library / older links — same card as jesusCalmsStorm. */
+    bibleStories.storm = bibleStories.jesusCalmsStorm;
+    /** Porch read + classroom links (Isaiah 41:10 “fear not”) — comfort card. */
+    bibleStories.doNotFearIsaiah41 = bibleStories.psalm23Shepherd || bibleStories.psalm23 || bibleStories.jesusCalmsStorm;
+    /** Family bridge / short links — default Joshua card (Jericho). */
+    bibleStories.joshua = bibleStories.fallOfJericho || bibleStories.joshuaJordan || bibleStories.jerichoWalls;
+
+
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -11698,11 +10408,11 @@
       return { type: 'carousel', story: storyKeys[weeklyStoryIndex] };
     }
     var panels = [
-      { type: 'single', src: 'panel-david.svg', alt: 'David with slingshot', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
-      { type: 'single', src: 'panel-noah.svg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
-      { type: 'single', src: 'panel-jesus.svg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
-      { type: 'single', src: 'panel-jonah.svg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
-      { type: 'single', src: 'panel-daniel.svg', alt: 'Daniel in the lions den', caption: 'God protects when you pray!', anim: 'cartoon-slide-daniel' }
+      { type: 'single', src: '/coloring-pages/colored/david-and-goliath-coloring-page.jpg', alt: 'Boy David with one sling facing giant Goliath', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
+      { type: 'single', src: '/coloring-pages/colored/noah-s1.jpg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
+      { type: 'single', src: '/coloring-pages/colored/jesus-and-the-children-coloring-page.jpg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
+      { type: 'single', src: '/coloring-pages/colored/jonah-s1.jpg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
+      { type: 'single', src: '/coloring-pages/colored/daniel-in-the-lions-den-coloring-page.jpg', alt: 'Daniel in the lions den', caption: 'God protects when you pray!', anim: 'cartoon-slide-daniel' }
     ];
     return panels[index % 5];
   }
@@ -13151,11 +11861,27 @@
     panelsC.className = 'panels-container';
     (story.panels || []).forEach(function (pan) {
       var img = document.createElement('img');
-      img.src = String(pan.src || '');
+      var rawSrc = String(pan.src || '');
+      /* Prefer soft-color Color & Tell art when panels point at coloring-pages line art */
+      var src = rawSrc;
+      if (rawSrc.indexOf('/coloring-pages/') === 0 && rawSrc.indexOf('/coloring-pages/colored/') === -1) {
+        var base = rawSrc.split('/').pop() || '';
+        if (base) src = '/coloring-pages/colored/' + base;
+      }
+      img.src = src;
       img.alt = tdbPlainTextForUi(pan.alt || '');
-      img.className = 'comic-panel';
+      img.className =
+        'comic-panel' +
+        (src.indexOf('/coloring-pages/') === 0 ? ' comic-panel--coloring-art comic-panel--story-color' : '');
       img.setAttribute('width', '200');
       img.setAttribute('height', '160');
+      if (src !== rawSrc) {
+        img.setAttribute('data-line-art', rawSrc);
+        img.addEventListener('error', function onCol() {
+          img.removeEventListener('error', onCol);
+          if (img.getAttribute('src') !== rawSrc) img.src = rawSrc;
+        });
+      }
       panelsC.appendChild(img);
     });
     wrap.appendChild(panelsC);
@@ -14011,7 +12737,7 @@
     var story = bibleStories[key];
     if (!story) return;
     var panels = story.panels || [];
-    var thumbSrc = panels[0] ? panels[0].src : 'panel-david-1.svg';
+    var thumbSrc = panels[0] ? panels[0].src : '/coloring-pages/colored/david-and-goliath-coloring-page.jpg';
     var thumbAlt = tdbPlainTextForUi(panels[0] && panels[0].alt ? panels[0].alt : (story.title || key));
     var caption = tdbPlainTextForUi((story.caption || 'Swipe in Kids Story Library to see!').replace(/<[^>]+>/g, ''));
     if (thumb) { thumb.src = thumbSrc; thumb.alt = thumbAlt; }

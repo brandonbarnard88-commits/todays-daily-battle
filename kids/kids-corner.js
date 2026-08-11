@@ -9830,7 +9830,7 @@
     btn.setAttribute('aria-expanded', 'false');
     if (note) {
       note.hidden = false;
-      note.textContent = 'Starter color pictures first — ' + remaining + ' more Bible stories ready with real Color & Tell art.';
+      note.textContent = 'Pictures first — ' + remaining + ' more stories.';
     }
   }
 

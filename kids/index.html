@@ -29,12 +29,10 @@
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
   <link rel="manifest" href="../manifest.json">
   <style>
-    /* Easy kids home — three big doors only */
-    .kids-easy-home { max-width: 28rem; margin: 0 auto; padding: 0.5rem 0 2rem; text-align: center; }
-    .kids-easy-home h1 { font-size: clamp(1.5rem, 5vw, 1.85rem); margin: 0.5rem 0 0.25rem; color: #0f172a; }
+    /* Easy kids home — three big doors only (no second nav stack) */
+    .kids-easy-home { max-width: 28rem; margin: 0 auto; padding: 0.75rem 0 2.5rem; text-align: center; }
+    .kids-easy-home h1 { font-size: clamp(1.5rem, 5vw, 1.85rem); margin: 0.5rem 0 1rem; color: #0f172a; }
     .dark-mode .kids-easy-home h1 { color: #f8fafc; }
-    .kids-easy-home .kids-easy-lead { margin: 0 0 1.25rem; font-size: 1.05rem; line-height: 1.45; color: #475569; }
-    .dark-mode .kids-easy-home .kids-easy-lead { color: #cbd5e1; }
     .kids-easy-doors { display: flex; flex-direction: column; gap: 0.85rem; }
     .kids-easy-door {
       display: block; text-decoration: none; border-radius: 1.1rem; padding: 1.15rem 1.25rem;
@@ -46,12 +44,24 @@
     .kids-easy-door--color { background: linear-gradient(145deg, #dbeafe, #93c5fd); border-color: #3b82f6; }
     .kids-easy-door--play { background: linear-gradient(145deg, #dcfce7, #86efac); border-color: #22c55e; }
     .kids-easy-door:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
-    .kids-easy-mascot { width: 120px; height: auto; margin: 0.25rem auto 0.5rem; display: block; }
-    .kids-easy-grownup { margin-top: 1.5rem; font-size: 0.95rem; }
-    .kids-easy-grownup a { font-weight: 600; }
-    .kids-easy-more { margin-top: 1.25rem; text-align: left; }
-    .kids-easy-more summary { cursor: pointer; font-weight: 700; text-align: center; padding: 0.5rem; }
+    .kids-easy-mascot { width: 120px; height: auto; margin: 0.25rem auto 0.35rem; display: block; }
+    .kids-easy-more { margin-top: 1.5rem; text-align: left; }
+    .kids-easy-more summary { cursor: pointer; font-weight: 700; text-align: center; padding: 0.5rem; list-style: none; }
+    .kids-easy-more summary::-webkit-details-marker { display: none; }
     .kids-easy-more ul { margin: 0.5rem 0 0; padding-left: 1.25rem; line-height: 1.7; }
+    .kids-easy-header { text-align: center; padding: 0.75rem 1rem 0.25rem; }
+    .kids-easy-header .brand-title { font-size: 0.95rem; font-weight: 700; text-decoration: none; color: #0f172a; }
+    .dark-mode .kids-easy-header .brand-title { color: #e2e8f0; }
+    .kids-easy-header .kids-subtitle { display: block; font-size: 0.8rem; font-weight: 700; color: #92400e; margin-top: 0.15rem; }
+    .kids-easy-footer {
+      max-width: 28rem; margin: 0 auto; padding: 1rem 1rem 2rem; text-align: center;
+      font-size: 0.9rem; color: #64748b;
+    }
+    .kids-easy-footer a { color: #0369a1; font-weight: 600; }
+    .dark-mode .kids-easy-footer { color: #94a3b8; }
+    .dark-mode .kids-easy-footer a { color: #7dd3fc; }
+    /* Hide sitewide kids bottom-nav if injected later — this page is three doors only */
+    body.kids-kiss-play-home .kids-bottom-nav { display: none !important; }
   </style>
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-kiss-play-home">
@@ -78,18 +88,9 @@
   </script>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
-    <header class="top-bar kids-battle-header kids-header-unified">
-      <div class="brand">
-        <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle kids-subtitle">Kids</span>
-      </div>
-      <nav class="kids-header-nav" aria-label="Kids navigation">
-        <a href="/kids/" aria-current="page">Kids</a>
-        <a href="corner.html">Stories</a>
-        <a href="../coloring.html">Color</a>
-        <a href="../family.html">Grown-ups</a>
-      </nav>
-      <a href="../family.html" class="kids-parent-link-mobile" aria-label="Family hub for grown-ups">Grown-ups</a>
+    <header class="kids-easy-header">
+      <a class="brand-title" href="/">Today's Daily Battle</a>
+      <span class="kids-subtitle">Kids</span>
     </header>
 
     <main class="app-content" id="main-content" role="main">
@@ -97,9 +98,8 @@
         <div class="kids-easy-home">
           <img class="kids-easy-mascot" src="shepherd-mascot-welcome.png?v=20260810ears2" width="120" height="132" alt="" decoding="async" loading="lazy">
           <h1 id="kids-hub-play-h">Pick one</h1>
-          <p class="kids-easy-lead">Story · Color · Play. That&rsquo;s it.</p>
 
-          <div class="kids-easy-doors" role="navigation" aria-label="Three things to do">
+          <div class="kids-easy-doors" role="navigation" aria-label="Story, color, or play">
             <a class="kids-easy-door kids-easy-door--story" href="corner.html?choose=1#kids-library-grid">
               📖 Story
               <small>Pick a picture, then open a Bible story</small>
@@ -115,51 +115,23 @@
           </div>
 
           <details class="kids-easy-more">
-            <summary>More (optional)</summary>
+            <summary>More</summary>
             <ul>
               <li><a href="corner.html">All stories</a></li>
               <li><a href="good-night.html">Good night prayer</a></li>
               <li><a href="lost-sheep.html">Find the sheep</a></li>
               <li><a href="prayer-activities.html">Prayer ideas</a></li>
+              <li><a href="../family.html">Grown-ups</a></li>
+              <li><a href="/">Main site</a></li>
             </ul>
           </details>
-
-          <p class="kids-easy-grownup">
-            <a href="../family.html">Grown-ups</a>
-            · <a href="/">Site home</a>
-          </p>
         </div>
       </div>
     </main>
 
-    <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
-      <p class="footer-humility">We battle. He wins.</p>
-      <p class="kids-footer-sub">Kids · story, color, play</p>
-      <nav class="kids-footer-exit" aria-label="Site exit links">
-        <a href="/">Main site</a>
-        <a href="/privacy.html">Privacy</a>
-      </nav>
+    <footer class="kids-easy-footer" role="contentinfo">
+      <p><a href="/privacy.html">Privacy</a></p>
     </footer>
-
-    <nav class="kids-bottom-nav" aria-label="Kids navigation">
-      <a href="/kids/" aria-current="page">
-        <span class="kids-bottom-nav-icon" aria-hidden="true">🏠</span>
-        <span class="kids-bottom-nav-label">Kids</span>
-      </a>
-      <a href="corner.html">
-        <span class="kids-bottom-nav-icon" aria-hidden="true">📖</span>
-        <span class="kids-bottom-nav-label">Stories</span>
-      </a>
-      <a href="../coloring.html">
-        <span class="kids-bottom-nav-icon" aria-hidden="true">🖍️</span>
-        <span class="kids-bottom-nav-label">Color</span>
-      </a>
-      <a href="../family.html">
-        <span class="kids-bottom-nav-icon" aria-hidden="true">👪</span>
-        <span class="kids-bottom-nav-label">Grown-ups</span>
-      </a>
-    </nav>
   </div>
-  <!-- No heavy kids-battle / sky / supabase stack — this page is just three doors. -->
 </body>
 </html>

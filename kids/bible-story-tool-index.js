@@ -2202,7 +2202,7 @@
     "kjvRef": "Acts 28",
     "who": "Paul",
     "to": "Jews and Gentiles (and us)",
-    "apply": "When it's hards do not silence Jesus—keep speaking His name with love and courage.",
+    "apply": "Hard days do not silence Jesus—keep speaking His name with love and courage.",
     "theme": "Obedience",
     "kw": "paul rome acts 28 prisoner chain gentiles preach kingdom"
   },
@@ -2292,7 +2292,7 @@
     "kjvRef": "Ephesians, Philippians, Colossians, Philemon",
     "who": "Paul",
     "to": "Believers (and us)",
-    "apply": "When it's hards can still be holy days—let joy in Jesus be louder than your trouble.",
+    "apply": "Hard days can still be holy days—let joy in Jesus be louder than your trouble.",
     "theme": "Love",
     "kw": "paul prison ephesians philippians colossians philemon chains joy"
   },
@@ -2472,7 +2472,7 @@
     "kjvRef": "Philippians 1:21; 2:5–11; 4:4–7, 13",
     "who": "Paul",
     "to": "Us",
-    "apply": "When it's hard? Tell Jesus anyway—He can trade your panic for peace when you pray with a thankful heart.",
+    "apply": "Hard day? Tell Jesus anyway—He can trade your panic for peace when you pray with a thankful heart.",
     "theme": "Love",
     "kw": "philippians joy rejoice peace prison thanksgiving strength christ"
   },

@@ -574,7 +574,7 @@
       return 'When life feels loud, lines like this invite you to receive God’s peace—not as a mood you force, but as a guard over heart and mind.';
     }
     if (/\b(fear|afraid|trouble|anxi)\b/.test(v)) {
-      return 'When it's hards make the heart race. This verse points you toward the Lord’s presence—honest fear met with steady help, not hype.';
+      return 'Hard days make the heart race. This verse points you toward the Lord’s presence—honest fear met with steady help, not hype.';
     }
     if (/\b(hope|mercy|comfort|heal)\b/.test(v)) {
       return 'Weariness is real; so is God’s kindness. Let this verse remind you that His mercy meets you where you are—not where you pretend to be.';

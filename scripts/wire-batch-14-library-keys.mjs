@@ -41,9 +41,9 @@ function storyBlock({ key, title, ref, apply }) {
   return `    ${key}: {
       title: '${title.replace(/'/g, "\\'")}',
       panels: [
-        { src: 'panel-noah-1.svg', alt: '${title} — gentle Bible story' },
-        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
-        { src: 'panel-noah-3.svg', alt: 'God is near' }
+        { src: '/coloring-pages/colored/noah-s1.jpg', alt: '${title} — gentle Bible story' },
+        { src: '/coloring-pages/colored/noah-s2.jpg', alt: 'Quiet moment' },
+        { src: '/coloring-pages/colored/noah-s3.jpg', alt: 'God is near' }
       ],
       caption: 'Swipe through this calm story from God’s Word.',
       videoId: '',

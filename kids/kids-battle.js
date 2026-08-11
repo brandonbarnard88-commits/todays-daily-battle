@@ -580,11 +580,11 @@
 
   /** When a carousel story key is missing from bibleStories, show a safe single-panel strip (matches getCartoonForVerse fallbacks). */
   const KIDS_SINGLE_CARTOON_FALLBACKS = [
-    { type: 'single', src: 'panel-david.svg', alt: 'David with slingshot', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
-    { type: 'single', src: 'panel-noah.svg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
-    { type: 'single', src: 'panel-jesus.svg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
-    { type: 'single', src: 'panel-jonah.svg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
-    { type: 'single', src: 'panel-daniel.svg', alt: 'Daniel in the lions den', caption: 'God protects when you pray!', anim: 'cartoon-slide-daniel' }
+    { type: 'single', src: '/coloring-pages/colored/david-and-goliath-coloring-page.jpg', alt: 'David with slingshot', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
+    { type: 'single', src: '/coloring-pages/colored/noah-s1.jpg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
+    { type: 'single', src: '/coloring-pages/colored/jesus-and-the-children-coloring-page.jpg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
+    { type: 'single', src: '/coloring-pages/colored/jonah-s1.jpg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
+    { type: 'single', src: '/coloring-pages/colored/daniel-in-the-lions-den-coloring-page.jpg', alt: 'Daniel in the lions den', caption: 'God protects when you pray!', anim: 'cartoon-slide-daniel' }
   ];
 
   function getDailyKey() {
@@ -10408,11 +10408,11 @@
       return { type: 'carousel', story: storyKeys[weeklyStoryIndex] };
     }
     var panels = [
-      { type: 'single', src: 'panel-david.svg', alt: 'David with slingshot', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
-      { type: 'single', src: 'panel-noah.svg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
-      { type: 'single', src: 'panel-jesus.svg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
-      { type: 'single', src: 'panel-jonah.svg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
-      { type: 'single', src: 'panel-daniel.svg', alt: 'Daniel in the lions den', caption: 'God protects when you pray!', anim: 'cartoon-slide-daniel' }
+      { type: 'single', src: '/coloring-pages/colored/david-and-goliath-coloring-page.jpg', alt: 'David with slingshot', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
+      { type: 'single', src: '/coloring-pages/colored/noah-s1.jpg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
+      { type: 'single', src: '/coloring-pages/colored/jesus-and-the-children-coloring-page.jpg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
+      { type: 'single', src: '/coloring-pages/colored/jonah-s1.jpg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
+      { type: 'single', src: '/coloring-pages/colored/daniel-in-the-lions-den-coloring-page.jpg', alt: 'Daniel in the lions den', caption: 'God protects when you pray!', anim: 'cartoon-slide-daniel' }
     ];
     return panels[index % 5];
   }
@@ -12737,7 +12737,7 @@
     var story = bibleStories[key];
     if (!story) return;
     var panels = story.panels || [];
-    var thumbSrc = panels[0] ? panels[0].src : 'panel-david-1.svg';
+    var thumbSrc = panels[0] ? panels[0].src : '/coloring-pages/colored/david-and-goliath-coloring-page.jpg';
     var thumbAlt = tdbPlainTextForUi(panels[0] && panels[0].alt ? panels[0].alt : (story.title || key));
     var caption = tdbPlainTextForUi((story.caption || 'Swipe in Kids Story Library to see!').replace(/<[^>]+>/g, ''));
     if (thumb) { thumb.src = thumbSrc; thumb.alt = thumbAlt; }

@@ -8425,8 +8425,103 @@
     return window.TDB_BIBLE_STORIES || {};
   }
 
+  /** Normalize titles so “Jesus Is Risen” / “Jesus is risen” collapse. */
+  function normalizeLibraryStoryTitle(t) {
+    return String(t || '')
+      .toLowerCase()
+      .replace(/[\u2018\u2019\u201c\u201d]/g, "'")
+      .replace(/&amp;/g, 'and')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  /**
+   * Score which key to keep when two cards are the same story.
+   * Prefers starter shelf keys, non-Revisited, richer panels, clearer names.
+   */
+  function libraryKeyPreferenceScore(key, story) {
+    var s = 0;
+    var k = String(key || '');
+    if (/revisited$/i.test(k)) s -= 100;
+    if (/^ll[A-Z]/.test(k)) s -= 5; /* life-lesson bridges less preferred in kids shelf */
+    try {
+      if (LIBRARY_STARTER_KEYS && LIBRARY_STARTER_KEYS.indexOf(k) >= 0) s += 80;
+    } catch (_e) { /* no-op */ }
+    if (story && story.panels && story.panels.length) s += Math.min(25, story.panels.length * 3);
+    if (story && story.narration && String(story.narration).trim()) s += 8;
+    if (story && story.kidContext) s += 4;
+    if (story && story.kjvRef) s += 2;
+    /* Prefer specific camelCase keys (davidGoliath) over short stubs (david). */
+    s += Math.min(12, k.length / 4);
+    return s;
+  }
+
+  /**
+   * Keys for the library shelf / filters / counts.
+   * Drops (1) alias keys that point at the same story object and
+   * (2) extra cards that share the same display title (e.g. palmSunday + triumphalEntry).
+   * Aliases remain on TDB_BIBLE_STORIES so old ?story= URLs still resolve.
+   */
   function getStoryKeys() {
-    return window.TDB_BIBLE_STORY_KEYS || Object.keys(getStories());
+    var stories = getStories();
+    var raw = window.TDB_BIBLE_STORY_KEYS || Object.keys(stories);
+    if (!raw || !raw.length) return [];
+
+    /* Pass 1: one key per object identity (alias map: naaman → naamanHealed). */
+    var objKeys = [];
+    var objSeen = [];
+    var i, k, st, oi, prevK;
+    for (i = 0; i < raw.length; i++) {
+      k = raw[i];
+      st = stories[k];
+      if (!st) continue;
+      oi = -1;
+      for (var j = 0; j < objSeen.length; j++) {
+        if (objSeen[j] === st) {
+          oi = j;
+          break;
+        }
+      }
+      if (oi < 0) {
+        objSeen.push(st);
+        objKeys.push(k);
+      } else {
+        prevK = objKeys[oi];
+        if (libraryKeyPreferenceScore(k, st) > libraryKeyPreferenceScore(prevK, stories[prevK])) {
+          objKeys[oi] = k;
+        }
+      }
+    }
+
+    /* Pass 2: one key per normalized title. */
+    var titleBest = {};
+    for (i = 0; i < objKeys.length; i++) {
+      k = objKeys[i];
+      st = stories[k];
+      var t = normalizeLibraryStoryTitle(st && st.title);
+      if (!t) t = '__key__' + k;
+      prevK = titleBest[t];
+      if (!prevK || libraryKeyPreferenceScore(k, st) > libraryKeyPreferenceScore(prevK, stories[prevK])) {
+        titleBest[t] = k;
+      }
+    }
+
+    var out = [];
+    for (var tKey in titleBest) {
+      if (Object.prototype.hasOwnProperty.call(titleBest, tKey)) out.push(titleBest[tKey]);
+    }
+    /* Stable-ish order: keep original raw order among winners. */
+    var rank = {};
+    for (i = 0; i < raw.length; i++) rank[raw[i]] = i;
+    out.sort(function (a, b) {
+      var ra = rank[a];
+      var rb = rank[b];
+      if (ra == null) ra = 99999;
+      if (rb == null) rb = 99999;
+      return ra - rb;
+    });
+    return out;
   }
 
   function getStoryThemes() {

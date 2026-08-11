@@ -9518,7 +9518,32 @@
 
 
     window.TDB_BIBLE_STORIES = bibleStories;
-    window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
+    /* Library keys: skip alias pointers so the shelf does not list the same card twice.
+       Full bibleStories still has aliases for old ?story= URLs and journey links. */
+    (function setPrimaryStoryKeys() {
+      var all = Object.keys(bibleStories);
+      var primary = [];
+      var seen = [];
+      for (var i = 0; i < all.length; i++) {
+        var k = all[i];
+        var st = bibleStories[k];
+        if (!st) continue;
+        var idx = -1;
+        for (var j = 0; j < seen.length; j++) {
+          if (seen[j] === st) {
+            idx = j;
+            break;
+          }
+        }
+        if (idx < 0) {
+          seen.push(st);
+          primary.push(k);
+        }
+        /* If an earlier key was a short alias and this is the real name, prefer the first
+           definition (aliases are assigned after, so first write wins). */
+      }
+      window.TDB_BIBLE_STORY_KEYS = primary;
+    })();
     try {
       if (typeof window.dispatchEvent === 'function' && typeof CustomEvent === 'function') {
         window.dispatchEvent(

@@ -49,7 +49,7 @@ export const STORY_HTML_MARKERS = [
   'story-library-fonts.css?v=1',
   'loop-library-coloring.js?v=20260524readquiz',
   'kids-corner.js?v=20260811copyall',
-  'kids-gentle-shepherd.js?v=20260811read1',
+  'kids-gentle-shepherd.js?v=20260811copyall',
   'kids-battle.js?v=20260810nostick',
   'kids-battle.css?v=20260810nostick',
   'kids-library-card--static',

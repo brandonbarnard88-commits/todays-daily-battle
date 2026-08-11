@@ -99,7 +99,35 @@ function speakerBelongsToBook(about, ref) {
   if (/^proverbs\b|^ecclesiastes\b/.test(book) && /\bdavid\b/.test(a) && !/solomon/.test(a)) return false;
   if (/^romans\b|^corinthians\b|^galatians\b|^ephesians\b|^philippians\b|^colossians\b|^timothy\b/.test(book) &&
       /\bdavid\b/.test(a) && !/paul/.test(a)) return false;
+  /* Solomon is for wisdom books — never paint him as the voice of a Psalm/Gospel/Paul letter. */
+  if (/\bsolomon\b/.test(a)) {
+    if (/^psalm/.test(book)) return false;
+    if (/^matthew\b|^mark\b|^luke\b|^john\b|^acts\b/.test(book)) return false;
+    if (/^romans\b|^corinthians\b|^galatians\b|^ephesians\b|^philippians\b|^colossians\b|^thessalonians\b|^timothy\b|^titus\b|^philemon\b|^hebrews\b|^james\b|^peter\b|^jude\b|^revelation\b/.test(book)) {
+      return false;
+    }
+  }
+  /* Paul never wrote the Psalms or the Gospels. */
+  if (/\bpaul\b/.test(a) && /^psalm|^matthew\b|^mark\b|^luke\b|^john\b/.test(book) && !/paul/.test(book)) {
+    return false;
+  }
   return true;
+}
+
+/** Situation line must not be a known blurb from a different chapter cluster. */
+function situationLooksWrongForRef(sit, ref) {
+  const s = String(sit || '');
+  const r = String(ref || '');
+  if (!s || !r) return false;
+  if (!/^Psalm(s)?\s+92:/i.test(r) && /Sabbath song of thanksgiving/i.test(s)) return true;
+  /* Enthronement “floods/thrones” is 93/95–97 — not 94 (foot slips / justice). */
+  if (/floods,\s*thrones,\s*and idols|floods and noise cannot unseat/i.test(s)) {
+    if (!/^Psalm(s)?\s+(93|95|96|97):/i.test(r)) return true;
+  }
+  if (/straight path for work and plans|learning a straight path/i.test(s) && !/^Proverbs\b/i.test(r)) {
+    return true;
+  }
+  return false;
 }
 
 /* isWeakPlainStamp imported from teaching-quality.mjs */
@@ -207,6 +235,33 @@ function auditHeroInject(kjv, resolve) {
   if (who && !speakerBelongsToBook(who, expect)) {
     fail(`Hero who="${who}" does not belong to ${expect}`);
   }
+  if (!who || who.length < 3) {
+    fail(`Hero dig-deeper Who is empty for ${expect} — inject about/speaker`);
+  }
+  if (situationLooksWrongForRef(sit, expect) || situationLooksWrongForRef(simple, expect)) {
+    fail(
+      `Hero dig-deeper situation does not fit ${expect}: "${(sit || simple).slice(0, 120)}"`
+    );
+  }
+  const liveAbout = String(ctx.about || '').trim();
+  if (liveAbout && who) {
+    if (/\bsolomon\b/i.test(who) && !/\bsolomon\b/i.test(liveAbout) && !/^Proverbs|^Ecclesiastes|^Song/i.test(expect)) {
+      fail(`Hero who="${who}" contradicts resolver about="${liveAbout}" for ${expect}`);
+    }
+  }
+  const audM = html.match(/id="heroDeepAudience"[^>]*>([^<]*)/i);
+  const audience = stripHtml(audM ? audM[1] : '');
+  if (audience && /^Psalm/i.test(expect) && /straight path for work and plans/i.test(audience)) {
+    fail(`Hero audience still has Proverbs stub under ${expect}: "${audience}"`);
+  }
+  if (liveSit && sit && liveSit.length >= 40) {
+    if (
+      /foot slipp|mercy held|unjust throne|oppression/i.test(liveSit) &&
+      /floods.*thrones|Lord reigns: floods/i.test(sit)
+    ) {
+      fail(`Hero situation lags resolver for ${expect}: still showing enthronement blurb`);
+    }
+  }
 
   // Step must not be from unrelated theme (forgiveness under commit-your-works)
   if (/commit thy works|proverbs\s+16:3/i.test(expect + ' ' + (kjvText(kjv, expect) || ''))) {
@@ -237,6 +292,9 @@ function auditHeroInject(kjv, resolve) {
   }
   if (!fp.includes('data-tdb-bound-ref')) {
     fail('hero-daily-first-paint.js missing data-tdb-bound-ref stamp');
+  }
+  if (!fp.includes('snapshotMatchesTargetRef')) {
+    fail('hero-daily-first-paint.js missing snapshotMatchesTargetRef (same-ref dig-deeper safety net)');
   }
 }
 

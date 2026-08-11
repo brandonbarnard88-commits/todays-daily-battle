@@ -165,35 +165,35 @@ const CORE_ASSETS = [
   '/kids/kids-hub-play.css',
   '/kids/kids-hub-play.js',
   '/kids/kids-wins-recap.js',
-  '/kids/panel-david.svg',
-  '/kids/panel-david-1.svg',
-  '/kids/panel-david-2.svg',
-  '/kids/panel-david-3.svg',
-  '/kids/panel-noah.svg',
-  '/kids/panel-noah-1.svg',
-  '/kids/panel-noah-2.svg',
-  '/kids/panel-noah-3.svg',
-  '/kids/panel-jesus.svg',
-  '/kids/panel-jesus-1.svg',
-  '/kids/panel-jesus-2.svg',
-  '/kids/panel-jesus-3.svg',
-  '/kids/panel-jesus-resurrection-1.svg',
-  '/kids/panel-jesus-resurrection-2.svg',
-  '/kids/panel-jesus-resurrection-3.svg',
-  '/kids/panel-mary-magdalene-1.svg',
-  '/kids/panel-mary-magdalene-2.svg',
-  '/kids/panel-mary-magdalene-3.svg',
-  '/kids/panel-thomas-doubt-1.svg',
-  '/kids/panel-thomas-doubt-2.svg',
-  '/kids/panel-thomas-doubt-3.svg',
-  '/kids/panel-jonah.svg',
-  '/kids/panel-jonah-1.svg',
-  '/kids/panel-jonah-2.svg',
-  '/kids/panel-jonah-3.svg',
-  '/kids/panel-daniel.svg',
-  '/kids/panel-daniel-1.svg',
-  '/kids/panel-daniel-2.svg',
-  '/kids/panel-daniel-3.svg',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   '/kids/corner.html',
   '/kids/all-stories.html',
   '/kids/kids-all-stories.js',

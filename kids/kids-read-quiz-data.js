@@ -21,27 +21,27 @@
       {
         "text": "And Samuel died; and all the Israelites were gathered together, and lamented him, and buried him in his house at Ramah. And David arose, and went down to the wilderness of Paran. And there was a man in Maon, whose possessions were in Carmel; and the man was very great, and he had three thousand sheep, and a thousand goats: and he was shearing his sheep in Carmel. Now the name of the man was Nabal; and the name of his wife Abigail: and she was a woman of good understanding, and of a beautiful countenance: but the man was churlish and evil in his doings; and he was of the house of Caleb. And David heard in the wilderness that Nabal did shear his sheep. And David sent out ten young men, and David said unto the young men, Get you up to Carmel, and go to Nabal, and greet him in my name: And thus shall ye say to him that liveth in prosperity, Peace be both to thee, and peace be to thine house, and peace be unto all that thou hast. And now I have heard that thou hast shearers: now thy shepherds which were with us, we hurt them not, neither was there ought missing unto them, all the while they were in Carmel. Ask thy young men, and they will shew thee. Wherefore let the young men find favour in thine eyes: for we come in a good day: give, I pray thee, whatsoever cometh to thine hand unto thy servants, and to thy son David. And when David's young men came, they spake to Nabal according to all those words in the name of David, and ceased. And Nabal answered David's servants, and said, Who is David? and who is the son of Jesse? there be many servants now a days that break away every man from his master. Shall I then take my bread, and my water, and my flesh that I have killed for my shearers, and give it unto men, whom I know not whence they be? So David's young men turned their way, and went again, and came and told him all those sayings. And David said unto his men, Gird ye on every man his sword. And they girded on every man his sword; and David also girded on his sword: and there went up after David about four hundred men; and two hundred abode by the stuff.",
         "caption": "Nabal's harsh words — David girds on his sword",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "But one of the young men told Abigail, Nabal's wife, saying, Behold, David sent messengers out of the wilderness to salute our master; and he railed on them. But the men were very good unto us, and we were not hurt, neither missed we any thing, as long as we were conversant with them, when we were in the fields: They were a wall unto us both by night and day, all the while we were with them keeping the sheep. Now therefore know and consider what thou wilt do; for evil is determined against our master, and against all his household: for he is such a son of Belial, that a man cannot speak to him. Then Abigail made haste, and took two hundred loaves, and two bottles of wine, and five sheep ready dressed, and five measures of parched corn, and an hundred clusters of raisins, and two hundred cakes of figs, and laid them on asses. And she said unto her servants, Go on before me; behold, I come after you. But she told not her husband Nabal. And it was so, as she rode on the ass, that she came down by the covert of the hill, and, behold, David and his men came down against her; and she met them. Now David had said, Surely in vain have I kept all that this fellow hath in the wilderness, so that nothing was missed of all that pertained unto him: and he hath requited me evil for good. So and more also do God unto the enemies of David, if I leave of all that pertain to him by the morning light any that pisseth against the wall.",
         "caption": "Abigail makes haste — gifts on asses",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And when Abigail saw David, she hasted, and lighted off the ass, and fell before David on her face, and bowed herself to the ground, And fell at his feet, and said, Upon me, my lord, upon me let this iniquity be: and let thine handmaid, I pray thee, speak in thine audience, and hear the words of thine handmaid. Let not my lord, I pray thee, regard this man of Belial, even Nabal: for as his name is, so is he; Nabal is his name, and folly is with him: but I thine handmaid saw not the young men of my lord, whom thou didst send. Now therefore, my lord, as the LORD liveth, and as thy soul liveth, seeing the LORD hath withholden thee from coming to shed blood, and from avenging thyself with thine own hand, now let thine enemies, and they that seek evil to my lord, be as Nabal. And now this blessing which thine handmaid hath brought unto my lord, let it even be given unto the young men that follow my lord. I pray thee, forgive the trespass of thine handmaid: for the LORD will certainly make my lord a sure house; because my lord fighteth the battles of the LORD, and evil hath not been found in thee all thy days. Yet a man is risen to pursue thee, and to seek thy soul: but the soul of my lord shall be bound in the bundle of life with the LORD thy God; and the souls of thine enemies, them shall he sling out, as out of the middle of a sling. And it shall come to pass, when the LORD shall have done to my lord according to all the good that he hath spoken concerning thee, and shall have appointed thee ruler over Israel; That this shall be no grief unto thee, nor offence of heart unto my lord, either that thou hast shed blood causeless, or that my lord hath avenged himself: but when the LORD shall have dealt well with my lord, then remember thine handmaid.",
         "caption": "Wise words — folly is with him; bundle of life",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And David said to Abigail, Blessed be the LORD God of Israel, which sent thee this day to meet me: And blessed be thy advice, and blessed be thou, which hast kept me this day from coming to shed blood, and from avenging myself with mine own hand. For in very deed, as the LORD God of Israel liveth, which hath kept me back from hurting thee, except thou hadst hasted and come to meet me, surely there had not been left unto Nabal by the morning light any that pisseth against the wall. So David received of her hand that which she had brought him, and said unto her, Go up in peace to thine house; see, I have hearkened to thy voice, and have accepted thy person.",
         "caption": "Blessed be thy advice — go up in peace",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Abigail came to Nabal; and, behold, he held a feast in his house, like the feast of a king; and Nabal's heart was merry within him, for he was very drunken: wherefore she told him nothing, less or more, until the morning light. But it came to pass in the morning, when the wine was gone out of Nabal, and his wife had told him these things, that his heart died within him, and he became as a stone. And it came to pass about ten days after, that the LORD smote Nabal, that he died. And when David heard that Nabal was dead, he said, Blessed be the LORD, that hath pleaded the cause of my reproach from the hand of Nabal, and hath kept his servant from evil: for the LORD hath returned the wickedness of Nabal upon his own head. And David sent and communed with Abigail, to take her to him to wife. And when the servants of David were come to Abigail to Carmel, they spake unto her, saying, David sent us unto thee, to take thee to him to wife. And she arose, and bowed herself on her face to the earth, and said, Behold, let thine handmaid be a servant to wash the feet of the servants of my lord. And Abigail hasted, and arose, and rode upon an ass, with five damsels of hers that went after her; and she went after the messengers of David, and became his wife.",
         "caption": "The LORD's way — David and Abigail",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -223,32 +223,32 @@
       {
         "text": "And there came a messenger to David, saying, The hearts of the men of Israel are after Absalom. And David said unto all his servants that were with him at Jerusalem, Arise, and let us flee; for we shall not else escape from Absalom: make speed to depart, lest he overtake us suddenly, and bring evil upon us, and smite the city with the edge of the sword.",
         "caption": "David had to leave — loyal servants went with him",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And all the country wept with a loud voice, and all the people passed over: the king also himself passed over the brook Kidron, and all the people passed over, toward the way of the wilderness.",
         "caption": "They passed over — the way was hard",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And David went up by the ascent of mount Olivet, and wept as he went up, and had his head covered, and he went barefoot: and all the people that was with him covered every man his head, and they went up, weeping as they went up.",
         "caption": "Up the hill — weeping and honest before God",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And one told David, saying, Ahithophel is among the conspirators with Absalom. And David said, O LORD, I pray thee, turn the counsel of Ahithophel into foolishness.",
         "caption": "David prayed — turn that counsel into foolishness",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, that when David was come to the top of the mount, where he worshipped God, behold, Hushai the Archite came to meet him with his coat rent, and earth upon his head:",
         "caption": "At the top — David worshipped God; friends drew near",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "So the king returned, and came to Jordan. And Judah came to Gilgal, to go to meet the king, to conduct the king over Jordan.",
         "caption": "Later — the Lord brought the king home in safety",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -344,27 +344,27 @@
       {
         "text": "After Jericho, Israel went to fight against the city of Ai. But they were defeated and some men died.",
         "caption": "A hard day at Ai",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Joshua asked the Lord why this had happened. The Lord said someone had taken things that belonged to Him and hidden them.",
         "caption": "The Lord speaks plainly",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Joshua called all the people together. One by one they came forward until the sin was found with a man named Achan.",
         "caption": "Seeking the truth together",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Achan said, \"Indeed I have sinned against the Lord God of Israel.\"",
         "caption": "Achan tells the truth",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "The trouble was taken away from the camp. Then the Lord was no longer angry, and He helped His people again.",
         "caption": "Mercy and a clean camp",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -698,7 +698,7 @@
       {
         "text": "After Pentecost the first church prayed, learned, shared meals, and took care of each other. They were a happy family of believers.",
         "caption": "The Church Begins",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -1115,7 +1115,7 @@
       {
         "text": "All the Old Testament heroes trusted God. Their stories help us see how much God loves us and how He sent Jesus to be our greatest Hero.",
         "caption": "All the Heroes Point to Jesus",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -1538,7 +1538,7 @@
       {
         "text": "Aquila and Priscilla worked side by side making tents and helping the church. They opened their home and taught others about Jesus.",
         "caption": "Aquila and Priscilla",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -2296,7 +2296,7 @@
       {
         "text": "Barnabas was called the Son of Encouragement. He stood beside new believers and said kind words that helped them keep trusting Jesus.",
         "caption": "Barnabas the Encourager",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -2309,32 +2309,32 @@
       {
         "text": "After the trouble was taken away, the Lord spoke to Joshua again.",
         "caption": "The Lord speaks again",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "\"Fear not, neither be thou dismayed. Go up to Ai. I have given into thy hand the king of Ai and his city.\"",
         "caption": "Do not fear — I have given Ai",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Joshua obeyed the Lord. He sent some men to hide behind the city. The army marched toward Ai.",
         "caption": "Hide, then march",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "When the men of Ai chased them, Joshua stretched out his spear.",
         "caption": "The sign with the spear",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "The hidden men rose up and set the city on fire.",
         "caption": "The city awakens to fire",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then Israel turned back and the Lord gave them the victory. Joshua did exactly as the Lord commanded.",
         "caption": "Victory — the Lord fought for them",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -2527,32 +2527,32 @@
       {
         "text": "There was a pool called Bethesda.",
         "caption": "By the sheep gate…",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "A man had been sick for thirty-eight years.",
         "caption": "A long time",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus saw him and asked, “Wilt thou be made whole?”",
         "caption": "Kind question",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Rise, take up thy bed, and walk.”",
         "caption": "Immediately",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The man was healed and walked.",
         "caption": "Took up his bed",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus sees when we have waited a long time.",
         "caption": "Made whole",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -2653,32 +2653,32 @@
       {
         "text": "One of the twelve, Judas, went to the chief priests and asked what they would give him to deliver Jesus.",
         "caption": "Thirty pieces of silver",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "They agreed, and from that time he sought opportunity to betray Jesus.",
         "caption": "Sought opportunity",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Judas came with a crowd carrying swords and staves.",
         "caption": "A great multitude",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He told them, Whomsoever I shall kiss, that same is he: hold him fast.",
         "caption": "The sign of the kiss",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He came to Jesus, said, Hail, master; and kissed him.",
         "caption": "Hail, master",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, Friend, wherefore art thou come? Then they laid hands on Jesus, and took him.",
         "caption": "Friend — wherefore art thou come?",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -2852,7 +2852,7 @@
       {
         "text": "Boaz was kind to Ruth and became her redeemer. He took care of her and Naomi and made them part of his family.",
         "caption": "Boaz the Redeemer",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -2865,32 +2865,32 @@
       {
         "text": "The children of Israel grew tired and discouraged on their long journey through the wilderness. They spoke against God and against Moses.",
         "caption": "A hard day on the journey",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "So the Lord sent fiery serpents among the people, and the serpents bit them. Many people died.",
         "caption": "Serious consequences",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "The people came to Moses and said, \"We have sinned, for we have spoken against the Lord, and against thee. Pray unto the Lord, that he take away the serpents from us.\"",
         "caption": "We have sinned—please pray",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Moses prayed for the people.",
         "caption": "Moses prays",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And the Lord said unto Moses, \"Make thee a fiery serpent, and set it upon a pole: and it shall come to pass, that every one that is bitten, when he looketh upon it, shall live.\"",
         "caption": "God gives a way to live",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "Moses made a serpent of brass and put it upon a pole. And it came to pass, that if a serpent had bitten any man, when he beheld the serpent of brass, he lived.",
         "caption": "Look and live",
-        "image": "panel-david-1.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -2986,32 +2986,32 @@
       {
         "text": "Moses was taking care of his father-in-law's sheep in the desert. One day he came to the mountain of God, called Horeb.",
         "caption": "Moses and the sheep at Horeb",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He saw a most wonderful thing. A bush was burning with fire, but the bush was not burned up. The flames danced, yet the leaves stayed green and whole.",
         "caption": "Fire in the bush—yet it is not consumed",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Moses said, \"I will turn aside and see this great sight, why the bush is not burnt.\"",
         "caption": "Moses draws near",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "When the Lord saw that Moses turned to look, God called to him out of the midst of the bush, \"Moses, Moses.\" And Moses said, \"Here am I.\"",
         "caption": "God calls by name",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "God said, \"Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground.\"",
         "caption": "Holy ground",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Then God told Moses who He was — the God of his fathers, Abraham, Isaac, and Jacob. And Moses hid his face, for he was afraid to look upon God.",
         "caption": "The God of Abraham, Isaac, and Jacob",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -3204,37 +3204,37 @@
       {
         "text": "A centurion had a very sick servant.",
         "caption": "A caring master",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He asked Jesus to help.",
         "caption": "Please come",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The centurion said, “Just say the word — and my servant will be healed.”",
         "caption": "Speak the word",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus was amazed at his faith.",
         "caption": "Great faith",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “As thou hast believed, so be it done.”",
         "caption": "Jesus’ promise",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The servant was well at that very hour.",
         "caption": "Healed!",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus can heal with just a word when people trust Him.",
         "caption": "Trust Jesus",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -3477,7 +3477,7 @@
       {
         "text": "Paul said Jesus is the most important One in everything — in our hearts, our families, and our church.",
         "caption": "Jesus Is First",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -4006,32 +4006,32 @@
       {
         "text": "After the soldiers mocked Jesus, they led Him away to crucify Him — And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him.",
         "caption": "Led away in His own raiment",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus began to carry His heavy wooden cross — slow, steady, and strong in love.",
         "caption": "Carrying the cross",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The soldiers found Simon of Cyrene and asked him to help — And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross.",
         "caption": "Simon helps",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Many people followed Jesus, and some women were crying — And there followed him a great company of people, and of women, which also bewailed and lamented him.",
         "caption": "A great company",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus turned to them and said gently — But Jesus turning unto them said, Daughters of Jerusalem, weep not for me, but weep for yourselves, and for your children.",
         "caption": "Weep not for me",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus carried His cross because He loved us so much and wanted to save us — and He helps us carry what feels heavy in our hearts.",
         "caption": "Love that holds us",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -4145,32 +4145,32 @@
       {
         "text": "The soldiers took Jesus to a place called Golgotha and crucified Him on a cross — And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots.",
         "caption": "Golgotha",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus prayed for the people — Then said Jesus, Father, forgive them; for they know not what they do. — Luke 23:34 (KJV)",
         "caption": "Father, forgive",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Two thieves were crucified with Him, one on each side — Then were there two thieves crucified with him, one on the right hand, and another on the left.",
         "caption": "Two thieves",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "From noon until three o’clock the sky grew dark — Now from the sixth hour there was darkness over all the land unto the ninth hour.",
         "caption": "Darkness over the land",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus cried out, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? Then He said, It is finished, and gave up His spirit — And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? … When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost. — John 19:30 (KJV)",
         "caption": "Forsaken — finished",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "The earth shook, and the centurion said, Truly this was the Son of God — Jesus died because He loves us — And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; … they feared greatly, saying, Truly this was the Son of God.",
         "caption": "The Son of God",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -4369,37 +4369,37 @@
       {
         "text": "The king made a golden image and told everyone to bow down.",
         "caption": "Bow when the music plays",
-        "image": "panel-daniel-1.svg"
+        "image": ""
       },
       {
         "text": "Shadrach, Meshach, and Abednego would not bow.",
         "caption": "Loved God — would not bow",
-        "image": "panel-daniel-1.svg"
+        "image": ""
       },
       {
         "text": "They said, \"Our God is able to deliver us.\"",
         "caption": "Our God is able to deliver us",
-        "image": "panel-daniel-2.svg"
+        "image": ""
       },
       {
         "text": "They were thrown into the hot furnace.",
         "caption": "Into the fire",
-        "image": "panel-daniel-2.svg"
+        "image": ""
       },
       {
         "text": "The king saw four men walking in the fire.",
         "caption": "Four walking in the fire",
-        "image": "panel-daniel-3.svg"
+        "image": ""
       },
       {
         "text": "The three men came out unhurt.",
         "caption": "No hurt — no smell of fire",
-        "image": "panel-daniel-3.svg"
+        "image": ""
       },
       {
         "text": "God walked with them and kept them safe.",
         "caption": "For you",
-        "image": "panel-daniel-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -4500,37 +4500,37 @@
       {
         "text": "Daniel prayed to God three times every day.",
         "caption": "Prayer every day",
-        "image": "panel-daniel-1.svg"
+        "image": ""
       },
       {
         "text": "The king made a law that no one could pray to God.",
         "caption": "A hard law",
-        "image": "panel-daniel-1.svg"
+        "image": ""
       },
       {
         "text": "Daniel was thrown into a den of lions.",
         "caption": "Into the den",
-        "image": "panel-daniel-2.svg"
+        "image": ""
       },
       {
         "text": "The king was sad and could not sleep.",
         "caption": "The king could not sleep",
-        "image": "panel-daniel-2.svg"
+        "image": ""
       },
       {
         "text": "In the morning the king called to Daniel.",
         "caption": "Servant of the living God — able to deliver?",
-        "image": "panel-daniel-3.svg"
+        "image": ""
       },
       {
         "text": "Daniel said, \"My God sent his angel and shut the lions’ mouths.\"",
         "caption": "God shut the lions’ mouths",
-        "image": "panel-daniel-3.svg"
+        "image": ""
       },
       {
         "text": "No hurt was found on Daniel because he trusted God.",
         "caption": "For you",
-        "image": "panel-daniel-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -4703,27 +4703,27 @@
       {
         "text": "Now the Philistines gathered together their armies to battle, and were gathered together at Shochoh, which belongeth to Judah, and pitched between Shochoh and Azekah, in Ephesdammim. And Saul and the men of Israel were gathered together, and pitched by the valley of Elah, and set the battle in array against the Philistines. And the Philistines stood on a mountain on the one side, and Israel stood on a mountain on the other side: and there was a valley between them. And there went out a champion out of the camp of the Philistines, named Goliath, of Gath, whose height was six cubits and a span.",
         "caption": "Armies in the valley — Goliath comes out",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And he had an helmet of brass upon his head, and he was armed with a coat of mail; and the weight of the coat was five thousand shekels of brass. And he had greaves of brass upon his legs, and a target of brass between his shoulders. And the staff of his spear was like a weaver's beam; and his spear's head weighed six hundred shekels of iron: and one bearing a shield went before him. And he stood and cried unto the armies of Israel, and said unto them, Why are ye come out to set your battle in array? am not I a Philistine, and ye servants to Saul? choose you a man for you, and let him come down to me. If he be able to fight with me, and to kill me, then will we be your servants: but if I prevail against him, and kill him, then shall ye be our servants, and serve us. And the Philistine said, I defy the armies of Israel this day; give me a man, that we may fight together. When Saul and all Israel heard those words of the Philistine, they were dismayed, and greatly afraid.",
         "caption": "Goliath's challenge — all Israel afraid",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And David said to Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. And Saul said to David, Thou art not able to go against this Philistine to fight with him: for thou art but a youth, and he a man of war from his youth. And David said unto Saul, Thy servant kept his father's sheep, and there came a lion, and a bear, and took a lamb out of the flock: And I went out after him, and smote him, and delivered it out of his mouth: and when he arose against me, I caught him by his beard, and smote him, and slew him. Thy servant slew both the lion and the bear: and this uncircumcised Philistine shall be as one of them, seeing he hath defied the armies of the living God. David said moreover, The LORD that delivered me out of the paw of the lion, and out of the paw of the bear, he will deliver me out of the hand of this Philistine. And Saul said unto David, Go, and the LORD be with thee.",
         "caption": "David — thy servant will go; the living God",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Saul armed David with his armour, and he put an helmet of brass upon his head; also he armed him with a coat of mail. And David girded his sword upon his armour, and he assayed to go; for he had not proved it. And David said unto Saul, I cannot go with these; for I have not proved them. And David put them off him. And he took his staff in his hand, and chose him five smooth stones out of the brook, and put them in a shepherd's bag which he had, even in a scrip; and his sling was in his hand: and he drew near to the Philistine. And the Philistine came on and drew near unto David; and the man that bare the shield went before him. And when the Philistine looked about, and saw David, he disdained him: for he was but a youth, and ruddy, and of a fair countenance. And the Philistine said unto David, Am I a dog, that thou comest to me with staves? And the Philistine cursed David by his gods. And the Philistine said to David, Come to me, and I will give thy flesh unto the fowls of the air, and to the beasts of the field.",
         "caption": "Five smooth stones — drawing near",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then said David to the Philistine, Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied. This day will the LORD deliver thee into mine hand; and I will smite thee, and take thine head from thee; and I will give the carcases of the host of the Philistines this day unto the fowls of the air, and to the wild beasts of the earth; that all the earth may know that there is a God in Israel. And all this assembly shall know that the LORD saveth not with sword and spear: for the battle is the LORD's, and he will give you into our hands. And it came to pass, when the Philistine arose, and came, and drew nigh to meet David, that David hastened, and ran toward the army to meet the Philistine. And David put his hand in his bag, and took thence a stone, and slang it, and smote the Philistine in his forehead, that the stone sunk into his forehead; and he fell upon his face to the earth. So David prevailed over the Philistine with a sling and with a stone, and smote the Philistine, and slew him; but there was no sword in the hand of David.",
         "caption": "In the name of the LORD — the stone; no sword in David's hand",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -4823,27 +4823,27 @@
       {
         "text": "And Samuel died; and all the Israelites were gathered together, and lamented him, and buried him in his house at Ramah. And David arose, and went down to the wilderness of Paran. And there was a man in Maon, whose possessions were in Carmel; and the man was very great, and he had three thousand sheep, and a thousand goats: and he was shearing his sheep in Carmel. Now the name of the man was Nabal; and the name of his wife Abigail: and she was a woman of good understanding, and of a beautiful countenance: but the man was churlish and evil in his doings; and he was of the house of Caleb. And David heard in the wilderness that Nabal did shear his sheep. And David sent out ten young men, and David said unto the young men, Get you up to Carmel, and go to Nabal, and greet him in my name: And thus shall ye say to him that liveth in prosperity, Peace be both to thee, and peace be to thine house, and peace be unto all that thou hast. And now I have heard that thou hast shearers: now thy shepherds which were with us, we hurt them not, neither was there ought missing unto them, all the while they were in Carmel. Ask thy young men, and they will shew thee. Wherefore let the young men find favour in thine eyes: for we come in a good day: give, I pray thee, whatsoever cometh to thine hand unto thy servants, and to thy son David. And when David's young men came, they spake to Nabal according to all those words in the name of David, and ceased. And Nabal answered David's servants, and said, Who is David? and who is the son of Jesse? there be many servants now a days that break away every man from his master. Shall I then take my bread, and my water, and my flesh that I have killed for my shearers, and give it unto men, whom I know not whence they be? So David's young men turned their way, and went again, and came and told him all those sayings. And David said unto his men, Gird ye on every man his sword. And they girded on every man his sword; and David also girded on his sword: and there went up after David about four hundred men; and two hundred abode by the stuff.",
         "caption": "Nabal's harsh words — David girds on his sword",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "But one of the young men told Abigail, Nabal's wife, saying, Behold, David sent messengers out of the wilderness to salute our master; and he railed on them. But the men were very good unto us, and we were not hurt, neither missed we any thing, as long as we were conversant with them, when we were in the fields: They were a wall unto us both by night and day, all the while we were with them keeping the sheep. Now therefore know and consider what thou wilt do; for evil is determined against our master, and against all his household: for he is such a son of Belial, that a man cannot speak to him. Then Abigail made haste, and took two hundred loaves, and two bottles of wine, and five sheep ready dressed, and five measures of parched corn, and an hundred clusters of raisins, and two hundred cakes of figs, and laid them on asses. And she said unto her servants, Go on before me; behold, I come after you. But she told not her husband Nabal. And it was so, as she rode on the ass, that she came down by the covert of the hill, and, behold, David and his men came down against her; and she met them. Now David had said, Surely in vain have I kept all that this fellow hath in the wilderness, so that nothing was missed of all that pertained unto him: and he hath requited me evil for good. So and more also do God unto the enemies of David, if I leave of all that pertain to him by the morning light any that pisseth against the wall.",
         "caption": "Abigail makes haste — gifts on asses",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And when Abigail saw David, she hasted, and lighted off the ass, and fell before David on her face, and bowed herself to the ground, And fell at his feet, and said, Upon me, my lord, upon me let this iniquity be: and let thine handmaid, I pray thee, speak in thine audience, and hear the words of thine handmaid. Let not my lord, I pray thee, regard this man of Belial, even Nabal: for as his name is, so is he; Nabal is his name, and folly is with him: but I thine handmaid saw not the young men of my lord, whom thou didst send. Now therefore, my lord, as the LORD liveth, and as thy soul liveth, seeing the LORD hath withholden thee from coming to shed blood, and from avenging thyself with thine own hand, now let thine enemies, and they that seek evil to my lord, be as Nabal. And now this blessing which thine handmaid hath brought unto my lord, let it even be given unto the young men that follow my lord. I pray thee, forgive the trespass of thine handmaid: for the LORD will certainly make my lord a sure house; because my lord fighteth the battles of the LORD, and evil hath not been found in thee all thy days. Yet a man is risen to pursue thee, and to seek thy soul: but the soul of my lord shall be bound in the bundle of life with the LORD thy God; and the souls of thine enemies, them shall he sling out, as out of the middle of a sling. And it shall come to pass, when the LORD shall have done to my lord according to all the good that he hath spoken concerning thee, and shall have appointed thee ruler over Israel; That this shall be no grief unto thee, nor offence of heart unto my lord, either that thou hast shed blood causeless, or that my lord hath avenged himself: but when the LORD shall have dealt well with my lord, then remember thine handmaid.",
         "caption": "Wise words — folly is with him; bundle of life",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And David said to Abigail, Blessed be the LORD God of Israel, which sent thee this day to meet me: And blessed be thy advice, and blessed be thou, which hast kept me this day from coming to shed blood, and from avenging myself with mine own hand. For in very deed, as the LORD God of Israel liveth, which hath kept me back from hurting thee, except thou hadst hasted and come to meet me, surely there had not been left unto Nabal by the morning light any that pisseth against the wall. So David received of her hand that which she had brought him, and said unto her, Go up in peace to thine house; see, I have hearkened to thy voice, and have accepted thy person.",
         "caption": "Blessed be thy advice — go up in peace",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Abigail came to Nabal; and, behold, he held a feast in his house, like the feast of a king; and Nabal's heart was merry within him, for he was very drunken: wherefore she told him nothing, less or more, until the morning light. But it came to pass in the morning, when the wine was gone out of Nabal, and his wife had told him these things, that his heart died within him, and he became as a stone. And it came to pass about ten days after, that the LORD smote Nabal, that he died. And when David heard that Nabal was dead, he said, Blessed be the LORD, that hath pleaded the cause of my reproach from the hand of Nabal, and hath kept his servant from evil: for the LORD hath returned the wickedness of Nabal upon his own head. And David sent and communed with Abigail, to take her to him to wife. And when the servants of David were come to Abigail to Carmel, they spake unto her, saying, David sent us unto thee, to take thee to him to wife. And she arose, and bowed herself on her face to the earth, and said, Behold, let thine handmaid be a servant to wash the feet of the servants of my lord. And Abigail hasted, and arose, and rode upon an ass, with five damsels of hers that went after her; and she went after the messengers of David, and became his wife.",
         "caption": "The LORD's way — David and Abigail",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -4939,17 +4939,17 @@
       {
         "text": "And the LORD said unto Samuel, How long wilt thou mourn for Saul, seeing I have rejected him from reigning over Israel? fill thine horn with oil, and go, I will send thee to Jesse the Bethlehemite: for I have provided me a king among his sons. And Samuel said, How can I go? if Saul hear it, he will kill me. And the LORD said, Take an heifer with thee, and say, I am come to sacrifice to the LORD. And call Jesse to the sacrifice, and I will shew thee what thou shalt do: and thou shalt anoint unto me him whom I name unto thee. And Samuel did that which the LORD spake, and came to Bethlehem. And the elders of the town trembled at his coming, and said, Comest thou peaceably? And he said, Peaceably: I am come to sacrifice unto the LORD: sanctify yourselves, and come with me to the sacrifice. And he sanctified Jesse and his sons, and called them to the sacrifice.",
         "caption": "Fill thine horn with oil — come to Jesse at Bethlehem",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, when they were come, that he looked on Eliab, and said, Surely the LORD's anointed is before him. But the LORD said unto Samuel, Look not on his countenance, or on the height of his stature; because I have refused him: for the LORD seeth not as man seeth; for man looketh on the outward appearance, but the LORD looketh on the heart. Then Jesse called Abinadab, and made him pass before Samuel. And he said, Neither hath the LORD chosen this. Then Jesse made Shammah to pass by. And he said, Neither hath the LORD chosen this. Again, Jesse made seven of his sons to pass before Samuel. And Samuel said unto Jesse, The LORD hath not chosen these.",
         "caption": "The LORD looketh on the heart — not these seven",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Samuel said unto Jesse, Are here all thy children? And he said, There remaineth yet the youngest, and, behold, he keepeth the sheep. And Samuel said unto Jesse, Send and fetch him: for we will not sit down till he come hither. And he sent, and brought him in. Now he was ruddy, and withal of a beautiful countenance, and goodly to look to. And the LORD said, Arise, anoint him: for this is he. Then Samuel took the horn of oil, and anointed him in the midst of his brethren: and the Spirit of the LORD came upon David from that day forward. So Samuel rose up, and went to Ramah.",
         "caption": "The youngest from the sheep — anointed; the Spirit came on David",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -5045,32 +5045,32 @@
       {
         "text": "Have mercy upon me, O God, according to thy lovingkindness: according unto the multitude of thy tender mercies blot out my transgressions. Wash me throughly from mine iniquity, and cleanse me from my sin.",
         "caption": "Have mercy, O God — blot out my transgressions",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "For I acknowledge my transgressions: and my sin is ever before me. Against thee, thee only, have I sinned, and done this evil in thy sight: that thou mightest be justified when thou speakest, and be clear when thou judgest.",
         "caption": "An honest heart before the Lord",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Purge me with hyssop, and I shall be clean: wash me, and I shall be whiter than snow.",
         "caption": "Wash me — make me clean",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Create in me a clean heart, O God; and renew a right spirit within me. Cast me not away from thy presence; and take not thy holy spirit from me. Restore unto me the joy of thy salvation; and uphold me with thy free spirit.",
         "caption": "Create in me a clean heart — restore thy joy",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And David said unto Nathan, I have sinned against the LORD. And Nathan said unto David, The LORD also hath put away thy sin; thou shalt not die.",
         "caption": "God heard — the LORD put away his sin",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "The sacrifices of God are a broken spirit: a broken and a contrite heart, O God, thou wilt not despise.",
         "caption": "A contrite heart — God will not despise",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -5167,32 +5167,32 @@
       {
         "text": "Saul sought David in the wilderness of Engedi. Saul came to the sheepcotes by the way, where was a cave; and Saul went in to cover his feet: and David and his men remained in the sides of the cave. And the men of David said unto him, Behold the day of which the LORD said unto thee, Behold, I will deliver thine enemy into thine hand, that thou mayest do to him as it shall seem good unto thee.",
         "caption": "The cave — the Lord gave a quiet moment",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Then David arose, and cut off the skirt of Saul's robe privily. And it came to pass afterward, that David's heart smote him, because he had cut off Saul's skirt. And he said unto his men, The LORD forbid that I should do this thing unto my master, the LORD's anointed, to stretch forth mine hand against him, seeing he is the anointed of the LORD.",
         "caption": "Only the hem — I will not harm the Lord's anointed",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "So David stayed his servants with these words, and suffered them not to rise against Saul. But Saul rose up out of the cave, and went on his way. David also arose afterward, and went out of the cave, and cried after Saul, saying, My lord the king. And when Saul looked behind him, David stooped with his face to the earth, and bowed himself.",
         "caption": "Peace — David called after him with honor",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And David said to Saul, Wherefore hearest thou men's words, saying, Behold, David seeketh thy hurt? Behold, this day thine eyes have seen how that the LORD had delivered thee to day into mine hand in the cave: and some bade me kill thee: but mine eye spared thee; and I said, I will not put forth mine hand against my lord; for he is the LORD's anointed. Moreover, my father, see, yea, see the skirt of thy robe in my hand: for in that I cut off the skirt of thy robe, and killed thee not, know thou and see that there is neither evil nor transgression in mine hand, and I have not sinned against thee; yet thou huntest my soul to take it.",
         "caption": "The skirt in his hand — I killed thee not",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, when David had made an end of speaking these words unto Saul, that Saul said, Is this thy voice, my son David? And Saul lifted up his voice, and wept. And he said to David, Thou art more righteous than I: for thou hast rewarded me good, whereas I have rewarded thee evil. And thou hast shewed this day how that thou hast dealt well with me: forasmuch as when the LORD had delivered me into thine hand, thou killedst me not.",
         "caption": "Saul wept — thou art more righteous than I",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And David sware unto Saul. And Saul went home; but David and his men gat them up unto the hold. The LORD had used David to show mercy — not to stretch forth his hand against the LORD's anointed.",
         "caption": "Mercy to the end — trust in God",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -5291,27 +5291,27 @@
       {
         "text": "Now the Philistines gathered together their armies to battle, and were gathered together at Shochoh, which belongeth to Judah, and pitched between Shochoh and Azekah, in Ephesdammim. And Saul and the men of Israel were gathered together, and pitched by the valley of Elah, and set the battle in array against the Philistines. And the Philistines stood on a mountain on the one side, and Israel stood on a mountain on the other side: and there was a valley between them. And there went out a champion out of the camp of the Philistines, named Goliath, of Gath, whose height was six cubits and a span.",
         "caption": "Armies in the valley — Goliath comes out",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And he had an helmet of brass upon his head, and he was armed with a coat of mail; and the weight of the coat was five thousand shekels of brass. And he had greaves of brass upon his legs, and a target of brass between his shoulders. And the staff of his spear was like a weaver's beam; and his spear's head weighed six hundred shekels of iron: and one bearing a shield went before him. And he stood and cried unto the armies of Israel, and said unto them, Why are ye come out to set your battle in array? am not I a Philistine, and ye servants to Saul? choose you a man for you, and let him come down to me. If he be able to fight with me, and to kill me, then will we be your servants: but if I prevail against him, and kill him, then shall ye be our servants, and serve us. And the Philistine said, I defy the armies of Israel this day; give me a man, that we may fight together. When Saul and all Israel heard those words of the Philistine, they were dismayed, and greatly afraid.",
         "caption": "Goliath's challenge — all Israel afraid",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And David said to Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. And Saul said to David, Thou art not able to go against this Philistine to fight with him: for thou art but a youth, and he a man of war from his youth. And David said unto Saul, Thy servant kept his father's sheep, and there came a lion, and a bear, and took a lamb out of the flock: And I went out after him, and smote him, and delivered it out of his mouth: and when he arose against me, I caught him by his beard, and smote him, and slew him. Thy servant slew both the lion and the bear: and this uncircumcised Philistine shall be as one of them, seeing he hath defied the armies of the living God. David said moreover, The LORD that delivered me out of the paw of the lion, and out of the paw of the bear, he will deliver me out of the hand of this Philistine. And Saul said unto David, Go, and the LORD be with thee.",
         "caption": "David — thy servant will go; the living God",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Saul armed David with his armour, and he put an helmet of brass upon his head; also he armed him with a coat of mail. And David girded his sword upon his armour, and he assayed to go; for he had not proved it. And David said unto Saul, I cannot go with these; for I have not proved them. And David put them off him. And he took his staff in his hand, and chose him five smooth stones out of the brook, and put them in a shepherd's bag which he had, even in a scrip; and his sling was in his hand: and he drew near to the Philistine. And the Philistine came on and drew near unto David; and the man that bare the shield went before him. And when the Philistine looked about, and saw David, he disdained him: for he was but a youth, and ruddy, and of a fair countenance. And the Philistine said unto David, Am I a dog, that thou comest to me with staves? And the Philistine cursed David by his gods. And the Philistine said to David, Come to me, and I will give thy flesh unto the fowls of the air, and to the beasts of the field.",
         "caption": "Five smooth stones — drawing near",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then said David to the Philistine, Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied. This day will the LORD deliver thee into mine hand; and I will smite thee, and take thine head from thee; and I will give the carcases of the host of the Philistines this day unto the fowls of the air, and to the wild beasts of the earth; that all the earth may know that there is a God in Israel. And all this assembly shall know that the LORD saveth not with sword and spear: for the battle is the LORD's, and he will give you into our hands. And it came to pass, when the Philistine arose, and came, and drew nigh to meet David, that David hastened, and ran toward the army to meet the Philistine. And David put his hand in his bag, and took thence a stone, and slang it, and smote the Philistine in his forehead, that the stone sunk into his forehead; and he fell upon his face to the earth. So David prevailed over the Philistine with a sling and with a stone, and smote the Philistine, and slew him; but there was no sword in the hand of David.",
         "caption": "In the name of the LORD — the stone; no sword in David's hand",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -5411,32 +5411,32 @@
       {
         "text": "But the Spirit of the LORD departed from Saul, and an evil spirit from the LORD troubled him. And Saul's servants said unto him, Behold now, an evil spirit from God troubleth thee.",
         "caption": "An evil spirit troubled Saul",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Let our lord now command thy servants, which are before thee, to seek out a man, who is a cunning player on an harp: and it shall come to pass, when the evil spirit from God is upon thee, that he shall play with his hand, and thou shalt be well.",
         "caption": "Seek a cunning player on an harp",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And Saul said unto his servants, Provide me now a man that can play well, and bring him to me. Then answered one of the servants, and said, Behold, I have seen a son of Jesse the Bethlehemite, that is cunning in playing, and a mighty valiant man, and a man of war, and prudent in matters, and a comely person, and the LORD is with him.",
         "caption": "A son of Jesse — the LORD is with him",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Wherefore Saul sent messengers unto Jesse, and said, Send me David thy son, which is with the sheep. And Jesse took an ass laden with bread, and a bottle of wine, and a kid, and sent them by David his son unto Saul. And David came to Saul, and stood before him: and he loved him greatly; and he became his armourbearer.",
         "caption": "David came — he became his armourbearer",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Saul sent to Jesse, saying, Let David, I pray thee, stand before me; for he hath found favour in my sight.",
         "caption": "Let David stand before me",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, when the evil spirit from God was upon Saul, that David took an harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him.",
         "caption": "David played — Saul was refreshed",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -5531,37 +5531,37 @@
       {
         "text": "And it came to pass, when he had made an end of speaking unto Saul, that the soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul. And Saul took him that day, and would let him go no more home to his father's house. Then Jonathan and David made a covenant, because he loved him as his own soul. And Jonathan stripped himself of the robe that was upon him, and gave it to David, and his garments, even to his sword, and to his bow, and to his girdle.",
         "caption": "Souls knit together — robe, sword, bow, and girdle",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And David fled from Naioth in Ramah, and came and said before Jonathan, What have I done? what is mine iniquity? and what is my sin before thy father, that he seeketh my life? And he said unto him, God forbid; thou shalt not die: behold, my father will do nothing either great or small, but that he will shew it me: and why should my father hide this thing from me? it is not so. And David sware moreover, and said, Thy father certainly knoweth that I have found grace in thine eyes; and he saith, Let not Jonathan know this, lest he be grieved: but truly as the LORD liveth, and as thy soul liveth, there is but a step between me and death. Then said Jonathan unto David, Whatsoever thy soul desireth, I will even do it for thee.",
         "caption": "David asks — Jonathan will help",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And David said unto Jonathan, Behold, to morrow is the new moon, and I should not fail to sit with the king at meat: but let me go, that I may hide myself in the field unto the third day at even. If thy father at all miss me, then say, David earnestly asked leave of me that he might run to Bethlehem his city: for there is a yearly sacrifice there for all the family. If he say thus, It is well; thy servant shall have peace: but if he be very wroth, then be sure that evil is determined by him. Therefore thou shalt deal kindly with thy servant; for thou hast brought thy servant into a covenant of the LORD with thee: notwithstanding, if there be in me iniquity, slay me thyself; for why shouldest thou bring me to thy father? And Jonathan said, Far be it from thee: for if I knew certainly that evil were determined of my father to come upon thee, then would not I tell it thee? Then said David to Jonathan, Who shall tell me? or what if thy father answer thee roughly? And Jonathan said unto David, Come, and let us go out into the field. And they went out both of them into the field.",
         "caption": "A careful plan — into the field together",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Jonathan said unto David, O LORD God of Israel, when I have sounded my father about to morrow any time, or the third day, and, behold, if there be good toward David, and I then send not unto thee, and shew it thee; The LORD do so and much more to Jonathan: but if it please my father to do thee evil, then I will shew it thee, and send thee away, that thou mayest go in peace: and the LORD be with thee, as he hath been with my father. And thou shalt not only while yet I live shew me the kindness of the LORD, that I die not: But also thou shalt not cut off thy kindness from my house for ever: no, not when the LORD hath cut off the enemies of David every one from the face of the earth. So Jonathan made a covenant with the house of David, saying, Let the LORD even require it at the hand of David's enemies. And Jonathan caused David to swear again, because he loved him: for he loved him as he loved his own soul. Then Jonathan said to David, To morrow is the new moon: and thou shalt be missed, because thy seat will be empty. And when thou hast stayed three days, then thou shalt go down quickly, and come to the place where thou didst hide thyself when the business was in hand, and shalt remain by the stone Ezel. And I will shoot three arrows on the side thereof, as though I shot at a mark. And, behold, I will send a lad, saying, Go, find out the arrows. If I expressly say unto the lad, Behold, the arrows are on this side of thee, take them; then come thou: for there is peace to thee, and no hurt; as the LORD liveth. But if I say thus unto the young man, Behold, the arrows are beyond thee; go thy way: for the LORD hath sent thee away. And as touching the matter which thou and I have spoken of, behold, the LORD be between thee and me for ever.",
         "caption": "Covenant kindness — arrows and the stone Ezel",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "So David hid himself in the field: and when the new moon was come, the king sat him down to eat meat. And the king sat upon his seat, as at other times, even upon a seat by the wall: and Jonathan arose, and Abner sat by Saul's side, and David's place was empty. Nevertheless Saul spake not any thing that day: for he thought, Something hath befallen him, he is not clean; surely he is not clean. And it came to pass on the morrow, which was the second day of the month, that David's place was empty: and Saul said unto Jonathan his son, Wherefore cometh not the son of Jesse to meat, neither yesterday, nor to day? And Jonathan answered Saul, David earnestly asked leave of me to go to Bethlehem: And he said, Let me go, I pray thee; for our family hath a sacrifice in the city; and my brother, he hath commanded me to be there: and now, if I have found favour in thine eyes, let me get away, I pray thee, and see my brethren. Therefore he cometh not unto the king's table.",
         "caption": "The new moon — David's seat is empty",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then Saul's anger was kindled against Jonathan, and he said unto him, Thou son of the perverse rebellious woman, do not I know that thou hast chosen the son of Jesse to thine own confusion, and unto the confusion of thy mother's nakedness? For as long as the son of Jesse liveth upon the ground, thou shalt not be established, nor thy kingdom. Wherefore now send and fetch him unto me, for he shall surely die. And Jonathan answered Saul his father, and said unto him, Wherefore shall he be slain? what hath he done? And Saul cast a javelin at him to smite him: whereby Jonathan knew that it was determined of his father to slay David. So Jonathan arose from the table in fierce anger, and did eat no meat the second day of the month: for he was grieved for David, because his father had done him shame.",
         "caption": "Saul's wrath — Jonathan understands",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass in the morning, that Jonathan went out into the field at the time appointed with David, and a little lad with him. And he said unto his lad, Run, find out now the arrows which I shoot. And as the lad ran, he shot an arrow beyond him. And when the lad was come to the place of the arrow which Jonathan had shot, Jonathan cried after the lad, and said, Is not the arrow beyond thee? And Jonathan cried after the lad, Make speed, haste, stay not. And Jonathan's lad gathered up the arrows, and came to his master. But the lad knew not any thing: only Jonathan and David knew the matter. And Jonathan gave his artillery unto his lad, and said unto him, Go, carry them to the city. And as soon as the lad was gone, David arose out of a place toward the south, and fell on his face to the ground, and bowed himself three times: and they kissed one another, and wept one with another, until David exceeded. And Jonathan said to David, Go in peace, forasmuch as we have sworn both of us in the name of the LORD, saying, The LORD be between me and thee, and between my seed and thy seed for ever. And he arose and departed: and Jonathan went into the city.",
         "caption": "The arrow beyond — weeping, kiss, Go in peace",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -5657,37 +5657,37 @@
       {
         "text": "And it came to pass, when he had made an end of speaking unto Saul, that the soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul. And Saul took him that day, and would let him go no more home to his father's house. Then Jonathan and David made a covenant, because he loved him as his own soul. And Jonathan stripped himself of the robe that was upon him, and gave it to David, and his garments, even to his sword, and to his bow, and to his girdle.",
         "caption": "Souls knit together — robe, sword, bow, and girdle",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And David fled from Naioth in Ramah, and came and said before Jonathan, What have I done? what is mine iniquity? and what is my sin before thy father, that he seeketh my life? And he said unto him, God forbid; thou shalt not die: behold, my father will do nothing either great or small, but that he will shew it me: and why should my father hide this thing from me? it is not so. And David sware moreover, and said, Thy father certainly knoweth that I have found grace in thine eyes; and he saith, Let not Jonathan know this, lest he be grieved: but truly as the LORD liveth, and as thy soul liveth, there is but a step between me and death. Then said Jonathan unto David, Whatsoever thy soul desireth, I will even do it for thee.",
         "caption": "David asks — Jonathan will help",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And David said unto Jonathan, Behold, to morrow is the new moon, and I should not fail to sit with the king at meat: but let me go, that I may hide myself in the field unto the third day at even. If thy father at all miss me, then say, David earnestly asked leave of me that he might run to Bethlehem his city: for there is a yearly sacrifice there for all the family. If he say thus, It is well; thy servant shall have peace: but if he be very wroth, then be sure that evil is determined by him. Therefore thou shalt deal kindly with thy servant; for thou hast brought thy servant into a covenant of the LORD with thee: notwithstanding, if there be in me iniquity, slay me thyself; for why shouldest thou bring me to thy father? And Jonathan said, Far be it from thee: for if I knew certainly that evil were determined of my father to come upon thee, then would not I tell it thee? Then said David to Jonathan, Who shall tell me? or what if thy father answer thee roughly? And Jonathan said unto David, Come, and let us go out into the field. And they went out both of them into the field.",
         "caption": "A careful plan — into the field together",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Jonathan said unto David, O LORD God of Israel, when I have sounded my father about to morrow any time, or the third day, and, behold, if there be good toward David, and I then send not unto thee, and shew it thee; The LORD do so and much more to Jonathan: but if it please my father to do thee evil, then I will shew it thee, and send thee away, that thou mayest go in peace: and the LORD be with thee, as he hath been with my father. And thou shalt not only while yet I live shew me the kindness of the LORD, that I die not: But also thou shalt not cut off thy kindness from my house for ever: no, not when the LORD hath cut off the enemies of David every one from the face of the earth. So Jonathan made a covenant with the house of David, saying, Let the LORD even require it at the hand of David's enemies. And Jonathan caused David to swear again, because he loved him: for he loved him as he loved his own soul. Then Jonathan said to David, To morrow is the new moon: and thou shalt be missed, because thy seat will be empty. And when thou hast stayed three days, then thou shalt go down quickly, and come to the place where thou didst hide thyself when the business was in hand, and shalt remain by the stone Ezel. And I will shoot three arrows on the side thereof, as though I shot at a mark. And, behold, I will send a lad, saying, Go, find out the arrows. If I expressly say unto the lad, Behold, the arrows are on this side of thee, take them; then come thou: for there is peace to thee, and no hurt; as the LORD liveth. But if I say thus unto the young man, Behold, the arrows are beyond thee; go thy way: for the LORD hath sent thee away. And as touching the matter which thou and I have spoken of, behold, the LORD be between thee and me for ever.",
         "caption": "Covenant kindness — arrows and the stone Ezel",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "So David hid himself in the field: and when the new moon was come, the king sat him down to eat meat. And the king sat upon his seat, as at other times, even upon a seat by the wall: and Jonathan arose, and Abner sat by Saul's side, and David's place was empty. Nevertheless Saul spake not any thing that day: for he thought, Something hath befallen him, he is not clean; surely he is not clean. And it came to pass on the morrow, which was the second day of the month, that David's place was empty: and Saul said unto Jonathan his son, Wherefore cometh not the son of Jesse to meat, neither yesterday, nor to day? And Jonathan answered Saul, David earnestly asked leave of me to go to Bethlehem: And he said, Let me go, I pray thee; for our family hath a sacrifice in the city; and my brother, he hath commanded me to be there: and now, if I have found favour in thine eyes, let me get away, I pray thee, and see my brethren. Therefore he cometh not unto the king's table.",
         "caption": "The new moon — David's seat is empty",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then Saul's anger was kindled against Jonathan, and he said unto him, Thou son of the perverse rebellious woman, do not I know that thou hast chosen the son of Jesse to thine own confusion, and unto the confusion of thy mother's nakedness? For as long as the son of Jesse liveth upon the ground, thou shalt not be established, nor thy kingdom. Wherefore now send and fetch him unto me, for he shall surely die. And Jonathan answered Saul his father, and said unto him, Wherefore shall he be slain? what hath he done? And Saul cast a javelin at him to smite him: whereby Jonathan knew that it was determined of his father to slay David. So Jonathan arose from the table in fierce anger, and did eat no meat the second day of the month: for he was grieved for David, because his father had done him shame.",
         "caption": "Saul's wrath — Jonathan understands",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass in the morning, that Jonathan went out into the field at the time appointed with David, and a little lad with him. And he said unto his lad, Run, find out now the arrows which I shoot. And as the lad ran, he shot an arrow beyond him. And when the lad was come to the place of the arrow which Jonathan had shot, Jonathan cried after the lad, and said, Is not the arrow beyond thee? And Jonathan cried after the lad, Make speed, haste, stay not. And Jonathan's lad gathered up the arrows, and came to his master. But the lad knew not any thing: only Jonathan and David knew the matter. And Jonathan gave his artillery unto his lad, and said unto him, Go, carry them to the city. And as soon as the lad was gone, David arose out of a place toward the south, and fell on his face to the ground, and bowed himself three times: and they kissed one another, and wept one with another, until David exceeded. And Jonathan said to David, Go in peace, forasmuch as we have sworn both of us in the name of the LORD, saying, The LORD be between me and thee, and between my seed and thy seed for ever. And he arose and departed: and Jonathan went into the city.",
         "caption": "The arrow beyond — weeping, kiss, Go in peace",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -5783,32 +5783,32 @@
       {
         "text": "Then came all the tribes of Israel to David unto Hebron, and spake, saying, Behold, we are thy bone and thy flesh.",
         "caption": "The elders came — we are thy bone and thy flesh",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "So all the elders of Israel came to the king to Hebron; and king David made a league with them in Hebron before the LORD: and they anointed David king over Israel.",
         "caption": "Before the LORD — they anointed David king over Israel",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "David was thirty years old when he began to reign, and he reigned forty years.",
         "caption": "Thirty years old when he began to reign",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "In Hebron he reigned over Judah seven years and six months: and in Jerusalem he reigned thirty and three years over all Israel and Judah.",
         "caption": "Judah first — then all Israel and Judah",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "So David dwelt in the fort, and called it the city of David. And David built round about from Millo and inward. And David went on, and grew great, and the LORD God of hosts was with him.",
         "caption": "The city of David — the LORD was with him",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And David perceived that the LORD had established him king over Israel, and that he had exalted his kingdom for his people Israel's sake.",
         "caption": "The LORD established him — for His people's sake",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -6155,32 +6155,32 @@
       {
         "text": "The children of Israel did evil, and a strong king troubled them for many years.",
         "caption": "A hard time for God's people",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Deborah was a judge who sat under a palm tree. She helped the people know what the Lord wanted.",
         "caption": "Wisdom under the tree",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Deborah told Barak, \"The Lord God of Israel commands thee: go up to mount Tabor with ten thousand men. I will deliver Sisera, the captain of Jabin's army, into thine hand.\"",
         "caption": "God's command",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Barak said he would go only if Deborah went with him. Deborah answered, \"I will surely go with thee… for the Lord shall sell Sisera into the hand of a woman.\"",
         "caption": "Together they obey",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Barak and the men went up to battle. The Lord discomfited Sisera and all his host before Barak; they fell by the edge of the sword, and not a man was left.",
         "caption": "The Lord gives victory",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "The Lord gave His people rest that day because they listened to His word through Deborah.",
         "caption": "Rest after listening",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -6434,7 +6434,7 @@
       {
         "text": "Deborah listened to God and encouraged Barak to lead the army. God gave them victory because they trusted His word.",
         "caption": "Deborah the Judge",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -6521,7 +6521,7 @@
       {
         "text": "Dorcas made clothes for widows and helped anyone who needed it. When she died, her friends prayed and God brought her back. Her kindness was…",
         "caption": "Dorcas Helps Others",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -6861,7 +6861,7 @@
       {
         "text": "Elijah had served God faithfully. God took him to heaven in a whirlwind with a chariot of fire. He was never alone.",
         "caption": "Elijah Taken to Heaven",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -6876,62 +6876,62 @@
       {
         "text": "And it came to pass, when the LORD would take up Elijah into heaven by a whirlwind, that Elijah went with Elisha from Gilgal.",
         "caption": "The LORD would take up Elijah into heaven by a whirlwind",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And Elijah said unto Elisha, Tarry here, I pray thee; for the LORD hath sent me to Bethel. And Elisha said unto him, As the LORD liveth, and as thy soul liveth, I will not leave thee. So they went down to Bethel.",
         "caption": "I will not leave thee — they went down to Bethel",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And Elijah said unto him, Elisha, tarry here, I pray thee; for the LORD hath sent me to Jericho. And he said, As the LORD liveth, and as thy soul liveth, I will not leave thee. So they came to Jericho.",
         "caption": "They came to Jericho — still together",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And Elijah said unto him, Tarry, I pray thee, here; for the LORD hath sent me to Jordan. And he said, As the LORD liveth, and as thy soul liveth, I will not leave thee. And they two went on.",
         "caption": "The LORD sent me to Jordan — they two went on",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And fifty men of the sons of the prophets went, and stood to view afar off: and they two stood by Jordan.",
         "caption": "They two stood by Jordan",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And Elijah took his mantle, and wrapped it together, and smote the waters, and they were divided hither and thither, so that they two went over on dry ground.",
         "caption": "The waters divided — they went over on dry ground",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, when they were gone over, that Elijah said unto Elisha, Ask what I shall do for thee, before I be taken away from thee. And Elisha said, I pray thee, let a double portion of thy spirit be upon me.",
         "caption": "Ask what I shall do for thee — a double portion of thy spirit",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "And he said, Thou hast asked a hard thing: nevertheless, if thou see me when I am taken from thee, it shall be so unto thee; but if not, it shall not be so.",
         "caption": "If thou see me when I am taken from thee, it shall be so unto thee",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, as they still went on, and talked, that, behold, there appeared a chariot of fire, and horses of fire, and parted them both asunder; and Elijah went up by a whirlwind into heaven.",
         "caption": "A chariot of fire — Elijah went up by a whirlwind into heaven",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "And Elisha saw it, and he cried, My father, my father, the chariot of Israel, and the horsemen thereof. And he saw him no more: and he took hold of his own clothes, and rent them in two pieces.",
         "caption": "My father, my father — he saw him no more",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "He took up also the mantle of Elijah that fell from him, and went back, and stood by the bank of Jordan;",
         "caption": "He took up the mantle of Elijah that fell from him",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And he took the mantle of Elijah that fell from him, and smote the waters, and said, Where is the LORD God of Elijah? and when he also had smitten the waters, they parted hither and thither: and Elisha went over.",
         "caption": "Where is the LORD God of Elijah? — Elisha went over",
-        "image": "panel-noah-2.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -7025,22 +7025,22 @@
       {
         "text": "So he departed thence, and found Elisha the son of Shaphat, who was plowing with twelve yoke of oxen before him, and he with the twelfth: and Elijah passed by him, and cast his mantle upon him.",
         "caption": "Plowing in the field — Elijah cast his mantle upon him",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And he left the oxen, and ran after Elijah, and said, Let me, I pray thee, kiss my father and my mother, and then I will follow thee. And he said unto him, Go back again: for what have I done to thee?",
         "caption": "Let me kiss my father and my mother — Go back again",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And he returned back from him, and took a yoke of oxen, and slew them, and boiled their flesh with the instruments of the oxen, and gave unto the people, and they did eat.",
         "caption": "He fed the people — a quiet farewell to the old work",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Then he arose, and went after Elijah, and ministered unto him.",
         "caption": "He arose and followed — and ministered unto him",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -7135,27 +7135,27 @@
       {
         "text": "And Elijah came unto all the people, and said, How long halt ye between two opinions? if the LORD be God, follow him: but if Baal, then follow him. And the people answered him not a word. Then said Elijah unto the people, I, even I only, remain a prophet of the LORD; but Baal's prophets are four hundred and fifty men. Let them therefore give us two bullocks; and let them choose one bullock for themselves, and cut it in pieces, and lay it on wood, and put no fire under: and I will dress the other bullock, and lay it on wood, and put no fire under: And call ye on the name of your gods, and I will call on the name of the LORD: and the God that answereth by fire, let him be God. And all the people answered and said, It is well spoken.",
         "caption": "If the Lord be God, follow him — the God that answereth by fire",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And Elijah said unto the prophets of Baal, Choose you one bullock for yourselves, and dress it first; for ye are many; and call on the name of your gods, but put no fire under. And they took the bullock which was given them, and they dressed it, and called on the name of Baal from morning even until noon, saying, O Baal, hear us. But there was no voice, nor any that answered. And they leaped upon the altar which was made.",
         "caption": "They called all day — no fire came",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And Elijah said unto all the people, Come near unto me. And all the people came near unto him. And he repaired the altar of the LORD that was broken down. And Elijah took twelve stones, according to the number of the tribes of the sons of Jacob, unto whom the word of the LORD came, saying, Israel shall be thy name: And with the stones he built an altar in the name of the LORD: and he made a trench about the altar, as great as would contain two measures of seed. And he put the wood in order, and cut the bullock in pieces, and laid him on the wood, and said, Fill four barrels with water, and pour it on the burnt sacrifice, and on the wood. And he said, Do it the second time. And they did it the second time. And he said, Do it the third time. And they did it the third time. And the water ran round about the altar; and he filled the trench also with water.",
         "caption": "Elijah repaired the altar — wood, sacrifice, and water",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass at the time of the offering of the evening sacrifice, that Elijah the prophet came near, and said, LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel, and that I am thy servant, and that I have done all these things at thy word. Hear me, O LORD, hear me, that this people may know that thou art the LORD God, and that thou hast turned their heart back again.",
         "caption": "Elijah prayed — let it be known that thou art God",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Then the fire of the LORD fell, and consumed the burnt sacrifice, and the wood, and the stones, and the dust, and licked up the water that was in the trench. And when all the people saw it, they fell on their faces: and they said, The LORD, he is the God; the LORD, he is the God.",
         "caption": "The fire of the Lord fell — The LORD, he is the God",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -7335,27 +7335,27 @@
       {
         "text": "And he came thither unto a cave, and lodged there; and, behold, the word of the LORD came to him, and he said unto him, What doest thou here, Elijah? And he said, I have been very jealous for the LORD God of hosts: for the children of Israel have forsaken thy covenant, thrown down thine altars, and slain thy prophets with the sword; and I, even I only, am left; and they seek my life, to take it away.",
         "caption": "At Horeb — What doest thou here, Elijah?",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And he said, Go forth, and stand upon the mount before the LORD. And, behold, the LORD passed by, and a great and strong wind rent the mountains, and brake in pieces the rocks before the LORD; but the LORD was not in the wind: and after the wind an earthquake; but the LORD was not in the earthquake:",
         "caption": "Wind and earthquake — the LORD was not in them",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And after the earthquake a fire; but the LORD was not in the fire: and after the fire a still small voice.",
         "caption": "After the fire — a still small voice",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And it was so, when Elijah heard it, that he wrapped his face in his mantle, and went out, and stood in the entering in of the cave. And, behold, there came a voice unto him, and said, What doest thou here, Elijah? And he said, I have been very jealous for the LORD God of hosts: because the children of Israel have forsaken thy covenant, thrown down thine altars, and slain thy prophets with the sword; and I, even I only, am left; and they seek my life, to take it away.",
         "caption": "He wrapped his face — the voice came again",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "And the LORD said unto him, Go, return on thy way to the wilderness of Damascus: and when thou comest, anoint Hazael to be king over Syria: And Jehu the son of Nimshi shalt thou anoint to be king over Israel: and Elisha the son of Shaphat of Abelmeholah shalt thou anoint to be prophet in thy room. And it shall come to pass, that him that escapeth the sword of Hazael shall Jehu slay: and him that escapeth from the sword of Jehu shall Elisha slay. Yet I have left me seven thousand in Israel, all the knees which have not bowed unto Baal, and every mouth which hath not kissed him.",
         "caption": "The LORD sent him — seven thousand had not bowed unto Baal",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -7450,27 +7450,27 @@
       {
         "text": "And Elijah the Tishbite, who was of the inhabitants of Gilead, said unto Ahab, As the LORD God of Israel liveth, before whom I stand, there shall not be dew nor rain these years, but according to my word.",
         "caption": "Elijah spoke God’s word — no dew nor rain but according to my word",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And the word of the LORD came unto him, saying, Get thee hence, and turn thee eastward, and hide thyself by the brook Cherith, that is before Jordan. And it shall be, that thou shalt drink of the brook; and I have commanded the ravens to feed thee there.",
         "caption": "Hide by the brook — I have commanded the ravens to feed thee",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "So he went and did according unto the word of the LORD: for he went and dwelt by the brook Cherith, that is before Jordan.",
         "caption": "Elijah went and stayed by the brook",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And the ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook.",
         "caption": "Morning and evening — bread and flesh from the ravens",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass after a while, that the brook dried up, because there had been no rain in the land.",
         "caption": "Later the brook dried — God would lead Elijah next",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -7565,32 +7565,32 @@
       {
         "text": "And the word of the LORD came unto him, saying, Arise, get thee to Zarephath, which belongeth to Zidon, and dwell there: behold, I have commanded a widow woman there to sustain thee.",
         "caption": "The Lord sent Elijah to Zarephath",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "So he arose and went to Zarephath. And when he came to the gate of the city, behold, the widow woman was there gathering of sticks: and he called to her, and said, Fetch me, I pray thee, a little water in a vessel, that I may drink. And as she was going to fetch it, he called to her, and said, Bring me, I pray thee, a morsel of bread in thine hand.",
         "caption": "At the gate — a little water, a morsel of bread",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And she said, As the LORD thy God liveth, I have not a cake, but an handful of meal in a barrel, and a little oil in a cruse: and, behold, I am gathering two sticks, that I may go in and dress it for me and my son, that we may eat it, and die.",
         "caption": "An honest heart — only a little meal and oil",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And Elijah said unto her, Fear not; go and do as thou hast said: but make me thereof a little cake first, and bring it unto me, and after make for thee and for thy son. For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail, until the day that the LORD sendeth rain upon the earth.",
         "caption": "Fear not — make me a little cake first",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And she went and did according to the saying of Elijah: and she, and he, and her house, did eat many days.",
         "caption": "She obeyed — they ate many days",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "And the barrel of meal wasted not, neither did the cruse of oil fail, according to the word of the LORD, which he spake by Elijah.",
         "caption": "The meal wasted not — the oil failed not",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -7685,22 +7685,22 @@
       {
         "text": "And when they came down to him, Elisha prayed unto the LORD, and said, Smite this people, I pray thee, with blindness. And he smote them with blindness according to the word of Elisha.",
         "caption": "Elisha prayed — the Lord smote them with blindness",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And Elisha said unto them, This is not the way, neither is this the city: follow me, and I will bring you to the man whom ye seek. But he led them to Samaria.",
         "caption": "Follow me — he led them safely to Samaria",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, when they were come into Samaria, that Elisha said, LORD, open the eyes of these men, that they may see. And the LORD opened their eyes, and they saw; and, behold, they were in the midst of Samaria.",
         "caption": "Lord, open their eyes — they were in the midst of Samaria",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And the king of Israel said unto Elisha, when he saw them, My father, shall I smite them? shall I smite them? And he answered, Thou shalt not smite them: wouldest thou smite those whom thou hast taken captive with thy sword and with thy bow? set bread and water before them, that they may eat and drink, and go to their master. And he prepared great provision for them: and when they had eaten and drunk, he sent them away, and they went to their master. So the bands of Syria came no more into the land of Israel.",
         "caption": "Thou shalt not smite — great provision; they ate, drank, and went in peace",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -7801,32 +7801,32 @@
       {
         "text": "Elisha died and was buried.",
         "caption": "Quiet rest",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Some men were burying another man.",
         "caption": "Carrying a friend",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "They saw danger coming and quickly laid the man in Elisha's grave.",
         "caption": "A hurried, kind choice",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "As soon as the man touched the bones of Elisha, he came back to life.",
         "caption": "God gives life",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He stood up on his feet!",
         "caption": "Standing up",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "God showed His great power—even through Elisha's bones. God is mighty and can do wonderful things!",
         "caption": "For you",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -7915,22 +7915,22 @@
       {
         "text": "Therefore sent he thither horses, and chariots, and a great host: and they came by night, and compassed the city about.",
         "caption": "A great army — horses and chariots round the city",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And when the servant of the man of God was risen early, and gone forth, behold, an host compassed the city both with horses and chariots. And his servant said unto him, Alas, my master! how shall we do?",
         "caption": "Alas, my master! how shall we do?",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And he answered, Fear not: for they that be with us are more than they that be with them. And Elisha prayed, and said, LORD, I pray thee, open his eyes, that he may see.",
         "caption": "Fear not — then, Lord, open his eyes, that he may see",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And the LORD opened the eyes of the young man; and he saw: and, behold, the mountain was full of horses and chariots of fire round about Elisha.",
         "caption": "The mountain full of horses and chariots of fire",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -8025,27 +8025,27 @@
       {
         "text": "Now Elisha was fallen sick of his sickness whereof he died. And Joash the king of Israel came down unto him, and wept over his face, and said, O my father, my father, the chariot of Israel, and the horsemen thereof.",
         "caption": "The king came down and wept — O my father, the chariot of Israel",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And Elisha said unto him, Take bow and arrows. And he took unto him bow and arrows.",
         "caption": "Take bow and arrows",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And he said to the king of Israel, Put thine hand upon the bow. And he put his hand upon it: and Elisha put his hands upon the king’s hands.",
         "caption": "Elisha put his hands upon the king’s hands",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And he said, Open the window eastward. And he opened it. Then Elisha said, Shoot. And he shot. And he said, The arrow of the LORD’s deliverance, and the arrow of deliverance from Syria: for thou shalt smite the Syrians in Aphek, till thou have consumed them.",
         "caption": "Shoot — the arrow of the LORD’s deliverance",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And he said, Take the arrows. And he took them. And he said unto the king of Israel, Smite upon the ground. And he smote thrice, and stayed.",
         "caption": "Smite upon the ground — he smote thrice",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -8139,17 +8139,17 @@
       {
         "text": "And the sons of the prophets said unto Elisha, Behold now, the place where we dwell with thee is too strait for us. Let us go, we pray thee, unto Jordan, and take thence every man a beam, and let us make us a place there, where we may dwell. And he answered, Go ye. And one said, Be content, I pray thee, and go with thy servants. And he answered, I will go. So he went with them. And when they came to Jordan, they cut down wood.",
         "caption": "Too strait for us — to Jordan for beams, and they cut down wood",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "But as one was felling a beam, the axe head fell into the water: and he cried, and said, Alas, master! for it was borrowed.",
         "caption": "Alas, master! for it was borrowed",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And the man of God said, Where fell it? And he shewed him the place. And he cut down a stick, and cast it in thither; and the iron did swim. Therefore said he, Take it up to thee. And he put out his hand, and took it.",
         "caption": "Where fell it? — the iron did swim — take it up to thee",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -8244,57 +8244,57 @@
       {
         "text": "And the men of the city said unto Elisha, Behold, I pray thee, the situation of this city is pleasant, as my lord seeth: but the water is naught, and the ground barren.",
         "caption": "The water is naught, and the ground barren",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And he said, Bring me a new cruse, and put salt therein. And they brought it to him.",
         "caption": "Bring me a new cruse, and put salt therein",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land.",
         "caption": "Thus saith the LORD, I have healed these waters",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "So the waters were healed unto this day, according to the saying of Elisha which he spake.",
         "caption": "So the waters were healed",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.",
         "caption": "The creditor is come to take unto him my two sons to be bondmen",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.",
         "caption": "Save a pot of oil",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.",
         "caption": "Borrow empty vessels — borrow not a few",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.",
         "caption": "Pour out into all those vessels",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.",
         "caption": "She poured out",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.",
         "caption": "There is not a vessel more — and the oil stayed",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
         "caption": "Pay thy debt, and live thou and thy children of the rest",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -8388,17 +8388,17 @@
       {
         "text": "And Elisha came again to Gilgal: and there was a dearth in the land; and the sons of the prophets were sitting before him: and he said unto his servant, Set on the great pot, and seethe pottage for the sons of the prophets. And one went out into the field to gather herbs, and found a wild vine, and gathered thereof wild gourds his lap full, and came and shred them into the pot of pottage: for they knew them not.",
         "caption": "Gilgal — pottage in the great pot; wild gourds they knew not",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "So they poured out for the men to eat. And it came to pass, as they were eating of the pottage, that they cried out, and said, O thou man of God, there is death in the pot. And they could not eat thereof.",
         "caption": "They cried to the man of God — there is death in the pot",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "But he said, Then bring meal. And he cast it into the pot; and he said, Pour out for the people, that they may eat. And there was no harm in the pot.",
         "caption": "Bring meal — pour out for the people; no harm in the pot",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -8492,27 +8492,27 @@
       {
         "text": "And it fell on a day, that Elisha passed to Shunem, where was a great woman; and she constrained him to eat bread. And so it was, that as oft as he passed by, he turned in thither to eat bread. Let us make a little chamber, I pray thee, on the wall; and let us set for him there a bed, and a table, and a stool, and a candlestick: and it shall be, when he cometh to us, that he shall turn in thither. And he said, About this season, according to the time of life, thou shalt embrace a son. And she said, Nay, my lord, thou man of God, do not lie unto thine handmaid. And the woman conceived, and bare a son at that season that Elisha had said unto her, according to the time of life.",
         "caption": "A little chamber — a promised son, born in due season",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And when the child was grown, it fell on a day, that he went out to his father to the reapers. And she went up, and laid him on the bed of the man of God, and shut the door upon him, and went out. And she called unto her husband, and said, Send me, I pray thee, one of the young men, and one of the asses, that I may run to the man of God, and come again. Then she saddled an ass, and said to her servant, Drive, and go forward; slack not thy riding for me, except I bid thee. So she went and came unto the man of God to mount Carmel. And it came to pass, when the man of God saw her afar off, that he said to Gehazi his servant, Behold, yonder is that Shunammite:",
         "caption": "She laid him on the prophet’s bed — and hurried to the man of God at Carmel",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Run now, I pray thee, to meet her, and say unto her, Is it well with thee? is it well with thy husband? is it well with the child? And she answered, It is well. Then she said, Did I desire a son of my lord? did I not say, Do not deceive me?",
         "caption": "Is it well with the child? — Did I not say, Do not deceive me?",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "He went in therefore, and shut the door upon them twain, and prayed unto the LORD. And he went up, and lay upon the child, and put his mouth upon his mouth, and his eyes upon his eyes, and his hands upon his hands: and he stretched himself upon the child; and the flesh of the child waxed warm. Then he returned, and walked in the house to and fro; and went up, and stretched himself upon him: and the child sneezed seven times, and the child opened his eyes.",
         "caption": "He prayed and lay upon the child — sneezed seven times, and opened his eyes",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And he called Gehazi, and said, Call this Shunammite. So he called her. And when she was come in unto him, he said, Take up thy son. Then she went in, and fell at his feet, and bowed herself to the ground, and took up her son, and went out.",
         "caption": "Take up thy son — she took her boy with joy",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -8763,7 +8763,7 @@
       {
         "text": "Epaphras prayed hard for his friends even when he was far away. His prayers showed deep love and care.",
         "caption": "Epaphras Prays for Friends",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -8848,7 +8848,7 @@
       {
         "text": "God gives us truth, righteousness, peace, faith, and prayer as armor so we can stand strong together.",
         "caption": "God’s Armor",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -8876,37 +8876,37 @@
       {
         "text": "God’s people were far from home.",
         "caption": "Far from home",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "A bad man wanted to hurt them.",
         "caption": "A hard plan",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Queen Esther was one of God’s people.",
         "caption": "A brave queen",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Mordecai said, \"Who knows whether thou art come to the kingdom for such a time as this?\"",
         "caption": "Such a time as this",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Esther asked everyone to pray with her.",
         "caption": "Pray together",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "She went bravely to the king.",
         "caption": "Before the king",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "God used Esther to help and save her people.",
         "caption": "For you",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -9003,22 +9003,22 @@
       {
         "text": "Esther invited the king and Haman to a banquet.",
         "caption": "A special feast",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "She told the king about the bad plan.",
         "caption": "Brave truth",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The king was angry with Haman.",
         "caption": "The king cared",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "God used Esther to save her people.",
         "caption": "God saves",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -9118,37 +9118,37 @@
       {
         "text": "The king wanted a new queen.",
         "caption": "A new queen",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Many young women came to the palace.",
         "caption": "Many came",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Esther was one of God’s people.",
         "caption": "God’s child",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The king loved Esther.",
         "caption": "Kind and loved",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He placed the crown on her head.",
         "caption": "The crown",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Esther became queen.",
         "caption": "God’s queen",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "God was watching over her.",
         "caption": "God was near",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -9247,32 +9247,32 @@
       {
         "text": "A bad man wanted to hurt God’s people.",
         "caption": "A hard plan",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Mordecai sent word to Esther.",
         "caption": "Mordecai’s word",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Esther asked everyone to pray and fast with her.",
         "caption": "Pray and fast",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "She said, \"If I perish, I perish.\"",
         "caption": "Brave words",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Esther prayed and trusted God.",
         "caption": "Quiet trust",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Then she went bravely to the king.",
         "caption": "Before the king",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -9432,7 +9432,7 @@
       {
         "text": "Queen Esther was scared but prayed and bravely spoke up to save her people. God had placed her right there for that moment.",
         "caption": "Queen Esther Is Brave",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -9603,7 +9603,7 @@
       {
         "text": "Young Eutychus fell from a window while Paul was teaching. Paul hugged him and God brought him back to life. Friends stayed close and helped…",
         "caption": "Eutychus Is Safe",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -9773,7 +9773,7 @@
       {
         "text": "God showed Ezekiel a valley of dry bones and told him to pray. Ezekiel obeyed, and the bones came together and came to life.",
         "caption": "Ezekiel and the Dry Bones",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -9797,37 +9797,37 @@
       {
         "text": "God showed Ezekiel a valley of dry bones.",
         "caption": "A wide valley",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The bones were very dry.",
         "caption": "Very dry",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "God asked, “Can these bones live?”",
         "caption": "God’s question",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Ezekiel said, “O Lord God, thou knowest.”",
         "caption": "Trusting God",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Ezekiel spoke God’s words.",
         "caption": "God’s words",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "The bones came together and stood up.",
         "caption": "Alive!",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "God can make dry bones live again.",
         "caption": "God’s power",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -9987,7 +9987,7 @@
       {
         "text": "Ezra read God’s Word to the people and helped them understand it. The people listened and were glad to obey.",
         "caption": "Ezra Reads God’s Word",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -10011,32 +10011,32 @@
       {
         "text": "The people of Israel had been far away.",
         "caption": "Long years away",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "But the LORD stirred the heart of the king.",
         "caption": "God stirred the king’s heart",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The king said, “You may go back to Jerusalem and build God’s house.”",
         "caption": "Freedom to go home",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Many people rose up with joy and went home.",
         "caption": "Joy on the way",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "They built the altar and offered thanks to the LORD.",
         "caption": "Thankful worship at the altar",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "They praised God because He had brought them back.",
         "caption": "For you",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -10291,27 +10291,27 @@
       {
         "text": "God's people had come to the strong city of Jericho. The walls were tall and thick, and the gates were shut tight.",
         "caption": "A city with strong walls",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "The Lord told Joshua, \"See, I have given into thine hand Jericho. Ye shall compass the city, all ye men of war, and go round about the city once. Thus shalt thou do six days. And seven priests shall bear before the ark seven trumpets of rams' horns. On the seventh day ye shall compass the city seven times, and the priests shall blow with the trumpets. And it shall come to pass, that when they make a long blast with the ram's horn, all the people shall shout with a great shout; and the wall of the city shall fall down flat.\"",
         "caption": "The Lord tells Joshua the plan",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Joshua and the people did exactly as the Lord commanded. For six days they marched around the city once each day. On the seventh day they marched around it seven times. The priests blew the trumpets, and at the long blast the people shouted with a great shout.",
         "caption": "They obeyed every step",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And the wall fell down flat.",
         "caption": "God made the walls fall",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "The people went up into the city, every man straight before him, and they took the city — because the Lord had given it to them.",
         "caption": "The Lord gave the victory",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -10419,37 +10419,37 @@
       {
         "text": "The king made a golden image and told everyone to bow down.",
         "caption": "Bow when the music plays",
-        "image": "panel-daniel-1.svg"
+        "image": ""
       },
       {
         "text": "Shadrach, Meshach, and Abednego would not bow.",
         "caption": "Loved God — would not bow",
-        "image": "panel-daniel-1.svg"
+        "image": ""
       },
       {
         "text": "They said, \"Our God is able to deliver us.\"",
         "caption": "Our God is able to deliver us",
-        "image": "panel-daniel-2.svg"
+        "image": ""
       },
       {
         "text": "They were thrown into the hot furnace.",
         "caption": "Into the fire",
-        "image": "panel-daniel-2.svg"
+        "image": ""
       },
       {
         "text": "The king saw four men walking in the fire.",
         "caption": "Four walking in the fire",
-        "image": "panel-daniel-3.svg"
+        "image": ""
       },
       {
         "text": "The three men came out unhurt.",
         "caption": "No hurt — no smell of fire",
-        "image": "panel-daniel-3.svg"
+        "image": ""
       },
       {
         "text": "God walked with them and kept them safe.",
         "caption": "For you",
-        "image": "panel-daniel-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -10549,32 +10549,32 @@
       {
         "text": "Jesus returned to the city and was hungry. He saw a fig tree by the road with leaves but no fruit.",
         "caption": "Fig tree in the way",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He said to the tree, “Let no fruit grow on thee henceforward for ever.” And presently the fig tree withered away.",
         "caption": "Let no fruit grow",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The disciples marvelled, saying, “How soon is the fig tree withered away!”",
         "caption": "They marvelled",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Verily I say unto you, If ye have faith, and doubt not, ye shall not only do this which is done to the fig tree, but also if ye shall say unto this mountain, Be thou removed, and be thou cast into the sea; it shall be done.”",
         "caption": "Faith, and doubt not",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "“And all things, whatsoever ye shall ask in prayer, believing, ye shall receive.”",
         "caption": "Ask in prayer, believing",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus teaches us to pray with faith — trusting God to hear and help.",
         "caption": "Faith and prayer",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -10914,7 +10914,7 @@
       {
         "text": "Gaius opened his home and helped traveling preachers. John said his kindness was faithful and pleasing to God.",
         "caption": "Gaius Welcomes Travelers",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -11081,7 +11081,7 @@
       {
         "text": "The Holy Spirit grows love, joy, peace, and other good things in our hearts like fruit on a tree.",
         "caption": "Fruit of the Spirit",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -11107,32 +11107,32 @@
       {
         "text": "Jesus went to a garden called Gethsemane with His disciples to pray.",
         "caption": "Sit ye here",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He asked Peter, James, and John to stay awake and watch with Him.",
         "caption": "Tarry ye here, and watch",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus prayed, O my Father… nevertheless not as I will, but as thou wilt.",
         "caption": "Not as I will",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He found the disciples sleeping and gently reminded them to watch and pray.",
         "caption": "Watch and pray",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus prayed the same words a second and third time.",
         "caption": "Thy will be done",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "He chose to obey His Father even when it was very hard.",
         "caption": "Love that obeys",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -11235,42 +11235,42 @@
       {
         "text": "But Gehazi, the servant of Elisha the man of God, said, Behold, my master hath spared Naaman this Syrian, in not receiving at his hands that which he brought: but, as the LORD liveth, I will run after him, and take somewhat of him.",
         "caption": "Gehazi said, I will run after him, and take somewhat of him",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "So Gehazi followed after Naaman. And when Naaman saw him running after him, he lighted down from the chariot to meet him, and said, Is all well?",
         "caption": "Gehazi followed — Is all well?",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And he said, All is well. My master hath sent me, saying, Behold, even now there be come to me from mount Ephraim two young men of the sons of the prophets: give them, I pray thee, a talent of silver, and two changes of garments.",
         "caption": "Two young men of the sons of the prophets — silver and garments",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And Naaman said, Be content, take two talents. And he urged him, and bound two talents of silver in two bags, with two changes of garments, and laid them upon two of his servants; and they bare them before him.",
         "caption": "Take two talents — two bags of silver and garments",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And when he came to the tower, he took them from their hand, and bestowed them in the house: and he let the men go, and they departed.",
         "caption": "He bestowed them in the house",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "But he went in, and stood before his master. And Elisha said unto him, Whence comest thou, Gehazi? And he said, Thy servant went no whither.",
         "caption": "Whence comest thou, Gehazi? — Thy servant went no whither",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "And he said unto him, Went not mine heart with thee, when the man turned again from his chariot to meet thee?",
         "caption": "Went not mine heart with thee?",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Is it a time to receive money, and to receive garments, and oliveyards, and vineyards, and sheep, and oxen, and menservants, and maidservants?",
         "caption": "Is it a time to receive money, and to receive garments?",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -11364,32 +11364,32 @@
       {
         "text": "The children of Israel cried out to the Lord because the Midianites were troubling them.",
         "caption": "A cry for help",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "God chose a man named Gideon to deliver His people. The angel of the Lord came to Gideon and said, \"The Lord is with thee, thou mighty man of valour.\"",
         "caption": "A gentle, strong word",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Gideon felt small and afraid. He put a fleece of wool on the ground and prayed for a sign.",
         "caption": "Honest prayer",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "In the morning the fleece was wet with dew, but the ground all around was dry.",
         "caption": "The first sign",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Gideon asked for one more sign: let the fleece be dry only, and let the ground be covered with dew. God did exactly as Gideon asked.",
         "caption": "The second sign",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Gideon knew the Lord was with him, and he began to obey God's call.",
         "caption": "Trust grows",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -11558,7 +11558,7 @@
       {
         "text": "Gideon felt too small, so he asked God for a sign with a fleece. God answered gently and showed Gideon He was with him.",
         "caption": "Gideon and the Fleece",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -11571,32 +11571,32 @@
       {
         "text": "The Midianites came against Israel like many grasshoppers. Gideon gathered many men, but the Lord said the people were too many.",
         "caption": "Too many soldiers?",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "He sent home everyone who was afraid — twenty-two thousand left. Ten thousand remained, and still the Lord said there were too many.",
         "caption": "Listening to God's count",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "At the water, three hundred lapped with their hand to their mouth. The Lord said, \"By the three hundred men that lapped will I save you.\"",
         "caption": "Three hundred chosen",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "That night each man took a trumpet, an empty pitcher, and a torch inside the pitcher. They surrounded the Midianite camp in the dark.",
         "caption": "A quiet circle of trust",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "They blew their trumpets, brake the pitchers, held up the torches, and cried, \"The sword of the LORD, and of Gideon!\"",
         "caption": "The Lord's sword",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "The Lord set every man's sword against his fellow; the host fled. God gave Israel the victory with only three hundred men.",
         "caption": "Victory — God's way",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -11692,32 +11692,32 @@
       {
         "text": "While Moses was still on the mountain with God, the people grew impatient. They asked Aaron to make them a god they could see.",
         "caption": "Waiting turned to impatience",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Aaron took their golden earrings, melted them, and made a golden calf. The people bowed down and danced around it.",
         "caption": "A calf of gold",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "When Moses came down from the mountain carrying the two stone tablets, he saw the calf and the dancing. His anger burned, and he threw the tablets and broke them at the foot of the mountain.",
         "caption": "The tablets break",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Moses burned the golden calf, ground it to powder, scattered it on the water, and made the people drink it.",
         "caption": "Wrong worship undone",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "Then Moses stood before the Lord and prayed, \"Oh, this people have sinned a great sin. Yet now, if thou wilt forgive their sin—; and if not, blot me, I pray thee, out of thy book which thou hast written.\"",
         "caption": "Moses pleads for mercy",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "God heard Moses' prayer and showed mercy to His people.",
         "caption": "God hears and is merciful",
-        "image": "panel-david-1.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -11815,27 +11815,27 @@
       {
         "text": "Now the Philistines gathered together their armies to battle, and were gathered together at Shochoh, which belongeth to Judah, and pitched between Shochoh and Azekah, in Ephesdammim. And Saul and the men of Israel were gathered together, and pitched by the valley of Elah, and set the battle in array against the Philistines. And the Philistines stood on a mountain on the one side, and Israel stood on a mountain on the other side: and there was a valley between them. And there went out a champion out of the camp of the Philistines, named Goliath, of Gath, whose height was six cubits and a span.",
         "caption": "Armies in the valley — Goliath comes out",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And he had an helmet of brass upon his head, and he was armed with a coat of mail; and the weight of the coat was five thousand shekels of brass. And he had greaves of brass upon his legs, and a target of brass between his shoulders. And the staff of his spear was like a weaver's beam; and his spear's head weighed six hundred shekels of iron: and one bearing a shield went before him. And he stood and cried unto the armies of Israel, and said unto them, Why are ye come out to set your battle in array? am not I a Philistine, and ye servants to Saul? choose you a man for you, and let him come down to me. If he be able to fight with me, and to kill me, then will we be your servants: but if I prevail against him, and kill him, then shall ye be our servants, and serve us. And the Philistine said, I defy the armies of Israel this day; give me a man, that we may fight together. When Saul and all Israel heard those words of the Philistine, they were dismayed, and greatly afraid.",
         "caption": "Goliath's challenge — all Israel afraid",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And David said to Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. And Saul said to David, Thou art not able to go against this Philistine to fight with him: for thou art but a youth, and he a man of war from his youth. And David said unto Saul, Thy servant kept his father's sheep, and there came a lion, and a bear, and took a lamb out of the flock: And I went out after him, and smote him, and delivered it out of his mouth: and when he arose against me, I caught him by his beard, and smote him, and slew him. Thy servant slew both the lion and the bear: and this uncircumcised Philistine shall be as one of them, seeing he hath defied the armies of the living God. David said moreover, The LORD that delivered me out of the paw of the lion, and out of the paw of the bear, he will deliver me out of the hand of this Philistine. And Saul said unto David, Go, and the LORD be with thee.",
         "caption": "David — thy servant will go; the living God",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Saul armed David with his armour, and he put an helmet of brass upon his head; also he armed him with a coat of mail. And David girded his sword upon his armour, and he assayed to go; for he had not proved it. And David said unto Saul, I cannot go with these; for I have not proved them. And David put them off him. And he took his staff in his hand, and chose him five smooth stones out of the brook, and put them in a shepherd's bag which he had, even in a scrip; and his sling was in his hand: and he drew near to the Philistine. And the Philistine came on and drew near unto David; and the man that bare the shield went before him. And when the Philistine looked about, and saw David, he disdained him: for he was but a youth, and ruddy, and of a fair countenance. And the Philistine said unto David, Am I a dog, that thou comest to me with staves? And the Philistine cursed David by his gods. And the Philistine said to David, Come to me, and I will give thy flesh unto the fowls of the air, and to the beasts of the field.",
         "caption": "Five smooth stones — drawing near",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then said David to the Philistine, Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied. This day will the LORD deliver thee into mine hand; and I will smite thee, and take thine head from thee; and I will give the carcases of the host of the Philistines this day unto the fowls of the air, and to the wild beasts of the earth; that all the earth may know that there is a God in Israel. And all this assembly shall know that the LORD saveth not with sword and spear: for the battle is the LORD's, and he will give you into our hands. And it came to pass, when the Philistine arose, and came, and drew nigh to meet David, that David hastened, and ran toward the army to meet the Philistine. And David put his hand in his bag, and took thence a stone, and slang it, and smote the Philistine in his forehead, that the stone sunk into his forehead; and he fell upon his face to the earth. So David prevailed over the Philistine with a sling and with a stone, and smote the Philistine, and slew him; but there was no sword in the hand of David.",
         "caption": "In the name of the LORD — the stone; no sword in David's hand",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -11950,37 +11950,37 @@
       {
         "text": "A man was hurt on the road.",
         "caption": "Jerusalem to Jericho",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "A priest walked by without helping.",
         "caption": "Passed by on the other side",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "A Levite also passed by.",
         "caption": "Looked — and went on",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "A Samaritan man stopped and felt sorry.",
         "caption": "He had compassion",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He bandaged the man and took him to an inn.",
         "caption": "Oil and wine — care at the inn",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Go and do likewise.”",
         "caption": "He that shewed mercy",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus wants us to help anyone who needs it.",
         "caption": "Love thy neighbour as thyself",
-        "image": "panel-noah-2.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -12168,32 +12168,32 @@
       {
         "text": "Then one of them, which was a lawyer, asked him a question, tempting him, and saying, “Master, which is the great commandment in the law?”",
         "caption": "Which is the great commandment?",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said unto him, “Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind.”",
         "caption": "Love the Lord thy God",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "“This is the first and great commandment.”",
         "caption": "First and great",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "“And the second is like unto it, Thou shalt love thy neighbour as thyself.”",
         "caption": "Love thy neighbour",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "“On these two commandments hang all the law and the prophets.”",
         "caption": "All the law and the prophets",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus invites us to love God with our whole being — heart, soul, and mind — and to love others with the kindness we long for ourselves.",
         "caption": "Two loving roots",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -12366,7 +12366,7 @@
       {
         "text": "Habakkuk asked God hard questions but chose to trust Him anyway. God said the righteous live by faith.",
         "caption": "Habakkuk Trusts God",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -12452,7 +12452,7 @@
       {
         "text": "The people were busy with their own houses, but Haggai reminded them to finish God’s house first. When they did, God blessed them.",
         "caption": "Haggai and God’s House",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -12549,42 +12549,42 @@
       {
         "text": "Now there was a certain man of Ramathaimzophim, of mount Ephraim, and his name was Elkanah, the son of Jeroham, the son of Elihu, the son of Tohu, the son of Zuph, an Ephrathite: And he had two wives; the name of the one was Hannah, and the name of the other Peninnah: and Peninnah had children, but Hannah had no children. And this man went up out of his city yearly to worship and to sacrifice unto the LORD of hosts in Shiloh. And the two sons of Eli, Hophni and Phinehas, the priests of the LORD, were there. And when the time was that Elkanah offered, he gave to Peninnah his wife, and to all her sons and her daughters, portions:",
         "caption": "Shiloh — Hannah had no children",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "But unto Hannah he gave a worthy portion; for he loved Hannah: but the LORD had shut up her womb. And her adversary also provoked her sore, for to make her fret, because the LORD had shut up her womb. And as he did so year by year, when she went up to the house of the LORD, so she provoked her; therefore she wept, and did not eat. Then said Elkanah her husband to her, Hannah, why weepest thou? and why eatest thou not? and why is thy heart grieved? am not I better to thee than ten sons?",
         "caption": "Year by year — she wept and did not eat",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "So Hannah rose up after they had eaten in Shiloh, and after they had drunk. Now Eli the priest sat upon a seat by a post of the temple of the LORD. And she was in bitterness of soul, and prayed unto the LORD, and wept sore. And she vowed a vow, and said, O LORD of hosts, if thou wilt indeed look on the affliction of thine handmaid, and remember me, and not forget thine handmaid, but wilt give unto thine handmaid a man child, then I will give him unto the LORD all the days of his life, and there shall no razor come upon his head.",
         "caption": "She prayed and vowed before the Lord",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, as she continued praying before the LORD, that Eli marked her mouth. Now Hannah, she spake in her heart; only her lips moved, but her voice was not heard: therefore Eli thought she had been drunken. And Eli said unto her, How long wilt thou be drunken? put away thy wine from thee.",
         "caption": "Eli saw her lips — he misunderstood",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Hannah answered and said, No, my lord, I am a woman of a sorrowful spirit: I have drunk neither wine nor strong drink, but have poured out my soul before the LORD. Count not thine handmaid for a daughter of Belial: for out of the abundance of my complaint and grief have I spoken hitherto.",
         "caption": "Poured out my soul before the Lord",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then Eli answered and said, Go in peace: and the God of Israel grant thee thy petition that thou hast asked of him.",
         "caption": "Go in peace — grant thee thy petition",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And she said, Let thine handmaid find grace in thy sight. So the woman went her way, and did eat, and her countenance was no more sad.",
         "caption": "Her countenance was no more sad",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And they rose up in the morning early, and worshipped before the LORD, and returned, and came to their house to Ramah: and Elkanah knew Hannah his wife; and the LORD remembered her. Wherefore it came to pass, when the time was come about after Hannah had conceived, that she bare a son, and called his name Samuel, saying, Because I have asked him of the LORD.",
         "caption": "The Lord remembered her — Samuel",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -13168,7 +13168,7 @@
       {
         "text": "Hebrews tells us faith is believing God even when we can’t see the answer yet. Many people trusted Him and He took care of them.",
         "caption": "Heroes of Faith",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -13277,32 +13277,32 @@
       {
         "text": "God spoke through His prophet Isaiah.",
         "caption": "God’s prophet",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "A special child would be born.",
         "caption": "A child promised",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He would be called Wonderful, Counsellor, The mighty God.",
         "caption": "Wonderful names",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He would bring light and joy.",
         "caption": "Light and joy",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "God promised to send a Savior.",
         "caption": "A promised Savior",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "God always keeps His promises.",
         "caption": "God keeps His word",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -13462,7 +13462,7 @@
       {
         "text": "Isaiah saw God high and lifted up. The angels sang “Holy, holy, holy.” Isaiah felt small but God still used him.",
         "caption": "Isaiah Sees the Lord",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -13658,37 +13658,37 @@
       {
         "text": "Jairus had a little daughter who was sick.",
         "caption": "A father’s love",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He asked Jesus to come and help her.",
         "caption": "Come, Lord",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "People said the girl had died.",
         "caption": "Hard news",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Be not afraid, only believe.”",
         "caption": "Only believe",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus took her hand and said, “Arise.”",
         "caption": "Damsel, arise",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The little girl got up and walked.",
         "caption": "She lives!",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus cares for little children.",
         "caption": "He loves kids",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -13932,7 +13932,7 @@
       {
         "text": "James said real faith shows itself by helping people who need it.",
         "caption": "Faith Shows in Kindness",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -14018,7 +14018,7 @@
       {
         "text": "God called young Jeremiah to speak for Him. Jeremiah felt too young, but God said, “I knew you before you were born — go, and I will be with…",
         "caption": "God Calls Young Jeremiah",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -14042,32 +14042,32 @@
       {
         "text": "Jeremiah loved God and loved God’s people.",
         "caption": "A loving heart",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He saw the people were not listening.",
         "caption": "Please listen",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "This made his heart sad.",
         "caption": "A sad heart",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He cried tears for them.",
         "caption": "Tears of love",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jeremiah kept speaking God’s words.",
         "caption": "God’s words",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "God was with him and helped him.",
         "caption": "God stayed near",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -14154,27 +14154,27 @@
       {
         "text": "God's people had come to the strong city of Jericho. The walls were tall and thick, and the gates were shut tight.",
         "caption": "A city with strong walls",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "The Lord told Joshua, \"See, I have given into thine hand Jericho. Ye shall compass the city, all ye men of war, and go round about the city once. Thus shalt thou do six days. And seven priests shall bear before the ark seven trumpets of rams' horns. On the seventh day ye shall compass the city seven times, and the priests shall blow with the trumpets. And it shall come to pass, that when they make a long blast with the ram's horn, all the people shall shout with a great shout; and the wall of the city shall fall down flat.\"",
         "caption": "The Lord tells Joshua the plan",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Joshua and the people did exactly as the Lord commanded. For six days they marched around the city once each day. On the seventh day they marched around it seven times. The priests blew the trumpets, and at the long blast the people shouted with a great shout.",
         "caption": "They obeyed every step",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And the wall fell down flat.",
         "caption": "God made the walls fall",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "The people went up into the city, every man straight before him, and they took the city — because the Lord had given it to them.",
         "caption": "The Lord gave the victory",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -14365,32 +14365,32 @@
       {
         "text": "While Jesus prayed in the garden, Judas came with a crowd carrying torches and sticks.",
         "caption": "A great multitude",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Judas gave a sign: he would kiss Jesus so the men would know who to take.",
         "caption": "Whomsoever I shall kiss",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Judas came and kissed Jesus, and the men took hold of Him.",
         "caption": "Friend, wherefore art thou come?",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "One of Jesus' friends tried to help with a sword, but Jesus told him to put it away.",
         "caption": "Put up again thy sword",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said He could ask His Father for many angels, but the scriptures must be fulfilled.",
         "caption": "Twelve legions of angels",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus remained calm and strong because He was obeying His Father's plan.",
         "caption": "Love that obeys",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -14551,7 +14551,7 @@
       {
         "text": "Jesus rose up into heaven while His friends watched. He promised to be with us always, even to the end.",
         "caption": "The Ascension",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -14576,32 +14576,32 @@
       {
         "text": "Jesus was teaching in the temple. The chief priests and the elders came and asked, “By what authority doest thou these things? and who gave thee this authority?”",
         "caption": "By what authority?",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “I also will ask you one thing… The baptism of John, whence was it? from heaven, or of men?”",
         "caption": "The baptism of John",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "They reasoned among themselves — if they said “from heaven,” or “of men,” each answer felt hard. They feared the people, for all held John as a prophet.",
         "caption": "They reasoned",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "They answered Jesus, “We cannot tell.”",
         "caption": "We cannot tell",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said unto them, “Neither tell I you by what authority I do these things.”",
         "caption": "Neither tell I you",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus knows what is in our hearts — and He answers with quiet wisdom.",
         "caption": "Wisdom and truth",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -14715,32 +14715,32 @@
       {
         "text": "Jesus came to the Jordan River.",
         "caption": "By the river",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "John was baptizing people there.",
         "caption": "Getting ready",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus asked John to baptize Him.",
         "caption": "Humble hearts",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "When Jesus came up out of the water, the heavens opened.",
         "caption": "Heavens opened",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "A dove came down and a voice from heaven said, “This is my beloved Son.”",
         "caption": "Beloved Son",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "God the Father was pleased with Jesus.",
         "caption": "Well pleased",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -14843,37 +14843,37 @@
       {
         "text": "Mary and Joseph went to Bethlehem.",
         "caption": "On the way",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "There was no room in the inn.",
         "caption": "No room",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Baby Jesus was born in a stable.",
         "caption": "A quiet stable",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Mary laid Him in a manger.",
         "caption": "Soft cloths",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Angels told the shepherds the good news.",
         "caption": "Good tidings",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "The shepherds found baby Jesus.",
         "caption": "They found Him",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "God sent His Son to be with us.",
         "caption": "God with us",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -14972,27 +14972,27 @@
       {
         "text": "People brought little children to Jesus.",
         "caption": "That he should touch them",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The disciples told them to stop.",
         "caption": "His disciples rebuked those that brought them",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”",
         "caption": "He was much displeased",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He took them in His arms and blessed them.",
         "caption": "Put his hands upon them",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus loves little children.",
         "caption": "Of such is the kingdom of God",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -15094,37 +15094,37 @@
       {
         "text": "Jesus walked by the Sea of Galilee.",
         "caption": "By the sea",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He saw Peter and Andrew fishing.",
         "caption": "Fishermen",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Follow me.”",
         "caption": "Kind call",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "They left their nets and followed Him.",
         "caption": "Right away",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus saw James and John in their boat.",
         "caption": "Mending nets",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "They left the boat and followed Jesus too.",
         "caption": "Come, follow",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus calls people to be with Him.",
         "caption": "With Him",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -15229,37 +15229,37 @@
       {
         "text": "Jesus and His friends got into a boat.",
         "caption": "Across the sea",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "A big storm came with wind and waves.",
         "caption": "Wind and waves",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The friends were afraid and woke Jesus.",
         "caption": "Wake the Master",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Peace, be still.”",
         "caption": "Peace, be still",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The wind stopped and the sea became calm.",
         "caption": "A great calm",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus asked, “Why are ye so fearful?”",
         "caption": "Have faith",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Even the wind and sea obey Jesus.",
         "caption": "He is Lord",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -15361,32 +15361,32 @@
       {
         "text": "Jesus came to the temple in Jerusalem.",
         "caption": "Jesus went up to Jerusalem",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "People were buying and selling inside — it was noisy and not a good place to pray.",
         "caption": "Sold in the temple",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus made a whip of small cords and drove the sellers out — and overthrew the tables.",
         "caption": "Scourge of small cords",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He poured out the changers’ money.",
         "caption": "Poured out the money",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Take these things hence; make not my Father’s house an house of merchandise.”",
         "caption": "My Father’s house",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus wants God’s house to be a quiet place to pray.",
         "caption": "House of prayer",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -15487,32 +15487,32 @@
       {
         "text": "The soldiers took Jesus to a place called Golgotha and crucified Him on a cross — And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots.",
         "caption": "Golgotha",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus prayed for the people — Then said Jesus, Father, forgive them; for they know not what they do. — Luke 23:34 (KJV)",
         "caption": "Father, forgive",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Two thieves were crucified with Him, one on each side — Then were there two thieves crucified with him, one on the right hand, and another on the left.",
         "caption": "Two thieves",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "From noon until three o’clock the sky grew dark — Now from the sixth hour there was darkness over all the land unto the ninth hour.",
         "caption": "Darkness over the land",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus cried out, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? Then He said, It is finished, and gave up His spirit — And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? … When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost. — John 19:30 (KJV)",
         "caption": "Forsaken — finished",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "The earth shook, and the centurion said, Truly this was the Son of God — Jesus died because He loves us — And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; … they feared greatly, saying, Truly this was the Son of God.",
         "caption": "The Son of God",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -15626,37 +15626,37 @@
       {
         "text": "Jesus walked by the Sea of Galilee.",
         "caption": "By the sea",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He saw Peter and Andrew fishing.",
         "caption": "Fishermen",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Follow me.”",
         "caption": "Kind call",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "They left their nets and followed Him.",
         "caption": "Right away",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus saw James and John in their boat.",
         "caption": "Mending nets",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "They left the boat and followed Jesus too.",
         "caption": "Come, follow",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus calls people to be with Him.",
         "caption": "With Him",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -15846,37 +15846,37 @@
       {
         "text": "Many people followed Jesus to hear Him.",
         "caption": "Listening to Jesus",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "It was late and they were hungry.",
         "caption": "Give ye them to eat",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The disciples found a boy with five loaves and two fishes.",
         "caption": "A boy’s lunch",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus blessed the food and broke it.",
         "caption": "Blessed and brake",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The disciples gave the food to the people.",
         "caption": "Passed to everyone",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Everyone ate and was filled.",
         "caption": "All were filled",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus can take a little and make it enough.",
         "caption": "Twelve baskets left",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -16062,32 +16062,32 @@
       {
         "text": "Jesus went to a garden called Gethsemane with His disciples to pray.",
         "caption": "Sit ye here",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He asked Peter, James, and John to stay awake and watch with Him.",
         "caption": "Tarry ye here, and watch",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus prayed, O my Father… nevertheless not as I will, but as thou wilt.",
         "caption": "Not as I will",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He found the disciples sleeping and gently reminded them to watch and pray.",
         "caption": "Watch and pray",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus prayed the same words a second and third time.",
         "caption": "Thy will be done",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "He chose to obey His Father even when it was very hard.",
         "caption": "Love that obeys",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -16248,7 +16248,7 @@
       {
         "text": "Before He went to heaven Jesus told His friends to go and tell everyone about Him. He is with us as we go.",
         "caption": "The Great Commission",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -16278,37 +16278,37 @@
       {
         "text": "Jesus was teaching in a house.",
         "caption": "Listening to Jesus",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Four friends brought a man who could not walk.",
         "caption": "Carrying a friend",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "They lowered him through the roof.",
         "caption": "Down to Jesus",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Thy sins be forgiven thee.”",
         "caption": "Forgiven",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Arise, take up thy bed, and walk.”",
         "caption": "Rise and walk",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The man stood up and walked home.",
         "caption": "He walked!",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus can forgive and heal.",
         "caption": "Trust Him",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -16410,32 +16410,32 @@
       {
         "text": "The disciples prepared a special supper for Jesus in a room in the city.",
         "caption": "Made ready the passover",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus sat down with His twelve friends to eat the Passover meal.",
         "caption": "Sat down with the twelve",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He told them that one of them would betray Him, and they felt very sad.",
         "caption": "Lord, is it I?",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus took bread, blessed it, brake it, and gave it to them saying, Take, eat; this is my body.",
         "caption": "This is my body",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He took the cup, gave thanks, and said, Drink ye all of it; this is my blood of the new testament, shed for many for the remission of sins.",
         "caption": "My blood of the new testament",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus was sharing a very special meal with them before He would go to the cross.",
         "caption": "Love to the end",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -16629,32 +16629,32 @@
       {
         "text": "Jesus told a story about a shepherd and his sheep.",
         "caption": "Shepherd and sheep",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The true shepherd enters by the door and calls his own sheep by name.",
         "caption": "Calls them by name",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The sheep know their shepherd’s voice and follow him because they feel safe.",
         "caption": "They know His voice",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, I am the good shepherd.",
         "caption": "The good shepherd",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The good shepherd giveth his life for the sheep and goeth before them.",
         "caption": "Giveth his life",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "He knows His sheep, and they know Him. He brings all His sheep together into one safe fold.",
         "caption": "One fold, one shepherd",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -16935,32 +16935,32 @@
       {
         "text": "Early on Sunday morning, the women went to the tomb and saw the stone rolled away — In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre. And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it.",
         "caption": "Dawn at the tomb",
-        "image": "panel-jesus-resurrection-1.svg"
+        "image": ""
       },
       {
         "text": "An angel said, “He is not here: for he is risen, as he said.” — And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay.",
         "caption": "He is risen",
-        "image": "panel-jesus-resurrection-2.svg"
+        "image": ""
       },
       {
         "text": "The women ran to tell the disciples the good news — And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you. And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word.",
         "caption": "Great joy",
-        "image": "panel-jesus-resurrection-2.svg"
+        "image": ""
       },
       {
         "text": "Suddenly Jesus met them and said, “All hail. Be not afraid.” — And as they went to tell his disciples, behold, Jesus met them, saying, All hail. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.",
         "caption": "Jesus meets them",
-        "image": "panel-jesus-resurrection-3.svg"
+        "image": ""
       },
       {
         "text": "The women held His feet and worshipped Him with great joy — And they came and held him by the feet, and worshipped him.",
         "caption": "Worship and peace",
-        "image": "panel-jesus-resurrection-3.svg"
+        "image": ""
       },
       {
         "text": "Later Jesus told His disciples, “All power is given unto me… Go ye therefore… and, lo, I am with you alway, even unto the end of the world.” — And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.",
         "caption": "With you alway",
-        "image": "panel-jesus-resurrection-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -17073,32 +17073,32 @@
       {
         "text": "Jesus went up on a mountain.",
         "caption": "On the hill",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Many people came to listen.",
         "caption": "Come and hear",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus taught them how to live God’s way.",
         "caption": "God’s way",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He said, “Blessed are the meek… Blessed are the merciful…”",
         "caption": "Blessed",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Love God and love your neighbor.",
         "caption": "Love",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Let your light shine for God.",
         "caption": "Shine",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -17197,22 +17197,22 @@
       {
         "text": "Jesus taught on the mountain.",
         "caption": "On the hill",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Blessed are the meek and merciful.",
         "caption": "Blessed",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The narrow way leads to life.",
         "caption": "Narrow way",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The wise man built on the rock.",
         "caption": "On the rock",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -17313,37 +17313,37 @@
       {
         "text": "Jesus was twelve years old.",
         "caption": "Growing up",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Mary and Joseph took Him to Jerusalem.",
         "caption": "Passover",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus stayed in the temple.",
         "caption": "His Father’s house",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "They found Him listening to the teachers.",
         "caption": "Listening well",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Everyone was amazed at what He knew.",
         "caption": "Wonder",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “I must be about my Father’s business.”",
         "caption": "Father’s business",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "He went home and was obedient.",
         "caption": "Honor and obey",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -17447,37 +17447,37 @@
       {
         "text": "The Spirit led Jesus into the wilderness.",
         "caption": "Quiet place",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He was there forty days without eating.",
         "caption": "Forty days",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The devil tried to get Him to do wrong things.",
         "caption": "Say no",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Man shall not live by bread alone.”",
         "caption": "God’s Word",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Thou shalt not tempt the Lord thy God.”",
         "caption": "Trust God",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Thou shalt worship the Lord thy God only.”",
         "caption": "Worship God",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Angels came and took care of Jesus.",
         "caption": "God’s care",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -17640,7 +17640,7 @@
       {
         "text": "After Jesus was baptized the enemy tried to trick Him three times. Each time Jesus answered with God’s own words and sent the tempter away. …",
         "caption": "Jesus’ Temptation",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -17669,37 +17669,37 @@
       {
         "text": "The Spirit led Jesus into the wilderness.",
         "caption": "Quiet place",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He was there forty days without eating.",
         "caption": "Forty days",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The devil tried to get Him to do wrong things.",
         "caption": "Say no",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Man shall not live by bread alone.”",
         "caption": "God’s Word",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Thou shalt not tempt the Lord thy God.”",
         "caption": "Trust God",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Thou shalt worship the Lord thy God only.”",
         "caption": "Worship God",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Angels came and took care of Jesus.",
         "caption": "God’s care",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -17807,37 +17807,37 @@
       {
         "text": "Jesus told His friends to go across the sea; He went to pray on the mountain.",
         "caption": "Prayer and trust",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "In the night the wind blew hard and the waves were big.",
         "caption": "Wind and waves",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus walked on the water to them.",
         "caption": "On the sea",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Be of good cheer; it is I; be not afraid.”",
         "caption": "Be not afraid",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Peter tried to walk to Jesus but began to sink.",
         "caption": "Lord, save me",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus took his hand and helped him.",
         "caption": "His strong hand",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The wind stopped. Jesus is stronger than the wind and the waves.",
         "caption": "Peace with Jesus",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -17943,32 +17943,32 @@
       {
         "text": "Jesus was at a wedding.",
         "caption": "Cana",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "They ran out of wine.",
         "caption": "Need help",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus told the servants to fill the waterpots.",
         "caption": "Do what He says",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The water became good wine.",
         "caption": "Wonderful wine",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "This was Jesus’ first miracle.",
         "caption": "First miracle",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "His friends believed in Him.",
         "caption": "They believed",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -18068,32 +18068,32 @@
       {
         "text": "Jesus rode toward Jerusalem and saw the beautiful city spread out before Him.",
         "caption": "He drew near",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He stopped and looked at the city with great love.",
         "caption": "He beheld the city",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Tears came to His eyes because He loved the people so much — God wanted to gather them close, like a mother hen gathers her chicks under her wings.",
         "caption": "Tears of love",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He said, “If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! but now they are hid from thine eyes.”",
         "caption": "Things which belong unto thy peace",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus cared so deeply for the people and for the city.",
         "caption": "Full of compassion",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus loves us even when we do not understand, and His heart is full of compassion.",
         "caption": "He loves us still",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -18266,7 +18266,7 @@
       {
         "text": "Job’s friends sat quietly with him when he was hurting. Sometimes the best thing is just to be there.",
         "caption": "Job’s Friends Sit Quietly",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -18290,32 +18290,32 @@
       {
         "text": "Job was a good man who loved God.",
         "caption": "Loved God",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He lost almost everything.",
         "caption": "A hard day",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He felt very sad.",
         "caption": "Honest sadness",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Three friends sat with him quietly.",
         "caption": "Quiet friends",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Job said, “The Lord gave, and the Lord hath taken away; blessed be the name of the Lord.”",
         "caption": "Bless His name",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Even when he was sad, Job still trusted God.",
         "caption": "Still trusting",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -18974,7 +18974,7 @@
       {
         "text": "John tells us Jesus is the Word who was with God in the very beginning. He made everything and then came to live with us.",
         "caption": "Jesus the Word",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -19083,37 +19083,37 @@
       {
         "text": "God told Jonah to go to Nineveh.",
         "caption": "God’s call",
-        "image": "panel-jonah-1.svg"
+        "image": ""
       },
       {
         "text": "Jonah ran away on a ship.",
         "caption": "Running away",
-        "image": "panel-jonah-1.svg"
+        "image": ""
       },
       {
         "text": "A big storm came.",
         "caption": "A hard moment",
-        "image": "panel-jonah-2.svg"
+        "image": ""
       },
       {
         "text": "Jonah was thrown into the sea.",
         "caption": "Into the sea",
-        "image": "panel-jonah-2.svg"
+        "image": ""
       },
       {
         "text": "A big fish swallowed Jonah and kept him safe.",
         "caption": "Kept safe",
-        "image": "panel-jonah-3.svg"
+        "image": ""
       },
       {
         "text": "Jonah prayed and said he was sorry.",
         "caption": "I’m sorry",
-        "image": "panel-jonah-3.svg"
+        "image": ""
       },
       {
         "text": "God gave Jonah a second chance.",
         "caption": "Second chance",
-        "image": "panel-jonah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -19200,27 +19200,27 @@
       {
         "text": "God's people came to the Jordan River. It was time to cross into the land the Lord had promised them.",
         "caption": "At the river",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The Lord told Joshua, \"When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap.\"",
         "caption": "What God said would happen",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over.",
         "caption": "Dry ground in the river",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place.",
         "caption": "Safe on the other side",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Joshua set up twelve stones from the middle of the river as a reminder. He told the people, \"When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty.\"",
         "caption": "Twelve stones — remember",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -19822,22 +19822,22 @@
       {
         "text": "Joshua had lived a long life. He had seen God keep every promise. He gathered the people to hear God's Word one more time.",
         "caption": "Joshua speaks to Israel",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "He said, \"Now therefore fear the Lord, and serve him in sincerity and in truth: and put away the gods which your fathers served on the other side of the flood, and in Egypt; and serve ye the Lord.\"",
         "caption": "Serve the Lord in truth",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "\"And if it seem evil unto you to serve the Lord, choose you this day whom ye will serve; whether the gods which your fathers served that were on the other side of the flood, or the gods of the Amorites, in whose land ye dwell.\"",
         "caption": "Choose this day",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "\"But as for me and my house, we will serve the Lord.\"",
         "caption": "Joshua's house chooses the Lord",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -19931,27 +19931,27 @@
       {
         "text": "God's people came to the Jordan River. It was time to cross into the land the Lord had promised them.",
         "caption": "At the river",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The Lord told Joshua, \"When the soles of the feet of the priests that bear the ark of the covenant shall rest in the waters of Jordan, the waters of Jordan shall be cut off from the waters that come down from above; and they shall stand upon an heap.\"",
         "caption": "What God said would happen",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The priests who carried the ark stepped into the edge of the flooded river. As soon as their feet touched the water, the river stopped flowing. The waters stood up in a great heap on one side, and the people crossed over on dry ground while the priests stood firm in the middle of the Jordan until all the people had passed over.",
         "caption": "Dry ground in the river",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "After everyone was safely on the other side, the priests came up out of the Jordan, and the waters returned to their place.",
         "caption": "Safe on the other side",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Joshua set up twelve stones from the middle of the river as a reminder. He told the people, \"When your children ask in time to come, saying, What mean these stones? Then ye shall let them know that the waters of Jordan were cut off before the ark of the covenant of the Lord… that all the people of the earth might know the hand of the Lord, that it is mighty.\"",
         "caption": "Twelve stones — remember",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -20119,7 +20119,7 @@
       {
         "text": "Young King Josiah found God’s Word in the temple and chose to obey it. He cleaned up the land and led his people back to God.",
         "caption": "Young King Josiah",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -20143,32 +20143,32 @@
       {
         "text": "One of the twelve, Judas, went to the chief priests and asked what they would give him to deliver Jesus.",
         "caption": "Thirty pieces of silver",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "They agreed, and from that time he sought opportunity to betray Jesus.",
         "caption": "Sought opportunity",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Judas came with a crowd carrying swords and staves.",
         "caption": "A great multitude",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He told them, Whomsoever I shall kiss, that same is he: hold him fast.",
         "caption": "The sign of the kiss",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He came to Jesus, said, Hail, master; and kissed him.",
         "caption": "Hail, master",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, Friend, wherefore art thou come? Then they laid hands on Jesus, and took him.",
         "caption": "Friend — wherefore art thou come?",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -20530,32 +20530,32 @@
       {
         "text": "The disciples prepared a special supper for Jesus in a room in the city.",
         "caption": "Made ready the passover",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus sat down with His twelve friends to eat the Passover meal.",
         "caption": "Sat down with the twelve",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He told them that one of them would betray Him, and they felt very sad.",
         "caption": "Lord, is it I?",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus took bread, blessed it, brake it, and gave it to them saying, Take, eat; this is my body.",
         "caption": "This is my body",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He took the cup, gave thanks, and said, Drink ye all of it; this is my blood of the new testament, shed for many for the remission of sins.",
         "caption": "My blood of the new testament",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus was sharing a very special meal with them before He would go to the cross.",
         "caption": "Love to the end",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -20667,32 +20667,32 @@
       {
         "text": "Lazarus was sick, and his sisters Mary and Martha sent for Jesus.",
         "caption": "He whom thou lovest is sick",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus waited a little while, then went to Bethany even though Lazarus had died.",
         "caption": "Our friend sleepeth",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Martha met Jesus and said her brother would have lived if He had come sooner.",
         "caption": "Lord, if thou hadst been here",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, I am the resurrection, and the life.",
         "caption": "Believest thou this?",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "At the cave tomb, Jesus told them to roll away the stone.",
         "caption": "Take ye away the stone",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus called with a loud voice, Lazarus, come forth! And Lazarus walked out alive. Many people believed in Jesus that day.",
         "caption": "Loose him, and let him go",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -20973,32 +20973,32 @@
       {
         "text": "A shepherd had one hundred sheep.",
         "caption": "A hundred sheep",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "One little sheep got lost.",
         "caption": "One wandered away",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The shepherd left the ninety-nine and looked for it.",
         "caption": "Left the ninety-nine",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He found the lost sheep and carried it home.",
         "caption": "On his shoulders",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "He was so happy he celebrated with his friends.",
         "caption": "Rejoice together",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus looks for us when we are lost.",
         "caption": "The good Shepherd",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -21413,7 +21413,7 @@
       {
         "text": "Mary and Joseph traveled to Bethlehem. Baby Jesus was born in a stable and laid in a manger. Angels sang and shepherds came to see the tiny …",
         "caption": "The Night Jesus Was Born",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -21500,7 +21500,7 @@
       {
         "text": "Lydia sat by the river listening to Paul. God opened her heart and she believed in Jesus right away. She opened her home to help others.",
         "caption": "Lydia Believes",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -21608,27 +21608,27 @@
       {
         "text": "Malachi was the last prophet before a quiet time.",
         "caption": "A faithful voice",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He told the people God still loved them.",
         "caption": "Still loved",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "God would send a special messenger.",
         "caption": "A promise",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The messenger would help people get ready for the Savior.",
         "caption": "Hearts ready",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "God always keeps His promises.",
         "caption": "Always true",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -21789,7 +21789,7 @@
       {
         "text": "God promised to send a messenger to prepare the way for Jesus. Malachi reminded the people to turn back to God.",
         "caption": "Malachi’s Messenger",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -21818,32 +21818,32 @@
       {
         "text": "Jesus saw a man who was born blind.",
         "caption": "That the works of God…",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus put clay on his eyes.",
         "caption": "Anointed the eyes",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "He said, “Go wash in the pool of Siloam.”",
         "caption": "Go, wash",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The man washed and came back seeing!",
         "caption": "Came seeing",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He said, “I was blind, but now I see.”",
         "caption": "Now I see",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus helps us see who He is.",
         "caption": "Lord, I believe",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -21933,27 +21933,27 @@
       {
         "text": "The children of Israel had been walking in the wilderness for many days. They were hungry and began to grumble. God heard them and spoke to Moses: \"Behold, I will rain bread from heaven for you. The people shall go out and gather a certain amount every day.\"",
         "caption": "God hears and promises bread",
-        "image": "panel-jonah-1.svg"
+        "image": ""
       },
       {
         "text": "The next morning, when the dew was gone, there on the ground lay small, white flakes like frost. The people looked at it and said, \"What is it?\" for they did not know what it was.",
         "caption": "White flakes on the ground",
-        "image": "panel-jonah-2.svg"
+        "image": ""
       },
       {
         "text": "Moses said, \"This is the bread which the Lord hath given you to eat.\"",
         "caption": "Moses names the manna",
-        "image": "panel-jonah-2.svg"
+        "image": ""
       },
       {
         "text": "Every morning the manna came. It tasted sweet, like wafers made with honey. The people gathered just enough for each day, and on the sixth day they gathered twice as much so they could rest on the Sabbath.",
         "caption": "Daily bread and the sixth day",
-        "image": "panel-jonah-3.svg"
+        "image": ""
       },
       {
         "text": "God gave them this bread from heaven every single day for forty years, until they came to the land He promised.",
         "caption": "Forty years of daily care",
-        "image": "panel-jonah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -22204,7 +22204,7 @@
       {
         "text": "Mark begins his book with the good news that Jesus is the Son of God. He came to bring us close to God.",
         "caption": "The Good News Begins",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -22227,32 +22227,32 @@
       {
         "text": "Jesus came to Bethany to the home of Lazarus, Martha, and Mary. They made supper for Him.",
         "caption": "Supper in Bethany",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Mary brought a very costly jar of sweet ointment.",
         "caption": "Ointment of spikenard",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "She poured the ointment on Jesus’ feet and wiped them with her hair. The whole house smelled beautiful.",
         "caption": "Filled with the odour",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Judas said the ointment should have been sold to help the poor.",
         "caption": "Three hundred pence",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said gently, Let her alone: against the day of my burying hath she kept this.",
         "caption": "Let her alone",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus knew Mary’s loving heart, and He defended her kindness.",
         "caption": "Heartfelt love",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -22366,32 +22366,32 @@
       {
         "text": "Mary Magdalene stood crying outside the empty tomb — But Mary stood without at the sepulchre weeping: and as she wept, she stooped down, and looked into the sepulchre, And seeth two angels in white sitting, the one at the head, and the other at the feet, where the body of Jesus had lain.",
         "caption": "At the sepulchre",
-        "image": "panel-mary-magdalene-1.svg"
+        "image": ""
       },
       {
         "text": "She saw two angels and told them someone had taken her Lord away — And they say unto her, Woman, why weepest thou? She saith unto them, Because they have taken away my Lord, and I know not where they have laid him.",
         "caption": "Why weepest thou?",
-        "image": "panel-mary-magdalene-1.svg"
+        "image": ""
       },
       {
         "text": "Then she turned and saw Jesus standing there, but she thought He was the gardener — And when she had thus said, she turned herself back, and saw Jesus standing, and knew not that it was Jesus. Jesus saith unto her, Woman, why weepest thou? whom seekest thou? She, supposing him to be the gardener, saith unto him, Sir, if thou have borne him hence, tell me where thou hast laid him, and I will take him away.",
         "caption": "Whom seekest thou?",
-        "image": "panel-mary-magdalene-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said gently, “Woman, why weepest thou? whom seekest thou?” — Jesus saith unto her, Woman, why weepest thou? whom seekest thou?",
         "caption": "Gentle question",
-        "image": "panel-mary-magdalene-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus called her name, “Mary.” She turned and said, “Rabboni!” (Master!) — Jesus saith unto her, Mary. She turned herself, and saith unto him, Rabboni; which is to say, Master.",
         "caption": "Mary — Rabboni",
-        "image": "panel-mary-magdalene-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus told her to go tell His disciples that He was alive and ascending to the Father — Jesus saith unto her, Touch me not; for I am not yet ascended to my Father: but go to my brethren, and say unto them, I ascend unto my Father, and your Father; and to my God, and your God. Mary Magdalene came and told the disciples that she had seen the Lord, and that he had spoken these things unto her.",
         "caption": "Go tell My brethren",
-        "image": "panel-mary-magdalene-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -22503,32 +22503,32 @@
       {
         "text": "Jesus visited Mary and Martha’s house.",
         "caption": "A quiet welcome",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Martha was busy getting everything ready.",
         "caption": "Serving with care",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Mary sat at Jesus’ feet and listened.",
         "caption": "Still… and listening",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Martha said, “Lord, tell my sister to help me.”",
         "caption": "Dost thou not care?",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said gently, “Mary hath chosen that good part.”",
         "caption": "One thing is needful",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Listening to Jesus is the most important thing.",
         "caption": "The good part",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -22773,7 +22773,7 @@
       {
         "text": "Matthew wrote down Jesus’ family line all the way back to Abraham and David. Jesus came into a real family just like ours.",
         "caption": "Jesus’ Family Line",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -22788,32 +22788,32 @@
       {
         "text": "And David said, Is there yet any that is left of the house of Saul, that I may shew him kindness for Jonathan's sake?",
         "caption": "David remembered his friend Jonathan",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And the king said, Is there not yet any of the house of Saul, that I may shew the kindness of God unto him? And Ziba said unto the king, Jonathan hath yet a son, which is lame on his feet. Then king David sent, and fetched him out of the house of Machir, the son of Ammiel, from Lodebar.",
         "caption": "They brought Jonathan's son — God saw him too",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Now when Mephibosheth, the son of Jonathan, the son of Saul, was come unto David, he fell on his face, and did reverence. And David said, Mephibosheth. And he answered, Behold thy servant! And David said unto him, Fear not: for I will surely shew thee kindness for Jonathan thy father's sake, and will restore thee all the land of Saul thy father; and thou shalt eat bread at my table continually.",
         "caption": "Fear not — kindness for Jonathan's sake; eat at my table",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And he bowed himself, and said, What is thy servant, that thou shouldest look upon such a dead dog as I am?",
         "caption": "Humble words — the king still chose to bless him",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then the king called to Ziba, Saul's servant, and said unto him, I have given unto thy master's son all that pertained to Saul and to all his house. Then said Ziba unto the king, According to all that my lord the king hath commanded his servant, so shall thy servant do. As for Mephibosheth, said the king, he shall eat at my table, as one of the king's sons.",
         "caption": "A place at the table — as one of the king's sons",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "So Mephibosheth dwelt in Jerusalem: for he did eat continually at the king's table; and was lame on both his feet.",
         "caption": "He dwelt in Jerusalem — always welcome at the king's table",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -22981,7 +22981,7 @@
       {
         "text": "Micah told the people God wants us to be fair, kind, and walk humbly with Him every day.",
         "caption": "Micah Teaches Justice",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -23161,32 +23161,32 @@
       {
         "text": "Moses was taking care of his father-in-law's sheep in the desert. One day he came to the mountain of God, called Horeb.",
         "caption": "Moses and the sheep at Horeb",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He saw a most wonderful thing. A bush was burning with fire, but the bush was not burned up. The flames danced, yet the leaves stayed green and whole.",
         "caption": "Fire in the bush—yet it is not consumed",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Moses said, \"I will turn aside and see this great sight, why the bush is not burnt.\"",
         "caption": "Moses draws near",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "When the Lord saw that Moses turned to look, God called to him out of the midst of the bush, \"Moses, Moses.\" And Moses said, \"Here am I.\"",
         "caption": "God calls by name",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "God said, \"Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground.\"",
         "caption": "Holy ground",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Then God told Moses who He was — the God of his fathers, Abraham, Isaac, and Jacob. And Moses hid his face, for he was afraid to look upon God.",
         "caption": "The God of Abraham, Isaac, and Jacob",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -23357,7 +23357,7 @@
       {
         "text": "God’s people were trapped between the sea and Pharaoh’s army. Moses told them not to be afraid. God made a dry path through the sea, and the…",
         "caption": "God Opens the Red Sea",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -23546,32 +23546,32 @@
       {
         "text": "Jesus told a story about a mustard seed.",
         "caption": "A grain of mustard seed",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The seed is very tiny.",
         "caption": "Least of all seeds",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "It is planted in the ground.",
         "caption": "Sowed in his field",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "It grows into a big plant.",
         "caption": "Greatest among herbs",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Birds come and rest in its branches.",
         "caption": "Birds lodge in the branches",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "God’s kingdom grows like that tiny seed.",
         "caption": "Kingdom like a mustard seed",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -23662,27 +23662,27 @@
       {
         "text": "And he returned to the man of God, he and all his company, and came, and stood before him: and he said, Behold, now I know that there is no God in all the earth, but in Israel: now therefore, I pray thee, take a blessing of thy servant.",
         "caption": "Behold, now I know — take a blessing of thy servant",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "But he said, As the LORD liveth, before whom I stand, I will receive none. And he urged him to take it; but he refused.",
         "caption": "As the LORD liveth, I will receive none",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And Naaman said, Shall there not then, I pray thee, be given to thy servant two mules’ burden of earth? for thy servant will henceforth offer neither burnt offering nor sacrifice unto other gods, but unto the LORD.",
         "caption": "Two mules’ burden of earth — unto the LORD only",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "In this thing the LORD pardon thy servant, that when my master goeth into the house of Rimmon to worship there, and he leaneth on my hand, and I bow myself in the house of Rimmon: when I bow down myself in the house of Rimmon, the LORD pardon thy servant in this thing.",
         "caption": "The LORD pardon thy servant in this thing",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And he said unto him, Go in peace. So he departed from him a little way.",
         "caption": "Go in peace",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -23776,22 +23776,22 @@
       {
         "text": "Now Naaman, captain of the host of the king of Syria, was a great man with his master, and honourable, because by him the LORD had given deliverance unto Syria: he was also a mighty man in valour, but he was a leper. And the Syrians had gone out by companies, and had brought away captive out of the land of Israel a little maid; and she waited on Naaman's wife. And she said unto her mistress, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
         "caption": "A great captain — a little maid points to the prophet in Samaria",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha. And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
         "caption": "Wash in Jordan seven times — thou shalt be clean",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "But Naaman was wroth, and went away, and said, Behold, I thought, He will surely come out to me, and stand, and call on the name of the LORD his God, and strike his hand over the place, and recover the leper. Are not Abana and Pharpar, rivers of Damascus, better than all the waters of Israel? may I not wash in them, and be clean? So he turned and went away in a rage. And his servants came near, and spake unto him, and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? how much rather then, when he saith to thee, Wash, and be clean?",
         "caption": "At first he was angry — then gentle words: Wash, and be clean",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
         "caption": "Seven times in Jordan — clean like a little child",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -23957,7 +23957,7 @@
       {
         "text": "Nehemiah and the people worked hard to rebuild the broken wall around Jerusalem. They prayed and worked together, and God helped them finish…",
         "caption": "Nehemiah Rebuilds the Wall",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -23981,37 +23981,37 @@
       {
         "text": "The walls of Jerusalem were broken down.",
         "caption": "Broken gates and walls",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Nehemiah heard the sad news and prayed to God.",
         "caption": "Pray to the God of heaven",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The king let him go to rebuild the walls.",
         "caption": "Letters and timber",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Nehemiah saw the broken places at night.",
         "caption": "A quiet look at the city",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Then said I unto them, Ye see the distress that we are in, how Jerusalem lieth waste, and the gates thereof are burned with fire: come, and let us build up the wall of Jerusalem, that we be no more a reproach.",
         "caption": "Come, let us build up the wall",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "And they said, Let us rise up and build. So they strengthened their hands for this good work.",
         "caption": "Let us rise up and build",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "They worked together with joy.",
         "caption": "For you",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -24368,37 +24368,37 @@
       {
         "text": "A nobleman had a very sick son.",
         "caption": "A worried father",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "He hurried to Jesus and asked for help.",
         "caption": "Come quickly",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Go thy way; thy son liveth.”",
         "caption": "Jesus’ kind words",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The father believed Jesus.",
         "caption": "He trusted",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "On the way home the servants said the boy was well.",
         "caption": "Good news",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "It happened at the same hour Jesus spoke.",
         "caption": "The same hour",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus can heal even when He is far away.",
         "caption": "Far away or near",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -24643,7 +24643,7 @@
       {
         "text": "Nymphas opened his house so friends could meet, pray, and learn about Jesus together.",
         "caption": "Church in Nymphas’ Home",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -24729,7 +24729,7 @@
       {
         "text": "When Paul was in prison, Onesiphorus searched for him and brought encouragement. He was a true friend who stayed close.",
         "caption": "Onesiphorus Visits Paul",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -24754,32 +24754,32 @@
       {
         "text": "Jesus sent His friends to bring a young donkey for Him to ride.",
         "caption": "The Lord hath need of them",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The disciples brought the donkey and put their coats on its back.",
         "caption": "They set Him thereon",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus rode gently toward Jerusalem.",
         "caption": "Thy King cometh… meek",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "People spread their coats on the road and waved palm branches.",
         "caption": "Garments and branches",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "They shouted, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.",
         "caption": "Hosanna in the highest",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "The whole city was stirred and asked, Who is this? The multitude said, This is Jesus the prophet of Nazareth of Galilee.",
         "caption": "Who is this?",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -24891,27 +24891,27 @@
       {
         "text": "Jesus told a story about a hidden treasure.",
         "caption": "Treasure hid in a field",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "A man found the treasure in a field.",
         "caption": "Found the treasure",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "He was so happy!",
         "caption": "For joy thereof",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He sold everything he had to buy the field.",
         "caption": "Selleth all that he hath",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The kingdom of God is worth everything.",
         "caption": "Buyeth that field",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -25095,22 +25095,22 @@
       {
         "text": "Jesus told a story about a merchant looking for pearls.",
         "caption": "Seeking goodly pearls",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "He found one very beautiful pearl.",
         "caption": "One pearl of great price",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "He sold everything he had to buy it.",
         "caption": "Sold all that he had",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The kingdom of God is worth everything.",
         "caption": "And bought it",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -25213,37 +25213,37 @@
       {
         "text": "Jesus told a story about a farmer planting seeds.",
         "caption": "A farmer sows",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Some seeds fell on the path and birds ate them.",
         "caption": "Seeds on the path",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Some fell on rocks and dried up.",
         "caption": "Rocky ground",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Some fell among thorns and were choked.",
         "caption": "Thorns choked them",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Some fell on good soil and grew tall.",
         "caption": "Good soil bears fruit",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said the seed is God’s Word.",
         "caption": "The seed is God’s Word",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Good hearts let God’s Word grow.",
         "caption": "Hearts like good soil",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -25350,32 +25350,32 @@
       {
         "text": "A man gave his servants money before he left — five talents, two, and one, each by his ability.",
         "caption": "Delivered unto them his goods",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "One servant used five talents and made five more. Another used two and made two more.",
         "caption": "Gained other talents",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The third servant hid his one talent in the ground.",
         "caption": "Hid his lord’s money",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "When the lord returned, the first two showed what they had gained.",
         "caption": "Reckoneth with them",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The master said, “Well done, thou good and faithful servant… enter thou into the joy of thy lord.”",
         "caption": "Well done, good and faithful",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus wants us to use what He gives us for His kingdom.",
         "caption": "Faithful over a few things",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -25478,32 +25478,32 @@
       {
         "text": "A man had two sons. The father said, “Son, go work to day in my vineyard.”",
         "caption": "Go work to day in my vineyard",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The first son said no — but afterward he repented and went.",
         "caption": "I will not: but afterward he repented",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The second son said, “I go, sir” — but he did not go.",
         "caption": "I go, sir",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus asked, “Which of them did the father’s will?” They said, “The first.”",
         "caption": "Whether of them twain",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus taught that God welcomes people who turn to Him with honest hearts.",
         "caption": "Believed him",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus wants us to do what is right — not just say we will.",
         "caption": "The will of his father",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -25606,32 +25606,32 @@
       {
         "text": "A man owned a vineyard. Early in the morning he hired workers and agreed to pay them one coin.",
         "caption": "Agreed for a penny a day",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Later he hired more workers — at noon, at three, and even at five o’clock.",
         "caption": "Whatsoever is right I will give",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "At evening he told his foreman to pay everyone, beginning with the last hired.",
         "caption": "Beginning from the last unto the first",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Those who came late and those who worked all day each received one coin.",
         "caption": "Every man a penny",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The first workers were upset. The owner answered gently — Is it lawful… Is thine eye evil, because I am good?",
         "caption": "Friend, I do thee no wrong",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "God is generous and kind. We can be glad when God is good to others.",
         "caption": "The Lord is good",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -25734,32 +25734,32 @@
       {
         "text": "A king made a wedding feast for his son. He invited many people.",
         "caption": "A marriage for his son",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The invited guests would not come.",
         "caption": "They would not come",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "He sent servants: “All things are ready: come unto the marriage.”",
         "caption": "Come unto the marriage",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The king said, “Go into the highways and invite everyone you find.”",
         "caption": "As many as ye shall find",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The servants brought many people, both bad and good — the wedding was full of guests.",
         "caption": "The wedding was furnished with guests",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus invites everyone to come to Him.",
         "caption": "Many are called",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -25861,32 +25861,32 @@
       {
         "text": "A man planted a vineyard and let it out to husbandmen, and went into a far country.",
         "caption": "A vineyard planted",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "When the fruit season drew near, he sent servants to collect the fruit of the vineyard.",
         "caption": "Servants sent",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The workers treated the servants badly — they did not give the owner what belonged to him.",
         "caption": "Hard hearts",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Last of all the owner sent his own son, saying, They will reverence my son.",
         "caption": "He sent his son",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus is God’s beloved Son — the most precious gift the Father could send.",
         "caption": "The beloved Son",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "The stone which the builders rejected is become the head of the corner — God’s kingdom is for hearts that bear good fruit for Him.",
         "caption": "Good fruit for God",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -25986,27 +25986,27 @@
       {
         "text": "God told Moses and Aaron what His people must do so the angel of death would pass over their houses. Each family was to take a perfect little lamb and keep it until the evening.",
         "caption": "A lamb for each home",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Then they would kill the lamb and take some of its blood. With a bunch of hyssop they would strike the blood on the two side posts and on the upper door post of their house.",
         "caption": "Blood on the doorposts",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "God said, \"When I see the blood, I will pass over you, and the plague shall not be upon you to destroy you.\"",
         "caption": "God's promise",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "That night, the children of Israel did exactly as the Lord commanded. They put the blood on their doors. They stayed inside their houses and ate the roasted lamb with bitter herbs and unleavened bread.",
         "caption": "Inside, safe together",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Because of the blood on the door, the Lord passed over their houses and kept them safe.",
         "caption": "Passed over—kept safe",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -26677,7 +26677,7 @@
       {
         "text": "Paul and Barnabas traveled to many towns telling people about Jesus. Even when it was hard, God was with them and many believed.",
         "caption": "Paul’s First Journey",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -27344,7 +27344,7 @@
       {
         "text": "Paul was on a ship in a terrible storm. Everyone was afraid, but Paul trusted God’s promise. The ship broke apart, yet every person reached …",
         "caption": "Paul in the Storm",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -27931,7 +27931,7 @@
       {
         "text": "After Jesus went to heaven, the disciples waited and prayed. God sent the Holy Spirit like wind and fire. The disciples were filled with joy…",
         "caption": "Pentecost — God’s Spirit Comes",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -28102,7 +28102,7 @@
       {
         "text": "A widow kept asking a judge for help. She didn’t give up. Jesus said God is much kinder than that judge — He hears every prayer we keep brin…",
         "caption": "The Persistent Widow",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -28189,7 +28189,7 @@
       {
         "text": "Peter learned that God loves every person the same. He went to Cornelius’ house and told them about Jesus. The whole house believed.",
         "caption": "Peter and Cornelius",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -28213,32 +28213,32 @@
       {
         "text": "Peter sat outside by the fire near the high priest's house.",
         "caption": "Without in the palace",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "A young maid said, \"You were with Jesus of Galilee.\" But Peter said, \"I do not know what you mean.\"",
         "caption": "Jesus of Galilee",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Another maid saw him and said the same thing. Peter denied it again.",
         "caption": "Unto the porch",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Other people said, \"Surely you are one of them — your speech shows it.\"",
         "caption": "Thy speech bewrayeth thee",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Peter said strongly, \"I do not know the man.\" Then the rooster crowed.",
         "caption": "The cock crew",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Peter remembered what Jesus had told him. He went out and felt very sorry, and he wept.",
         "caption": "Wept bitterly",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -28494,7 +28494,7 @@
       {
         "text": "A man who could not walk sat at the temple gate. Peter said, “In the name of Jesus, rise up and walk!” The man jumped up and praised God.",
         "caption": "Peter Heals a Lame Man",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -29081,7 +29081,7 @@
       {
         "text": "Philemon forgave Onesimus and welcomed him home like a brother. Forgiveness made their family stronger.",
         "caption": "Philemon Forgives",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -29167,7 +29167,7 @@
       {
         "text": "Philemon forgave Onesimus and welcomed him home like a brother. Forgiveness turned a servant into a brother.",
         "caption": "Philemon Welcomes Onesimus",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -29337,7 +29337,7 @@
       {
         "text": "Philip heard God’s Spirit say to go to a chariot. He obeyed, helped the man understand the Bible, and the man believed in Jesus.",
         "caption": "Philip and the Ethiopian",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -29423,7 +29423,7 @@
       {
         "text": "Philip listened when God told him to run to a chariot. He helped the man understand the Bible, and the man believed in Jesus and was baptize…",
         "caption": "Philip and the Ethiopian",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -29592,7 +29592,7 @@
       {
         "text": "Paul wrote from prison, “Rejoice in the Lord always!” He knew joy comes from Jesus, not from easy days.",
         "caption": "Joy in the Lord",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -30041,37 +30041,37 @@
       {
         "text": "A father had two sons.",
         "caption": "Two sons",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The younger son went far away.",
         "caption": "A far country",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "He spent all his money and was sad.",
         "caption": "Hungry and sorry",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He decided to go home and say sorry.",
         "caption": "I will arise and go",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "His father saw him and ran to meet him.",
         "caption": "While yet a great way off",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "The father hugged him and said, “My son is home!”",
         "caption": "Fell on his neck — kissed him",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "God welcomes us when we come back to Him.",
         "caption": "Alive again — was lost, and is found",
-        "image": "panel-noah-2.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -30163,32 +30163,32 @@
       {
         "text": "The LORD is my shepherd; I shall not want.",
         "caption": "The LORD is my shepherd",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
         "caption": "Green pastures — still waters",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
         "caption": "He restoreth my soul",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
         "caption": "Thou art with me — rod and staff",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
         "caption": "Thou preparest a table — my cup runneth over",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
         "caption": "Goodness and mercy — dwell in the house of the LORD",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -30285,32 +30285,32 @@
       {
         "text": "The LORD is my shepherd; I shall not want.",
         "caption": "The LORD is my shepherd",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
         "caption": "Green pastures — still waters",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
         "caption": "He restoreth my soul",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
         "caption": "Thou art with me — rod and staff",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
         "caption": "Thou preparest a table — my cup runneth over",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
         "caption": "Goodness and mercy — dwell in the house of the LORD",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -30479,7 +30479,7 @@
       {
         "text": "When we stay close to God, we live under His shadow like a little bird under a mother’s wing. He is our refuge and fortress. We can call on …",
         "caption": "Safe in God’s Care",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -30492,32 +30492,32 @@
       {
         "text": "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
         "caption": "Two quiet spies",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
         "caption": "Hidden on the roof",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
         "caption": "She believed the Lord",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
         "caption": "Kindness for her household",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
         "caption": "The scarlet thread",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
         "caption": "God kept His word",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -30613,32 +30613,32 @@
       {
         "text": "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
         "caption": "Two quiet spies",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
         "caption": "Hidden on the roof",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
         "caption": "She believed the Lord",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
         "caption": "Kindness for her household",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
         "caption": "The scarlet thread",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
         "caption": "God kept His word",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -30734,32 +30734,32 @@
       {
         "text": "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
         "caption": "Two quiet spies",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
         "caption": "Hidden on the roof",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
         "caption": "She believed the Lord",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
         "caption": "Kindness for her household",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
         "caption": "The scarlet thread",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
         "caption": "God kept His word",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -30855,32 +30855,32 @@
       {
         "text": "Joshua sent two men to spy out the land. They came to Jericho and went into the house of a woman named Rahab.",
         "caption": "Two quiet spies",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The king of Jericho heard about the spies and sent men to find them. But Rahab hid the two men on her roof under stalks of flax.",
         "caption": "Hidden on the roof",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "When the king's men asked for the spies, Rahab said they had already gone. Then she told the two men, 'I know that the Lord hath given you the land… for the Lord your God, he is God in heaven above, and in earth beneath.'",
         "caption": "She believed the Lord",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Rahab asked the men to promise that when the Lord gave them the land, they would show kindness to her family.",
         "caption": "Kindness for her household",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The men said, \"Our life for yours… Bind this line of scarlet thread in the window which thou didst let us down by.\"",
         "caption": "The scarlet thread",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Rahab tied the scarlet cord in her window. And when the Lord gave Jericho to His people, Rahab and all her family were saved because she believed the Lord.",
         "caption": "God kept His word",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -30976,32 +30976,32 @@
       {
         "text": "God's people were afraid. The great Egyptian army was chasing them, and in front of them was the wide Red Sea. They had nowhere to go.",
         "caption": "Trapped between the sea and the army",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "But Moses stretched out his hand over the sea, just as God told him.",
         "caption": "Moses obeys God",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And the Lord caused the sea to go back all night with a strong east wind. The waters divided.",
         "caption": "God opens a path",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The children of Israel walked into the sea upon dry ground, with walls of water on their right hand and on their left.",
         "caption": "Safe road through the sea",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "When the Egyptians tried to follow, God told Moses to stretch out his hand again. The waters returned and covered all the chariots and the horsemen. Not one of them remained.",
         "caption": "God saves His people",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "That day the Lord saved Israel. And the people feared the Lord, and believed the Lord and His servant Moses.",
         "caption": "Israel trusts God and Moses",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -31193,32 +31193,32 @@
       {
         "text": "Early on Sunday morning, the women went to the tomb and saw the stone rolled away — In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre. And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it.",
         "caption": "Dawn at the tomb",
-        "image": "panel-jesus-resurrection-1.svg"
+        "image": ""
       },
       {
         "text": "An angel said, “He is not here: for he is risen, as he said.” — And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay.",
         "caption": "He is risen",
-        "image": "panel-jesus-resurrection-2.svg"
+        "image": ""
       },
       {
         "text": "The women ran to tell the disciples the good news — And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you. And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word.",
         "caption": "Great joy",
-        "image": "panel-jesus-resurrection-2.svg"
+        "image": ""
       },
       {
         "text": "Suddenly Jesus met them and said, “All hail. Be not afraid.” — And as they went to tell his disciples, behold, Jesus met them, saying, All hail. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.",
         "caption": "Jesus meets them",
-        "image": "panel-jesus-resurrection-3.svg"
+        "image": ""
       },
       {
         "text": "The women held His feet and worshipped Him with great joy — And they came and held him by the feet, and worshipped him.",
         "caption": "Worship and peace",
-        "image": "panel-jesus-resurrection-3.svg"
+        "image": ""
       },
       {
         "text": "Later Jesus told His disciples, “All power is given unto me… Go ye therefore… and, lo, I am with you alway, even unto the end of the world.” — And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.",
         "caption": "With you alway",
-        "image": "panel-jesus-resurrection-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -31807,7 +31807,7 @@
       {
         "text": "One day God will make a new heaven and a new earth with no more tears or pain. Jesus will wipe every tear from our eyes and we will be with …",
         "caption": "A New Heaven and Earth",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -32584,32 +32584,32 @@
       {
         "text": "A rich young man ran to Jesus and knelt down.",
         "caption": "There came one running, and kneeled",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "He asked, “Good Master, what shall I do that I may inherit eternal life?”",
         "caption": "Inherit eternal life",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Thou knowest the commandments.”",
         "caption": "Honour thy father and mother",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The young man said he had kept them.",
         "caption": "From my youth",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus looked at him, loved him, and said to sell, give, take up the cross, and follow Him.",
         "caption": "One thing thou lackest",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus wants our hearts to love Him most.",
         "caption": "With God all things are possible",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -33018,7 +33018,7 @@
       {
         "text": "Paul wrote that nothing — not even hard things — can separate us from God’s love in Jesus.",
         "caption": "Nothing Separates God’s Love",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -33135,27 +33135,27 @@
       {
         "text": "And Naomi had a kinsman of her husband's, a mighty man of wealth, of the family of Elimelech; and his name was Boaz. And Ruth the Moabitess said unto Naomi, Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace. And she said unto her, Go, my daughter. And she went, and came, and gleaned in the field after the reapers: and her hap was to light on a part of the field belonging unto Boaz, who was of the kindred of Elimelech.",
         "caption": "Harvest time — Ruth asks to glean",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And, behold, Boaz came from Bethlehem, and said unto the reapers, The LORD be with you. And they answered him, The LORD bless thee. Then said Boaz unto his servant that was set over the reapers, Whose damsel is this? And the servant that was set over the reapers answered and said, It is the Moabitish damsel that came back with Naomi out of the country of Moab: And she said, I pray you, let me glean and gather after the reapers among the sheaves: so she came, and hath continued even from the morning until now, that she tarried a little in the house.",
         "caption": "Boaz sees Ruth in his field",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then said Boaz unto Ruth, Hearest thou not, my daughter? Go not to glean in another field, neither go from hence, but abide here fast by my maidens: Let thine eyes be on the field that they do reap, and go thou after them: have I not charged the young men that they shall not touch thee? and when thou art athirst, go unto the vessels, and drink of that which the young men have drawn.",
         "caption": "Kind words — stay here and drink",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then she fell on her face, and bowed herself to the ground, and said unto him, Why have I found grace in thine eyes, that thou shouldest take knowledge of me, seeing I am a stranger? And Boaz answered and said unto her, It hath fully been shewed me, all that thou hast done unto thy mother in law since the death of thine husband: and how thou hast left thy father and thy mother, and the land of thy nativity, and art come unto a people which thou knewest not heretofore. The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust.",
         "caption": "Why such kindness? — The Lord recompense thy work",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "Then she said, Let me find favour in thy sight, my lord; for that thou hast comforted me, and for that thou hast spoken friendly unto thine handmaid, though I be not like unto one of thine handmaidens. And Boaz said unto her, At mealtime come thou hither, and eat of the bread, and dip thy morsel in the vinegar. And she sat beside the reapers: and he reached her parched corn, and she did eat, and was sufficed, and left. And when she was risen up to glean, Boaz commanded his young men, saying, Let her glean even among the sheaves, and reproach her not: And let fall also some of the handfuls of purpose for her, and leave them, that she may glean them, and rebuke her not. So she gleaned in the field until even, and beat out that she had gleaned: and it was about an ephah of barley.",
         "caption": "Till evening — an ephah of barley",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -33422,32 +33422,32 @@
       {
         "text": "Now it came to pass in the days when the judges ruled, that there was a famine in the land. And a certain man of Bethlehemjudah went to sojourn in the country of Moab, he, and his wife, and his two sons. And the name of the man was Elimelech, and the name of his wife Naomi, and the name of his two sons Mahlon and Chilion, Ephrathites of Bethlehemjudah. And they came into the country of Moab, and continued there.",
         "caption": "A hard time — a journey to Moab",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And Elimelech Naomi's husband died; and she was left, and her two sons. And they took them wives of the women of Moab; the name of the one was Orpah, and the name of the other Ruth: and they dwelled there about ten years. And Mahlon and Chilion died also both of them; and the woman was left of her two sons and her husband.",
         "caption": "Sorrow — Naomi was left alone",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Then she arose with her daughters in law, that she might return from the country of Moab: for she had heard in the country of Moab how that the LORD had visited his people in giving them bread. Wherefore she went forth out of the place where she was, and her two daughters in law with her; and they went on the way to return unto the land of Judah.",
         "caption": "Homeward — bread in Bethlehem again",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And Naomi said unto her two daughters in law, Go, return each to her mother's house: the LORD deal kindly with you, as ye have dealt with the dead, and with me. And they lifted up their voice, and wept again: and Orpah kissed her mother in law; but Ruth clave unto her. And she said, Behold, thy sister in law is gone back unto her people, and unto her gods: return thou after thy sister in law.",
         "caption": "One kissed goodbye — one stayed",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And Ruth said, Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God: where thou diest, will I die, and there will I be buried: the LORD do so to me, and more also, if ought but death part thee and me.",
         "caption": "Ruth's promise",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "When she saw that she was stedfastly minded to go with her, then she left speaking unto her.",
         "caption": "Steadfast — Naomi knew Ruth would not turn back",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -33542,37 +33542,37 @@
       {
         "text": "Then went Boaz up to the gate, and sat him down there: and, behold, the kinsman of whom Boaz spake came by; unto whom he said, Ho, such a one! turn aside, sit down here. And he turned aside, and sat down. And he took ten men of the elders of the city, and said, Sit ye down here. And they sat down.",
         "caption": "At the gate — elders sit as witnesses",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And he said unto the kinsman, Naomi, that is come again out of the country of Moab, selleth a parcel of land, which was our brother Elimelech's: And I thought to advertise thee, saying, Buy it before the inhabitants, and before the elders of my people. If thou wilt redeem it, redeem it: but if thou wilt not redeem it, then tell me, that I may know: for there is none to redeem it beside thee; and I am after thee. And he said, I will redeem it.",
         "caption": "The field of Naomi — I will redeem it",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Then said Boaz, What day thou buyest the field of the hand of Naomi, thou must buy it also of Ruth the Moabitess, the wife of the dead, to raise up the name of the dead upon his inheritance. And the kinsman said, I cannot redeem it for myself, lest I mar mine own inheritance: redeem thou my right to thyself; for I cannot redeem it.",
         "caption": "The nearer kinsman cannot — redeem thou my right",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Now this was the manner in former time in Israel concerning redeeming and concerning changing, for to confirm all things; a man plucked off his shoe, and gave it to his neighbour: and this was a testimony in Israel. Therefore the kinsman said unto Boaz, Buy it for thee. So he drew off his shoe.",
         "caption": "The shoe — a testimony in Israel",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Boaz said unto the elders, and unto all the people, Ye are witnesses this day, that I have bought all that was Elimelech's, and all that was Chilion's and Mahlon's, of the hand of Naomi. Moreover Ruth the Moabitess, the wife of Mahlon, have I purchased to be my wife, to raise up the name of the dead upon his inheritance, that the name of the dead be not cut off from among his brethren, and from the gate of his place: ye are witnesses this day.",
         "caption": "Ye are witnesses — purchased to be my wife",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And all the people that were in the gate, and the elders, said, We are witnesses. The LORD make the woman that is come into thine house like Rachel and like Leah, which two did build the house of Israel: and do thou worthily in Ephratah, and be famous in Bethlehem: And let thy house be like the house of Pharez, whom Tamar bare unto Judah, of the seed which the LORD shall give thee of this young woman.",
         "caption": "We are witnesses — the Lord make her like Rachel and Leah",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "So Boaz took Ruth, and she was his wife: and when he went in unto her, the LORD gave her conception, and she bare a son. And the women said unto Naomi, Blessed be the LORD, which hath not left thee this day without a kinsman, that his name may be famous in Israel. And he shall be unto thee a restorer of thy life, and a nourisher of thine old age: for thy daughter in law, which loveth thee, which is better to thee than seven sons, hath born him. And Naomi took the child, and laid it in her bosom, and became nurse unto it. And the women her neighbours gave it a name, saying, There is a son born to Naomi; and they called his name Obed: he is the father of Jesse, the father of David.",
         "caption": "A son — Obed — joy for Naomi",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -33669,32 +33669,32 @@
       {
         "text": "Then Naomi her mother in law said unto her, My daughter, shall I not seek rest for thee, that it may be well with thee? And now is not Boaz of our kindred, with whose maidens thou wast? Behold, he winnoweth barley to night in the threshingfloor. Wash thyself therefore, and anoint thee, and put thy raiment upon thee, and get thee down to the floor: but make not thyself known unto the man, until he shall have done eating and drinking. And it shall be, when he lieth down, that thou shalt mark the place where he shall lie, and thou shalt go in, and uncover his feet, and lay thee down; and he will tell thee what thou shalt do. And she said unto her, All that thou sayest unto me I will do.",
         "caption": "Naomi's loving plan — rest for Ruth",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And she went down unto the floor, and did according to all that her mother in law bade her. And when Boaz had eaten and drunk, and his heart was merry, he went to lie down at the end of the heap of corn: and she came softly, and uncovered his feet, and laid her down.",
         "caption": "A quiet night — at the heap of corn",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass at midnight, that the man was afraid, and turned: and, behold, a woman lay at his feet. And he said, Who art thou? And she answered, I am Ruth thine handmaid: spread therefore thy skirt over thine handmaid; for thou art a near kinsman.",
         "caption": "Who art thou? — spread thy skirt",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And he said, Blessed be thou of the LORD, my daughter: thou hast shewed more kindness in the latter end than at the beginning, inasmuch as thou followedst not young men, whether poor or rich. And now, my daughter, fear not; I will do to thee all that thou requirest: for all the city of my people doth know that thou art a virtuous woman.",
         "caption": "Fear not — thou art a virtuous woman",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And now it is true that I am thy near kinsman: howbeit there is a kinsman nearer than I. Tarry this night, and it shall be in the morning, that if he will perform unto thee the part of a kinsman, well; let him do the kinsman's part: but if he will not do the part of a kinsman to thee, then will I do the part of a kinsman to thee, as the LORD liveth: lie down until the morning.",
         "caption": "The kinsman's part — lie down until the morning",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And she lay at his feet until the morning: and she rose up before one could know another. And he said, Let it not be known that a woman came into the floor. Also he said, Bring the vail that thou hast upon thee, and hold it. And when she held it, he measured six measures of barley, and laid it on her: and she went into the city. And when she came to her mother in law, she said, Who art thou, my daughter? And she told her all that the man had done unto her. And she said, These six measures of barley gave he me; for he said to me, Go not empty unto thy mother in law. Then said she, Sit still, my daughter, until thou know how the matter will fall: for the man will not be in rest, until he have finished the thing this day.",
         "caption": "Six measures — Naomi waits with hope",
-        "image": "panel-david-1.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -33801,32 +33801,32 @@
       {
         "text": "One day, some men called the Sadducees came to Jesus. They said there is no resurrection.",
         "caption": "The Sadducees",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "They asked Him a tricky question about a woman who had married seven brothers.",
         "caption": "A tricky question",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus listened kindly, then answered with truth from God’s Word. He said, Ye do err, not knowing the scriptures, nor the power of God.",
         "caption": "Truth from God’s Word",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "In the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven.",
         "caption": "Like the angels",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus reminded them: God is not the God of the dead, but of the living.",
         "caption": "God of the living",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "When the people heard this, they were astonished at His teaching — we can rest our hearts on the living God.",
         "caption": "Astonished at His teaching",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -33928,32 +33928,32 @@
       {
         "text": "And it came to pass after this, that Benhadad king of Syria gathered all his host, and went up, and besieged Samaria.",
         "caption": "The king of Syria besieged Samaria",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Then Elisha said, Hear ye the word of the LORD; Thus saith the LORD, To morrow about this time shall a measure of fine flour be sold for a shekel, and two measures of barley for a shekel, in the gate of Samaria.",
         "caption": "To morrow — flour and barley in the gate of Samaria",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Then a lord on whose hand the king leaned answered the man of God, and said, Behold, if the LORD would make windows in heaven, might this thing be? And he said, Behold, thou shalt see it with thine eyes, but shalt not eat thereof.",
         "caption": "If the LORD would make windows in heaven — thou shalt see it, but shalt not eat thereof",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "For the LORD had made the host of the Syrians to hear a noise of chariots, and a noise of horses, even the noise of a great host: and they said one to another, Lo, the king of Israel hath hired against us the kings of the Hittites, and the kings of the Egyptians, to come upon us.",
         "caption": "The LORD made them hear a noise of chariots and horses",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Wherefore they arose and fled in the twilight, and left their tents, and their horses, and their asses, even the camp as it was, and fled for their life.",
         "caption": "They fled and left their tents and food behind",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "And the people went out, and spoiled the tents of the Syrians. So a measure of fine flour was sold for a shekel, and two measures of barley for a shekel, according to the word of the LORD.",
         "caption": "The people found food — according to the word of the LORD",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -34061,37 +34061,37 @@
       {
         "text": "Jesus sat by a well in Samaria.",
         "caption": "By the well",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "A woman came to get water.",
         "caption": "Drawing water",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus asked her for a drink.",
         "caption": "Kind words",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "He told her about living water.",
         "caption": "Living water",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The woman wanted the water that makes the heart happy.",
         "caption": "Thirsty heart",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "She ran to tell her friends about Jesus.",
         "caption": "Come and see",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus offers the water of life to everyone.",
         "caption": "For everyone",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -34179,22 +34179,22 @@
       {
         "text": "Then the lords of the Philistines gathered them together for to offer a great sacrifice unto Dagon their god, and to rejoice: for they said, Our god hath delivered Samson our enemy into our hand. And when the people saw him, they praised their god: for they said, Our god hath delivered into our hands our enemy, and the destroyer of our country, which slew many of us. And it came to pass, when their hearts were merry, that they said, Call for Samson, that he may make us sport. And they called for Samson out of the prison house; and he made them sport: and they set him between the pillars.",
         "caption": "They did not know the Lord had not forgotten him",
-        "image": "panel-daniel-1.svg"
+        "image": ""
       },
       {
         "text": "And Samson said unto the lad that held him by the hand, Suffer me that I may feel the pillars whereupon the house standeth, that I may lean upon them. Now the house was full of men and women; and all the lords of the Philistines were there; and there were upon the roof about three thousand men and women, that beheld while Samson made sport.",
         "caption": "Between the two middle pillars",
-        "image": "panel-daniel-2.svg"
+        "image": ""
       },
       {
         "text": "And Samson called unto the LORD, and said, O Lord GOD, remember me, I pray thee, and strengthen me, I pray thee, only this once, O God, that I may be at once avenged of the Philistines for my two eyes.",
         "caption": "One honest prayer",
-        "image": "panel-daniel-2.svg"
+        "image": ""
       },
       {
         "text": "And Samson took hold of the two middle pillars upon which the house stood, and on which it was borne up, of the one with his right hand, and of the other with his left. And Samson said, Let me die with the Philistines. And he bowed himself with all his might; and the house fell upon the lords, and upon all the people that were therein. So the dead which he slew at his death were more than they which he slew in his life.",
         "caption": "The Lord gave strength one last time",
-        "image": "panel-daniel-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -34289,32 +34289,32 @@
       {
         "text": "The children of Israel did evil again, and the Philistines troubled them. There was a man named Manoah whose wife had no children.",
         "caption": "A hard time — a longing heart",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The angel of the Lord appeared to her and said, \"Thou shalt conceive, and bear a son. No razor shall come on his head, for the child shall be a Nazarite unto God from the womb. He shall begin to deliver Israel out of the hand of the Philistines.\"",
         "caption": "God's promise",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "She told Manoah. He prayed that the angel would come again. The angel returned and spoke the same words.",
         "caption": "Manoah prays — the angel comes again",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Manoah offered a sacrifice upon a rock to the Lord. When the flame went up toward heaven, the angel of the Lord ascended in the flame of the altar.",
         "caption": "Up in the flame — holy wonder",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Manoah and his wife were afraid, yet the Lord had shewed them great things. In time a son was born, and they called his name Samson.",
         "caption": "Welcome, Samson",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "The child grew, and the Lord blessed him.",
         "caption": "The Lord's blessing",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -34409,27 +34409,27 @@
       {
         "text": "And it came to pass afterward, that he loved a woman in the valley of Sorek, whose name was Delilah. And the lords of the Philistines came up unto her, and said unto her, Entice him, and see wherein his great strength lieth, and by what means we may prevail against him, that we may bind him to afflict him: and we will give thee every one of us eleven hundred pieces of silver.",
         "caption": "Love and a hard ask",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, when she pressed him daily with her words, and urged him, so that his soul was vexed unto death; That he told her all his heart, and said unto her, There hath not come a razor upon mine head; for I have been a Nazarite unto God from my mother's womb: if I be shaven, then my strength will go from me, and I shall become weak, and be like any other man.",
         "caption": "The secret he should have kept for God",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And when Delilah saw that he had told her all his heart, she sent and called for the lords of the Philistines, saying, Come up this once, for he hath shewed me all his heart. Then the lords of the Philistines came up unto her, and brought money in their hand. And she made him sleep upon her knees; and she called for a man, and she caused him to shave off the seven locks of his head; and she began to afflict him, and his strength went from him.",
         "caption": "While he slept — his strength went",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And she said, The Philistines be upon thee, Samson. And he awoke out of his sleep, and said, I will go out as at other times before, and shake myself. And he wist not that the LORD was departed from him.",
         "caption": "He did not know — yet",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "But the Philistines took him, and put out his eyes, and brought him down to Gaza, and bound him with fetters of brass; and he did grind in the prison house.",
         "caption": "A hard turn — the Lord had not left him forever",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -34524,27 +34524,27 @@
       {
         "text": "Samson went down toward Timnath. A young lion roared against him.",
         "caption": "Something fierce on the path",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The Spirit of the LORD came mightily upon him, and he rent him as he would have rent a kid, and he had nothing in his hand.",
         "caption": "God's strength — not boasting",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "After a time he turned aside to see the carcass of the lion: and, behold, there was a swarm of bees and honey in the carcass of the lion.",
         "caption": "A sweet surprise",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He took thereof in his hands, and went on eating, and came to his father and mother, and he gave them, and they did eat.",
         "caption": "Sharing the honey",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "But he told not them that he had taken the honey out of the carcass of the lion.",
         "caption": "A quiet secret for now",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -34711,7 +34711,7 @@
       {
         "text": "Samson trusted God for strength to do hard things. When he called on the Lord, God gave him power beyond his own.",
         "caption": "Samson and God’s Strength",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -34724,17 +34724,17 @@
       {
         "text": "And the LORD said unto Samuel, How long wilt thou mourn for Saul, seeing I have rejected him from reigning over Israel? fill thine horn with oil, and go, I will send thee to Jesse the Bethlehemite: for I have provided me a king among his sons. And Samuel said, How can I go? if Saul hear it, he will kill me. And the LORD said, Take an heifer with thee, and say, I am come to sacrifice to the LORD. And call Jesse to the sacrifice, and I will shew thee what thou shalt do: and thou shalt anoint unto me him whom I name unto thee. And Samuel did that which the LORD spake, and came to Bethlehem. And the elders of the town trembled at his coming, and said, Comest thou peaceably? And he said, Peaceably: I am come to sacrifice unto the LORD: sanctify yourselves, and come with me to the sacrifice. And he sanctified Jesse and his sons, and called them to the sacrifice.",
         "caption": "Fill thine horn with oil — come to Jesse at Bethlehem",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, when they were come, that he looked on Eliab, and said, Surely the LORD's anointed is before him. But the LORD said unto Samuel, Look not on his countenance, or on the height of his stature; because I have refused him: for the LORD seeth not as man seeth; for man looketh on the outward appearance, but the LORD looketh on the heart. Then Jesse called Abinadab, and made him pass before Samuel. And he said, Neither hath the LORD chosen this. Then Jesse made Shammah to pass by. And he said, Neither hath the LORD chosen this. Again, Jesse made seven of his sons to pass before Samuel. And Samuel said unto Jesse, The LORD hath not chosen these.",
         "caption": "The LORD looketh on the heart — not these seven",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Samuel said unto Jesse, Are here all thy children? And he said, There remaineth yet the youngest, and, behold, he keepeth the sheep. And Samuel said unto Jesse, Send and fetch him: for we will not sit down till he come hither. And he sent, and brought him in. Now he was ruddy, and withal of a beautiful countenance, and goodly to look to. And the LORD said, Arise, anoint him: for this is he. Then Samuel took the horn of oil, and anointed him in the midst of his brethren: and the Spirit of the LORD came upon David from that day forward. So Samuel rose up, and went to Ramah.",
         "caption": "The youngest from the sheep — anointed; the Spirit came on David",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -34828,37 +34828,37 @@
       {
         "text": "And the man Elkanah, and all his house, went up to offer unto the LORD the yearly sacrifice, and his vow. But Hannah went not up; for she said unto her husband, I will not go up until the child be weaned, and then I will bring him, that he may appear before the LORD, and there abide for ever. And Elkanah her husband said unto her, Do what seemeth thee good; tarry until thou have weaned him; only the LORD establish his word. So the woman abode, and gave her son suck until she weaned him. And when she had weaned him, she took him up with her, with three bullocks, and one ephah of flour, and a bottle of wine, and brought him unto the house of the LORD in Shiloh: and the child was young.",
         "caption": "Weaned — brought to the house of the Lord",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And they slew a bullock, and brought the child to Eli. And she said, Oh my lord, as thy soul liveth, my lord, I am the woman that stood by thee here, praying unto the LORD. For this child I prayed; and the LORD hath given me my petition which I asked of him: Therefore also I have lent him to the LORD; as long as he liveth he shall be lent to the LORD. And he worshipped the LORD there.",
         "caption": "For this child I prayed — lent to the Lord",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And Hannah prayed, and said, My heart rejoiceth in the LORD, mine horn is exalted in the LORD: my mouth is enlarged over mine enemies; because I rejoice in thy salvation. There is none holy as the LORD: for there is none beside thee: neither is there any rock like our God.",
         "caption": "My heart rejoiceth — none holy as the Lord",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Talk no more so exceeding proudly; let not arrogancy come out of your mouth: for the LORD is a God of knowledge, and by him actions are weighed. The bows of the mighty men are broken, and they that stumbled are girded with strength. They that were full have hired out themselves for bread; and they that were hungry ceased: so that the barren hath born seven; and she that hath many children is waxed feeble.",
         "caption": "The Lord weighs the actions of all",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "The LORD killeth, and maketh alive: he bringeth down to the grave, and bringeth up. The LORD maketh poor, and maketh rich: he bringeth low, and lifteth up. He raiseth up the poor out of the dust, and lifteth up the beggar from the dunghill, to set them among princes, and to make them inherit the throne of glory: for the pillars of the earth are the LORD's, and he hath set the world upon them.",
         "caption": "He raiseth up the poor — the pillars are the Lord's",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "He will keep the feet of his saints, and the wicked shall be silent in darkness; for by strength shall no man prevail. The adversaries of the LORD shall be broken to pieces; out of heaven shall he thunder upon them: the LORD shall judge the ends of the earth; and he shall give strength unto his king, and exalt the horn of his anointed. And Elkanah went to Ramah to his house. And the child did minister unto the LORD before Eli the priest.",
         "caption": "Samuel ministers before Eli",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "But Samuel ministered before the LORD, being a child, girded with a linen ephod. Moreover his mother made him a little coat, and brought it to him from year to year, when she came up with her husband to offer the yearly sacrifice. And Eli blessed Elkanah and his wife, and said, The LORD give thee seed of this woman for the loan which is lent to the LORD. And they went unto their own home. And the LORD visited Hannah, so that she conceived, and bare three sons and two daughters. And the child Samuel grew before the LORD.",
         "caption": "A little coat each year — the Lord visited Hannah",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -34953,32 +34953,32 @@
       {
         "text": "And the child Samuel ministered unto the LORD before Eli. And the word of the LORD was precious in those days; there was no open vision. And it came to pass at that time, when Eli was laid down in his place, and his eyes began to wax dim, that he could not see; And ere the lamp of God went out in the temple of the LORD, where the ark of God was, and Samuel was laid down to sleep;",
         "caption": "Night in the Lord's house — the lamp still burning",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "That the LORD called Samuel: and he answered, Here am I. And he ran unto Eli, and said, Here am I; for thou calledst me. And he said, I called not; lie down again. And he went and lay down. And the LORD called yet again, Samuel. And Samuel arose and went to Eli, and said, Here am I; for thou didst call me. And he answered, I called not, my son; lie down again. Now Samuel did not yet know the LORD, neither was the word of the LORD yet revealed unto him.",
         "caption": "Samuel runs to Eli — I called not; lie down again",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And the LORD called Samuel again the third time. And he arose and went to Eli, and said, Here am I; for thou didst call me. And Eli perceived that the LORD had called the child. Therefore Eli said unto Samuel, Go, lie down: and it shall be, if he call thee, that thou shalt say, Speak, LORD; for thy servant heareth. So Samuel went and lay down in his place. And the LORD came, and stood, and called as at other times, Samuel, Samuel. Then Samuel answered, Speak; for thy servant heareth.",
         "caption": "Speak, LORD — Speak; for thy servant heareth",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And the LORD said to Samuel, Behold, I will do a thing in Israel, at which both the ears of every one that heareth it shall tingle. In that day I will perform against Eli all things which I have spoken concerning his house: when I begin, I will also make an end. For I have told him that I will judge his house for ever for the iniquity which he knoweth; because his sons made themselves vile, and he restrained them not. And therefore I have sworn unto the house of Eli, that the iniquity of Eli's house shall not be purged with sacrifice nor offering for ever.",
         "caption": "The Lord speaks — a heavy word for Eli's house",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And Samuel lay until the morning, and opened the doors of the house of the LORD. And Samuel feared to shew Eli the vision. Then Eli called Samuel, and said, Samuel, my son. And he answered, Here am I. And he said, What is the thing that the LORD hath said unto thee? I pray thee hide it not from me: God do so to thee, and more also, if thou hide any thing from me of all the things that he said unto thee. And Samuel told him every whit, and hid nothing from him. And he said, It is the LORD: let him do what seemeth him good.",
         "caption": "Morning — Samuel tells Eli every word",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And Samuel grew, and the LORD was with him, and did let none of his words fall to the ground. And all Israel from Dan even to Beersheba knew that Samuel was established to be a prophet of the LORD. And the LORD appeared again in Shiloh: for the LORD revealed himself to Samuel in Shiloh by the word of the LORD.",
         "caption": "Samuel grew — the Lord was with him",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -35074,32 +35074,32 @@
       {
         "text": "And the child Samuel ministered unto the LORD before Eli. And the word of the LORD was precious in those days; there was no open vision. And it came to pass at that time, when Eli was laid down in his place, and his eyes began to wax dim, that he could not see; And ere the lamp of God went out in the temple of the LORD, where the ark of God was, and Samuel was laid down to sleep;",
         "caption": "Night in the Lord's house — the lamp still burning",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "That the LORD called Samuel: and he answered, Here am I. And he ran unto Eli, and said, Here am I; for thou calledst me. And he said, I called not; lie down again. And he went and lay down. And the LORD called yet again, Samuel. And Samuel arose and went to Eli, and said, Here am I; for thou didst call me. And he answered, I called not, my son; lie down again. Now Samuel did not yet know the LORD, neither was the word of the LORD yet revealed unto him.",
         "caption": "Samuel runs to Eli — I called not; lie down again",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And the LORD called Samuel again the third time. And he arose and went to Eli, and said, Here am I; for thou didst call me. And Eli perceived that the LORD had called the child. Therefore Eli said unto Samuel, Go, lie down: and it shall be, if he call thee, that thou shalt say, Speak, LORD; for thy servant heareth. So Samuel went and lay down in his place. And the LORD came, and stood, and called as at other times, Samuel, Samuel. Then Samuel answered, Speak; for thy servant heareth.",
         "caption": "Speak, LORD — Speak; for thy servant heareth",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And the LORD said to Samuel, Behold, I will do a thing in Israel, at which both the ears of every one that heareth it shall tingle. In that day I will perform against Eli all things which I have spoken concerning his house: when I begin, I will also make an end. For I have told him that I will judge his house for ever for the iniquity which he knoweth; because his sons made themselves vile, and he restrained them not. And therefore I have sworn unto the house of Eli, that the iniquity of Eli's house shall not be purged with sacrifice nor offering for ever.",
         "caption": "The Lord speaks — a heavy word for Eli's house",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And Samuel lay until the morning, and opened the doors of the house of the LORD. And Samuel feared to shew Eli the vision. Then Eli called Samuel, and said, Samuel, my son. And he answered, Here am I. And he said, What is the thing that the LORD hath said unto thee? I pray thee hide it not from me: God do so to thee, and more also, if thou hide any thing from me of all the things that he said unto thee. And Samuel told him every whit, and hid nothing from him. And he said, It is the LORD: let him do what seemeth him good.",
         "caption": "Morning — Samuel tells Eli every word",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And Samuel grew, and the LORD was with him, and did let none of his words fall to the ground. And all Israel from Dan even to Beersheba knew that Samuel was established to be a prophet of the LORD. And the LORD appeared again in Shiloh: for the LORD revealed himself to Samuel in Shiloh by the word of the LORD.",
         "caption": "Samuel grew — the Lord was with him",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -35437,7 +35437,7 @@
       {
         "text": "Saul was mean to Jesus’ friends, but on the road to Damascus a bright light shone and Jesus spoke to him. Saul became Paul and spent his lif…",
         "caption": "Saul Meets Jesus",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -35715,32 +35715,32 @@
       {
         "text": "Jesus will come in His glory — and all the nations will be gathered before Him.",
         "caption": "The Son of man shall come in his glory",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "He will separate people like a shepherd separates the sheep from the goats.",
         "caption": "As a shepherd divideth his sheep from the goats",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "To the sheep on His right He will say, “Come, ye blessed of my Father, inherit the kingdom…”",
         "caption": "Come, ye blessed",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "“For I was an hungred, and ye gave me meat: I was thirsty, and ye gave me drink: I was a stranger, and ye took me in.”",
         "caption": "Ye gave me meat and drink",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The King will answer, “Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me.”",
         "caption": "Ye have done it unto me",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus says when we help others, we are helping Him.",
         "caption": "Helping the least of these",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -35842,37 +35842,37 @@
       {
         "text": "Shepherds were watching their sheep at night.",
         "caption": "Keeping watch",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "An angel appeared with bright light.",
         "caption": "Do not fear",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The angel said, “Good tidings of great joy — a Saviour is born!”",
         "caption": "Great joy",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Many angels praised God.",
         "caption": "Glory to God",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The shepherds hurried to Bethlehem.",
         "caption": "Let us go",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "They found baby Jesus in the manger.",
         "caption": "Found Him",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "They were so happy they had found Him.",
         "caption": "Full of joy",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -35962,32 +35962,32 @@
       {
         "text": "Then spake Elisha unto the woman, whose son he had restored to life, saying, Arise, and go thou and thine household, and sojourn wheresoever thou canst sojourn: for the LORD hath called for a famine; and it shall also come upon the land seven years.",
         "caption": "Arise, and go — a famine seven years",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And the woman arose, and did after the saying of the man of God: and she went with her household, and sojourned in the land of the Philistines seven years.",
         "caption": "She sojourned in the land of the Philistines seven years",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass at the seven years’ end, that the woman returned out of the land of the Philistines: and she went forth to cry unto the king for her house and for her land.",
         "caption": "She returned — cry unto the king for her house and for her land",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And the king talked with Gehazi the servant of the man of God, saying, Tell me, I pray thee, all the great things that Elisha hath done.",
         "caption": "Tell me, I pray thee, all the great things that Elisha hath done",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, as he was telling the king how he had restored a dead body to life, that, behold, the woman, whose son he had restored to life, cried to the king for her house and for her land. And Gehazi said, My lord, O king, this is the woman, and this is her son, whom Elisha restored to life.",
         "caption": "This is the woman, and this is her son, whom Elisha restored to life",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "And when the king asked the woman, she told him. So the king appointed unto her a certain officer, saying, Restore all that was hers, and all the fruits of the field since the day that she left the land, even until now.",
         "caption": "Restore all that was hers — all the fruits of the field",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -36152,7 +36152,7 @@
       {
         "text": "Paul and Silas were in jail but they sang songs to God. God sent an earthquake and their chains fell off.",
         "caption": "Paul and Silas Sing in Jail",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -36178,27 +36178,27 @@
       {
         "text": "Mary and Joseph brought baby Jesus to the temple.",
         "caption": "At the temple",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Simeon saw the baby and took Him in his arms.",
         "caption": "In his arms",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Simeon praised God and said he had seen the Savior.",
         "caption": "God’s promise",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Anna thanked God for the baby.",
         "caption": "Thankful heart",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "They were so happy to see the promised Savior.",
         "caption": "Great joy",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -36288,37 +36288,37 @@
       {
         "text": "And it came to pass in the four hundred and eightieth year after the children of Israel were come out of the land of Egypt, in the fourth year of Solomon's reign over Israel, in the month Zif, which is the second month, that he began to build the house of the LORD. So Solomon built the house, and finished it; and covered the house with beams and boards of cedar.",
         "caption": "Solomon built the house of the LORD — and finished it",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And the word of the LORD came to Solomon, saying, Concerning this house which thou art in building, if thou wilt walk in my statutes, and execute my judgments, and keep all my commandments to walk in them; then will I perform my word with thee, which I spake unto David thy father: And I will dwell among the children of Israel, and will not forsake my people Israel.",
         "caption": "The Lord promised to dwell among His people",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "And King Solomon, and all the congregation of Israel, that were assembled unto him, were with him before the ark, sacrificing sheep and oxen, that could not be told nor numbered for multitude. And the priests brought in the ark of the covenant of the LORD unto his place, into the oracle of the house, to the most holy place, even under the wings of the cherubims.",
         "caption": "Glad offerings — the ark brought into the most holy place",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, when the priests were come out of the holy place, that the cloud filled the house of the LORD, So that the priests could not stand to minister because of the cloud: for the glory of the LORD had filled the house of the LORD.",
         "caption": "A cloud filled the house — the glory of the LORD",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Then spake Solomon, The LORD said that he would dwell in the thick darkness. I have surely built thee an house to dwell in, a settled place for thee to abide in for ever.",
         "caption": "Solomon spoke — the Lord would dwell there",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "And Solomon stood before the altar of the LORD in the presence of all the congregation of Israel, and spread forth his hands toward heaven: And he said, LORD God of Israel, there is no God like thee, in heaven above, or on earth beneath, who keepest covenant and mercy with thy servants that walk before thee with all their heart:",
         "caption": "Solomon prayed — there is no God like thee",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "But will God indeed dwell on the earth? behold, the heaven and heaven of heavens cannot contain thee; how much less this house that I have builded? Yet have thou respect unto the prayer of thy servant, and to his supplication, O LORD my God, to hearken unto the cry and to the prayer, which thy servant prayeth before thee to day: That thine eyes may be open toward this house night and day, even toward the place of which thou hast said, My name shall be there: that thou mayest hearken unto the prayer which thy servant shall make toward this place.",
         "caption": "Hear us, O Lord — thine eyes toward this house",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -36413,37 +36413,37 @@
       {
         "text": "Then came there two women, that were harlots, unto the king, and stood before him. And the one woman said, O my lord, I and this woman dwell in one house; and I was delivered of a child with her in the house.",
         "caption": "Two women stand before the king",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass the third day after that I was delivered, that this woman was delivered also: and we were together; there was no stranger with us in the house, save we two in the house.",
         "caption": "Two mothers, one house",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And this woman's child died in the night; because she overlaid it. And she arose at midnight, and took my son from beside me, while thine handmaid slept, and laid it in her bosom, and laid her dead child in my bosom.",
         "caption": "A hard night — the living child",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And when I rose in the morning to give my child suck, behold, it was dead: but when I had considered it in the morning, behold, it was not my son, which I did bear. And the other woman said, Nay; but the living is my son, and the dead is thy son. And this said, No; but the dead is thy son, and the living is my son. Thus they spake before the king.",
         "caption": "Each says the living child is hers",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then said the king, The one saith, This is my son that liveth, and thy son is the dead: and the other saith, Nay; but thy son is the dead, and my son is the living. And the king said, Bring me a sword. And they brought a sword before the king. And the king said, Divide the living child in two, and give half to the one, and half to the other.",
         "caption": "Bring me a sword",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "Then spake the woman whose the living child was unto the king, for her bowels yearned upon her son, and she said, O my lord, give her the living child, and in no wise slay it. But the other said, Let it be neither mine nor thine, but divide it.",
         "caption": "Give her the living child — in no wise slay it",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "Then the king answered and said, Give her the living child, and in no wise slay it: she is the mother thereof. And all Israel heard of the judgment which the king had judged; and they feared the king: for they saw that the wisdom of God was in him, to do judgment.",
         "caption": "The wisdom of God was in him",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -36538,27 +36538,27 @@
       {
         "text": "In Gibeon the LORD appeared to Solomon in a dream by night: and God said, Ask what I shall give thee.",
         "caption": "The Lord in a dream — Ask what I shall give thee",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "And Solomon said, I am but a little child: I know not how to go out or come in. Give therefore thy servant an understanding heart to judge thy people, that I may discern between good and bad: for who is able to judge this thy so great a people?",
         "caption": "A humble prayer — an understanding heart",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And the speech pleased the LORD, that Solomon had asked this thing. And God said unto him, Because thou hast asked this thing, and hast not asked for thyself long life; neither hast asked riches for thyself, nor hast asked the life of thine enemies; but hast asked for thyself understanding to discern judgment;",
         "caption": "The Lord was pleased with Solomon’s request",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Behold, I have done according to thy words: lo, I have given thee a wise and an understanding heart; so that there was none like thee before thee, neither after thee shall any arise like unto thee. And I have also given thee that which thou hast not asked, both riches, and honour: so that there shall not be any among the kings like unto thee all thy days.",
         "caption": "God gave a wise heart — and kindness besides",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "And Solomon awoke; and, behold, it was a dream. And he came to Jerusalem, and stood before the ark of the covenant of the LORD, and offered up burnt offerings, and offered peace offerings, and made a feast to all his servants.",
         "caption": "He awoke — and worshiped in Jerusalem",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -36651,22 +36651,22 @@
       {
         "text": "God told Moses to send twelve men to spy out the land of Canaan that He had promised to give His people.",
         "caption": "Twelve men go to see the land",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The men went and explored the land for forty days. They saw beautiful fruit, strong cities, and tall people. When they returned, ten of the spies said, \"The land is good, but the people are too strong for us. We cannot go up against them.\"",
         "caption": "A good land — hard news from ten",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "But Caleb and Joshua said, \"Let us go up at once, and possess it; for we are well able to overcome it. The Lord is with us. Do not fear the people of the land.\"",
         "caption": "Caleb and Joshua trust the Lord",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "The people listened to the ten fearful spies and began to cry and complain. But Joshua and Caleb trusted God and tried to encourage the people to believe the Lord.",
         "caption": "Faithful words in a hard moment",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -37000,7 +37000,7 @@
       {
         "text": "Stephen told the people about Jesus even when they were angry. He looked up and saw Jesus in heaven. He asked Jesus to take care of him, and…",
         "caption": "Stephen Trusts Jesus",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -37013,27 +37013,27 @@
       {
         "text": "The kings of the land gathered together to fight against God's people. Joshua and the children of Israel went out to meet them.",
         "caption": "God's people go forward",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "In the middle of the battle, Joshua prayed to the Lord where all Israel could hear: \"Sun, stand thou still upon Gibeon; and thou, Moon, in the valley of Ajalon.\"",
         "caption": "Joshua prays aloud",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And the sun stood still, and the moon stayed, until the people had avenged themselves upon their enemies.",
         "caption": "The sun and moon wait",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "So the sun stood still in the midst of heaven, and hasted not to go down about a whole day.",
         "caption": "A day like no other",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "There was no day like that before it or after it, that the Lord hearkened unto the voice of a man: for the Lord fought for Israel.",
         "caption": "The Lord fought for Israel",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -37128,32 +37128,32 @@
       {
         "text": "God told Moses exactly how to build a special tent called the tabernacle. It would be God's house in the middle of the camp so He could dwell with His people.",
         "caption": "God's tent in the camp",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "The people brought gifts with glad hearts — gold, silver, fine cloth, wood, and more. Skilled workers made the curtains, the altar, the lampstand, the table, and the beautiful ark of the covenant.",
         "caption": "Glad gifts and careful work",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "When everything was finished just as God commanded, Moses set up the tabernacle. He put the furniture in its place and hung the veil.",
         "caption": "Moses finishes the setup",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Then a cloud covered the tent of the congregation, and the glory of the Lord filled the tabernacle.",
         "caption": "Glory fills the tent",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "The cloud stayed over the tabernacle by day, and fire was on it by night. When the cloud moved, the people followed. When the cloud stayed, they rested.",
         "caption": "Cloud by day, fire by night",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "In this way the Lord was with His people everywhere they went.",
         "caption": "God with His people",
-        "image": "panel-david-1.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -37249,27 +37249,27 @@
       {
         "text": "God's people had come to the foot of Mount Sinai. A thick cloud covered the mountain, and there was thunder and lightning. The mountain shook, and the people were afraid.",
         "caption": "At the holy mountain",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Moses went up the mountain to meet with God.",
         "caption": "Moses goes up to God",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "God spoke these words:\n\n\"I am the Lord thy God, which have brought thee out of the land of Egypt, out of the house of bondage.\n\nThou shalt have no other gods before me.\n\nThou shalt not make unto thee any graven image.\n\nThou shalt not take the name of the Lord thy God in vain.\n\nRemember the sabbath day, to keep it holy.\n\nHonour thy father and thy mother.\n\nThou shalt not kill.\n\nThou shalt not commit adultery.\n\nThou shalt not steal.\n\nThou shalt not bear false witness against thy neighbour.\n\nThou shalt not covet thy neighbour's house, thou shalt not covet thy neighbour's wife, nor his manservant, nor his maidservant, nor his ox, nor his ass, nor any thing that is thy neighbour's.\"",
         "caption": "God speaks His law",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "God wrote these ten commandments on two tables of stone and gave them to Moses so His people would know how to love Him and love each other.",
         "caption": "Written on stone",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "The people stood far off, but Moses drew near to the thick darkness where God was.",
         "caption": "Moses draws near",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -37378,37 +37378,37 @@
       {
         "text": "Ten men with a skin disease saw Jesus.",
         "caption": "They stood afar off",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "They called, “Jesus, have mercy on us!”",
         "caption": "Master, have mercy on us",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Go show yourselves to the priests.”",
         "caption": "Go shew yourselves unto the priests",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "As they went, they were healed.",
         "caption": "Cleansed as they went",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "One man ran back and thanked Jesus.",
         "caption": "He glorified God",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Thy faith hath made thee whole.”",
         "caption": "Where are the nine?",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus is happy when we say thank you.",
         "caption": "A thankful heart",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -37602,32 +37602,32 @@
       {
         "text": "Ten young women took their lamps to meet the bridegroom.",
         "caption": "Went forth to meet the bridegroom",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Five were wise and took extra oil. Five were foolish and took no extra oil.",
         "caption": "They took their lamps",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "At midnight a cry: “Behold, the bridegroom cometh; go ye out to meet him.”",
         "caption": "The bridegroom cometh",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The wise were ready with oil. The bridegroom came, and they went in to the marriage.",
         "caption": "Go in with him to the marriage",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Watch therefore, for ye know neither the day nor the hour.”",
         "caption": "Watch therefore",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus wants us to be ready for Him at all times.",
         "caption": "The Son of man cometh",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -37811,32 +37811,32 @@
       {
         "text": "Thomas was not with the other disciples when Jesus first appeared — But Thomas, one of the twelve, called Didymus, was not with them when Jesus came.",
         "caption": "Not with them",
-        "image": "panel-thomas-doubt-1.svg"
+        "image": ""
       },
       {
         "text": "The others told him, “We have seen the Lord,” but Thomas said he would not believe unless he could see and touch the nail prints — The other disciples therefore said unto him, We have seen the Lord. But he said unto them, Except I shall see in his hands the print of the nails, and put my finger into the print of the nails, and thrust my hand into his side, I will not believe.",
         "caption": "I will not believe",
-        "image": "panel-thomas-doubt-1.svg"
+        "image": ""
       },
       {
         "text": "Eight days later, Jesus came again while the doors were shut and stood among them — And after eight days again his disciples were within, and Thomas with them: then came Jesus, the doors being shut, and stood in the midst, and said, Peace be unto you.",
         "caption": "Peace be unto you",
-        "image": "panel-thomas-doubt-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said gently to Thomas, “Reach hither thy finger… and be not faithless, but believing.” — Then saith he to Thomas, Reach hither thy finger, and behold my hands; and reach hither thy hand, and thrust it into my side: and be not faithless, but believing.",
         "caption": "Be not faithless",
-        "image": "panel-thomas-doubt-2.svg"
+        "image": ""
       },
       {
         "text": "Thomas looked at Jesus and said, “My Lord and my God.” — And Thomas answered and said unto him, My Lord and my God.",
         "caption": "My Lord and my God",
-        "image": "panel-thomas-doubt-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Thomas, because thou hast seen me, thou hast believed: blessed are they that have not seen, and yet have believed.” — Jesus saith unto him, Thomas, because thou hast seen me, thou hast believed: blessed are they that have not seen, and yet have believed.",
         "caption": "Blessed are they that have not seen",
-        "image": "panel-thomas-doubt-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -38010,7 +38010,7 @@
       {
         "text": "Young Timothy traveled with Paul and learned to love people the way Jesus does. Paul called him a son and a true friend.",
         "caption": "Timothy and Paul",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -38178,7 +38178,7 @@
       {
         "text": "Titus was sent to help the church and brought back happy news that made Paul’s heart glad. He was a true encouraging friend.",
         "caption": "Titus Brings Joy",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -38345,7 +38345,7 @@
       {
         "text": "Jesus saved us so we can be eager to do good things for others.",
         "caption": "Eager to Do Good",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -38370,32 +38370,32 @@
       {
         "text": "Early on the first day of the week, Mary Magdalene and the other Mary came to the sepulchre — In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre.",
         "caption": "At the sepulchre",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "God sent an angel — the earth shook — and the stone was rolled away from the door — And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it.",
         "caption": "Stone rolled back",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The angel said, Fear not — I know you seek Jesus — He is not here: for he is risen, as he said — Come, see the place where the Lord lay.",
         "caption": "He is risen",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Go quickly and tell His disciples — He goes before you into Galilee — And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you.",
         "caption": "Tell the disciples",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "They ran with fear and great joy to share the news — And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word.",
         "caption": "Great joy",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus met them with gentle words — Be not afraid — He is alive and loves us — And as they went to tell his disciples, behold, Jesus met them, saying, All hail. … Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.",
         "caption": "Jesus is alive",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -38840,32 +38840,32 @@
       {
         "text": "The soldiers brought Jesus to Pilate the governor early in the morning. He asked, Art thou the King of the Jews? Jesus answered, Thou sayest.",
         "caption": "Before the governor",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "When the chief priests accused Jesus, He would not speak against them — and Pilate marvelled greatly.",
         "caption": "Answered nothing",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "At the feast, Pilate would release one prisoner. They had a man called Barabbas, and Jesus which is called Christ.",
         "caption": "Barabbas or Christ",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The rulers persuaded the crowd to ask for Barabbas. Pilate's wife had dreamed about the just Man Jesus.",
         "caption": "Ask Barabbas",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Pilate asked, What shall I do with Jesus? They cried, Let him be crucified. He asked, Why, what evil hath he done?",
         "caption": "Let him be crucified",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Pilate washed his hands before the people. They chose Barabbas, and Jesus was delivered to be crucified — and Jesus stayed calm and strong.",
         "caption": "Truth and love",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -38978,32 +38978,32 @@
       {
         "text": "The men took Jesus to the high priest Caiaphas and the elders.",
         "caption": "Led him away to Caiaphas",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "They tried to find people to say untrue things about Jesus, but they could not.",
         "caption": "Sought false witness",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The high priest asked Jesus questions, but Jesus stayed quiet at first.",
         "caption": "Jesus held his peace",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Then the high priest asked if He was the Christ, the Son of God.",
         "caption": "I adjure thee by the living God",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus answered calmly, \"Thou hast said… Hereafter shall ye see the Son of man sitting on the right hand of power.\"",
         "caption": "Thou hast said",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus told the truth even when it was hard, because He is the Son of God.",
         "caption": "The Son of God",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -39117,32 +39117,32 @@
       {
         "text": "Some men came to Jesus with a question that was meant to trap Him.",
         "caption": "A hard question",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "They asked, Is it lawful to give tribute unto Caesar, or not?",
         "caption": "Tribute to Caesar?",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, Shew me the tribute money.",
         "caption": "Show me the coin",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "They brought Him a penny. He asked, Whose is this image and superscription? They said, Caesar’s.",
         "caption": "Whose image?",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, Render therefore unto Caesar the things which are Caesar’s; and unto God the things which are God’s.",
         "caption": "Caesar and God",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "They marvelled at His answer — Jesus teaches us with quiet wisdom.",
         "caption": "Jesus answers with wisdom",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -39258,37 +39258,37 @@
       {
         "text": "Jesus and His disciples came near Jerusalem. They stopped at Bethphage, at the mount of Olives.",
         "caption": "Near Jerusalem",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus sent two disciples into the village and said, “Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them.”",
         "caption": "The Lord hath need of them",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The disciples went and did as Jesus commanded. They brought the donkey and the colt, and put their clothes on them, and Jesus sat thereon.",
         "caption": "Jesus rides the donkey",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "A very great multitude spread their garments in the way. Others cut down branches from the trees and spread them in the way.",
         "caption": "Clothes and branches",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The crowds cried, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”",
         "caption": "Hosanna to the Son of David",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "When Jesus entered Jerusalem, all the city was moved, saying, “Who is this?” The multitude said, “This is Jesus the prophet of Nazareth of Galilee.”",
         "caption": "Who is this?",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "The people welcomed Jesus as their King with joy and praise.",
         "caption": "Welcome the King",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -39406,37 +39406,37 @@
       {
         "text": "A servant owed the king a huge debt.",
         "caption": "Ten thousand talents…",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The servant begged for patience.",
         "caption": "Have patience with me",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The king forgave the whole debt.",
         "caption": "Moved with compassion",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The servant found another man who owed him a little.",
         "caption": "A fellowservant",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He would not forgive him and put him in prison.",
         "caption": "Took by the throat",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The king was angry and punished the unforgiving servant.",
         "caption": "O thou wicked servant",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus wants us to forgive others.",
         "caption": "From your hearts",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -39620,32 +39620,32 @@
       {
         "text": "Jesus watched people putting money in the treasury.",
         "caption": "Jesus sat over against the treasury",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Rich people put in a lot.",
         "caption": "Many that were rich cast in much",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "A poor widow put in two small coins.",
         "caption": "Two mites, which make a farthing",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said she gave more than all the others.",
         "caption": "This poor widow hath cast more in",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "She gave all she had — even all her living.",
         "caption": "All that she had, even all her living",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus sees when we give with a loving heart.",
         "caption": "God sees the heart",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -39735,37 +39735,37 @@
       {
         "text": "Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.",
         "caption": "The creditor is come to take unto him my two sons to be bondmen",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.",
         "caption": "Save a pot of oil",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.",
         "caption": "Borrow empty vessels — borrow not a few",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.",
         "caption": "Shut the door — pour out into all those vessels",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.",
         "caption": "She poured out",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.",
         "caption": "There is not a vessel more — and the oil stayed",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
         "caption": "Sell the oil — pay thy debt — live thou and thy children of the rest",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -39867,32 +39867,32 @@
       {
         "text": "Jesus watched people putting money in the treasury.",
         "caption": "Jesus sat over against the treasury",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Rich people put in a lot.",
         "caption": "Many that were rich cast in much",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "A poor widow put in two small coins.",
         "caption": "Two mites, which make a farthing",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said she gave more than all the others.",
         "caption": "This poor widow hath cast more in",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "She gave all she had — even all her living.",
         "caption": "All that she had, even all her living",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus sees when we give with a loving heart.",
         "caption": "God sees the heart",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -39992,27 +39992,27 @@
       {
         "text": "Wise men saw a bright star.",
         "caption": "A new star",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "They followed the star to Bethlehem.",
         "caption": "Following",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "They found baby Jesus with Mary.",
         "caption": "Found Him",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "They bowed down and gave Him gifts.",
         "caption": "Gifts of love",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "They worshipped the little King.",
         "caption": "We worship Him",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -40116,37 +40116,37 @@
       {
         "text": "Jesus was teaching in the synagogue.",
         "caption": "Listening to Jesus",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "A man was there whose hand was hurt.",
         "caption": "Jesus sees him",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus asked the man to stand up.",
         "caption": "Stand forth",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus asked about doing good — the people were quiet.",
         "caption": "Do good or evil?",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Stretch forth thine hand.”",
         "caption": "His kind words",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "The man stretched out his hand and it was made whole.",
         "caption": "Healed!",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus does good every day because He cares.",
         "caption": "He loves us",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -40332,32 +40332,32 @@
       {
         "text": "Jesus walked through Jericho. A man named Zacchaeus was very short and could not see over the crowd.",
         "caption": "Little of stature",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "So Zacchaeus climbed up into a tall sycomore tree to see Jesus.",
         "caption": "Up in the tree",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus looked up and called him by name: Zacchaeus, make haste, and come down; for to day I must abide at thy house.",
         "caption": "Jesus called his name",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Zacchaeus came down quickly and welcomed Jesus with joy.",
         "caption": "Joyfully received",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "The people murmured because Zacchaeus had been a sinner, but Zacchaeus promised to give to the poor and make things right.",
         "caption": "Making things right",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, This day is salvation come to this house… for the Son of man is come to seek and to save that which was lost. What a happy day!",
         "caption": "Seek and save the lost",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -40519,7 +40519,7 @@
       {
         "text": "Zechariah saw visions of hope. God told the people to turn back to Him and He would turn back to them.",
         "caption": "Zechariah’s Hope",
-        "image": "panel-noah-1.svg"
+        "image": ""
       }
     ],
     "readAlongImages": []
@@ -40534,22 +40534,22 @@
       {
         "text": "Now Naaman, captain of the host of the king of Syria, was a great man with his master, and honourable, because by him the LORD had given deliverance unto Syria: he was also a mighty man in valour, but he was a leper. And the Syrians had gone out by companies, and had brought away captive out of the land of Israel a little maid; and she waited on Naaman's wife. And she said unto her mistress, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy.",
         "caption": "A great captain — a little maid points to the prophet in Samaria",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "So Naaman came with his horses and with his chariot, and stood at the door of the house of Elisha. And Elisha sent a messenger unto him, saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean.",
         "caption": "Wash in Jordan seven times — thou shalt be clean",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "But Naaman was wroth, and went away, and said, Behold, I thought, He will surely come out to me, and stand, and call on the name of the LORD his God, and strike his hand over the place, and recover the leper. Are not Abana and Pharpar, rivers of Damascus, better than all the waters of Israel? may I not wash in them, and be clean? So he turned and went away in a rage. And his servants came near, and spake unto him, and said, My father, if the prophet had bid thee do some great thing, wouldest thou not have done it? how much rather then, when he saith to thee, Wash, and be clean?",
         "caption": "At first he was angry — then gentle words: Wash, and be clean",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
         "caption": "Seven times in Jordan — clean like a little child",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -40644,37 +40644,37 @@
       {
         "text": "Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen.",
         "caption": "The creditor is come to take unto him my two sons to be bondmen",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil.",
         "caption": "Save a pot of oil",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.",
         "caption": "Borrow empty vessels — borrow not a few",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.",
         "caption": "Shut the door — pour out into all those vessels",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.",
         "caption": "She poured out",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.",
         "caption": "There is not a vessel more — and the oil stayed",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Then she came and told the man of God. And he said, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest.",
         "caption": "Sell the oil — pay thy debt — live thou and thy children of the rest",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -40768,32 +40768,32 @@
       {
         "text": "Have mercy upon me, O God, according to thy lovingkindness: according unto the multitude of thy tender mercies blot out my transgressions. Wash me throughly from mine iniquity, and cleanse me from my sin.",
         "caption": "Have mercy, O God — blot out my transgressions",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "For I acknowledge my transgressions: and my sin is ever before me. Against thee, thee only, have I sinned, and done this evil in thy sight: that thou mightest be justified when thou speakest, and be clear when thou judgest.",
         "caption": "An honest heart before the Lord",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Purge me with hyssop, and I shall be clean: wash me, and I shall be whiter than snow.",
         "caption": "Wash me — make me clean",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Create in me a clean heart, O God; and renew a right spirit within me. Cast me not away from thy presence; and take not thy holy spirit from me. Restore unto me the joy of thy salvation; and uphold me with thy free spirit.",
         "caption": "Create in me a clean heart — restore thy joy",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "And David said unto Nathan, I have sinned against the LORD. And Nathan said unto David, The LORD also hath put away thy sin; thou shalt not die.",
         "caption": "God heard — the LORD put away his sin",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "The sacrifices of God are a broken spirit: a broken and a contrite heart, O God, thou wilt not despise.",
         "caption": "A contrite heart — God will not despise",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "paragraphs": [
@@ -40898,32 +40898,32 @@
       {
         "text": "Jesus told a story about a mustard seed.",
         "caption": "A grain of mustard seed",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The seed is very tiny.",
         "caption": "Least of all seeds",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "It is planted in the ground.",
         "caption": "Sowed in his field",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "It grows into a big plant.",
         "caption": "Greatest among herbs",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Birds come and rest in its branches.",
         "caption": "Birds lodge in the branches",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "God’s kingdom grows like that tiny seed.",
         "caption": "Kingdom like a mustard seed",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -41024,32 +41024,32 @@
       {
         "text": "A shepherd had one hundred sheep.",
         "caption": "A hundred sheep",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "One little sheep got lost.",
         "caption": "One wandered away",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The shepherd left the ninety-nine and looked for it.",
         "caption": "Left the ninety-nine",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He found the lost sheep and carried it home.",
         "caption": "On his shoulders",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "He was so happy he celebrated with his friends.",
         "caption": "Rejoice together",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus looks for us when we are lost.",
         "caption": "The good Shepherd",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -41149,32 +41149,32 @@
       {
         "text": "Jesus visited Mary and Martha’s house.",
         "caption": "A quiet welcome",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Martha was busy getting everything ready.",
         "caption": "Serving with care",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Mary sat at Jesus’ feet and listened.",
         "caption": "Still… and listening",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Martha said, “Lord, tell my sister to help me.”",
         "caption": "Dost thou not care?",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said gently, “Mary hath chosen that good part.”",
         "caption": "One thing is needful",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Listening to Jesus is the most important thing.",
         "caption": "The good part",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -41275,32 +41275,32 @@
       {
         "text": "Jesus visited Mary and Martha’s house.",
         "caption": "A quiet welcome",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Martha was busy getting everything ready.",
         "caption": "Serving with care",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Mary sat at Jesus’ feet and listened.",
         "caption": "Still… and listening",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Martha said, “Lord, tell my sister to help me.”",
         "caption": "Dost thou not care?",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said gently, “Mary hath chosen that good part.”",
         "caption": "One thing is needful",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Listening to Jesus is the most important thing.",
         "caption": "The good part",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -41401,32 +41401,32 @@
       {
         "text": "Lazarus was sick, and his sisters Mary and Martha sent for Jesus.",
         "caption": "He whom thou lovest is sick",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus waited a little while, then went to Bethany even though Lazarus had died.",
         "caption": "Our friend sleepeth",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Martha met Jesus and said her brother would have lived if He had come sooner.",
         "caption": "Lord, if thou hadst been here",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, I am the resurrection, and the life.",
         "caption": "Believest thou this?",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "At the cave tomb, Jesus told them to roll away the stone.",
         "caption": "Take ye away the stone",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus called with a loud voice, Lazarus, come forth! And Lazarus walked out alive. Many people believed in Jesus that day.",
         "caption": "Loose him, and let him go",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -41541,37 +41541,37 @@
       {
         "text": "Ten men with a skin disease saw Jesus.",
         "caption": "They stood afar off",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "They called, “Jesus, have mercy on us!”",
         "caption": "Master, have mercy on us",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Go show yourselves to the priests.”",
         "caption": "Go shew yourselves unto the priests",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "As they went, they were healed.",
         "caption": "Cleansed as they went",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "One man ran back and thanked Jesus.",
         "caption": "He glorified God",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Thy faith hath made thee whole.”",
         "caption": "Where are the nine?",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus is happy when we say thank you.",
         "caption": "A thankful heart",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -41677,32 +41677,32 @@
       {
         "text": "Jesus saw a man who was born blind.",
         "caption": "That the works of God…",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus put clay on his eyes.",
         "caption": "Anointed the eyes",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "He said, “Go wash in the pool of Siloam.”",
         "caption": "Go, wash",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The man washed and came back seeing!",
         "caption": "Came seeing",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He said, “I was blind, but now I see.”",
         "caption": "Now I see",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus helps us see who He is.",
         "caption": "Lord, I believe",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -41808,32 +41808,32 @@
       {
         "text": "Jesus saw a man who was born blind.",
         "caption": "That the works of God…",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus put clay on his eyes.",
         "caption": "Anointed the eyes",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "He said, “Go wash in the pool of Siloam.”",
         "caption": "Go, wash",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The man washed and came back seeing!",
         "caption": "Came seeing",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He said, “I was blind, but now I see.”",
         "caption": "Now I see",
-        "image": "panel-noah-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus helps us see who He is.",
         "caption": "Lord, I believe",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -41941,37 +41941,37 @@
       {
         "text": "A servant owed the king a huge debt.",
         "caption": "Ten thousand talents…",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The servant begged for patience.",
         "caption": "Have patience with me",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The king forgave the whole debt.",
         "caption": "Moved with compassion",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The servant found another man who owed him a little.",
         "caption": "A fellowservant",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He would not forgive him and put him in prison.",
         "caption": "Took by the throat",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "The king was angry and punished the unforgiving servant.",
         "caption": "O thou wicked servant",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus wants us to forgive others.",
         "caption": "From your hearts",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -42072,27 +42072,27 @@
       {
         "text": "People brought little children to Jesus.",
         "caption": "That he should touch them",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "The disciples told them to stop.",
         "caption": "His disciples rebuked those that brought them",
-        "image": "panel-noah-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”",
         "caption": "He was much displeased",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "He took them in His arms and blessed them.",
         "caption": "Put his hands upon them",
-        "image": "panel-noah-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus loves little children.",
         "caption": "Of such is the kingdom of God",
-        "image": "panel-noah-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -42194,32 +42194,32 @@
       {
         "text": "Jesus walked through Jericho. A man named Zacchaeus was very short and could not see over the crowd.",
         "caption": "Little of stature",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "So Zacchaeus climbed up into a tall sycomore tree to see Jesus.",
         "caption": "Up in the tree",
-        "image": "panel-david-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus looked up and called him by name: Zacchaeus, make haste, and come down; for to day I must abide at thy house.",
         "caption": "Jesus called his name",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "Zacchaeus came down quickly and welcomed Jesus with joy.",
         "caption": "Joyfully received",
-        "image": "panel-david-2.svg"
+        "image": ""
       },
       {
         "text": "The people murmured because Zacchaeus had been a sinner, but Zacchaeus promised to give to the poor and make things right.",
         "caption": "Making things right",
-        "image": "panel-david-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus said, This day is salvation come to this house… for the Son of man is come to seek and to save that which was lost. What a happy day!",
         "caption": "Seek and save the lost",
-        "image": "panel-david-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",
@@ -42319,32 +42319,32 @@
       {
         "text": "After the soldiers mocked Jesus, they led Him away to crucify Him — And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him.",
         "caption": "Led away in His own raiment",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "Jesus began to carry His heavy wooden cross — slow, steady, and strong in love.",
         "caption": "Carrying the cross",
-        "image": "panel-jesus-1.svg"
+        "image": ""
       },
       {
         "text": "The soldiers found Simon of Cyrene and asked him to help — And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross.",
         "caption": "Simon helps",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Many people followed Jesus, and some women were crying — And there followed him a great company of people, and of women, which also bewailed and lamented him.",
         "caption": "A great company",
-        "image": "panel-jesus-2.svg"
+        "image": ""
       },
       {
         "text": "Jesus turned to them and said gently — But Jesus turning unto them said, Daughters of Jerusalem, weep not for me, but weep for yourselves, and for your children.",
         "caption": "Weep not for me",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       },
       {
         "text": "Jesus carried His cross because He loved us so much and wanted to save us — and He helps us carry what feels heavy in our hearts.",
         "caption": "Love that holds us",
-        "image": "panel-jesus-3.svg"
+        "image": ""
       }
     ],
     "quizHeading": "Quiz — think it through",

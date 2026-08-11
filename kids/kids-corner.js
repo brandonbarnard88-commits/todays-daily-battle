@@ -7225,14 +7225,9 @@
     if (typeof rel !== 'string') return '';
     var r = rel.trim();
     if (!r || r.indexOf('..') !== -1) return '';
-    /* Upgraded stories store real coloring art on panels[] */
+    /* Stick panel-*.svg art removed — only Color & Tell /coloring-pages/ paths remain */
     if (isSafeColoringPagePath(r)) return r;
-    if (r.indexOf('//') !== -1) return '';
-    var base = r.indexOf('/') === -1 ? r : r.split('/').pop() || '';
-    if (!/^panel-[a-zA-Z0-9._-]+\.svg$/i.test(base)) return '';
-    var abs = '/kids/' + base;
-    if (abs.length > 80) return '';
-    return abs;
+    return '';
   }
 
   /** When true, grid thumbs use a picture stack: /assets/panels/*.avif, *.webp, SVG fallback (add rasters first). */
@@ -8894,7 +8889,7 @@
       /* Prefer Color & Tell art on the shelf — panel-*.svg are generic stick figures */
       var colorThumb = getColoringThumbForLibraryKey(key);
       var thumb = colorThumb || (panels[0] ? String(panels[0].src || '') : '');
-      if (!thumb) thumb = 'panel-noah-1.svg';
+      if (!thumb) thumb = '/coloring-pages/colored/noah-s1.jpg';
       var plainTitle = tdbPlainTextForUi(s.title || key);
       var altRaw = colorThumb
         ? plainTitle + ' — Bible coloring picture'

@@ -402,7 +402,7 @@
       const s = stories[key];
       const title = (s && s.title) ? s.title : (key || 'Story');
       const panels = (s && s.panels && s.panels.length) ? s.panels : [];
-      const thumb = panels[0] ? (typeof panels[0] === 'object' ? panels[0].src : panels[0]) : 'panel-noah-1.svg';
+      const thumb = panels[0] ? (typeof panels[0] === 'object' ? panels[0].src : panels[0]) : '/coloring-pages/colored/noah-s1.jpg';
       const ctx = (s && s.kidContext) ? s.kidContext : null;
       const apply = (ctx && ctx.apply) ? ctx.apply : 'Talk about what God did in this story!';
       const card = document.createElement('a');
@@ -558,7 +558,7 @@
         if (emptyCopy) emptyCopy.style.display = 'none';
         Object.entries(savedStories).slice(0, 6).forEach(([id, data]) => {
           const title = id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-          const thumb = (data.scenes && data.scenes[0]) || 'panel-noah-1.svg';
+          const thumb = (data.scenes && data.scenes[0]) || '/coloring-pages/colored/noah-s1.jpg';
           gallery.appendChild(buildParentStoryCard(thumb, title, title, 'They spent quiet time with this story today.'));
         });
       }

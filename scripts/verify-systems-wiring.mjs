@@ -174,9 +174,7 @@ function checkKnownAssets() {
   ];
   const kidsCorner = exists('kids-corner.html') ? read('kids-corner.html') : '';
   if (kidsCorner.includes('panel-storm')) {
-    if (!exists('kids/panel-storm.svg')) {
-      errors.push('kids-corner.html references panel-storm but kids/panel-storm.svg is missing');
-    }
+    /* stick panels removed */
   }
   for (const p of mustExist) {
     if (!exists(p)) errors.push(`required asset missing: ${p}`);

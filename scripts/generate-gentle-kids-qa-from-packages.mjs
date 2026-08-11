@@ -216,7 +216,7 @@ for (const file of files) {
     retelling912: data.retelling912 || '',
     retelling1317: data.retelling1317 || '',
     readAlongSections: [
-      { text: (data.retelling38 || data.retelling).slice(0, 140) + ((data.retelling38 || data.retelling).length > 140 ? '…' : ''), caption: data.title, image: 'panel-noah-1.svg' }
+      { text: (data.retelling38 || data.retelling).slice(0, 140) + ((data.retelling38 || data.retelling).length > 140 ? '…' : ''), caption: data.title, image: '/coloring-pages/colored/noah-s1.jpg' }
     ],
     readAlongImages: []
   };

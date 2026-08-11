@@ -48,9 +48,9 @@ export const STORY_HTML_MARKERS = [
   '/coloring.html?story=prodigal-son',
   'story-library-fonts.css?v=1',
   'loop-library-coloring.js?v=20260524readquiz',
-  'kids-corner.js?v=20260810swfresh',
-  'kids-battle.js?v=20260810swfresh',
-  'kids-battle.css?v=20260810swfresh',
+  'kids-corner.js?v=20260810nostick',
+  'kids-battle.js?v=20260810nostick',
+  'kids-battle.css?v=20260810nostick',
   'kids-library-card--static',
   'kids-library-show-more',
   '/coloring-pages/colored/noah-s1.jpg',
@@ -58,11 +58,11 @@ export const STORY_HTML_MARKERS = [
   'uFuzzy.iife.min.js',
   'kids-verses-365.js?v=20260802-calendar-mix',
   
-  'kids-read-quiz-data.js?v=20260809romans',
+  'kids-read-quiz-data.js?v=20260810nostick',
   'kids-story-remember.js?v=20260803remember',
   'TDB_PANEL_RASTER',
   'nunito-latin.woff2',
-  '/kids/panel-david-1.svg'
+  '/coloring-pages/colored/david-and-goliath-coloring-page.jpg'
 ];
 
 export const OG_ASSET_PATHS = [

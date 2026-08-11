@@ -1,7 +1,7 @@
 /**
  * plans-engine.js
  *
- * Pure data-driven engine for generating and composing Battle Plans.
+ * Pure data-driven engine for generating and composing Plans.
  * Extracts composition logic from plans-data.js (core9, post4, mid7, tail8, caps, wilderness variants).
  * Supports character seeding from bible-characters.json for deeper relational/seasonal paths.
  * Thin wrapper in plans-data.js re-exports for zero breakage.

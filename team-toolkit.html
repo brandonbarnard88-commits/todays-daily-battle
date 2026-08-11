@@ -1056,7 +1056,7 @@
 
           <div class="pack-card">
             <h3><span aria-hidden="true">🕊️</span> Cancer Comfort — 7 days</h3>
-            <p>Same plan as Battle Plans (honest fear, Christ near—not medical advice). For teams walking with someone in treatment.</p>
+            <p>Same plan as Plans (honest fear, Christ near—not medical advice). For teams walking with someone in treatment.</p>
             <div class="pack-download-row" role="group" aria-label="Cancer Comfort pack downloads">
               <button type="button" class="download-btn" id="tt-pack-cancer-comfort-pdf" aria-label="Download Cancer Comfort pack as PDF">
                 PDF (print)
@@ -2125,7 +2125,7 @@
         }
       };
       req.onsuccess = function(e) { libDB = e.target.result; callback(libDB); };
-      req.onerror   = function()  { showToast('File storage is not open from here right now—that is all right. Try another browser or turn off private mode.'); };
+      req.onerror   = function()  { showToast('File storage is not open from here right now. Try another browser or turn off private mode.'); };
     }
 
     function libTeamPrefix() {
@@ -2570,7 +2570,7 @@
       var packs  = getPacks();
       var active = getActivePack();
       if (!packs.length) {
-        list.innerHTML = '<p class="section-note">No packs saved yet—that is all right. Paste verses above when you are ready, then save.</p>';
+        list.innerHTML = '<p class="section-note">No packs saved yet. Paste verses above when you are ready, then save.</p>';
         return;
       }
       list.innerHTML = '';

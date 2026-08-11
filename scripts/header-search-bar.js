@@ -103,7 +103,7 @@
     if (c && (c.speaker || c.audience || c.today)) {
       b.innerHTML = '<p><strong>Speaker:</strong> ' + escapeHtml(c.speaker || '—') + '</p><p><strong>To:</strong> ' + escapeHtml(c.audience || '—') + '</p><p><strong>Today:</strong> ' + escapeHtml(c.today || '—') + '</p>';
     } else {
-      b.innerHTML = '<p class="tdb-commentary-modal__empty">No context note for this verse yet—that is all right. Try another verse, or use &ldquo;Understand this verse&rdquo; where it appears on the page.</p>';
+      b.innerHTML = '<p class="tdb-commentary-modal__empty">No context note for this verse yet. Try another verse, or use &ldquo;Understand this verse&rdquo; where it appears on the page.</p>';
     }
     modal.classList.remove('hidden');
     modal.querySelector('.tdb-commentary-modal__close').focus();
@@ -114,7 +114,7 @@
     if (!d) return;
     d.innerHTML = '';
     if (!results || !results.length) {
-      d.innerHTML = '<p class="dropdown-empty">No verses match—that is all right. Try &ldquo;John 3:16&rdquo; or &ldquo;Psalm 23&rdquo;.</p>';
+      d.innerHTML = '<p class="dropdown-empty">No verses match. Try &ldquo;John 3:16&rdquo; or &ldquo;Psalm 23&rdquo;.</p>';
       d.style.display = 'block';
       d.setAttribute('aria-hidden', 'false');
       return;

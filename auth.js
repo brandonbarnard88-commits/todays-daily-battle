@@ -265,7 +265,7 @@
 
   async function startOAuth(client, provider, statusEl) {
     if (!client || !client.auth || typeof client.auth.signInWithOAuth !== 'function') {
-      if (statusEl) statusEl.textContent = 'OAuth is unavailable right now—that is all right. Try again in a moment.';
+      if (statusEl) statusEl.textContent = 'OAuth is unavailable right now. Try again in a moment.';
       return;
     }
     try {
@@ -278,7 +278,7 @@
       if (res && res.error) throw res.error;
       trackAuth('auth_oauth_redirect', { provider: provider });
     } catch (err) {
-      var msg = err && err.message ? String(err.message) : 'OAuth sign-in did not finish—that is all right. Please try again.';
+      var msg = err && err.message ? String(err.message) : 'OAuth sign-in did not finish. Please try again.';
       if (/provider is not enabled/i.test(msg)) msg = providerLabel(provider) + ' login is not enabled in Supabase yet.';
       trackAuth('auth_oauth_error', { provider: provider });
       if (statusEl) statusEl.textContent = msg;
@@ -287,7 +287,7 @@
 
   async function requestPasswordReset(client, email, statusEl) {
     if (!client || !client.auth || typeof client.auth.resetPasswordForEmail !== 'function') {
-      if (statusEl) statusEl.textContent = 'Password reset is unavailable right now—that is all right. Try again in a moment.';
+      if (statusEl) statusEl.textContent = 'Password reset is unavailable right now. Try again in a moment.';
       return;
     }
     var to = String(email || '').trim().toLowerCase();
@@ -305,13 +305,13 @@
       if (statusEl) statusEl.textContent = 'Password reset link sent. Check your email.';
     } catch (err) {
       trackAuth('auth_password_reset_error');
-      if (statusEl) statusEl.textContent = err && err.message ? String(err.message) : 'Password reset email did not send—that is all right. Try again in a moment.';
+      if (statusEl) statusEl.textContent = err && err.message ? String(err.message) : 'Password reset email did not send. Try again in a moment.';
     }
   }
 
   async function resendConfirmation(client, email, statusEl) {
     if (!client || !client.auth || typeof client.auth.resend !== 'function') {
-      if (statusEl) statusEl.textContent = 'Resend is unavailable right now—that is all right. Try again in a moment.';
+      if (statusEl) statusEl.textContent = 'Resend is unavailable right now. Try again in a moment.';
       return;
     }
     var to = String(email || '').trim().toLowerCase();
@@ -327,7 +327,7 @@
       if (statusEl) statusEl.textContent = 'Confirmation email sent. Check your inbox/spam.';
     } catch (err) {
       trackAuth('auth_resend_confirmation_error');
-      if (statusEl) statusEl.textContent = err && err.message ? String(err.message) : 'Confirmation email did not resend—that is all right. Try again in a moment.';
+      if (statusEl) statusEl.textContent = err && err.message ? String(err.message) : 'Confirmation email did not resend. Try again in a moment.';
     }
   }
 
@@ -380,7 +380,7 @@
   }
 
   function getFriendlyAuthErrorMessage(err, mode) {
-    var msg = err && err.message ? String(err.message) : 'Sign-in did not finish—that is all right. Please try again.';
+    var msg = err && err.message ? String(err.message) : 'Sign-in did not finish. Please try again.';
     if (/invalid login credentials/i.test(msg)) msg = 'Email or password is incorrect.';
     if (/email not confirmed/i.test(msg)) msg = 'Check your email and confirm your account first.';
     if (/user already registered/i.test(msg)) msg = 'Account already exists. Try signing in instead.';
@@ -578,7 +578,7 @@
       sessionData = await client.auth.getSession();
     } catch (e) {
       setLoginReadyState(false, 'Secure login is still loading...');
-      if (isLoginRoute() && statusEl) statusEl.textContent = 'Auth service could not be reached—that is all right. Please try again in a moment.';
+      if (isLoginRoute() && statusEl) statusEl.textContent = 'Auth service could not be reached. Please try again in a moment.';
       return;
     }
     var session = sessionData && sessionData.data ? sessionData.data.session : null;

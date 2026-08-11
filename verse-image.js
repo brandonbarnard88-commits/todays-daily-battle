@@ -1978,7 +1978,7 @@
         })
         .catch(function () {
           if (recentEmpty) {
-            recentEmpty.textContent = 'Saved previews did not load on this device—that is all right. Try again in a moment.';
+            recentEmpty.textContent = 'Saved previews did not load on this device. Try again in a moment.';
             recentEmpty.hidden = false;
           }
         });
@@ -2222,7 +2222,7 @@
               a0.click();
               trackEvent('verse_image_downloaded', { ref_len: ref.length, qr: optsDl.includeQr ? 1 : 0, branding: optsDl.includeBranding === false ? 0 : 1 });
             } catch (e) {
-              setStatus('Download did not start in this browser—that is all right. Try again or save another way if your device allows.');
+              setStatus('Download did not start in this browser. Try again if your device allows.');
             }
             setStatus('Download started.');
             return;
@@ -2265,7 +2265,7 @@
           });
           setStatus('SVG download started.');
         } catch (e2) {
-          setStatus('SVG download did not start—that is all right. Try PNG or print instead.');
+          setStatus('SVG download did not start. Try PNG or print instead.');
         }
       });
     }
@@ -2315,7 +2315,7 @@
               setStatus('Shared.');
             })
             .catch(function () {
-              setStatus('Share is not available on this path—that is all right. Use Post on X or Download PNG.');
+              setStatus('Share is not available on this path. Use Post on X or Download PNG.');
             });
         }, 'image/png');
       });

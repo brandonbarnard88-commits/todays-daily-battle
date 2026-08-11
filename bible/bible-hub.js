@@ -541,7 +541,7 @@
         console.warn('Fallback audio failed:', e);
         ttsOfflineAudio = null;
         setBtn('Listen', false);
-        showToast('Offline clip is not on the page for this verse yet—that is all right. Add MP3 files to /audio/ when you are building offline audio.');
+        showToast('Offline clip is not on the page for this verse yet.');
       });
       audio.onended = audio.onerror = function () {
         ttsOfflineAudio = null;
@@ -552,7 +552,7 @@
 
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     setBtn('Listen', false);
-    showToast('Voice read-aloud is turned off on this host for now—that is all right.');
+    showToast('Voice read-aloud is turned off on this host for now.');
   }
 
   function wireAudioBtn() {

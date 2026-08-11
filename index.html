@@ -460,7 +460,7 @@
       <a href="/" aria-current="page" aria-label="Home — today’s verse">🏠 Home</a>
       <a href="#feel-section" aria-label="Ask by how you feel">💬 Ask</a>
       <a href="/plans.html" aria-label="Reading plans">🗓️ Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one steady verse">🌿 Hard day</a>
+      <a href="/calm.html" aria-label="When it’s hard — one steady verse">🌿 When it's hard</a>
       <a href="/kids/" aria-label="Kids stories">✨ Kids</a>
       <a href="#quick-search-hero" id="nav-search-btn" class="tdb-bottom-dock-sr-tool" aria-label="Search Scripture">🔍 Search</a>
       <button type="button" id="nav-more-btn" class="tdb-bottom-dock-more" aria-label="More tools" aria-haspopup="true" aria-expanded="false">☰ More</button>
@@ -479,8 +479,7 @@
       <!-- Primary: verse + plain words + Ask -->
       <div class="tdb-home-primary-pair tdb-grove" id="tdbHomePrimaryPair" data-tdb-grove="1">
       <p class="tdb-grove__sign tdb-quiet-container" id="tdbGroveSign">Today&rsquo;s Daily Battle</p>
-      <p class="tdb-grove__tagline tdb-quiet-container">One verse. Plain words. Free forever.</p>
-      <p class="tdb-grove__free tdb-quiet-container" id="tdbGroveFree">No paywall for Scripture. <a href="/give#free-forever">Optional gifts only</a>.</p>
+      <p class="tdb-grove__tagline tdb-quiet-container">One verse. Plain words. Free.</p>
       <!-- ══ Primary: Today's verse (top of page) ══ -->
       <!-- ── Today's verse — primary hero after calm first-visit banner ── -->
       <p class="tdb-hero-quiet-eyebrow tdb-quiet-container" id="tdbHeroQuietEyebrow">Today&rsquo;s Daily Battle &middot; free forever &middot; KJV</p>
@@ -561,16 +560,16 @@
           <h3 class="tdb-dig-deeper__always-heading tdb-vbd-label">More from the Word</h3>
           <div class="tdb-dig-deeper__content">
             <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="Context from the Word">
-              <div class="hero-vbd-bundle" id="heroVbdRowSit" >
+              <div class="hero-vbd-bundle" id="heroVbdRowSit" hidden>
                 <h4 class="tdb-vbd-label">What was going on</h4>
-                <p class="tdb-vbd-body" id="heroDeepSituation">A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the Lord’s mercy held him up.</p>
+                <p class="tdb-vbd-body" id="heroDeepSituation"></p>
               </div>
               <div class="hero-vbd-bundle" id="heroVbdRowWho" >
                 <h4 class="tdb-vbd-label">Who&rsquo;s talking?</h4>
                 <p class="tdb-vbd-body" id="heroDeepWho">A psalm writer (unattributed)</p>
               </div>
               <div class="hero-vbd-bundle" id="heroVbdRowAud" >
-                <h4 class="tdb-vbd-label">Who is He / she talking to?</h4>
+                <h4 class="tdb-vbd-label">Who hears this?</h4>
                 <p class="tdb-vbd-body" id="heroDeepAudience">Anyone whose footing feels uncertain under pressure</p>
               </div>
               <div class="hero-vbd-bundle" id="heroVbdRowCtx" hidden>
@@ -587,7 +586,7 @@
               <p class="tdb-dig-deeper__cross-list" id="heroDigDeeperCrossList"></p>
             </div>
             <p class="tdb-dig-deeper__plan" id="heroDigDeeperPlan" hidden>
-              <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this Battle Plan &rarr;</a>
+              <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this plan &rarr;</a>
             </p>
           </div>
         </div>
@@ -600,7 +599,7 @@
           <p><strong>A simple prayer:</strong><br />
           <span id="heroVotdPrayer">Lord, sink Psalm 94:18 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.</span></p>
         </div>
-        <p class="tdb-verse-human-note">Someone put this here for days like this one.</p>
+        <p class="tdb-verse-human-note">A quiet word for a hard day.</p>
 
         <ul class="breakdown" id="heroBreakdown" hidden></ul>
         <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
@@ -613,14 +612,14 @@
             <button type="button" id="hero-save-my-verses" class="hero-toolbar-btn hero-votd-save-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
             </div>
             <details class="tdb-hero-share-more">
-              <summary class="tdb-hero-share-more__sum">Share more</summary>
+              <summary class="tdb-hero-share-more__sum">Email, text, or image</summary>
               <div class="tdb-hero-share-more__tools" role="toolbar" aria-label="Email, text, or verse image">
                 <button type="button" class="hero-toolbar-btn" id="heroFriendEmailBtn" aria-label="Open your email app with today’s verse, one small step if shown, and a link">Email</button>
                 <button type="button" class="hero-toolbar-btn friend-sms-btn" id="heroFriendSmsBtn" aria-label="Open your texting app with a short prefilled message and link (phone)">Text</button>
                 <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
               </div>
             </details>
-            <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/mystudy?tab=library#saved-verses">Open My Study</a>.</p>
+            <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Saved on this device. <a href="/mystudy?tab=library#saved-verses">Open saved verses</a>.</p>
             <p id="hero-my-verses-privacy-line" class="section-note hero-my-verses-privacy-line">Saves stay on this device unless you choose otherwise.</p>
         </div>
         </div><!-- /.tdb-home-verse-sticky-shell -->
@@ -852,7 +851,7 @@
                   <button type="button" class="quick-topic" data-topic="spiritualwarfare" aria-label="Spiritual warfare"><span aria-hidden="true">📜</span> Spiritual warfare</button>
                   <button type="button" class="quick-topic" data-topic="identity" aria-label="Identity"><span aria-hidden="true">🪞</span> Identity</button>
                   <button type="button" class="quick-topic" data-topic="purpose" aria-label="Purpose"><span aria-hidden="true">🎯</span> Purpose</button>
-                  <button type="button" class="quick-topic" data-topic="free will" aria-label="Free will"><span aria-hidden="true">∞</span> FREE WILL</button>
+                  <button type="button" class="quick-topic" data-topic="free will" aria-label="Free will"><span aria-hidden="true">∞</span> Free will</button>
                 </div>
               </div>
             </div>
@@ -862,7 +861,7 @@
         <div id="feel-results" aria-live="polite" hidden></div>
         <section id="homeQaResult" class="home-qa-result hidden" role="region" aria-live="polite" aria-label="Ask the Word follow-up" hidden>
           <p class="home-qa-kicker">Answer</p>
-          <h3 class="home-qa-title">How does this hit you today?</h3>
+          <h3 class="home-qa-title">A short answer from Scripture</h3>
           <p id="homeQaAnswer" class="home-qa-answer"></p>
           <p id="homeQaPrayer" class="home-qa-prayer hidden" hidden></p>
           <p id="homeQaSources" class="home-qa-sources hidden" hidden></p>
@@ -1280,7 +1279,7 @@
   <script nonce="tdb2025s" src="verse-breakdown.js?v=20260809-kjv-text-fix" data-tdb-verse-breakdown="1" defer></script>
   <script nonce="tdb2025s" src="bbe-simple.js?v=20260809-kjv-text-fix" data-tdb-bbe-simple="1" defer></script>
   <script nonce="tdb2025s" src="red-letter.js?v=20260808-red-always" data-tdb-red-letter="1"></script>
-  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260811-digsafe" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260811copyall" fetchpriority="low"></script>
   <!-- Phase 6: tdb-home-mobius-week.js?v=20260330home + /sky-ip-geo.js?v=20260327ipgeo load with home secondary stack (see script.js tdbScheduleDeferredVodAndReaderTooling) -->
   <!-- ── SOS Button ── -->
   <button type="button" id="sos-btn" class="sos-btn" aria-label="SOS">SOS</button>

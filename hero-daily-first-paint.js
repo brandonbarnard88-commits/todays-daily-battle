@@ -1187,10 +1187,10 @@
     } catch (eHide) { /* non-fatal */ }
     var sitPrimary = document.getElementById('heroSimpleSituation');
     var meanPrimary = document.getElementById('heroSimpleMeaning');
-    /* Always write the same situation/meaning to primary + deep — no desync. */
+    /* Primary split owns situation/meaning; dig-deeper situation row stays hidden (no duplicate). */
     if (sitPrimary) sitPrimary.textContent = situation || '';
     if (meanPrimary) meanPrimary.textContent = meaningOnly || '';
-    setVotdRowVisible(document.getElementById('heroVbdRowSit'), document.getElementById('heroDeepSituation'), situation);
+    setVotdRowVisible(document.getElementById('heroVbdRowSit'), document.getElementById('heroDeepSituation'), '');
     setVotdRowVisible(document.getElementById('heroVbdRowWho'), document.getElementById('heroDeepWho'), who);
     setVotdRowVisible(document.getElementById('heroVbdRowAud'), document.getElementById('heroDeepAudience'), audience);
     setVotdRowVisible(document.getElementById('heroVbdRowCtx'), document.getElementById('heroDeepContext'), relatesToday);

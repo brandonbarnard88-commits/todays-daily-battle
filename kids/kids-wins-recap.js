@@ -1,5 +1,5 @@
 /**
- * Local-only "what we did" log for kids — parents read in Parent Dashboard.
+ * Local-only "what we did" log for kids — parents read in Family quiet view.
  * No network; RLS N/A. Max ~24 entries, rolling.
  */
 (function (global) {

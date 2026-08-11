@@ -442,11 +442,11 @@ ${RELATED_MOODS}`,
     schema: 'Crianças — capa PT',
     main: `        <header class="hero-banner">
           <h1>Crianças</h1>
-          <p class="real-talk">O Cantinho das crianças e a biblioteca Kids Battle estão em inglês por agora — mas você entra aqui sem se sentir perdido.</p>
+          <p class="real-talk">O Cantinho das crianças e a biblioteca Kids estão em inglês por agora — mas você entra aqui sem se sentir perdido.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/kids-corner.html" hreflang="en">Kids Corner (EN)</a>
             <a class="btn btn-secondary" href="/kids/corner.html" hreflang="en">Biblioteca de histórias (EN)</a>
-            <a class="btn btn-secondary" href="/kids/" hreflang="en">Kids Battle (EN)</a>
+            <a class="btn btn-secondary" href="/kids/" hreflang="en">Kids (EN)</a>
           </div>
         </header>
 ${RELATED_MOODS}`,

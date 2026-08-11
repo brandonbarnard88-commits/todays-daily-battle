@@ -243,7 +243,7 @@
     if (completed.length > 0) {
       return "No active plan right now — you've already finished a full lane. When you want that slow rhythm again, start fresh on the plans page; there's room to breathe here.";
     }
-    return "No plan progress on this device yet — when you're ready for a day-by-day lane, open Battle Plans; your checkmarks will gather here, quietly.";
+    return "No plan progress on this device yet — when you're ready for a day-by-day lane, open Plans; your checkmarks will gather here, quietly.";
   }
 
   global.TDBPlanProgress = {

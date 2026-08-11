@@ -193,12 +193,12 @@
     var kidName = getKidName();
     if (kidsLine) {
       kidsLine.textContent = storyCount > 0 || streak > 0
-        ? (kidName ? kidName + ' has ' : 'This device has ') + storyCount + ' story touch' + (storyCount === 1 ? '' : 'es') + ' and a ' + streak + '-day Kids Battle trail.'
+        ? (kidName ? kidName + ' has ' : 'This device has ') + storyCount + ' story touch' + (storyCount === 1 ? '' : 'es') + ' and a ' + streak + '-day Kids trail.'
         : 'No kids progress has started here yet. One story opens the path.';
     }
     if (kidsNote) {
       kidsNote.textContent = storyCount > 0
-        ? 'Use the Parent Dashboard to notice faithfulness before numbers and keep the tone gentle.'
+        ? 'Use the Family quiet view to notice faithfulness before numbers and keep the tone gentle.'
         : 'Kids progress stays mercy-first. No leaderboard, no pressure, no cloud required.';
     }
 

@@ -181,7 +181,7 @@
     strip.classList.toggle('mystudy-memorize-strip--empty', !n);
     if (!n) {
       el.textContent =
-        'Nothing here yet—that is all right. When a verse touches your heart, add it from Memorize or the Bible Tool—reviews stay on this device. The Lord meets you right where you are.';
+        'Nothing here yet. When a verse touches your heart, add it from Memorize or the Bible Tool—reviews stay on this device. The Lord meets you right where you are.';
       if (btn) btn.classList.add('hidden');
       renderProgressSummary();
       return;
@@ -649,7 +649,7 @@
       floop.textContent =
         PP && typeof PP.faithLoopLine === 'function'
           ? PP.faithLoopLine(parts)
-          : 'When you are ready for a day-by-day lane, open Battle Plans.';
+          : 'When you are ready for a day-by-day lane, open Plans.';
     }
 
     var totalDays = 0;
@@ -692,7 +692,7 @@
               setStatus('Copied.');
             },
             function () {
-              setStatus('Copy failed—that is all right. Try again when you can.');
+              setStatus('Copy failed. Try again when you can.');
             }
           );
         } else {
@@ -825,7 +825,7 @@
       var aPl = document.createElement('a');
       aPl.href = 'plans.html';
       aPl.className = 'mystudy-inline-tool-link';
-      aPl.textContent = 'Battle Plans';
+      aPl.textContent = 'Plans';
       p.appendChild(aPl);
       p.appendChild(
         document.createTextNode(
@@ -963,7 +963,7 @@
     if (!q.length) {
       var empty = document.createElement('li');
       empty.className = 'section-note mystudy-empty-hint';
-      empty.appendChild(document.createTextNode('Nothing here yet—that is all right. When a verse touches your heart, look it up in the '));
+      empty.appendChild(document.createTextNode('Nothing here yet. When a verse touches your heart, look it up in the '));
       var emA = document.createElement('a');
       emA.href = 'bible-tool.html';
       emA.className = 'mystudy-inline-tool-link';
@@ -1079,11 +1079,11 @@
           rows.length + ' note' + (rows.length === 1 ? '' : 's') + (q ? ' match your filter.' : ' saved from the Bible Tool.');
       } else if (q) {
         statusEl.textContent =
-          'Nothing here yet for that filter—that is all right. Clear the box or tap All to widen the list. The Lord meets you right where you are.';
+          'Nothing here yet for that filter. Clear the box or tap All to widen the list. The Lord meets you right where you are.';
       } else {
         var emptyP = document.createElement('p');
         emptyP.className = 'section-note mystudy-empty-hint';
-        emptyP.appendChild(document.createTextNode('Nothing here yet—that is all right. When a verse touches your heart, save a verse study or add your own thoughts in the '));
+        emptyP.appendChild(document.createTextNode('Nothing here yet. When a verse touches your heart, save a verse study or add your own thoughts in the '));
         var stA = document.createElement('a');
         stA.href = 'bible-tool.html';
         stA.className = 'mystudy-inline-tool-link';
@@ -1148,7 +1148,7 @@
       if (!recent.length) {
         var empty = document.createElement('li');
         empty.className = 'section-note mystudy-empty-hint';
-        empty.appendChild(document.createTextNode('Nothing here yet—that is all right. When you are ready, open any chapter in the '));
+        empty.appendChild(document.createTextNode('Nothing here yet. When you are ready, open any chapter in the '));
         var rA = document.createElement('a');
         rA.href = 'reader.html';
         rA.className = 'mystudy-inline-tool-link';
@@ -1218,7 +1218,7 @@
     var items = loadShared();
     if (!items.length) {
       listEl.innerHTML =
-        '<p class="section-note mystudy-empty-hint">Nothing here yet—that is all right. When a verse touches your heart, paste a code someone sent you—or generate one after you pick a verse. The Lord meets you right where you are.</p>';
+        '<p class="section-note mystudy-empty-hint">Nothing here yet. When a verse touches your heart, paste a code someone sent you—or generate one after you pick a verse. The Lord meets you right where you are.</p>';
       return;
     }
     listEl.innerHTML = '';
@@ -1269,7 +1269,7 @@
       if (status) status.textContent = '';
       return true;
     } catch (e) {
-      if (status) status.textContent = 'Bible search did not load—that is all right. Try again when you are online.';
+      if (status) status.textContent = 'Bible search did not load. Try again when you are online.';
       return false;
     }
   }
@@ -1279,7 +1279,7 @@
     if (!listEl) return;
     listEl.innerHTML = '';
     if (!results.length) {
-      listEl.innerHTML = '<li class="section-note">Nothing here yet—that is all right. When a verse touches your heart, try a broader keyword or an exact reference. The Lord meets you right where you are.</li>';
+      listEl.innerHTML = '<li class="section-note">Nothing here yet. When a verse touches your heart, try a broader keyword or an exact reference. The Lord meets you right where you are.</li>';
       return;
     }
     results.forEach(function (item) {
@@ -1517,7 +1517,7 @@
       html += '\n  </div>\n';
       html += '</div>\n';
 
-      // Battle Plans section
+      // Plans section
       html += '<h2>Battle Plan Progress</h2>\n';
       if (plans.length === 0) {
         html += '<p class="empty-note">No plan days recorded yet on this device. The porch is always open when you\u2019re ready.</p>\n';
@@ -1855,7 +1855,7 @@
         empty.className = 'empty section-note';
         empty.appendChild(
           document.createTextNode(
-            'Nothing here yet—that is all right. When a verse touches your heart, save one from the '
+            'Nothing here yet. When a verse touches your heart, save one from the '
           )
         );
         var a = document.createElement('a');
@@ -2098,7 +2098,7 @@
       reader.onload = function () {
         try {
           if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.restoreStudyLocalBackup !== 'function') {
-            throw new Error('Restore is not open from here yet—that is all right. Reload and try again.');
+            throw new Error('Restore is not open from here yet. Reload and try again.');
           }
           var restored = window.TDBStudyCompanion.restoreStudyLocalBackup(reader.result);
           if (backupStatus) {
@@ -2111,11 +2111,11 @@
             window.location.reload();
           }, 700);
         } catch (err) {
-          if (backupStatus) backupStatus.textContent = err && err.message ? err.message : 'That backup did not restore—that is all right. Check the file or try another export.';
+          if (backupStatus) backupStatus.textContent = err && err.message ? err.message : 'That backup did not restore. Check the file or try another export.';
         }
       };
       reader.onerror = function () {
-        if (backupStatus) backupStatus.textContent = 'That file did not read—that is all right. Try again with a JSON backup from My Study.';
+        if (backupStatus) backupStatus.textContent = 'That file did not read. Try again with a JSON backup from My Study.';
       };
       reader.readAsText(file);
       try { e.target.value = ''; } catch (_) {}
@@ -2207,7 +2207,7 @@
         navigator.clipboard.writeText(code).then(function () {
           if (shareStatusEl) shareStatusEl.textContent = 'Code copied.';
         }).catch(function () {
-          if (shareStatusEl) shareStatusEl.textContent = 'Copy did not go through—that is all right. Select and copy manually.';
+          if (shareStatusEl) shareStatusEl.textContent = 'Copy did not go through. Select and copy manually.';
         });
       }
     });

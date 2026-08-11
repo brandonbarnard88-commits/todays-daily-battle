@@ -65,8 +65,8 @@ function clean(html) {
   // Homepage porch-light / moat copy.
   next = next.replace(/Privacy, Why not AI, sample plans/g, 'Privacy, sample plans');
   next = next.replace(/Why not AI, privacy paths, sample plans\./g, 'Privacy paths, sample plans.');
-  next = next.replace(/<!-- ── Feel Search \(nav anchor: #quick-search-hero\) — below Why not AI teaser, above Battle Plans ── -->/g,
-    '<!-- ── Feel Search (nav anchor: #quick-search-hero) — above Battle Plans ── -->');
+  next = next.replace(/<!-- ── Feel Search \(nav anchor: #quick-search-hero\) — below Why not AI teaser, above Plans ── -->/g,
+    '<!-- ── Feel Search (nav anchor: #quick-search-hero) — above Plans ── -->');
 
   // FAQ hero inline link.
   next = next.replace(/\s*and how this differs from an AI chat\.\s*<a href="(?:\/|)why-not-ai\.html">Why not AI\?<\/a>/g,

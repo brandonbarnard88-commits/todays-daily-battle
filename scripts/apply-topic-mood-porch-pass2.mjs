@@ -133,7 +133,7 @@ function apply404Porch(html) {
   );
 }
 
-const KIDS_PORCH = `        <p class="section-note topic-mood-porch kids-site-porch" lang="en">You&rsquo;re already welcome here&mdash;fun first, short moments, tiny KJV line. No rush.</p>`;
+const KIDS_PORCH = `        <p class="section-note topic-mood-porch kids-site-porch" lang="en">No rush—pick one thing.</p>`;
 
 function applyKidsBattleInner(html, rel) {
   if (!rel.startsWith(`kids${path.sep}`)) return html;

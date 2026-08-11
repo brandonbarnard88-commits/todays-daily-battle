@@ -220,15 +220,15 @@ function main() {
 
     if (rel === 'bible-tool.html' && touched) {
       next = next.replace(
-        /<a href="\/bible-tool\.html#bible-tool-hub" aria-label="The Library — lookup, verse image, chapter reader">The Library<\/a>/,
-        '<a href="/bible-tool.html#bible-tool-hub" aria-label="The Library — lookup, verse image, chapter reader" aria-current="page">The Library</a>'
+        /<a href="\/bible-tool\.html#bible-tool-hub" aria-label="Look up a verse — lookup, verse image, chapter reader">Look up a verse<\/a>/,
+        '<a href="/bible-tool.html#bible-tool-hub" aria-label="Look up a verse — lookup, verse image, chapter reader" aria-current="page">Look up a verse</a>'
       );
     }
 
     if (rel === 'plans.html' && touched) {
       next = next.replace(
-        /<a href="\/plans\.html" id="nav-browse-curriculum" aria-label="The Paths — KJV tracks for hard weeks and quiet seasons">The Paths<\/a>/,
-        '<a href="/plans.html" id="nav-browse-curriculum" aria-current="page" aria-label="The Paths — KJV tracks for hard weeks and quiet seasons">The Paths</a>'
+        /<a href="\/plans\.html" id="nav-browse-curriculum" aria-label="Plans — KJV tracks for hard weeks and quiet seasons">Plans<\/a>/,
+        '<a href="/plans.html" id="nav-browse-curriculum" aria-current="page" aria-label="Plans — KJV tracks for hard weeks and quiet seasons">Plans</a>'
       );
     }
 

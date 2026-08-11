@@ -288,7 +288,7 @@
         render();
       })
       .catch(function () {
-        content.textContent = 'Curriculum did not load—that is all right. Try again in a moment.';
+        content.textContent = 'Curriculum did not load. Try again in a moment.';
       });
 
     dayInput.addEventListener('change', render);

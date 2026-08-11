@@ -155,7 +155,7 @@ function tdbIsHomePage() {
 })();
 
 /**
- * University of God: gentle links from any verse to on-site Battle Plans (same KJV “courses” as /plans).
+ * University of God: gentle links from any verse to on-site Plans (same KJV “courses” as /plans).
  * Homepage also sets this from hero-daily-first-paint.js before inline verse render; redefining is harmless.
  */
 (function tdbUogCurriculumOnWindow() {
@@ -1290,7 +1290,7 @@ function openTdbWelcomeTour(opts) {
             body: 'Heavy, worried, or numb? Search Scripture by how you feel\u2014plain-English breakdowns for you and for kids. No performance; just the Word.'
           },
           {
-            title: 'Battle Plans',
+            title: 'Plans',
             body: 'Pick a gentle 7\u201340 day track for real fights (anxiety, grief, parenting, and more). Progress stays on this device unless you choose sync.'
           },
           {
@@ -1309,7 +1309,7 @@ function openTdbWelcomeTour(opts) {
           },
           {
             title: 'Save and rhythm',
-            body: 'My Study keeps what you need near. Battle Plans offer a gentle day-by-day rhythm for hard weeks\u2014and Explore lists every door without hiding anything.'
+            body: 'My Study keeps what you need near. Plans offer a gentle day-by-day rhythm for hard weeks\u2014and Explore lists every door without hiding anything.'
           },
           {
             title: 'Prayer',
@@ -1896,7 +1896,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   });
   modalAudioEl.addEventListener('error', function () {
     try {
-      modalAudioLabel.textContent = 'Verse audio is not available for this clip yet—that is all right. The verse on the page is still here.';
+      modalAudioLabel.textContent = 'Verse audio is not available for this clip yet. The verse on the page is still here.';
     } catch (_) {}
   });
 
@@ -2357,7 +2357,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     if (!visibleLoops.length) {
       var empty = document.createElement('p');
       empty.className = 'section-note';
-      empty.textContent = 'Nothing in this lane yet\u2014that is all right. Try another starter, or return to All unlocked when you want the wider shelf.';
+      empty.textContent = 'Nothing in this lane yet\. Try another starter, or return to All unlocked when you want the wider shelf.';
       fragment.appendChild(empty);
     }
     grid.appendChild(fragment);
@@ -2522,7 +2522,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
         showToast('PDF downloaded!');
         if (typeof trackEvent === 'function') trackEvent('loop_progress_pdf', { stars: starCount, unlocked: unlockedCount, mode: includeCounts ? 'full' : 'summary' });
       } catch (err) {
-        showToast('PDF export did not finish—that is all right. Try again when you are ready.');
+        showToast('PDF export did not finish. Try again when you are ready.');
         try { console.error('loop PDF', err); } catch (e2) {}
       }
     });
@@ -4307,7 +4307,7 @@ const TDB_TOPICS = [
   { topic: 'trauma', label: 'Trauma' },
   { topic: 'identity', label: 'Identity' },
   { topic: 'purpose', label: 'Purpose' },
-  { topic: 'free will', label: 'FREE WILL' }
+  { topic: 'free will', label: 'Free will' }
 ];
 
 /** Indices into TDB_TOPICS — homepage visible + sr-only hero use the same four bands. */
@@ -13511,14 +13511,14 @@ async function signInWithOAuthProvider(provider, setStatusFn) {
     options: { redirectTo: getOAuthRedirectToForSupabase() }
   });
   if (error) {
-    setStatus(error.message || 'Sign-in did not finish—that is all right. Please try again.', 'error');
+    setStatus(error.message || 'Sign-in did not finish. Please try again.', 'error');
     if (typeof trackEvent === 'function') trackEvent('login_failed', { reason: 'oauth', provider: provider });
     return;
   }
   if (data?.url) {
     window.location.href = data.url;
   } else {
-    setStatus('Sign-in could not start—that is all right. Please try again.', 'error');
+    setStatus('Sign-in could not start. Please try again.', 'error');
   }
 }
 
@@ -14585,7 +14585,7 @@ function wireKidsBetaCount() {
   var FALLBACK = 'Join now—spots filling fast!';
   function updateCount(n) {
     if (n != null && !isNaN(n) && n >= 0) {
-      el.textContent = n + ' families joined Kids Battle Beta!';
+      el.textContent = n + ' families joined Kids Beta!';
     } else {
       el.textContent = FALLBACK;
     }
@@ -15872,7 +15872,7 @@ function speakDailyVerseGently(options) {
     if (typeof opts.onError === 'function') opts.onError();
     if (!opts.suppressErrors && !ttsDisabledNoticeShown) {
       ttsDisabledNoticeShown = true;
-      alert('Read-aloud could not start—that is all right. Tap Listen when you are ready.');
+      alert('Read-aloud could not start. Tap Listen when you are ready.');
     }
   };
 
@@ -15887,7 +15887,7 @@ function speakDailyVerseGently(options) {
     if (typeof opts.onError === 'function') opts.onError();
     if (!opts.suppressErrors && !ttsDisabledNoticeShown) {
       ttsDisabledNoticeShown = true;
-      alert('Read-aloud could not start on this device—that is all right. You can still read today\'s verse.');
+      alert('Read-aloud could not start on this device. You can still read today\'s verse.');
     }
     return false;
   }
@@ -16442,7 +16442,7 @@ function flushPrayerOfflineQueue() {
       return updated;
     });
     setPrayerOfflineQueue(nextQueue);
-    updatePrayerQueueUi((error && error.message ? error.message : 'Queued prayers did not share—that is all right.') + ' They stayed private on this device.');
+    updatePrayerQueueUi((error && error.message ? error.message : 'Queued prayers did not share.') + ' They stayed private on this device.');
     resetPrayerQueueTurnstile();
     throw error;
   });
@@ -16914,7 +16914,7 @@ function wireGodModePrayerEcho() {
         return;
       }
       if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
-      if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Recent prayers did not load—that is all right. Try again in a moment.'; }
+      if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Recent prayers did not load. Try again in a moment.'; }
     }
   }
   window.__refreshPrayerEcho = fetchAndRenderEcho;
@@ -17595,11 +17595,11 @@ function wireAuthDailyVerseBreakdown() {
       navigator.clipboard.writeText(text).then(function () {
         if (typeof showEliteToast === 'function') showEliteToast('Verse copied.');
       }).catch(function () {
-        if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Try again.');
+        if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through. Try again.');
       });
       return;
     }
-    if (typeof showEliteToast === 'function') showEliteToast('Copy is not available on this browser—that is all right.');
+    if (typeof showEliteToast === 'function') showEliteToast('Copy is not available on this browser.');
   });
 
   if (pinBtn) pinBtn.addEventListener('click', function () {
@@ -17613,11 +17613,11 @@ function wireAuthDailyVerseBreakdown() {
         if (typeof showEliteToast === 'function') showEliteToast('Pinned to clipboard.');
         setTimeout(function () { pinBtn.textContent = original || '📌 Pin Verse'; }, 1800);
       }).catch(function () {
-        if (typeof showEliteToast === 'function') showEliteToast('Pin did not copy—that is all right. Try again.');
+        if (typeof showEliteToast === 'function') showEliteToast('Pin did not copy. Try again.');
       });
       return;
     }
-    if (typeof showEliteToast === 'function') showEliteToast('Clipboard is not available on this browser—that is all right.');
+    if (typeof showEliteToast === 'function') showEliteToast('Clipboard is not available on this browser.');
   });
 
   if (exportBtn) exportBtn.addEventListener('click', function () {
@@ -17651,7 +17651,7 @@ function wireAuthDailyVerseBreakdown() {
       navigator.clipboard.writeText(shareText).then(function () {
         if (typeof showEliteToast === 'function') showEliteToast('Copied for Revival Group.');
       }).catch(function () {
-        if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Try again.');
+        if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through. Try again.');
       });
     }
   });
@@ -17733,7 +17733,7 @@ function wireFloatingBattleAnchor() {
       navigator.clipboard.writeText(text).then(function () {
         if (typeof showEliteToast === 'function') showEliteToast('Anchor verse copied.');
       }).catch(function () {
-        if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Try again.');
+        if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through. Try again.');
       });
     }
   });
@@ -17935,7 +17935,7 @@ function tdbOpenKjvPrintSheet(opts) {
       }, 120000);
     });
   } catch (e0) {
-    if (typeof showEliteToast === 'function') showEliteToast('Print did not open—that is all right. Try again or use your browser print.');
+    if (typeof showEliteToast === 'function') showEliteToast('Print did not open. Try again or use your browser print.');
     return;
   }
   try {
@@ -18130,7 +18130,7 @@ function wirePrayThisWithMe() {
           versePageSave.disabled = false;
           versePageSave.textContent = 'Try again';
           versePageSave.setAttribute('aria-label', 'Save failed; tap to try again');
-          if (statusEl) statusEl.textContent = 'That did not save quietly—that is all right. Try again when you can.';
+          if (statusEl) statusEl.textContent = 'That did not save quietly. Try again when you can.';
           setTimeout(function () {
             updateVersePageSaveMyVersesState();
           }, 2200);
@@ -18691,7 +18691,7 @@ function wireHeroSaveToMyVerses() {
         if (typeof window.tdbRefreshHomeResume === 'function') window.tdbRefreshHomeResume();
         if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
       } else {
-        if (statusEl) statusEl.textContent = 'That did not save quietly—that is all right. Try again when you can.';
+        if (statusEl) statusEl.textContent = 'That did not save quietly. Try again when you can.';
         targets.forEach(function (b) { b.disabled = false; });
         if (heroBtn) heroBtn.textContent = 'Try again';
         setTimeout(function () { updateHeroSaveButtons(); }, 2200);
@@ -18917,7 +18917,7 @@ function wireHomeContinueLoopCard() {
         title.textContent = ctx;
         link.href = 'mobius.html#mobius-loop-journal';
         link.setAttribute('data-tdb-continue-kind', 'journal');
-        link.setAttribute('aria-label', 'Open Grace Ribbon Journal loop journal — last saved on this device');
+        link.setAttribute('aria-label', 'Open Grace Ribbon loop journal — last saved on this device');
         hasContent = true;
       } else {
         var wg = loadWghdEntries();
@@ -19039,7 +19039,7 @@ function wireOfflinePrefetch() {
     if (result.ok && typeof showEliteToast === 'function') {
       showEliteToast('Ready for offline – ' + (result.count || OFFLINE_PREFETCH_DAYS) + ' days cached.');
     } else if (!result.ok && result.error && typeof showEliteToast === 'function') {
-      showEliteToast(result.error || 'Download did not finish—that is all right. Try again when you are online.');
+      showEliteToast(result.error || 'Download did not finish. Try again when you are online.');
     }
   });
 }
@@ -19395,7 +19395,7 @@ function safeCopyToClipboard(text, onSuccess, onFailure) {
   if (!text) return;
   function fallback() {
     if (typeof onFailure === 'function') onFailure(text);
-    else if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Paste this: ' + text.slice(0, 50) + (text.length > 50 ? '…' : ''));
+    else if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through. Paste this: ' + text.slice(0, 50) + (text.length > 50 ? '…' : ''));
   }
   if (!navigator.clipboard || !navigator.clipboard.writeText) {
     fallback();
@@ -20363,7 +20363,7 @@ function openStripeCheckout(url) {
         console.info('TDB: checkout URL missing — add Stripe Payment Links or STRIPE_PRICE_IDS + create-checkout-session (see STRIPE-CONFIG.md).');
       }
     } catch (_) {}
-    alert('This checkout link is not live yet—that is all right. You can still support the work from Support when your host finishes setup.');
+    alert('This checkout link is not live yet. You can still support the work from Support when your host finishes setup.');
     return;
   }
   window.location.href = url;
@@ -22267,7 +22267,7 @@ if (c && c.ref) {
   if (elapsed < 200) {
     await new Promise(function (r) { setTimeout(r, 200 - elapsed); });
   }
-  card.innerHTML = '<strong>' + escapeHtml(battle.ref) + '</strong><p>' + escapeHtml(verseText || 'Verse text is not on the page yet—that is all right. Refresh or try again when you are online.') + '</p>';
+  card.innerHTML = '<strong>' + escapeHtml(battle.ref) + '</strong><p>' + escapeHtml(verseText || 'Verse text is not on the page yet. Refresh or try again when you are online.') + '</p>';
   var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(battle.ref) : '';
   if (ctxHtml) card.insertAdjacentHTML('beforeend', ctxHtml);
   card.classList.add('verse-card-loaded');
@@ -23257,7 +23257,7 @@ function renderMessages(items, previewLimit) {
           reportBtn.textContent = 'Reported';
           reportBtn.disabled = true;
         } else {
-          alert('Report did not go through—that is all right. Try again in a moment.');
+          alert('Report did not go through. Try again in a moment.');
         }
       };
       actions.appendChild(reportBtn);
@@ -23307,7 +23307,7 @@ function copyDailyEncouragement() {
   const ref = fallback?.ref || getDailyVerseRef();
   const verseText = ref && bible[ref] ? bible[ref] : '';
   if (!ref || !verseText) {
-    alert('Daily encouragement is not on this page yet—that is all right. Refresh or try again in a moment.');
+    alert('Daily encouragement is not on this page yet. Refresh or try again in a moment.');
     return;
   }
   const text = `Daily Encouragement\n${ref}\n${verseText}`;
@@ -23355,7 +23355,7 @@ function stopTts() {
 function speakVerse(ref, text, ttsOptions) {
   if (!ref || !text) return;
   if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
-    alert('Listen is not open in this browser—that is all right. Use KJV Audio instead.');
+    alert('Listen is not open in this browser. Use KJV Audio instead.');
     return;
   }
   var cleaned = String(text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -23385,7 +23385,7 @@ function speakVerse(ref, text, ttsOptions) {
     setTtsPlaying(false);
     if (!ttsDisabledNoticeShown) {
       ttsDisabledNoticeShown = true;
-      alert('Read-aloud could not start—that is all right. Try Listen again, or use KJV Audio.');
+      alert('Read-aloud could not start. Try Listen again, or use KJV Audio.');
     }
   };
   try {
@@ -23394,7 +23394,7 @@ function speakVerse(ref, text, ttsOptions) {
     setTtsPlaying(false);
     if (!ttsDisabledNoticeShown) {
       ttsDisabledNoticeShown = true;
-      alert('Read-aloud could not start on this device—that is all right. Use KJV Audio instead.');
+      alert('Read-aloud could not start on this device. Use KJV Audio instead.');
     }
   }
 }
@@ -23444,7 +23444,7 @@ function speakChapter(book, chapter) {
     text = output ? getReaderChapterPlainTextFromDom(output) : '';
   }
   if (!text) {
-    alert('Listen needs chapter text first—that is all right. Open a chapter, then tap Listen.');
+    alert('Listen needs chapter text first. Open a chapter, then tap Listen.');
     return;
   }
   try {
@@ -26382,7 +26382,7 @@ function renderChurchPrayerListUI(items) {
   if (!prayerList) return;
   prayerList.innerHTML = '';
   if (!items || items.length === 0) {
-    prayerList.innerHTML = '<p class="empty">No prayer requests here yet—that is all right. Add one above when your group is ready.</p>';
+    prayerList.innerHTML = '<p class="empty">No prayer requests here yet. Add one above when your group is ready.</p>';
     return;
   }
   items.forEach((row, i) => {
@@ -27259,13 +27259,13 @@ async function renderAdminDeploymentDiagnostics() {
       label: 'Custom script version',
       value: report.custom && report.custom.scriptVersion ? report.custom.scriptVersion : 'Unavailable',
       tone: report.custom && report.custom.home && report.custom.home.ok ? '' : 'bad',
-      detail: report.custom && report.custom.buildStamp ? 'Build stamp: ' + report.custom.buildStamp : 'Footer build stamp did not read—that is all right.'
+      detail: report.custom && report.custom.buildStamp ? 'Build stamp: ' + report.custom.buildStamp : 'Footer build stamp did not read.'
     },
     {
       label: 'Pages script version',
       value: report.pages && report.pages.scriptVersion ? report.pages.scriptVersion : 'Unavailable',
       tone: report.pages && report.pages.home && report.pages.home.ok ? '' : 'bad',
-      detail: report.pages && report.pages.buildStamp ? 'Build stamp: ' + report.pages.buildStamp : 'Footer build stamp did not read—that is all right.'
+      detail: report.pages && report.pages.buildStamp ? 'Build stamp: ' + report.pages.buildStamp : 'Footer build stamp did not read.'
     },
     {
       label: 'Script bundles match',
@@ -27345,7 +27345,7 @@ async function buildAdminBrowserReport() {
   const issues = [];
   if (!report.online) issues.push({ title: 'Browser is offline', body: 'This device is currently offline, so live checks may fail even when the site is healthy.', meta: 'Offline mode is still useful for cache checks.' });
   if (report.swSupported && !report.controller) issues.push({ title: 'No active service worker controller', body: 'This page is not currently controlled by a service worker.', meta: 'A hard refresh or first load after deploy can cause this.' });
-  if (!report.swSupported) issues.push({ title: 'Service workers unsupported', body: 'This browser does not support service workers, so offline behavior will be limited.', meta: 'Some admin browser checks will not run here—that is all right.' });
+  if (!report.swSupported) issues.push({ title: 'Service workers unsupported', body: 'This browser does not support service workers, so offline behavior will be limited.', meta: 'Some admin browser checks will not run here.' });
   if (report.cacheNames.length > 8) issues.push({ title: 'High cache count on this device', body: 'There are many site caches stored here. Old caches can contribute to stale behavior during deploy debugging.', meta: 'Caches detected: ' + String(report.cacheNames.length) });
   report.issues = issues;
   return report;
@@ -27463,7 +27463,7 @@ async function copyAdminOwnerReport() {
     await navigator.clipboard.writeText(reportText);
     setAdminOpsStatus('Debug report copied.');
   } catch (_) {
-    setAdminOpsStatus('Report did not copy on this browser—that is all right. Select the text manually.');
+    setAdminOpsStatus('Report did not copy on this browser. Select the text manually.');
   }
 }
 
@@ -27489,7 +27489,7 @@ async function clearAdminBrowserCaches() {
     setAdminOpsStatus('Service workers and caches cleared for this browser.');
     await renderAdminBrowserHealth();
   } catch (_) {
-    setAdminOpsStatus('Browser caches did not clear—that is all right. Try again or clear manually in devtools.');
+    setAdminOpsStatus('Browser caches did not clear. Try again or clear manually in devtools.');
   }
 }
 
@@ -27510,7 +27510,7 @@ async function renderAdminPanel() {
     const bibleCount = Object.keys(bible).length;
     const items = [
       { label: 'Supabase configured', value: isSupabaseConfigured() ? 'Yes' : 'No', tone: isSupabaseConfigured() ? 'ok' : 'warn', detail: isSupabaseConfigured() ? 'Remote sync and auth are available.' : 'Local-only fallback will be used.' },
-      { label: 'Auth ready', value: supabaseClient ? 'Yes' : 'No', tone: supabaseClient ? 'ok' : 'warn', detail: supabaseClient ? 'Supabase client loaded in this session.' : 'Client is still waking up or not open in this session—that is all right.' },
+      { label: 'Auth ready', value: supabaseClient ? 'Yes' : 'No', tone: supabaseClient ? 'ok' : 'warn', detail: supabaseClient ? 'Supabase client loaded in this session.' : 'Client is still waking up or not open in this session.' },
       { label: 'Bible loaded', value: bibleCount ? `Yes (${bibleCount})` : 'No', tone: bibleCount ? 'ok' : 'bad', detail: bibleCount ? 'KJV dataset is available in this session.' : 'Bible data did not load yet.' },
       { label: 'Current version', value: currentVersion || 'KJV', detail: 'Current Bible/version context on this device.' },
       { label: 'Signed in as', value: currentUserEmail || 'Unknown', detail: isMasterUser ? 'Master account detected.' : 'Non-admin users cannot operate this page.' }
@@ -27533,7 +27533,7 @@ async function renderAdminPanel() {
           label: 'Prayers today',
           value: '—',
           tone: 'warn',
-          detail: 'The `prayers` table did not load in this check—that is all right. Retry or verify RLS.'
+          detail: 'The `prayers` table did not load in this check. Retry or verify RLS.'
         }));
       });
     }
@@ -27597,7 +27597,7 @@ async function renderAdminPanel() {
     const messages = await loadMessages();
     messages.forEach(item => messageMap.set(item.id, item));
     if (!messages.length) {
-      messagesWrap.innerHTML = '<p class="empty">No messages to review—that is all right. The queue is quiet.</p>';
+      messagesWrap.innerHTML = '<p class="empty">No messages to review. The queue is quiet.</p>';
     } else {
       messagesWrap.innerHTML = '';
       messages.forEach(item => {
@@ -27647,7 +27647,7 @@ async function renderAdminPanel() {
   if (reportsWrap) {
     const reports = await loadMessageReports();
     if (!reports.length) {
-      reportsWrap.innerHTML = '<p class="empty">No reports submitted yet—that is all right. Nothing is waiting in the queue.</p>';
+      reportsWrap.innerHTML = '<p class="empty">No reports submitted yet. Nothing is waiting in the queue.</p>';
     } else {
       reportsWrap.innerHTML = '';
       reports.forEach(report => {
@@ -27748,7 +27748,7 @@ function wireDailyBattleSeedForm() {
         if (prayerEl) prayerEl.value = '';
         return;
       } catch (error) {
-        if (statusEl) statusEl.textContent = error && error.message ? error.message : 'That save did not go through—that is all right. Check owner API access or try again.';
+        if (statusEl) statusEl.textContent = error && error.message ? error.message : 'That save did not go through. Check owner API access or try again.';
       }
     }
     if (!supabaseClient) {
@@ -28121,11 +28121,11 @@ function renderSermonsList(sermons) {
   const listEl = document.getElementById('sermons-list');
   if (!listEl) return;
   if (sermons === null) {
-    listEl.innerHTML = '<li class="section-note sermons-list-empty" style="color:#f87171;">Sermons did not load—that is all right. Check your connection and try again.</li>';
+    listEl.innerHTML = '<li class="section-note sermons-list-empty" style="color:#f87171;">Sermons did not load. Check your connection and try again.</li>';
     return;
   }
   if (!sermons || sermons.length === 0) {
-    listEl.innerHTML = '<li class="section-note sermons-list-empty">No sermons saved yet—that is all right. Click New Sermon when you are ready to start.</li>';
+    listEl.innerHTML = '<li class="section-note sermons-list-empty">No sermons saved yet. Click New Sermon when you are ready to start.</li>';
     return;
   }
   listEl.innerHTML = sermons.map(function (s) {
@@ -28200,7 +28200,7 @@ async function createShareLink(type, payload) {
   if (isSupabaseConfigured()) {
     const { error } = await supabaseClient.from('shares').insert({ id, payload, type });
     if (error) {
-      alert('Sharing did not go through—that is all right. If you host this app, confirm the Supabase table named "shares" exists.');
+      alert('Sharing did not go through. If you host this app, confirm the Supabase table named "shares" exists.');
       return null;
     }
   } else {
@@ -28816,7 +28816,7 @@ function renderBookIntroIntoContainer(container, normalized, linkPrefix, readerB
     pa.href = `${pre}${normalized.planLink.href}`;
     pa.className = 'bible-tool-gold-link';
     pa.textContent = normalized.planLink.label;
-    pa.setAttribute('aria-label', `Open ${normalized.planLink.label} on Battle Plans`);
+    pa.setAttribute('aria-label', `Open ${normalized.planLink.label} on Plans`);
     pl.appendChild(pa);
     pl.appendChild(document.createTextNode(' — same gentle pace; progress stays on this device.'));
     container.appendChild(pl);
@@ -29240,7 +29240,7 @@ function renderCurriculumWeek(audience, index) {
   const weeks = curriculum[audience] || [];
   const item = weeks[Number(index)];
   if (!item) {
-    output.innerHTML = '<p class="empty">No curriculum available—that is all right. Try again later or choose another path.</p>';
+    output.innerHTML = '<p class="empty">No curriculum available. Try again later or choose another path.</p>';
     return;
   }
   const lines = [
@@ -29338,7 +29338,7 @@ function loadStoryIntoCanvas(story) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = '#1e293b';
     ctx.font = '22px sans-serif';
-    ctx.fillText('This sheet did not load—that is all right. Try another story or refresh.', 32, 72);
+    ctx.fillText('This sheet did not load. Try another story or refresh.', 32, 72);
   };
   img.src = url;
 }
@@ -29579,7 +29579,7 @@ function renderSavedVerses() {
   if (collections.length === 0 && items.length === 0) {
     if (!fromTool.verseNotes || !fromTool.verseNotes.length) {
       if (!savedVersesArr || !savedVersesArr.length) {
-        container.innerHTML = '<p class="empty">Nothing here yet—that is all right. When a verse touches your heart, save one from the <a href="bible-tool.html">Bible Tool</a> or Study workspace. The Lord meets you right where you are.</p>';
+        container.innerHTML = '<p class="empty">Nothing here yet. When a verse touches your heart, save one from the <a href="bible-tool.html">Bible Tool</a> or Study workspace. The Lord meets you right where you are.</p>';
       }
     }
     return;
@@ -29827,7 +29827,7 @@ function renderNotes() {
   container.innerHTML = '';
   const notes = loadNotes();
   if (notes.length === 0) {
-    container.innerHTML = '<p class="empty">Nothing here yet—that is all right. When a verse touches your heart, add notes from the <a href="bible-tool.html">Bible Tool</a>. The Lord meets you right where you are.</p>';
+    container.innerHTML = '<p class="empty">Nothing here yet. When a verse touches your heart, add notes from the <a href="bible-tool.html">Bible Tool</a>. The Lord meets you right where you are.</p>';
     return;
   }
   const select = document.getElementById('note-verse-select');
@@ -31940,7 +31940,7 @@ function tdbPickHomePlanForTopic(topic) {
     .trim()
     .toLowerCase();
   if (!Array.isArray(HOME_SEARCH_PLAN_LIBRARY)) {
-    return { title: 'Battle Plans', href: 'plans.html', days: 7 };
+    return { title: 'Plans', href: 'plans.html', days: 7 };
   }
   for (var i = 0; i < HOME_SEARCH_PLAN_LIBRARY.length; i++) {
     var p = HOME_SEARCH_PLAN_LIBRARY[i];
@@ -34431,7 +34431,7 @@ function renderResults(results) {
     var emptyP = document.createElement('p');
     emptyP.className = 'empty topic-explain';
     emptyP.textContent =
-      'Nothing found yet—that is all right. Try another word or phrase, or tap a topic below. When a verse meets you there, save it from the card. The Lord meets you right where you are.';
+      'Nothing found yet. Try another word or phrase, or tap a topic below. When a verse meets you there, save it from the card. The Lord meets you right where you are.';
     output.appendChild(emptyP);
     var fuzzySuggestions = typeof getFuzzyTopicSuggestions === 'function' ? getFuzzyTopicSuggestions(queryText || lastQueryInput || '', 3) : [];
     var suggestions = document.createElement('div');
@@ -34617,7 +34617,7 @@ function renderResults(results) {
           refBlock.className = 'verse-reflection-prayer';
           var refP = document.createElement('p');
           refP.className = 'verse-reflection-prompt';
-          refP.textContent = 'How does this hit you today?';
+          refP.textContent = 'A short answer from Scripture';
           refBlock.appendChild(refP);
           var ctx = typeof getVerseContext === 'function' ? getVerseContext(v.ref) : null;
           var app = ctx && ctx.application ? ctx.application.trim() : '';
@@ -35389,7 +35389,7 @@ async function tdbInitImpl() {
       if (!noteEl) return;
       if (state === 'syncing') { noteEl.textContent = 'Syncing…'; noteEl.dataset.syncState = 'syncing'; return; }
       if (state === 'failed') {
-        noteEl.innerHTML = 'Sync did not finish—that is all right. <button type="button" class="link-button prayer-wall-sync-retry" aria-label="Retry sync">Retry</button>';
+        noteEl.innerHTML = 'Sync did not finish. <button type="button" class="link-button prayer-wall-sync-retry" aria-label="Retry sync">Retry</button>';
         noteEl.dataset.syncState = 'failed';
         var retryBtn = noteEl.querySelector('.prayer-wall-sync-retry');
         if (retryBtn) retryBtn.addEventListener('click', function () { pullFromCloud(); });
@@ -35503,7 +35503,7 @@ async function tdbInitImpl() {
                 reportBtn.textContent = 'Reported';
                 reportBtn.disabled = true;
                 if (typeof showEliteToast === 'function') showEliteToast('Thanks—we review reports.');
-              } else if (typeof showEliteToast === 'function') showEliteToast('Report did not go through—that is all right. Try Contact.');
+              } else if (typeof showEliteToast === 'function') showEliteToast('Report did not go through. Try Contact.');
             });
           });
           li.appendChild(reportBtn);
@@ -35839,7 +35839,7 @@ async function tdbInitImpl() {
           }
         }
         if (!picks.length) {
-          out.innerHTML = '<p class="empty">Nothing here yet—that is all right. When a verse touches your heart, try Home search or a topic chip—or refresh if the page just loaded. The Lord meets you right where you are.</p>';
+          out.innerHTML = '<p class="empty">Nothing here yet. When a verse touches your heart, try Home search or a topic chip—or refresh if the page just loaded. The Lord meets you right where you are.</p>';
           out.style.display = 'grid';
           return;
         }
@@ -35939,7 +35939,7 @@ async function tdbInitImpl() {
         if (!steps.length) {
           steps = [
             { label: 'Learn the Word path', href: '/learn-the-word.html' },
-            { label: 'Battle Plans', href: '/plans.html' },
+            { label: 'Plans', href: '/plans.html' },
             { label: 'Life Lessons', href: '/life-lessons.html' }
           ];
         }
@@ -36164,14 +36164,14 @@ async function tdbInitImpl() {
         var verses = Array.isArray(fallback.verses) ? fallback.verses.slice(0, 6) : [];
         if (!verses.length) {
           return packLocal(
-            'I did not find a strong match yet—that is all right. Shorten the search a little, or open Learn the Word for a steady path.',
+            'I did not find a strong match yet. Shorten the search a little, or open Learn the Word for a steady path.',
             [],
             'Lord, meet me in what I cannot sort out yet, and guide me into truth. Amen.',
             {
               from: 'empty',
               next_steps: [
                 { label: 'Learn the Word path', href: '/learn-the-word.html' },
-                { label: 'Battle Plans', href: '/plans.html' }
+                { label: 'Plans', href: '/plans.html' }
               ]
             }
           );
@@ -36187,7 +36187,7 @@ async function tdbInitImpl() {
             next_steps: [
               { label: 'Learn the Word path', href: '/learn-the-word.html' },
               { label: 'University map', href: '/university.html' },
-              { label: 'Battle Plans', href: '/plans.html' },
+              { label: 'Plans', href: '/plans.html' },
               { label: 'Life Lessons', href: '/life-lessons.html' }
             ]
           }
@@ -37512,7 +37512,7 @@ async function tdbInitImpl() {
       });
       saveBtn.disabled = false;
       if (update.error) {
-        setStatus(update.error.message || 'Your name did not save—that is all right. Try again in a moment.', 'error');
+        setStatus(update.error.message || 'Your name did not save. Try again in a moment.', 'error');
         return;
       }
       saveMessageDisplayName(fullName);
@@ -37693,7 +37693,7 @@ async function tdbInitImpl() {
       signupBtn.disabled = false;
       if (error) {
         // Don't leak "user already registered" or raw API messages to the UI.
-        var safeMsg = 'Account did not create—that is all right. Try logging in or use a different email.';
+        var safeMsg = 'Account did not create. Try logging in or use a different email.';
         if (error.message && /already|registered|exists|duplicate/i.test(error.message)) {
           safeMsg = 'An account may already exist for this email. Try logging in or use a different email.';
         } else if (error.message && /invalid|password|weak/i.test(error.message)) {
@@ -37752,7 +37752,7 @@ async function tdbInitImpl() {
           if (typeof trackEvent === 'function') trackEvent('login_failed', { reason: 'invalid_credentials' });
         } else {
           setAuthStatus(error.message, 'error');
-          if (typeof showEliteToast === 'function') showEliteToast(error.message || 'Sign-in did not finish—that is all right. Please try again.');
+          if (typeof showEliteToast === 'function') showEliteToast(error.message || 'Sign-in did not finish. Please try again.');
           if (typeof trackEvent === 'function') trackEvent('login_failed', { reason: 'other' });
         }
         return;
@@ -37869,7 +37869,7 @@ async function tdbInitImpl() {
         if (!supabaseClient) {
           var ready = await ensureSupabaseLoaded();
           if (!ready || !supabaseClient) {
-            setModalStatus('Sign-in is still waking up—that is all right. Please try again.', 'error');
+            setModalStatus('Sign-in is still waking up. Please try again.', 'error');
             return;
           }
         }
@@ -37926,7 +37926,7 @@ async function tdbInitImpl() {
           });
           submitBtn.disabled = false;
           if (res.error) {
-            var safe = /already|registered|exists/i.test(res.error.message) ? 'An account may already exist. Try logging in.' : (res.error.message.length < 100 ? res.error.message : 'Account did not create—that is all right. Please try again.');
+            var safe = /already|registered|exists/i.test(res.error.message) ? 'An account may already exist. Try logging in.' : (res.error.message.length < 100 ? res.error.message : 'Account did not create. Please try again.');
             setModalStatus(safe, 'error');
             return;
           }
@@ -38241,7 +38241,7 @@ async function tdbInitImpl() {
         if (hasProtectedPrayerPath) {
           showQuickPrayStatus('Saved privately on this device. When you are online, tap Pray again to add it to shared prayer.', 5000);
         } else {
-          showQuickPrayStatus('Saved privately on this device. Shared prayer is not open from here right now—that is all right.', 5000);
+          showQuickPrayStatus('Saved privately on this device. Shared prayer is not open from here right now.', 5000);
         }
       } else {
         queuePrayerOfflineIntent(text, 'quick_pray');
@@ -38546,7 +38546,7 @@ async function tdbInitImpl() {
     dailyEmailBtn.addEventListener('click', () => {
       const email = buildDailyEmailDraft();
       if (!email) {
-        if (dailyEmailStatus) dailyEmailStatus.textContent = 'Bible text is still loading—that is all right. Refresh or try again in a moment.';
+        if (dailyEmailStatus) dailyEmailStatus.textContent = 'Bible text is still loading. Refresh or try again in a moment.';
         return;
       }
       navigator.clipboard.writeText(email);
@@ -38561,7 +38561,7 @@ async function tdbInitImpl() {
       if (!preview) return;
       const email = buildDailyEmailDraft();
       if (!email) {
-        preview.textContent = 'Bible text is still loading—that is all right. Refresh or try again in a moment.';
+        preview.textContent = 'Bible text is still loading. Refresh or try again in a moment.';
         return;
       }
       preview.textContent = email;
@@ -38635,7 +38635,7 @@ async function tdbInitImpl() {
         shareDailyCopyLinkBtn.textContent = 'Link copied!';
         setTimeout(() => { shareDailyCopyLinkBtn.textContent = 'Copy link'; }, 2000);
       }, function (link) {
-        if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Paste this: ' + link);
+        if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through. Paste this: ' + link);
       });
     });
   }
@@ -38709,7 +38709,7 @@ async function tdbInitImpl() {
       if (!el) return;
       el.innerHTML = list.slice(0, 5).map(function (e, i) {
         return '<li class="leaderboard-item">' + (i + 1) + '. ' + escapeHtml(e.name || 'Anonymous') + ' – ' + (e.days || 0) + ' days</li>';
-      }).join('') || '<li class="section-note">No entries yet—that is all right. Complete today\'s verse when you can, then add your streak.</li>';
+      }).join('') || '<li class="section-note">No entries yet. Complete today\'s verse when you can, then add your streak.</li>';
     }
     var submit = document.getElementById('leaderboard-submit');
     var nickname = document.getElementById('leaderboard-nickname');
@@ -39068,7 +39068,7 @@ async function tdbInitImpl() {
     if (data) {
       applySharePayload(data);
     } else {
-      alert('Share link did not load—that is all right. Check the URL or open the page from a fresh share.');
+      alert('Share link did not load. Check the URL or open the page from a fresh share.');
     }
   }
   if (params.get('load') === '1') {
@@ -39097,7 +39097,7 @@ async function tdbInitImpl() {
         saveSermonDraft({ title: toolkit.title, theme: toolkit.theme, textRef: toolkit.textRef, outline: toolkit.outline, points: toolkit.points, application: toolkit.application, prayer: toolkit.prayer });
         window.location.href = 'sermon.html?load=1';
       } catch (e) {
-        alert('That did not finish—that is all right. Try again in a moment.');
+        alert('That did not finish. Try again in a moment.');
       } finally {
         ptBuildBtn.disabled = false;
         ptBuildBtn.textContent = 'Build toolkit & open Sermon Builder';
@@ -39225,7 +39225,7 @@ async function tdbInitImpl() {
   function copyTextWithSermonToast(text, okMessage) {
     navigator.clipboard.writeText(text)
       .then(() => { if (typeof showEliteToast === 'function') showEliteToast(okMessage || 'Copied.'); })
-      .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Select all and copy manually.'); });
+      .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through. Select all and copy manually.'); });
   }
   function buildSermonOneTapExportText(draft) {
     const packet = [
@@ -39478,7 +39478,7 @@ async function tdbInitImpl() {
       ].join('\n');
       navigator.clipboard.writeText(fullPacket)
         .then(() => { if (typeof showEliteToast === 'function') showEliteToast('Pastor Toolkit copied.'); })
-        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Select all and copy manually.'); });
+        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through. Select all and copy manually.'); });
     });
   }
 
@@ -39520,7 +39520,7 @@ async function tdbInitImpl() {
       if (!linkInput || !linkInput.value.trim()) return;
       navigator.clipboard.writeText(linkInput.value.trim())
         .then(() => { if (typeof showEliteToast === 'function') showEliteToast('Link copied.'); })
-        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Select and copy manually.'); });
+        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through. Select and copy manually.'); });
     });
   }
 
@@ -39704,7 +39704,7 @@ async function tdbInitImpl() {
       var empty = document.createElement('p');
       empty.className = 'section-note saved-lessons-empty';
       empty.setAttribute('aria-live', 'polite');
-      empty.textContent = 'No lessons saved yet—that is all right. The shelf stays open. Search a topic above when you want to, then choose Build Lesson to tuck one here.';
+      empty.textContent = 'No lessons saved yet. The shelf stays open. Search a topic above when you want to, then choose Build Lesson to tuck one here.';
       list.appendChild(empty);
       return;
     }
@@ -39917,7 +39917,7 @@ async function tdbInitImpl() {
         window.dispatchEvent(new CustomEvent('reading-plan-updated'));
         if (customPlanStatus) customPlanStatus.textContent = 'Plan generated. Your ' + days + '-day plan is below.';
       } catch (e) {
-        if (customPlanStatus) customPlanStatus.textContent = 'Custom plan did not save—that is all right. Try again in a moment.';
+        if (customPlanStatus) customPlanStatus.textContent = 'Custom plan did not save. Try again in a moment.';
       }
     });
   }
@@ -40112,7 +40112,7 @@ async function tdbInitImpl() {
       container.innerHTML = '';
       sermonContainer.innerHTML = '';
       if (results.length === 0) {
-        container.innerHTML = '<p class="empty">No churches found for that search—that is all right. Try another name or location.</p>';
+        container.innerHTML = '<p class="empty">No churches found for that search. Try another name or location.</p>';
         return;
       }
       results.forEach(church => {
@@ -40127,7 +40127,7 @@ async function tdbInitImpl() {
           const sermons = await loadChurchSermons(church.id);
           sermonContainer.innerHTML = '';
           if (sermons.length === 0) {
-            sermonContainer.innerHTML = '<p class="empty">No sermons are published for this church yet—that is all right. Check back later or choose another church.</p>';
+            sermonContainer.innerHTML = '<p class="empty">No sermons are published for this church yet. Check back later or choose another church.</p>';
             return;
           }
           sermons.forEach(sermon => {
@@ -40228,7 +40228,7 @@ async function tdbInitImpl() {
           row.appendChild(actions);
           prayerList.appendChild(row);
         });
-        if (!items.length) prayerList.innerHTML = '<p class="empty">No prayer requests here yet—that is all right. Add one above when you are ready.</p>';
+        if (!items.length) prayerList.innerHTML = '<p class="empty">No prayer requests here yet. Add one above when you are ready.</p>';
       }
     }
     const assignedList = document.getElementById('church-assigned-list');
@@ -40255,7 +40255,7 @@ async function tdbInitImpl() {
         row.appendChild(actions);
         assignedList.appendChild(row);
       });
-      if (!assignments.length) assignedList.innerHTML = '<p class="empty">No assigned reading yet—that is all right. Your pastor can add passages above when the group is ready.</p>';
+      if (!assignments.length) assignedList.innerHTML = '<p class="empty">No assigned reading yet. Your pastor can add passages above when the group is ready.</p>';
     }
   }
 
@@ -40297,7 +40297,7 @@ async function tdbInitImpl() {
           added_by_user_id: currentUserId
         });
         if (error) {
-          if (typeof showEliteToast === 'function') showEliteToast('Prayer did not add—that is all right. Try again.');
+          if (typeof showEliteToast === 'function') showEliteToast('Prayer did not add. Try again.');
           return;
         }
         churchPrayerInput.value = '';
@@ -40467,7 +40467,7 @@ async function tdbInitImpl() {
       const ref = currentDailyBattle?.ref || getDailyVerseRef();
       let text = currentDailyBattle?.verse || (ref && bible[ref] ? bible[ref] : '');
       if (!ref || !text) {
-        alert('Daily verse is not on this page yet—that is all right. Refresh or try again in a moment.');
+        alert('Daily verse is not on this page yet. Refresh or try again in a moment.');
         return;
       }
       text = (text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()) + ' Fight on.';
@@ -40480,7 +40480,7 @@ async function tdbInitImpl() {
     dailyKjvAudioBtn.addEventListener('click', () => {
       const ref = currentDailyBattle?.ref || getDailyVerseRef();
       if (!ref) {
-        alert('Daily verse is not on this page yet—that is all right. Refresh or try again in a moment.');
+        alert('Daily verse is not on this page yet. Refresh or try again in a moment.');
         return;
       }
       window.open(buildKjvAudioUrl(ref), '_blank');
@@ -40649,7 +40649,7 @@ async function tdbInitImpl() {
       } catch (err) {
         const announce = document.getElementById('message-added-announce');
         if (announce) {
-          announce.textContent = 'That did not post—that is all right. Try again in a moment.';
+          announce.textContent = 'That did not post. Try again in a moment.';
           setTimeout(function () { announce.textContent = ''; }, 4200);
         }
       }

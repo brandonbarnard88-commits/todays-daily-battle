@@ -1,5 +1,5 @@
 /**
- * Surface loader: Plans / The Paths
+ * Surface loader: Plans / Plans
  * Sets TDB_SURFACE before the shared interaction stack (script.js).
  * Plans-specific builders stay in plans-builder.js / plans-weary-season-plans.js.
  */
@@ -9,7 +9,7 @@
   global.TDB_SURFACE = 'plans';
   global.TDB_SURFACE_META = {
     id: 'plans',
-    name: 'The Paths',
+    name: 'Plans',
     pathHints: ['/plans.html', '/plans'],
     loadsInteractive: 'script.js (module)',
     companion: ['plans-builder.js', 'plans-weary-season-plans.js', 'university-plan-extensions.js']

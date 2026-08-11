@@ -80,7 +80,7 @@
           kidsList.appendChild(li);
         });
       } catch (err) {
-        setStatus('kids-status', 'Kids list did not load—that is all right. Try again in a moment.', true);
+        setStatus('kids-status', 'Kids list did not load. Try again in a moment.', true);
       }
     }
 
@@ -163,7 +163,7 @@
           groupsList.appendChild(li);
         });
       } catch (err) {
-        setStatus('groups-status', 'Groups did not load—that is all right. Try again in a moment.', true);
+        setStatus('groups-status', 'Groups did not load. Try again in a moment.', true);
       }
     }
 
@@ -232,10 +232,10 @@
         setStatus('kids-status', 'Added.');
         loadProfile();
       } else {
-        setStatus('kids-status', 'That did not add—that is all right. Try again.', true);
+        setStatus('kids-status', 'That did not add. Try again.', true);
       }
     } catch (err) {
-      setStatus('kids-status', 'That did not add—that is all right. If you are the builder, confirm tables exist (supabase-profile-family-groups.sql).', true);
+      setStatus('kids-status', 'That did not add. Please try again.sql).', true);
     }
   }
 
@@ -248,7 +248,7 @@
       setStatus('kids-status', 'Removed.');
       loadProfile();
     } catch (err) {
-      setStatus('kids-status', 'That did not remove—that is all right. Try again.', true);
+      setStatus('kids-status', 'That did not remove. Try again.', true);
     }
   }
 
@@ -267,7 +267,7 @@
     if (!uid) return;
     var code = await generateInviteCode();
     if (!code) {
-      setStatus('groups-status', 'Invite code did not generate—that is all right. If you are the builder, run supabase-profile-family-groups.sql.', true);
+      setStatus('groups-status', 'Invite code did not generate. Please try again.sql.', true);
       return;
     }
     try {
@@ -278,10 +278,10 @@
         setStatus('groups-status', 'Group created. Invite code: ' + code);
         loadProfile();
       } else {
-        setStatus('groups-status', 'Group did not create—that is all right. Try again.', true);
+        setStatus('groups-status', 'Group did not create. Try again.', true);
       }
     } catch (err) {
-      setStatus('groups-status', 'Group did not create—that is all right. If you are the builder, run supabase-profile-family-groups.sql.', true);
+      setStatus('groups-status', 'Group did not create. Please try again.sql.', true);
     }
   }
 
@@ -303,10 +303,10 @@
         setStatus('groups-status', 'Joined.');
         loadProfile();
       } else {
-        setStatus('groups-status', (data && data.reason === 'not_found') ? 'Code not found.' : 'Join did not go through—that is all right. Check the code.', true);
+        setStatus('groups-status', (data && data.reason === 'not_found') ? 'Code not found.' : 'Join did not go through. Check the code.', true);
       }
     } catch (err) {
-      setStatus('groups-status', 'Join did not go through—that is all right. Try again.', true);
+      setStatus('groups-status', 'Join did not go through. Try again.', true);
     }
   }
 
@@ -325,7 +325,7 @@
       setStatus('groups-status', isCreator ? 'Group deleted.' : 'Left group.');
       loadProfile();
     } catch (err) {
-      setStatus('groups-status', 'That did not update—that is all right. Try again.', true);
+      setStatus('groups-status', 'That did not update. Try again.', true);
     }
   }
 
@@ -356,7 +356,7 @@
       setStatus('church-status', 'Saved.');
       loadProfile();
     } catch (err) {
-      setStatus('church-status', 'That did not save—that is all right. If you are the builder, run supabase-profile-family-groups.sql.', true);
+      setStatus('church-status', 'That did not save. Please try again.sql.', true);
     }
   }
 
@@ -394,7 +394,7 @@
       setStatus('delete-account-status', 'Account removed. Redirecting…');
       setTimeout(function () { window.location.href = '/'; }, 1500);
     } catch (err) {
-      setStatus('delete-account-status', 'That did not finish—that is all right. Try again.', true);
+      setStatus('delete-account-status', 'That did not finish. Try again.', true);
       if (btn) btn.disabled = false;
     }
   }
@@ -445,7 +445,7 @@
       setStatus('export-status', 'Downloaded!');
       setTimeout(function () { setStatus('export-status', ''); }, 3000);
     } catch (err) {
-      setStatus('export-status', 'That did not finish—that is all right. Try again.', true);
+      setStatus('export-status', 'That did not finish. Try again.', true);
     }
     if (btn) btn.disabled = false;
   }
@@ -463,7 +463,7 @@
         if (cb.checked) localStorage.setItem('tdb_perf_mode', '1');
         else localStorage.removeItem('tdb_perf_mode');
       } catch (e) {
-        setStatus('perf-mode-status', 'Preference did not save—that is all right. Try again.', true);
+        setStatus('perf-mode-status', 'Preference did not save. Try again.', true);
         return;
       }
       setStatus('perf-mode-status', 'Saved — reloading…', false);

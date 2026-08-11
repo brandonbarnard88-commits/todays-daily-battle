@@ -50,7 +50,7 @@ ${pilotNote}
   <nav class="bottom-nav" role="navigation" aria-label="Planes y temas en español">
     <a href="/plans.html" hreflang="en">Planes (EN)</a>
     <a href="/explore.html">Explore</a>
-    <a href="/kids/" hreflang="en">Kids Battle (EN)</a>
+    <a href="/kids/" hreflang="en">Kids (EN)</a>
     <span class="bottom-nav-es-inline" role="group" aria-label="Temas en español (Reina-Valera 1960, dominio público)">
       <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
       <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
@@ -116,7 +116,7 @@ ${pilotNote}
   <nav class="bottom-nav" role="navigation" aria-label="Plans et sujets en français">
     <a href="/plans.html" hreflang="en">Plans (EN)</a>
     <a href="/explore.html">Explore</a>
-    <a href="/kids/" hreflang="en">Kids Battle (EN)</a>
+    <a href="/kids/" hreflang="en">Kids (EN)</a>
     <span class="bottom-nav-es-inline" role="group" aria-label="Sujets en français (Louis Segond)">
       <a href="/fr/anxiete.html" hreflang="fr" lang="fr">Anxiété</a>
       <a href="/fr/force.html" hreflang="fr" lang="fr">Force</a>
@@ -182,7 +182,7 @@ ${pilotNote}
   <nav class="bottom-nav" role="navigation" aria-label="Planos e tópicos em português">
     <a href="/plans.html" hreflang="en">Planos (EN)</a>
     <a href="/explore.html">Explore</a>
-    <a href="/kids/" hreflang="en">Kids Battle (EN)</a>
+    <a href="/kids/" hreflang="en">Kids (EN)</a>
     <span class="bottom-nav-es-inline" role="group" aria-label="Tópicos em português (Almeida, domínio público)">
       <a href="/pt/ansiedade.html" hreflang="pt" lang="pt">Ansiedade</a>
       <a href="/pt/forca.html" hreflang="pt" lang="pt">Força</a>
@@ -392,8 +392,8 @@ for (const name of fs.readdirSync(path.join(root, 'pt'))) {
   if (!name.endsWith('.html')) continue;
   patchFile(`pt/${name}`, (html) =>
     html.replace(
-      /<a href="\/kids\/">Kids Battle<\/a>/g,
-      '<a href="/kids/" hreflang="en">Kids Battle (EN)</a>',
+      /<a href="\/kids\/">Kids<\/a>/g,
+      '<a href="/kids/" hreflang="en">Kids (EN)</a>',
     ),
   );
 }

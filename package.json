@@ -34,6 +34,7 @@
     "gentle:qa:full": "node scripts/generate-gentle-kids-qa-from-packages.mjs && node scripts/generate-kids-read-quiz-data.mjs && echo 'Gentle kids Q&A + adult prompts regenerated for all package.md stories.'",
     "verify:mobius-audio": "node scripts/verify-mobius-audio.mjs",
     "verify:phrase-quality": "node scripts/verify-breakdown-phrase-quality.mjs",
+    "verify:site-copy": "node scripts/verify-site-copy-phrases.mjs",
     "verify:teaching": "node scripts/verify-teaching-integrity.mjs && node scripts/verify-hero-365-fidelity.mjs && node scripts/verify-override-fidelity.mjs",
     "verify:hero-fidelity": "node scripts/verify-hero-365-fidelity.mjs",
     "verify:override-fidelity": "node scripts/verify-override-fidelity.mjs",

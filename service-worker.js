@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260809-kjv-text-fix';
+const CACHE_NAME = 'tdb-cache-v20260810-kids-color-open';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -764,6 +764,49 @@ self.addEventListener('fetch', (event) => {
               });
             })
         )
+    );
+    return;
+  }
+
+  /*
+   * Kids Story Library JS/CSS must be network-first.
+   * Cache-first + pathname match was serving stale kids-corner.js / kids-battle.css
+   * (precache /kids/kids-corner.js ignored ?v= cache-bust), so open-story kept stick
+   * panels and unreadable text after deploys shipped full-color art.
+   */
+  if (
+    sameOrigin &&
+    /\.(js|css)$/i.test(url.pathname) &&
+    (
+      url.pathname.indexOf('/kids/') === 0 ||
+      /\/kids-(battle|corner|gentle|hub|read|story|verses)/i.test(url.pathname) ||
+      /\/loop-library-coloring\.js$/i.test(url.pathname)
+    )
+  ) {
+    event.respondWith(
+      fetch(event.request)
+        .then(function (res) {
+          if (res && res.ok) {
+            var clone = res.clone();
+            caches.open(CACHE_NAME).then(function (cache) {
+              cache.put(event.request, clone).catch(function () {});
+              /* Also refresh pathname-only key used by offline match */
+              try {
+                cache.put(url.pathname, res.clone()).catch(function () {});
+              } catch (_e) {}
+            });
+          }
+          return res;
+        })
+        .catch(function () {
+          return matchCachedSameOriginAsset(CACHE_NAME, event.request, url).then(function (hit) {
+            if (hit) return hit;
+            return new Response('/* Offline — kids asset unavailable */', {
+              status: 503,
+              headers: { 'content-type': /\.css$/i.test(url.pathname) ? 'text/css; charset=utf-8' : 'application/javascript; charset=utf-8' }
+            });
+          });
+        })
     );
     return;
   }

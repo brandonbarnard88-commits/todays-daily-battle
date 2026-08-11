@@ -298,7 +298,7 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
         '$1'
       );
       html = html.replace(
-        /(<p id="heroDeepWho">)[\s\S]*?(<\/p>)/,
+        /(<p[^>]*\bid="heroDeepWho"[^>]*>)[\s\S]*?(<\/p>)/,
         '$1' + escapeHtmlText(String(expl.about)) + '$2'
       );
     }
@@ -308,7 +308,7 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
         '$1'
       );
       html = html.replace(
-        /(<p id="heroDeepAudience">)[\s\S]*?(<\/p>)/,
+        /(<p[^>]*\bid="heroDeepAudience"[^>]*>)[\s\S]*?(<\/p>)/,
         '$1' + escapeHtmlText(String(expl.to)) + '$2'
       );
     }

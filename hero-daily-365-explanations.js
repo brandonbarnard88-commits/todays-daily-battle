@@ -580,9 +580,9 @@
     "text": "In the multitude of my thoughts within me thy comforts delight my soul.",
     "plain": "When anxiety was great within me, Your consolation brought me joy—God meets us in the overwhelm.",
     "step": "Name the fear in one sentence to God, then reread this verse slowly.",
-    "about": "A psalm writer",
-    "to": "Anyone who needs to know God still reigns",
-    "setting": "The Lord reigns: floods, thrones, and idols cannot unseat Him; joy for the upright."
+    "about": "A psalm writer (unattributed)",
+    "to": "Anyone whose footing feels uncertain under pressure",
+    "setting": "A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the Lord’s mercy held him up."
   },
   {
     "ref": "Matthew 19:14",
@@ -2004,16 +2004,16 @@
     "step": "Kneel or sit—body still—and ask God to make this word yours today.",
     "about": "A psalm writer",
     "to": "Anyone who needs to know God still reigns",
-    "setting": "The Lord reigns: floods, thrones, and idols cannot unseat Him; joy for the upright."
+    "setting": "The Lord reigns: floods and noise cannot unseat Him; He is robed in majesty forever."
   },
   {
     "ref": "Psalm 94:18",
     "text": "When I said, My foot slippeth; thy mercy, O Lord, held me up.",
     "plain": "If I say, My foot is slipping; your mercy, O Lord, is my support.",
     "step": "If you feel empty, ask God to fill the next small task with His help.",
-    "about": "A psalm writer",
-    "to": "Anyone who needs to know God still reigns",
-    "setting": "The Lord reigns: floods, thrones, and idols cannot unseat Him; joy for the upright."
+    "about": "A psalm writer (unattributed)",
+    "to": "Anyone whose footing feels uncertain under pressure",
+    "setting": "A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the Lord’s mercy held him up."
   },
   {
     "ref": "Romans 5:5",
@@ -2031,7 +2031,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "A psalm writer",
     "to": "Anyone who needs to know God still reigns",
-    "setting": "The Lord reigns: floods, thrones, and idols cannot unseat Him; joy for the upright."
+    "setting": "Worship the Lord as King: soft hearts, idol-smashing glory, and joy for the upright."
   },
   {
     "ref": "Psalm 95:7",
@@ -2040,7 +2040,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "A psalm writer",
     "to": "Anyone who needs to know God still reigns",
-    "setting": "The Lord reigns: floods, thrones, and idols cannot unseat Him; joy for the upright."
+    "setting": "Worship the Lord as King: soft hearts, idol-smashing glory, and joy for the upright."
   },
   {
     "ref": "1 John 4:7",
@@ -2058,7 +2058,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "A psalm writer",
     "to": "Anyone who needs to know God still reigns",
-    "setting": "The Lord reigns: floods, thrones, and idols cannot unseat Him; joy for the upright."
+    "setting": "Worship the Lord as King: soft hearts, idol-smashing glory, and joy for the upright."
   },
   {
     "ref": "Psalm 96:2",
@@ -2067,7 +2067,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "A psalm writer",
     "to": "Anyone who needs to know God still reigns",
-    "setting": "The Lord reigns: floods, thrones, and idols cannot unseat Him; joy for the upright."
+    "setting": "Worship the Lord as King: soft hearts, idol-smashing glory, and joy for the upright."
   },
   {
     "ref": "1 Peter 1:3",
@@ -2085,7 +2085,7 @@
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
     "about": "A psalm writer",
     "to": "Anyone who needs to know God still reigns",
-    "setting": "The Lord reigns: floods, thrones, and idols cannot unseat Him; joy for the upright."
+    "setting": "Worship the Lord as King: soft hearts, idol-smashing glory, and joy for the upright."
   },
   {
     "ref": "Psalm 98:1",

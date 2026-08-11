@@ -635,7 +635,7 @@
     return best;
   }
 
-  /** Snapshot currently painted hero dig-deeper (SSR inject often has the best line). */
+  /** Snapshot currently painted hero dig-deeper (only safe when bound to the same ref). */
   function readHeroDigDeeperDomSnapshot() {
     var sitPrimary = sanitizeText(
       document.getElementById('heroSimpleSituation') &&
@@ -669,11 +669,25 @@
       sitFromSimple = simple.replace(/^What was going on:\s*/i, '').replace(/\.?\s*What it means:[\s\S]*$/i, '').trim();
     }
     return {
+      boundRef: readHeroDigDeeperBoundRef() || '',
+      displayedRef: readDisplayedHeroRef() || '',
       situation: pickBestText([sitPrimary, sitDeep, sitFromSimple], scoreSituationLine),
       meaning: pickBestText([meanPrimary, meanFromSimple], scoreMeaningLine),
       who: who,
       audience: aud
     };
+  }
+
+  /** SSR often ships yesterday’s verse (or Solomon stubs). Never keep that under a different ref. */
+  function snapshotMatchesTargetRef(snap, targetRef) {
+    if (!snap || typeof snap !== 'object') return false;
+    var target = normalizeHeroBoundRef(targetRef);
+    if (!target) return false;
+    var bound = normalizeHeroBoundRef(snap.boundRef || '');
+    if (bound && bound === target) return true;
+    /* Unstamped DOM (first paint): only trust snapshot when displayed hero already matches target. */
+    var displayed = normalizeHeroBoundRef(snap.displayedRef || '');
+    return !!(displayed && displayed === target && !bound);
   }
 
   /** Thin speaker-line or weak plain stamp — force upgrade when better data is available. */
@@ -713,6 +727,7 @@
     var v = normalizeVerse({ ref: displayed, text: text });
     if (!v.ref) return false;
     var snap = readHeroDigDeeperDomSnapshot();
+    var snapOk = snapshotMatchesTargetRef(snap, displayed);
     var liveSit = '';
     var liveAbout = '';
     var liveTo = '';
@@ -725,21 +740,21 @@
       }
     } catch (eLive) { /* non-fatal */ }
     var bestSit = pickBestText(
-      [liveSit, v.setting, snap.situation],
+      [liveSit, v.setting, snapOk ? snap.situation : ''],
       scoreSituationLine
     );
-    var bestPlain = pickBestText([v.plain, snap.meaning], scoreMeaningLine);
+    var bestPlain = pickBestText([v.plain, snapOk ? snap.meaning : ''], scoreMeaningLine);
     /* Prefer day-explanation plain/step when integrity re-runs after context loads. */
     applyHeroVotdFromInputs(v, {
       plainExplanation: bestPlain || v.plain || '',
       groupApplication: v.today || '',
       modernApplication: '',
       practicalStep: v.action || v.app || '',
-      about: liveAbout || v.about || v.speaker || snap.who || '',
-      to: liveTo || v.to || snap.audience || '',
+      about: liveAbout || v.about || v.speaker || (snapOk ? snap.who : '') || '',
+      to: liveTo || v.to || (snapOk ? snap.audience : '') || '',
       setting: bestSit || v.setting || '',
       situation: bestSit || v.setting || '',
-      preserveDomSnapshot: snap
+      preserveDomSnapshot: snapOk ? snap : null
     });
     return true;
   }
@@ -835,14 +850,20 @@
       );
       if (betterPlain && !isWeakMeaningStamp(betterPlain)) meaningOnly = betterPlain;
     }
-    /* Live resolver + shared + DOM — never leave thin “X speaking to Y” when a narrative exists. */
+    /* Live resolver + shared + same-ref DOM only — never keep Solomon/SSR stubs under a psalm. */
+    var snapIn = sh.preserveDomSnapshot || null;
+    var snapOk = snapshotMatchesTargetRef(snapIn, v.ref);
+    var snapSit = snapOk ? sanitizeText(snapIn && snapIn.situation) : '';
+    var snapMean = snapOk ? sanitizeText(snapIn && snapIn.meaning) : '';
+    var snapWho = snapOk ? sanitizeText(snapIn && snapIn.who) : '';
+    var snapAud = snapOk ? sanitizeText(snapIn && snapIn.audience) : '';
     var situation = pickBestText(
       [
         sanitizeText(ctx.setting || ''),
         sanitizeText(sh.situation || ''),
         sanitizeText(sh.setting || ''),
         sanitizeText(v.setting || ''),
-        sanitizeText(sh.preserveDomSnapshot && sh.preserveDomSnapshot.situation)
+        snapSit
       ],
       scoreSituationLine
     );
@@ -855,7 +876,7 @@
         [
           sanitizeText(v.setting || ''),
           sanitizeText(sh.situation || sh.setting || ''),
-          sanitizeText(sh.preserveDomSnapshot && sh.preserveDomSnapshot.situation)
+          snapSit
         ],
         scoreSituationLine
       );
@@ -869,7 +890,7 @@
         [
           sanitizeText(v.plain),
           sanitizeText(sh.plainExplanation || sh.plain || ''),
-          sanitizeText(sh.preserveDomSnapshot && sh.preserveDomSnapshot.meaning)
+          snapMean
         ],
         scoreMeaningLine
       );
@@ -884,16 +905,13 @@
         meaningClean;
     }
     var who = aboutA || sanitizeText(v.about) || sanitizeText(v.speaker) || ctx.about;
-    /* Prefer fuller who (“Solomon giving wisdom”) over stripped “Solomon”. */
+    /* Prefer fuller who over stripped bare name — only when both name the same speaker family. */
     if (who && who.length < 12 && ctx.about && sanitizeText(ctx.about).length > who.length) {
       who = sanitizeText(ctx.about);
     }
-    if (
-      sh.preserveDomSnapshot &&
-      sh.preserveDomSnapshot.who &&
-      sanitizeText(sh.preserveDomSnapshot.who).length > sanitizeText(who).length + 4
-    ) {
-      who = sanitizeText(sh.preserveDomSnapshot.who);
+    /* Same-ref DOM only (length alone used to keep “Solomon giving wisdom” under Psalms). */
+    if (snapWho && sanitizeText(snapWho).length > sanitizeText(who).length + 4) {
+      who = snapWho;
     }
     if (!who) {
       if (row) {
@@ -903,12 +921,8 @@
       }
     }
     var audience = audienceShared || sanitizeText(v.to) || ctx.to;
-    if (
-      sh.preserveDomSnapshot &&
-      sh.preserveDomSnapshot.audience &&
-      sanitizeText(sh.preserveDomSnapshot.audience).length > sanitizeText(audience).length + 4
-    ) {
-      audience = sanitizeText(sh.preserveDomSnapshot.audience);
+    if (snapAud && sanitizeText(snapAud).length > sanitizeText(audience).length + 4) {
+      audience = snapAud;
     }
     if (!audience) {
       audience = row
@@ -1002,10 +1016,12 @@
         ? simple.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim()
         : simple;
     }
-    /* Final prefer-stronger pass against the pre-clear DOM (catches race with partial engines). */
+    /* Prefer stronger lines only when the pre-clear DOM was already bound to this same verse. */
     var snap = shIn.preserveDomSnapshot || {};
-    situation = pickBestText([situation, snap.situation], scoreSituationLine);
-    meaningOnly = pickBestText([meaningOnly, snap.meaning], scoreMeaningLine);
+    if (snapshotMatchesTargetRef(snap, refKey)) {
+      situation = pickBestText([situation, snap.situation], scoreSituationLine);
+      meaningOnly = pickBestText([meaningOnly, snap.meaning], scoreMeaningLine);
+    }
     if (situation && meaningOnly) {
       simple =
         'What was going on: ' +

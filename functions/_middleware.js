@@ -15,6 +15,11 @@ const FALLBACK_SECURITY_HEADERS = {
 
 const BLOCKED_PATHS = new Set(['/stats', '/stats/', '/stats.html']);
 
+/** Retired stick-figure panel art — never serve even if a ghost asset remains at the edge. */
+function isRetiredStickPanelPath(path) {
+  return /^\/kids\/panel-[a-z0-9-]+\.svg\/?$/i.test(path || '');
+}
+
 const BLOCKED_HTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,10 +40,12 @@ export async function onRequest(context) {
   const path = url.pathname || '/';
 
   // Owner stats: never serve public HTML (static file would otherwise win over _redirects).
-  if (BLOCKED_PATHS.has(path)) {
+  // Stick panels: retired Color & Tell era — block at the edge worker so ghost cache/origin cannot show sticks.
+  if (BLOCKED_PATHS.has(path) || isRetiredStickPanelPath(path)) {
     const headers = new Headers({
       'content-type': 'text/html; charset=utf-8',
-      'cache-control': 'no-store',
+      'cache-control': 'no-store, no-cache, must-revalidate, max-age=0',
+      'cdn-cache-control': 'no-store',
       'x-robots-tag': 'noindex, nofollow'
     });
     Object.entries(FALLBACK_SECURITY_HEADERS).forEach(([key, value]) => {

@@ -321,3 +321,7 @@
 /prayer-wall/ /prayer-wall.html 200!
 /index.html / 301
 /index / 301
+
+# Stick-figure panel art removed (2026-08-11) — force 404 even if an edge still has old files
+/kids/panel-*.svg /404.html 404!
+/kids/panel-*.svg/ /404.html 404!

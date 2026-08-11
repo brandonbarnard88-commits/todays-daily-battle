@@ -703,7 +703,7 @@
       keywords: ['daniel', 'lion', 'lions', 'den', 'pray', 'protect'],
       kjvRef: 'Daniel 6:22',
       kidContext: { who: 'God', to: 'Daniel (and us)', apply: "Daniel prayed to God even when it was against the law. God sent an angel to shut the lions' mouths. Daniel was safe all night! When you stand up for what's right and trust God, He is with you and protects you, just like He did for Daniel." },
-      narration: "Daniel and the Lions – Daniel 6:22. Daniel loved God and prayed every day. Some bad men tricked the king into making a law: 'No one can pray to anyone but the king.' Daniel kept praying to God anyway. The king was sad, but he had to throw Daniel into the lions' den. The king worried all night. In the morning, Daniel was safe! God sent an angel to shut the lions' mouths. Daniel said, 'My God sent his angel and shut the lions' mouths.' God protects those who trust Him! For you: When it's hard to do the right thing, pray and trust God. He is with you and keeps you safe."
+      narration: "Daniel and the Lions – Daniel 6:22. Daniel loved God and prayed every day. Some bad men tricked the king into making a law: 'No one can pray to anyone but the king.' Daniel kept praying to God anyway. The king was sad, but he had to throw Daniel into the lions' den. The king worried all night. In the morning, Daniel was safe! God sent an angel to shut the lions' mouths. Daniel said, 'My God sent his angel and shut the lions' mouths.' God protects those who trust Him! For you: When it is hard to do the right thing, pray and trust God. He is with you and keeps you safe."
     },
     adamEve: {
       title: 'Adam & Eve',
@@ -6429,7 +6429,7 @@
       videoTitle: '',
       keywords: ['paul', 'rome', 'acts 28', 'prisoner', 'chain', 'gentiles', 'preach', 'kingdom'],
       kjvRef: 'Acts 28',
-      kidContext: { who: 'Paul', to: 'Jews and Gentiles (and us)', apply: 'When it's hards do not silence Jesus—keep speaking His name with love and courage.' }
+      kidContext: { who: 'Paul', to: 'Jews and Gentiles (and us)', apply: 'Hard days do not silence Jesus—keep speaking His name with love and courage.' }
     },
     paulLetters: {
       title: 'Paul’s Letters to the Churches',
@@ -6453,7 +6453,7 @@
       videoTitle: '',
       keywords: ['paul', 'prison', 'ephesians', 'philippians', 'colossians', 'philemon', 'chains', 'joy'],
       kjvRef: 'Ephesians, Philippians, Colossians, Philemon',
-      kidContext: { who: 'Paul', to: 'Believers (and us)', apply: 'When it's hards can still be holy days—let joy in Jesus be louder than your trouble.' }
+      kidContext: { who: 'Paul', to: 'Believers (and us)', apply: 'Hard days can still be holy days—let joy in Jesus be louder than your trouble.' }
     },
     paulEndurance: {
       title: 'Paul’s Finish Line',
@@ -6772,7 +6772,7 @@
       videoTitle: '',
       keywords: ['philippians', 'joy', 'rejoice', 'peace', 'prison', 'thanksgiving', 'strength', 'christ'],
       kjvRef: 'Philippians 1:21; 2:5–11; 4:4–7, 13',
-      kidContext: { who: 'Paul', to: 'Us', apply: 'When it's hard? Tell Jesus anyway—He can trade your panic for peace when you pray with a thankful heart.' }
+      kidContext: { who: 'Paul', to: 'Us', apply: 'Hard day? Tell Jesus anyway—He can trade your panic for peace when you pray with a thankful heart.' }
     },
     colossiansChristSupreme: {
       title: 'Colossians — Christ Is Supreme',

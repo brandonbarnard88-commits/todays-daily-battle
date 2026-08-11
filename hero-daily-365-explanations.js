@@ -137,7 +137,7 @@
   {
     "ref": "Psalm 18:2",
     "text": "The Lord is my rock, and my fortress.",
-    "plain": "God is a real refuge. Stay close; His covering is for ordinary fear and ordinary nights.",
+    "plain": "The Lord is my rock and my fortress — a real safe place when fear is loud.",
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David",
     "to": "Anyone delivered after a long fight",
@@ -146,7 +146,7 @@
   {
     "ref": "1 Samuel 17:47",
     "text": "The battle is the Lord's.",
-    "plain": "The fight is real, but you are not alone in it. Stand in God’s strength, not only your grit.",
+    "plain": "The battle is the Lord’s — victory belongs to Him, not only to our grip.",
     "step": "Replace one anxious loop with this verse for the next five minutes.",
     "about": "David (and the narrator)",
     "to": "Israel facing Goliath — and anyone facing a giant fear",
@@ -164,7 +164,7 @@
   {
     "ref": "Psalm 118:24",
     "text": "This is the day which the Lord hath made; we will rejoice.",
-    "plain": "Today is a gift from the Lord — choose gladness in it, even if the schedule is hard.",
+    "plain": "This is the day the Lord has made; we will rejoice and be glad in it.",
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "A psalm writer",
     "to": "All who praise the Lord",
@@ -173,7 +173,7 @@
   {
     "ref": "1 Thessalonians 5:11",
     "text": "Comfort yourselves together, and edify one another.",
-    "plain": "God comes near the brokenhearted. Your pain is not ignored—He binds what is hurt.",
+    "plain": "Comfort one another and build each other up — steady words for a weary church.",
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "Thessalonians grieving with hope",
@@ -200,7 +200,7 @@
   {
     "ref": "1 Timothy 4:12",
     "text": "Let no man despise thy youth; but be thou an example of the believers.",
-    "plain": "Trust God with what you cannot control. Faith is not pretending you have no questions—it is leaning on Him with them.",
+    "plain": "Do not let anyone look down on your youth; be an example to believers in word and life.",
     "step": "Say the verse once out loud, then name the one weight it meets.",
     "about": "Paul",
     "to": "Timothy (and every young believer)",
@@ -299,7 +299,7 @@
   {
     "ref": "Colossians 3:23",
     "text": "Whatsoever ye do, do it heartily, as to the Lord.",
-    "plain": "Scripture meets ordinary hours. Stay until one sentence lands.",
+    "plain": "Whatever you do, work at it with all your heart as working for the Lord.",
     "step": "Sit still for one minute and breathe; let this verse be the only noise.",
     "about": "Paul",
     "to": "Believers setting minds above (and you today)",
@@ -526,9 +526,9 @@
     "text": "I will hope continually, and will yet praise thee more and more.",
     "plain": "But I will go on ever hoping, and increasing in all your praise.",
     "step": "Ask God for strength for the next hour only — then take the next step.",
-    "about": "David or Solomon",
-    "to": "The reproached and those praying for a just king",
-    "setting": "Deep waters of reproach; aging faith; Book II closes with Solomon’s royal prayer and “Amen.”"
+    "about": "David",
+    "to": "The reproached and the aging who still hope",
+    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord."
   },
   {
     "ref": "Luke 11:28",
@@ -704,7 +704,7 @@
   {
     "ref": "Psalm 119:165",
     "text": "Great peace have they which love thy law.",
-    "plain": "God offers real rest—a place to set the day down with Him.",
+    "plain": "Great peace belongs to those who love God’s law — rest that holds when the day is loud.",
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "A psalm writer devoted to God’s Word",
     "to": "Anyone learning to walk by Scripture",
@@ -740,7 +740,7 @@
   {
     "ref": "Zephaniah 3:17",
     "text": "The Lord thy God in the midst of thee is mighty; he will save.",
-    "plain": "God is a deliverer. Call on Him when you need rescue—not only when you feel strong.",
+    "plain": "The Lord your God is in your midst, mighty to save; He rejoices over you with joy.",
     "step": "Say the verse once out loud, then name the one weight it meets.",
     "about": "Zephaniah",
     "to": "Judah in the day of the Lord",
@@ -1624,9 +1624,9 @@
     "text": "The humble shall see this, and be glad: and your heart shall live that seek God.",
     "plain": "The poor will see it and be glad: you who are lovers of God, let your hearts have life.",
     "step": "Ask God what one step of obedience looks like before noon.",
-    "about": "David or Solomon",
-    "to": "The reproached and those praying for a just king",
-    "setting": "Deep waters of reproach; aging faith; Book II closes with Solomon’s royal prayer and “Amen.”"
+    "about": "David",
+    "to": "The reproached and the aging who still hope",
+    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord."
   },
   {
     "ref": "Mark 11:24",
@@ -1642,9 +1642,9 @@
     "text": "Let all those that seek thee rejoice and be glad in thee.",
     "plain": "Let all those who are looking for you be glad and have joy in you; let the lovers of your salvation ever say, May God be great.",
     "step": "Leave one worry with God for ten minutes—set a timer if you need to.",
-    "about": "David or Solomon",
-    "to": "The reproached and those praying for a just king",
-    "setting": "Deep waters of reproach; aging faith; Book II closes with Solomon’s royal prayer and “Amen.”"
+    "about": "David",
+    "to": "The reproached and the aging who still hope",
+    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord."
   },
   {
     "ref": "Matthew 5:16",
@@ -1660,18 +1660,18 @@
     "text": "For thou art my hope, O Lord God: thou art my trust from my youth.",
     "plain": "For you are my hope, O Lord God; I have had faith in you from the time when I was young.",
     "step": "Name the fear in one sentence to God, then reread this verse slowly.",
-    "about": "David or Solomon",
-    "to": "The reproached and those praying for a just king",
-    "setting": "Deep waters of reproach; aging faith; Book II closes with Solomon’s royal prayer and “Amen.”"
+    "about": "David",
+    "to": "The reproached and the aging who still hope",
+    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord."
   },
   {
     "ref": "Psalm 71:8",
     "text": "Let my mouth be filled with thy praise and with thy honour all the day.",
     "plain": "My mouth will be full of your praise and glory all the day.",
     "step": "Sit still for sixty seconds with this verse—phone face down.",
-    "about": "David or Solomon",
-    "to": "The reproached and those praying for a just king",
-    "setting": "Deep waters of reproach; aging faith; Book II closes with Solomon’s royal prayer and “Amen.”"
+    "about": "David",
+    "to": "The reproached and the aging who still hope",
+    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord."
   },
   {
     "ref": "Philippians 4:7",
@@ -1687,9 +1687,9 @@
     "text": "Blessed be the Lord God, the God of Israel, who only doeth wondrous things.",
     "plain": "Praise be to the Lord God, the God of Israel, the only doer of wonders.",
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
-    "about": "David or Solomon",
-    "to": "The reproached and those praying for a just king",
-    "setting": "Deep waters of reproach; aging faith; Book II closes with Solomon’s royal prayer and “Amen.”"
+    "about": "Solomon (or a prayer for Solomon)",
+    "to": "Those praying for a just king",
+    "setting": "Book II closes with a royal prayer for the king’s justice and blessing — “Amen, and Amen.”"
   },
   {
     "ref": "Psalm 74:12",
@@ -2621,7 +2621,7 @@
   {
     "ref": "Psalm 118:1",
     "text": "O give thanks unto the Lord; for he is good: because his mercy endureth for ever.",
-    "plain": "God’s kindness meets you as you are — not after you perform — \"O give thanks to the Lord\".",
+    "plain": "O give thanks unto the Lord; for he is good: because his mercy endureth for ever.",
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "A psalm writer",
     "to": "All who praise the Lord",
@@ -2711,7 +2711,7 @@
   {
     "ref": "Psalm 118:29",
     "text": "O give thanks unto the Lord; for he is good: for his mercy endureth for ever.",
-    "plain": "God’s kindness meets you as you are — not after you perform — \"O give thanks to the Lord\".",
+    "plain": "Give thanks to the Lord again — he is good, and his mercy endures forever to the end of the song.",
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "A psalm writer",
     "to": "All who praise the Lord",

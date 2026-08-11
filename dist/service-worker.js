@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260805-sky-mobile';
+const CACHE_NAME = 'tdb-cache-v20260811-no-stick-panels';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -165,35 +165,35 @@ const CORE_ASSETS = [
   '/kids/kids-hub-play.css',
   '/kids/kids-hub-play.js',
   '/kids/kids-wins-recap.js',
-  '/kids/panel-david.svg',
-  '/kids/panel-david-1.svg',
-  '/kids/panel-david-2.svg',
-  '/kids/panel-david-3.svg',
-  '/kids/panel-noah.svg',
-  '/kids/panel-noah-1.svg',
-  '/kids/panel-noah-2.svg',
-  '/kids/panel-noah-3.svg',
-  '/kids/panel-jesus.svg',
-  '/kids/panel-jesus-1.svg',
-  '/kids/panel-jesus-2.svg',
-  '/kids/panel-jesus-3.svg',
-  '/kids/panel-jesus-resurrection-1.svg',
-  '/kids/panel-jesus-resurrection-2.svg',
-  '/kids/panel-jesus-resurrection-3.svg',
-  '/kids/panel-mary-magdalene-1.svg',
-  '/kids/panel-mary-magdalene-2.svg',
-  '/kids/panel-mary-magdalene-3.svg',
-  '/kids/panel-thomas-doubt-1.svg',
-  '/kids/panel-thomas-doubt-2.svg',
-  '/kids/panel-thomas-doubt-3.svg',
-  '/kids/panel-jonah.svg',
-  '/kids/panel-jonah-1.svg',
-  '/kids/panel-jonah-2.svg',
-  '/kids/panel-jonah-3.svg',
-  '/kids/panel-daniel.svg',
-  '/kids/panel-daniel-1.svg',
-  '/kids/panel-daniel-2.svg',
-  '/kids/panel-daniel-3.svg',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   '/kids/corner.html',
   '/kids/all-stories.html',
   '/kids/kids-all-stories.js',
@@ -764,6 +764,49 @@ self.addEventListener('fetch', (event) => {
               });
             })
         )
+    );
+    return;
+  }
+
+  /*
+   * Kids Story Library JS/CSS must be network-first.
+   * Cache-first + pathname match was serving stale kids-corner.js / kids-battle.css
+   * (precache /kids/kids-corner.js ignored ?v= cache-bust), so open-story kept stick
+   * panels and unreadable text after deploys shipped full-color art.
+   */
+  if (
+    sameOrigin &&
+    /\.(js|css)$/i.test(url.pathname) &&
+    (
+      url.pathname.indexOf('/kids/') === 0 ||
+      /\/kids-(battle|corner|gentle|hub|read|story|verses)/i.test(url.pathname) ||
+      /\/loop-library-coloring\.js$/i.test(url.pathname)
+    )
+  ) {
+    event.respondWith(
+      fetch(event.request)
+        .then(function (res) {
+          if (res && res.ok) {
+            var clone = res.clone();
+            caches.open(CACHE_NAME).then(function (cache) {
+              cache.put(event.request, clone).catch(function () {});
+              /* Also refresh pathname-only key used by offline match */
+              try {
+                cache.put(url.pathname, res.clone()).catch(function () {});
+              } catch (_e) {}
+            });
+          }
+          return res;
+        })
+        .catch(function () {
+          return matchCachedSameOriginAsset(CACHE_NAME, event.request, url).then(function (hit) {
+            if (hit) return hit;
+            return new Response('/* Offline — kids asset unavailable */', {
+              status: 503,
+              headers: { 'content-type': /\.css$/i.test(url.pathname) ? 'text/css; charset=utf-8' : 'application/javascript; charset=utf-8' }
+            });
+          });
+        })
     );
     return;
   }

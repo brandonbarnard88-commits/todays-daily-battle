@@ -115,6 +115,7 @@
     "kids:generate-story-index": "node scripts/generate-bible-story-tool-index.mjs",
     "purge:cloudflare": "node scripts/cloudflare-purge.mjs",
     "purge:cloudflare:social": "node scripts/cloudflare-purge.mjs --social",
+    "purge:cloudflare:stick-panels": "node scripts/cloudflare-purge.mjs --stick-panels",
     "purge:cloudflare:verify": "node scripts/cloudflare-purge.mjs --verify-token",
     "deploy:cf-pages": "node scripts/deploy-cf-pages.mjs",
     "vercel": "npx --yes vercel@latest",

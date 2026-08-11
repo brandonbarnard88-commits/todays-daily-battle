@@ -724,6 +724,23 @@ if (fs.existsSync(path.join(root, 'coloring-pages'))) {
 if (fs.existsSync(path.join(root, 'kids'))) {
   copyDir(path.join(root, 'kids'), path.join(dist, 'kids'));
   console.log('Copied kids/ folder (Kids Battle + parent dashboard)');
+  // Stick-figure panel SVGs are retired (Color & Tell only). Remove any leftovers so
+  // a stale dist/ or partial copy never re-ships them to Cloudflare Pages.
+  const kidsDist = path.join(dist, 'kids');
+  let strippedPanels = 0;
+  if (fs.existsSync(kidsDist)) {
+    for (const name of fs.readdirSync(kidsDist)) {
+      if (/^panel-.*\.svg$/i.test(name)) {
+        try {
+          fs.unlinkSync(path.join(kidsDist, name));
+          strippedPanels += 1;
+        } catch (_) { /* ignore */ }
+      }
+    }
+  }
+  if (strippedPanels) {
+    console.log('Removed retired stick panel SVGs from dist/kids: ' + strippedPanels);
+  }
 }
 
 if (fs.existsSync(path.join(root, 'life-lessons'))) {

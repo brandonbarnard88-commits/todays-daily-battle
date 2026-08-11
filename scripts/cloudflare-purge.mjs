@@ -3,13 +3,15 @@
  * Purge Cloudflare cache via API.
  *
  * Modes:
- *   (default)     Purge entire zone — npm run purge:cloudflare
+ *   (default)     Purge entire zone, then force-purge retired stick panel SVG URLs
  *   --social      Purge key HTML + OG JPEG URLs after deploy (recommended for 9c85246-style updates)
- *   CF_PURGE_FILES  Comma/space-separated full URLs (overrides --social if set)
+ *   --stick-panels  Purge only retired /kids/panel-*.svg URLs (apex + www)
+ *   CF_PURGE_FILES  Comma/space-separated full URLs (overrides other modes if set)
  *
  * Run: npm run purge:cloudflare
  * Or:  CF_API_TOKEN=yyy npm run purge:cloudflare
  * Or:  npm run purge:cloudflare:social
+ * Or:  npm run purge:cloudflare:stick-panels
  * Or:  npm run purge:cloudflare:verify  (calls tokens/verify only — no purge)
  *
  * Add to .env (gitignored), or CF_API_TOKEN_FILE=/path/to/file:
@@ -945,6 +947,51 @@ const SOCIAL_PURGE_PATHS = [
   '/assets/share/pricing-verse-preview-linen.svg'
 ];
 
+/** Retired stick-figure panel SVGs — keep edge cache from resurrecting them after zone purge. */
+const STICK_PANEL_PATHS = [
+  '/kids/panel-daniel-1.svg',
+  '/kids/panel-daniel-2.svg',
+  '/kids/panel-daniel-3.svg',
+  '/kids/panel-daniel.svg',
+  '/kids/panel-david-1.svg',
+  '/kids/panel-david-2.svg',
+  '/kids/panel-david-3.svg',
+  '/kids/panel-david.svg',
+  '/kids/panel-jesus-1.svg',
+  '/kids/panel-jesus-2.svg',
+  '/kids/panel-jesus-3.svg',
+  '/kids/panel-jesus-resurrection-1.svg',
+  '/kids/panel-jesus-resurrection-2.svg',
+  '/kids/panel-jesus-resurrection-3.svg',
+  '/kids/panel-jesus.svg',
+  '/kids/panel-jonah-1.svg',
+  '/kids/panel-jonah-2.svg',
+  '/kids/panel-jonah-3.svg',
+  '/kids/panel-jonah.svg',
+  '/kids/panel-mary-magdalene-1.svg',
+  '/kids/panel-mary-magdalene-2.svg',
+  '/kids/panel-mary-magdalene-3.svg',
+  '/kids/panel-noah-1.svg',
+  '/kids/panel-noah-2.svg',
+  '/kids/panel-noah-3.svg',
+  '/kids/panel-noah.svg',
+  '/kids/panel-storm.svg',
+  '/kids/panel-thomas-doubt-1.svg',
+  '/kids/panel-thomas-doubt-2.svg',
+  '/kids/panel-thomas-doubt-3.svg'
+];
+
+function stickPanelPurgeUrls() {
+  const hosts = [`https://${DOMAIN}`, `https://www.${DOMAIN}`];
+  const urls = [];
+  for (const host of hosts) {
+    for (const path of STICK_PANEL_PATHS) {
+      urls.push(host + path);
+    }
+  }
+  return urls;
+}
+
 const CHUNK = 30;
 
 function getUrlsToPurge() {
@@ -955,6 +1002,9 @@ function getUrlsToPurge() {
   if (process.argv.includes('--social')) {
     const base = `https://${DOMAIN}`;
     return SOCIAL_PURGE_PATHS.map((p) => (p === '/' ? base + '/' : base + p));
+  }
+  if (process.argv.includes('--stick-panels')) {
+    return stickPanelPurgeUrls();
   }
   return null;
 }
@@ -1075,7 +1125,18 @@ function printCloudflareRecoveryHints(error) {
     }
 
     if (data.success) {
-      console.log('Full-zone purge successful. Wait 30–60s, then test in incognito.');
+      console.log('Full-zone purge successful.');
+      // Zone purge can leave tiered-cache copies of long-TTL SVGs; force-purge stick panel paths.
+      const stickUrls = stickPanelPurgeUrls();
+      console.log(`Also force-purging ${stickUrls.length} retired stick panel URL(s)...`);
+      const stickResults = await purgeFiles(ZONE_ID, stickUrls);
+      const stickFailed = stickResults.filter((r) => !r.data.success);
+      if (stickFailed.length) {
+        console.error('Stick panel file purge had failures (zone purge still succeeded):');
+        console.error(JSON.stringify(stickFailed[0].data, null, 2));
+      } else {
+        console.log('Stick panel URL purge successful. Wait 30–60s, then test in incognito.');
+      }
       return;
     }
 

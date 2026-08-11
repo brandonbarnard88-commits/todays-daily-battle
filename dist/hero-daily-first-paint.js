@@ -225,10 +225,15 @@
       todayLine = 'In ' + yr + ', trust gets tested by waiting, silence, and unanswered questions. This verse calls you to hand the weight to God.';
       youLine = 'You can bring Him the real thing on your mind — not a polished prayer.';
       stepLine = 'So do this: Name one worry. Pray it in one sentence. Then say, “I trust You with this,” and leave it there for now.';
-    } else if (/love|light|shepherd|save|salvation|rejoice|glad|joy|bless/i.test(bodyLower)) {
+    } else if (/made me glad|glad through|works of (thy|your) hands|rejoice|glad|joy|thanks|thanksgiving|praise/i.test(bodyLower)) {
+      themeKey = 'gratitude';
+      todayLine = 'In ' + yr + ', gladness is easy to skip when the day feels ordinary or hard. This verse says real joy can rise from looking at what God has already done.';
+      youLine = 'If your heart feels flat, you do not have to fake cheer. Look at one work of God you can still name — that is enough to start gladness.';
+      stepLine = 'So do this: Name one work of God you can see this week — then thank Him for it out loud.';
+    } else if (/love|light|shepherd|save|salvation|bless/i.test(bodyLower)) {
       themeKey = 'care';
-      todayLine = 'In ' + yr + ', good news can feel thin. This verse holds God’s care in plain sight — something solid to rejoice in.';
-      youLine = 'Let this word remind you that God is for you, not against you, even on an ordinary hard day.';
+      todayLine = 'In ' + yr + ', good news can feel thin. This verse holds God’s care in plain sight — something solid to rest in.';
+      youLine = 'This word is for you personally: God’s care is not abstract. It meets you in the day you are actually living.';
       stepLine = 'So do this: Read the verse again. Thank God for one true kindness in it. Carry that one line into your next conversation.';
     } else {
       todayLine = 'In ' + yr + ', this verse still speaks into ordinary pressure — work, home, waiting, and quiet battles nobody else sees.';
@@ -351,29 +356,34 @@
   }
 
   function resolveHeroContext(ref, dayEx) {
-    if (dayEx && dayEx.about && dayEx.to) {
-      return {
-        about: sanitizeText(dayEx.about),
-        to: sanitizeText(dayEx.to),
-        setting: sanitizeText(dayEx.setting || '')
-      };
-    }
+    var liveSit = '';
+    var liveAbout = '';
+    var liveTo = '';
     if (typeof window.TDB_resolveVerseContext === 'function') {
       try {
         var hit = window.TDB_resolveVerseContext(ref);
-        if (hit && hit.about && hit.to) {
-          return {
-            about: sanitizeText(hit.about),
-            to: sanitizeText(hit.to),
-            setting: sanitizeText(hit.setting || '')
-          };
+        if (hit) {
+          liveSit = sanitizeText(hit.situation || hit.setting || '');
+          liveAbout = sanitizeText(hit.about || '');
+          liveTo = sanitizeText(hit.to || '');
         }
       } catch (eCtx) { /* non-fatal */ }
     }
+    /* Prefer live situation always (avoids stale dig-deeper from yesterday’s inject). */
+    if (dayEx && dayEx.about && dayEx.to) {
+      return {
+        about: sanitizeText(dayEx.about) || liveAbout,
+        to: sanitizeText(dayEx.to) || liveTo,
+        setting: liveSit || sanitizeText(dayEx.setting || '')
+      };
+    }
+    if (liveAbout && liveTo) {
+      return { about: liveAbout, to: liveTo, setting: liveSit };
+    }
     var book = parseHeroBookName(ref);
     var row = heroBookRow(book);
-    if (row) return { about: sanitizeText(row.s), to: sanitizeText(row.a), setting: '' };
-    return { about: '', to: '', setting: '' };
+    if (row) return { about: sanitizeText(row.s), to: sanitizeText(row.a), setting: liveSit };
+    return { about: '', to: '', setting: liveSit };
   }
 
   function normalizeVerse(data) {
@@ -480,6 +490,278 @@
     if (rowEl) rowEl.hidden = !t;
   }
 
+  /** Canonical ref key for binding dig-deeper to the on-screen verse. */
+  function normalizeHeroBoundRef(ref) {
+    return sanitizeText(ref || '')
+      .replace(/\s*\(KJV\)\s*$/i, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function readDisplayedHeroRef() {
+    var el = document.getElementById('heroRef');
+    if (!el) return '';
+    return normalizeHeroBoundRef(el.textContent || '');
+  }
+
+  function readDisplayedHeroText() {
+    var el = document.getElementById('heroVerse');
+    if (!el) return '';
+    return sanitizeText(el.textContent || '')
+      .replace(/^[\s\u201c\u201d"']+|[\s\u201c\u201d"']+$/g, '')
+      .trim();
+  }
+
+  function stampHeroDigDeeperBoundRef(ref) {
+    var key = normalizeHeroBoundRef(ref);
+    ['heroVotdBreakdown', 'heroDigDeeper', 'heroSimpleBreakdown', 'heroVbdPrimary'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) {
+        try {
+          if (key) el.setAttribute('data-tdb-bound-ref', key);
+          else el.removeAttribute('data-tdb-bound-ref');
+        } catch (eStamp) { /* non-fatal */ }
+      }
+    });
+  }
+
+  function readHeroDigDeeperBoundRef() {
+    var el =
+      document.getElementById('heroVotdBreakdown') ||
+      document.getElementById('heroSimpleBreakdown') ||
+      document.getElementById('heroDigDeeper');
+    if (!el) return '';
+    return normalizeHeroBoundRef(el.getAttribute('data-tdb-bound-ref') || '');
+  }
+
+  /**
+   * Hard clear — never leave yesterday’s situation/who/step under a new verse.
+   * Call before every dig-deeper fill.
+   */
+  function clearHeroDigDeeperShell() {
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowSit'),
+      document.getElementById('heroDeepSituation'),
+      ''
+    );
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowWho'),
+      document.getElementById('heroDeepWho'),
+      ''
+    );
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowAud'),
+      document.getElementById('heroDeepAudience'),
+      ''
+    );
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowCtx'),
+      document.getElementById('heroDeepContext'),
+      ''
+    );
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowYou'),
+      document.getElementById('heroDeepYou'),
+      ''
+    );
+    var simpleOut = document.getElementById('heroSimpleBreakdown');
+    if (simpleOut) simpleOut.textContent = '';
+    var sitOut = document.getElementById('heroSimpleSituation');
+    if (sitOut) sitOut.textContent = '';
+    var meanOut = document.getElementById('heroSimpleMeaning');
+    if (meanOut) meanOut.textContent = '';
+    var stepOut = document.getElementById('heroVotdOneStep');
+    if (stepOut) stepOut.textContent = '';
+    var prayerTarget = document.getElementById('heroVotdPrayer');
+    if (prayerTarget) prayerTarget.textContent = '';
+    stampHeroDigDeeperBoundRef('');
+  }
+
+  /** Thin “X speaking to Y” stamp — never prefer this over a real narrative. */
+  function isThinSpeakerLine(s) {
+    var t = sanitizeText(s);
+    if (!t) return true;
+    if (/ speaking to /i.test(t) && t.length < 100) return true;
+    if (/^.{3,55}\s+speaking to\s+/i.test(t) && t.length < 120) return true;
+    return false;
+  }
+
+  /** Weak plain stamps from last-resort theme engine. */
+  function isWeakMeaningStamp(s) {
+    var t = sanitizeText(s);
+    if (!t) return true;
+    if (/^In plain terms for life today:/i.test(t)) return true;
+    if (/Sit with that until one phrase lands/i.test(t)) return true;
+    if (/^Read this verse slowly/i.test(t)) return true;
+    if (/^What was going on:\s*.{0,60}speaking to/i.test(t)) return true;
+    return false;
+  }
+
+  /** Higher score = better teaching copy. Prefer long narrative over speaker-line. */
+  function scoreSituationLine(s) {
+    var t = sanitizeText(s).replace(/^What was going on:\s*/i, '').trim();
+    if (!t) return 0;
+    if (isThinSpeakerLine(t)) return 8;
+    var score = t.length;
+    if (t.length >= 55) score += 40;
+    if (t.length >= 90) score += 30;
+    if (/[.!?]/.test(t)) score += 15;
+    if (/\b(commit|plans|work|proverb|psalm|sermon|cross|exile|disciple)/i.test(t)) score += 20;
+    return score;
+  }
+
+  function scoreMeaningLine(s) {
+    var t = sanitizeText(s)
+      .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+      .replace(/^What it means:\s*/i, '')
+      .trim();
+    if (!t) return 0;
+    if (isWeakMeaningStamp(t)) return 5;
+    return t.length + (t.length >= 40 ? 25 : 0);
+  }
+
+  function pickBestText(candidates, scorer) {
+    var best = '';
+    var bestScore = 0;
+    for (var i = 0; i < candidates.length; i++) {
+      var c = sanitizeText(candidates[i]);
+      if (!c) continue;
+      var sc = scorer(c);
+      if (sc > bestScore) {
+        bestScore = sc;
+        best = c;
+      }
+    }
+    return best;
+  }
+
+  /** Snapshot currently painted hero dig-deeper (only safe when bound to the same ref). */
+  function readHeroDigDeeperDomSnapshot() {
+    var sitPrimary = sanitizeText(
+      document.getElementById('heroSimpleSituation') &&
+        document.getElementById('heroSimpleSituation').textContent
+    );
+    var sitDeep = sanitizeText(
+      document.getElementById('heroDeepSituation') &&
+        document.getElementById('heroDeepSituation').textContent
+    );
+    var meanPrimary = sanitizeText(
+      document.getElementById('heroSimpleMeaning') &&
+        document.getElementById('heroSimpleMeaning').textContent
+    );
+    var simple = sanitizeText(
+      document.getElementById('heroSimpleBreakdown') &&
+        document.getElementById('heroSimpleBreakdown').textContent
+    );
+    var who = sanitizeText(
+      document.getElementById('heroDeepWho') && document.getElementById('heroDeepWho').textContent
+    );
+    var aud = sanitizeText(
+      document.getElementById('heroDeepAudience') &&
+        document.getElementById('heroDeepAudience').textContent
+    );
+    var meanFromSimple = '';
+    if (simple && /What it means:/i.test(simple)) {
+      meanFromSimple = simple.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
+    }
+    var sitFromSimple = '';
+    if (simple && /^What was going on:/i.test(simple)) {
+      sitFromSimple = simple.replace(/^What was going on:\s*/i, '').replace(/\.?\s*What it means:[\s\S]*$/i, '').trim();
+    }
+    return {
+      boundRef: readHeroDigDeeperBoundRef() || '',
+      displayedRef: readDisplayedHeroRef() || '',
+      situation: pickBestText([sitPrimary, sitDeep, sitFromSimple], scoreSituationLine),
+      meaning: pickBestText([meanPrimary, meanFromSimple], scoreMeaningLine),
+      who: who,
+      audience: aud
+    };
+  }
+
+  /** SSR often ships yesterday’s verse (or Solomon stubs). Never keep that under a different ref. */
+  function snapshotMatchesTargetRef(snap, targetRef) {
+    if (!snap || typeof snap !== 'object') return false;
+    var target = normalizeHeroBoundRef(targetRef);
+    if (!target) return false;
+    var bound = normalizeHeroBoundRef(snap.boundRef || '');
+    if (bound && bound === target) return true;
+    /* Unstamped DOM (first paint): only trust snapshot when displayed hero already matches target. */
+    var displayed = normalizeHeroBoundRef(snap.displayedRef || '');
+    return !!(displayed && displayed === target && !bound);
+  }
+
+  /** Thin speaker-line or weak plain stamp — force upgrade when better data is available. */
+  function heroDigDeeperLooksWeak() {
+    var snap = readHeroDigDeeperDomSnapshot();
+    var sit = snap.situation;
+    var mean = snap.meaning;
+    if (isWeakMeaningStamp(mean)) return true;
+    if (isThinSpeakerLine(sit)) return true;
+    if (!sit || sit.length < 12) return true;
+    if (!mean || mean.length < 12) return true;
+    /* Primary and deep must agree when both present — desync means a partial overwrite. */
+    var sitP = sanitizeText(
+      document.getElementById('heroSimpleSituation') &&
+        document.getElementById('heroSimpleSituation').textContent
+    );
+    var sitD = sanitizeText(
+      document.getElementById('heroDeepSituation') &&
+        document.getElementById('heroDeepSituation').textContent
+    );
+    if (sitP && sitD && scoreSituationLine(sitP) > 40 && isThinSpeakerLine(sitD)) return true;
+    return false;
+  }
+
+  /**
+   * If dig-deeper is bound to a different ref than #heroRef, or content is weak while
+   * better context exists, rebuild. Mismatched/stale dig-deeper must never stay on screen.
+   * Never wipe a strong SSR line with a weaker recompute.
+   */
+  function ensureHeroDigDeeperMatchesDisplayedVerse() {
+    var displayed = readDisplayedHeroRef();
+    if (!displayed) return false;
+    var bound = readHeroDigDeeperBoundRef();
+    var weak = heroDigDeeperLooksWeak();
+    if (bound && bound === displayed && !weak) return false;
+    var text = readDisplayedHeroText();
+    var v = normalizeVerse({ ref: displayed, text: text });
+    if (!v.ref) return false;
+    var snap = readHeroDigDeeperDomSnapshot();
+    var snapOk = snapshotMatchesTargetRef(snap, displayed);
+    var liveSit = '';
+    var liveAbout = '';
+    var liveTo = '';
+    try {
+      if (typeof window.TDB_resolveVerseContext === 'function') {
+        var hit = window.TDB_resolveVerseContext(displayed) || {};
+        liveSit = sanitizeText(hit.situation || hit.setting || '');
+        liveAbout = sanitizeText(hit.about || '');
+        liveTo = sanitizeText(hit.to || '');
+      }
+    } catch (eLive) { /* non-fatal */ }
+    var bestSit = pickBestText(
+      [liveSit, v.setting, snapOk ? snap.situation : ''],
+      scoreSituationLine
+    );
+    var bestPlain = pickBestText([v.plain, snapOk ? snap.meaning : ''], scoreMeaningLine);
+    /* Prefer day-explanation plain/step when integrity re-runs after context loads. */
+    applyHeroVotdFromInputs(v, {
+      plainExplanation: bestPlain || v.plain || '',
+      groupApplication: v.today || '',
+      modernApplication: '',
+      practicalStep: v.action || v.app || '',
+      about: liveAbout || v.about || v.speaker || (snapOk ? snap.who : '') || '',
+      to: liveTo || v.to || (snapOk ? snap.audience : '') || '',
+      setting: bestSit || v.setting || '',
+      situation: bestSit || v.setting || '',
+      preserveDomSnapshot: snapOk ? snap : null
+    });
+    return true;
+  }
+
+  window.__TDB_ensureHeroDigDeeperMatchesDisplayedVerse = ensureHeroDigDeeperMatchesDisplayedVerse;
+  window.__TDB_clearHeroDigDeeperShell = clearHeroDigDeeperShell;
+
   function currentYearFresh() {
     if (typeof window.TDB_verseBreakdownStandard === 'object' && window.TDB_verseBreakdownStandard && typeof window.TDB_verseBreakdownStandard.currentYear === 'function') {
       return window.TDB_verseBreakdownStandard.currentYear();
@@ -499,6 +781,23 @@
     }
     var y = typeof year === 'number' ? year : currentYearFresh();
     return 'In ' + y + ', life can feel loud—headlines, hurry, tension. God’s Word here still cuts through as something steady you can carry today.';
+  }
+
+  /** Action/step lines often land in modernApplication by mistake — keep them out of “How it relates today”. */
+  function looksLikeActionStepLine(s) {
+    var t = sanitizeText(s);
+    if (!t) return false;
+    return /^(so do this:|name one |name the |sit still|sit with|write one|list three|list one|ask god|pray this|pray it|return to this|take one|say the|say one|read the verse|read it slowly|thank god|end the day|hold this truth|use this verse|before you open)/i.test(
+      t
+    );
+  }
+
+  function looksLikeCultureLine(s) {
+    var t = sanitizeText(s);
+    if (!t) return false;
+    return /\b20\d{2}\b|headlines|hurry|tension|bills|2 am|phone|ordinary|good news can feel|life can feel|quiet is rare|trust gets tested|tiredness can feel|people often feel/i.test(
+      t
+    );
   }
 
   /** One short petition tied to today’s verse (never stores user text). */
@@ -541,8 +840,79 @@
       to: audienceShared || sanitizeText(v.to),
       setting: sanitizeText(v.setting || sh.setting || '')
     });
-    var simple = plainE || sanitizeText(v.plain) || sanitizeText(lines[0] || '') || sanitizeText(v.app);
+    var meaningOnly = plainE || sanitizeText(v.plain) || sanitizeText(lines[0] || '') || sanitizeText(v.app);
+    meaningOnly = meaningOnly.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
+    /* Always prefer curated plain over weak theme stamps (even if stamp came first). */
+    if (isWeakMeaningStamp(meaningOnly)) {
+      var betterPlain = pickBestText(
+        [sanitizeText(v.plain), sanitizeText(sh.preserveDomSnapshot && sh.preserveDomSnapshot.meaning)],
+        scoreMeaningLine
+      );
+      if (betterPlain && !isWeakMeaningStamp(betterPlain)) meaningOnly = betterPlain;
+    }
+    /* Live resolver + shared + same-ref DOM only — never keep Solomon/SSR stubs under a psalm. */
+    var snapIn = sh.preserveDomSnapshot || null;
+    var snapOk = snapshotMatchesTargetRef(snapIn, v.ref);
+    var snapSit = snapOk ? sanitizeText(snapIn && snapIn.situation) : '';
+    var snapMean = snapOk ? sanitizeText(snapIn && snapIn.meaning) : '';
+    var snapWho = snapOk ? sanitizeText(snapIn && snapIn.who) : '';
+    var snapAud = snapOk ? sanitizeText(snapIn && snapIn.audience) : '';
+    var situation = pickBestText(
+      [
+        sanitizeText(ctx.setting || ''),
+        sanitizeText(sh.situation || ''),
+        sanitizeText(sh.setting || ''),
+        sanitizeText(v.setting || ''),
+        snapSit
+      ],
+      scoreSituationLine
+    );
+    /* Last resort only: speaker-line when nothing longer exists. */
+    if (!situation && ctx.about && ctx.to) {
+      situation = sanitizeText(ctx.about) + ' speaking to ' + sanitizeText(ctx.to) + '.';
+    }
+    if (isThinSpeakerLine(situation)) {
+      var upgradeSit = pickBestText(
+        [
+          sanitizeText(v.setting || ''),
+          sanitizeText(sh.situation || sh.setting || ''),
+          snapSit
+        ],
+        scoreSituationLine
+      );
+      if (upgradeSit && scoreSituationLine(upgradeSit) > scoreSituationLine(situation)) {
+        situation = upgradeSit;
+      }
+    }
+    var meaningClean = meaningOnly.replace(/^What it means:\s*/i, '');
+    if (isWeakMeaningStamp(meaningClean)) {
+      var upgradeMean = pickBestText(
+        [
+          sanitizeText(v.plain),
+          sanitizeText(sh.plainExplanation || sh.plain || ''),
+          snapMean
+        ],
+        scoreMeaningLine
+      );
+      if (upgradeMean && !isWeakMeaningStamp(upgradeMean)) meaningClean = upgradeMean;
+    }
+    var simple = meaningClean;
+    if (situation && meaningClean) {
+      simple =
+        'What was going on: ' +
+        situation.replace(/\.$/, '') +
+        '. What it means: ' +
+        meaningClean;
+    }
     var who = aboutA || sanitizeText(v.about) || sanitizeText(v.speaker) || ctx.about;
+    /* Prefer fuller who over stripped bare name — only when both name the same speaker family. */
+    if (who && who.length < 12 && ctx.about && sanitizeText(ctx.about).length > who.length) {
+      who = sanitizeText(ctx.about);
+    }
+    /* Same-ref DOM only (length alone used to keep “Solomon giving wisdom” under Psalms). */
+    if (snapWho && sanitizeText(snapWho).length > sanitizeText(who).length + 4) {
+      who = snapWho;
+    }
     if (!who) {
       if (row) {
         who = row.s + ' (through the words of Scripture, KJV).';
@@ -551,30 +921,44 @@
       }
     }
     var audience = audienceShared || sanitizeText(v.to) || ctx.to;
+    if (snapAud && sanitizeText(snapAud).length > sanitizeText(audience).length + 4) {
+      audience = snapAud;
+    }
     if (!audience) {
       audience = row
         ? 'Originally for ' + row.a + ' in their time. The same word speaks to us today.'
         : 'Written for God’s people in Scripture—and for anyone listening now, including you.';
     }
+    /* Overrides often put the action in modernApplication — demote those to the step slot. */
+    if (modernA && looksLikeActionStepLine(modernA) && !looksLikeCultureLine(modernA)) {
+      if (!stepPrefer) stepPrefer = modernA;
+      modernA = '';
+    }
     var relatesToday = modernA;
-    if (!relatesToday) {
+    if (!relatesToday || looksLikeActionStepLine(relatesToday)) {
       relatesToday = defaultRelatesTodayLine(yr);
     }
-    var curatorYou = sanitizeText(v.today) || sanitizeText(lines[1] || '');
-    var relYou = curatorYou;
-    if (!relYou && modernA) {
-      relYou = modernA;
+    var curatorYou = sanitizeText(v.today);
+    /* lines[1] is often the raw KJV body — do not use it as a personal line. */
+    if (!curatorYou && lines[1] && lines[1] !== sanitizeText(v.text) && lines[1].length < 160) {
+      var l1 = sanitizeText(lines[1]);
+      if (l1 && l1 !== simple && !looksLikeActionStepLine(l1)) curatorYou = l1;
     }
-    if (!relYou && groupA && !isLikelyAudienceLaneBlurb(groupA)) {
+    var relYou = curatorYou;
+    if (relYou && looksLikeActionStepLine(relYou)) {
+      if (!stepPrefer) stepPrefer = relYou;
+      relYou = '';
+    }
+    if (!relYou && groupA && !isLikelyAudienceLaneBlurb(groupA) && !looksLikeActionStepLine(groupA)) {
       relYou = groupA;
     }
     if (relYou && relatesToday && relYou === relatesToday) {
       relatesToday = defaultRelatesTodayLine(yr);
     }
     if (relYou && relYou === simple) {
-      relYou = 'Hold this word as God speaking kindly to you—today, personally—not as a slogan you have to manufacture.';
+      relYou = 'This word is for you in the day you are actually living — not a slogan, but a truth you can hold.';
     } else if (!relYou) {
-      relYou = 'Hold this word as God speaking kindly to you—today, personally—not as a slogan you have to manufacture.';
+      relYou = 'This word is for you in the day you are actually living — not a slogan, but a truth you can hold.';
     }
     var oneStep = stepPrefer || sanitizeText(v.action) || sanitizeText(v.app);
     if (!oneStep) {
@@ -588,14 +972,16 @@
     if (!prayer) prayer = buildHeroVotdPrayer(v.ref);
     return {
       simple: simple,
+      meaningOnly: meaningClean || meaningOnly,
       who: who,
       audience: audience,
+      situation: situation,
       relatesToday: relatesToday,
       relYou: relYou,
       oneStep: oneStep,
       prayer: prayer,
       year: yr,
-      setting: sanitizeText(ctx.setting || '')
+      setting: sanitizeText(ctx.setting || situation || '')
     };
   }
 
@@ -607,16 +993,59 @@
   function applyHeroVotdFromInputs(v, shared) {
     var simpleOut = document.getElementById('heroSimpleBreakdown');
     if (!simpleOut) return;
-    var lesson = computeHeroVotdBreakdownLessonFields(v, shared);
+    var refKey = normalizeHeroBoundRef(v && v.ref);
+    if (!refKey) return;
+
+    /* Snapshot strong SSR/inject lines before wipe — never downgrade teaching quality. */
+    var shIn = shared || {};
+    if (!shIn.preserveDomSnapshot) {
+      shIn = Object.assign({}, shIn, { preserveDomSnapshot: readHeroDigDeeperDomSnapshot() });
+    }
+
+    /* Atomic replace: wipe stale dig-deeper before writing this ref’s fields. */
+    clearHeroDigDeeperShell();
+
+    var lesson = computeHeroVotdBreakdownLessonFields(v, shIn);
     var simple = lesson.simple;
     var who = lesson.who;
     var audience = lesson.audience;
+    var situation = lesson.situation || lesson.setting || '';
+    var meaningOnly = sanitizeText(lesson.meaningOnly || '');
+    if (!meaningOnly && simple) {
+      meaningOnly = /^What was going on:/i.test(simple)
+        ? simple.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim()
+        : simple;
+    }
+    /* Prefer stronger lines only when the pre-clear DOM was already bound to this same verse. */
+    var snap = shIn.preserveDomSnapshot || {};
+    if (snapshotMatchesTargetRef(snap, refKey)) {
+      situation = pickBestText([situation, snap.situation], scoreSituationLine);
+      meaningOnly = pickBestText([meaningOnly, snap.meaning], scoreMeaningLine);
+    }
+    if (situation && meaningOnly) {
+      simple =
+        'What was going on: ' +
+        situation.replace(/\.$/, '') +
+        '. What it means: ' +
+        meaningOnly;
+    }
     var relatesToday = lesson.relatesToday;
     var relYou = lesson.relYou;
     var oneStep = lesson.oneStep;
     var prayer = lesson.prayer;
     var yr = lesson.year;
+    /* Combined line is a11y-only legacy; keep text but never show it (CSS hard-hides). */
     simpleOut.textContent = simple;
+    simpleOut.setAttribute('aria-hidden', 'true');
+    try {
+      simpleOut.hidden = true;
+    } catch (eHide) { /* non-fatal */ }
+    var sitPrimary = document.getElementById('heroSimpleSituation');
+    var meanPrimary = document.getElementById('heroSimpleMeaning');
+    /* Always write the same situation/meaning to primary + deep — no desync. */
+    if (sitPrimary) sitPrimary.textContent = situation || '';
+    if (meanPrimary) meanPrimary.textContent = meaningOnly || '';
+    setVotdRowVisible(document.getElementById('heroVbdRowSit'), document.getElementById('heroDeepSituation'), situation);
     setVotdRowVisible(document.getElementById('heroVbdRowWho'), document.getElementById('heroDeepWho'), who);
     setVotdRowVisible(document.getElementById('heroVbdRowAud'), document.getElementById('heroDeepAudience'), audience);
     setVotdRowVisible(document.getElementById('heroVbdRowCtx'), document.getElementById('heroDeepContext'), relatesToday);
@@ -633,16 +1062,22 @@
       var yrChip = document.getElementById('heroVotdBreakdownYear');
       if (yrChip) yrChip.textContent = String(yr);
     } catch (eYChip) { /* non-fatal */ }
-    var std = window.TDB_verseBreakdownStandard;
-    if (std && typeof std.hydrateHeroDigDeeper === 'function') {
-      std.hydrateHeroDigDeeper(v && v.ref ? v.ref : '', v && v.text ? v.text : '');
-    }
+
+    /* Stamp BEFORE cross-ref/plan hydrate so partial failures still know the bound ref. */
+    stampHeroDigDeeperBoundRef(refKey);
     var wrap = document.getElementById('heroVotdBreakdown');
     if (wrap) {
       try {
         wrap.setAttribute('data-tdb-hero-votd', '1');
       } catch (e) { /* non-fatal */ }
     }
+
+    var std = window.TDB_verseBreakdownStandard;
+    if (std && typeof std.hydrateHeroDigDeeper === 'function') {
+      std.hydrateHeroDigDeeper(v && v.ref ? v.ref : '', v && v.text ? v.text : '');
+    }
+    /* Cross-ref hydrate must not leave dig-deeper on another verse — re-stamp after. */
+    stampHeroDigDeeperBoundRef(refKey);
     /* BBE simpler English — always-open on home; fill as soon as ref is known. */
     try {
       var bbeRef = v && v.ref ? String(v.ref).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
@@ -687,8 +1122,9 @@
     var verseCard = document.getElementById('verseCard');
     var prebuilt = verseCard && verseCard.getAttribute('data-tdb-hero-prebuilt') === '1';
     var YEAR365 = window.__TDB_HERO_DAILY_YEAR;
-    var useDomPrebuilt = prebuilt && (!YEAR365 || !YEAR365.length);
     var has365 = YEAR365 && YEAR365.length;
+    /* Prefer calendar pick whenever 365 is loaded — never trust stale inject for dig-deeper. */
+    var useDomPrebuilt = prebuilt && !has365;
     var hasPools = OFFLINE_PACK.length > 0 || VERSES.length > 0;
     if (!useDomPrebuilt && !has365 && !hasPools) return;
 
@@ -699,7 +1135,11 @@
     var v = normalizeVerse(verseRaw);
     if (!v.ref) return;
     var sig = v.ref + '\0' + v.text;
-    if (window.__TDB_HERO_FIRST_PAINT_SIGNATURE === sig) return;
+    if (window.__TDB_HERO_FIRST_PAINT_SIGNATURE === sig) {
+      /* Same verse text — still repair dig-deeper if bound ref drifted or was wiped. */
+      ensureHeroDigDeeperMatchesDisplayedVerse();
+      return;
+    }
 
     var heroBreakdown = document.getElementById('heroBreakdown');
     var heroApplication = document.getElementById('heroApplication');
@@ -767,11 +1207,13 @@
       practicalStep: v.action || v.app,
       about: v.about || v.speaker,
       to: v.to,
-      setting: v.setting || ''
+      setting: v.setting || '',
+      situation: v.setting || ''
     } : {
       about: v.about || v.speaker,
       to: v.to,
-      setting: v.setting || ''
+      setting: v.setting || '',
+      situation: v.setting || ''
     });
 
     var imgText = document.getElementById('verseImgText');
@@ -818,6 +1260,46 @@
     window.setTimeout(scheduleHero365Hydrate, 1);
   }
 
+  /**
+   * Continuous integrity: dig-deeper must always match #heroRef.
+   * Catches race conditions (inject + 365 + breakdown engine) that used to leave Psalm 92 under Prov 16:3.
+   */
+  (function wireHeroDigDeeperIntegrityLock() {
+    var scheduled = false;
+    function runCheck() {
+      scheduled = false;
+      try {
+        ensureHeroDigDeeperMatchesDisplayedVerse();
+      } catch (eLock) { /* non-fatal */ }
+    }
+    function scheduleCheck() {
+      if (scheduled) return;
+      scheduled = true;
+      if (typeof window.requestAnimationFrame === 'function') {
+        window.requestAnimationFrame(function () {
+          window.setTimeout(runCheck, 0);
+        });
+      } else {
+        window.setTimeout(runCheck, 0);
+      }
+    }
+    try {
+      window.addEventListener('tdb-hero-verse-updated', scheduleCheck);
+      window.addEventListener('tdb-red-letter-changed', scheduleCheck);
+      document.addEventListener('DOMContentLoaded', scheduleCheck);
+      window.addEventListener('load', scheduleCheck);
+      /* Delayed passes after deferred engines (breakdown, 365, explanations). */
+      window.setTimeout(scheduleCheck, 400);
+      window.setTimeout(scheduleCheck, 1500);
+      window.setTimeout(scheduleCheck, 4000);
+      var heroRefEl = document.getElementById('heroRef');
+      if (heroRefEl && typeof MutationObserver === 'function') {
+        var mo = new MutationObserver(scheduleCheck);
+        mo.observe(heroRefEl, { childList: true, characterData: true, subtree: true });
+      }
+    } catch (eWire) { /* non-fatal */ }
+  })();
+
   /** Homepage: soften Verse-of-day hub rhythm wording; dismiss merged welcome card → hint strip. */
   (function hydrateHomeRhythmWelcome() {
     if (!document.getElementById('home-primary-flow')) return;
@@ -855,7 +1337,7 @@
       if (/\bfear|afraid|panic|scared|terror\b/.test(low)) return 'fear';
       if (/(closet|secret place|shut thy door|a great while before day|a solitary|draw nigh to god|ears are open|double minded|in secret;|in secret,|in secret\.|in secret\)|seeth in secret|seen in secret)\b/.test(low)) return 'secretprayer';
       if (/\bregret\w*|\bif only\b|should have|second guess|second-guess|hindsight|what if i|replaying yesterday|godly sorrow worketh|repentance to salvation|no condemnation to them which are in christ|forgetting those things which are behind|pressed toward the mark\b/.test(low)) return 'regret';
-      if (/\bmy spirit was overwhelmed\b|multitude of my thoughts within me\b|troubled on every side.? yet not distressed\b|\bwait thou only upon god\b|\bcasting all your care\b/.test(low)) return 'overwhelm';
+      if (/\boverwhelmed\b|\boverwhelm\b|\bmy spirit was overwhelmed\b|multitude of my thoughts within me\b|troubled on every side.? yet not distressed\b|\bwait thou only upon god\b|\bcasting all your care\b|\bheavy laden\b|\bcast thy burden\b/.test(low)) return 'overwhelm';
       if (/\bgrief|grieve|grieving|mourning|mourn(ed|ing)?|bereave|bereft|\bloss\b|funeral|widow|orphan|weep|weeping|broken\s*heart|contrite|\bsorrow\b/.test(low)) return 'grief';
       if (/\bwait(ing)?\b|tarry|not yet|\bpatience\b|\bpatient\b|hope for that we see not|appointed time|delayed?\b/.test(low)) return 'waiting';
       if (/\bparent\w*\s+fear\b|fear for (my |our )?(child|children|kids)\b|\blittle ones should perish\b|\bgreat shall be the peace of thy children\b|\bsuffer the little children to come\b/.test(low)) return 'parentfear';
@@ -867,14 +1349,19 @@
       if (/\bforgive|forgiveness|forgave|forgiven|trespass|trespasses\b/.test(low)) return 'forgiveness';
       if (/\bbitter(ness|ly)?\b|gall of bitterness|root of bitterness|bitter envying|gall and\b/.test(low)) return 'bitterness';
       if (/\blonely|loneliness|\bforsaken\b|forsake me|no companion|desolate and afflicted|solitary in families|comfortless\b/.test(low)) return 'loneliness';
-      if (/\bthank|thanks|thanksgiving|grateful|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
+      if (/\bthank|thanks|thanksgiving|grateful|made me glad|glad through|works of (thy|your) hands|rejoice|joyful|joy in|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
       if (/\bdoubt(s|ed|ful|eth)?\b|unbelief|disbelief|faithless|be not faithless|waver(ing|ed|eth)?\b|staggered not|help thou mine|mine unbelief|look we for another|art thou he that should come\b/.test(low)) return 'doubt';
+      if (/\bproverbs\b|commit thy works|commit your works|thoughts shall be established|wisdom\b|understanding\b|fear of the lord is the beginning\b/.test(low)) return 'wisdom';
       if (/\bhope|hopeless|discouraged\b/.test(low)) return 'hope';
-      return 'hope';
+      return 'peace';
     }
     var UOG_PLANS = {
+      wisdom: [
+        { href: '/plans.html?plan=proverbswisdom', label: 'Proverbs of Wisdom' },
+        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' },
+        { href: '/plans.html?plan=peace', label: '7-Day Peace' }
+      ],
       anxiety: [
-        { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
         { href: '/plans.html?plan=universityanxiety', label: 'Anxiety & Fear' },
         { href: '/plans.html?plan=worrytrust', label: 'Worry to Trust' },
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
@@ -890,90 +1377,90 @@
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
       ],
       grief: [
-        { href: '/plans.html?plan=universitygrief', label: 'University of Grief' },
+        { href: '/plans.html?plan=universitygrief', label: 'Grief' },
         { href: '/plans.html?plan=griefhope', label: 'Grief to Hope' },
         { href: '/plans.html?plan=psalmscomfort', label: 'Psalms of Comfort' }
       ],
       waiting: [
-        { href: '/plans.html?plan=universitywaiting', label: 'University of Waiting' },
-        { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
-        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' }
+        { href: '/plans.html?plan=universitywaiting', label: 'Waiting' },
+        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' },
+        { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' }
       ],
       parenting: [
         { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
-        { href: '/plans.html?plan=universityparentfear', label: 'Fear for My Children' },
         { href: '/plans.html?plan=parenting', label: 'Parenting' },
         { href: '/plans.html?plan=familyworship', label: 'Family Worship' }
       ],
       exhaustion: [
         { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' },
-        { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
-        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
         { href: '/plans.html?plan=wearyhands', label: 'Weary Hands' },
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
       ],
       gratitude: [
-        { href: '/plans.html?plan=universitygratitude', label: 'Gratitude' },
-        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
+        { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' },
         { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' },
-        { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' }
+        { href: '/plans.html?plan=praisethanks30', label: 'Praise and Thanksgiving' },
+        { href: '/plans.html?plan=universitygratitude', label: 'Gratitude track' }
       ],
       loneliness: [
-        { href: '/plans.html?plan=universityloneliness', label: 'University of Loneliness' },
         { href: '/plans.html?plan=heartalone', label: 'Heart Feels Alone' },
-        { href: '/plans.html?plan=universitygrief', label: 'University of Grief' }
+        { href: '/plans.html?plan=universityloneliness', label: 'Loneliness' },
+        { href: '/plans.html?plan=universitygrief', label: 'Grief' }
       ],
       forgiveness: [
-        { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
         { href: '/plans.html?plan=forgiveness', label: 'Forgiveness' },
-        { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
+        { href: '/plans.html?plan=lettinggo', label: 'Letting Go' },
+        { href: '/plans.html?plan=universityforgiveness', label: 'Forgiveness track' }
       ],
       brokenrelations: [
-        { href: '/plans.html?plan=universitybroken', label: 'University of Broken Relationships' },
-        { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
-        { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' }
+        { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' },
+        { href: '/plans.html?plan=universitybroken', label: 'Broken Relationships' },
+        { href: '/plans.html?plan=forgiveness', label: 'Forgiveness' }
       ],
       comparison: [
-        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
-        { href: '/plans.html?plan=universitycomparison', label: 'University of Comparison' },
-        { href: '/plans.html?plan=universitygratitude', label: 'University of Gratitude' },
+        { href: '/plans.html?plan=universitycontentment', label: 'Contentment' },
+        { href: '/plans.html?plan=universitygratitude', label: 'Gratitude' },
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
       ],
       anger: [
-        { href: '/plans.html?plan=universityanger', label: 'University of Anger' },
         { href: '/plans.html?plan=angerpeace', label: 'Anger to Peace' },
-        { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' }
+        { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' },
+        { href: '/plans.html?plan=universityanger', label: 'Anger track' }
       ],
       regret: [
-        { href: '/plans.html?plan=universityregret', label: 'University of Regret' },
-        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
-        { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
-        { href: '/plans.html?plan=universitygrief', label: 'University of Grief' }
+        { href: '/plans.html?plan=universityregret', label: 'Regret' },
+        { href: '/plans.html?plan=forgiveness', label: 'Forgiveness' },
+        { href: '/plans.html?plan=universitygrief', label: 'Grief' }
       ],
       doubt: [
-        { href: '/plans.html?plan=universitydoubt', label: 'University of Doubt' },
         { href: '/plans.html?plan=doubtassurance', label: 'Doubt to Assurance' },
-        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' }
+        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' },
+        { href: '/plans.html?plan=universitydoubt', label: 'Doubt track' }
       ],
       bitterness: [
-        { href: '/plans.html?plan=universitybitterness', label: 'University of Bitterness' },
-        { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
-        { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
+        { href: '/plans.html?plan=lettinggo', label: 'Letting Go' },
+        { href: '/plans.html?plan=forgiveness', label: 'Forgiveness' },
+        { href: '/plans.html?plan=universitybitterness', label: 'Bitterness track' }
       ],
       overwhelm: [
-        { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
         { href: '/plans.html?plan=overwhelmedburnout', label: 'Overwhelmed / Burnout' },
-        { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' }
+        { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' },
+        { href: '/plans.html?plan=peace', label: '7-Day Peace' }
       ],
       parentfear: [
         { href: '/plans.html?plan=universityparentfear', label: 'Fear for My Children' },
-        { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
-        { href: '/plans.html?plan=littlehearts', label: 'Little Hearts, Big Fear' }
+        { href: '/plans.html?plan=littlehearts', label: 'Little Hearts, Big Fear' },
+        { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' }
       ],
       hope: [
         { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
-        { href: '/plans.html?plan=universitywaiting', label: 'University of Waiting' },
+        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' },
         { href: '/plans.html?plan=praisethanks30', label: 'Praise and Thanksgiving' }
+      ],
+      peace: [
+        { href: '/plans.html?plan=peace', label: '7-Day Peace' },
+        { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' },
+        { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' }
       ]
     };
     window.tdbUogBuildCurriculumPlanList = function (ref, text) {

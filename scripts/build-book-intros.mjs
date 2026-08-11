@@ -123,7 +123,7 @@ const EXTENDED = {
   Philippians: {
     fight: 'Joy in chains and thorns—Christ is enough when feelings are not; humility and prayer beat performance.',
     anchors: ['Philippians 1:21', 'Philippians 1:29', 'Philippians 2:5', 'Philippians 4:11', 'Philippians 4:13'],
-    step: 'Philippians 4:6–8—name one worry, pray with thanks, then pick one “whatsoever things” from verse 8 to rehearse today. Open Battle Plans for verse-led tracks that draw on Philippians.'
+    step: 'Philippians 4:6–8—name one worry, pray with thanks, then pick one “whatsoever things” from verse 8 to rehearse today. Open Plans for verse-led tracks that draw on Philippians.'
   },
   '2 Corinthians': {
     fight: 'Comfort in affliction first—then pour it out; God’s strength lands in cracked jars, not polished speeches.',

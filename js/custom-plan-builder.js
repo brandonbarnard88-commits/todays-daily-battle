@@ -1,6 +1,6 @@
 /**
  * Gentle custom Battle Plan builder — today’s verse + My Study saves.
- * Storage: tDB_myBattlePlans (porch key) + tdb_custom_plans_v1 (Battle Plans runner).
+ * Storage: tDB_myBattlePlans (porch key) + tdb_custom_plans_v1 (Plans runner).
  * No upload. No account. Fully offline after first load.
  */
 (function () {

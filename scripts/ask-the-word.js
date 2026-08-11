@@ -272,7 +272,7 @@
           render(d);
         }).catch(function () {
           setLoading(false);
-          result.innerHTML = '<p class="empty">We couldn\u2019t reach an answer just now\u2014that is all right. Check your connection, or use verse lookup below.</p>';
+          result.innerHTML = '<p class="empty">We couldn\u2019t reach an answer just now\. Check your connection, or use verse lookup below.</p>';
           if (prayerEl) prayerEl.classList.add('hidden');
         });
       });

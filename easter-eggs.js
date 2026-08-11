@@ -377,7 +377,7 @@
       note = document.createElement('div');
       note.id = 'tdb-egg-quiet-routes';
       note.className = 'easter-secret-panel';
-      setHtml(note, '<strong>Quiet paths</strong><p>Try one of these calm routes: Home → Calm → Prayer, or Home → Battle Plans → My Study, or Kids → Family → Printables for a lighter household rhythm.</p>');
+      setHtml(note, '<strong>Quiet paths</strong><p>Try one of these calm routes: Home → Calm → Prayer, or Home → Plans → My Study, or Kids → Family → Printables for a lighter household rhythm.</p>');
       host.appendChild(note);
     }
     note.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

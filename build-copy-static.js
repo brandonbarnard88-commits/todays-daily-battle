@@ -723,7 +723,7 @@ if (fs.existsSync(path.join(root, 'coloring-pages'))) {
 
 if (fs.existsSync(path.join(root, 'kids'))) {
   copyDir(path.join(root, 'kids'), path.join(dist, 'kids'));
-  console.log('Copied kids/ folder (Kids Battle + parent dashboard)');
+  console.log('Copied kids/ folder (Kids + parent dashboard)');
   // Stick-figure panel SVGs are retired (Color & Tell only). Remove any leftovers so
   // a stale dist/ or partial copy never re-ships them to Cloudflare Pages.
   const kidsDist = path.join(dist, 'kids');

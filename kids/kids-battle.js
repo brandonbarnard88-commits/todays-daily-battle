@@ -1,5 +1,5 @@
 /**
- * Kids Battle — standalone logic for kids/index.html
+ * Kids — standalone logic for kids/index.html
  * Verse, prayer, streak, badges, doodle. Uses localStorage. Offline-capable.
  * KJV verses = public domain. No third-party content.
  */
@@ -6429,7 +6429,7 @@
       videoTitle: '',
       keywords: ['paul', 'rome', 'acts 28', 'prisoner', 'chain', 'gentiles', 'preach', 'kingdom'],
       kjvRef: 'Acts 28',
-      kidContext: { who: 'Paul', to: 'Jews and Gentiles (and us)', apply: 'Hard days do not silence Jesus—keep speaking His name with love and courage.' }
+      kidContext: { who: 'Paul', to: 'Jews and Gentiles (and us)', apply: 'When it's hards do not silence Jesus—keep speaking His name with love and courage.' }
     },
     paulLetters: {
       title: 'Paul’s Letters to the Churches',
@@ -6453,7 +6453,7 @@
       videoTitle: '',
       keywords: ['paul', 'prison', 'ephesians', 'philippians', 'colossians', 'philemon', 'chains', 'joy'],
       kjvRef: 'Ephesians, Philippians, Colossians, Philemon',
-      kidContext: { who: 'Paul', to: 'Believers (and us)', apply: 'Hard days can still be holy days—let joy in Jesus be louder than your trouble.' }
+      kidContext: { who: 'Paul', to: 'Believers (and us)', apply: 'When it's hards can still be holy days—let joy in Jesus be louder than your trouble.' }
     },
     paulEndurance: {
       title: 'Paul’s Finish Line',
@@ -6772,7 +6772,7 @@
       videoTitle: '',
       keywords: ['philippians', 'joy', 'rejoice', 'peace', 'prison', 'thanksgiving', 'strength', 'christ'],
       kjvRef: 'Philippians 1:21; 2:5–11; 4:4–7, 13',
-      kidContext: { who: 'Paul', to: 'Us', apply: 'Hard day? Tell Jesus anyway—He can trade your panic for peace when you pray with a thankful heart.' }
+      kidContext: { who: 'Paul', to: 'Us', apply: 'When it's hard? Tell Jesus anyway—He can trade your panic for peace when you pray with a thankful heart.' }
     },
     colossiansChristSupreme: {
       title: 'Colossians — Christ Is Supreme',
@@ -10417,7 +10417,7 @@
     return panels[index % 5];
   }
 
-  /** Normalize carousel/single picker so we never read .panels on a missing story (fixes blank/broken Kids Battle strip). */
+  /** Normalize carousel/single picker so we never read .panels on a missing story (fixes blank/broken Kids strip). */
   function resolveKidsCartoon(cartoon, index) {
     var n = KIDS_SINGLE_CARTOON_FALLBACKS.length;
     var fb = KIDS_SINGLE_CARTOON_FALLBACKS[index % n];
@@ -10490,7 +10490,7 @@
   function renderVerseAndPrayer() {
     if (!KIDS_VERSES.length) {
       if (typeof console !== 'undefined' && console.warn) {
-        console.warn('Kids Battle: KIDS_VERSES is empty; skip verse render.');
+        console.warn('Kids: KIDS_VERSES is empty; skip verse render.');
       }
       return;
     }
@@ -10524,12 +10524,12 @@
       }
     } catch (err) {
       if (typeof console !== 'undefined' && console.warn) {
-        console.warn('Kids Battle renderVerseAndPrayer:', err);
+        console.warn('Kids renderVerseAndPrayer:', err);
       }
       var ctn = document.getElementById('kids-cartoon-container');
       if (ctn) {
         try {
-          appendKidsCartoonFallbackMsg(ctn, 'Today\'s comic area did not finish loading—that is all right. Your verse is still above—try a refresh.');
+          appendKidsCartoonFallbackMsg(ctn, 'Today\'s comic area did not finish loading. Your verse is still above—try a refresh.');
         } catch (e2) {}
       }
     }
@@ -11311,7 +11311,7 @@
     ctx.fillStyle = '#ffd93d';
     ctx.font = 'bold 28px Bangers, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('I won today\'s Kids Battle!', 300, 50);
+    ctx.fillText('I won today\'s Kids!', 300, 50);
     ctx.fillStyle = '#ff9f43';
     ctx.font = 'bold 20px Nunito, sans-serif';
     ctx.fillText(ref, 300, 90);
@@ -11359,7 +11359,7 @@
         var file = new File([blob], 'kids-battle-win.png', { type: 'image/png' });
         if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
           navigator.share({
-            title: 'I won today\'s Kids Battle!',
+            title: 'I won today\'s Kids!',
             text: 'Check out my verse and doodle from Today\'s Daily Battle!',
             files: [file]
           }).catch(function () { fallbackDownload(dataUrl); });
@@ -12021,12 +12021,12 @@
       applyKidsVersePayload(v.ref, kidText, kidsPrayerForIndex(index), v.text, index, false);
     } catch (err) {
       if (typeof console !== 'undefined' && console.warn) {
-        console.warn('Kids Battle setMainVerse:', err);
+        console.warn('Kids setMainVerse:', err);
       }
       var ctn = document.getElementById('kids-cartoon-container');
       if (ctn) {
         try {
-          appendKidsCartoonFallbackMsg(ctn, 'Comic area did not update—that is all right. Try a refresh.');
+          appendKidsCartoonFallbackMsg(ctn, 'Comic area did not update. Try a refresh.');
         } catch (e2) {}
       }
     }
@@ -12050,7 +12050,7 @@
       return true;
     } catch (err) {
       if (typeof console !== 'undefined' && console.warn) {
-        console.warn('Kids Battle syncKidsVerseWithMainDailyVerse:', err);
+        console.warn('Kids syncKidsVerseWithMainDailyVerse:', err);
       }
       return false;
     }
@@ -12453,12 +12453,12 @@
 
       withKidSupabase(true, function (client) {
         if (!client) {
-          showCodeError('That did not finish—that is all right. Try again in a moment.');
+          showCodeError('That did not finish. Try again in a moment.');
           return;
         }
         return client.rpc('redeem_invite_code', { code: code }).then(function (res) {
           if (res.error) {
-            showCodeError('That did not finish—that is all right. Try again in a moment.');
+            showCodeError('That did not finish. Try again in a moment.');
             return;
           }
           var data = res.data;
@@ -12476,10 +12476,10 @@
             }
           }
         }).catch(function () {
-          showCodeError('That did not finish—that is all right. Try again in a moment.');
+          showCodeError('That did not finish. Try again in a moment.');
         });
       }).catch(function () {
-        showCodeError('That did not finish—that is all right. Try again in a moment.');
+        showCodeError('That did not finish. Try again in a moment.');
       });
     });
   }
@@ -12787,7 +12787,7 @@
       var shareText = "My streak's " + streak + " day" + (streak === 1 ? '' : 's') + "—join the Faith Trail!";
       if (navigator.share) {
         navigator.share({
-          title: 'Kids Battle Streak!',
+          title: 'Kids Streak!',
           text: shareText,
           url: shareUrl
         }).then(function () { showToast('Shared!'); }).catch(function () {
@@ -12932,7 +12932,7 @@
         steps[si]();
       } catch (err) {
         if (typeof console !== 'undefined' && console.warn) {
-          console.warn('Kids Battle init step ' + si + ':', err);
+          console.warn('Kids init step ' + si + ':', err);
         }
       }
     }

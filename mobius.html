@@ -995,7 +995,7 @@
 
         <div class="daily-carry" id="mobius-loop-journal">
           <h3>Carry the ribbon today</h3>
-          <p>Hard days return; so does His faithfulness. You were not made to pretend the weight is unreal&mdash;you were made to stand with Him in it.</p>
+          <p>When it's hards return; so does His faithfulness. You were not made to pretend the weight is unreal&mdash;you were made to stand with Him in it.</p>
           <div class="mobius-loop-journal-block" aria-label="Optional loop journal on this device">
             <p class="mobius-journal-prompts-label"><strong>Ribbon note (optional):</strong> Name the weight without softening it. One verse you will speak when it loops back. Saved only on this device. For extra breath lines, see <a href="#mobius-exhale-verse">why we use 2 Timothy 1:7</a> and <a href="#mobius-endurance-companions">more endurance in Scripture (KJV)</a> below.</p>
             <label for="mobius-deep-journal-input">Your lines</label>
@@ -1485,13 +1485,13 @@
               navigator.share(shareData).then(function () {
                 try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {}
               }).catch(function () {
-                navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('That did not copy—that is all right. Copy this link manually:\n' + url); });
+                navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('That did not copy. Copy this link manually:\n' + url); });
               });
             } else {
-              navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {} }).catch(function () { alert('That did not copy—that is all right. Copy this link manually:\n' + url); });
+              navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {} }).catch(function () { alert('That did not copy. Copy this link manually:\n' + url); });
             }
           } catch (e) {
-            navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('That did not copy—that is all right. Copy this link manually:\n' + url); });
+            navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('That did not copy. Copy this link manually:\n' + url); });
           }
         });
       }

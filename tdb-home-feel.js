@@ -2625,7 +2625,7 @@ function wireReadAloudTts() {
     btn.disabled = true;
     btn.setAttribute('aria-disabled', 'true');
     btn.setAttribute('aria-label', 'Listen is not available here—this browser does not support text-to-speech. That is all right.');
-    btn.setAttribute('title', 'Listen is not open in this browser—that is all right. You can still read the verse.');
+    btn.setAttribute('title', 'Listen is not open in this browser. You can still read the verse.');
     var ulbl = btn.querySelector('.read-aloud-label');
     if (ulbl) ulbl.textContent = 'Unavailable';
   }
@@ -3071,7 +3071,7 @@ function tdbSyncHomeHeroPlanCta(best) {
   if (best && best.planId && best.day >= best.max) {
     a.href = 'plans.html';
     a.textContent = 'Open a Battle Plan';
-    a.setAttribute('aria-label', 'Browse Battle Plans \u2014 pick a new short path');
+    a.setAttribute('aria-label', 'Browse Plans \u2014 pick a new short path');
     return;
   }
   a.href = 'plans.html?plan=battle';

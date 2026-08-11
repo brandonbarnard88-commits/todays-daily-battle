@@ -217,7 +217,7 @@
         // ensure teaching loop even on server payloads
         data.next_steps = [
           { kind: 'spine', label: 'Learn the Word path', href: '/learn-the-word.html' },
-          { kind: 'plans', label: 'Battle Plans', href: '/plans.html' },
+          { kind: 'plans', label: 'Plans', href: '/plans.html' },
           { kind: 'lessons', label: 'Life Lessons', href: '/life-lessons.html' }
         ];
         stepsHtml = nextStepsBlock(data);
@@ -317,7 +317,7 @@
         });
       }).catch(function () {
         setLoading(false);
-        result.innerHTML = '<p class="empty">We couldn\u2019t reach an answer just now\u2014that is all right. Check your connection, or use verse lookup below. <a href="/learn-the-word.html">Learn the Word</a> stays ready when you are.</p>';
+        result.innerHTML = '<p class="empty">We couldn\u2019t reach an answer just now\. Check your connection, or use verse lookup below. <a href="/learn-the-word.html">Learn the Word</a> stays ready when you are.</p>';
         if (prayerEl) prayerEl.classList.add('hidden');
       });
     }

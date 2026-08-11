@@ -55,10 +55,10 @@
           try { var n = parseInt(localStorage.getItem('sharePageCount') || '0', 10); localStorage.setItem('sharePageCount', String(n + 1)); } catch (e) {}
           showToast('Link copied! Share it with someone who needs it.');
         }).catch(function () {
-          showToast('Copy did not go through—that is all right. Share the URL manually.');
+          showToast('Copy did not go through. Share the URL manually.');
         });
       } else {
-        showToast('Copy did not go through—that is all right. Share the URL manually.');
+        showToast('Copy did not go through. Share the URL manually.');
       }
     }
   }

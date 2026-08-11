@@ -184,7 +184,7 @@ function buildPlansJsonLd(planRows) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Battle Plans • KJV Devotionals & Daily Bible Reading Plans',
+    name: 'Plans • KJV Devotionals & Daily Bible Reading Plans',
     url: pageUrl,
     description:
       'Hundreds of grace-filled KJV battle plans for every season and feeling. No schedule pressure — open any day. Offline, ad-free, family & church tools included.',

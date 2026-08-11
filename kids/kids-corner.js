@@ -1,5 +1,5 @@
 /**
- * Kids Story Library — library view for Kids Battle
+ * Kids Story Library — library view for Kids
  * Full Bible story catalog: search, filter, random, PDF title export, coloring canvas.
  * Uses TDB_BIBLE_STORIES from kids-battle.js.
  */
@@ -7337,7 +7337,7 @@
     var p = document.createElement('p');
     p.className = 'kids-read-quiz-unavailable-msg';
     p.textContent = globalMissing
-      ? 'The read-aloud words and quiz questions did not load—that is all right. Your connection or cache may have been interrupted. The comic and notes above may still work. Tap Refresh to try again.'
+      ? 'The read-aloud words and quiz questions did not load. Your connection or cache may have been interrupted. The comic and notes above may still work. Tap Refresh to try again.'
       : 'This story does not have read-and-quiz content in the bundle yet. Use the comic and notes above.';
     wrap.appendChild(p);
     if (globalMissing) {
@@ -7349,7 +7349,7 @@
         btnTry.disabled = true;
         retryKidsReadQuizData(function (ok) {
           btnTry.disabled = false;
-          if (!ok) showToast('Still did not load—that is all right. Check connection or refresh.');
+          if (!ok) showToast('Still did not load. Check connection or refresh.');
         });
       });
       wrap.appendChild(btnTry);
@@ -8367,7 +8367,7 @@
         } catch (e2) {}
       }, 500);
     } catch (e) {
-      showToast('Print did not open—that is all right. Try again in a moment.');
+      showToast('Print did not open. Try again in a moment.');
     }
   }
 
@@ -9702,7 +9702,7 @@
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = null;
     if (document.getElementById('kids-library-grid')) {
-      document.title = 'Bible Story Library • Kids Battle • Today\'s Daily Battle';
+      document.title = 'Bible Story Library • Kids • Today\'s Daily Battle';
       var mdc = document.getElementById('tdb-kids-story-meta-desc');
       if (mdc) {
         mdc.setAttribute(
@@ -9926,7 +9926,7 @@
       if (pk && pk.questions && pk.questions.length) pool.push(k);
     }
     if (pool.length < 5) {
-      showToast('Quiz bundle is still loading—that is all right. Refresh and try again.');
+      showToast('Quiz bundle is still loading. Refresh and try again.');
       return;
     }
     pool = shuffleChallengePool(pool);
@@ -9949,7 +9949,7 @@
       } catch (err) {
         try { console.error('Kids quiz challenge step failed', err); } catch (_) {}
         removeQuizChallengeOverlay();
-        showToast('Quiz challenge hit a snag—that is all right. Try again or refresh the page.');
+        showToast('Quiz challenge hit a snag. Try again or refresh the page.');
       }
     }
 
@@ -10174,7 +10174,7 @@
         err.className = 'kids-library-load-error kids-search-no-match';
         err.setAttribute('role', 'alert');
         err.textContent =
-          'The full story list is still loading. You can open any picture above right now—or hard-refresh (Cmd/Ctrl+Shift+R) if nothing new appears.';
+          'The full story list is still loading. You can open any picture above right now—or refresh the page (Cmd/Ctrl+Shift+R) if nothing new appears.';
         /* Insert note above cards; do not clear static picture cards */
         if (gridEl.firstChild) gridEl.insertBefore(err, gridEl.firstChild);
         else gridEl.appendChild(err);
@@ -10245,7 +10245,7 @@
         if (deepTries < 70) {
           setTimeout(tryOpenFromStoryParam, 100);
         } else {
-          showToast('That story link did not open—scripts may still be loading. Try again or hard-refresh.');
+          showToast('That story link did not open—scripts may still be loading. Try again or refresh the page.');
         }
       }
       window.addEventListener('tdb-kids-bible-stories-ready', tryOpenFromStoryParam, { once: true });
@@ -10271,10 +10271,10 @@
           try {
             if (!sessionStorage.getItem(wk)) {
               sessionStorage.setItem(wk, '1');
-              showToast('Story words and questions did not load—that is all right. Tap “Try loading again” inside a story, or refresh when you are online.');
+              showToast('Story words and questions did not load. Tap “Try loading again” inside a story, or refresh when you are online.');
             }
           } catch (e2) {
-            showToast('Story words and questions did not load—that is all right. Tap “Try loading again” inside a story, or refresh when you are online.');
+            showToast('Story words and questions did not load. Tap “Try loading again” inside a story, or refresh when you are online.');
           }
         });
       }
@@ -10542,7 +10542,7 @@
           doc.save('kids-bible-story-library.pdf');
           showToast('PDF downloaded!');
         } catch (err) {
-          showToast('PDF export did not finish—that is all right. Try again when you are ready.');
+          showToast('PDF export did not finish. Try again when you are ready.');
           console.error('PDF export error:', err);
         }
       });
@@ -10640,7 +10640,7 @@
                   kidsShepherdAudioBtn = speakBtn;
                 })
                 .catch(function () {
-                  showToast('Playback did not start—that is all right. Check your connection and try again.');
+                  showToast('Playback did not start. Check your connection and try again.');
                 });
               return;
             }

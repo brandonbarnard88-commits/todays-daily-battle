@@ -1246,7 +1246,7 @@
     breakdown.appendChild(layWrap);
 
     addBkH4('Who\'s talking?', 'about');
-    addBkH4('Who is He / she talking to?', 'to');
+    addBkH4('Who hears this?', 'to');
 
     var relH = document.createElement('h4');
     relH.appendChild(document.createTextNode('How it relates today ('));

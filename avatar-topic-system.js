@@ -390,7 +390,7 @@
       });
     }).catch(function () {
       clearCharacterAnimation();
-      setAvatarStatus('Animation is not open here right now—that is all right. Static portrait stays on.');
+      setAvatarStatus('Animation is not open here right now. Static portrait stays on.');
     });
   }
 

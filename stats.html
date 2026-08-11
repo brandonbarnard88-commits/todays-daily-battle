@@ -72,7 +72,7 @@
         var sentEl = document.getElementById('stat-push-sent');
         var cfg = window.TDB_CONFIG || {};
         if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
-          if (note) note.textContent = 'Push health needs Supabase in config—that is all right. Add keys and refresh.';
+          if (note) note.textContent = 'Push health needs Supabase in config. Add keys and refresh.';
           return;
         }
         fetch(String(cfg.SUPABASE_URL).replace(/\/$/, '') + '/rest/v1/rpc/get_push_health_latest', {
@@ -101,7 +101,7 @@
             note.textContent = 'Last run: ' + runAt + ' | failed: ' + (row.failed_count || 0) + ' | pruned: ' + (row.pruned_count || 0);
           }
         }).catch(function () {
-          if (note) note.textContent = 'Push health did not load—that is all right. Run supabase-push-health-rpc.sql and try again.';
+          if (note) note.textContent = 'Push health did not load. Run supabase-push-health-rpc.sql and try again.';
         });
       }
       if (!passwordRequired) {

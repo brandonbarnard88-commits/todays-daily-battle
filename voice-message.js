@@ -13,7 +13,7 @@
     var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
       btn.addEventListener('click', function () {
-        alert('Voice input is not open in this browser—that is all right. Type your message instead.');
+        alert('Voice input is not open in this browser. You can type instead.');
       });
       return;
     }
@@ -48,7 +48,7 @@
         recognition.start();
       } catch (e) {
         setListening(false);
-        alert('Voice did not start—that is all right. Type your message instead.');
+        alert('Voice did not start. You can type instead.');
       }
     });
 

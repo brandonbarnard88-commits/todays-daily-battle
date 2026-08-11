@@ -4537,7 +4537,7 @@
                 .then(function (png) {
                   if (!png) {
                     window.alert(
-                      'Picture is not ready yet—that is all right. Try again in a second.'
+                      'Picture is not ready yet. Try again in a second.'
                     );
                     return null;
                   }
@@ -4558,7 +4558,7 @@
                         'This device ran out of save space. Tap “Clear saved stories” under the progress cards, or ask a grown-up to free browser storage.'
                       );
                     } else {
-                      window.alert('That did not save—that is all right. Try again.');
+                      window.alert('That did not save. Try again.');
                     }
                     return;
                   }
@@ -4567,7 +4567,7 @@
                   updateStoryUI(story, section, watchBtn, celebrate);
                 })
                 .catch(function () {
-                  window.alert('Picture did not save—that is all right. Try again.');
+                  window.alert('Picture did not save. Try again.');
                 });
             });
 

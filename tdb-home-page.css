@@ -12692,3 +12692,30 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
   text-align: center;
   justify-content: center;
 }
+
+
+/* Final: dock is 5 items; Search stays for script hooks only */
+.tdb-bottom-dock a.tdb-bottom-dock-sr-tool,
+.tdb-bottom-dock #nav-search-btn.tdb-bottom-dock-sr-tool {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+.tdb-bottom-dock button.tdb-bottom-dock-more[hidden] {
+  display: none !important;
+}
+/* Mobile header: flyout only — hide long horizontal primary if any */
+@media (max-width: 720px) {
+  .site-header .tdb-home-main-nav .tdb-primary-nav-panel {
+    /* flyout panel when open */
+  }
+  .site-header .tdb-nav-flyout-toggle {
+    display: inline-flex;
+  }
+}

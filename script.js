@@ -3396,6 +3396,23 @@ function ensureTdbCookieNoticeStyles() {
 
 function setTdbCookieNoticeVisibility(banner, visible) {
   if (!banner || typeof document === 'undefined' || !document.body) return;
+  if (visible) {
+    try {
+      if (window.TDB_oneInterrupt && !window.TDB_oneInterrupt.canShow()) {
+        visible = false;
+      } else if (window.TDB_oneInterrupt) {
+        window.TDB_oneInterrupt.claim('cookie');
+      }
+    } catch (eOiCookie) {}
+  } else {
+    try {
+      if (window.TDB_oneInterrupt && typeof window.TDB_oneInterrupt.release === 'function') {
+        var n = null;
+        try { n = sessionStorage.getItem('tdb_interrupt_slot_v1_name'); } catch (eN) {}
+        if (n === 'cookie') window.TDB_oneInterrupt.release();
+      }
+    } catch (eOiCookie2) {}
+  }
   banner.hidden = !visible;
   banner.setAttribute('aria-hidden', visible ? 'false' : 'true');
   document.body.classList.toggle('tdb-cookie-notice-visible', !!visible);
@@ -16005,6 +16022,10 @@ function showFirstVisitReadModal() {
 }
 
 function maybeShowFirstLoadOnboarding() {
+  try {
+    if (window.TDB_oneInterrupt && !window.TDB_oneInterrupt.canShow()) return;
+  } catch (eOi2) {}
+
   var hero = document.getElementById('hero-verse-wrap');
   if (!hero) return;
   var onboardingSeenKey = 'tdb_onboard_daily_verse_v1';
@@ -16015,7 +16036,13 @@ function maybeShowFirstLoadOnboarding() {
     }
   } catch (e) {}
   if (!choice) {
-    setTimeout(showFirstVisitReadModal, 520);
+    setTimeout(function () {
+      try {
+        if (window.TDB_oneInterrupt && !window.TDB_oneInterrupt.canShow()) return;
+        if (window.TDB_oneInterrupt) window.TDB_oneInterrupt.claim('first-read');
+      } catch (eClaimRead) {}
+      showFirstVisitReadModal();
+    }, 520);
     return;
   }
   if (choice !== 'read_aloud') return;

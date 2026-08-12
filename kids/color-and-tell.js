@@ -4133,51 +4133,102 @@
     });
   }
 
+  /** Thumbnail src for a story card (first scene art; lazy-loaded by the browser). */
+  function storyThumbSrc(story) {
+    if (!story || !story.scenes || !story.scenes.length) return '';
+    return bestSceneSrc(story.scenes[0]) || '';
+  }
+
+  function jumpToColorStory(storyId) {
+    if (!storyId) return;
+    var sec = document.querySelector(
+      '.tdb-cat-story[data-tdb-story="' + storyId + '"]'
+    );
+    if (!sec) return;
+    /* Reveal deferred stories when jumped from the picture grid */
+    sec.hidden = false;
+    sec.classList.remove('tdb-cat-story--deferred');
+    try {
+      var showAll = document.querySelector('.tdb-cat-show-all-stories');
+      if (showAll) showAll.hidden = true;
+    } catch (_e) { /* no-op */ }
+    sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var firstPanel =
+      sec.querySelector('.tdb-cat-panel:not([hidden])') ||
+      sec.querySelector('.tdb-cat-panel');
+    if (firstPanel) ensureSceneJl(firstPanel);
+  }
+
+  /**
+   * Story-library-style picture grid: one thumbnail card per coloring story.
+   */
   function refreshProgressCards(container) {
     container.textContent = '';
+    container.classList.add('tdb-cat-story-grid');
     for (var s = 0; s < STORIES.length; s++) {
       var story = STORIES[s];
       var card = document.createElement('button');
       card.type = 'button';
-      card.className = 'tdb-cat-progress-card';
+      card.className = 'tdb-cat-progress-card tdb-cat-story-grid-card';
       card.setAttribute('data-tdb-jump-story', story.id);
-      // Lightweight badge — no full-page JPG thumbs (those were crushing mobile).
-      var thumb = document.createElement('span');
-      thumb.className = 'tdb-cat-progress-card-thumb tdb-cat-progress-card-badge';
-      thumb.setAttribute('aria-hidden', 'true');
-      thumb.textContent = (story.title || '?').charAt(0);
+      card.setAttribute(
+        'aria-label',
+        (story.title || 'Story') + ' — open to color'
+      );
+
+      var thumbWrap = document.createElement('span');
+      thumbWrap.className = 'tdb-cat-story-grid-thumb-wrap';
+      thumbWrap.setAttribute('aria-hidden', 'true');
+      var src = storyThumbSrc(story);
+      if (src) {
+        var img = document.createElement('img');
+        img.className = 'tdb-cat-story-grid-thumb';
+        img.src = src;
+        img.alt = '';
+        img.loading = s < 8 ? 'eager' : 'lazy';
+        img.decoding = 'async';
+        img.width = 280;
+        img.height = 224;
+        img.addEventListener('error', function () {
+          this.style.display = 'none';
+          var badge = this.parentNode && this.parentNode.querySelector('.tdb-cat-progress-card-badge');
+          if (badge) badge.hidden = false;
+        });
+        thumbWrap.appendChild(img);
+      }
+      var badge = document.createElement('span');
+      badge.className = 'tdb-cat-progress-card-thumb tdb-cat-progress-card-badge';
+      badge.textContent = (story.title || '?').charAt(0);
+      if (src) badge.hidden = true;
+      thumbWrap.appendChild(badge);
+
       var title = document.createElement('p');
       title.className = 'tdb-cat-progress-card-title';
       title.textContent = story.title;
+
       var status = document.createElement('p');
       var st = statusLabel(story);
       status.className = 'tdb-cat-progress-card-status' + st.doneClass;
       status.textContent = st.text;
+
       var meter = document.createElement('div');
       meter.className = 'tdb-cat-progress-meter';
       var fill = document.createElement('div');
       fill.className = 'tdb-cat-progress-meter-fill';
       fill.style.width = pct(story) + '%';
       meter.appendChild(fill);
-      card.appendChild(thumb);
+
+      var openLabel = document.createElement('span');
+      openLabel.className = 'tdb-cat-story-grid-open';
+      openLabel.textContent = 'Color me';
+
+      card.appendChild(thumbWrap);
       card.appendChild(title);
       card.appendChild(status);
       card.appendChild(meter);
+      card.appendChild(openLabel);
       card.addEventListener('click', function () {
-        var sid = this.getAttribute('data-tdb-jump-story');
-        var sec = document.querySelector(
-          '.tdb-cat-story[data-tdb-story="' + sid + '"]'
-        );
-        if (sec) {
-          /* Reveal deferred stories when jumped from the full list */
-          sec.hidden = false;
-          sec.classList.remove('tdb-cat-story--deferred');
-          sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Mount first scene when user jumps to this story
-          var firstPanel = sec.querySelector('.tdb-cat-panel:not([hidden])') ||
-            sec.querySelector('.tdb-cat-panel');
-          if (firstPanel) ensureSceneJl(firstPanel);
-        }
+        jumpToColorStory(this.getAttribute('data-tdb-jump-story'));
       });
       container.appendChild(card);
     }
@@ -4282,9 +4333,9 @@
     var note = document.createElement('p');
     note.className = 'tdb-cat-hero-note';
     note.textContent =
-      'Pick a story above (Brave, Safe, Wonder…) or open one below. Color, save on this device, then Watch My Story. No account needed.';
+      'Pick a picture below, then color. Save on this device, then Watch My Story. No account needed.';
 
-    /* Full catalog stays available but collapsed — 80 “Not started” chips overwhelm kids */
+    /* Featured doors still load first for deep links; grid lists every story. */
     var FEATURED_STORY_IDS = {
       creation: true,
       david: true,
@@ -4292,30 +4343,33 @@
       'daniel-lions': true,
       'empty-tomb': true
     };
-    var progressDetails = document.createElement('details');
-    progressDetails.className = 'tdb-cat-all-stories-details';
-    progressDetails.id = 'tdb-cat-all-stories';
-    var progressSummary = document.createElement('summary');
-    progressSummary.className = 'tdb-cat-all-stories-summary';
-    progressSummary.textContent =
-      'All stories to color (' + STORIES.length + ') — tap only if you want the full list';
-    progressDetails.appendChild(progressSummary);
+
+    /* Picture grid like Story Library — always visible first. */
+    var gridHeading = document.createElement('h2');
+    gridHeading.className = 'tdb-cat-story-grid-heading';
+    gridHeading.id = 'tdb-cat-story-grid-h';
+    gridHeading.textContent = 'Pick a picture to color';
+
+    var gridLead = document.createElement('p');
+    gridLead.className = 'tdb-cat-progress-jump-hint section-note';
+    gridLead.textContent =
+      'Tap a card. Scroll down to paint. ' + STORIES.length + ' Bible stories.';
 
     var progressOuter = document.createElement('div');
-    progressOuter.className = 'tdb-cat-progress-outer';
+    progressOuter.className = 'tdb-cat-progress-outer tdb-cat-story-grid-outer';
 
     var progressWrap = document.createElement('div');
-    progressWrap.className = 'tdb-cat-progress';
+    progressWrap.className = 'tdb-cat-progress tdb-cat-story-grid';
     progressWrap.setAttribute('role', 'region');
-    progressWrap.setAttribute('aria-label', 'All Color and Tell stories');
+    progressWrap.setAttribute('aria-labelledby', 'tdb-cat-story-grid-h');
+    progressWrap.setAttribute('aria-label', 'Coloring story pictures');
     progressWrap.tabIndex = 0;
 
-    var jumpHint = document.createElement('p');
-    jumpHint.className = 'tdb-cat-progress-jump-hint section-note';
-    jumpHint.textContent =
-      'Tip: use the five feeling buttons above first. Open “All stories” only when you want more choices.';
-
     mount.appendChild(note);
+    mount.appendChild(gridHeading);
+    mount.appendChild(gridLead);
+    progressOuter.appendChild(progressWrap);
+    mount.appendChild(progressOuter);
     if (requestedStoryId) {
       var storyMeta = getStoryMetaById(requestedStoryId);
       var handoffMeta = STORY_RETURN_HANDOFFS[requestedStoryId] || null;
@@ -4346,10 +4400,6 @@
       }
       mount.appendChild(gentleNote);
     }
-    mount.appendChild(jumpHint);
-    progressOuter.appendChild(progressWrap);
-    progressDetails.appendChild(progressOuter);
-    mount.appendChild(progressDetails);
 
     var clearAllWrap = document.createElement('div');
     clearAllWrap.className = 'tdb-cat-clear-all-wrap';
@@ -4384,10 +4434,10 @@
     var showAllStoriesBtn = document.createElement('button');
     showAllStoriesBtn.type = 'button';
     showAllStoriesBtn.className = 'btn btn-secondary tdb-cat-show-all-stories no-print';
-    showAllStoriesBtn.textContent = 'Show more stories to color';
+    showAllStoriesBtn.textContent = 'Show paint tools for every story';
     showAllStoriesBtn.setAttribute(
       'aria-label',
-      'Show every Color and Tell story section on this page'
+      'Expand paint tools for every Color and Tell story on this page'
     );
     showAllStoriesBtn.addEventListener('click', function () {
       mount.querySelectorAll('.tdb-cat-story--deferred').forEach(function (sec) {
@@ -4395,10 +4445,8 @@
         sec.classList.remove('tdb-cat-story--deferred');
       });
       showAllStoriesBtn.hidden = true;
-      try {
-        progressDetails.open = true;
-      } catch (eOpen) {}
     });
+    /* Grid already lists every story; button still expands all paint sections. */
     mount.appendChild(showAllStoriesBtn);
 
     for (var si = 0; si < STORIES.length; si++) {

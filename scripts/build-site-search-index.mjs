@@ -51,7 +51,7 @@ const ENTRIES = [
   { t: 'My Study — notes & highlights', u: '/mystudy.html', k: 'private notes prayer' },
   { t: 'Study workspace', u: '/study.html', k: 'collections export workshop' },
   { t: 'Memorize', u: '/memorize.html', k: 'cards review' },
-  { t: 'Kids play (Kids)', u: '/kids/', k: 'kids play story color game children' },
+  { t: 'Kids (story, color, play)', u: '/kids/', k: 'kids play story color game children' },
   { t: 'Bible Story Library', u: '/kids/corner.html', k: 'family children stories read aloud' },
   { t: 'When it’s hard', u: '/calm.html', k: 'calm breathe heavy verse quiet hall' },
   { t: 'Look up a verse', u: '/bible-tool.html', k: 'bible tool lookup library' },

@@ -393,10 +393,7 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
       '\n  </script>',
   );
 
-  var appleShort = 'Quiet place · ' + refPlain;
-  if (appleShort.length > 29) {
-    appleShort = refPlain.length > 26 ? refPlain.slice(0, 24) + '…' : refPlain;
-  }
+  var appleShort = 'Daily Battle';
   html = html.replace(
     /<meta name="apple-mobile-web-app-title" content="[^"]*"/,
     '<meta name="apple-mobile-web-app-title" content="' + escapeHtmlAttr(appleShort) + '"'

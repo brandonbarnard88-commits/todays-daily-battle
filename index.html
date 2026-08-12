@@ -443,16 +443,16 @@
     </header>
 
 
-    <!-- Mobile primary dock: 5 items aligned with main IA (no second More system) -->
+    <!-- Mobile primary dock: exactly 5 items (Search stays in DOM for scripts, not in the dock). -->
     <nav class="tdb-bottom-dock" aria-label="Main site navigation">
       <a href="/" aria-current="page" aria-label="Home — today’s verse">Home</a>
       <a href="#feel-section" aria-label="How I feel">Feel</a>
       <a href="/plans.html" aria-label="Reading plans">Plans</a>
       <a href="/calm.html" aria-label="When it’s hard — one steady verse">Hard day</a>
       <a href="/kids/" aria-label="Kids stories">Kids</a>
-      <a href="#quick-search-hero" id="nav-search-btn" class="tdb-bottom-dock-sr-tool" aria-label="Search Scripture">Search</a>
       <button type="button" id="nav-more-btn" class="tdb-bottom-dock-more" hidden aria-hidden="true" tabindex="-1" aria-label="More tools" aria-haspopup="true" aria-expanded="false">More</button>
     </nav>
+    <a href="#quick-search-hero" id="nav-search-btn" class="sr-only tdb-bottom-dock-sr-tool" tabindex="-1" aria-hidden="true">Search Scripture</a>
 
     <!-- Hidden search plumbing for script.js compatibility (not a screen-reader destination) -->
     <!-- DO NOT REMOVE: #main-search, #quick-actions-hero are protected core tools — build fails if missing -->

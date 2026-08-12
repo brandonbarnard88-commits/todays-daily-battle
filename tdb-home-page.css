@@ -6476,26 +6476,29 @@
       min-height: 44px;
     }
 
-    /* Keep #nav-search-btn in DOM for tests/JS; visually exclude from the 5-item dock */
+    /* Search is outside the dock flex; if it ever reappears in-dock, force it invisible */
     .tdb-bottom-dock a.tdb-bottom-dock-sr-tool,
+    .tdb-bottom-dock #nav-search-btn,
     .tdb-bottom-dock #nav-search-btn.tdb-bottom-dock-sr-tool {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      clip-path: inset(50%);
-      white-space: nowrap;
-      border: 0;
-      min-height: 0;
-      min-width: 0;
-      display: block;
-      flex: none;
-      gap: 0;
-      opacity: 0;
-      pointer-events: none;
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      clip-path: inset(50%) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+      min-height: 0 !important;
+      min-width: 0 !important;
+      max-width: 0 !important;
+      max-height: 0 !important;
+      display: none !important;
+      flex: 0 0 0 !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      visibility: hidden !important;
     }
 
     .tdb-bottom-dock button.tdb-bottom-dock-more {
@@ -12661,11 +12664,6 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
   .site-header .tdb-nav-flyout-toggle {
     /* keep menu toggle; panel opens on demand */
   }
-  .tdb-bottom-dock a.tdb-bottom-dock-sr-tool,
-  .tdb-bottom-dock #nav-search-btn {
-    /* keep search available but not emoji-heavy */
-    font-size: 0.78rem;
-  }
   .tdb-bottom-dock {
     gap: 0.15rem;
   }
@@ -12696,7 +12694,9 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
 
 /* Final: dock is 5 items; Search stays for script hooks only */
 .tdb-bottom-dock a.tdb-bottom-dock-sr-tool,
+.tdb-bottom-dock #nav-search-btn,
 .tdb-bottom-dock #nav-search-btn.tdb-bottom-dock-sr-tool {
+  display: none !important;
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;
@@ -12704,8 +12704,9 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
   margin: -1px !important;
   overflow: hidden !important;
   clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
 }
 .tdb-bottom-dock button.tdb-bottom-dock-more[hidden] {
   display: none !important;

@@ -20992,7 +20992,10 @@ function updateDailyVerseWhispers(ref, verseText) {
     var twTitle = document.querySelector('meta[name="twitter:title"]');
     var snippet = safeText.length > 120 ? safeText.slice(0, 117) + '\u2026' : safeText;
     var desc = '\u201c' + snippet + '\u201d \u2014 ' + safeRef + ' KJV';
-    var title = 'God\u2019s University of Life \u2014 Today\u2019s Verse \u2014 ' + safeRef;
+    var title = 'Today\u2019s Daily Battle \u2014 Today\u2019s Verse \u2014 ' + safeRef;
+    var stealTitle = (typeof tdbIsHomePage === 'function' && tdbIsHomePage())
+      || (typeof tdbIsVerseOfDayPage === 'function' && tdbIsVerseOfDayPage());
+    if (stealTitle) {
     if (ogDesc) ogDesc.setAttribute('content', desc);
     if (twDesc) twDesc.setAttribute('content', desc);
     if (ogTitle) ogTitle.setAttribute('content', title);
@@ -21020,6 +21023,7 @@ function updateDailyVerseWhispers(ref, verseText) {
       schemaEl.type = 'application/ld+json';
       schemaEl.textContent = trustedScript(schemaJson);
       document.head.appendChild(schemaEl);
+    }
     }
   }
   if (typeof updateAuthDailyVerseBreakdownContent === 'function') {
@@ -21598,7 +21602,7 @@ function shareDailyBattleEncourage() {
   emitEasterEgg('share_cape', { source: 'daily_battle_encourage' });
   if (navigator.share) {
     var shareUrl = (window.location && window.location.origin ? window.location.origin.replace(/\/$/, '') : 'https://todaysdailybattle.com') + '/verse.html';
-    navigator.share({ title: "God's University of Life — Today's Daily Battle", text: shareText, url: shareUrl }).catch(function () {});
+    navigator.share({ title: "Today's Daily Battle", text: shareText, url: shareUrl }).catch(function () {});
     return;
   }
   var full = shareText.indexOf('http') === -1 ? shareText + '\n' + ((window.location && window.location.origin) || '') + '/verse.html' : shareText;

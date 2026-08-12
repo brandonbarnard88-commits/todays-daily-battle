@@ -254,7 +254,7 @@
     z-index: 1;
   }
 
-  .tdb-cat-progress-outer::before {
+  .tdb-cat-progress-outer:not(.tdb-cat-story-grid-outer)::before {
     left: 0;
     background: linear-gradient(
       to right,
@@ -263,7 +263,7 @@
     );
   }
 
-  .tdb-cat-progress-outer::after {
+  .tdb-cat-progress-outer:not(.tdb-cat-story-grid-outer)::after {
     right: 0;
     background: linear-gradient(
       to left,
@@ -274,8 +274,8 @@
 }
 
 @media (max-width: 64rem) and (prefers-reduced-motion: reduce) {
-  .tdb-cat-progress-outer::before,
-  .tdb-cat-progress-outer::after {
+  .tdb-cat-progress-outer:not(.tdb-cat-story-grid-outer)::before,
+  .tdb-cat-progress-outer:not(.tdb-cat-story-grid-outer)::after {
     content: none;
   }
 }

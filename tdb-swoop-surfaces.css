@@ -239,11 +239,12 @@ blockquote.day-card-verse-text,
 
 /* ── Site-wide bottom dock (homepage + inner pages) ── */
 .tdb-bottom-dock {
-  position: fixed;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
   width: min(calc(100% - 24px), 520px);
+  margin: 0.85rem auto 1.1rem;
   background: color-mix(in srgb, var(--card, #1b212d) 97%, transparent);
   border: 1px solid var(--line, #2a3344);
   border-radius: 999px;
@@ -255,7 +256,7 @@ blockquote.day-card-verse-text,
   flex-wrap: wrap;
   gap: 0.25rem;
   padding: 6px 8px;
-  z-index: 200;
+  z-index: 2;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   isolation: isolate;
 }
@@ -305,7 +306,7 @@ blockquote.day-card-verse-text,
 
 body.tdb-inner-page:has(.tdb-bottom-dock),
 body.no-tdb-bottom-nav:has(.tdb-bottom-dock) {
-  padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 :root[data-theme="light"] .tdb-bottom-dock,

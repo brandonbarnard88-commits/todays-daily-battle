@@ -1084,7 +1084,8 @@ function tdbGetMemorizeDueCountSafe() {
 
 /** Mobile-first bottom bar on core tool routes (calm; no clutter on desktop). */
 function tdbMountBottomAppNav() {
-  if (typeof document === 'undefined' || !document.body) return;
+  /* Porch: header/footer already hold the doors. A pinned thumb bar covers the verse. */
+  return;
   if (document.getElementById('tdb-bottom-app-nav')) return;
   if (document.body.classList.contains('no-tdb-bottom-nav')) return;
   var rawPath = window.location && window.location.pathname ? String(window.location.pathname) : '/';

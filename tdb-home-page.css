@@ -913,7 +913,7 @@
       box-sizing: border-box;
       background: rgba(8, 12, 22, 0.55);
       border-bottom: 1px solid rgba(227, 188, 103, 0.22);
-      position: sticky; top: 0; z-index: 201;
+      position: relative; top: auto; z-index: 12;
       backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
       font-size: 0.86rem;
     }

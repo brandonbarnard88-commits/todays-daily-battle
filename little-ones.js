@@ -41,7 +41,7 @@
       storyHref: '/kids/corner.html?story=david',
       colorHref: '/coloring.html?story=david',
       printHref: '/kids-coloring-pack.html?sheet=david&autoprint=1',
-      imageSrc: '/coloring-pages/colored/david-and-goliath-coloring-page.jpg',
+      imageSrc: '/coloring-pages/colored/david-and-goliath-v2.jpg',
       imageAlt: 'David and Goliath',
       prompt: 'While you color, ask: What looked big to David? Who helped him stand brave anyway?',
       familyQuestion: 'What feels big today, and how can we ask God for help together?'

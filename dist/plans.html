@@ -2,9 +2,6 @@
 <!-- tdb build 20260404plans-bible-studies -->
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260809-vbd-labels"></script>
-  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260809-vbd-labels"></script>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -47,9 +44,6 @@
   <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
   <link rel="preload" href="styles.css?v=20260809-vbd-labels" as="style" fetchpriority="high">
   <link rel="stylesheet" href="styles.css?v=20260809-vbd-labels" media="all">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase2a" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase2a">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
@@ -3146,17 +3140,9 @@
   <div class="tdb-header-heartbar" role="group" aria-label="Site motto">
     <p class="tdb-header-heartbeat site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</p>
   </div>
-  <div class="tdb-shell-account-strip" role="region" aria-label="Account shortcuts">
-    <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
-        <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
-        <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
-      </div>
-      </div>
   <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="plans"><p class="offline-msg"></p></div>
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_plans_quiet_update_dismiss')==='2026-05-11-plans')document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');}catch(e){}})();</script>
-  <script nonce="tdb2025s">(function(){function openPlansDisclosureForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-hero-more','plansAllLibrary','plans-find-your-plan-details','plansCoreSevenDetails'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openPlansDisclosureForHash);else openPlansDisclosureForHash();window.addEventListener('hashchange',openPlansDisclosureForHash);})();</script>
+  <script nonce="tdb2025s">(function(){function openPlansDisclosureForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-hero-more','plansAllLibrary','plans-find-your-plan-details','plansCoreSevenDetails','plansAccountStripDetails','plansPorchVerseDetails','plansSermonIntroDetails','plansBibleStudiesDetails','plansBuilderDetails'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openPlansDisclosureForHash);else openPlansDisclosureForHash();window.addEventListener('hashchange',openPlansDisclosureForHash);})();</script>
   <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-05-11-plans" role="status" aria-live="polite">
     <p class="tdb-quiet-update-strip__text">Short KJV reading tracks—open any day.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="plans-quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
@@ -3181,24 +3167,6 @@
           <a class="btn btn-secondary" href="/plans.html?plan=anxiety7">Anxiety — 7-day steady peace</a>
         </div>
       </section>
-
-      <details class="tdb-hub-disclosure" id="plansCoreSevenDetails">
-        <summary class="tdb-hub-disclosure__summary">Also useful</summary>
-        <div class="tdb-hub-disclosure__inner">
-      <nav class="tdb-core-seven tdb-quiet-container" aria-label="Also useful">
-          <p class="tdb-core-seven__label">Also useful</p>
-          <ul class="tdb-core-seven__grid">
-            <li><a class="tdb-core-seven__link" href="/"><span>Home</span><span class="tdb-core-seven__desc">Today&rsquo;s verse</span></a></li>
-            <li><a class="tdb-core-seven__link" href="/calm.html"><span>When it&rsquo;s hard</span><span class="tdb-core-seven__desc">One verse now</span></a></li>
-            <li><a class="tdb-core-seven__link" href="/plans.html"><span>Plans</span><span class="tdb-core-seven__desc">Short reading tracks</span></a></li>
-            <li><a class="tdb-core-seven__link" href="/reader.html"><span>Read</span><span class="tdb-core-seven__desc">Bible chapters</span></a></li>
-            <li><a class="tdb-core-seven__link" href="/bible-tool.html"><span>Look up</span><span class="tdb-core-seven__desc">Find a verse</span></a></li>
-            <li><a class="tdb-core-seven__link" href="/kids/"><span>Kids</span><span class="tdb-core-seven__desc">Stories &amp; coloring</span></a></li>
-            <li><a class="tdb-core-seven__link" href="/about.html"><span>About</span><span class="tdb-core-seven__desc">Why this exists</span></a></li>
-          </ul>
-        </nav>
-        </div>
-      </details>
 
       <section class="plans-door-chooser tdb-quiet-container" id="plansDoorChooser" aria-labelledby="plansDoorChooserH">
         <h2 class="plans-find-your-plan-h" id="plansDoorChooserH">What are you carrying?</h2>
@@ -3256,6 +3224,71 @@
           </details>
         </div>
         <p class="section-note util-mb-0 util-mt-0_75" style="text-align:center;">Prefer the long list? <a href="#all-plans">Browse every plan</a> &middot; <a href="#find-your-plan">More situations</a></p>
+      </section>
+
+      <section class="plans-short-paths" id="plans-short-paths-heavy-weeks" aria-labelledby="plans-short-paths-h">
+        <p class="plans-continue-line" id="plansContinueLine" hidden>
+          Continue: <a id="plansContinueLineLink" href="plans.html">a quiet plan</a>
+        </p>
+        <h2 id="plans-short-paths-h">Short paths for heavy weeks</h2>
+        <p class="plans-short-paths__lead">
+          Five to seven quiet days. Start any day. No catch-up.
+        </p>
+        <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
+        <ul class="plans-short-paths__list">
+          <li class="plan-short-card">
+            <a href="plans.html?plan=worrytrust" class="plan-short-card__link">
+              <span class="plan-short-card__title">When worry won&rsquo;t quiet</span>
+              <span class="plan-short-card__meta">7 days · one verse a day</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=fearpressesin" class="plan-short-card__link">
+              <span class="plan-short-card__title">When fear is loud</span>
+              <span class="plan-short-card__meta">5–7 days · quiet pace</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=peace" class="plan-short-card__link">
+              <span class="plan-short-card__title">When you need a quieter pace</span>
+              <span class="plan-short-card__meta">7 days</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=griefhope" class="plan-short-card__link">
+              <span class="plan-short-card__title">When grief is heavy</span>
+              <span class="plan-short-card__meta">7 days</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=overwhelmedburnout" class="plan-short-card__link">
+              <span class="plan-short-card__title">When everything lands at once</span>
+              <span class="plan-short-card__meta">7 days</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=parentweary" class="plan-short-card__link">
+              <span class="plan-short-card__title">When parenting has worn you thin</span>
+              <span class="plan-short-card__meta">Short lane</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=roadtosalvation" class="plan-short-card__link">
+              <span class="plan-short-card__title">Brand-new to faith</span>
+              <span class="plan-short-card__meta">5 days</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=comeuntome" class="plan-short-card__link">
+              <span class="plan-short-card__title">When even a &ldquo;plan&rdquo; feels like too much</span>
+              <span class="plan-short-card__meta">5 days · very gentle</span>
+            </a>
+          </li>
+        </ul>
+        <p class="section-note" id="plans-still-in-the-works" role="note">
+          Still in the works: a few longer lanes are being written slowly.
+          Everything linked above is ready today.
+        </p>
       </section>
 
       <details class="tdb-hub-disclosure" id="plans-find-your-plan-details">
@@ -3368,80 +3401,54 @@
         </div>
       </details>
 
-      <section class="plans-short-paths" id="plans-short-paths-heavy-weeks" aria-labelledby="plans-short-paths-h">
-        <p class="plans-continue-line" id="plansContinueLine" hidden>
-          Continue: <a id="plansContinueLineLink" href="plans.html">a quiet plan</a>
-        </p>
-        <h2 id="plans-short-paths-h">Short paths for heavy weeks</h2>
-        <p class="plans-short-paths__lead">
-          Five to seven quiet days. Start any day. No catch-up.
-        </p>
-        <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
-        <ul class="plans-short-paths__list">
-          <li class="plan-short-card">
-            <a href="plans.html?plan=worrytrust" class="plan-short-card__link">
-              <span class="plan-short-card__title">When worry won&rsquo;t quiet</span>
-              <span class="plan-short-card__meta">7 days · one verse a day</span>
-            </a>
-          </li>
-          <li class="plan-short-card">
-            <a href="plans.html?plan=fearpressesin" class="plan-short-card__link">
-              <span class="plan-short-card__title">When fear is loud</span>
-              <span class="plan-short-card__meta">5–7 days · quiet pace</span>
-            </a>
-          </li>
-          <li class="plan-short-card">
-            <a href="plans.html?plan=peace" class="plan-short-card__link">
-              <span class="plan-short-card__title">When you need a quieter pace</span>
-              <span class="plan-short-card__meta">7 days</span>
-            </a>
-          </li>
-          <li class="plan-short-card">
-            <a href="plans.html?plan=griefhope" class="plan-short-card__link">
-              <span class="plan-short-card__title">When grief is heavy</span>
-              <span class="plan-short-card__meta">7 days</span>
-            </a>
-          </li>
-          <li class="plan-short-card">
-            <a href="plans.html?plan=overwhelmedburnout" class="plan-short-card__link">
-              <span class="plan-short-card__title">When everything lands at once</span>
-              <span class="plan-short-card__meta">7 days</span>
-            </a>
-          </li>
-          <li class="plan-short-card">
-            <a href="plans.html?plan=parentweary" class="plan-short-card__link">
-              <span class="plan-short-card__title">When parenting has worn you thin</span>
-              <span class="plan-short-card__meta">Short lane</span>
-            </a>
-          </li>
-          <li class="plan-short-card">
-            <a href="plans.html?plan=roadtosalvation" class="plan-short-card__link">
-              <span class="plan-short-card__title">Brand-new to faith</span>
-              <span class="plan-short-card__meta">5 days</span>
-            </a>
-          </li>
-          <li class="plan-short-card">
-            <a href="plans.html?plan=comeuntome" class="plan-short-card__link">
-              <span class="plan-short-card__title">When even a &ldquo;plan&rdquo; feels like too much</span>
-              <span class="plan-short-card__meta">5 days · very gentle</span>
-            </a>
-          </li>
-        </ul>
-        <p class="section-note" id="plans-still-in-the-works" role="note">
-          Still in the works: a few longer lanes are being written slowly.
-          Everything linked above is ready today.
-        </p>
-      </section>
+      <details class="tdb-hub-disclosure" id="plansCoreSevenDetails">
+        <summary class="tdb-hub-disclosure__summary">Also useful</summary>
+        <div class="tdb-hub-disclosure__inner">
+      <nav class="tdb-core-seven tdb-quiet-container" aria-label="Also useful">
+          <p class="tdb-core-seven__label">Also useful</p>
+          <ul class="tdb-core-seven__grid">
+            <li><a class="tdb-core-seven__link" href="/"><span>Home</span><span class="tdb-core-seven__desc">Today&rsquo;s verse</span></a></li>
+            <li><a class="tdb-core-seven__link" href="/calm.html"><span>When it&rsquo;s hard</span><span class="tdb-core-seven__desc">One verse now</span></a></li>
+            <li><a class="tdb-core-seven__link" href="/plans.html"><span>Plans</span><span class="tdb-core-seven__desc">Short reading tracks</span></a></li>
+            <li><a class="tdb-core-seven__link" href="/reader.html"><span>Read</span><span class="tdb-core-seven__desc">Bible chapters</span></a></li>
+            <li><a class="tdb-core-seven__link" href="/bible-tool.html"><span>Look up</span><span class="tdb-core-seven__desc">Find a verse</span></a></li>
+            <li><a class="tdb-core-seven__link" href="/kids/"><span>Kids</span><span class="tdb-core-seven__desc">Stories &amp; coloring</span></a></li>
+            <li><a class="tdb-core-seven__link" href="/about.html"><span>About</span><span class="tdb-core-seven__desc">Why this exists</span></a></li>
+          </ul>
+        </nav>
+        </div>
+      </details>
 
-      <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
+      <details class="tdb-hub-disclosure tdb-plans-account-more" id="plansAccountStripDetails">
+        <summary class="tdb-hub-disclosure__summary">Save on this device</summary>
+        <div class="tdb-hub-disclosure__inner">
+      <div class="tdb-shell-account-strip" role="region" aria-label="Account shortcuts">
+        <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+            <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
+            <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
+            <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
+            <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
+          </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="tdb-hub-disclosure" id="plansPorchVerseDetails">
+        <summary class="tdb-hub-disclosure__summary">Today&rsquo;s verse (same as Home)</summary>
+        <div class="tdb-hub-disclosure__inner">
+      <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="0">
         <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
-        <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Romans 5:5 (KJV)</p>
-        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“The love of God is shed abroad in our hearts by the Holy Ghost.”</p></blockquote>
+        <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">&mdash;</p>
+        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText">
+          <p class="section-note">Same quiet KJV calendar as Home.</p>
+        </blockquote>
         <div class="tdb-porch-verse-widget__actions">
           <a class="btn btn-secondary" href="/">Read with breakdown</a>
           <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
         </div>
       </aside>
+        </div>
+      </details>
 
       <details class="tdb-hub-disclosure" id="plans-hero-more">
         <summary class="tdb-hub-disclosure__summary">Featured lanes, printables, and pastor help</summary>
@@ -3471,6 +3478,9 @@
       <p class="plans-hero-hint" style="margin:0.6rem 0 1.1rem; color:#b8a98a; font-size:0.86rem;">New this summer: <a href="plans.html?plan=longdayslittle" style="color:#c9b89a;">Long Days with Little Ones</a> &middot; <a href="plans.html?plan=backtoschoolfear" style="color:#c9b89a;">Back-to-School Fear</a> &middot; <a href="plans.html?plan=summergrief" style="color:#c9b89a;">When Grief Feels Heavy in Summer</a> &middot; <a href="plans.html?plan=summertimesadness" style="color:#c9b89a;">Summer Time Sadness</a> &mdash; gentle plans for the hidden hours and the aches that bright days can make harder.</p>
         </div>
       </details>
+      <details class="tdb-hub-disclosure plans-browse-more" id="plansBrowseMore">
+        <summary class="tdb-hub-disclosure__summary">More ways to browse (filters, seasons, page map)</summary>
+        <div class="tdb-hub-disclosure__inner plans-browse-more__inner">
       <nav class="plans-plan-filter-bar" aria-label="Jump to plan groups in the list below">
         <span class="plans-plan-filter-label">Quick jump</span>
         <a class="plans-plan-filter-chip" href="#all-plans">All</a>
@@ -3479,9 +3489,6 @@
         <a class="plans-plan-filter-chip" href="#plans-anchor-school-year">School year</a>
         <a class="plans-plan-filter-chip" href="#plans-anchor-summer-spine">Summer</a>
       </nav>
-      <details class="tdb-hub-disclosure plans-browse-more" id="plansBrowseMore">
-        <summary class="tdb-hub-disclosure__summary">More ways to browse (filters, seasons, page map)</summary>
-        <div class="tdb-hub-disclosure__inner plans-browse-more__inner">
         <nav class="plans-plan-filter-bar plans-plan-filter-bar--secondary" aria-label="Browse plans by feel, length, and calm doorways">
           <span class="plans-plan-filter-label">By feel &amp; length</span>
           <a class="plans-plan-filter-chip" href="#plans-editorial-picks">Hand-picked</a>
@@ -3794,6 +3801,9 @@
         </div>
       </details>
 
+      <details class="tdb-hub-disclosure" id="plansSermonIntroDetails">
+        <summary class="tdb-hub-disclosure__summary">Sermon on the Mount — a quiet walk</summary>
+        <div class="tdb-hub-disclosure__inner">
       <section class="plans-sermon-intro" id="sermon-on-mount-intro" aria-labelledby="sermon-on-mount-intro-title">
         <h2 id="sermon-on-mount-intro-title">A Quiet Walk Through the Sermon on the Mount</h2>
         <p>The Sermon on the Mount (Matthew chapters 5&ndash;7) is one of Jesus&rsquo; most beautiful teachings. He spoke it on a hillside near the Sea of Galilee to ordinary people&mdash;families, fishermen, and those who felt tired or heavy-hearted.</p>
@@ -3822,7 +3832,12 @@
           </div>
         </details>
       </section>
+        </div>
+      </details>
 
+      <details class="tdb-hub-disclosure" id="plansBibleStudiesDetails">
+        <summary class="tdb-hub-disclosure__summary">Bible studies — free for all</summary>
+        <div class="tdb-hub-disclosure__inner">
       <section class="plans-bible-studies-section" id="bible-studies-free" aria-labelledby="bible-studies-free-title">
         <h2 class="plans-bible-studies-heading" id="bible-studies-free-title">Bible Studies — Free for All</h2>
         <p class="plans-bible-studies-lead">Short, daily dives. Offline-first when you open a day &mdash; no guilt, just faith.</p>
@@ -3960,6 +3975,8 @@
         </div>
         <p class="plans-bible-studies-foot">All Scripture on screen is <abbr title="King James Version">KJV</abbr>. These courses keep their day keys in this library; reader tracks match <a href="bible-study.html">the Bible Studies hub</a>. Nothing here is a performance—open any day you need it.</p>
       </section>
+        </div>
+      </details>
 
       <div class="easter-banner hidden" id="easterBanner" role="region" aria-labelledby="easterBannerHeading" hidden>
         <div class="easter-banner-text">
@@ -4020,6 +4037,9 @@
         </div>
       </details>
       <!-- pastor spotlight removed from primary UI -->
+      <details class="tdb-hub-disclosure" id="plansBuilderDetails">
+        <summary class="tdb-hub-disclosure__summary">Create my own, or suggest a plan</summary>
+        <div class="tdb-hub-disclosure__inner">
       <section class="glass tdb-porch-paper-glass plans-builder-section" id="plans-builder-section" aria-labelledby="plans-builder-heading">
         <p class="plans-editorial-picks-lead" style="margin:0 0 1rem;">
           <a href="custom-plan-builder.html" class="plans-gentle-plan-link">Create my own gentle plan</a>
@@ -4063,6 +4083,8 @@
         </form>
         <p id="plan-suggest-status" class="section-note" style="margin-top:0.6rem;min-height:1.5em;" aria-live="polite"></p>
       </section>
+        </div>
+      </details>
       <div class="recent-plans-carousel" id="recentPlansCarousel" role="region" aria-label="Recently viewed plans" style="display:none;"></div>
       <details class="tdb-hub-disclosure plans-all-library" id="plansAllLibrary">
         <summary class="tdb-hub-disclosure__summary" id="all-plans">Browse every plan (full library)</summary>
@@ -4921,14 +4943,6 @@
     </div>
 
   </main>
-    <nav class="tdb-bottom-dock" aria-label="Main navigation">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/#feel-section" aria-label="How I feel">Feel</a>
-      <a href="/plans.html" aria-label="Reading plans">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
-      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
-    </nav>
-
 
 <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -5056,7 +5070,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">August 11, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -11775,7 +11789,5 @@
   </script>
   <script defer src="tdb-porch-verse-widget.js?v=20260519-porch-verse"></script>
 
-
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

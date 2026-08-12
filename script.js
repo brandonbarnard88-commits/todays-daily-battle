@@ -36710,15 +36710,6 @@ async function tdbInitImpl() {
     }
   })();
   if (isHome) {
-    var today = new Date();
-    var dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    document.title = trustedScript('Daily Bible Verse + Prayer – ' + dateStr);
-    var ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', 'Daily Bible Verse + Prayer – ' + dateStr);
-    var twTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twTitle) twTitle.setAttribute('content', 'Daily Bible Verse + Prayer – ' + dateStr);
-    var metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', 'Join the 30-Day Scripture challenge: verse, prayer, and daily consistency.');
     var ref = (window.location.search || '').replace(/^\?/, '').split('&').filter(function (p) { return p.indexOf('ref=') === 0; })[0];
     if (ref) {
       try { localStorage.setItem('tdb_referrer', ref.replace('ref=', '')); } catch (e) {}

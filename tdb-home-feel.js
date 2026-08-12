@@ -765,7 +765,7 @@ function queueHeroBreakdownRefresh(data, attempt) {
     var plain = String(v.text || '').replace(/\s+/g, ' ').trim();
     var snippet = plain.length > 120 ? plain.slice(0, 117) + '\u2026' : plain;
     var shareDesc = snippet ? '\u201c' + snippet + '\u201d \u2014 ' + ref + ' KJV' : 'Today\u2019s KJV verse: ' + ref + '. Search and plans, works offline.';
-    var title = ref + ' KJV \u2014 Quiet help for today\u2019s battle | Today\u2019s Daily Battle';
+    var title = 'Today\u2019s Daily Battle \u2014 Today\u2019s Verse \u2014 ' + ref;
     document.title = title;
     var metaDesc = document.querySelector('meta[name="description"]');
     var seoDesc =
@@ -1094,7 +1094,7 @@ async function loadTodaysVerse() {
 
   const verseRef = verseData.ref ? sanitizeText(verseData.ref) : '';
   if (verseRef) {
-    var titleSync = "Today\u2019s Verse \u2014 KJV Daily Help \u2014 " + verseRef;
+    var titleSync = "Today\u2019s Daily Battle \u2014 Today\u2019s Verse \u2014 " + verseRef;
     document.title = titleSync;
     var plainSync = String(verseData.text || "").replace(/\s+/g, " ").trim();
     var snip = plainSync.length > 120 ? plainSync.slice(0, 117) + "\u2026" : plainSync;

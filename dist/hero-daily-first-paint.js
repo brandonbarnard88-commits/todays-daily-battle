@@ -1318,7 +1318,7 @@
       }
     }
 
-    var title = 'Today\u2019s Daily Battle: ' + v.ref + ' \u2014 One KJV verse';
+    var title = 'Today\u2019s Daily Battle \u2014 Today\u2019s Verse \u2014 ' + v.ref;
     document.title = title;
     var metaDesc = document.querySelector('meta[name="description"]');
     var desc = 'Today\u2019s verse: ' + v.ref + ' (KJV). One KJV verse for what you\u2019re carrying. Free. Private. No ads, no login wall.';

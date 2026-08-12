@@ -61,7 +61,7 @@
     el.appendChild(document.createTextNode(msg + ' '));
     var a = document.createElement('a');
     a.href = 'mobius.html';
-    a.setAttribute('aria-label', 'Open Grace Ribbon Journal');
+    a.setAttribute('aria-label', 'Open Grace Ribbon');
     a.textContent = 'Open the loop';
     el.appendChild(a);
     el.appendChild(document.createTextNode('.'));

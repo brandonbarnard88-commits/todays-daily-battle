@@ -1084,7 +1084,8 @@ function tdbGetMemorizeDueCountSafe() {
 
 /** Mobile-first bottom bar on core tool routes (calm; no clutter on desktop). */
 function tdbMountBottomAppNav() {
-  if (typeof document === 'undefined' || !document.body) return;
+  /* Porch: header/footer already hold the doors. A pinned thumb bar covers the verse. */
+  return;
   if (document.getElementById('tdb-bottom-app-nav')) return;
   if (document.body.classList.contains('no-tdb-bottom-nav')) return;
   var rawPath = window.location && window.location.pathname ? String(window.location.pathname) : '/';
@@ -3396,6 +3397,23 @@ function ensureTdbCookieNoticeStyles() {
 
 function setTdbCookieNoticeVisibility(banner, visible) {
   if (!banner || typeof document === 'undefined' || !document.body) return;
+  if (visible) {
+    try {
+      if (window.TDB_oneInterrupt && !window.TDB_oneInterrupt.canShow()) {
+        visible = false;
+      } else if (window.TDB_oneInterrupt) {
+        window.TDB_oneInterrupt.claim('cookie');
+      }
+    } catch (eOiCookie) {}
+  } else {
+    try {
+      if (window.TDB_oneInterrupt && typeof window.TDB_oneInterrupt.release === 'function') {
+        var n = null;
+        try { n = sessionStorage.getItem('tdb_interrupt_slot_v1_name'); } catch (eN) {}
+        if (n === 'cookie') window.TDB_oneInterrupt.release();
+      }
+    } catch (eOiCookie2) {}
+  }
   banner.hidden = !visible;
   banner.setAttribute('aria-hidden', visible ? 'false' : 'true');
   document.body.classList.toggle('tdb-cookie-notice-visible', !!visible);
@@ -16005,6 +16023,10 @@ function showFirstVisitReadModal() {
 }
 
 function maybeShowFirstLoadOnboarding() {
+  try {
+    if (window.TDB_oneInterrupt && !window.TDB_oneInterrupt.canShow()) return;
+  } catch (eOi2) {}
+
   var hero = document.getElementById('hero-verse-wrap');
   if (!hero) return;
   var onboardingSeenKey = 'tdb_onboard_daily_verse_v1';
@@ -16015,7 +16037,13 @@ function maybeShowFirstLoadOnboarding() {
     }
   } catch (e) {}
   if (!choice) {
-    setTimeout(showFirstVisitReadModal, 520);
+    setTimeout(function () {
+      try {
+        if (window.TDB_oneInterrupt && !window.TDB_oneInterrupt.canShow()) return;
+        if (window.TDB_oneInterrupt) window.TDB_oneInterrupt.claim('first-read');
+      } catch (eClaimRead) {}
+      showFirstVisitReadModal();
+    }, 520);
     return;
   }
   if (choice !== 'read_aloud') return;
@@ -20601,8 +20629,7 @@ const BIBLE_DATA_CACHE_BUST = '20260802fullkjv';
 const KJV_MIN_VERSE_COUNT = 1000;
 const KJV_FULL_URLS = [
   '/data/kjv-full.json',
-  '/data/kjv-verses.json',
-  '/kjv-full.json'
+  '/data/kjv-verses.json'
 ];
 const KJV_STUB_URLS = [
   '/kjv.json',
@@ -20966,7 +20993,10 @@ function updateDailyVerseWhispers(ref, verseText) {
     var twTitle = document.querySelector('meta[name="twitter:title"]');
     var snippet = safeText.length > 120 ? safeText.slice(0, 117) + '\u2026' : safeText;
     var desc = '\u201c' + snippet + '\u201d \u2014 ' + safeRef + ' KJV';
-    var title = 'God\u2019s University of Life \u2014 Today\u2019s Verse \u2014 ' + safeRef;
+    var title = 'Today\u2019s Daily Battle \u2014 Today\u2019s Verse \u2014 ' + safeRef;
+    var stealTitle = (typeof tdbIsHomePage === 'function' && tdbIsHomePage())
+      || (typeof tdbIsVerseOfDayPage === 'function' && tdbIsVerseOfDayPage());
+    if (stealTitle) {
     if (ogDesc) ogDesc.setAttribute('content', desc);
     if (twDesc) twDesc.setAttribute('content', desc);
     if (ogTitle) ogTitle.setAttribute('content', title);
@@ -20994,6 +21024,7 @@ function updateDailyVerseWhispers(ref, verseText) {
       schemaEl.type = 'application/ld+json';
       schemaEl.textContent = trustedScript(schemaJson);
       document.head.appendChild(schemaEl);
+    }
     }
   }
   if (typeof updateAuthDailyVerseBreakdownContent === 'function') {
@@ -21572,7 +21603,7 @@ function shareDailyBattleEncourage() {
   emitEasterEgg('share_cape', { source: 'daily_battle_encourage' });
   if (navigator.share) {
     var shareUrl = (window.location && window.location.origin ? window.location.origin.replace(/\/$/, '') : 'https://todaysdailybattle.com') + '/verse.html';
-    navigator.share({ title: "God's University of Life — Today's Daily Battle", text: shareText, url: shareUrl }).catch(function () {});
+    navigator.share({ title: "Today's Daily Battle", text: shareText, url: shareUrl }).catch(function () {});
     return;
   }
   var full = shareText.indexOf('http') === -1 ? shareText + '\n' + ((window.location && window.location.origin) || '') + '/verse.html' : shareText;
@@ -36680,15 +36711,6 @@ async function tdbInitImpl() {
     }
   })();
   if (isHome) {
-    var today = new Date();
-    var dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    document.title = trustedScript('Daily Bible Verse + Prayer – ' + dateStr);
-    var ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', 'Daily Bible Verse + Prayer – ' + dateStr);
-    var twTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twTitle) twTitle.setAttribute('content', 'Daily Bible Verse + Prayer – ' + dateStr);
-    var metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', 'Join the 30-Day Scripture challenge: verse, prayer, and daily consistency.');
     var ref = (window.location.search || '').replace(/^\?/, '').split('&').filter(function (p) { return p.indexOf('ref=') === 0; })[0];
     if (ref) {
       try { localStorage.setItem('tdb_referrer', ref.replace('ref=', '')); } catch (e) {}

@@ -16,7 +16,7 @@
       if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
         btn.disabled = true;
         btn.setAttribute('aria-disabled', 'true');
-        btn.title = 'Listen is not open in this browser—that is all right. The verse on the page is still here.';
+        btn.title = 'Listen is not open in this browser. The verse on the page is still here.';
         var ic = btn.querySelector('.tdb-votm-read-aloud__ic');
         var lbl = btn.querySelector('.tdb-votm-read-aloud__label');
         if (ic) ic.setAttribute('hidden', '');

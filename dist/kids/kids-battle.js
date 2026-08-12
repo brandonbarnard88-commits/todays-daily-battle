@@ -1,5 +1,5 @@
 /**
- * Kids Battle — standalone logic for kids/index.html
+ * Kids — standalone logic for kids/index.html
  * Verse, prayer, streak, badges, doodle. Uses localStorage. Offline-capable.
  * KJV verses = public domain. No third-party content.
  */
@@ -580,7 +580,7 @@
 
   /** When a carousel story key is missing from bibleStories, show a safe single-panel strip (matches getCartoonForVerse fallbacks). */
   const KIDS_SINGLE_CARTOON_FALLBACKS = [
-    { type: 'single', src: '/coloring-pages/colored/david-and-goliath-coloring-page.jpg', alt: 'Boy David with one sling facing giant Goliath', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
+    { type: 'single', src: '/coloring-pages/colored/david-and-goliath-v2.jpg', alt: 'Boy David with one sling facing giant Goliath', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
     { type: 'single', src: '/coloring-pages/colored/noah-s1.jpg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
     { type: 'single', src: '/coloring-pages/colored/jesus-and-the-children-coloring-page.jpg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
     { type: 'single', src: '/coloring-pages/colored/jonah-s1.jpg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
@@ -613,7 +613,7 @@
     david: {
       title: 'David & Goliath',
             panels: [
-        { src: '/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg', alt: 'Boy David with a sling faces giant Goliath in the valley' }
+        { src: '/coloring-pages/bible-stories/david-and-goliath-v2.jpg', alt: 'Boy David with a sling faces giant Goliath in the valley' }
       ],
       caption: 'Swipe to see courage that trusts the Lord — not size or armor.',
       videoId: '',
@@ -703,7 +703,7 @@
       keywords: ['daniel', 'lion', 'lions', 'den', 'pray', 'protect'],
       kjvRef: 'Daniel 6:22',
       kidContext: { who: 'God', to: 'Daniel (and us)', apply: "Daniel prayed to God even when it was against the law. God sent an angel to shut the lions' mouths. Daniel was safe all night! When you stand up for what's right and trust God, He is with you and protects you, just like He did for Daniel." },
-      narration: "Daniel and the Lions – Daniel 6:22. Daniel loved God and prayed every day. Some bad men tricked the king into making a law: 'No one can pray to anyone but the king.' Daniel kept praying to God anyway. The king was sad, but he had to throw Daniel into the lions' den. The king worried all night. In the morning, Daniel was safe! God sent an angel to shut the lions' mouths. Daniel said, 'My God sent his angel and shut the lions' mouths.' God protects those who trust Him! For you: When it's hard to do the right thing, pray and trust God. He is with you and keeps you safe."
+      narration: "Daniel and the Lions – Daniel 6:22. Daniel loved God and prayed every day. Some bad men tricked the king into making a law: 'No one can pray to anyone but the king.' Daniel kept praying to God anyway. The king was sad, but he had to throw Daniel into the lions' den. The king worried all night. In the morning, Daniel was safe! God sent an angel to shut the lions' mouths. Daniel said, 'My God sent his angel and shut the lions' mouths.' God protects those who trust Him! For you: When it is hard to do the right thing, pray and trust God. He is with you and keeps you safe."
     },
     adamEve: {
       title: 'Adam & Eve',
@@ -3554,7 +3554,7 @@
     goliathChallenge: {
       title: 'Goliath\'s Challenge',
             panels: [
-        { src: '/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg', alt: 'Boy David with a sling faces giant Goliath' }
+        { src: '/coloring-pages/bible-stories/david-and-goliath-v2.jpg', alt: 'Boy David with a sling faces giant Goliath' }
       ],
       caption: 'Swipe to see David face the giant—God wins! ⚔️',
       videoId: '',
@@ -3701,7 +3701,7 @@
     davidGoliath: {
       title: 'David & Goliath',
             panels: [
-        { src: '/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg', alt: 'Boy David with a sling faces giant Goliath in the valley' }
+        { src: '/coloring-pages/bible-stories/david-and-goliath-v2.jpg', alt: 'Boy David with a sling faces giant Goliath in the valley' }
       ],
       caption: 'Swipe to see courage that trusts the Lord — not size or armor.',
       videoId: '',
@@ -9518,7 +9518,32 @@
 
 
     window.TDB_BIBLE_STORIES = bibleStories;
-    window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
+    /* Library keys: skip alias pointers so the shelf does not list the same card twice.
+       Full bibleStories still has aliases for old ?story= URLs and journey links. */
+    (function setPrimaryStoryKeys() {
+      var all = Object.keys(bibleStories);
+      var primary = [];
+      var seen = [];
+      for (var i = 0; i < all.length; i++) {
+        var k = all[i];
+        var st = bibleStories[k];
+        if (!st) continue;
+        var idx = -1;
+        for (var j = 0; j < seen.length; j++) {
+          if (seen[j] === st) {
+            idx = j;
+            break;
+          }
+        }
+        if (idx < 0) {
+          seen.push(st);
+          primary.push(k);
+        }
+        /* If an earlier key was a short alias and this is the real name, prefer the first
+           definition (aliases are assigned after, so first write wins). */
+      }
+      window.TDB_BIBLE_STORY_KEYS = primary;
+    })();
     try {
       if (typeof window.dispatchEvent === 'function' && typeof CustomEvent === 'function') {
         window.dispatchEvent(
@@ -10408,7 +10433,7 @@
       return { type: 'carousel', story: storyKeys[weeklyStoryIndex] };
     }
     var panels = [
-      { type: 'single', src: '/coloring-pages/colored/david-and-goliath-coloring-page.jpg', alt: 'Boy David with one sling facing giant Goliath', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
+      { type: 'single', src: '/coloring-pages/colored/david-and-goliath-v2.jpg', alt: 'Boy David with one sling facing giant Goliath', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
       { type: 'single', src: '/coloring-pages/colored/noah-s1.jpg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
       { type: 'single', src: '/coloring-pages/colored/jesus-and-the-children-coloring-page.jpg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
       { type: 'single', src: '/coloring-pages/colored/jonah-s1.jpg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
@@ -10417,7 +10442,7 @@
     return panels[index % 5];
   }
 
-  /** Normalize carousel/single picker so we never read .panels on a missing story (fixes blank/broken Kids Battle strip). */
+  /** Normalize carousel/single picker so we never read .panels on a missing story (fixes blank/broken Kids strip). */
   function resolveKidsCartoon(cartoon, index) {
     var n = KIDS_SINGLE_CARTOON_FALLBACKS.length;
     var fb = KIDS_SINGLE_CARTOON_FALLBACKS[index % n];
@@ -10490,7 +10515,7 @@
   function renderVerseAndPrayer() {
     if (!KIDS_VERSES.length) {
       if (typeof console !== 'undefined' && console.warn) {
-        console.warn('Kids Battle: KIDS_VERSES is empty; skip verse render.');
+        console.warn('Kids: KIDS_VERSES is empty; skip verse render.');
       }
       return;
     }
@@ -10524,12 +10549,12 @@
       }
     } catch (err) {
       if (typeof console !== 'undefined' && console.warn) {
-        console.warn('Kids Battle renderVerseAndPrayer:', err);
+        console.warn('Kids renderVerseAndPrayer:', err);
       }
       var ctn = document.getElementById('kids-cartoon-container');
       if (ctn) {
         try {
-          appendKidsCartoonFallbackMsg(ctn, 'Today\'s comic area did not finish loading—that is all right. Your verse is still above—try a refresh.');
+          appendKidsCartoonFallbackMsg(ctn, 'Today\'s comic area did not finish loading. Your verse is still above—try a refresh.');
         } catch (e2) {}
       }
     }
@@ -11311,7 +11336,7 @@
     ctx.fillStyle = '#ffd93d';
     ctx.font = 'bold 28px Bangers, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('I won today\'s Kids Battle!', 300, 50);
+    ctx.fillText('I won today\'s Kids!', 300, 50);
     ctx.fillStyle = '#ff9f43';
     ctx.font = 'bold 20px Nunito, sans-serif';
     ctx.fillText(ref, 300, 90);
@@ -11359,7 +11384,7 @@
         var file = new File([blob], 'kids-battle-win.png', { type: 'image/png' });
         if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
           navigator.share({
-            title: 'I won today\'s Kids Battle!',
+            title: 'I won today\'s Kids!',
             text: 'Check out my verse and doodle from Today\'s Daily Battle!',
             files: [file]
           }).catch(function () { fallbackDownload(dataUrl); });
@@ -12021,12 +12046,12 @@
       applyKidsVersePayload(v.ref, kidText, kidsPrayerForIndex(index), v.text, index, false);
     } catch (err) {
       if (typeof console !== 'undefined' && console.warn) {
-        console.warn('Kids Battle setMainVerse:', err);
+        console.warn('Kids setMainVerse:', err);
       }
       var ctn = document.getElementById('kids-cartoon-container');
       if (ctn) {
         try {
-          appendKidsCartoonFallbackMsg(ctn, 'Comic area did not update—that is all right. Try a refresh.');
+          appendKidsCartoonFallbackMsg(ctn, 'Comic area did not update. Try a refresh.');
         } catch (e2) {}
       }
     }
@@ -12050,7 +12075,7 @@
       return true;
     } catch (err) {
       if (typeof console !== 'undefined' && console.warn) {
-        console.warn('Kids Battle syncKidsVerseWithMainDailyVerse:', err);
+        console.warn('Kids syncKidsVerseWithMainDailyVerse:', err);
       }
       return false;
     }
@@ -12453,12 +12478,12 @@
 
       withKidSupabase(true, function (client) {
         if (!client) {
-          showCodeError('That did not finish—that is all right. Try again in a moment.');
+          showCodeError('That did not finish. Try again in a moment.');
           return;
         }
         return client.rpc('redeem_invite_code', { code: code }).then(function (res) {
           if (res.error) {
-            showCodeError('That did not finish—that is all right. Try again in a moment.');
+            showCodeError('That did not finish. Try again in a moment.');
             return;
           }
           var data = res.data;
@@ -12476,10 +12501,10 @@
             }
           }
         }).catch(function () {
-          showCodeError('That did not finish—that is all right. Try again in a moment.');
+          showCodeError('That did not finish. Try again in a moment.');
         });
       }).catch(function () {
-        showCodeError('That did not finish—that is all right. Try again in a moment.');
+        showCodeError('That did not finish. Try again in a moment.');
       });
     });
   }
@@ -12737,7 +12762,7 @@
     var story = bibleStories[key];
     if (!story) return;
     var panels = story.panels || [];
-    var thumbSrc = panels[0] ? panels[0].src : '/coloring-pages/colored/david-and-goliath-coloring-page.jpg';
+    var thumbSrc = panels[0] ? panels[0].src : '/coloring-pages/colored/david-and-goliath-v2.jpg';
     var thumbAlt = tdbPlainTextForUi(panels[0] && panels[0].alt ? panels[0].alt : (story.title || key));
     var caption = tdbPlainTextForUi((story.caption || 'Swipe in Kids Story Library to see!').replace(/<[^>]+>/g, ''));
     if (thumb) { thumb.src = thumbSrc; thumb.alt = thumbAlt; }
@@ -12787,7 +12812,7 @@
       var shareText = "My streak's " + streak + " day" + (streak === 1 ? '' : 's') + "—join the Faith Trail!";
       if (navigator.share) {
         navigator.share({
-          title: 'Kids Battle Streak!',
+          title: 'Kids Streak!',
           text: shareText,
           url: shareUrl
         }).then(function () { showToast('Shared!'); }).catch(function () {
@@ -12932,7 +12957,7 @@
         steps[si]();
       } catch (err) {
         if (typeof console !== 'undefined' && console.warn) {
-          console.warn('Kids Battle init step ' + si + ':', err);
+          console.warn('Kids init step ' + si + ':', err);
         }
       }
     }

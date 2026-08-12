@@ -8,7 +8,7 @@
       storyHref: '/kids/corner.html?story=jesus',
       colorHref: '/coloring.html?story=jesus',
       printHref: '/kids-coloring-pack.html?sheet=jesus-children&autoprint=1',
-      imageSrc: '/kids/panel-jesus.svg',
+      imageSrc: '/coloring-pages/colored/jesus-and-the-children-coloring-page.jpg',
       imageAlt: 'Jesus welcoming children',
       prompt: 'While you color, ask: What do you see in the picture? How do you think Jesus feels about little children?',
       familyQuestion: 'Where did your child feel welcomed today?'
@@ -19,7 +19,7 @@
       storyHref: '/kids/corner.html?story=creation',
       colorHref: '/coloring.html?story=creation',
       printHref: '/kids-coloring-pack.html?sheet=creation&autoprint=1',
-      imageSrc: '/kids/panel-noah.svg',
+      imageSrc: '/coloring-pages/colored/noah-s1.jpg',
       imageAlt: 'Simple colorful creation-style preview',
       prompt: 'While you color, ask: What did God make that you love today? What color would you give the sky or the sea?',
       familyQuestion: 'What part of God’s world are we thankful for right now?'
@@ -30,7 +30,7 @@
       storyHref: '/kids/corner.html?story=noah',
       colorHref: '/coloring.html?story=noah',
       printHref: '/kids-coloring-pack.html?sheet=noah&autoprint=1',
-      imageSrc: '/kids/panel-noah.svg',
+      imageSrc: '/coloring-pages/colored/noah-s1.jpg',
       imageAlt: 'Noah and the ark',
       prompt: 'While you color, ask: What do you notice first? What promise do you remember when you see the rainbow?',
       familyQuestion: 'When have we seen God keep us through a hard day?'
@@ -41,7 +41,7 @@
       storyHref: '/kids/corner.html?story=david',
       colorHref: '/coloring.html?story=david',
       printHref: '/kids-coloring-pack.html?sheet=david&autoprint=1',
-      imageSrc: '/kids/panel-david.svg',
+      imageSrc: '/coloring-pages/colored/david-and-goliath-v2.jpg',
       imageAlt: 'David and Goliath',
       prompt: 'While you color, ask: What looked big to David? Who helped him stand brave anyway?',
       familyQuestion: 'What feels big today, and how can we ask God for help together?'
@@ -52,7 +52,7 @@
       storyHref: '/kids/corner.html?story=jesusCalmsStorm',
       colorHref: '/coloring.html?story=jesus-storm',
       printHref: '/kids-coloring-pack.html?sheet=storm&autoprint=1',
-      imageSrc: '/kids/panel-daniel.svg',
+      imageSrc: '/coloring-pages/colored/daniel-in-the-lions-den-coloring-page.jpg',
       imageAlt: 'Storm and boat style preview',
       prompt: 'While you color, ask: What looked scary in the storm? What changed when Jesus spoke peace?',
       familyQuestion: 'What does peace from Jesus sound like in our house tonight?'
@@ -63,7 +63,7 @@
       storyHref: '/kids/corner.html?story=psalm23Shepherd',
       colorHref: '/coloring.html?story=good-shepherd',
       printHref: '/kids-coloring-pack.html?sheet=good-shepherd&autoprint=1',
-      imageSrc: '/kids/panel-jesus.svg',
+      imageSrc: '/coloring-pages/colored/jesus-and-the-children-coloring-page.jpg',
       imageAlt: 'Jesus the Good Shepherd',
       prompt: 'While you color, ask: What does a good shepherd do? Where do you need Jesus to stay close today?',
       familyQuestion: 'What helps your child feel safe enough to rest today?'

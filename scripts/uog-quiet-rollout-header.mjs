@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Re-runnable: inject "For Family, For Country, For GOD" heartbeat under brand title when missing;
+ * Re-runnable: inject product-promise heartbeat under brand title when missing;
  * rename Today's Verse → Today's Lesson in verse.html nav links.
  * Skips heartbeat if already present or tdb-brand-subtitle-learning (e.g. /verse).
  */
@@ -12,7 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
 const HEARTBEAT =
-  '<p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>';
+  '<p class="tdb-header-heartbeat site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</p>';
 
 const EXCLUDE_DIRS = new Set(['node_modules', 'dist', '.git']);
 

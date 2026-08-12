@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-08-07T16:19:26.441Z",
+  "generatedAt": "2026-08-12T01:56:47.460Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -18,7 +18,7 @@
       "k": "kjv daily listen"
     },
     {
-      "t": "The Paths (Battle Plans)",
+      "t": "Plans (Battle Plans)",
       "u": "/plans.html",
       "k": "reading plan 7 day 30 paths"
     },
@@ -133,24 +133,19 @@
       "k": "grief fear psalm"
     },
     {
-      "t": "Start here — Explore first-visit map",
+      "t": "Start here — simple list",
       "u": "/explore.html#start-here",
       "k": "map help new guide"
     },
     {
-      "t": "Explore — start here (feeling-first doors)",
-      "u": "/explore.html#start-here",
-      "k": "capacity feel overwhelmed calm plan anxiety grief path start here low energy heavy room find a path campus map"
-    },
-    {
-      "t": "Learn the Word — teaching spine",
-      "u": "/learn-the-word.html",
-      "k": "teach learn bible study ask the word path"
-    },
-    {
-      "t": "Explore full site map",
+      "t": "All pages",
       "u": "/explore.html",
-      "k": "topics tools languages"
+      "k": "topics tools languages list pages"
+    },
+    {
+      "t": "Learn the Word",
+      "u": "/learn-the-word.html",
+      "k": "teach learn bible study path"
     },
     {
       "t": "One Family in Christ — Bible heritage tree",
@@ -193,7 +188,7 @@
       "k": "cards review"
     },
     {
-      "t": "Kids play (Kids Battle)",
+      "t": "Kids play (Kids)",
       "u": "/kids/",
       "k": "kids play story color game children"
     },
@@ -203,17 +198,17 @@
       "k": "family children stories read aloud"
     },
     {
-      "t": "Quiet Hall",
+      "t": "When it’s hard",
       "u": "/calm.html",
-      "k": "calm breathe heavy verse"
+      "k": "calm breathe heavy verse quiet hall"
     },
     {
-      "t": "The Library",
+      "t": "Look up a verse",
       "u": "/bible-tool.html",
-      "k": "bible tool lookup"
+      "k": "bible tool lookup library"
     },
     {
-      "t": "Family hub (parents)",
+      "t": "Family",
       "u": "/family.html",
       "k": "parents family plans printables grown-ups hub"
     },
@@ -248,24 +243,9 @@
       "k": "prayer requests"
     },
     {
-      "t": "Pastor toolkit",
-      "u": "/pastor-toolkit.html",
-      "k": "sermon prep"
-    },
-    {
-      "t": "Team toolkit",
-      "u": "/team-toolkit.html",
-      "k": "group"
-    },
-    {
-      "t": "Sermon builder",
-      "u": "/sermon.html",
-      "k": "preach"
-    },
-    {
-      "t": "Printables hub",
+      "t": "Print pages",
       "u": "/printables.html",
-      "k": "sheets cards"
+      "k": "sheets cards printables hub"
     },
     {
       "t": "Gentle New Year week (7-day print)",
@@ -426,26 +406,6 @@
       "t": "He is risen (Easter)",
       "u": "/he-is-risen.html",
       "k": "easter resurrection"
-    },
-    {
-      "t": "Resurrection & Easter in the University (hub)",
-      "u": "/easter-resurrection-university.html",
-      "k": "easter resurrection hope empty tomb spring holy week john 20"
-    },
-    {
-      "t": "Pentecost & the Spirit in the University (hub)",
-      "u": "/pentecost-spirit-university.html",
-      "k": "pentecost holy spirit acts comforter gospel john summer stillness secret prayer feeding five thousand"
-    },
-    {
-      "t": "Summer & harvest in the University (hub)",
-      "u": "/summer-harvest-university.html",
-      "k": "summer harvest thanks gratitude good shepherd matthew 6 john 4 fields late summer rest family rhythm july"
-    },
-    {
-      "t": "Back to school in the University (hub)",
-      "u": "/back-to-school-university.html",
-      "k": "back to school classroom anxiety courage parenting evening university philippians peace matthew 11 yoke family rhythm august september"
     },
     {
       "t": "When school feels hard (one-page KJV print)",
@@ -633,7 +593,7 @@
       "k": "lesson"
     },
     {
-      "t": "Kids Battle home",
+      "t": "Kids home",
       "u": "/kids/",
       "k": "kids play story color game children corner"
     },

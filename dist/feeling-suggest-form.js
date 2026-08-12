@@ -30,7 +30,7 @@
 
       var client = window.__tdbSupabaseClient;
       if (!client) {
-        status.textContent = 'Submit did not open—that is all right. Try again later.';
+        status.textContent = 'Submit did not open. Try again later.';
         status.style.color = 'var(--muted, #888)';
         return;
       }
@@ -41,7 +41,7 @@
       client.from('feeling_suggestions').insert({ phrase: phrase })
         .then(function (res) {
           if (res.error) {
-            status.textContent = 'That did not send—that is all right. Try again.';
+            status.textContent = 'That did not send. Try again.';
             status.style.color = 'var(--muted, #888)';
             return;
           }
@@ -51,7 +51,7 @@
           try { document.dispatchEvent(new CustomEvent('tdb:suggest-success')); } catch (e) {}
         })
         .catch(function () {
-          status.textContent = 'That did not send—that is all right. Try again.';
+          status.textContent = 'That did not send. Try again.';
           status.style.color = 'var(--muted, #888)';
         });
     });

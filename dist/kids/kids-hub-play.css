@@ -233,21 +233,53 @@
   padding: 0;
   border: none;
   background: transparent;
-  border-radius: 50%;
+  border-radius: 22px;
   cursor: pointer;
   line-height: 0;
-  box-shadow: 0 0 0 3px rgba(255, 217, 61, 0.35);
+  box-shadow: 0 0 0 3px rgba(255, 217, 61, 0.4), 0 10px 28px rgba(15, 23, 42, 0.18);
   transition: box-shadow 0.15s ease, transform 0.12s ease;
   -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
 }
 .kids-mascot-tap:hover,
 .kids-mascot-tap:focus-visible {
-  box-shadow: 0 0 0 4px rgba(255, 217, 61, 0.55);
-  transform: scale(1.02);
+  box-shadow: 0 0 0 4px rgba(255, 217, 61, 0.62), 0 12px 32px rgba(15, 23, 42, 0.22);
+  transform: scale(1.03);
   outline: none;
 }
 .kids-mascot-tap:active {
   transform: scale(0.98);
+}
+/* Premium illustrated Little Shepherd (PNG poses) */
+.kids-shepherd-hero-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.kids-shepherd-hero-img,
+img.kids-shepherd-hero-img,
+.kids-easy-mascot {
+  display: block;
+  width: min(200px, 52vw);
+  height: auto;
+  max-height: 240px;
+  object-fit: contain;
+  object-position: center bottom;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fffef8 0%, #fef3c7 100%);
+}
+.kids-buddy-block--top .kids-shepherd-hero-img,
+.kids-play-zone-mascot.kids-shepherd-hero-img,
+.kids-buddy-block--top .kids-play-zone-mascot {
+  width: 128px;
+  max-height: 148px;
+  border-radius: 16px;
+}
+@media (min-width: 720px) {
+  .kids-shepherd-hero-img {
+    width: 220px;
+    max-height: 260px;
+  }
 }
 
 .kids-play-hero-tap--story {

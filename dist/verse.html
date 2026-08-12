@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260809-vbd-labels"></script>
+  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260809-vbd-labels"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -32,6 +35,9 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260809-vbd-labels" as="style">
   <link rel="stylesheet" href="styles.css?v=20260809-vbd-labels">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
@@ -326,7 +332,7 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle tdb-brand-subtitle-learning site-tagline" lang="en">For Family, For Country, For GOD</span>
+        <span class="brand-subtitle tdb-brand-subtitle-learning site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</span>
       </div>
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
       <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
@@ -334,14 +340,11 @@
         <span class="tdb-nav-flyout-toggle__label">Menu</span>
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
-        <a href="/" aria-label="Home — today’s verse">Home</a>
-        <a href="/#feel-section">Ask</a>
+        <a href="/" aria-label="Home — today’s verse">Today</a>
+        <a href="/#feel-section">How I feel</a>
         <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
         <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
         <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
-        <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
-        <a href="/about.html">About</a>
-        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
@@ -355,28 +358,30 @@
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family</span>
+              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
               <a href="/family.html">Family</a>
               <a href="/coloring.html">Kids coloring</a>
               <a href="/printables.html" aria-label="Print pages">Print</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Site</span>
-              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
+              <a href="/about.html">About</a>
               <a href="/search.html" id="nav-site-search" aria-label="Search the site">Search</a>
+              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
               <a href="/faq.html">FAQ</a>
               <a href="/give" aria-label="Optional support">Support</a>
+              <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
             </div>
           </div>
         </details>
       </div>
     </nav>
       <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
-        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
-        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
+        <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
       </div>
-
       <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
 </header>
 
@@ -528,6 +533,14 @@
         <button type="button" class="tdb-verse-ribbon-toggle" id="tdb-verse-ribbon-toggle" aria-expanded="false" aria-controls="tdb-verse-ribbon-panel">Ribbon note</button>
       </div>
     </main>
+    <nav class="tdb-bottom-dock" aria-label="Main navigation">
+      <a href="/" aria-label="Home — today’s verse">Home</a>
+      <a href="/#feel-section" aria-label="How I feel">Feel</a>
+      <a href="/plans.html" aria-label="Reading plans">Plans</a>
+      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
+      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
+    </nav>
+
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -547,7 +560,7 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/" aria-label="Home — today’s verse">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">Ask</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/calm.html">When it’s hard</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/reader.html">Read</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -636,7 +649,7 @@
   <p class="footer-humility">We battle. He wins.</p>
   <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
   <p class="site-footer-story">
-    One honest KJV verse at a time. Free forever. Built so anyone can open the Word without a maze.
+    One KJV verse for what you&rsquo;re carrying. Free. Private. Built so anyone can open the Word without a maze.
   </p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
@@ -655,7 +668,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 11, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -664,8 +677,7 @@
   </div>
 
   <script src="inline-bootstrap.js"></script>
-  <!-- Phase 6: verse breakdown + narration + word-study + tdb-mobius-journal (ribbon) load from script.js after idle (tdbScheduleDeferredVodAndReaderTooling). Same cache tokens as injected head scripts: verse-breakdown-overrides.js?v=20260805-audit-focus-lock then verse-breakdown.js?v=20260805-audit-focus-lock -->
-  <script src="/bbe-simple.js?v=20260805-audit-focus-lock" data-tdb-bbe-simple="1" defer></script>
+  <!-- Phase 6: verse breakdown + narration + word-study + tdb-mobius-journal (ribbon) load from script.js after idle (tdbScheduleDeferredVodAndReaderTooling). Same cache tokens as injected head scripts: verse-breakdown-overrides.js?v=20260805-audit-focus-lock then verse-breakdown.js?v=20260809-kjv-text-fix"/bbe-simple.js?v=20260809-kjv-text-fix" data-tdb-bbe-simple="1" defer></script>
   <script type="module" src="config.js"></script>
   <script src="tdb-offline-strip.js?v=20260421pwa1"></script>
   <script type="module" src="script.js?v=20260809-vbd-labels" data-cfasync="false"></script>
@@ -764,5 +776,7 @@
     }, 2800);
   })();
   </script>
+
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

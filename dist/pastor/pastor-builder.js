@@ -395,7 +395,7 @@
       showToast('Sermon notes exported!');
     } catch (err) {
       console.error('Export error:', err);
-      showToast('PDF export did not finish—that is all right. Please try again.');
+      showToast('PDF export did not finish. Please try again.');
     }
 
     if (btn) btn.disabled = false;
@@ -408,7 +408,7 @@
     var url = cfg.SUPABASE_URL;
     var key = cfg.SUPABASE_ANON_KEY;
     if (!url || !key) {
-      showToast('Share is not available from here—that is all right. Check config.');
+      showToast('Share is not available from here. Check config.');
       return;
     }
     var btn = document.getElementById('pastor-share-draft');
@@ -444,7 +444,7 @@
         outline_json: sections
       }).then(function (res) {
         if (res.error) {
-          showToast('Draft share did not go through—that is all right. ' + (res.error.message || 'Please try again.'));
+          showToast('Draft share did not go through. ' + (res.error.message || 'Please try again.'));
           return;
         }
         var shareUrl = 'https://todaysdailybattle.com/pastor/builder.html?draft=' + uuid;
@@ -459,7 +459,7 @@
         }
       }).catch(function (err) {
         console.error('Share error:', err);
-        showToast('Draft share did not go through—that is all right. Please try again.');
+        showToast('Draft share did not go through. Please try again.');
       }).finally(function () {
         if (btn) btn.disabled = false;
         if (label) label.textContent = 'Share Draft';
@@ -467,7 +467,7 @@
       });
     } catch (e) {
       console.error('Share error:', e);
-      showToast('Draft share did not go through—that is all right. Please try again.');
+      showToast('Draft share did not go through. Please try again.');
       if (btn) btn.disabled = false;
       if (label) label.textContent = 'Share Draft';
       if (spinner) spinner.classList.add('hidden');

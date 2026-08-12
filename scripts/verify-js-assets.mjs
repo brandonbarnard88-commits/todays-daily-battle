@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const dist = path.join(root, 'dist');
-const required = ['register-sw.js', 'kids-shared.js', 'core-home.js', 'porch-effects.js'];
+const required = ['register-sw.js', 'kids-shared.js', 'core-home.js', 'porch-effects.js', 'tdb-one-interrupt.js', 'tdb-backup-reminder.js', 'js/surfaces/home.js'];
 
 function fail(msg) {
   console.error('verify-js-assets:', msg);

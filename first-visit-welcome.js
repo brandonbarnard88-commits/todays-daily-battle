@@ -34,8 +34,15 @@
     var d = document.getElementById('tdbFirstVisitDialog');
     if (!d || typeof d.showModal !== 'function') return;
 
+    /* Prefer the non-modal first-visit strip on Home; never stack with other interrupts. */
+    var strip = document.getElementById('tdbFirstVisitStrip');
+    if (strip) return;
+
     setTimeout(function () {
       if (hasSeen()) return;
+      try {
+        if (window.TDB_oneInterrupt && !window.TDB_oneInterrupt.canShow()) return;
+      } catch (e) {}
       d.showModal();
     }, 700);
 

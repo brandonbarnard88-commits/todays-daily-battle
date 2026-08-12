@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260805-four-pillars"></script>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260805-four-pillars"></script>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260809-vbd-labels"></script>
+  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260809-vbd-labels"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260809-vbd-labels"></script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
@@ -13,18 +14,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About • Calm KJV Bible Help for Real Battles • Today's Daily Battle</title>
-  <meta name="description" content="I&rsquo;m not a preacher; I&rsquo;m a regular guy who built Today&rsquo;s Daily Battle as God&rsquo;s University of Life&mdash;quiet, ad-free KJV help when life is hard. Mission: Christ in real life, one verse at a time.">
+  <meta name="description" content="I&rsquo;m not a preacher; I&rsquo;m a regular guy who built Today&rsquo;s Daily Battle as quiet, ad-free KJV help when life is hard. Mission: Christ in real life, one verse at a time.">
   <meta name="robots" content="index, follow">
   <meta name="referrer" content="no-referrer">
   <link rel="canonical" href="https://todaysdailybattle.com/about.html">
   <meta property="og:title" content="About • Calm KJV Bible Help for Real Battles">
-  <meta property="og:description" content="Not a preacher&mdash;just a regular guy who built God&rsquo;s University of Life: quiet KJV, ad-free, offline when you need it. One honest verse at a time.">
+  <meta property="og:description" content="Not a preacher&mdash;just a regular guy who built a simple place for quiet KJV, ad-free, offline when you need it. One honest verse at a time.">
   <meta property="og:url" content="https://todaysdailybattle.com/about.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About • Calm KJV Bible Help for Real Battles">
-  <meta name="twitter:description" content="Not a preacher&mdash;just a regular guy who built God&rsquo;s University of Life: quiet KJV, ad-free, offline when you need it. One honest verse at a time.">
+  <meta name="twitter:description" content="Not a preacher&mdash;just a regular guy who built a simple place for quiet KJV, ad-free, offline when you need it. One honest verse at a time.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260809-vbd-labels" as="style">
@@ -61,79 +62,61 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</p>
         <span class="brand-subtitle">Why this was built — and who it's for</span>
       </div>
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
       <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
         <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
-        <span class="tdb-nav-flyout-toggle__label">Campus</span>
+        <span class="tdb-nav-flyout-toggle__label">Menu</span>
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
-        <a href="/" aria-label="The Grove — today's verse">The Grove</a>
-        <a href="/explore.html" aria-label="Explore — full campus map">Explore</a>
-        <a href="/#feel-section">Ask the Word</a>
-        <a href="/plans.html" id="nav-browse-curriculum" aria-label="The Paths — KJV tracks for hard weeks and quiet seasons">The Paths</a>
-        <a href="/calm.html" aria-label="Quiet Hall — one steady KJV verse when the moment is heavy">Quiet Hall</a>
-        <a href="/mystudy">My Study</a>
-        <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family hub</a>
-        <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor’s Study — church tools">Pastor’s Study</a>
-        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <a href="/" aria-label="Home — today’s verse">Today</a>
+        <a href="/#feel-section">How I feel</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
+        <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
+        <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
         <details class="tdb-nav-more">
-          <summary aria-haspopup="true">More tools</summary>
+          <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Scripture &amp; Study</span>
-              <a href="/verse.html">Today&rsquo;s Lesson</a>
-              <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
+              <span class="tdb-nav-more-group-label">Scripture</span>
+              <a href="/verse.html">Today’s verse</a>
+              <a href="/bible-tool.html" aria-label="Look up a verse">Look up</a>
               <a href="/memorize.html">Memorize</a>
-              <a href="/bible-tool.html#bible-tool-hub" aria-label="The Library — lookup, verse image, chapter reader">The Library</a>
-              <a href="/study.html">Study workspace</a>
+              <a href="/mystudy">Saved on this device</a>
+              <a href="/prayer-wall.html">Prayer</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Under The Paths</span>
-              <a href="/plans.html#plansDoorChooser">Feeling doors</a>
-              <a href="/plans.html#plans-maps-into-paths-details" id="nav-curriculum" aria-label="Curriculum and university maps live under The Paths">Curriculum &amp; university maps</a>
-              <a href="/university.html" id="nav-university-core" class="sr-only" aria-label="University map — five anchor verses">University map</a>
-              <a href="/reading-plan.html">7-day reading plan</a>
-              <a href="/daily-rhythm.html">Daily Rhythm</a>
-              <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
-              <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
-              <a href="/mobius.html">M&ouml;bius Journal</a>
+              <span class="tdb-nav-more-group-label">Family</span>
+              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
+              <a href="/family.html">Family</a>
+              <a href="/coloring.html">Kids coloring</a>
+              <a href="/printables.html" aria-label="Print pages">Print</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Family &amp; Kids</span>
-              <a href="/kids/">Kids play</a>
-              <a href="/kids/corner.html">Bible Story Library</a>
-              <a href="/coloring.html">Kids Coloring</a>
-              <a href="/little-ones.html">For the Little Ones</a>
-              <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
-              <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
-              <a href="/prayer-wall.html">Pray</a>
-              <a href="/printables.html" aria-label="Print hub — verse cards, Quiet Hall sheets, family packs">Print hub</a>
-            </div>
-            <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">About the Site</span>
-              <a href="/explore.html#start-here" id="nav-site-guide" aria-label="Start here — calm map on Explore">Start here</a>
-              <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+              <span class="tdb-nav-more-group-label">Site</span>
               <a href="/about.html" aria-current="page">About</a>
-              <a href="/story.html">Story</a>
+              <a href="/search.html" id="nav-site-search" aria-label="Search the site">Search</a>
+              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
+              <a href="/faq.html">FAQ</a>
+              <a href="/give" aria-label="Optional support">Support</a>
+              <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
             </div>
           </div>
         </details>
       </div>
     </nav>
       <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
-        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
-        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
+        <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
       </div>
-
-      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" hidden aria-hidden="true" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
 </header>
 
-    <aside id="sidebar" class="sidebar">
+    <aside id="sidebar" class="sidebar tdb-about-sidebar-quiet" hidden aria-hidden="true">
       <nav class="side-nav" aria-label="Site navigation">
         <a href="/" data-section="search" data-icon="SR">Search</a>
         <a href="bible-tool.html" data-section="bible-tool" data-icon="BT">Bible Tool</a>
@@ -146,10 +129,8 @@
         <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
         <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
         <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
-        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
-        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
-        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
-        <a href="/prayer-wall.html?tab=with-others" data-section="prayer" data-icon="MB">Prayer</a>
+<a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
+<a href="/prayer-wall.html?tab=with-others" data-section="prayer" data-icon="MB">Prayer</a>
         <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
         <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
         <a href="about.html" data-section="about" data-icon="AB">About</a>
@@ -171,9 +152,10 @@
           <h1>About Today's Daily Battle</h1>
           <div id="about-why-i-built" class="about-founder-voice">
             <p class="about-story-lead">The day feels loud before you even sat down? Stay right here. You don&rsquo;t have to get anything right first.</p>
-            <p class="about-story-lead">I&rsquo;m not a preacher. My dad was. I&rsquo;m just a regular guy who needs the KJV the same way you do&mdash;especially on the heavy days. I built <strong>God&rsquo;s University of Life</strong> as a quiet porch where you can simply sit with God, no performance, no pressure, no rush.</p>
+            <p class="about-story-lead">I&rsquo;m not a preacher. My dad was. I&rsquo;m just a regular guy who needs the KJV the same way you do&mdash;especially on the heavy days. I built <strong>Today&rsquo;s Daily Battle</strong> as a quiet porch where you can simply sit with God, no performance, no pressure, no rush.</p>
           </div>
           <p class="about-mission-line" id="about-mission-vision">Christ in real life, one honest verse at a time. No performance, no noise&mdash;just you, God, and the page. The goal is not only daily encouragement: it is equipping people to actually know their Bible and steward what God put in their hands&mdash;their gifts, their calling, their ordinary days. Take your time. There&rsquo;s no rush to &ldquo;finish.&rdquo;</p>
+          <p class="section-note" id="about-scripture-promise">Scripture on this site: <strong>KJV is the truth</strong> we quote and check; <strong>BBE</strong> is optional simpler English for the <em>same</em> verse so more people can understand and meet Jesus. Full promise: <a href="/bible-credits.html#how-we-use-the-bible">How we use the Bible</a>.</p>
           <p class="privacy-line">No ads. No account required. Anonymous page stats only when allowed. Your prayers and notes stay on your device unless you sign in to sync.</p>
           <p class="hero-tagline about-scripture-first-lead">You get scripture-first paths&mdash;look it up, stay a minute, one small step. No endless scroll that won&rsquo;t quit.</p>
           <p class="hero-tagline">one grounded verse, one practical next step</p>
@@ -196,6 +178,9 @@
           </ul>
         </nav>
 
+        <details class="tdb-hub-disclosure about-story-full-details" id="about-story-full-details">
+          <summary class="tdb-hub-disclosure__summary">Read my story</summary>
+          <div class="tdb-hub-disclosure__inner">
         <section id="about-brandon" class="glass tdb-porch-paper-glass about-open-beta about-section" aria-labelledby="about-brandon-heading">
           <h2 class="section-divider" id="about-brandon-heading">About Brandon &amp; Today&rsquo;s Daily Battle</h2>
           <p class="section-note">I&rsquo;m Brandon. Born in Dallas, TX; shaped by a hospital stay in Martin, TN. Home is West Tennessee. That season left me hungry for plain KJV that met me where I was&mdash;no lectures, no performance, just open Bible. I built what I still need every day. Read the full <a href="story.html">Creator &amp; Origin Story</a> when you want the deep version.</p>
@@ -203,11 +188,13 @@
           <p class="section-note">This porch continues the quiet work of my father, Evangelist Thomas W. Barnard, through Christian Messenger Service: one verse, one small step, one prayer at a time. No pedestal&mdash;I&rsquo;m not a preacher; just a regular guy who needs the KJV the same way you do.</p>
           <p class="section-note">Reach me at <a href="/contact.html" class="tdb-support-email" data-email-query="" data-email-display="address">support email</a>.</p>
         </section>
+          </div>
+        </details>
 
         <section class="glass tdb-porch-paper-glass about-section" id="why-this-site-exists" aria-labelledby="why-this-site-exists-h">
           <h2 class="section-divider" id="why-this-site-exists-h">Why this site exists</h2>
-          <p class="section-note">This is the <a href="/university.html#uog-why-this-exists">University of God</a> in a sentence: real life is the classroom, the hard week is often the textbook, and rest in Christ is the only &ldquo;graduation&rdquo; that matters. No leaderboards, no streaks to protect, no feed&mdash;only steady KJV help for anxiety, grief, parenting strain, and ordinary exhaustion. <a href="/about.html#about-brandon">Brandon</a> built it from his own need and still uses it; if one verse lands today, the day was enough.</p>
-          <p class="section-note about-plans-note">Reading plans are simply called <strong>KJV Battle Plans</strong>&mdash;quiet doors into Scripture for real days. <a href="/plans.html">Browse all plans &rarr;</a></p>
+          <p class="section-note">This is <strong>Today&rsquo;s Daily Battle</strong> in a sentence: real life is the classroom, the hard week is often the textbook, and rest in Christ is the only &ldquo;graduation&rdquo; that matters. No leaderboards, no streaks to protect, no feed&mdash;only steady KJV help for anxiety, grief, parenting strain, and ordinary exhaustion. <a href="/about.html#about-brandon">Brandon</a> built it from his own need and still uses it; if one verse lands today, the day was enough.</p>
+          <p class="section-note about-plans-note">Reading plans are simply called <strong>KJV Plans</strong>&mdash;quiet doors into Scripture for real days. <a href="/plans.html">Browse all plans &rarr;</a></p>
           <p class="section-note">Most Bible apps hand you a chapter and leave. This starts with where you are&mdash;anxious, grieving, scattered, tired&mdash;and gives you the verse that speaks to that. Then a prayer. Then one step. AI can be useful elsewhere; here we chose fixed KJV text, structured <a href="/plans.html">battle plans</a>, and real people through <a href="/prayer-wall.html?tab=with-others">Prayer</a>.</p>
         </section>
 
@@ -241,7 +228,7 @@
             <li>Offline mode—no data plan needed</li>
             <li>All core tools free</li>
           </ul>
-          <p class="section-note">Also here: verse cards, Battle Plans, chapter reader, study workshop, and church tools. Support is optional&mdash;<a href="/give">Support this quiet place</a>.</p>
+          <p class="section-note">Also here: verse cards, Plans, chapter reader, study workshop, and church tools. Support is optional&mdash;<a href="/give">Support this quiet place</a>.</p>
         </section>
 
         <section class="glass tdb-porch-paper-glass about-section" id="about-short-version" aria-labelledby="about-short-version-heading">
@@ -295,12 +282,12 @@
         </section>
       </div>
     </main>
-    <nav class="tdb-bottom-dock" aria-label="Campus navigation">
-      <a href="/" aria-label="The Grove — today’s verse">🌳 Grove</a>
-      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
-      <a href="/plans.html" aria-label="The Paths">🗓️ Paths</a>
-      <a href="/calm.html" aria-label="Quiet Hall — one steady verse">🌿 Quiet Hall</a>
-      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="Explore — full map">🗺️ Explore</a>
+    <nav class="tdb-bottom-dock" aria-label="Main navigation">
+      <a href="/" aria-label="Home — today’s verse">Home</a>
+      <a href="/#feel-section" aria-label="How I feel">Feel</a>
+      <a href="/plans.html" aria-label="Reading plans">Plans</a>
+      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
+      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
     </nav>
 
 
@@ -321,23 +308,23 @@
   </nav>
 
   <nav class="site-footer-essentials" aria-label="Key pages">
-    <a href="/" aria-label="The Grove — today's verse and Ask the Word">The Grove</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/plans.html">The Paths</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support</a>
+    <a href="/" aria-label="Home — today’s verse">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/calm.html">When it’s hard</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/reader.html">Read</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/kids/">Kids</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Optional support — you choose the amount">Support</a>
   </nav>
 
   <p class="site-footer-share-wrap">
     <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
-    <span class="site-footer-share-sep" aria-hidden="true">·</span>
-    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
   </p>
 
   <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
-    <a href="/plans.html">The Paths</a>
-    <a href="/kids/">Kids play</a>
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids</a>
     <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
       <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
       <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
@@ -350,33 +337,23 @@
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
     <a href="/bible-credits.html">Bible credits</a>
-    <a href="/verse.html">Today&rsquo;s Lesson</a>
-    <a href="/mystudy">My Study</a>
+    <a href="/verse.html">Today’s verse</a>
+    <a href="/mystudy">Saved verses</a>
     <a href="/prayer-wall.html">Prayer</a>
-    <a href="/media.html">Media</a>
-    <a href="/roadmap.html">Roadmap</a>
-    <a href="/give">Support</a>
-    <a href="/church-hub.html">Pastor&rsquo;s Study</a>
+    <a href="/family.html">Family</a>
+    <a href="/printables.html">Print</a>
+    <a href="/bible-tool.html">Look up a verse</a>
     <a href="/reader.html">Chapter reader</a>
-    <a href="/bible/tools.html">Study workshop</a>
-    <a href="/bible-tool.html">The Library</a>
-    <a href="/testimonials.html">Reader stories</a>
-    <a href="/journal/">Journal</a>
-    <a href="/updates.html">Monthly updates</a>
-    <a href="/emergency-calm-pack.html">Emergency calm pack</a>
-    <a href="/where-support-goes.html">Where support goes</a>
-    <a href="/verse-cards/">Verse cards</a>
-    <a href="/security.html">Security</a>
+    <a href="/explore.html">All pages</a>
     <a href="/contact.html">Contact</a>
     <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
   </nav>
 
   <details class="footer-sitemap">
-    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <summary>More pages (tap to expand)</summary>
     <div class="footer-sitemap-grid">
       <div class="footer-sitemap-col">
-        <h3>The Narrow Paths</h3>
-        <a href="/explore.html">Full list (all pages)</a>
+        <h3>Topics</h3>
         <a href="/topic-anxiety.html">Anxiety</a>
         <a href="/topic-fear.html">Fear</a>
         <a href="/topic-grief.html">Grief</a>
@@ -385,67 +362,35 @@
         <a href="/topic-parenting.html">Parenting</a>
         <a href="/topic-loneliness.html">Loneliness</a>
         <a href="/topic-forgiveness.html">Forgiveness</a>
-        <a href="/topic-guilt.html">Guilt</a>
-        <a href="/topic-overwhelmed.html">Overwhelmed</a>
-        <a href="/topic-worthless.html">Worth / identity</a>
+        <a href="/explore.html#topics">All topics</a>
       </div>
       <div class="footer-sitemap-col footer-sitemap-col--es-links">
-        <h3>Spanish devotionals</h3>
+        <h3>Spanish</h3>
         <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
         <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
         <a href="/paz.html" hreflang="es" lang="es">Paz</a>
-        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+        <a href="/es/">Español hub</a>
       </div>
       <div class="footer-sitemap-col">
-        <h3>Tools of the Quiet Trade</h3>
-        <a href="/verse.html">Verse of the Day</a>
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the day</a>
         <a href="/reader.html">Chapter reader</a>
-        <a href="/bible/tools.html">Study workshop</a>
-        <a href="/bible-tool.html">The Library</a>
-        <a href="/mystudy">My Study</a>
-        <a href="/calm.html">Quiet Hall</a>
-        <a href="/mobius.html">Grace Ribbon</a>
-        <a href="/one-family-in-christ.html">One Family in Christ</a>
-        <a href="/red-letters.html">Red letters</a>
-        <a href="/plans.html">The Paths</a>
-        <a href="/reading-plan.html">7-day plan (under Paths)</a>
-        <a href="/study.html">Study workspace</a>
-        <a href="/wins.html">Wins</a>
-        <a href="/progress.html">Progress</a>
+        <a href="/bible-tool.html">Look up</a>
+        <a href="/mystudy">Saved on this device</a>
+        <a href="/calm.html">When it’s hard</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/memorize.html">Memorize</a>
+        <a href="/coloring.html">Kids coloring</a>
       </div>
       <div class="footer-sitemap-col">
-        <h3>For the Household of Faith</h3>
-        <a href="/church-hub.html">Pastor&rsquo;s Study</a>
-        <a href="/sermon.html">Sermon builder</a>
-        <a href="/church-sharing-kit.html">Church sharing kit</a>
-        <a href="/church.html">Church center</a>
-        <a href="/team-toolkit.html">Team toolkit</a>
-        <a href="/pastor-toolkit.html">Pastor toolkit (nested)</a>
-        <a href="/for-pastors.html">For pastors (nested)</a>
-        <a href="/family.html">Family hub</a>
-        <a href="/little-ones.html">For the Little Ones</a>
-        <a href="/family-armor.html">Family Armor</a>
-        <a href="/kids/">Kids play</a>
-        <a href="/coloring.html">Kids Coloring</a>
-      </div>
-      <div class="footer-sitemap-col">
-        <h3>Further In</h3>
-        <a href="/prayer-wall.html">Prayer</a>
-        <a href="/offline-porch.html">Offline porch</a>
-        <a href="/porch-map-one-page-print.html">Porch map (print)</a>
-        <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
-        <a href="/explore.html#start-here">Explore start here</a>
-        <a href="/learn-the-word.html">Learn the Word</a>
-        <a href="/bible-study.html">Bible studies</a>
-        <a href="/shop.html">Shop</a>
+        <h3>About</h3>
+        <a href="/about.html">About</a>
         <a href="/story.html">Story</a>
-        <a href="/media.html">Media</a>
-        <a href="/roadmap.html">Roadmap</a>
-        <a href="/approach.html">How we respond</a>
-        <a href="/curriculum.html">Curriculum</a>
-        <a href="/verse-cards/">Verse cards</a>
-        <a href="/contact.html">Contact</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/give">Support</a>
+        <a href="/where-support-goes.html">Where support goes</a>
         <a href="/security.html">Security</a>
+        <a href="/contact.html">Contact</a>
       </div>
     </div>
   </details>
@@ -453,7 +398,7 @@
   <p class="footer-humility">We battle. He wins.</p>
   <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
   <p class="site-footer-story">
-    Steady KJV for honest days. Prayers and notes stay on this device unless you sync on purpose.
+    One KJV verse for what you&rsquo;re carrying. Free. Private. Built so anyone can open the Word without a maze.
   </p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
@@ -472,7 +417,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">August 7, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 11, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>

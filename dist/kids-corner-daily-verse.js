@@ -33,7 +33,7 @@
   function showError(msg) {
     var t = byId(textId());
     var r = byId(refId());
-    if (t) t.textContent = msg || 'Today\u2019s verse did not load—that is all right. Try again when you\u2019re online.';
+    if (t) t.textContent = msg || 'Today\u2019s verse did not load. Try again when you\u2019re online.';
     if (r) r.textContent = '';
     fillFamilyQuickStart('', '');
     var kpq = byId('kids-parent-quick-line');
@@ -147,7 +147,7 @@
       }
       /* Optional BBE simpler English on kids corner / family hub */
       try {
-        var bbeEl = byId('kidsBbeSimple') || byId('familyBbeSimple');
+        var bbeEl = byId('kidsBbeSimple') || byId('familyBbeSimple') || byId('littleOnesBbeSimple');
         if (bbeEl && battle.ref) {
           bbeEl.setAttribute('data-bbe-ref', String(battle.ref).replace(/\s*\(KJV\)\s*$/i, '').trim());
           if (bbeEl.open && window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === 'function') {

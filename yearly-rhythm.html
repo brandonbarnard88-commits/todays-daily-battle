@@ -304,14 +304,11 @@
       <span class="tdb-nav-flyout-toggle__label">Menu</span>
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
+      <a href="/" aria-label="Home — today’s verse">Today</a>
       <a href="/#feel-section">How I feel</a>
       <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
       <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
       <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
-      <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
-      <a href="/about.html">About</a>
-      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More</summary>
         <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
@@ -325,16 +322,19 @@
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family</span>
+              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
               <a href="/family.html">Family</a>
               <a href="/coloring.html">Kids coloring</a>
               <a href="/printables.html" aria-label="Print pages">Print</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Site</span>
-              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
+              <a href="/about.html">About</a>
               <a href="/search.html" id="nav-site-search" aria-label="Search the site">Search</a>
+              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
               <a href="/faq.html">FAQ</a>
               <a href="/give" aria-label="Optional support">Support</a>
+              <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
             </div>
           </div>
       </details>
@@ -356,7 +356,8 @@
   </nav>
   <main id="main" class="yearly-rhythm-hub">
     <header class="tdb-porch-hero-local">
-      <h1>Year-round rhythm</h1>
+      <span id="nav-year-round" class="sr-only">Year-round rhythm</span>
+          <h1>Year-round rhythm</h1>
       <p class="tdb-porch-welcome-local topic-mood-porch">You&rsquo;re already welcome here. Rest first; this rhythm meets you at the family table or the desk&mdash;no rush, no perfect year.</p>
       <p class="lead">For homeschool, private-school Bible class, co-op, church kids club, or the family table (ages 5&ndash;18): <strong>one gentle day at a time</strong>. No account is required to read; progress stays on each device and works offline after the first visit.</p>
     </header>
@@ -871,7 +872,7 @@ https://todaysdailybattle.com/church-sharing-kit.html#csk-print-planners</pre>
   <p class="footer-humility">We battle. He wins.</p>
   <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
   <p class="site-footer-story">
-    One honest KJV verse at a time. Free forever. Built so anyone can open the Word without a maze.
+    One KJV verse for what you&rsquo;re carrying. Free. Private. Built so anyone can open the Word without a maze.
   </p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">

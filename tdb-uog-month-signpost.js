@@ -148,7 +148,7 @@
         { t: 'Cast all your care (Family — 1 Peter 5)', h: '/family-rhythm.html#fr-summer-cast-your-care' },
         { t: 'Back to school in the University (hub)', h: '/back-to-school-university.html' },
         { t: 'Seasonal — late summer bridge', h: '/seasonal.html#late-summer-bridge' },
-        { t: 'When it's hard', h: '/calm.html' },
+        { t: "When it's hard", h: "/calm.html" },
         { t: 'Year-round rhythm', h: '/yearly-rhythm.html' }
       ]
     },

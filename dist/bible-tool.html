@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260805-four-pillars"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -11,7 +11,7 @@
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Library • Bible Tool • Today's Daily Battle</title>
+  <title>Look up a verse • Bible Tool • Today's Daily Battle</title>
   <meta name="description" content="Look up verses, browse every Kids Bible story with Scripture and “for you” lines, take notes, follow a reading plan, and get Win the Day verses by topic. KJV, no login.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/bible-tool.html">
@@ -722,75 +722,57 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
-        <span class="brand-subtitle">The Library — KJV verse lookup, notes, and reading plans</span>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</p>
+        <span class="brand-subtitle">Look up a verse — KJV verse lookup, notes, and reading plans</span>
       </div>
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
       <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
         <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
-        <span class="tdb-nav-flyout-toggle__label">Campus</span>
+        <span class="tdb-nav-flyout-toggle__label">Menu</span>
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
-        <a href="/" aria-label="The Grove — today's verse">The Grove</a>
-        <a href="/explore.html" aria-label="Explore — full campus map">Explore</a>
-        <a href="/#feel-section">Ask the Word</a>
-        <a href="/plans.html" id="nav-browse-curriculum" aria-label="The Paths — KJV tracks for hard weeks and quiet seasons">The Paths</a>
-        <a href="/calm.html" aria-label="Quiet Hall — one steady KJV verse when the moment is heavy">Quiet Hall</a>
-        <a href="/mystudy">My Study</a>
-        <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family hub</a>
-        <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor’s Study — church tools">Pastor’s Study</a>
-        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <a href="/" aria-label="Home — today’s verse">Today</a>
+        <a href="/#feel-section">How I feel</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
+        <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
+        <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
         <details class="tdb-nav-more">
-          <summary aria-haspopup="true">More tools</summary>
+          <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Scripture &amp; Study</span>
-              <a href="/verse.html">Today&rsquo;s Lesson</a>
-              <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
+              <span class="tdb-nav-more-group-label">Scripture</span>
+              <a href="/verse.html">Today’s verse</a>
+              <a href="/bible-tool.html" aria-label="Look up a verse">Look up</a>
               <a href="/memorize.html">Memorize</a>
-              <a href="/bible-tool.html#bible-tool-hub" aria-label="The Library — lookup, verse image, chapter reader" aria-current="page">The Library</a>
-              <a href="/study.html">Study workspace</a>
+              <a href="/mystudy">Saved on this device</a>
+              <a href="/prayer-wall.html">Prayer</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Under The Paths</span>
-              <a href="/plans.html#plansDoorChooser">Feeling doors</a>
-              <a href="/plans.html#plans-maps-into-paths-details" id="nav-curriculum" aria-label="Curriculum and university maps live under The Paths">Curriculum &amp; university maps</a>
-              <a href="/university.html" id="nav-university-core" class="sr-only" aria-label="University map — five anchor verses">University map</a>
-              <a href="/reading-plan.html">7-day reading plan</a>
-              <a href="/daily-rhythm.html">Daily Rhythm</a>
-              <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
-              <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
-              <a href="/mobius.html">M&ouml;bius Journal</a>
+              <span class="tdb-nav-more-group-label">Family</span>
+              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
+              <a href="/family.html">Family</a>
+              <a href="/coloring.html">Kids coloring</a>
+              <a href="/printables.html" aria-label="Print pages">Print</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Family &amp; Kids</span>
-              <a href="/kids/">Kids play</a>
-              <a href="/kids/corner.html">Bible Story Library</a>
-              <a href="/coloring.html">Kids Coloring</a>
-              <a href="/little-ones.html">For the Little Ones</a>
-              <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
-              <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
-              <a href="/prayer-wall.html">Pray</a>
-              <a href="/printables.html" aria-label="Print hub — verse cards, Quiet Hall sheets, family packs">Print hub</a>
-            </div>
-            <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">About the Site</span>
-              <a href="/explore.html#start-here" id="nav-site-guide" aria-label="Start here — calm map on Explore">Start here</a>
-              <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+              <span class="tdb-nav-more-group-label">Site</span>
               <a href="/about.html">About</a>
-              <a href="/story.html">Story</a>
+              <a href="/search.html" id="nav-site-search" aria-label="Search the site">Search</a>
+              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
+              <a href="/faq.html">FAQ</a>
+              <a href="/give" aria-label="Optional support">Support</a>
+              <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
             </div>
           </div>
         </details>
       </div>
     </nav>
       <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
-        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
-        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
+        <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
       </div>
-
       <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <div id="auth-details" class="auth-details-inline">
 </div>
@@ -820,7 +802,7 @@
     <main class="app-content tdb-quiet-container" id="main-content">
       <div class="content-inner bible-tool">
         <header class="bible-tool-hero bible-tool-hero--soar-dawn" id="bible-tool-overview" tabindex="-1" aria-labelledby="bible-tool-hero-heading">
-        <h1 class="section-divider" id="bible-tool-hero-heading"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/></svg>The Library</h1>
+        <h1 class="section-divider" id="bible-tool-hero-heading"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/></svg>Look up a verse</h1>
         <p class="section-note util-mt-0 util-mb-0_75">Also known as the Bible Tool — same KJV lookup desk.</p>
         <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome at this desk&mdash;look up, linger, or step away. No minimum.</p>
         <p class="section-note">Look up any verse, take notes, track your reading&mdash;<abbr title="King James Version">KJV</abbr>, no account needed. Sign in only if you want sync across devices.</p>
@@ -845,7 +827,7 @@
         </div>
         <details class="bible-tool-nested-peers util-mt-0_75" id="bibleToolNestedPeers">
           <summary>More ways to sit with a verse</summary>
-          <p class="section-note">Same Library wing—different manners. Open one when you need it.</p>
+          <p class="section-note">Same look-up tools—open one when you need it.</p>
           <ul class="section-note">
             <li><a href="verse.html">Today&rsquo;s Lesson / Verse of the Day</a></li>
             <li><a href="study.html">Study workspace</a></li>
@@ -1071,7 +1053,7 @@
                 <li><a class="bible-tool-gold-link" href="bible-tool.html?ref=2%20Corinthians%205:17">Identity in Christ</a> — 2 Corinthians 5:17</li>
                 <li><a class="bible-tool-gold-link" href="bible-tool.html?ref=Ephesians%205:25">Marriage &amp; Parenting</a> — Ephesians 5:25</li>
               </ul>
-              <p class="section-note util-mt-0_75 util-mb-0">Many chains echo tracks on <a href="plans.html" class="bible-tool-gold-link">The Paths</a>—same thread, different pace.</p>
+              <p class="section-note util-mt-0_75 util-mb-0">Many chains echo tracks on <a href="plans.html" class="bible-tool-gold-link">Plans</a>—same thread, different pace.</p>
             </details>
             <details class="home-accordion util-mt-1 bible-tool-study-pane" id="bible-tool-study-details">
               <summary class="home-accordion-summary">Study companion — tags, concordance, export</summary>
@@ -1117,7 +1099,7 @@
         <section class="verse-card glass tdb-porch-paper-glass">
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Reading plan</h2>
           <p class="section-note util-mb-0_5">Pick a plan below—checkboxes appear so you can track progress.</p>
-          <p class="section-note util-mb-0_5" style="padding:0.55rem 0.7rem;border-radius:8px;border:1px solid rgba(148,163,184,0.2);background:rgba(15,23,42,0.35);max-width:40rem;">Same readings as these checklists where noted, plus more paths—daily prayer + study prompts on Battle Plans (progress is separate): <a href="plans.html?plan=psalmscomfort" class="bible-tool-gold-link">Psalms of Comfort</a> · <a href="plans.html?plan=proverbswisdom" class="bible-tool-gold-link">Proverbs Wisdom</a> · <a href="plans.html?plan=hopeuncertain" class="bible-tool-gold-link">Hope in Uncertainty</a> · <a href="plans.html?plan=gospeljohn" class="bible-tool-gold-link">John (7-day sampler)</a> · <a href="plans.html?plan=sufferendure" class="bible-tool-gold-link">Suffering &amp; Endurance</a> · <a href="plans.html?plan=psalmspraise" class="bible-tool-gold-link">Psalms of Praise</a>.</p>
+          <p class="section-note util-mb-0_5" style="padding:0.55rem 0.7rem;border-radius:8px;border:1px solid rgba(148,163,184,0.2);background:rgba(15,23,42,0.35);max-width:40rem;">Same readings as these checklists where noted, plus more paths—daily prayer + study prompts on Plans (progress is separate): <a href="plans.html?plan=psalmscomfort" class="bible-tool-gold-link">Psalms of Comfort</a> · <a href="plans.html?plan=proverbswisdom" class="bible-tool-gold-link">Proverbs Wisdom</a> · <a href="plans.html?plan=hopeuncertain" class="bible-tool-gold-link">Hope in Uncertainty</a> · <a href="plans.html?plan=gospeljohn" class="bible-tool-gold-link">John (7-day sampler)</a> · <a href="plans.html?plan=sufferendure" class="bible-tool-gold-link">Suffering &amp; Endurance</a> · <a href="plans.html?plan=psalmspraise" class="bible-tool-gold-link">Psalms of Praise</a>.</p>
           <select id="plan-picker" aria-label="Plan">
             <option value="armor">Armor of God (7 days) — Ephesians 6</option>
             <option value="strength">Strength (7 days)</option>
@@ -1182,7 +1164,7 @@
   <script src="verse-narration.js?v=20260329narr12"></script>
   <script src="verse-study.js?v=20260328pass4vs"></script>
   <script src="verse-context.js?v=20260806-context" data-tdb-verse-context="1"></script>
-<script src="verse-breakdown.js?v=20260405-relations-fix"></script>
+<script src="verse-breakdown.js?v=20260809-search-fix"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">
@@ -1788,7 +1770,7 @@
     var p = document.createElement('p');
     p.className = 'empty';
     p.textContent =
-      'That verse is not on the page yet—that is all right. Offline — search still works on verses already cached on this device. Check the reference or try again when you are online.';
+      'That verse is not on the page yet. Offline — search still works on verses already cached on this device. Check the reference or try again when you are online.';
     var retryBtn = document.createElement('button');
     retryBtn.type = 'button';
     retryBtn.id = 'lookup-retry';
@@ -1839,7 +1821,7 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(t + ' ' + url)
           .then(function () { if (typeof window.showEliteToast === 'function') window.showEliteToast('Verse copied.'); })
-          .catch(function () { if (typeof window.showEliteToast === 'function') window.showEliteToast('Copy did not go through—that is all right. Select the verse and copy manually.'); });
+          .catch(function () { if (typeof window.showEliteToast === 'function') window.showEliteToast('Copy did not go through. Select the verse and copy manually.'); });
       }
     };
     if (typeof navigator !== 'undefined' && navigator.share) {
@@ -2317,9 +2299,9 @@
           navigator.clipboard.writeText(payload).then(function () {
             if (st) st.textContent = 'Copied JSON to clipboard — paste into a safe file on your device.';
           }).catch(function () {
-            if (st) st.textContent = 'Copy did not go through automatically—that is all right. Select and copy from your notes if needed.';
+            if (st) st.textContent = 'Copy did not go through automatically. Select and copy from your notes if needed.';
           });
-        } else if (st) st.textContent = 'Clipboard is not open in this browser—that is all right. Select and copy manually.';
+        } else if (st) st.textContent = 'Clipboard is not open in this browser. Select and copy manually.';
       });
     }
     var memBtn = document.getElementById('memorize-lookup');
@@ -2632,7 +2614,7 @@
           setTimeout(function () { el.textContent = orig; }, 2000);
         });
       } else {
-        container.innerHTML = '<p class="section-note">That did not load right now—that is all right.</p><button type="button" id="battle-ready-retry" class="btn btn-primary" style="margin-top:0.5rem;">Try again</button>';
+        container.innerHTML = '<p class="section-note">That did not load right now.</p><button type="button" id="battle-ready-retry" class="btn btn-primary" style="margin-top:0.5rem;">Try again</button>';
         var retryBtnBR = document.getElementById('battle-ready-retry');
         if (retryBtnBR) retryBtnBR.addEventListener('click', function () {
           container.innerHTML = '';
@@ -2978,12 +2960,12 @@
   </script>
 
   <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
-    <nav class="tdb-bottom-dock" aria-label="Campus navigation">
-      <a href="/" aria-label="The Grove — today’s verse">🌳 Grove</a>
-      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
-      <a href="/plans.html" aria-label="The Paths">🗓️ Paths</a>
-      <a href="/calm.html" aria-label="Quiet Hall — one steady verse">🌿 Quiet Hall</a>
-      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="Explore — full map">🗺️ Explore</a>
+    <nav class="tdb-bottom-dock" aria-label="Main navigation">
+      <a href="/" aria-label="Home — today’s verse">Home</a>
+      <a href="/#feel-section" aria-label="How I feel">Feel</a>
+      <a href="/plans.html" aria-label="Reading plans">Plans</a>
+      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
+      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
     </nav>
 </body>
 </html>

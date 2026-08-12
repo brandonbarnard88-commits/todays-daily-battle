@@ -969,7 +969,7 @@
       paa.href = '../' + n.planLink.href;
       paa.className = 'kjv-word-helps-ref';
       paa.textContent = n.planLink.label;
-      paa.setAttribute('aria-label', 'Open ' + n.planLink.label + ' on Battle Plans');
+      paa.setAttribute('aria-label', 'Open ' + n.planLink.label + ' on Plans');
       pp.appendChild(paa);
       pp.appendChild(document.createTextNode(' — same gentle pace; progress stays on this device.'));
       container.appendChild(pp);

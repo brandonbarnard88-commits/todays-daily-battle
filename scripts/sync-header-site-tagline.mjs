@@ -1,5 +1,5 @@
 /**
- * Canonical header tagline: "For Family, For Country, For GOD" replaces the old
+ * Canonical header tagline: "One KJV verse for what you're carrying" replaces the old
  * "Learning of Him, one day at a time." heartbeat line across English shells.
  * Run from repo root: node scripts/sync-header-site-tagline.mjs
  *
@@ -18,12 +18,12 @@ const SKIP_LOCALIZED = /^(ar|bn|es|fr|hi|id|pt|ru|sv|sw|tl|zh)\//;
 const LEARNING_PARAGRAPH =
   /<p class="tdb-header-heartbeat" lang="en">Learning of Him, one day at a time\.(?: <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me\.">Matthew 11:29<\/span>)?<\/p>/g;
 const TAGLINE_PARAGRAPH =
-  '<p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>';
+  '<p class="tdb-header-heartbeat site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</p>';
 
 const LEARNING_SPAN =
   /<span class="brand-subtitle tdb-brand-subtitle-learning" lang="en">Learning of Him, one day at a time\.(?: <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me\.">Matthew 11:29<\/span>)?<\/span>/g;
 const TAGLINE_SPAN =
-  '<span class="brand-subtitle tdb-brand-subtitle-learning site-tagline" lang="en">For Family, For Country, For GOD</span>';
+  '<span class="brand-subtitle tdb-brand-subtitle-learning site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</span>';
 
 const UOG_UNIV_LINE =
   /<p class="tdb-brand-subtitle-learning uog-header-learning-line" lang="en">The University of God &mdash; learning of Him, one day at a time\.<\/p>/g;

@@ -2816,9 +2816,9 @@ body {
   box-sizing: border-box;
   background: rgba(8, 12, 22, 0.42);
   border-bottom: 1px solid rgba(227, 188, 103, 0.2);
-  position: sticky;
-  top: 0;
-  z-index: 201;
+  position: relative;
+  top: auto;
+  z-index: 12;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   font-size: 0.84rem;
@@ -26211,4 +26211,127 @@ html[data-theme="sepia"] .tdb-kiss-verse__kjv {
 .feel-cards .tdb-kiss-verse,
 #feelCards .tdb-kiss-verse {
   animation: none;
+}
+
+
+/* Design audit: Plans library collapsed by default */
+#plansAllLibrary {
+  margin: 1.25rem 0 2rem;
+}
+#plansAllLibrary > .tdb-hub-disclosure__summary {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+body.tdb-search-page .tdb-site-search-results:empty {
+  min-height: 0;
+}
+
+
+/* ══ Porch calm final pass (2026-08-11) ═══════════════════════════════
+   Dock-first mobile chrome, quiet topic/crisis shells, less competing IA. */
+
+/* Mobile: bottom dock is primary; collapse utility chrome */
+@media (max-width: 720px) {
+  body:has(.tdb-bottom-dock) .site-header .site-top-links,
+  body:has(.tdb-bottom-dock) .site-header .site-top-links {
+    font-size: 0.8rem;
+    gap: 0.25rem 0.4rem;
+  }
+  body:has(.tdb-bottom-dock) .site-header .soul-tag,
+  body:has(.tdb-bottom-dock) .site-header .site-header-tagline {
+    font-size: 0.8rem;
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Inner pages: hide ministry mega-sidebar on crisis/topic shells */
+  body.tdb-topic-mood-page #sidebar,
+  body.tdb-topic-mood-page #sidebar-toggle,
+  body.tdb-calm-shelf-page #sidebar,
+  .about-page ~ #sidebar,
+  aside.sidebar.tdb-about-sidebar-quiet,
+  body.tdb-topic-mood-page .header-menu-link#sidebar-toggle {
+    display: none !important;
+  }
+  body.tdb-topic-mood-page .app-content,
+  body.tdb-topic-mood-page main.app-content {
+    margin-left: 0 !important;
+    max-width: 100%;
+  }
+}
+
+/* Topic mood: first verse roomy; secondary chrome quieter */
+body.tdb-topic-mood-page .list-item:first-child {
+  padding: 1rem 0.85rem;
+  margin-bottom: 0.75rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 28%, transparent);
+  background: color-mix(in srgb, var(--card, #161c26) 90%, rgba(227, 188, 103, 0.06));
+}
+body.tdb-topic-mood-page .tdb-heavy-now__actions {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Calm: gospel is secondary to “What are you carrying?” */
+.tdb-calm-shelf-page #calm-gospel-door.tdb-hub-disclosure,
+.tdb-calm-shelf-page details#calm-gospel-door {
+  margin: 1rem auto 0.5rem;
+  max-width: 36rem;
+}
+.tdb-calm-shelf-page .calm-gospel-door:not(details) {
+  opacity: 0.95;
+}
+
+/* Give / login: less brand stack noise */
+body.tdb-inner-page .top-bar .tdb-header-heartbeat.site-tagline {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* Hide decorative sky competition under reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .sky-page-backdrop,
+  .sky-stars-parallax,
+  .sky-aurora,
+  #sky-moon-label {
+    animation: none !important;
+    transition: none !important;
+  }
+  #sky-moon-label { display: none !important; }
+}
+
+/* Search page: keep results compact when empty-state recent only */
+body.tdb-search-page .tdb-site-search-results {
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+/* Footer bottom-nav ES chips: hide on narrow if dock present (less chrome stack) */
+@media (max-width: 640px) {
+  body:has(.tdb-bottom-dock) .bottom-nav-es-inline {
+    display: none;
+  }
+}
+
+/* Topic/crisis: never show ministry mega-sidebar */
+aside.sidebar.tdb-topic-sidebar-quiet,
+aside.sidebar.tdb-about-sidebar-quiet,
+body.tdb-topic-mood-page #sidebar,
+body.tdb-topic-mood-page #sidebar-toggle {
+  display: none !important;
+}
+body.tdb-topic-mood-page .app-content {
+  margin-left: 0 !important;
+  width: 100%;
+}
+
+/* Reader porch calm max-width */
+.chapter-reader-body,
+.reader-chapter-text,
+#chapter-text,
+.chapter-content {
+  max-width: 40rem;
+  margin-inline: auto;
 }

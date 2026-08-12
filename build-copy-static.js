@@ -113,6 +113,16 @@ function removeDistDuplicateArtifacts(dir) {
 }
 
 // Single files to copy (root)
+
+// Critical JS that must ship in dist/ (CF often deploys tracked dist; new files must copy + verify).
+const CRITICAL_DIST_JS = [
+  'tdb-one-interrupt.js',
+  'tdb-backup-reminder.js',
+  'hero-daily-first-paint.js',
+  'js/surfaces/home.js',
+  'js/surfaces/plans.js',
+  'js/surfaces/church.js'
+];
 const rootFiles = [
   'config.js',
   'manifest.json',
@@ -153,6 +163,7 @@ const rootFiles = [
   'footer-build-stamp.js',
   'tdb-back-to-verse-float.js',
   'tdb-backup-reminder.js',
+  'tdb-one-interrupt.js',
   'service-worker.js',
   'sw.js',
   'register-sw.js',
@@ -371,6 +382,22 @@ for (const f of rootFiles) {
     console.warn('build-copy-static.js: kjv.json not found in root — verse search and daily verse may fail until it is added or served from origin.');
   }
 }
+
+for (const f of CRITICAL_DIST_JS) {
+  const src = path.join(root, f);
+  const dest = path.join(dist, f);
+  if (!fs.existsSync(src)) {
+    console.error('build-copy-static.js: CRITICAL missing source ' + f);
+    process.exit(1);
+  }
+  copyFile(src, dest);
+  if (!fs.existsSync(dest)) {
+    console.error('build-copy-static.js: CRITICAL failed to copy ' + f);
+    process.exit(1);
+  }
+  console.log('build-copy-static.js: critical copy OK ' + f);
+}
+
 if (fs.existsSync(path.join(root, 'kjv.json'))) {
   copyFile(path.join(root, 'kjv.json'), path.join(dist, 'assets', 'data', 'kjv.json'));
   console.log('Copied kjv.json fallback to dist/assets/data/kjv.json');
@@ -931,6 +958,41 @@ if (fs.existsSync(wellKnown)) {
   });
   if (injected) {
     console.log('build-copy-static.js: injected tdb-back-to-verse-float.js in ' + injected + ' dist HTML file(s)');
+  }
+})();
+
+
+// One interrupt max per visit — load before backup reminder when present.
+(function injectOneInterruptScript() {
+  var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=' + SITE_ASSET_VERSION + '"></script>';
+  var SKIP_BASENAMES = {
+    '404.html': true,
+    '404-admin.html': true
+  };
+  function shouldInject(filePath, html) {
+    var base = path.basename(filePath);
+    if (SKIP_BASENAMES[base]) return false;
+    if (/\/embed\//i.test(filePath.replace(/\\/g, '/'))) return false;
+    if (html.indexOf('tdb-one-interrupt.js') !== -1) return false;
+    if (!/\bsite-footer--canonical\b/.test(html) && base !== 'index.html') return false;
+    return true;
+  }
+  function ensure(html) {
+    if (!/<head[^>]*>/i.test(html)) return html;
+    return html.replace(/<head([^>]*)>/i, function (m) { return m + SNIPPET; });
+  }
+  var injected = 0;
+  walkHtmlUnder(dist, function (filePath) {
+    var html = fs.readFileSync(filePath, 'utf8');
+    if (!shouldInject(filePath, html)) return;
+    var next = ensure(html);
+    if (next !== html) {
+      fs.writeFileSync(filePath, next, 'utf8');
+      injected++;
+    }
+  });
+  if (injected) {
+    console.log('build-copy-static.js: injected tdb-one-interrupt.js in ' + injected + ' dist HTML file(s)');
   }
 })();
 

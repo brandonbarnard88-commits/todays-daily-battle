@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260809-vbd-labels"></script>
   <!-- tdb-cache-hygiene: _headers no-cache tool pages; bump script query with substantive JS changes -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -29,6 +30,9 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260809-vbd-labels" as="style">
   <link rel="stylesheet" href="styles.css?v=20260809-vbd-labels">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-porch-verse-widget.css?v=20260519-porch-verse" as="style">
@@ -1013,14 +1017,11 @@
       <span class="tdb-nav-flyout-toggle__label">Menu</span>
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/#feel-section">Ask</a>
+      <a href="/" aria-label="Home — today’s verse">Today</a>
+      <a href="/#feel-section">How I feel</a>
       <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
       <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
       <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
-      <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
-      <a href="/about.html">About</a>
-      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More</summary>
         <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
@@ -1034,16 +1035,19 @@
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family</span>
-              <a href="/family.html">Family</a>
+              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
+              <a href="/family.html" aria-current="page">Family</a>
               <a href="/coloring.html">Kids coloring</a>
               <a href="/printables.html" aria-label="Print pages">Print</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Site</span>
-              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
+              <a href="/about.html">About</a>
               <a href="/search.html" id="nav-site-search" aria-label="Search the site">Search</a>
+              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
               <a href="/faq.html">FAQ</a>
               <a href="/give" aria-label="Optional support">Support</a>
+              <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
             </div>
           </div>
       </details>
@@ -1270,7 +1274,7 @@
         <li><a href="/kids/">Open Kids play</a> for story, color, or one game—or sit with one <a href="kids/corner.html">Story Library card</a>.</li>
         <li><a href="calm.html">Pray one sentence when it’s hard</a>, or add a name on <a href="#family-prayer-wall">your family prayer list</a>.</li>
       </ol>
-      <p class="family-parent-quick-dash__note section-note">Later, simple path marks here could mirror what you already complete on The Paths—today this block is just a steady map.</p>
+      <p class="family-parent-quick-dash__note section-note">Later, simple path marks here could mirror what you already complete on Plans—today this block is just a steady map.</p>
         </div>
       </details>
     </section>
@@ -1371,13 +1375,11 @@
       <div class="family-plan-hint" id="family-plan-context" hidden></div>
     </section>
 
-    <aside class="tdb-porch-verse-widget tdb-surface-card family-hub-animate family-hub-d2" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="0">
+    <aside class="tdb-porch-verse-widget tdb-surface-card family-hub-animate family-hub-d2" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
       <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
       <p class="tdb-porch-verse-widget__hint">Same daily KJV as Home&mdash;a quiet household anchor when you want the porch verse here too.</p>
-      <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">&mdash;</p>
-      <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText">
-        <p class="section-note">Same quiet KJV calendar as Home.</p>
-      </blockquote>
+      <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Romans 5:5 (KJV)</p>
+      <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“The love of God is shed abroad in our hearts by the Holy Ghost.”</p></blockquote>
       <div class="tdb-porch-verse-widget__actions">
         <a class="btn btn-secondary" href="/">Read with breakdown</a>
         <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
@@ -1390,7 +1392,7 @@
       <div id="memory-verses" class="memory-verses-shell memory-section">
       <div id="family-memory-verses-root" class="family-memory-verses-root"></div>
       </div>
-      <p class="section-note" id="family-seasonal-plans-links">Seasonal Battle Plans (same day-count as the main plans page): <a href="plans.html?plan=schoolcourage">Back-to-School Courage</a> &middot; <a href="plans.html?plan=harvestthanks">Harvest Gratitude</a> &middot; <a href="plans.html?plan=adventquiet">Advent Quiet</a> &middot; <a href="plans.html?plan=gentleyear">Gentle New Year Reset</a> &middot; <a href="plans.html?plan=summerstill">Summer Stillness</a> &middot; <a href="plans.html?plan=easter">Resurrection Hope</a>.</p>
+      <p class="section-note" id="family-seasonal-plans-links">Seasonal Plans (same day-count as the main plans page): <a href="plans.html?plan=schoolcourage">Back-to-School Courage</a> &middot; <a href="plans.html?plan=harvestthanks">Harvest Gratitude</a> &middot; <a href="plans.html?plan=adventquiet">Advent Quiet</a> &middot; <a href="plans.html?plan=gentleyear">Gentle New Year Reset</a> &middot; <a href="plans.html?plan=summerstill">Summer Stillness</a> &middot; <a href="plans.html?plan=easter">Resurrection Hope</a>.</p>
     </section>
 
     <div id="family-gentle-empty"></div>
@@ -1461,7 +1463,7 @@
         </a>
         <a class="family-hub-card" href="plans.html">
           <p class="family-hub-card-label">Browse</p>
-          <p class="family-hub-card-title">All Battle Plans</p>
+          <p class="family-hub-card-title">All Plans</p>
           <p class="family-hub-card-desc">Peace, fear, grief, gratitude, longer tracks—same gentle KJV rhythm.</p>
         </a>
       </div>
@@ -1571,14 +1573,14 @@
       <p class="section-lead">If you use the kids streaks, badges, or parent view, let them stay mercy-first.</p>
       <ul class="family-parent-tips">
         <li>Name what you saw: &ldquo;You opened God&rsquo;s Word today.&rdquo; Save bigger praise for faithfulness, not performance.</li>
-        <li>Use the <a href="kids/parent.html">Parent Dashboard</a> as a conversation helper, not a scoreboard.</li>
+        <li>Use the <a href="kids/parent.html">Family quiet view</a> as a conversation helper, not a scoreboard.</li>
         <li>Missed days do not need a speech. Pick up the next story and thank God for new mercy.</li>
         <li>If a child shares a doodle or favorite story, ask one question before offering your own lesson.</li>
       </ul>
     </section>
 
     <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-kids-plans-guide-heading">
-      <h2 class="family-section-title" id="family-kids-plans-guide-heading">How to use Battle Plans with your kids</h2>
+      <h2 class="family-section-title" id="family-kids-plans-guide-heading">How to use Plans with your kids</h2>
       <p class="section-lead">Short days, real <abbr title="King James Version">KJV</abbr> on screen, no quiz pressure. Pick one trail and let it fit your table.</p>
       <ol class="family-parent-tips" style="list-style: decimal; margin-left: 0; padding-left: 1.35rem; line-height: 1.55;">
         <li>Start with one kids plan&mdash;<a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a>, <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a>, or <a href="plans.html?plan=sower-kids">Parable of the Sower for Kids</a>&mdash;and stay with it until the rhythm feels familiar.</li>
@@ -2150,5 +2152,14 @@
   <script type="module" src="script.js?v=20260809-vbd-labels" data-cfasync="false"></script>
   <script src="kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
   <script src="family-dashboard.js?v=20260405familydash1" defer></script>
+
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
+    <nav class="tdb-bottom-dock" aria-label="Main navigation">
+      <a href="/" aria-label="Home — today’s verse">Home</a>
+      <a href="/#feel-section" aria-label="How I feel">Feel</a>
+      <a href="/plans.html" aria-label="Reading plans">Plans</a>
+      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
+      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
+    </nav>
 </body>
 </html>

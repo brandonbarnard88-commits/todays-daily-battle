@@ -240,6 +240,10 @@
    */
   // TDB_SCENE_ART_START
   var TDB_SCENE_ART = {
+  "/coloring-pages/creation-s1.svg": "/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg",
+  "/coloring-pages/creation-s2.svg": "/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg",
+  "/coloring-pages/creation-s3.svg": "/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg",
+  "/coloring-pages/creation-s4.svg": "/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg",
   "/coloring-pages/baby-moses-s1.svg": "/coloring-pages/baby-moses-s1.jpg",
   "/coloring-pages/baby-moses-s2.svg": "/coloring-pages/baby-moses-s2.jpg",
   "/coloring-pages/baby-moses-s3.svg": "/coloring-pages/baby-moses-s3.jpg",
@@ -256,6 +260,10 @@
   "/coloring-pages/noah-s2.svg": "/coloring-pages/noah-s2.jpg",
   "/coloring-pages/noah-s3.svg": "/coloring-pages/noah-s3.jpg",
   "/coloring-pages/noah-s4.svg": "/coloring-pages/noah-s4.jpg",
+  "/coloring-pages/david-s1.svg": "/coloring-pages/bible-stories/david-and-goliath-v2.jpg",
+  "/coloring-pages/david-s2.svg": "/coloring-pages/bible-stories/david-and-goliath-v2.jpg",
+  "/coloring-pages/david-s3.svg": "/coloring-pages/bible-stories/david-and-goliath-v2.jpg",
+  "/coloring-pages/david-s4.svg": "/coloring-pages/bible-stories/david-and-goliath-v2.jpg",
   "/coloring-pages/daniel-lions-s1.svg": "/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg",
   "/coloring-pages/daniel-lions-s2.svg": "/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg",
   "/coloring-pages/daniel-lions-s3.svg": "/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg",
@@ -268,10 +276,18 @@
   "/coloring-pages/jesus-storm-s2.svg": "/coloring-pages/jesus-storm-s2.jpg",
   "/coloring-pages/jesus-storm-s3.svg": "/coloring-pages/jesus-storm-s3.jpg",
   "/coloring-pages/jesus-storm-s4.svg": "/coloring-pages/jesus-storm-s4.jpg",
+  "/coloring-pages/jesus-children-s1.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
+  "/coloring-pages/jesus-children-s2.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
+  "/coloring-pages/jesus-children-s3.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
+  "/coloring-pages/jesus-children-s4.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
   "/coloring-pages/good-samaritan-s1.svg": "/coloring-pages/good-samaritan-s1.jpg",
   "/coloring-pages/good-samaritan-s2.svg": "/coloring-pages/good-samaritan-s2.jpg",
   "/coloring-pages/good-samaritan-s3.svg": "/coloring-pages/good-samaritan-s3.jpg",
   "/coloring-pages/good-samaritan-s4.svg": "/coloring-pages/good-samaritan-s4.jpg",
+  "/coloring-pages/empty-tomb-s1.svg": "/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg",
+  "/coloring-pages/empty-tomb-s2.svg": "/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg",
+  "/coloring-pages/empty-tomb-s3.svg": "/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg",
+  "/coloring-pages/empty-tomb-s4.svg": "/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg",
   "/coloring-pages/prodigal-son-s1.svg": "/coloring-pages/prodigal-son-s1.jpg",
   "/coloring-pages/prodigal-son-s2.svg": "/coloring-pages/prodigal-son-s2.jpg",
   "/coloring-pages/prodigal-son-s3.svg": "/coloring-pages/prodigal-son-s3.jpg",
@@ -316,14 +332,238 @@
   "/coloring-pages/wedding-cana-s2.svg": "/coloring-pages/wedding-cana-s2.jpg",
   "/coloring-pages/wedding-cana-s3.svg": "/coloring-pages/wedding-cana-s3.jpg",
   "/coloring-pages/wedding-cana-s4.svg": "/coloring-pages/wedding-cana-s4.jpg",
+  "/coloring-pages/mustard-seed-s1.svg": "/coloring-pages/mustard-seed.jpg",
+  "/coloring-pages/mustard-seed-s2.svg": "/coloring-pages/mustard-seed.jpg",
+  "/coloring-pages/mustard-seed-s3.svg": "/coloring-pages/mustard-seed.jpg",
+  "/coloring-pages/mustard-seed-s4.svg": "/coloring-pages/mustard-seed.jpg",
+  "/coloring-pages/the-sower-s1.svg": "/coloring-pages/the-sower.jpg",
+  "/coloring-pages/the-sower-s2.svg": "/coloring-pages/the-sower.jpg",
+  "/coloring-pages/the-sower-s3.svg": "/coloring-pages/the-sower.jpg",
+  "/coloring-pages/the-sower-s4.svg": "/coloring-pages/the-sower.jpg",
+  "/coloring-pages/triumphal-entry-s1.svg": "/coloring-pages/triumphal-entry.jpg",
+  "/coloring-pages/triumphal-entry-s2.svg": "/coloring-pages/triumphal-entry.jpg",
+  "/coloring-pages/triumphal-entry-s3.svg": "/coloring-pages/triumphal-entry.jpg",
+  "/coloring-pages/triumphal-entry-s4.svg": "/coloring-pages/triumphal-entry.jpg",
+  "/coloring-pages/lost-coin-s1.svg": "/coloring-pages/lost-coin.jpg",
+  "/coloring-pages/lost-coin-s2.svg": "/coloring-pages/lost-coin.jpg",
+  "/coloring-pages/lost-coin-s3.svg": "/coloring-pages/lost-coin.jpg",
+  "/coloring-pages/lost-coin-s4.svg": "/coloring-pages/lost-coin.jpg",
+  "/coloring-pages/healing-paralytic-s1.svg": "/coloring-pages/healing-paralytic.jpg",
+  "/coloring-pages/healing-paralytic-s2.svg": "/coloring-pages/healing-paralytic.jpg",
+  "/coloring-pages/healing-paralytic-s3.svg": "/coloring-pages/healing-paralytic.jpg",
+  "/coloring-pages/healing-paralytic-s4.svg": "/coloring-pages/healing-paralytic.jpg",
   "/coloring-pages/good-shepherd-s1.svg": "/coloring-pages/good-shepherd-s1.jpg",
   "/coloring-pages/good-shepherd-s2.svg": "/coloring-pages/good-shepherd-s2.jpg",
   "/coloring-pages/good-shepherd-s3.svg": "/coloring-pages/good-shepherd-s3.jpg",
   "/coloring-pages/good-shepherd-s4.svg": "/coloring-pages/good-shepherd-s4.jpg",
+  "/coloring-pages/feeding-4000-s1.svg": "/coloring-pages/feeding-4000.jpg",
+  "/coloring-pages/feeding-4000-s2.svg": "/coloring-pages/feeding-4000.jpg",
+  "/coloring-pages/feeding-4000-s3.svg": "/coloring-pages/feeding-4000.jpg",
+  "/coloring-pages/feeding-4000-s4.svg": "/coloring-pages/feeding-4000.jpg",
+  "/coloring-pages/wise-foolish-builders-s1.svg": "/coloring-pages/wise-foolish-builders.jpg",
+  "/coloring-pages/wise-foolish-builders-s2.svg": "/coloring-pages/wise-foolish-builders.jpg",
+  "/coloring-pages/wise-foolish-builders-s3.svg": "/coloring-pages/wise-foolish-builders.jpg",
+  "/coloring-pages/wise-foolish-builders-s4.svg": "/coloring-pages/wise-foolish-builders.jpg",
+  "/coloring-pages/the-talents-s1.svg": "/coloring-pages/the-talents.jpg",
+  "/coloring-pages/the-talents-s2.svg": "/coloring-pages/the-talents.jpg",
+  "/coloring-pages/the-talents-s3.svg": "/coloring-pages/the-talents.jpg",
+  "/coloring-pages/the-talents-s4.svg": "/coloring-pages/the-talents.jpg",
+  "/coloring-pages/persistent-widow-s1.svg": "/coloring-pages/persistent-widow.jpg",
+  "/coloring-pages/persistent-widow-s2.svg": "/coloring-pages/persistent-widow.jpg",
+  "/coloring-pages/persistent-widow-s3.svg": "/coloring-pages/persistent-widow.jpg",
+  "/coloring-pages/persistent-widow-s4.svg": "/coloring-pages/persistent-widow.jpg",
+  "/coloring-pages/healing-leper-s1.svg": "/coloring-pages/healing-leper.jpg",
+  "/coloring-pages/healing-leper-s2.svg": "/coloring-pages/healing-leper.jpg",
+  "/coloring-pages/healing-leper-s3.svg": "/coloring-pages/healing-leper.jpg",
+  "/coloring-pages/healing-leper-s4.svg": "/coloring-pages/healing-leper.jpg",
+  "/coloring-pages/joseph-coat-s1.svg": "/coloring-pages/joseph-coat.jpg",
+  "/coloring-pages/joseph-coat-s2.svg": "/coloring-pages/joseph-coat.jpg",
+  "/coloring-pages/joseph-coat-s3.svg": "/coloring-pages/joseph-coat.jpg",
+  "/coloring-pages/joseph-coat-s4.svg": "/coloring-pages/joseph-coat.jpg",
+  "/coloring-pages/joseph-dreams-s1.svg": "/coloring-pages/joseph-dreams.jpg",
+  "/coloring-pages/joseph-dreams-s2.svg": "/coloring-pages/joseph-dreams.jpg",
+  "/coloring-pages/joseph-dreams-s3.svg": "/coloring-pages/joseph-dreams.jpg",
+  "/coloring-pages/joseph-dreams-s4.svg": "/coloring-pages/joseph-dreams.jpg",
+  "/coloring-pages/burning-bush-s1.svg": "/coloring-pages/burning-bush.jpg",
+  "/coloring-pages/burning-bush-s2.svg": "/coloring-pages/burning-bush.jpg",
+  "/coloring-pages/burning-bush-s3.svg": "/coloring-pages/burning-bush.jpg",
+  "/coloring-pages/burning-bush-s4.svg": "/coloring-pages/burning-bush.jpg",
+  "/coloring-pages/jericho-s1.svg": "/coloring-pages/jericho.jpg",
+  "/coloring-pages/jericho-s2.svg": "/coloring-pages/jericho.jpg",
+  "/coloring-pages/jericho-s3.svg": "/coloring-pages/jericho.jpg",
+  "/coloring-pages/jericho-s4.svg": "/coloring-pages/jericho.jpg",
+  "/coloring-pages/gideon-fleece-s1.svg": "/coloring-pages/gideon-fleece.jpg",
+  "/coloring-pages/gideon-fleece-s2.svg": "/coloring-pages/gideon-fleece.jpg",
+  "/coloring-pages/gideon-fleece-s3.svg": "/coloring-pages/gideon-fleece.jpg",
+  "/coloring-pages/gideon-fleece-s4.svg": "/coloring-pages/gideon-fleece.jpg",
+  "/coloring-pages/samson-s1.svg": "/coloring-pages/samson.jpg",
+  "/coloring-pages/samson-s2.svg": "/coloring-pages/samson.jpg",
+  "/coloring-pages/samson-s3.svg": "/coloring-pages/samson.jpg",
+  "/coloring-pages/samson-s4.svg": "/coloring-pages/samson.jpg",
+  "/coloring-pages/esther-s1.svg": "/coloring-pages/esther.jpg",
+  "/coloring-pages/esther-s2.svg": "/coloring-pages/esther.jpg",
+  "/coloring-pages/esther-s3.svg": "/coloring-pages/esther.jpg",
+  "/coloring-pages/esther-s4.svg": "/coloring-pages/esther.jpg",
+  "/coloring-pages/fiery-furnace-s1.svg": "/coloring-pages/fiery-furnace.jpg",
+  "/coloring-pages/fiery-furnace-s2.svg": "/coloring-pages/fiery-furnace.jpg",
+  "/coloring-pages/fiery-furnace-s3.svg": "/coloring-pages/fiery-furnace.jpg",
+  "/coloring-pages/fiery-furnace-s4.svg": "/coloring-pages/fiery-furnace.jpg",
+  "/coloring-pages/abraham-isaac-s1.svg": "/coloring-pages/abraham-isaac.jpg",
+  "/coloring-pages/abraham-isaac-s2.svg": "/coloring-pages/abraham-isaac.jpg",
+  "/coloring-pages/abraham-isaac-s3.svg": "/coloring-pages/abraham-isaac.jpg",
+  "/coloring-pages/abraham-isaac-s4.svg": "/coloring-pages/abraham-isaac.jpg",
+  "/coloring-pages/elijah-carmel-s1.svg": "/coloring-pages/elijah-carmel.jpg",
+  "/coloring-pages/elijah-carmel-s2.svg": "/coloring-pages/elijah-carmel.jpg",
+  "/coloring-pages/elijah-carmel-s3.svg": "/coloring-pages/elijah-carmel.jpg",
+  "/coloring-pages/elijah-carmel-s4.svg": "/coloring-pages/elijah-carmel.jpg",
+  "/coloring-pages/naaman-s1.svg": "/coloring-pages/naaman.jpg",
+  "/coloring-pages/naaman-s2.svg": "/coloring-pages/naaman.jpg",
+  "/coloring-pages/naaman-s3.svg": "/coloring-pages/naaman.jpg",
+  "/coloring-pages/naaman-s4.svg": "/coloring-pages/naaman.jpg",
+  "/coloring-pages/boy-samuel-s1.svg": "/coloring-pages/boy-samuel.jpg",
+  "/coloring-pages/boy-samuel-s2.svg": "/coloring-pages/boy-samuel.jpg",
+  "/coloring-pages/boy-samuel-s3.svg": "/coloring-pages/boy-samuel.jpg",
+  "/coloring-pages/boy-samuel-s4.svg": "/coloring-pages/boy-samuel.jpg",
+  "/coloring-pages/ten-lepers-s1.svg": "/coloring-pages/ten-lepers.jpg",
+  "/coloring-pages/ten-lepers-s2.svg": "/coloring-pages/ten-lepers.jpg",
+  "/coloring-pages/ten-lepers-s3.svg": "/coloring-pages/ten-lepers.jpg",
+  "/coloring-pages/ten-lepers-s4.svg": "/coloring-pages/ten-lepers.jpg",
+  "/coloring-pages/pharisee-tax-collector-s1.svg": "/coloring-pages/pharisee-tax-collector.jpg",
+  "/coloring-pages/pharisee-tax-collector-s2.svg": "/coloring-pages/pharisee-tax-collector.jpg",
+  "/coloring-pages/pharisee-tax-collector-s3.svg": "/coloring-pages/pharisee-tax-collector.jpg",
+  "/coloring-pages/pharisee-tax-collector-s4.svg": "/coloring-pages/pharisee-tax-collector.jpg",
+  "/coloring-pages/widows-mite-s1.svg": "/coloring-pages/widows-mite.jpg",
+  "/coloring-pages/widows-mite-s2.svg": "/coloring-pages/widows-mite.jpg",
+  "/coloring-pages/widows-mite-s3.svg": "/coloring-pages/widows-mite.jpg",
+  "/coloring-pages/widows-mite-s4.svg": "/coloring-pages/widows-mite.jpg",
+  "/coloring-pages/centurion-servant-s1.svg": "/coloring-pages/centurion-servant.jpg",
+  "/coloring-pages/centurion-servant-s2.svg": "/coloring-pages/centurion-servant.jpg",
+  "/coloring-pages/centurion-servant-s3.svg": "/coloring-pages/centurion-servant.jpg",
+  "/coloring-pages/centurion-servant-s4.svg": "/coloring-pages/centurion-servant.jpg",
+  "/coloring-pages/abraham-sarah-s1.svg": "/coloring-pages/abraham-sarah.jpg",
+  "/coloring-pages/abraham-sarah-s2.svg": "/coloring-pages/abraham-sarah.jpg",
+  "/coloring-pages/abraham-sarah-s3.svg": "/coloring-pages/abraham-sarah.jpg",
+  "/coloring-pages/abraham-sarah-s4.svg": "/coloring-pages/abraham-sarah.jpg",
+  "/coloring-pages/elisha-oil-s1.svg": "/coloring-pages/elisha-oil.jpg",
+  "/coloring-pages/elisha-oil-s2.svg": "/coloring-pages/elisha-oil.jpg",
+  "/coloring-pages/elisha-oil-s3.svg": "/coloring-pages/elisha-oil.jpg",
+  "/coloring-pages/elisha-oil-s4.svg": "/coloring-pages/elisha-oil.jpg",
+  "/coloring-pages/hannah-samuel-s1.svg": "/coloring-pages/hannah-samuel.jpg",
+  "/coloring-pages/hannah-samuel-s2.svg": "/coloring-pages/hannah-samuel.jpg",
+  "/coloring-pages/hannah-samuel-s3.svg": "/coloring-pages/hannah-samuel.jpg",
+  "/coloring-pages/hannah-samuel-s4.svg": "/coloring-pages/hannah-samuel.jpg",
+  "/coloring-pages/david-jonathan-s1.svg": "/coloring-pages/david-jonathan.jpg",
+  "/coloring-pages/david-jonathan-s2.svg": "/coloring-pages/david-jonathan.jpg",
+  "/coloring-pages/david-jonathan-s3.svg": "/coloring-pages/david-jonathan.jpg",
+  "/coloring-pages/david-jonathan-s4.svg": "/coloring-pages/david-jonathan.jpg",
+  "/coloring-pages/rich-young-ruler-s1.svg": "/coloring-pages/rich-young-ruler.jpg",
+  "/coloring-pages/rich-young-ruler-s2.svg": "/coloring-pages/rich-young-ruler.jpg",
+  "/coloring-pages/rich-young-ruler-s3.svg": "/coloring-pages/rich-young-ruler.jpg",
+  "/coloring-pages/rich-young-ruler-s4.svg": "/coloring-pages/rich-young-ruler.jpg",
+  "/coloring-pages/pearl-great-price-s1.svg": "/coloring-pages/pearl-great-price.jpg",
+  "/coloring-pages/pearl-great-price-s2.svg": "/coloring-pages/pearl-great-price.jpg",
+  "/coloring-pages/pearl-great-price-s3.svg": "/coloring-pages/pearl-great-price.jpg",
+  "/coloring-pages/pearl-great-price-s4.svg": "/coloring-pages/pearl-great-price.jpg",
+  "/coloring-pages/withered-hand-s1.svg": "/coloring-pages/withered-hand.jpg",
+  "/coloring-pages/withered-hand-s2.svg": "/coloring-pages/withered-hand.jpg",
+  "/coloring-pages/withered-hand-s3.svg": "/coloring-pages/withered-hand.jpg",
+  "/coloring-pages/withered-hand-s4.svg": "/coloring-pages/withered-hand.jpg",
+  "/coloring-pages/unforgiving-servant-s1.svg": "/coloring-pages/unforgiving-servant.jpg",
+  "/coloring-pages/unforgiving-servant-s2.svg": "/coloring-pages/unforgiving-servant.jpg",
+  "/coloring-pages/unforgiving-servant-s3.svg": "/coloring-pages/unforgiving-servant.jpg",
+  "/coloring-pages/unforgiving-servant-s4.svg": "/coloring-pages/unforgiving-servant.jpg",
+  "/coloring-pages/boy-david-s1.svg": "/coloring-pages/boy-david.jpg",
+  "/coloring-pages/boy-david-s2.svg": "/coloring-pages/boy-david.jpg",
+  "/coloring-pages/boy-david-s3.svg": "/coloring-pages/boy-david.jpg",
+  "/coloring-pages/boy-david-s4.svg": "/coloring-pages/boy-david.jpg",
+  "/coloring-pages/elijah-ravens-s1.svg": "/coloring-pages/elijah-ravens.jpg",
+  "/coloring-pages/elijah-ravens-s2.svg": "/coloring-pages/elijah-ravens.jpg",
+  "/coloring-pages/elijah-ravens-s3.svg": "/coloring-pages/elijah-ravens.jpg",
+  "/coloring-pages/elijah-ravens-s4.svg": "/coloring-pages/elijah-ravens.jpg",
+  "/coloring-pages/writing-on-wall-s1.svg": "/coloring-pages/writing-on-wall.jpg",
+  "/coloring-pages/writing-on-wall-s2.svg": "/coloring-pages/writing-on-wall.jpg",
+  "/coloring-pages/writing-on-wall-s3.svg": "/coloring-pages/writing-on-wall.jpg",
+  "/coloring-pages/writing-on-wall-s4.svg": "/coloring-pages/writing-on-wall.jpg",
+  "/coloring-pages/ruth-boaz-s1.svg": "/coloring-pages/ruth-boaz.jpg",
+  "/coloring-pages/ruth-boaz-s2.svg": "/coloring-pages/ruth-boaz.jpg",
+  "/coloring-pages/ruth-boaz-s3.svg": "/coloring-pages/ruth-boaz.jpg",
+  "/coloring-pages/ruth-boaz-s4.svg": "/coloring-pages/ruth-boaz.jpg",
+  "/coloring-pages/jesus-baptism-s1.svg": "/coloring-pages/jesus-baptism.jpg",
+  "/coloring-pages/jesus-baptism-s2.svg": "/coloring-pages/jesus-baptism.jpg",
+  "/coloring-pages/jesus-baptism-s3.svg": "/coloring-pages/jesus-baptism.jpg",
+  "/coloring-pages/jesus-baptism-s4.svg": "/coloring-pages/jesus-baptism.jpg",
+  "/coloring-pages/emmaus-road-s1.svg": "/coloring-pages/emmaus-road.jpg",
+  "/coloring-pages/emmaus-road-s2.svg": "/coloring-pages/emmaus-road.jpg",
+  "/coloring-pages/emmaus-road-s3.svg": "/coloring-pages/emmaus-road.jpg",
+  "/coloring-pages/emmaus-road-s4.svg": "/coloring-pages/emmaus-road.jpg",
+  "/coloring-pages/jesus-washes-feet-s1.svg": "/coloring-pages/jesus-washes-feet.jpg",
+  "/coloring-pages/jesus-washes-feet-s2.svg": "/coloring-pages/jesus-washes-feet.jpg",
+  "/coloring-pages/jesus-washes-feet-s3.svg": "/coloring-pages/jesus-washes-feet.jpg",
+  "/coloring-pages/jesus-washes-feet-s4.svg": "/coloring-pages/jesus-washes-feet.jpg",
+  "/coloring-pages/transfiguration-s1.svg": "/coloring-pages/transfiguration.jpg",
+  "/coloring-pages/transfiguration-s2.svg": "/coloring-pages/transfiguration.jpg",
+  "/coloring-pages/transfiguration-s3.svg": "/coloring-pages/transfiguration.jpg",
+  "/coloring-pages/transfiguration-s4.svg": "/coloring-pages/transfiguration.jpg",
+  "/coloring-pages/jordan-crossing-s1.svg": "/coloring-pages/jordan-crossing.jpg",
+  "/coloring-pages/jordan-crossing-s2.svg": "/coloring-pages/jordan-crossing.jpg",
+  "/coloring-pages/jordan-crossing-s3.svg": "/coloring-pages/jordan-crossing.jpg",
+  "/coloring-pages/jordan-crossing-s4.svg": "/coloring-pages/jordan-crossing.jpg",
+  "/coloring-pages/balaams-donkey-s1.svg": "/coloring-pages/balaams-donkey.jpg",
+  "/coloring-pages/balaams-donkey-s2.svg": "/coloring-pages/balaams-donkey.jpg",
+  "/coloring-pages/balaams-donkey-s3.svg": "/coloring-pages/balaams-donkey.jpg",
+  "/coloring-pages/balaams-donkey-s4.svg": "/coloring-pages/balaams-donkey.jpg",
+  "/coloring-pages/elijah-taken-up-s1.svg": "/coloring-pages/elijah-taken-up.jpg",
+  "/coloring-pages/elijah-taken-up-s2.svg": "/coloring-pages/elijah-taken-up.jpg",
+  "/coloring-pages/elijah-taken-up-s3.svg": "/coloring-pages/elijah-taken-up.jpg",
+  "/coloring-pages/elijah-taken-up-s4.svg": "/coloring-pages/elijah-taken-up.jpg",
+  "/coloring-pages/nehemiah-walls-s1.svg": "/coloring-pages/nehemiah-walls.jpg",
+  "/coloring-pages/nehemiah-walls-s2.svg": "/coloring-pages/nehemiah-walls.jpg",
+  "/coloring-pages/nehemiah-walls-s3.svg": "/coloring-pages/nehemiah-walls.jpg",
+  "/coloring-pages/nehemiah-walls-s4.svg": "/coloring-pages/nehemiah-walls.jpg",
+  "/coloring-pages/jesus-tempted-s1.svg": "/coloring-pages/jesus-tempted.jpg",
+  "/coloring-pages/jesus-tempted-s2.svg": "/coloring-pages/jesus-tempted.jpg",
+  "/coloring-pages/jesus-tempted-s3.svg": "/coloring-pages/jesus-tempted.jpg",
+  "/coloring-pages/jesus-tempted-s4.svg": "/coloring-pages/jesus-tempted.jpg",
+  "/coloring-pages/paul-silas-prison-s1.svg": "/coloring-pages/paul-silas-prison.jpg",
+  "/coloring-pages/paul-silas-prison-s2.svg": "/coloring-pages/paul-silas-prison.jpg",
+  "/coloring-pages/paul-silas-prison-s3.svg": "/coloring-pages/paul-silas-prison.jpg",
+  "/coloring-pages/paul-silas-prison-s4.svg": "/coloring-pages/paul-silas-prison.jpg",
+  "/coloring-pages/lydia-purple-s1.svg": "/coloring-pages/lydia-purple.jpg",
+  "/coloring-pages/lydia-purple-s2.svg": "/coloring-pages/lydia-purple.jpg",
+  "/coloring-pages/lydia-purple-s3.svg": "/coloring-pages/lydia-purple.jpg",
+  "/coloring-pages/lydia-purple-s4.svg": "/coloring-pages/lydia-purple.jpg",
+  "/coloring-pages/tabitha-dorcas-s1.svg": "/coloring-pages/tabitha-dorcas.jpg",
+  "/coloring-pages/tabitha-dorcas-s2.svg": "/coloring-pages/tabitha-dorcas.jpg",
+  "/coloring-pages/tabitha-dorcas-s3.svg": "/coloring-pages/tabitha-dorcas.jpg",
+  "/coloring-pages/tabitha-dorcas-s4.svg": "/coloring-pages/tabitha-dorcas.jpg",
   "/coloring-pages/nativity-s1.svg": "/coloring-pages/nativity-s1.jpg",
   "/coloring-pages/nativity-s2.svg": "/coloring-pages/nativity-s2.jpg",
   "/coloring-pages/nativity-s3.svg": "/coloring-pages/nativity-s3.jpg",
-  "/coloring-pages/nativity-s4.svg": "/coloring-pages/nativity-s4.jpg"
+  "/coloring-pages/nativity-s4.svg": "/coloring-pages/nativity-s4.jpg",
+  "/coloring-pages/paul-shipwreck-s1.svg": "/coloring-pages/paul-shipwreck.jpg",
+  "/coloring-pages/paul-shipwreck-s2.svg": "/coloring-pages/paul-shipwreck.jpg",
+  "/coloring-pages/paul-shipwreck-s3.svg": "/coloring-pages/paul-shipwreck.jpg",
+  "/coloring-pages/paul-shipwreck-s4.svg": "/coloring-pages/paul-shipwreck.jpg",
+  "/coloring-pages/rahab-spies-s1.svg": "/coloring-pages/rahab-spies.jpg",
+  "/coloring-pages/rahab-spies-s2.svg": "/coloring-pages/rahab-spies.jpg",
+  "/coloring-pages/rahab-spies-s3.svg": "/coloring-pages/rahab-spies.jpg",
+  "/coloring-pages/rahab-spies-s4.svg": "/coloring-pages/rahab-spies.jpg",
+  "/coloring-pages/elijah-widow-s1.svg": "/coloring-pages/elijah-widow.jpg",
+  "/coloring-pages/elijah-widow-s2.svg": "/coloring-pages/elijah-widow.jpg",
+  "/coloring-pages/elijah-widow-s3.svg": "/coloring-pages/elijah-widow.jpg",
+  "/coloring-pages/elijah-widow-s4.svg": "/coloring-pages/elijah-widow.jpg",
+  "/coloring-pages/philip-ethiopian-s1.svg": "/coloring-pages/philip-ethiopian.jpg",
+  "/coloring-pages/philip-ethiopian-s2.svg": "/coloring-pages/philip-ethiopian.jpg",
+  "/coloring-pages/philip-ethiopian-s3.svg": "/coloring-pages/philip-ethiopian.jpg",
+  "/coloring-pages/philip-ethiopian-s4.svg": "/coloring-pages/philip-ethiopian.jpg",
+  "/coloring-pages/david-spares-saul-s1.svg": "/coloring-pages/david-spares-saul.jpg",
+  "/coloring-pages/david-spares-saul-s2.svg": "/coloring-pages/david-spares-saul.jpg",
+  "/coloring-pages/david-spares-saul-s3.svg": "/coloring-pages/david-spares-saul.jpg",
+  "/coloring-pages/david-spares-saul-s4.svg": "/coloring-pages/david-spares-saul.jpg",
+  "/coloring-pages/ll-honesty-s1.svg": "/coloring-pages/ll-honesty.jpg",
+  "/coloring-pages/ll-honesty-s2.svg": "/coloring-pages/ll-honesty.jpg",
+  "/coloring-pages/ll-commandments-s1.svg": "/coloring-pages/ll-commandments.jpg",
+  "/coloring-pages/ll-commandments-s2.svg": "/coloring-pages/ll-commandments.jpg"
 };
   // TDB_SCENE_ART_END
 
@@ -358,13 +598,14 @@
       var isRaster = /\.(jpe?g|png|webp)(\?|$)/i.test(resolved[0] || '');
       if (story.scenes.length > 1 && allSame && isRaster) {
         var first = story.scenes[0];
+        // Full-page hero: keep whole-story KJV + idea so the picture has full context.
         story.scenes = [
           {
             id: '1',
             src: resolved[0],
-            alt: first.alt,
-            caption: first.caption,
-            verse: first.verse
+            alt: first.alt || story.title,
+            caption: first.caption || story.idea || story.title,
+            verse: story.verse || first.verse || ''
           }
         ];
         if (story.lead && /four|panels|scene\(s\)/i.test(story.lead)) {
@@ -377,6 +618,123 @@
         }
       }
     }
+  }
+
+  /**
+   * Build the story-context block shown with every coloring scene
+   * (title, what's happening, KJV) so kids always know the picture's story.
+   */
+  function buildSceneStoryCard(story, scene, sceneIdx, sceneTotal) {
+    var card = document.createElement('div');
+    card.className = 'tdb-cat-scene-story-card';
+
+    var label = document.createElement('p');
+    label.className = 'tdb-cat-scene-label';
+    if (sceneTotal > 1) {
+      label.textContent =
+        'Scene ' + (sceneIdx + 1) + ' of ' + sceneTotal + ' · ' + (story.title || '');
+    } else {
+      label.textContent = story.title || 'Bible story';
+    }
+    card.appendChild(label);
+
+    if (scene.caption) {
+      var cap = document.createElement('p');
+      cap.className = 'tdb-cat-scene-caption';
+      cap.textContent = scene.caption;
+      card.appendChild(cap);
+    }
+
+    var pictureHint = scene.alt || '';
+    if (pictureHint) {
+      var pic = document.createElement('p');
+      pic.className = 'tdb-cat-scene-picture-hint';
+      pic.textContent = 'In this picture: ' + pictureHint;
+      card.appendChild(pic);
+    }
+
+    if (story.idea) {
+      var idea = document.createElement('p');
+      idea.className = 'tdb-cat-scene-idea';
+      idea.textContent = 'Big idea: ' + story.idea;
+      card.appendChild(idea);
+    }
+
+    return card;
+  }
+
+  /**
+   * Composite caption + KJV under a saved coloring PNG so Watch My Story
+   * and downloads keep the story text with the picture.
+   */
+  function compositeStoryTextUnderImage(pngDataUrl, story, scene) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      img.onload = function () {
+        var pad = 24;
+        var textBlockH = 120;
+        var w = img.naturalWidth;
+        var h = img.naturalHeight + textBlockH;
+        var c = document.createElement('canvas');
+        c.width = w;
+        c.height = h;
+        var ctx = c.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, w, h);
+        ctx.drawImage(img, 0, 0);
+
+        var y = img.naturalHeight + 18;
+        ctx.fillStyle = '#f8fafc';
+        ctx.fillRect(0, img.naturalHeight, w, textBlockH);
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.beginPath();
+        ctx.moveTo(0, img.naturalHeight + 0.5);
+        ctx.lineTo(w, img.naturalHeight + 0.5);
+        ctx.stroke();
+
+        ctx.fillStyle = '#0f172a';
+        ctx.font = 'bold ' + Math.max(18, Math.round(w / 42)) + 'px system-ui, sans-serif';
+        var title = story.title || '';
+        ctx.fillText(title, pad, y + 8);
+
+        ctx.font = Math.max(16, Math.round(w / 48)) + 'px system-ui, sans-serif';
+        ctx.fillStyle = '#1e293b';
+        var cap = scene.caption || '';
+        // simple wrap
+        var maxW = w - pad * 2;
+        var words = cap.split(/\s+/);
+        var line = '';
+        var ly = y + 36;
+        var lineH = Math.max(20, Math.round(w / 45));
+        for (var i = 0; i < words.length; i++) {
+          var test = line ? line + ' ' + words[i] : words[i];
+          if (ctx.measureText(test).width > maxW && line) {
+            ctx.fillText(line, pad, ly);
+            line = words[i];
+            ly += lineH;
+            if (ly > h - 28) break;
+          } else {
+            line = test;
+          }
+        }
+        if (line && ly <= h - 28) ctx.fillText(line, pad, ly);
+
+        var verse = scene.verse || story.verse || '';
+        if (verse) {
+          ctx.fillStyle = '#7c3d12';
+          ctx.font =
+            'italic ' + Math.max(14, Math.round(w / 52)) + 'px Georgia, serif';
+          var vLine = verse.length > 110 ? verse.slice(0, 107) + '…' : verse;
+          ctx.fillText(vLine, pad, h - 16);
+        }
+
+        resolve(c.toDataURL('image/png'));
+      };
+      img.onerror = function () {
+        reject(new Error('image'));
+      };
+      img.src = pngDataUrl;
+    });
   }
 
   /** KJV refs in captions — short for on-screen (OT first, then Gospels) */
@@ -3483,10 +3841,12 @@
   function createJl(scene) {
     var jl = document.createElement('jl-coloringbook');
     jl.setAttribute('maxbrushsize', '56');
-    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=25');
+    jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css?v=32fill');
     var im = document.createElement('img');
     im.src = bestSceneSrc(scene);
-    im.alt = scene.alt;
+    im.alt = scene.alt || scene.caption || '';
+    im.decoding = 'async';
+    im.loading = 'eager';
     jl.appendChild(im);
     for (var c = 0; c < PALETTE.length; c++) {
       var italic = document.createElement('i');
@@ -3494,6 +3854,31 @@
       jl.appendChild(italic);
     }
     return jl;
+  }
+
+  /**
+   * Mount the heavy coloring tool only when a scene is actually shown.
+   * Avoids loading 80+ full-page JPGs + shadow-DOM books on first paint.
+   */
+  function ensureSceneJl(panel) {
+    if (!panel || panel._tdbJl) return panel._tdbJl;
+    var wrap = panel.querySelector('.tdb-cat-jl-wrap');
+    if (!wrap) return null;
+    var scene = panel._tdbScene;
+    if (!scene) return null;
+    var placeholder = wrap.querySelector('.tdb-cat-jl-placeholder');
+    var jl = createJl(scene);
+    panel._tdbJl = jl;
+    wrap.textContent = '';
+    wrap.appendChild(jl);
+    if (placeholder) {
+      /* removed with textContent clear */
+    }
+    return jl;
+  }
+
+  function getPanelJl(panel) {
+    return panel && panel._tdbJl ? panel._tdbJl : ensureSceneJl(panel);
   }
 
   var show = {
@@ -3748,34 +4133,103 @@
     });
   }
 
+  /** Thumbnail src for a story card (first scene art; lazy-loaded by the browser). */
+  function storyThumbSrc(story) {
+    if (!story || !story.scenes || !story.scenes.length) return '';
+    return bestSceneSrc(story.scenes[0]) || '';
+  }
+
+  function jumpToColorStory(storyId) {
+    if (!storyId) return;
+    var sec = document.querySelector(
+      '.tdb-cat-story[data-tdb-story="' + storyId + '"]'
+    );
+    if (!sec) return;
+    /* Reveal deferred stories when jumped from the picture grid */
+    sec.hidden = false;
+    sec.classList.remove('tdb-cat-story--deferred');
+    try {
+      var showAll = document.querySelector('.tdb-cat-show-all-stories');
+      if (showAll) showAll.hidden = true;
+    } catch (_e) { /* no-op */ }
+    sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var firstPanel =
+      sec.querySelector('.tdb-cat-panel:not([hidden])') ||
+      sec.querySelector('.tdb-cat-panel');
+    if (firstPanel) ensureSceneJl(firstPanel);
+  }
+
+  /**
+   * Story-library-style picture grid: one thumbnail card per coloring story.
+   */
   function refreshProgressCards(container) {
     container.textContent = '';
+    container.classList.add('tdb-cat-story-grid');
     for (var s = 0; s < STORIES.length; s++) {
       var story = STORIES[s];
-      var card = document.createElement('div');
-      card.className = 'tdb-cat-progress-card';
-      var thumb = document.createElement('img');
-      thumb.className = 'tdb-cat-progress-card-thumb';
-      thumb.src = bestSceneSrc(story.scenes[0]);
-      thumb.alt = '';
-      thumb.loading = 'lazy';
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'tdb-cat-progress-card tdb-cat-story-grid-card';
+      card.setAttribute('data-tdb-jump-story', story.id);
+      card.setAttribute(
+        'aria-label',
+        (story.title || 'Story') + ' — open to color'
+      );
+
+      var thumbWrap = document.createElement('span');
+      thumbWrap.className = 'tdb-cat-story-grid-thumb-wrap';
+      thumbWrap.setAttribute('aria-hidden', 'true');
+      var src = storyThumbSrc(story);
+      if (src) {
+        var img = document.createElement('img');
+        img.className = 'tdb-cat-story-grid-thumb';
+        img.src = src;
+        img.alt = '';
+        img.loading = s < 8 ? 'eager' : 'lazy';
+        img.decoding = 'async';
+        img.width = 280;
+        img.height = 224;
+        img.addEventListener('error', function () {
+          this.style.display = 'none';
+          var badge = this.parentNode && this.parentNode.querySelector('.tdb-cat-progress-card-badge');
+          if (badge) badge.hidden = false;
+        });
+        thumbWrap.appendChild(img);
+      }
+      var badge = document.createElement('span');
+      badge.className = 'tdb-cat-progress-card-thumb tdb-cat-progress-card-badge';
+      badge.textContent = (story.title || '?').charAt(0);
+      if (src) badge.hidden = true;
+      thumbWrap.appendChild(badge);
+
       var title = document.createElement('p');
       title.className = 'tdb-cat-progress-card-title';
       title.textContent = story.title;
+
       var status = document.createElement('p');
       var st = statusLabel(story);
       status.className = 'tdb-cat-progress-card-status' + st.doneClass;
       status.textContent = st.text;
+
       var meter = document.createElement('div');
       meter.className = 'tdb-cat-progress-meter';
       var fill = document.createElement('div');
       fill.className = 'tdb-cat-progress-meter-fill';
       fill.style.width = pct(story) + '%';
       meter.appendChild(fill);
-      card.appendChild(thumb);
+
+      var openLabel = document.createElement('span');
+      openLabel.className = 'tdb-cat-story-grid-open';
+      openLabel.textContent = 'Color me';
+
+      card.appendChild(thumbWrap);
       card.appendChild(title);
       card.appendChild(status);
       card.appendChild(meter);
+      card.appendChild(openLabel);
+      card.addEventListener('click', function () {
+        jumpToColorStory(this.getAttribute('data-tdb-jump-story'));
+      });
       container.appendChild(card);
     }
   }
@@ -3788,6 +4242,7 @@
       tabs[i].setAttribute('aria-selected', on ? 'true' : 'false');
       tabs[i].tabIndex = on ? 0 : -1;
       panels[i].hidden = !on;
+      if (on) ensureSceneJl(panels[i]);
     }
   }
 
@@ -3878,28 +4333,43 @@
     var note = document.createElement('p');
     note.className = 'tdb-cat-hero-note';
     note.textContent =
-      'Color & Tell: Color the scenes, save each one on this device, then watch your own colored story come to life in a personal slideshow. Some stories are one beautiful full page; others have several scenes. No account needed.';
+      'Pick a picture below, then color. Save on this device, then Watch My Story. No account needed.';
+
+    /* Featured doors still load first for deep links; grid lists every story. */
+    var FEATURED_STORY_IDS = {
+      creation: true,
+      david: true,
+      'jesus-children': true,
+      'daniel-lions': true,
+      'empty-tomb': true
+    };
+
+    /* Picture grid like Story Library — always visible first. */
+    var gridHeading = document.createElement('h2');
+    gridHeading.className = 'tdb-cat-story-grid-heading';
+    gridHeading.id = 'tdb-cat-story-grid-h';
+    gridHeading.textContent = 'Pick a picture to color';
+
+    var gridLead = document.createElement('p');
+    gridLead.className = 'tdb-cat-progress-jump-hint section-note';
+    gridLead.textContent =
+      'Tap a card. Scroll down to paint. ' + STORIES.length + ' Bible stories.';
 
     var progressOuter = document.createElement('div');
-    progressOuter.className = 'tdb-cat-progress-outer';
+    progressOuter.className = 'tdb-cat-progress-outer tdb-cat-story-grid-outer';
 
     var progressWrap = document.createElement('div');
-    progressWrap.className = 'tdb-cat-progress';
+    progressWrap.className = 'tdb-cat-progress tdb-cat-story-grid';
     progressWrap.setAttribute('role', 'region');
-    progressWrap.setAttribute('aria-label', 'Story progress');
+    progressWrap.setAttribute('aria-labelledby', 'tdb-cat-story-grid-h');
+    progressWrap.setAttribute('aria-label', 'Coloring story pictures');
     progressWrap.tabIndex = 0;
 
-    var jumpHint = document.createElement('p');
-    jumpHint.className = 'tdb-cat-progress-jump-hint section-note';
-    jumpHint.appendChild(document.createTextNode('Scroll sideways for all stories, or '));
-    var jumpA = document.createElement('a');
-    jumpA.href = '#tdb-cat-story-start';
-    jumpA.className = 'link-button';
-    jumpA.textContent = 'jump to coloring';
-    jumpHint.appendChild(jumpA);
-    jumpHint.appendChild(document.createTextNode('.'));
-
     mount.appendChild(note);
+    mount.appendChild(gridHeading);
+    mount.appendChild(gridLead);
+    progressOuter.appendChild(progressWrap);
+    mount.appendChild(progressOuter);
     if (requestedStoryId) {
       var storyMeta = getStoryMetaById(requestedStoryId);
       var handoffMeta = STORY_RETURN_HANDOFFS[requestedStoryId] || null;
@@ -3930,9 +4400,6 @@
       }
       mount.appendChild(gentleNote);
     }
-    mount.appendChild(jumpHint);
-    mount.appendChild(progressOuter);
-    progressOuter.appendChild(progressWrap);
 
     var clearAllWrap = document.createElement('div');
     clearAllWrap.className = 'tdb-cat-clear-all-wrap';
@@ -3964,6 +4431,24 @@
       refreshProgressCards(progressWrap);
     }
 
+    var showAllStoriesBtn = document.createElement('button');
+    showAllStoriesBtn.type = 'button';
+    showAllStoriesBtn.className = 'btn btn-secondary tdb-cat-show-all-stories no-print';
+    showAllStoriesBtn.textContent = 'Show paint tools for every story';
+    showAllStoriesBtn.setAttribute(
+      'aria-label',
+      'Expand paint tools for every Color and Tell story on this page'
+    );
+    showAllStoriesBtn.addEventListener('click', function () {
+      mount.querySelectorAll('.tdb-cat-story--deferred').forEach(function (sec) {
+        sec.hidden = false;
+        sec.classList.remove('tdb-cat-story--deferred');
+      });
+      showAllStoriesBtn.hidden = true;
+    });
+    /* Grid already lists every story; button still expands all paint sections. */
+    mount.appendChild(showAllStoriesBtn);
+
     for (var si = 0; si < STORIES.length; si++) {
       (function (story) {
         var section = document.createElement('section');
@@ -3972,8 +4457,22 @@
           section.classList.add('is-single-scene');
         }
         section.setAttribute('data-tdb-story', story.id);
-        if (STORIES[0] && story.id === STORIES[0].id) {
-          section.id = 'tdb-cat-story-start';
+        var isFeatured = !!FEATURED_STORY_IDS[story.id];
+        var isRequested = !!(requestedStoryId && story.id === requestedStoryId);
+        /* Deep link: focus that story. Otherwise start with five doors only. */
+        if (requestedStoryId) {
+          if (!isRequested) {
+            section.hidden = true;
+            section.classList.add('tdb-cat-story--deferred');
+          }
+        } else if (!isFeatured) {
+          section.hidden = true;
+          section.classList.add('tdb-cat-story--deferred');
+        }
+        if (isFeatured || isRequested) {
+          if (!document.getElementById('tdb-cat-story-start')) {
+            section.id = 'tdb-cat-story-start';
+          }
         }
         if (requestedStoryId && story.id === requestedStoryId) {
           requestedStorySection = section;
@@ -4014,7 +4513,13 @@
             tab.setAttribute('aria-controls', 'panel-' + story.id + '-' + sc.id);
             tab.setAttribute('aria-selected', sceneIdx === 0 ? 'true' : 'false');
             tab.tabIndex = sceneIdx === 0 ? 0 : -1;
-            tab.textContent = 'Scene ' + (sceneIdx + 1);
+            // Short tab label: "1 · caption snippet" so kids see the story beat
+            var tabCap = (sc.caption || '').trim();
+            if (tabCap.length > 28) tabCap = tabCap.slice(0, 26) + '…';
+            tab.textContent = tabCap
+              ? sceneIdx + 1 + ' · ' + tabCap
+              : 'Scene ' + (sceneIdx + 1);
+            tab.title = sc.caption || 'Scene ' + (sceneIdx + 1);
             tab.addEventListener('click', function () {
               selectTab(story, sceneIdx, section);
             });
@@ -4031,16 +4536,23 @@
             }
             panel.hidden = sceneIdx !== 0;
 
-            var cap = document.createElement('p');
-            cap.className = 'tdb-cat-scene-caption no-print';
-            cap.textContent = sc.caption;
+            var storyCard = buildSceneStoryCard(
+              story,
+              sc,
+              sceneIdx,
+              story.scenes.length
+            );
 
+            // Defer heavy jl-coloringbook until the panel is shown (ensureSceneJl).
+            panel._tdbScene = sc;
             var jlBox = document.createElement('div');
             jlBox.className = 'tdb-cat-jl-wrap kids-gold-frame';
-            var jl = createJl(sc);
-            jlBox.appendChild(jl);
+            var jlPlaceholder = document.createElement('p');
+            jlPlaceholder.className = 'tdb-cat-jl-placeholder section-note';
+            jlPlaceholder.textContent = 'Tap this story to load the coloring page…';
+            jlBox.appendChild(jlPlaceholder);
 
-            var verseStrip = buildVerseStrip(sc.verse);
+            var verseStrip = buildVerseStrip(sc.verse || story.verse);
 
             var printBtn = document.createElement('button');
             printBtn.type = 'button';
@@ -4048,6 +4560,7 @@
             printBtn.textContent = 'Print this scene';
             printBtn.setAttribute('aria-label', 'Print coloring page with KJV verse');
             printBtn.addEventListener('click', function () {
+              ensureSceneJl(panel);
               window.printColoringScene();
             });
 
@@ -4063,39 +4576,50 @@
             }
 
             saveBtn.addEventListener('click', function () {
-              if (typeof jl.exportCompositePng !== 'function') {
+              var jl = getPanelJl(panel);
+              if (!jl || typeof jl.exportCompositePng !== 'function') {
                 window.alert('Coloring is still loading. Wait a moment, then try again.');
                 return;
               }
-              jl.exportCompositePng().then(function (png) {
-                if (!png) {
-                  window.alert('Picture is not ready yet—that is all right. Try again in a second.');
-                  return null;
-                }
-                return pngToJpeg(png, JPEG_QUALITY);
-              }).then(function (jpeg) {
-                if (!jpeg) return;
-                try {
-                  setSaved(story.id, sc.id, jpeg);
-                } catch (err) {
-                  if (err && err.name === 'QuotaExceededError') {
+              jl.exportCompositePng()
+                .then(function (png) {
+                  if (!png) {
                     window.alert(
-                      'This device ran out of save space. Tap “Clear saved stories” under the progress cards, or ask a grown-up to free browser storage.'
+                      'Picture is not ready yet. Try again in a second.'
                     );
-                  } else {
-                    window.alert('That did not save—that is all right. Try again.');
+                    return null;
                   }
-                  return;
-                }
-                msg.textContent = 'Saved! This scene is in your story.';
-                refreshAllProgress();
-                updateStoryUI(story, section, watchBtn, celebrate);
-              }).catch(function () {
-                window.alert('Picture did not save—that is all right. Try again.');
-              });
+                  // Keep story title + caption + KJV under the saved picture.
+                  return compositeStoryTextUnderImage(png, story, sc);
+                })
+                .then(function (pngWithText) {
+                  if (!pngWithText) return null;
+                  return pngToJpeg(pngWithText, JPEG_QUALITY);
+                })
+                .then(function (jpeg) {
+                  if (!jpeg) return;
+                  try {
+                    setSaved(story.id, sc.id, jpeg);
+                  } catch (err) {
+                    if (err && err.name === 'QuotaExceededError') {
+                      window.alert(
+                        'This device ran out of save space. Tap “Clear saved stories” under the progress cards, or ask a grown-up to free browser storage.'
+                      );
+                    } else {
+                      window.alert('That did not save. Try again.');
+                    }
+                    return;
+                  }
+                  msg.textContent = 'Saved! This scene is in your story.';
+                  refreshAllProgress();
+                  updateStoryUI(story, section, watchBtn, celebrate);
+                })
+                .catch(function () {
+                  window.alert('Picture did not save. Try again.');
+                });
             });
 
-            panel.appendChild(cap);
+            panel.appendChild(storyCard);
             panel.appendChild(jlBox);
             panel.appendChild(verseStrip);
             panel.appendChild(printBtn);
@@ -4189,6 +4713,45 @@
     }
 
     refreshAllProgress();
+    if (!mount.querySelector('.tdb-cat-story--deferred')) {
+      showAllStoriesBtn.hidden = true;
+    }
+
+    // Mount only the active story's visible scene (not all 80+ books).
+    function mountVisibleStory(sectionEl) {
+      if (!sectionEl) return;
+      var panel =
+        sectionEl.querySelector('.tdb-cat-panel:not([hidden])') ||
+        sectionEl.querySelector('.tdb-cat-panel');
+      if (panel) ensureSceneJl(panel);
+    }
+    if (requestedStorySection) {
+      mountVisibleStory(requestedStorySection);
+    } else {
+      var firstSec = mount.querySelector('.tdb-cat-story');
+      mountVisibleStory(firstSec);
+    }
+
+    // When a story section scrolls near the viewport, mount its first panel once.
+    if (typeof IntersectionObserver === 'function') {
+      var io = new IntersectionObserver(
+        function (entries) {
+          for (var ei = 0; ei < entries.length; ei++) {
+            if (!entries[ei].isIntersecting) continue;
+            var sec = entries[ei].target;
+            var p =
+              sec.querySelector('.tdb-cat-panel:not([hidden])') ||
+              sec.querySelector('.tdb-cat-panel');
+            if (p) ensureSceneJl(p);
+          }
+        },
+        { root: null, rootMargin: '120px 0px', threshold: 0.05 }
+      );
+      mount.querySelectorAll('.tdb-cat-story').forEach(function (sec) {
+        io.observe(sec);
+      });
+    }
+
     if (requestedStorySection && typeof requestedStorySection.scrollIntoView === 'function') {
       requestedStorySection.scrollIntoView({ behavior: 'auto', block: 'start' });
       try {

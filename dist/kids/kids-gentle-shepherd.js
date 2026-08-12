@@ -32,7 +32,7 @@
   var FIRST_EVER = [
     'Shh—look! I saved you the spot right here by the quiet fence. Want one Bible story, one color, or one small game to start?',
     'First time? Perfect. I will walk slow. The big story button is a real read-aloud—no rush.',
-    "Hi. I am Little Shepherd. I like truth, snacks, and kids who want Jesus. Let us go tap something together.",
+    "Hi. I am Little Shepherd. I love true Bible stories and being your friend. Let us go tap something together.",
     'This is the cozy spot on the field. I was hoping someone brave like you would show up. Ready when you are.',
     "Welcome in. I am not loud like a show—I am more like a friend on the path. What sounds fun to you first?"
   ];
@@ -61,7 +61,7 @@
   ];
 
   var FUN_FACTS = [
-    'Fun fact: my job is to stay close, walk slowly, and help sheep feel safe—kind of like a grown-up on the bleachers, but in a field.',
+    'Fun fact: my job is to stay close, walk slowly, and help sheep feel safe—like a good helper on the path.',
     'Fun fact: a shepherd’s staff is for guiding and gentle lifting—not for poking at friends. Ours is for “come this way” kind of help.',
     'Fun fact: I hum songs about green grass and still water. It keeps my heart from rushing.',
     'Fun fact: sheep know their shepherd’s voice. I want to know Jesus’ words that way, too—calm, clear, true.',
@@ -233,11 +233,18 @@
       var t = raw.replace(/\u00a0/g, ' ').trim();
       if (!t) return;
       try {
+        /* Prefer shared calm speaker from kids-corner when present. */
+        if (typeof global.tdbKidsSpeakCalm === 'function') {
+          try {
+            if (global.speechSynthesis) global.speechSynthesis.cancel();
+          } catch (_c0) { /* no-op */ }
+          global.tdbKidsSpeakCalm(t);
+          return;
+        }
         global.speechSynthesis.cancel();
         var u = new global.SpeechSynthesisUtterance(t);
         u.lang = 'en-US';
-        /* Calm and clear — avoid chipmunk/robot defaults. */
-        u.rate = 0.84;
+        u.rate = 0.8;
         u.pitch = 1.0;
         u.volume = 1;
         try {
@@ -245,7 +252,10 @@
             var voices = global.speechSynthesis.getVoices() || [];
             var pick =
               voices.find(function (v) {
-                return v.lang && /^en-us/i.test(v.lang) && /samantha|karen|neural|natural|premium|google us english|moira|daniel/i.test(v.name || '');
+                return v.lang && /^en-us/i.test(v.lang) && /samantha|karen|moira|daniel|neural|natural|premium|google us english|aria|jenny/i.test(v.name || '');
+              }) ||
+              voices.find(function (v) {
+                return v.lang && /^en-us/i.test(v.lang) && v.localService;
               }) ||
               voices.find(function (v) {
                 return v.lang && /^en-us/i.test(v.lang);
@@ -390,7 +400,7 @@
     } catch (e) { /* no-op */ }
   }
 
-  /* Absolute /kids/ paths so poses resolve from coloring.html, little-ones, and Kids Battle.
+  /* Absolute /kids/ paths so poses resolve from coloring.html, little-ones, and Kids.
    * Premium illustrated PNG set (v20260810) — soft kids-book style, not stick SVGs. */
   var MASCOT_POSES = [
     { src: '/kids/shepherd-mascot-welcome.png?v=20260810ears2', label: 'Little Shepherd waves hello' },

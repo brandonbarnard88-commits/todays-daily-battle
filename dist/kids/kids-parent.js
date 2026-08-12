@@ -1,5 +1,5 @@
 /**
- * Parent Dashboard — reads kid's streak, doodles, badges from localStorage.
+ * Family quiet view — reads kid's streak, doodles, badges from localStorage.
  * No login. Same keys as kids-battle.js.
  */
 (function () {
@@ -119,7 +119,7 @@
       const arr = raw ? JSON.parse(raw) : [];
       recent = Array.isArray(arr) ? arr.slice(0, 4) : [];
     } catch (e) {}
-    const a = 'Streak: ' + streak + ' day' + (streak === 1 ? '' : 's') + ' on Kids Battle when you use the hub. ';
+    const a = 'Streak: ' + streak + ' day' + (streak === 1 ? '' : 's') + ' on Kids when you use the hub. ';
     const b = 'Bible Story Library: ' + viewed.length + ' story finishes tracked on this device. ';
     const c = recent.length
       ? 'Lately: ' + recent.map(prettyStoryKey).join(' · ') + '.'
@@ -402,7 +402,7 @@
       const s = stories[key];
       const title = (s && s.title) ? s.title : (key || 'Story');
       const panels = (s && s.panels && s.panels.length) ? s.panels : [];
-      const thumb = panels[0] ? (typeof panels[0] === 'object' ? panels[0].src : panels[0]) : 'panel-noah-1.svg';
+      const thumb = panels[0] ? (typeof panels[0] === 'object' ? panels[0].src : panels[0]) : '/coloring-pages/colored/noah-s1.jpg';
       const ctx = (s && s.kidContext) ? s.kidContext : null;
       const apply = (ctx && ctx.apply) ? ctx.apply : 'Talk about what God did in this story!';
       const card = document.createElement('a');
@@ -445,7 +445,7 @@
       try {
         t = window.tdbKidsActivityLog.formatWeekForParent();
       } catch (e) {
-        t = 'Activity log was not available on this device—that is all right. Try again after a short story session.';
+        t = 'Activity log was not available on this device. Try again after a short story session.';
       }
       var w = window.open('', '_blank', 'noopener');
       if (!w) {
@@ -455,9 +455,9 @@
       d.open();
       d.write('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>7-day activity recap</title>');
       d.write('<style>body{font-family:ui-sans-serif,system-ui,sans-serif;padding:1.25rem;line-height:1.55;max-width:40rem;}</style></head><body>');
-      d.write('<h1 style="font-size:1.1rem;">Kids Battle — 7 days (this device)</h1><pre style="font-family:ui-monospace,monospace;font-size:0.9rem;white-space:pre-wrap;word-wrap:break-word;">');
+      d.write('<h1 style="font-size:1.1rem;">Kids — 7 days (this device)</h1><pre style="font-family:ui-monospace,monospace;font-size:0.9rem;white-space:pre-wrap;word-wrap:break-word;">');
       d.write(String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;'));
-      d.write('</pre><p style="font-size:0.8rem;color:#64748b">Printed from Parent Dashboard. Nothing here leaves the device unless you share it.</p></body></html>');
+      d.write('</pre><p style="font-size:0.8rem;color:#64748b">Printed from Family quiet view. Nothing here leaves the device unless you share it.</p></body></html>');
       d.close();
       w.addEventListener('load', function onLw() {
         w.removeEventListener('load', onLw);
@@ -558,7 +558,7 @@
         if (emptyCopy) emptyCopy.style.display = 'none';
         Object.entries(savedStories).slice(0, 6).forEach(([id, data]) => {
           const title = id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-          const thumb = (data.scenes && data.scenes[0]) || 'panel-noah-1.svg';
+          const thumb = (data.scenes && data.scenes[0]) || '/coloring-pages/colored/noah-s1.jpg';
           gallery.appendChild(buildParentStoryCard(thumb, title, title, 'They spent quiet time with this story today.'));
         });
       }
@@ -580,14 +580,14 @@
     const saved = JSON.parse(localStorage.getItem('savedColorings') || '{}');
     const data = saved[id];
     if (!data) {
-      alert('No saved coloring for this story yet—that is all right. Color a scene first.');
+      alert('No saved coloring for this story yet. Color a scene first.');
       return;
     }
 
     const title = id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     const JsPDF = window.jspdf && window.jspdf.jsPDF;
     if (!JsPDF) {
-      alert('PDF library is still waking up—that is all right. Tap again in a moment.');
+      alert('PDF library is still waking up. Tap again in a moment.');
       return;
     }
 
@@ -664,7 +664,7 @@
       if (typeof trackEvent === 'function') trackEvent('parent_export_pdf', { story: id });
     } catch (err) {
       console.error(err);
-      alert('PDF did not build—that is all right. The image may be too large—try exporting from the coloring screen instead.');
+      alert('PDF did not build. The image may be too large—try exporting from the coloring screen instead.');
     }
   }
 
@@ -687,7 +687,7 @@
       if (dash && dash.parentNode) dash.parentNode.removeChild(dash);
       loadParentView();
     } catch (e) {
-      alert('Saves did not clear—that is all right. Try again in a moment.');
+      alert('Saves did not clear. Try again in a moment.');
     }
   }
 

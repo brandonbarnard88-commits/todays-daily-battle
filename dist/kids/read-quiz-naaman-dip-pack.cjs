@@ -10,8 +10,10 @@ module.exports = {
   kjvRef: '2 Kings 5:15-19 (KJV)',
   verseExcerpt:
     'And he said unto him, Go in peace. So he departed from him a little way. — 2 Kings 5:19 (KJV)',
-  readAlongTitle: 'Read along',
-  hintAboveQuiz: 'Read slowly. Tap each part when you are ready.',
+  readAlongTitle: 'Naaman Returns with Thanks',
+  quizWrongHumilityHint:
+    'Listen again — Naaman said thanks, Elisha took no payment, and Go in peace.',
+  hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
   readAlongSections: [
     {
       text:

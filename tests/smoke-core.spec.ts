@@ -139,7 +139,9 @@ test.describe('core smoke (dist)', () => {
 
   test('bible-tool.html loads lookup UI', async ({ page }) => {
     await page.goto('/bible-tool.html');
-    await expect(page.getByRole('heading', { name: /the library|bible tool/i })).toBeVisible({ timeout: 15000 });
+    await expect(
+      page.locator('#bible-tool-hero-heading, h1.section-divider').filter({ hasText: /look up a verse|the library|bible tool/i }).first()
+    ).toBeVisible({ timeout: 15000 });
     await expect(page.locator('#daily-ref')).not.toHaveText('', { timeout: 15000 });
     await expect(page.locator('#book')).toBeVisible();
   });

@@ -30,7 +30,7 @@
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
   /* v4: verse-grounded plains (BBE/modernized KJV), not mood stamps */
-  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v4::';
+  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v5::';
   var BREAKDOWN_MAX_MEMORY_CACHE = 600;
   var KJV_DICT_URLS = ['/data/kjv-full.json', '/kjv.json'];
   var BREAKDOWN_OVERRIDES_SCRIPT_URL = '/verse-breakdown-overrides.js';
@@ -305,11 +305,14 @@
       return framed("God's Word is not empty talk. It teaches, steadies, and leads.", modernShort);
     }
 
-    /* Last resort: teaching frame + short modern snippet (never raw KJV echo alone). */
+    /* Last resort: framed teaching line (never “In plain terms…” stamp — that leaked into search/plans). */
     if (modernShort && modernShort.length >= 12) {
-      return 'In plain terms for life today: “' + modernShort.replace(/[“”"]/g, '').replace(/\.$/, '') + '.” Sit with that until one phrase lands.';
+      return framed(
+        'God’s Word here is steady for real life — hold one clear phrase and walk with it.',
+        modernShort
+      );
     }
-    return 'Read this verse slowly and hold the words that land — God is speaking something steady here.';
+    return 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
   }
 
   /** Drop override fields that only echo the KJV (archaic word-swap). */
@@ -364,22 +367,35 @@
   function plainSpeaker(raw) {
     var s = String(raw || '').trim();
     if (!s) return 'Bible writer';
-    if (/jesus/i.test(s)) return 'Jesus';
-    if (/paul/i.test(s)) return 'Paul';
-    if (/david/i.test(s)) return 'David';
-    if (/moses/i.test(s)) return 'Moses';
-    if (/john/i.test(s)) return 'John';
-    if (/isaiah/i.test(s)) return 'Isaiah';
-    if (/jeremiah/i.test(s)) return 'Jeremiah';
-    if (/solomon/i.test(s)) return 'Solomon';
-    if (/unknown/i.test(s)) return 'Bible writer';
     s = s.split('/')[0].split(',')[0].replace(/\(.*?\)/g, '').trim();
+    if (!s) return 'Bible writer';
+    /* Keep short descriptive titles (e.g. “Solomon giving wisdom”) — do not strip to a bare name. */
+    if (s.length <= 56 && s.split(/\s+/).length <= 8 && !/\bspeaking to\b/i.test(s)) {
+      return s;
+    }
+    if (/\bjesus\b/i.test(s)) return 'Jesus';
+    if (/\bpaul\b/i.test(s)) return 'Paul';
+    if (/\bmoses\b/i.test(s)) return 'Moses';
+    if (/\bisaiah\b/i.test(s)) return 'Isaiah';
+    if (/\bjeremiah\b/i.test(s)) return 'Jeremiah';
+    if (/\bsolomon\b/i.test(s)) return 'Solomon';
+    if (/\bpeter\b/i.test(s)) return 'Peter';
+    if (/\bjames\b/i.test(s)) return 'James';
+    if (/\bjohn\b/i.test(s)) return 'John';
+    if (/\bdavid\b/i.test(s)) return 'David';
+    if (/\bunknown\b/i.test(s)) return 'Bible writer';
     return s || 'Bible writer';
   }
 
   function plainAudience(raw) {
     var s = String(raw || '').trim();
     if (!s) return 'People listening back then';
+    /* Keep specific range audiences (e.g. “Anyone learning a straight path for work and plans”). */
+    if (s.length <= 72 && !/^(everyone|all humanity)$/i.test(s)) {
+      if (/believers in|church at|friends in|son\b|disciple|exiles|israel|judah|rome|ephesus|philippi|galatia|straight path|work and plans/i.test(s)) {
+        return s.length > 64 ? s.slice(0, 61) + '…' : s;
+      }
+    }
     if (/believers|church/i.test(s)) return 'His friends who needed hope';
     if (/everyone|all humanity|all\b/i.test(s)) return 'People like us';
     if (/rome/i.test(s)) return 'His friends in Rome';
@@ -387,7 +403,7 @@
     if (/philippi/i.test(s)) return 'His friends in Philippi';
     if (/galatia/i.test(s)) return 'His friends in Galatia';
     if (/israel|judah|exiles/i.test(s)) return 'His people in a hard season';
-    return s.length > 46 ? (s.slice(0, 43) + '...') : s;
+    return s.length > 64 ? (s.slice(0, 61) + '…') : s;
   }
 
   function loadRelationsDict() {
@@ -402,7 +418,7 @@
   }
 
   function getContextNeedle() {
-    var ids = ['main-search', 'q', 'mystudy-search', 'query', 'search'];
+    var ids = ['main-search', 'q', 'mystudy-search', 'query', 'search', 'feel-search', 'tdb-search'];
     var parts = [];
     ids.forEach(function (id) {
       var el = byId(id);
@@ -756,18 +772,54 @@
     return false;
   }
 
+  function isThinSpeakerSituation(s) {
+    var t = tdbPlainTextForUi(s || '');
+    if (!t) return true;
+    if (/ speaking to /i.test(t) && t.length < 100) return true;
+    return false;
+  }
+
   function resolveContextForRef(ref) {
     if (typeof window !== 'undefined' && typeof window.TDB_resolveVerseContext === 'function') {
       try {
         var hit = window.TDB_resolveVerseContext(ref);
         if (hit && hit.about && hit.to && !isWeakContextStamp(hit.about, hit.to)) {
-          return { s: tdbPlainTextForUi(hit.about), a: tdbPlainTextForUi(hit.to), setting: tdbPlainTextForUi(hit.setting || '') };
+          var liveSit = tdbPlainTextForUi(hit.situation || hit.setting || '');
+          /* Prefer narrative; never promote thin “X speaking to Y” when setting exists. */
+          if (isThinSpeakerSituation(liveSit) && hit.setting && !isThinSpeakerSituation(hit.setting)) {
+            liveSit = tdbPlainTextForUi(hit.setting);
+          }
+          return {
+            s: tdbPlainTextForUi(hit.about),
+            a: tdbPlainTextForUi(hit.to),
+            setting: tdbPlainTextForUi(hit.setting || ''),
+            situation: liveSit
+          };
         }
       } catch (eCtx) {}
     }
     var book = parseBook(ref);
     var ctx = BOOK_CONTEXT[book] || { s: 'The biblical author', a: 'Original audience' };
-    return { s: ctx.s, a: ctx.a, setting: '' };
+    /* Empty situation beats a thin speaker-line stamp (cards skip empty; never paint garbage). */
+    return {
+      s: ctx.s,
+      a: ctx.a,
+      setting: '',
+      situation: ''
+    };
+  }
+
+  /** Combine exact biblical situation + plain meaning (every verse). */
+  function composeContextAndMeaning(situation, plain) {
+    var sit = tdbPlainTextForUi(situation || '').trim();
+    var p = tdbPlainTextForUi(plain || '').trim();
+    if (sit && p) {
+      if (/^What was going on:/i.test(p) || p.toLowerCase().indexOf(sit.slice(0, 20).toLowerCase()) === 0) {
+        return p;
+      }
+      return 'What was going on: ' + sit.replace(/\.$/, '') + '. What it means: ' + p.replace(/^What it means:\s*/i, '');
+    }
+    return p || sit || '';
   }
 
   function buildGeneratedBase(ref, text) {
@@ -814,10 +866,14 @@
         plain = plain.slice(0, 157) + '…';
       }
     }
+    var situation = tdbPlainTextForUi(ctx.situation || ctx.setting || '');
     return {
       about: ctx.s,
       to: ctx.a,
+      setting: tdbPlainTextForUi(ctx.setting || ''),
+      situation: situation,
       plainExplanation: plain,
+      plainMeaningOnly: plain,
       groupApplication: '',
       modernApplication: inferApplies(raw),
       source: (curatedPlain && !isNearVerbatimPlain(curatedPlain, raw)) ? 'override' : (bbePlain ? 'bbe' : 'generated')
@@ -825,10 +881,35 @@
   }
 
   function finalizeBreakdown(base, group) {
+    var meaningOnly = tdbPlainTextForUi(base.plainMeaningOnly || base.plainExplanation || '');
+    /* If plainExplanation was already a combined stamp, strip to meaning. */
+    meaningOnly = meaningOnly
+      .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+      .replace(/^What it means:\s*/i, '')
+      .trim();
+    /* Never ship the old weak last-resort stamp as “meaning”. */
+    if (
+      /^In plain terms for life today:/i.test(meaningOnly) ||
+      /Sit with that until one phrase lands/i.test(meaningOnly)
+    ) {
+      meaningOnly = buildThemeLaymanPlain(base.ref || '', base.text || meaningOnly);
+    }
+    var situation = tdbPlainTextForUi(base.situation || base.setting || '');
+    if (isThinSpeakerSituation(situation)) {
+      var alt = tdbPlainTextForUi(base.setting || '');
+      if (alt && !isThinSpeakerSituation(alt)) situation = alt;
+      else situation = '';
+    }
+    var combined = composeContextAndMeaning(situation, meaningOnly);
     var out = {
       about: plainSpeaker(base.about || ''),
       to: plainAudience(base.to || ''),
-      plainExplanation: tdbPlainTextForUi(base.plainExplanation || ''),
+      setting: tdbPlainTextForUi(base.setting || ''),
+      situation: situation,
+      plainMeaningOnly: meaningOnly,
+      /* Meaning-only for “What it means” / Plain English labels sitewide. */
+      plainExplanation: meaningOnly || combined,
+      combinedExplanation: combined || meaningOnly,
       groupApplication: tdbPlainTextForUi(base.groupApplication || ''),
       modernApplication: tdbPlainTextForUi(base.modernApplication || ''),
       bubbleTitle: 'Verse breakdown',
@@ -836,7 +917,7 @@
       group: normalizeGroup(group),
       source: base.source || 'generated'
     };
-    out.layman = out.plainExplanation || 'A steady truth from Scripture for real life today.';
+    out.layman = meaningOnly || 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
     out.applies = out.groupApplication || buildGroupApplication(out.group, inferRelationTopic('', out.layman));
     out.relates = out.modernApplication || inferApplies(out.layman);
     return out;
@@ -852,26 +933,70 @@
     var useCache = Object.keys(manualOverride).length === 0;
     var cached = useCache ? readCachedBreakdown(ref, group, raw) : null;
     if (cached) {
-      /* Re-validate cache: older v2 entries (and any weak seed) must not stick as “plain.” */
+      /* Re-validate cache: older entries (and any weak seed) must not stick as “plain.” */
       var cachedPlain = cached.plainExplanation || cached.layman || '';
-      if (cachedPlain && !isNearVerbatimPlain(cachedPlain, raw) && !isWeakContextStamp(cached.about, cached.to)) {
+      var cachedSit = cached.situation || cached.setting || '';
+      var weakCached =
+        !cachedPlain ||
+        isNearVerbatimPlain(cachedPlain, raw) ||
+        isWeakContextStamp(cached.about, cached.to) ||
+        /^In plain terms for life today:/i.test(cachedPlain) ||
+        /Sit with that until one phrase lands/i.test(cachedPlain) ||
+        isThinSpeakerSituation(cachedSit);
+      if (
+        !weakCached &&
+        cachedPlain &&
+        (cached.plainMeaningOnly || !/^What was going on:/i.test(cachedPlain))
+      ) {
+        /* Prefer meaning-only layman on cache hits from older builds. */
+        if (cached.plainMeaningOnly) {
+          cached.layman = cached.plainMeaningOnly;
+          cached.plainExplanation = cached.plainMeaningOnly;
+        }
         return cached;
+      }
+      /* Drop incomplete / weak cache so finalize rebuilds clean. */
+      if (useCache) {
+        try {
+          var dropKey = getTextCacheKey(ref, group, raw);
+          BREAKDOWN_MEMORY_CACHE.delete(dropKey);
+          if (typeof localStorage !== 'undefined') localStorage.removeItem(dropKey);
+        } catch (eDrop) {}
       }
     }
     var base = buildGeneratedBase(ref, raw);
     var registered = scrubWeakPlainFields(getRegisteredOverride(ref, group), raw);
     var merged = Object.assign({}, base, registered, manualOverride);
+    merged.ref = ref;
+    merged.text = raw;
+    var freshCtx = resolveContextForRef(ref);
     if (isWeakContextStamp(merged.about, merged.to)) {
-      var freshCtx = resolveContextForRef(ref);
       merged.about = freshCtx.s;
       merged.to = freshCtx.a;
     }
-    merged.plainExplanation = ensureStrongPlain(ref, raw, merged.plainExplanation || merged.layman || merged.plain || '');
+    if (!merged.setting) merged.setting = freshCtx.setting || '';
+    var candSit = merged.situation || freshCtx.situation || freshCtx.setting || '';
+    if (isThinSpeakerSituation(candSit)) {
+      candSit = freshCtx.setting || merged.setting || '';
+      if (isThinSpeakerSituation(candSit)) candSit = '';
+    }
+    merged.situation = candSit;
+    /* Keep meaning-only for combine; strip prior combined stamps from cache/overrides. */
+    var meaningSeed = merged.plainMeaningOnly || merged.plainExplanation || merged.layman || merged.plain || '';
+    meaningSeed = String(meaningSeed || '')
+      .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+      .trim();
+    if (
+      /^In plain terms for life today:/i.test(meaningSeed) ||
+      /Sit with that until one phrase lands/i.test(meaningSeed)
+    ) {
+      meaningSeed = '';
+    }
+    merged.plainMeaningOnly = ensureStrongPlain(ref, raw, meaningSeed);
+    merged.plainExplanation = merged.plainMeaningOnly;
     if (!merged.groupApplication) merged.groupApplication = buildGroupApplication(group, inferRelationTopic(ref, raw));
     if (!merged.modernApplication) merged.modernApplication = inferApplies(raw);
     var finalBreakdown = finalizeBreakdown(merged, group);
-    finalBreakdown.plainExplanation = ensureStrongPlain(ref, raw, finalBreakdown.plainExplanation);
-    finalBreakdown.layman = finalBreakdown.plainExplanation;
     if (useCache) writeCachedBreakdown(ref, group, raw, finalBreakdown);
     return finalBreakdown;
   }
@@ -1121,7 +1246,7 @@
     breakdown.appendChild(layWrap);
 
     addBkH4('Who\'s talking?', 'about');
-    addBkH4('Who is He / she talking to?', 'to');
+    addBkH4('Who hears this?', 'to');
 
     var relH = document.createElement('h4');
     relH.appendChild(document.createTextNode('How it relates today ('));
@@ -1373,14 +1498,13 @@
   function buildUogInfluenceString(ref, verseText, breakdown) {
     var parts = [String(ref || ''), String(verseText || '')];
     if (breakdown && typeof breakdown === 'object') {
-      ['about', 'to', 'layman', 'applies', 'relates'].forEach(function (k) {
+      ['about', 'to', 'layman'].forEach(function (k) {
         if (breakdown[k]) parts.push(String(breakdown[k]));
       });
     }
+    /* Do not append the whole search box — one query was poisoning every card's plans
+       (e.g. "overwhelmed" results all linking Forgiveness). Verse text drives the plan. */
     var s = parts.join(' ').replace(/\s+/g, ' ').trim();
-    try {
-      s = (s + ' ' + getContextNeedle()).replace(/\s+/g, ' ').trim();
-    } catch (eCtx) { /* no-op */ }
     if (s.length > 2000) s = s.slice(0, 2000);
     return s;
   }
@@ -1446,7 +1570,13 @@
     if (!ageMode) ageMode = inferAgeFromContext() || 'adult';
     details.setAttribute('data-age-mode', ageMode);
 
-    var resolvedText = cleanVerseText(text || '') || getBibleVerseText(ref);
+    var resolvedText = cleanVerseText(text || '');
+    /* Never treat the reference string as verse body (e.g. “Isaiah 24:2”). */
+    if (!resolvedText || normalizeRef(resolvedText) === normalizeRef(ref) || resolvedText === String(ref || '').trim()) {
+      resolvedText = getBibleVerseText(ref);
+    }
+    if (!resolvedText) resolvedText = cleanVerseText(text || '');
+
     var breakdown = getBreakdown(ref, resolvedText, { group: ageMode, host: details });
     var topic = inferRelationTopic(ref, resolvedText);
     var stdVB = window.TDB_verseBreakdownStandard;
@@ -1719,6 +1849,12 @@
     } catch (e0) {}
     if (el.closest('#tdb-cat-root')) return true;
     if (el.closest('[data-tdb-no-verse-breakdown="1"]')) return true;
+    /* KISS cards already show KJV → BBE → context — never pile on heavy inline breakdown. */
+    if (el.classList && el.classList.contains('tdb-kiss-verse')) return true;
+    if (el.closest('.tdb-kiss-verse, [data-tdb-kiss-verse="1"]')) return true;
+    if (el.closest('[data-home-result-card="verse"], .home-search-card--verse')) return true;
+    if (el.closest('#feelCards, .feel-verse-card, #feel-results')) return true;
+    if (el.closest('.home-search-detail-panel')) return true;
     if (el.classList && el.classList.contains('tdb-verse-breakdown-inline')) return true;
     if (el.closest('.tdb-verse-breakdown-inline')) return true;
     return false;
@@ -1793,11 +1929,27 @@
     var r = String(ref || '').trim();
     if (!r) return '';
     var key = normalizeRef(r);
-    var direct = (window.bible && (window.bible[r] || window.bible[key])) || (window.kjvData && (window.kjvData[r] || window.kjvData[key])) || '';
+    function lookup(map, k) {
+      if (!map || !k) return '';
+      if (map[k]) return map[k];
+      if (/^Psalm\s+/i.test(k) && map[k.replace(/^Psalm\s+/i, 'Psalms ')]) {
+        return map[k.replace(/^Psalm\s+/i, 'Psalms ')];
+      }
+      if (/^Psalms\s+/i.test(k) && map[k.replace(/^Psalms\s+/i, 'Psalm ')]) {
+        return map[k.replace(/^Psalms\s+/i, 'Psalm ')];
+      }
+      return '';
+    }
+    var direct =
+      lookup(window.bible, r) ||
+      lookup(window.bible, key) ||
+      lookup(window.kjvData, r) ||
+      lookup(window.kjvData, key) ||
+      '';
     if (direct) return cleanVerseText(direct);
     var ranged = resolveRangeVerseText(r, window.bible || window.kjvData || null);
     if (ranged) return ranged;
-    if (typeof window.getBibleVerseText === 'function') {
+    if (typeof window.getBibleVerseText === 'function' && window.getBibleVerseText !== getBibleVerseText) {
       try { return cleanVerseText(window.getBibleVerseText(r) || ''); } catch (e) {}
     }
     return '';
@@ -1955,6 +2107,16 @@
       ''
     ).trim();
     if (!text) {
+      var kissKjv = container.querySelector('.tdb-kiss-verse__kjv');
+      if (kissKjv) {
+        text = cleanVerseText(
+          String(kissKjv.textContent || '')
+            .replace(/^[\s"\u201c\u201d']+|[\s"\u201c\u201d']+$/g, '')
+            .trim()
+        );
+      }
+    }
+    if (!text) {
       var textNode = container.querySelector('.verse-text, .daily-verse-text, .smart-verse, .kids-verse-text, .concordance-verse-text, .verse-maps-verse-text, #verse-text, #desktop-verse-text, #family-daily-verse-text, #family-armor-hero-text, #kids-daily-verse-text, #little-ones-verse-text, #pastor-daily-verse-text');
       if (textNode) text = cleanVerseText(textNode.textContent || '');
     }
@@ -1970,11 +2132,34 @@
       }
     }
     if (!text) {
-      var p = container.querySelector('p');
-      if (p) text = cleanVerseText(p.textContent || '');
+      /* Prefer body paragraphs, never the ref line as verse text. */
+      var pNodes = container.querySelectorAll('p');
+      for (var pi = 0; pi < pNodes.length; pi++) {
+        var cand = cleanVerseText(pNodes[pi].textContent || '');
+        if (!cand) continue;
+        if (pNodes[pi].classList && (
+          pNodes[pi].classList.contains('tdb-kiss-verse__ref') ||
+          pNodes[pi].classList.contains('home-search-card-ref') ||
+          pNodes[pi].classList.contains('smart-ref')
+        )) continue;
+        var looksLikeRefOnly = /^[1-3]?\s*[A-Za-z][A-Za-z\s.]+\s+\d+:\d+(-\d+)?(\s*\(KJV\))?$/i.test(cand);
+        if (looksLikeRefOnly) continue;
+        text = cand;
+        break;
+      }
     }
     if (!text && ref) text = getBibleVerseText(ref);
-    return { ref: cleanVerseText(ref), text: cleanVerseText(text) };
+    var refClean = cleanVerseText(ref);
+    var textClean = cleanVerseText(text);
+    /* Never treat the reference string as verse body (e.g. “Psalms 68:6”). */
+    if (textClean && refClean) {
+      var tNorm = textClean.replace(/[“”"']/g, '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
+      var rNorm = refClean.replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
+      if (tNorm.toLowerCase() === rNorm.toLowerCase() || extractRefFromText(tNorm) === rNorm) {
+        textClean = getBibleVerseText(refClean) || '';
+      }
+    }
+    return { ref: refClean, text: textClean };
   }
 
   function enhanceVerseContainers(root) {
@@ -2169,7 +2354,41 @@
     getMissingVisibleBreakdowns: getMissingVisibleBreakdowns,
     countMissingVisibleBreakdowns: countMissingVisibleBreakdowns,
     getAgeMode: getAgeMode,
-    setAgeMode: setAgeMode
+    setAgeMode: setAgeMode,
+    isThinSpeakerSituation: isThinSpeakerSituation,
+    isWeakPlainStamp: function (p) {
+      var t = tdbPlainTextForUi(p || '');
+      if (!t) return true;
+      if (/^In plain terms for life today:/i.test(t)) return true;
+      if (/Sit with that until one phrase lands/i.test(t)) return true;
+      if (/^Read this verse slowly/i.test(t)) return true;
+      return false;
+    },
+    meaningOnly: function (text) {
+      return tdbPlainTextForUi(text || '')
+        .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+        .replace(/^What it means:\s*/i, '')
+        .trim();
+    },
+    preferSituation: function () {
+      var best = '';
+      var bestLen = 0;
+      for (var i = 0; i < arguments.length; i++) {
+        var c = tdbPlainTextForUi(arguments[i] || '');
+        if (!c || isThinSpeakerSituation(c)) continue;
+        if (c.length > bestLen) {
+          bestLen = c.length;
+          best = c;
+        }
+      }
+      return best;
+    }
+  };
+  window.TDBTeachingQuality = {
+    isThinSpeakerSituation: isThinSpeakerSituation,
+    isWeakPlainStamp: window.TDBVerseBreakdown.isWeakPlainStamp,
+    meaningOnly: window.TDBVerseBreakdown.meaningOnly,
+    preferSituation: window.TDBVerseBreakdown.preferSituation
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wireAutoEnhance);
   else wireAutoEnhance();

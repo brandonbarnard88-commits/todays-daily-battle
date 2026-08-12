@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260809-vbd-labels"></script>
+  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260809-vbd-labels"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260809-vbd-labels"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -10,13 +14,13 @@
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Explore &bull; Quiet Campus Doorways &bull; Today&rsquo;s Daily Battle</title>
+  <title>All pages &bull; Today&rsquo;s Daily Battle</title>
   <meta name="description" content="Find your next quiet path: Kids Corner, Calm, Family Mode, Prayer Wall, Pastor Tools, seasonal plans, and more. All KJV, all offline-first.">
   <meta name="robots" content="index, follow">
   <meta name="referrer" content="no-referrer">
   <link rel="canonical" href="https://todaysdailybattle.com/explore.html">
   <meta property="og:site_name" content="Today's Daily Battle">
-  <meta property="og:title" content="Explore • Quiet Campus Doorways • Today's Daily Battle">
+  <meta property="og:title" content="All pages • Today's Daily Battle">
   <meta property="og:description" content="Find your next quiet path: Kids Corner, Calm, Family Mode, Prayer Wall, Pastor Tools, seasonal plans, and more. All KJV, all offline-first.">
   <meta property="og:url" content="https://todaysdailybattle.com/explore.html">
   <meta property="og:type" content="website">
@@ -25,7 +29,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Today&#39;s Daily Battle &mdash; explore KJV tools and family pages">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Explore • Quiet Campus Doorways • Today's Daily Battle">
+  <meta name="twitter:title" content="All pages • Today's Daily Battle">
   <meta name="twitter:description" content="Find your next quiet path: Kids Corner, Calm, Family Mode, Prayer Wall, Pastor Tools, seasonal plans, and more. All KJV, all offline-first.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&#39;s Daily Battle &mdash; explore KJV tools and family pages">
@@ -33,6 +37,9 @@
   <link rel="preload" href="styles.css?v=20260809-vbd-labels" as="style">
   <link rel="preload" href="styles.css?v=20260809-vbd-labels" as="style">
   <link rel="stylesheet" href="styles.css?v=20260809-vbd-labels">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-porch-verse-widget.css?v=20260519-porch-verse" as="style">
@@ -49,7 +56,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Explore • Quiet Campus Doorways • Today's Daily Battle",
+    "name": "All pages • Today's Daily Battle",
     "url": "https://todaysdailybattle.com/explore.html",
     "description": "Find your next quiet path: Kids Corner, Calm, Family Mode, Prayer Wall, Pastor Tools, seasonal plans, and more. All KJV, all offline-first.",
     "isPartOf": {
@@ -211,7 +218,7 @@
     .tdb-explore-page #whats-new-spring-2026,
     .tdb-explore-page #explore-hub,
     .tdb-explore-page #languages,
-    .tdb-explore-page #topics-en,
+    .tdb-explore-page #topics,
     .tdb-explore-page #daily {
       scroll-margin-top: 5rem;
     }
@@ -223,7 +230,7 @@
       .tdb-explore-page #whats-new-spring-2026,
       .tdb-explore-page #explore-hub,
       .tdb-explore-page #languages,
-      .tdb-explore-page #topics-en,
+      .tdb-explore-page #topics,
       .tdb-explore-page #daily {
         scroll-margin-top: 7.5rem;
       }
@@ -457,14 +464,11 @@
         <span class="tdb-nav-flyout-toggle__label">Menu</span>
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
-        <a href="/" aria-label="Home — today’s verse">Home</a>
-        <a href="/#feel-section">Ask</a>
+        <a href="/" aria-label="Home — today’s verse">Today</a>
+        <a href="/#feel-section">How I feel</a>
         <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
         <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
         <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
-        <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
-        <a href="/about.html">About</a>
-        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
@@ -478,28 +482,30 @@
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family</span>
+              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
               <a href="/family.html">Family</a>
               <a href="/coloring.html">Kids coloring</a>
               <a href="/printables.html" aria-label="Print pages">Print</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Site</span>
-              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
+              <a href="/about.html">About</a>
               <a href="/search.html" id="nav-site-search" aria-label="Search the site">Search</a>
+              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
               <a href="/faq.html">FAQ</a>
               <a href="/give" aria-label="Optional support">Support</a>
+              <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
             </div>
           </div>
         </details>
       </div>
     </nav>
       <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
-        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
-        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
+        <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
       </div>
-
       <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
 </header>
 
@@ -528,10 +534,10 @@
         </header>
 
         <section class="glass tdb-porch-paper-glass explore-section" id="start-here" aria-labelledby="start-here-heading">
-          <h2 class="section-divider" id="start-here-heading">Start here</h2>
+          <h2 class="section-divider" id="start-here-heading">If you want a map</h2>
           <ol class="section-note">
             <li><a href="/"><strong>Home</strong></a> &mdash; today&rsquo;s KJV verse and plain words</li>
-            <li><a href="/#feel-section"><strong>Ask</strong></a> &mdash; type how you feel or a simple question</li>
+            <li><a href="/#feel-section"><strong>How I feel</strong></a> &mdash; type how you feel or a simple question</li>
             <li><a href="/calm.html"><strong>When it&rsquo;s hard</strong></a> &mdash; one steady verse now</li>
             <li><a href="/plans.html"><strong>Plans</strong></a> &mdash; short reading tracks</li>
             <li><a href="/reader.html"><strong>Read</strong></a> &mdash; open a Bible chapter</li>
@@ -555,7 +561,7 @@
           </ul>
         </section>
 
-        <section class="glass tdb-porch-paper-glass explore-section" id="topics-en" aria-labelledby="topics-en-heading">
+        <section class="glass tdb-porch-paper-glass explore-section" id="topics" aria-labelledby="topics-en-heading">
           <h2 class="section-divider" id="topics-en-heading">Topics</h2>
           <ul class="explore-link-list section-note">
             <li><a href="/topic-anxiety.html">Anxiety</a></li>
@@ -602,12 +608,10 @@
           </ul>
         </section>
 
-        <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="0">
+        <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
           <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
-          <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">&mdash;</p>
-          <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText">
-            <p class="section-note">Same quiet KJV calendar as Home.</p>
-          </blockquote>
+          <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Romans 5:5 (KJV)</p>
+          <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“The love of God is shed abroad in our hearts by the Holy Ghost.”</p></blockquote>
           <div class="tdb-porch-verse-widget__actions">
             <a class="btn btn-secondary" href="/">Read on home</a>
             <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
@@ -626,6 +630,14 @@
         <div id="university-map-tile" hidden></div>
       </div>
     </main>
+    <nav class="tdb-bottom-dock" aria-label="Main navigation">
+      <a href="/" aria-label="Home — today’s verse">Home</a>
+      <a href="/#feel-section" aria-label="How I feel">Feel</a>
+      <a href="/plans.html" aria-label="Reading plans">Plans</a>
+      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
+      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
+    </nav>
+
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -645,7 +657,7 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/" aria-label="Home — today’s verse">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">Ask</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/calm.html">When it’s hard</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/reader.html">Read</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -734,7 +746,7 @@
   <p class="footer-humility">We battle. He wins.</p>
   <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
   <p class="site-footer-story">
-    One honest KJV verse at a time. Free forever. Built so anyone can open the Word without a maze.
+    One KJV verse for what you&rsquo;re carrying. Free. Private. Built so anyone can open the Word without a maze.
   </p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
@@ -753,7 +765,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 11, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -765,5 +777,7 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260809-vbd-labels" data-cfasync="false"></script>
   <script defer src="tdb-porch-verse-widget.js?v=20260519-porch-verse"></script>
+
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

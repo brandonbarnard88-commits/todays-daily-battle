@@ -4,7 +4,8 @@ const gentleFromPackages = require('./read-quiz-gentle-from-packages.cjs');
 
 /**
  * Overrides merged into kids-read-quiz-data.js (see scripts/generate-kids-read-quiz-data.mjs).
- * Gentle package Q&A: kids/stories/*-package.md via npm run gentle:qa → read-quiz-gentle-from-packages.cjs (spread at end).
+ * Gentle package Q&A: kids/stories/*-package.md via npm run gentle:qa → read-quiz-gentle-from-packages.cjs
+ * (spread first so handcrafted packs below always win over incomplete package stubs).
  *
  * Keep this file tiny: only keys that must differ from auto-generation.
  * Two library cards share one Joshua 6 read+quiz — same pack for both keys.
@@ -148,6 +149,7 @@ const widowOilReadQuizPack = require('./read-quiz-widow-oil-pack.cjs');
 const elishaShunammiteReadQuizPack = require('./read-quiz-elisha-shunammite-pack.cjs');
 const naamanHealedReadQuizPack = require('./read-quiz-naaman-healed-pack.cjs');
 const naamanDipReadQuizPack = require('./read-quiz-naaman-dip-pack.cjs');
+const romansRoadKidsReadQuizPack = require('./read-quiz-romans-road-kids-pack.cjs');
 const elishaFloatingAxeReadQuizPack = require('./read-quiz-elisha-floating-axe-pack.cjs');
 const elishaChariotsReadQuizPack = require('./read-quiz-elisha-chariots-pack.cjs');
 const elishaPoisonStewReadQuizPack = require('./read-quiz-elisha-poison-stew-pack.cjs');
@@ -15198,6 +15200,8 @@ function buildDoNotFearIsaiah41ReadQuiz() {
 }
 
 module.exports = {
+  // Package.md stubs first; every explicit key below overrides them.
+  ...gentleFromPackages,
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
   david: davidReadQuizPack,
@@ -15267,6 +15271,7 @@ module.exports = {
   naamanHealed: naamanHealedReadQuizPack,
   naamanDip: naamanDipReadQuizPack,
   naaman: naamanHealedReadQuizPack,
+  romansRoadKids: romansRoadKidsReadQuizPack,
   elishaFloatingAxe: elishaFloatingAxeReadQuizPack,
   elishaChariots: elishaChariotsReadQuizPack,
   elishaPoisonStew: elishaPoisonStewReadQuizPack,
@@ -15378,6 +15383,4 @@ module.exports = {
   goliathChallenge: davidReadQuizPack,
   jesusCallingDisciples: buildJesusDisciplesReadQuiz(),
 
-  // Gentle Q&A from user-written package.md (Batches 1–12+); generator keeps in sync (npm run gentle:qa).
-  ...gentleFromPackages
 };

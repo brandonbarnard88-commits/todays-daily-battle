@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T12:50:46.189Z",
+  "generatedAt": "2026-08-12T01:56:48.931Z",
   "surfacedRefCount": 3799,
   "overrideCount": 3799,
   "sourceCounts": {
@@ -297,6 +297,10 @@
     },
     "id/ketakutan.html": {
       "refs": 2,
+      "pairs": 0
+    },
+    "index 2.html": {
+      "refs": 7,
       "pairs": 0
     },
     "index.html": {
@@ -849,6 +853,14 @@
     },
     "life-lessons.html": {
       "refs": 33,
+      "pairs": 0
+    },
+    "lighthouse-bible-tool.json": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "lighthouse-home.json": {
+      "refs": 1,
       "pairs": 0
     },
     "loops.json": {

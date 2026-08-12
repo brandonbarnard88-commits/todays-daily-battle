@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260805-four-pillars"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -127,7 +127,7 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
-      <div class="tdb-lang-switcher-header-wrap">
+      <div class="tdb-lang-switcher-header-wrap tdb-login-lang-quiet" hidden aria-hidden="true">
         <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
           <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
                     <span class="tdb-lang-switcher-inner">
@@ -146,14 +146,13 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
-        <span class="brand-subtitle">Secure Login</span>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">Optional account · verse still free without it</p>
+        <span class="brand-subtitle">Sign in</span>
       </div>
       <nav class="header-nav" aria-label="Main">
-        <a href="/">Home</a>
-        <a href="explore.html">Explore</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
+        <a href="/">Today</a>
+        <a href="/#feel-section">How I feel</a>
+        <a href="/plans.html">Plans</a>
       </nav>
     </header>
 
@@ -244,12 +243,12 @@
   </script>
 
   <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
-    <nav class="tdb-bottom-dock" aria-label="Campus navigation">
-      <a href="/" aria-label="The Grove — today’s verse">🌳 Grove</a>
-      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
-      <a href="/plans.html" aria-label="The Paths">🗓️ Paths</a>
-      <a href="/calm.html" aria-label="Quiet Hall — one steady verse">🌿 Quiet Hall</a>
-      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="Explore — full map">🗺️ Explore</a>
+    <nav class="tdb-bottom-dock" aria-label="Main navigation">
+      <a href="/" aria-label="Home — today’s verse">Home</a>
+      <a href="/#feel-section" aria-label="How I feel">Feel</a>
+      <a href="/plans.html" aria-label="Reading plans">Plans</a>
+      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
+      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
     </nav>
 </body>
 </html>

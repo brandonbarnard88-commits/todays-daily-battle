@@ -274,7 +274,7 @@
           return x.id !== e.id;
         });
         if (!saveState(state)) {
-          setStatus('That did not save after remove—that is all right. Check storage and try again.', true);
+          setStatus('That did not save after remove. Check storage and try again.', true);
           state = loadState();
           renderList();
           return;
@@ -374,7 +374,7 @@
     }
     state = { version: VERSION, entries: [] };
     if (!saveState(state)) {
-      setStatus('Storage did not clear—that is all right. Try again or remove entries one at a time.', true);
+      setStatus('Storage did not clear. Try again or remove entries one at a time.', true);
       return;
     }
     clearForm();

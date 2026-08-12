@@ -26233,14 +26233,6 @@ body.tdb-search-page .tdb-site-search-results:empty {
 /* Mobile: bottom dock is primary; collapse utility chrome */
 @media (max-width: 720px) {
   body:has(.tdb-bottom-dock) .site-header .site-top-links,
-  body:has(.tdb-bottom-dock) .site-header .tdb-home-main-nav .tdb-primary-nav-panel > a:not([aria-current="page"]),
-  body:has(.tdb-bottom-dock) .site-header .tdb-home-main-nav .tdb-nav-more,
-  body:has(.tdb-bottom-dock) .site-header .tdb-home-main-nav .tdb-nav-theme-toggle {
-    /* Keep flyout Menu; hide long inline primary rows when panel is open-desktop style */
-  }
-  body:has(.tdb-bottom-dock) .site-header .tdb-primary-nav-panel {
-    /* panel only when flyout open — existing flyout CSS handles display */
-  }
   body:has(.tdb-bottom-dock) .site-header .site-top-links {
     font-size: 0.8rem;
     gap: 0.25rem 0.4rem;
@@ -26269,11 +26261,6 @@ body.tdb-search-page .tdb-site-search-results:empty {
 }
 
 /* Topic mood: first verse roomy; secondary chrome quieter */
-body.tdb-topic-mood-page .topic-mood-hero .cta-group.topic-mood-cta,
-body.tdb-topic-mood-page .topic-mood-footnote,
-body.tdb-topic-mood-page .topic-mood-pair-note {
-  /* demoted via details in HTML where possible */
-}
 body.tdb-topic-mood-page .list-item:first-child {
   padding: 1rem 0.85rem;
   margin-bottom: 0.75rem;
@@ -26285,9 +26272,6 @@ body.tdb-topic-mood-page .tdb-heavy-now__actions {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
-}
-body.tdb-topic-mood-page .tdb-heavy-now__actions .btn-secondary:nth-child(n+3) {
-  /* keep available; HTML may drop extras */
 }
 
 /* Calm: gospel is secondary to “What are you carrying?” */
@@ -26301,10 +26285,6 @@ body.tdb-topic-mood-page .tdb-heavy-now__actions .btn-secondary:nth-child(n+3) {
 }
 
 /* Give / login: less brand stack noise */
-.give-page .brand .tdb-header-heartbeat,
-.give-page .brand .site-tagline,
-body.tdb-inner-page .login-panel + * {
-}
 body.tdb-inner-page .top-bar .tdb-header-heartbeat.site-tagline {
   font-size: 0.85rem;
   opacity: 0.85;

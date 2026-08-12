@@ -9,8 +9,8 @@
   <script defer src="../analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kids Battle Beta Updates • Today's Daily Battle</title>
-  <meta name="description" content="Join the quiet update list for Kids Battle beta notes and early family testing invitations.">
+  <title>Kids Beta Updates • Today's Daily Battle</title>
+  <meta name="description" content="Join the quiet update list for Kids beta notes and early family testing invitations.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids/kids-beta.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -32,22 +32,22 @@
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
-        <span class="brand-subtitle kids-subtitle">Kids Battle</span>
+        <span class="brand-subtitle kids-subtitle">Kids</span>
       </div>
-      <nav class="kids-header-nav" aria-label="Kids Battle navigation">
-        <a href="/kids/">Kids Battle Home</a>
+      <nav class="kids-header-nav" aria-label="Kids navigation">
+        <a href="/kids/">Kids home</a>
         <a href="corner.html">Kids Story Library</a>
         <a href="../coloring.html">Kids Coloring</a>
         <a href="prayer-activities.html">Prayer habits</a>
-        <a href="parent.html">Parent Dashboard</a>
+        <a href="parent.html">Family quiet view</a>
       </nav>
     </header>
 
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner kids-beta-inner">
-        <p class="section-note topic-mood-porch kids-site-porch" lang="en">You&rsquo;re already welcome here&mdash;fun first, short moments, tiny KJV line. No rush.</p>
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">No rush—pick one thing.</p>
         <header class="kids-battle-hero">
-          <h1 class="kids-battle-title">Kids Battle Beta Updates</h1>
+          <h1 class="kids-battle-title">Kids Beta Updates</h1>
           <p class="kids-battle-tagline">A quiet list for families who want early notes, test invites, and launch updates when they are ready.</p>
         </header>
 
@@ -56,7 +56,7 @@
           <div class="kids-buddy-mascot-row">
             <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
               <span class="kids-shepherd-hero-wrap">
-                <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
+                <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.png?v=20260810ears" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
               </span>
             </button>
             <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
@@ -88,7 +88,7 @@
         <section id="kids-beta-success" class="kids-beta-success glass tdb-porch-paper-glass hidden" role="status" aria-live="polite">
           <p class="kids-beta-success-msg">You&rsquo;re on the list. We&rsquo;ll email you when there is something ready to test or share.</p>
           <p id="kids-beta-code-msg" class="kids-beta-code-msg hidden"></p>
-          <a href="/kids/" class="btn kids-btn-primary">← Back to Kids Battle</a>
+          <a href="/kids/" class="btn kids-btn-primary">← Back to Kids</a>
         </section>
       </div>
     </main>
@@ -108,7 +108,7 @@
       <p class="footer-lang-hint kids-footer-lang" role="group" aria-labelledby="footer-es-devotional-label"><span id="footer-es-devotional-label" class="footer-es-nav-label">Spanish devotionals</span> <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a><span aria-hidden="true"> · </span><a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a><span aria-hidden="true"> · </span><a href="/paz.html" hreflang="es" lang="es">Paz</a></p>
       <p class="last-updated">Last updated: March 24, 2026 • Built in the trenches of Memphis</p>
       <p class="site-footer-copy kids-footer-copy">© Today&rsquo;s Daily Battle 2026</p>
-      <p class="kids-footer-sub">Kids Battle · Faith Trail</p>
+      <p class="kids-footer-sub">Kids · Faith Trail</p>
       <nav class="kids-footer-exit" aria-label="Site exit links">
         <a href="/explore.html">Explore</a>
         <a href="/privacy.html">Privacy</a>
@@ -125,7 +125,7 @@
 
 </footer>
 
-    <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
+    <nav class="kids-bottom-nav" aria-label="Kids navigation">
       <a href="/kids/">
         <span class="kids-bottom-nav-icon" aria-hidden="true">📖</span>
         <span class="kids-bottom-nav-label">Home</span>
@@ -146,7 +146,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
-  <script src="kids-gentle-shepherd.js?v=20260806mascot" defer></script>
+  <script src="kids-gentle-shepherd.js?v=20260810ls" defer></script>
   <script src="../inline-bootstrap.js"></script>
   <script nonce="tdb2025s">
   (function () {
@@ -291,7 +291,7 @@
         }
 
         function doneError(msg) {
-          showError(msg || 'That did not finish—that is all right. Try again or check your connection.');
+          showError(msg || 'That did not finish. Try again or check your connection.');
           if (submitBtn) submitBtn.disabled = false;
         }
 
@@ -324,7 +324,7 @@
                 doneSuccess();
                 return;
               }
-              doneError('Sign-up did not finish—that is all right. Try again.');
+              doneError('Sign-up did not finish. Try again.');
               return;
             }
             doneSuccess();

@@ -213,9 +213,9 @@
       n = 0;
     }
     if (n > 0) {
-      el.textContent = 'Sheep tokens: ' + n + ' (one each time a brand-new story is opened on this device).';
+      el.textContent = 'Sheep tokens: ' + n;
     } else {
-      el.textContent = 'Sheep tokens: your first new story on this device adds a token to your field.';
+      el.textContent = 'Open a new story to earn a sheep token.';
     }
   }
 
@@ -265,7 +265,7 @@
       if (ann) {
         var peak = bloom >= 5 && prevB < 5;
         var msg = peak
-          ? 'Your pasture is in full bloom—fruit on the tree, a little brook singing. Jesus sees your faithful opens.'
+          ? 'Your pasture is in full bloom. Jesus sees every open heart.'
           : (bloom > prevB ? 'Something new bloomed in your pasture.' : 'Your pasture just grew a little more.');
         ann.textContent = msg;
         try {
@@ -300,12 +300,12 @@
       'The pasture is getting cozy. Keep going.',
       'A friend-sheep came to visit your pasture!',
       'Your little pasture is full of life. He sees every story you open.',
-      'Bells on the fence—keep collecting tokens; Jesus sees every open heart.'
+      'Your pasture is full of life. Keep going.'
     ];
     if (label) label.textContent = msgs[Math.min(stage, msgs.length - 1)] || msgs[0];
     var ari = document.getElementById('kids-pasture-aria');
     if (ari) {
-      ari.textContent = p.value + ' of ' + p.max + ' story opens on this device (about ' + p.pct + ' percent).';
+      ari.textContent = p.value + ' stories opened on this device.';
     }
   }
 
@@ -346,7 +346,7 @@
         var target = document.getElementById('kids-library-random-btn');
         if (target) target.click();
         else {
-          globalThis.location.href = 'corner.html?random=1';
+          globalThis.location.href = 'corner.html?choose=1#kids-library-grid';
         }
       });
     }

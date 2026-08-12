@@ -1,5 +1,5 @@
 /**
- * Kids Story Library — library view for Kids Battle
+ * Kids Story Library — library view for Kids
  * Full Bible story catalog: search, filter, random, PDF title export, coloring canvas.
  * Uses TDB_BIBLE_STORIES from kids-battle.js.
  */
@@ -690,7 +690,7 @@
     if (!slug) return [];
     /* Premium full-page Color & Tell heroes (bible-stories folder) */
     var heroes = {
-      david: ['/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg'],
+      david: ['/coloring-pages/bible-stories/david-and-goliath-v2.jpg'],
       creation: [
         '/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg',
         '/coloring-pages/creation.jpg'
@@ -7036,6 +7036,12 @@
   }
 
   function resetKidsStorySpeakButtonUi() {
+    try {
+      if (typeof cancelKidsNarrationChunks === 'function') cancelKidsNarrationChunks();
+    } catch (_cn) { /* no-op */ }
+    try {
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+    } catch (_sy) { /* no-op */ }
     if (kidsStorySpeakBtn) {
       setKidsReadAloudButtonIdle(kidsStorySpeakBtn);
       kidsStorySpeakBtn = null;
@@ -7337,7 +7343,7 @@
     var p = document.createElement('p');
     p.className = 'kids-read-quiz-unavailable-msg';
     p.textContent = globalMissing
-      ? 'The read-aloud words and quiz questions did not load—that is all right. Your connection or cache may have been interrupted. The comic and notes above may still work. Tap Refresh to try again.'
+      ? 'The read-aloud words and quiz questions did not load. Your connection or cache may have been interrupted. The comic and notes above may still work. Tap Refresh to try again.'
       : 'This story does not have read-and-quiz content in the bundle yet. Use the comic and notes above.';
     wrap.appendChild(p);
     if (globalMissing) {
@@ -7349,7 +7355,7 @@
         btnTry.disabled = true;
         retryKidsReadQuizData(function (ok) {
           btnTry.disabled = false;
-          if (!ok) showToast('Still did not load—that is all right. Check connection or refresh.');
+          if (!ok) showToast('Still did not load. Check connection or refresh.');
         });
       });
       wrap.appendChild(btnTry);
@@ -8367,7 +8373,7 @@
         } catch (e2) {}
       }, 500);
     } catch (e) {
-      showToast('Print did not open—that is all right. Try again in a moment.');
+      showToast('Print did not open. Try again in a moment.');
     }
   }
 
@@ -8425,8 +8431,103 @@
     return window.TDB_BIBLE_STORIES || {};
   }
 
+  /** Normalize titles so “Jesus Is Risen” / “Jesus is risen” collapse. */
+  function normalizeLibraryStoryTitle(t) {
+    return String(t || '')
+      .toLowerCase()
+      .replace(/[\u2018\u2019\u201c\u201d]/g, "'")
+      .replace(/&amp;/g, 'and')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  /**
+   * Score which key to keep when two cards are the same story.
+   * Prefers starter shelf keys, non-Revisited, richer panels, clearer names.
+   */
+  function libraryKeyPreferenceScore(key, story) {
+    var s = 0;
+    var k = String(key || '');
+    if (/revisited$/i.test(k)) s -= 100;
+    if (/^ll[A-Z]/.test(k)) s -= 5; /* life-lesson bridges less preferred in kids shelf */
+    try {
+      if (LIBRARY_STARTER_KEYS && LIBRARY_STARTER_KEYS.indexOf(k) >= 0) s += 80;
+    } catch (_e) { /* no-op */ }
+    if (story && story.panels && story.panels.length) s += Math.min(25, story.panels.length * 3);
+    if (story && story.narration && String(story.narration).trim()) s += 8;
+    if (story && story.kidContext) s += 4;
+    if (story && story.kjvRef) s += 2;
+    /* Prefer specific camelCase keys (davidGoliath) over short stubs (david). */
+    s += Math.min(12, k.length / 4);
+    return s;
+  }
+
+  /**
+   * Keys for the library shelf / filters / counts.
+   * Drops (1) alias keys that point at the same story object and
+   * (2) extra cards that share the same display title (e.g. palmSunday + triumphalEntry).
+   * Aliases remain on TDB_BIBLE_STORIES so old ?story= URLs still resolve.
+   */
   function getStoryKeys() {
-    return window.TDB_BIBLE_STORY_KEYS || Object.keys(getStories());
+    var stories = getStories();
+    var raw = window.TDB_BIBLE_STORY_KEYS || Object.keys(stories);
+    if (!raw || !raw.length) return [];
+
+    /* Pass 1: one key per object identity (alias map: naaman → naamanHealed). */
+    var objKeys = [];
+    var objSeen = [];
+    var i, k, st, oi, prevK;
+    for (i = 0; i < raw.length; i++) {
+      k = raw[i];
+      st = stories[k];
+      if (!st) continue;
+      oi = -1;
+      for (var j = 0; j < objSeen.length; j++) {
+        if (objSeen[j] === st) {
+          oi = j;
+          break;
+        }
+      }
+      if (oi < 0) {
+        objSeen.push(st);
+        objKeys.push(k);
+      } else {
+        prevK = objKeys[oi];
+        if (libraryKeyPreferenceScore(k, st) > libraryKeyPreferenceScore(prevK, stories[prevK])) {
+          objKeys[oi] = k;
+        }
+      }
+    }
+
+    /* Pass 2: one key per normalized title. */
+    var titleBest = {};
+    for (i = 0; i < objKeys.length; i++) {
+      k = objKeys[i];
+      st = stories[k];
+      var t = normalizeLibraryStoryTitle(st && st.title);
+      if (!t) t = '__key__' + k;
+      prevK = titleBest[t];
+      if (!prevK || libraryKeyPreferenceScore(k, st) > libraryKeyPreferenceScore(prevK, stories[prevK])) {
+        titleBest[t] = k;
+      }
+    }
+
+    var out = [];
+    for (var tKey in titleBest) {
+      if (Object.prototype.hasOwnProperty.call(titleBest, tKey)) out.push(titleBest[tKey]);
+    }
+    /* Stable-ish order: keep original raw order among winners. */
+    var rank = {};
+    for (i = 0; i < raw.length; i++) rank[raw[i]] = i;
+    out.sort(function (a, b) {
+      var ra = rank[a];
+      var rb = rank[b];
+      if (ra == null) ra = 99999;
+      if (rb == null) rb = 99999;
+      return ra - rb;
+    });
+    return out;
   }
 
   function getStoryThemes() {
@@ -9223,9 +9324,8 @@
   }
 
   /**
-   * Always-visible “where in the Bible” + “for you” helper.
-   * (Old toggle was confusing: “KJV reference” looked like a full reading mode
-   * but only showed the citation, e.g. Luke 15:11–32.)
+   * Quiet “where in the Bible” citation + short family takeaway.
+   * No preamble — headings are enough (meta copy was confusing).
    */
   function appendKjvPlainToggle(modalContext, s) {
     if (!modalContext || !s) return;
@@ -9235,34 +9335,23 @@
     var box = document.createElement('div');
     box.className = 'kids-story-kjv-plain kids-story-kjv-plain--stack';
     box.setAttribute('role', 'region');
-    box.setAttribute('aria-label', 'Where this story is in the Bible, and a plain line for you');
-
-    var lab = document.createElement('p');
-    lab.className = 'kids-story-kjv-plain-label';
-    lab.textContent =
-      'This is not two different stories. Below: where it is written in the King James Bible, then a plain line for your family.';
-    box.appendChild(lab);
+    box.setAttribute('aria-label', 'Bible place and family takeaway');
 
     if (ref) {
       var whereHead = document.createElement('p');
       whereHead.className = 'kids-kjv-plain-heading';
-      whereHead.textContent = 'Where in the Bible (KJV)';
+      whereHead.textContent = 'In the Bible';
       box.appendChild(whereHead);
       var pK = document.createElement('div');
       pK.className = 'kids-kjv-plain-body kids-kjv-plain-body--ref';
       pK.textContent = ref;
       box.appendChild(pK);
-      var whereNote = document.createElement('p');
-      whereNote.className = 'kids-kjv-plain-note section-note';
-      whereNote.textContent =
-        'That is the chapter and verse address (like a page number). The full read-aloud is in the story above.';
-      box.appendChild(whereNote);
     }
 
     if (plain) {
       var forHead = document.createElement('p');
       forHead.className = 'kids-kjv-plain-heading';
-      forHead.textContent = 'For you (plain words)';
+      forHead.textContent = 'For your family';
       box.appendChild(forHead);
       var pP = document.createElement('div');
       pP.className = 'kids-kjv-plain-body kids-kjv-plain-body--for-you';
@@ -9523,7 +9612,7 @@
         }
         carouselRoot.appendChild(narrWrap);
       }
-      /* One read-aloud control: prefer recorded clip when present, else device speech. */
+      /* One read-aloud control: calm device speech first (chunked); recorded m4a only as fallback. */
       var shepherdRecUrl = '';
       if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getShepherdNarrationAudioUrl === 'function') {
         try {
@@ -9539,7 +9628,9 @@
         spk.type = 'button';
         spk.className = 'kids-story-speak-btn kids-speak-btn';
         spk.setAttribute('data-story-key', key);
-        if (shepherdRecUrl) spk.setAttribute('data-shepherd-audio-url', shepherdRecUrl);
+        /* Keep clip as fallback only — low-bitrate m4a often sounds thinner/robotic. */
+        if (shepherdRecUrl) spk.setAttribute('data-shepherd-audio-fallback', shepherdRecUrl);
+        if (!canDeviceSpeak && shepherdRecUrl) spk.setAttribute('data-shepherd-audio-url', shepherdRecUrl);
         spk.setAttribute('aria-label', 'Read this story aloud');
         spk.setAttribute('aria-pressed', 'false');
         spk.textContent = KIDS_READ_ALOUD_LABEL;
@@ -9714,7 +9805,7 @@
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = null;
     if (document.getElementById('kids-library-grid')) {
-      document.title = 'Bible Story Library • Kids Battle • Today\'s Daily Battle';
+      document.title = 'Bible Story Library • Kids • Today\'s Daily Battle';
       var mdc = document.getElementById('tdb-kids-story-meta-desc');
       if (mdc) {
         mdc.setAttribute(
@@ -9842,7 +9933,7 @@
     btn.setAttribute('aria-expanded', 'false');
     if (note) {
       note.hidden = false;
-      note.textContent = 'Starter color pictures first — ' + remaining + ' more Bible stories ready with real Color & Tell art.';
+      note.textContent = 'Pictures first — ' + remaining + ' more stories.';
     }
   }
 
@@ -9854,10 +9945,21 @@
   }
 
   /**
-   * Web Speech voices often load after first paint. Prefer calm, natural en-US
-   * (neural/premium/enhanced) so story read-aloud is less robotic.
+   * Web Speech voices often load after first paint. Prefer warm, local, natural
+   * en-US storytelling voices; demote compact/novelty chips and thin network voices.
    */
   var kidsPreferredNarrationVoice = null;
+  var kidsNarrationChunkTimer = null;
+  var kidsNarrationChunkQueue = null;
+
+  function cancelKidsNarrationChunks() {
+    if (kidsNarrationChunkTimer) {
+      try { clearTimeout(kidsNarrationChunkTimer); } catch (_t) { /* no-op */ }
+      kidsNarrationChunkTimer = null;
+    }
+    kidsNarrationChunkQueue = null;
+  }
+
   function refreshKidsPreferredNarrationVoice() {
     if (typeof window === 'undefined' || !window.speechSynthesis || typeof window.speechSynthesis.getVoices !== 'function') return;
     var voices = window.speechSynthesis.getVoices();
@@ -9880,14 +9982,17 @@
       var n = voiceNameLower(v);
       if (!n) return 0;
       var s = 0;
-      /* Strongly prefer natural / neural / premium storytelling voices. */
-      if (/neural|natural|premium|enhanced|wavenet|studio|online \(natural\)/.test(n)) s += 8;
-      if (/samantha|karen|moira|daniel|fred|aaron|arthur|google us english|microsoft (aria|jenny|guy|david|mark)|siri|serena|zoe|allison|tessa|fiona|hazel/.test(n)) s += 6;
+      /* Prefer warm, high-quality local story voices (macOS/iOS/Android). */
+      if (/samantha|karen|moira|daniel \(english|fred|victoria|alex|susan|tom|allison|ava|zoe|nicky|serena|tessa|fiona|hazel|siri/.test(n)) s += 12;
+      if (/neural|natural|premium|enhanced|wavenet|studio|online \(natural\)|super/.test(n)) s += 10;
+      if (/microsoft (aria|jenny|guy|david|mark|zira)|google us english|google uk english female|samsung/.test(n)) s += 7;
       if (/google|microsoft|apple|samsung/.test(n)) s += 2;
-      if (/en-us|united states|american/.test(n) || (v.lang && /^en-us/i.test(String(v.lang)))) s += 2;
-      /* Avoid compact / novelty / very robotic local chips. */
-      if (/compact|eloquence|novelty|whisper|robot|zarvox|bad news|pipes|trinoids|boing|bubbles|cellos|good news|hysterical|junior|kathy|organ|superstar|whisper/.test(n)) s -= 10;
-      if (/\b(com\.apple\.eloquence|compact)\b/.test(n)) s -= 8;
+      if (/en-us|united states|american/.test(n) || (v.lang && /^en-us/i.test(String(v.lang)))) s += 3;
+      if (v.localService === true) s += 4; /* local voices usually calmer for kids */
+      if (v.localService === false) s -= 1;
+      /* Avoid compact / novelty / robotic chips. */
+      if (/compact|eloquence|novelty|whisper|robot|zarvox|bad news|pipes|trinoids|boing|bubbles|cellos|good news|hysterical|junior|kathy|organ|superstar|trinoids|deranged|bells|bahh|albert|agnes|princess|ralph/.test(n)) s -= 14;
+      if (/\b(com\.apple\.eloquence|compact)\b/.test(n)) s -= 12;
       return s;
     }
     var scored = pool
@@ -9901,16 +10006,144 @@
     kidsPreferredNarrationVoice = (scored[0] && scored[0].v) || pool[0] || null;
   }
 
-  /** Calm device TTS defaults — slow enough for kids, not chipmunk/robot pitch. */
+  /** Calm device TTS — slow, neutral pitch; warm voice when available. */
   function applyKidsCalmUtteranceDefaults(u) {
     if (!u) return;
     u.lang = 'en-US';
-    u.rate = 0.84;
+    u.rate = 0.8;
     u.pitch = 1.0;
     u.volume = 1;
     refreshKidsPreferredNarrationVoice();
     if (kidsPreferredNarrationVoice) u.voice = kidsPreferredNarrationVoice;
   }
+
+  /**
+   * Split long narration so the browser speaks in short phrases with tiny pauses.
+   * One giant utterance often sounds more robotic.
+   */
+  function splitKidsNarrationSpeechChunks(text) {
+    var raw = String(text || '').replace(/\s+/g, ' ').trim();
+    if (!raw) return [];
+    /* No lookbehind — older WebKit/Safari still need this path. */
+    var parts = [];
+    var re = /[^.!?…]+(?:[.!?…]+|$)/g;
+    var m;
+    while ((m = re.exec(raw))) {
+      var piece = String(m[0] || '').trim();
+      if (piece) parts.push(piece);
+    }
+    if (!parts.length) parts = [raw];
+    var chunks = [];
+    var buf = '';
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i].trim();
+      if (!p) continue;
+      if (buf && (buf.length + 1 + p.length) > 180) {
+        chunks.push(buf);
+        buf = p;
+      } else {
+        buf = buf ? buf + ' ' + p : p;
+      }
+    }
+    if (buf) chunks.push(buf);
+    if (!chunks.length) chunks.push(raw);
+    return chunks;
+  }
+
+  /**
+   * Speak story text in calm chunks. Calls onDone when finished or cancelled.
+   * Returns true if speech was started.
+   */
+  function speakKidsStoryNarration(text, speakBtn, onDone) {
+    var synth = window.speechSynthesis;
+    if (!synth || typeof window.SpeechSynthesisUtterance === 'undefined') return false;
+    var chunks = splitKidsNarrationSpeechChunks(text);
+    if (!chunks.length) return false;
+    cancelKidsNarrationChunks();
+    try { synth.cancel(); } catch (_c) { /* no-op */ }
+    kidsStorySpeakBtn = speakBtn || null;
+    kidsNarrationChunkQueue = chunks.slice();
+    var finished = false;
+    function finish() {
+      if (finished) return;
+      finished = true;
+      cancelKidsNarrationChunks();
+      if (kidsStorySpeakBtn) {
+        setKidsReadAloudButtonIdle(kidsStorySpeakBtn);
+        kidsStorySpeakBtn = null;
+      }
+      if (typeof onDone === 'function') {
+        try { onDone(); } catch (_d) { /* no-op */ }
+      }
+    }
+    function speakNext() {
+      if (!kidsNarrationChunkQueue || !kidsNarrationChunkQueue.length) {
+        finish();
+        return;
+      }
+      if (!synth) {
+        finish();
+        return;
+      }
+      var piece = kidsNarrationChunkQueue.shift();
+      var u = new window.SpeechSynthesisUtterance(piece);
+      applyKidsCalmUtteranceDefaults(u);
+      u.onstart = function () {
+        if (kidsStorySpeakBtn) setKidsReadAloudButtonPlaying(kidsStorySpeakBtn);
+      };
+      u.onpause = function () {
+        if (kidsStorySpeakBtn) setKidsReadAloudButtonPaused(kidsStorySpeakBtn);
+      };
+      u.onresume = function () {
+        if (kidsStorySpeakBtn) setKidsReadAloudButtonPlaying(kidsStorySpeakBtn);
+      };
+      u.onerror = function () {
+        finish();
+      };
+      u.onend = function () {
+        if (!kidsNarrationChunkQueue) return;
+        /* Short breath between sentences — less “robot run-on”. */
+        kidsNarrationChunkTimer = setTimeout(function () {
+          kidsNarrationChunkTimer = null;
+          speakNext();
+        }, 220);
+      };
+      try {
+        synth.speak(u);
+      } catch (_s) {
+        finish();
+      }
+    }
+    speakNext();
+    return true;
+  }
+
+  function getKidsStoryNarrationText(key, story) {
+    var text = (story && story.narration && story.narration.trim()) || '';
+    if (!text && window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getBriefNarration === 'function') {
+      try {
+        var bn = window.tdbLittleShepherd.getBriefNarration(key);
+        if (bn && String(bn).trim()) text = String(bn).trim();
+      } catch (eB2) { /* no-op */ }
+    }
+    if (!text && story) {
+      text = (function () {
+        var parts = [story.title || key, story.caption || ''];
+        if (story.kidContext && story.kidContext.apply) parts.push(story.kidContext.apply);
+        if (story.kjvRef) parts.push(story.kjvRef);
+        return parts.filter(Boolean).join('. ').trim();
+      })();
+    }
+    return text;
+  }
+
+  /* Shared for mascot Hear it (gentle shepherd). */
+  try {
+    window.tdbKidsSpeakCalm = function (text) {
+      return speakKidsStoryNarration(text, null, null);
+    };
+    window.tdbKidsPickCalmVoice = refreshKidsPreferredNarrationVoice;
+  } catch (_exp) { /* no-op */ }
 
   function shuffleChallengePool(arr) {
     var a = arr.slice();
@@ -9938,7 +10171,7 @@
       if (pk && pk.questions && pk.questions.length) pool.push(k);
     }
     if (pool.length < 5) {
-      showToast('Quiz bundle is still loading—that is all right. Refresh and try again.');
+      showToast('Quiz bundle is still loading. Refresh and try again.');
       return;
     }
     pool = shuffleChallengePool(pool);
@@ -9961,7 +10194,7 @@
       } catch (err) {
         try { console.error('Kids quiz challenge step failed', err); } catch (_) {}
         removeQuizChallengeOverlay();
-        showToast('Quiz challenge hit a snag—that is all right. Try again or refresh the page.');
+        showToast('Quiz challenge hit a snag. Try again or refresh the page.');
       }
     }
 
@@ -10186,7 +10419,7 @@
         err.className = 'kids-library-load-error kids-search-no-match';
         err.setAttribute('role', 'alert');
         err.textContent =
-          'The full story list is still loading. You can open any picture above right now—or hard-refresh (Cmd/Ctrl+Shift+R) if nothing new appears.';
+          'The full story list is still loading. You can open any picture above right now—or refresh the page (Cmd/Ctrl+Shift+R) if nothing new appears.';
         /* Insert note above cards; do not clear static picture cards */
         if (gridEl.firstChild) gridEl.insertBefore(err, gridEl.firstChild);
         else gridEl.appendChild(err);
@@ -10257,7 +10490,7 @@
         if (deepTries < 70) {
           setTimeout(tryOpenFromStoryParam, 100);
         } else {
-          showToast('That story link did not open—scripts may still be loading. Try again or hard-refresh.');
+          showToast('That story link did not open—scripts may still be loading. Try again or refresh the page.');
         }
       }
       window.addEventListener('tdb-kids-bible-stories-ready', tryOpenFromStoryParam, { once: true });
@@ -10283,10 +10516,10 @@
           try {
             if (!sessionStorage.getItem(wk)) {
               sessionStorage.setItem(wk, '1');
-              showToast('Story words and questions did not load—that is all right. Tap “Try loading again” inside a story, or refresh when you are online.');
+              showToast('Story words and questions did not load. Tap “Try loading again” inside a story, or refresh when you are online.');
             }
           } catch (e2) {
-            showToast('Story words and questions did not load—that is all right. Tap “Try loading again” inside a story, or refresh when you are online.');
+            showToast('Story words and questions did not load. Tap “Try loading again” inside a story, or refresh when you are online.');
           }
         });
       }
@@ -10554,7 +10787,7 @@
           doc.save('kids-bible-story-library.pdf');
           showToast('PDF downloaded!');
         } catch (err) {
-          showToast('PDF export did not finish—that is all right. Try again when you are ready.');
+          showToast('PDF export did not finish. Try again when you are ready.');
           console.error('PDF export error:', err);
         }
       });
@@ -10638,13 +10871,20 @@
         : null;
       if (speakBtn) {
         e.preventDefault();
-        var surl = speakBtn.getAttribute('data-shepherd-audio-url') || '';
-        /* Prefer recorded clip when present — one button, best source. */
-        if (surl) {
-          try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_sc) { /* no-op */ }
+        var surl =
+          speakBtn.getAttribute('data-shepherd-audio-url') ||
+          '';
+        var fallbackSurl = speakBtn.getAttribute('data-shepherd-audio-fallback') || surl || '';
+        var synth = window.speechSynthesis;
+        var canSynth = !!(synth && typeof window.SpeechSynthesisUtterance !== 'undefined');
+
+        function playRecordedClip(url) {
+          if (!url) return false;
+          try { if (synth) synth.cancel(); } catch (_sc) { /* no-op */ }
+          cancelKidsNarrationChunks();
           resetKidsStorySpeakButtonUi();
           var a = kidsShepherdAudioEl;
-          if (a && a.dataset && a.dataset.tdbUrl === surl) {
+          if (a && a.dataset && a.dataset.tdbUrl === url) {
             if (a.paused) {
               a.play()
                 .then(function () {
@@ -10652,18 +10892,18 @@
                   kidsShepherdAudioBtn = speakBtn;
                 })
                 .catch(function () {
-                  showToast('Playback did not start—that is all right. Check your connection and try again.');
+                  showToast('Playback did not start. Check your connection and try again.');
                 });
-              return;
+              return true;
             }
             a.pause();
             setKidsReadAloudButtonPaused(speakBtn);
-            return;
+            return true;
           }
           try { hardStopShepherdRecordedAudio(); } catch (_hd) { /* no-op */ }
           if (!kidsShepherdAudioEl) kidsShepherdAudioEl = new Audio();
           var aud = kidsShepherdAudioEl;
-          aud.dataset.tdbUrl = surl;
+          aud.dataset.tdbUrl = url;
           aud.onended = function () {
             try {
               if (aud.dataset) delete aud.dataset.tdbUrl;
@@ -10672,15 +10912,10 @@
             if (kidsShepherdAudioBtn === speakBtn) kidsShepherdAudioBtn = null;
           };
           aud.onerror = function () {
-            showToast('That voice clip did not load—trying device voice instead.');
+            showToast('That voice clip did not load.');
             try { hardStopShepherdRecordedAudio(); } catch (_e2) { /* no-op */ }
-            /* Fall through to device speech by clearing URL and re-dispatching. */
-            try {
-              speakBtn.removeAttribute('data-shepherd-audio-url');
-              speakBtn.click();
-            } catch (_fb) { /* no-op */ }
           };
-          aud.src = surl;
+          aud.src = url;
           aud
             .play()
             .then(function () {
@@ -10688,70 +10923,44 @@
               kidsShepherdAudioBtn = speakBtn;
             })
             .catch(function () {
-              showToast('Playback did not start—trying device voice instead.');
+              showToast('Playback did not start.');
               try { hardStopShepherdRecordedAudio(); } catch (_e3) { /* no-op */ }
-              try {
-                speakBtn.removeAttribute('data-shepherd-audio-url');
-                speakBtn.click();
-              } catch (_fb2) { /* no-op */ }
             });
+          return true;
+        }
+
+        /* Prefer calm device speech (chunked). Recorded clips are low-bitrate fallback only. */
+        if (canSynth) {
+          if (synth.speaking && !synth.paused) {
+            try { synth.pause(); } catch (_p) { /* no-op */ }
+            setKidsReadAloudButtonPaused(speakBtn);
+            kidsStorySpeakBtn = speakBtn;
+            return;
+          }
+          if (synth.paused) {
+            try { synth.resume(); } catch (_r) { /* no-op */ }
+            setKidsReadAloudButtonPlaying(speakBtn);
+            kidsStorySpeakBtn = speakBtn;
+            return;
+          }
+          try { hardStopShepherdRecordedAudio(); } catch (_hx) { /* no-op */ }
+          var key = speakBtn.getAttribute('data-story-key') || currentOpenStoryKey;
+          var stories = getStories();
+          var story = stories[key];
+          if (!story) return;
+          var text = getKidsStoryNarrationText(key, story);
+          if (!text) {
+            if (fallbackSurl) playRecordedClip(fallbackSurl);
+            return;
+          }
+          var started = speakKidsStoryNarration(text, speakBtn, null);
+          if (!started && fallbackSurl) playRecordedClip(fallbackSurl);
           return;
         }
-        /* Device speech fallback (or only option when no recorded clip). */
-        var synth = window.speechSynthesis;
-        var key = speakBtn.getAttribute('data-story-key') || currentOpenStoryKey;
-        var stories = getStories();
-        var story = stories[key];
-        if (!story || !synth || typeof window.SpeechSynthesisUtterance === 'undefined') return;
-        if (synth.speaking && !synth.paused) {
-          synth.pause();
-          setKidsReadAloudButtonPaused(speakBtn);
-          kidsStorySpeakBtn = speakBtn;
-          return;
-        }
-        if (synth.paused) {
-          synth.resume();
-          setKidsReadAloudButtonPlaying(speakBtn);
-          kidsStorySpeakBtn = speakBtn;
-          return;
-        }
-        try { hardStopShepherdRecordedAudio(); } catch (_hx) { /* no-op */ }
-        try { synth.cancel(); } catch (_) {}
-        var text = (story.narration && story.narration.trim()) || '';
-        if (!text && window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getBriefNarration === 'function') {
-          try {
-            var bn = window.tdbLittleShepherd.getBriefNarration(key);
-            if (bn && String(bn).trim()) text = String(bn).trim();
-          } catch (eB2) { /* no-op */ }
-        }
-        if (!text) {
-          text = (function () {
-            var parts = [story.title || key, story.caption || ''];
-            if (story.kidContext && story.kidContext.apply) parts.push(story.kidContext.apply);
-            if (story.kjvRef) parts.push(story.kjvRef);
-            return parts.filter(Boolean).join('. ').trim();
-          })();
-        }
-        if (text) {
-          kidsStorySpeakBtn = speakBtn;
-          var u = new window.SpeechSynthesisUtterance(text);
-          applyKidsCalmUtteranceDefaults(u);
-          u.onstart = function () {
-            if (kidsStorySpeakBtn) setKidsReadAloudButtonPlaying(kidsStorySpeakBtn);
-          };
-          u.onend = u.onerror = function () {
-            if (kidsStorySpeakBtn) {
-              setKidsReadAloudButtonIdle(kidsStorySpeakBtn);
-              kidsStorySpeakBtn = null;
-            }
-          };
-          u.onpause = function () {
-            if (kidsStorySpeakBtn) setKidsReadAloudButtonPaused(kidsStorySpeakBtn);
-          };
-          u.onresume = function () {
-            if (kidsStorySpeakBtn) setKidsReadAloudButtonPlaying(kidsStorySpeakBtn);
-          };
-          synth.speak(u);
+
+        /* No speechSynthesis — use recorded clip if present. */
+        if (fallbackSurl || surl) {
+          playRecordedClip(fallbackSurl || surl);
         }
         return;
       }

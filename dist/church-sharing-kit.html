@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260805-four-pillars"></script>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260805-four-pillars"></script>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260809-vbd-labels"></script>
+  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260809-vbd-labels"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260809-vbd-labels"></script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
@@ -14,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Church sharing kit • Copy-paste invites • Today&rsquo;s Daily Battle</title>
   <meta name="description" content="Calm, copy-paste blurbs for pastors and leaders: email, bulletin, SMS, social, and small-group ideas for free KJV Bible plans at Today’s Daily Battle.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="noindex, follow">
   <meta name="referrer" content="no-referrer">
   <link rel="canonical" href="https://todaysdailybattle.com/church-sharing-kit.html">
   <meta property="og:title" content="Church sharing kit • Today’s Daily Battle">
@@ -387,76 +388,58 @@
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
       <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
         <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
-        <span class="tdb-nav-flyout-toggle__label">Campus</span>
+        <span class="tdb-nav-flyout-toggle__label">Menu</span>
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
-        <a href="/" aria-label="The Grove — today's verse">The Grove</a>
-        <a href="/explore.html" aria-label="Explore — full campus map">Explore</a>
-        <a href="/#feel-section">Ask the Word</a>
-        <a href="/plans.html" id="nav-browse-curriculum" aria-label="The Paths — KJV tracks for hard weeks and quiet seasons">The Paths</a>
-        <a href="/calm.html" aria-label="Quiet Hall — one steady KJV verse when the moment is heavy">Quiet Hall</a>
-        <a href="/mystudy">My Study</a>
-        <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family hub</a>
-        <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor’s Study — church tools">Pastor’s Study</a>
-        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <a href="/" aria-label="Home — today’s verse">Today</a>
+        <a href="/#feel-section">How I feel</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
+        <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
+        <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
         <details class="tdb-nav-more">
-          <summary aria-haspopup="true">More tools</summary>
+          <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Scripture &amp; Study</span>
-              <a href="/verse.html">Today&rsquo;s Lesson</a>
-              <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
+              <span class="tdb-nav-more-group-label">Scripture</span>
+              <a href="/verse.html">Today’s verse</a>
+              <a href="/bible-tool.html" aria-label="Look up a verse">Look up</a>
               <a href="/memorize.html">Memorize</a>
-              <a href="/bible-tool.html#bible-tool-hub" aria-label="The Library — lookup, verse image, chapter reader">The Library</a>
-              <a href="/study.html">Study workspace</a>
+              <a href="/mystudy">Saved on this device</a>
+              <a href="/prayer-wall.html">Prayer</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Under The Paths</span>
-              <a href="/plans.html#plansDoorChooser">Feeling doors</a>
-              <a href="/plans.html#plans-maps-into-paths-details" id="nav-curriculum" aria-label="Curriculum and university maps live under The Paths">Curriculum &amp; university maps</a>
-              <a href="/university.html" id="nav-university-core" class="sr-only" aria-label="University map — five anchor verses">University map</a>
-              <a href="/reading-plan.html">7-day reading plan</a>
-              <a href="/daily-rhythm.html">Daily Rhythm</a>
-              <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
-              <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
-              <a href="/mobius.html">M&ouml;bius Journal</a>
+              <span class="tdb-nav-more-group-label">Family</span>
+              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
+              <a href="/family.html">Family</a>
+              <a href="/coloring.html">Kids coloring</a>
+              <a href="/printables.html" aria-label="Print pages">Print</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Family &amp; Kids</span>
-              <a href="/kids/">Kids play</a>
-              <a href="/kids/corner.html">Bible Story Library</a>
-              <a href="/coloring.html">Kids Coloring</a>
-              <a href="/little-ones.html">For the Little Ones</a>
-              <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
-              <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
-              <a href="/prayer-wall.html">Pray</a>
-              <a href="/printables.html" aria-label="Print hub — verse cards, Quiet Hall sheets, family packs">Print hub</a>
-            </div>
-            <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">About the Site</span>
-              <a href="/explore.html#start-here" id="nav-site-guide" aria-label="Start here — calm map on Explore">Start here</a>
-              <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+              <span class="tdb-nav-more-group-label">Site</span>
               <a href="/about.html">About</a>
-              <a href="/story.html">Story</a>
+              <a href="/search.html" id="nav-site-search" aria-label="Search the site">Search</a>
+              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
+              <a href="/faq.html">FAQ</a>
+              <a href="/give" aria-label="Optional support">Support</a>
+              <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
             </div>
           </div>
         </details>
       </div>
     </nav>
       <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
-        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
-        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
+        <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
       </div>
-
       <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
 </header>
 
     <aside id="sidebar" class="sidebar">
       <nav class="side-nav" aria-label="Site navigation">
         <a href="/">Search</a>
-        <a href="plans.html">The Paths</a>
+        <a href="plans.html">Plans</a>
         <a href="bible-study.html">Bible Studies</a>
         <a href="family.html">Family</a>
         <a href="for-pastors.html">For pastors</a>
@@ -473,7 +456,7 @@
           <p class="hero-tagline">Calm, copy-paste invitations for leaders and small groups&mdash;KJV-first, no guilt, no heavy promotion. Use what fits; leave the rest.</p>
           <p class="section-note util-mt-0_75" id="csk-welcome-intro" style="margin-bottom:0">Welcome to the Church Sharing Kit&mdash;everything leaders, volunteers, and families need in one peaceful place. Copy, print, or share. No accounts, no pressure, just Scripture.</p>
           <div class="cta-group">
-            <a class="btn btn-primary" href="plans.html">Open Battle Plans</a>
+            <a class="btn btn-primary" href="plans.html">Open Plans</a>
             <a class="btn btn-secondary" href="bible-study.html">Bible Studies hub</a>
             <a class="btn btn-secondary" href="family.html">Family hub</a>
             <a class="btn btn-secondary" href="embeddable-widgets.html">Embeddable verse widgets</a>
@@ -529,7 +512,7 @@
         <section class="glass tdb-porch-paper-glass" id="csk-links" aria-labelledby="csk-links-title">
           <h2 class="section-divider" id="csk-links-title">Key links to hand people</h2>
           <ul class="section-note" style="margin-top:0">
-            <li><a href="https://todaysdailybattle.com/plans.html">The Paths</a> (full library)</li>
+            <li><a href="https://todaysdailybattle.com/plans.html">Plans</a> (full library)</li>
             <li><a href="https://todaysdailybattle.com/bible-study.html">Bible Studies</a> hub</li>
             <li><a href="https://todaysdailybattle.com/family.html">Family</a> hub</li>
             <li><a href="https://todaysdailybattle.com/for-pastors.html">For pastors &amp; teachers</a></li>
@@ -639,7 +622,7 @@ Blessings,
           <p class="section-note">Reserve the first 8&ndash;10 minutes for silent personal reading. Project the day&rsquo;s verse from any kids or adult plan. Teens use their own screens to read the full day and jot the step in a notebook or follow along in the plan. Close with one volunteer reading a favorite prayer line aloud. <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a> works well here&mdash;short phrases, easy to hear.</p>
 
           <h3 class="csk-h3" id="csk-youth-sermon-series">Themed series around the Sermon on the Mount</h3>
-          <p class="section-note">Run 4&ndash;6 weeks anchored to <a href="plans.html#sermon-on-mount-intro">the Sermon intro on Battle Plans</a>. Suggested arc: week 1 <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> (heart-level blessings); weeks 2&ndash;3 <a href="plans.html?plan=peacemakers">Peacemakers</a> or adult <a href="plans.html?plan=beatitudes">Beatitudes</a>; week 4 <a href="plans.html?plan=sower">Parable of the Sower</a> or <a href="plans.html?plan=sower-kids">Sower for Kids</a> (&ldquo;what kind of soil is my heart right now?&rdquo;). Use the expandable <strong>Deeper themes in the Sermon</strong> panel on the plans page for discussion prompts without writing your own curriculum.</p>
+          <p class="section-note">Run 4&ndash;6 weeks anchored to <a href="plans.html#sermon-on-mount-intro">the Sermon intro on Plans</a>. Suggested arc: week 1 <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> (heart-level blessings); weeks 2&ndash;3 <a href="plans.html?plan=peacemakers">Peacemakers</a> or adult <a href="plans.html?plan=beatitudes">Beatitudes</a>; week 4 <a href="plans.html?plan=sower">Parable of the Sower</a> or <a href="plans.html?plan=sower-kids">Sower for Kids</a> (&ldquo;what kind of soil is my heart right now?&rdquo;). Use the expandable <strong>Deeper themes in the Sermon</strong> panel on the plans page for discussion prompts without writing your own curriculum.</p>
 
           <h3 class="csk-h3" id="csk-youth-breakouts">Breakouts and shared devices</h3>
           <p class="section-note">Groups of 4&ndash;6 pick one plan (<a href="plans.html?plan=sower-kids">Sower for Kids</a> for younger teens, adult <a href="plans.html?plan=sower">Sower</a> for older). Read the <strong>current day</strong> together on one phone or tablet, then agree on the step as a group challenge for the week (for example: &ldquo;soft words like day 3 of Peacemakers&rdquo;).</p>
@@ -663,7 +646,7 @@ Blessings,
           <p class="section-note">Assign one plan day as solo work. Students open the link, finish the day, and write one takeaway in their school journal. Parents can skim progress cues on <a href="family.html">family.html</a> without hovering over every tap.</p>
 
           <h3 class="csk-h3" id="csk-homesch-coop">Co-op and family table</h3>
-          <p class="section-note"><a href="plans.html?plan=sower-kids">Parable of the Sower for Kids</a> and <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> read well in a group. One parent leads; kids follow on tablets. The <strong>With a grown-up</strong> strip on <a href="kids/corner.html">Kids Battle</a> reminds everyone these trails are meant to be read beside someone older.</p>
+          <p class="section-note"><a href="plans.html?plan=sower-kids">Parable of the Sower for Kids</a> and <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> read well in a group. One parent leads; kids follow on tablets. The <strong>With a grown-up</strong> strip on <a href="kids/corner.html">Kids</a> reminds everyone these trails are meant to be read beside someone older.</p>
 
           <h3 class="csk-h3" id="csk-homesch-units">Simple unit pairings</h3>
           <ul class="section-note" style="margin-top:0">
@@ -1169,7 +1152,7 @@ https://todaysdailybattle.com/yearly-rhythm.html#yr-print-planners</pre>
           <h3 class="csk-h3" id="csk-children-sunday">Sunday morning</h3>
           <ul class="section-note" style="margin-top:0">
             <li><strong>Opening quiet time (5&ndash;8 minutes).</strong> Open the current day from Beatitudes for Kids or Lord&rsquo;s Prayer for Kids on a tablet or projector. Read the verse together; invite kids to whisper or draw the step; pray the day&rsquo;s prayer as a group. No forced discussion&mdash;just a calm start.</li>
-            <li><strong>&ldquo;With a grown-up&rdquo; rotation.</strong> Use the strip on <a href="kids/corner.html#kids-corner-grown-up-plans">Kids Battle</a>: pair older helpers with younger children or sit volunteers with small groups through one day of Sower for Kids. Drawing and whisper steps carry the moment without extra crafts.</li>
+            <li><strong>&ldquo;With a grown-up&rdquo; rotation.</strong> Use the strip on <a href="kids/corner.html#kids-corner-grown-up-plans">Kids</a>: pair older helpers with younger children or sit volunteers with small groups through one day of Sower for Kids. Drawing and whisper steps carry the moment without extra crafts.</li>
             <li><strong>After the Bible story.</strong> Pull up one day from Sower for Kids or Beatitudes for Kids and ask lightly: &ldquo;How does today&rsquo;s verse connect to the story we heard?&rdquo; Many children will link it on their own; silence is fine.</li>
           </ul>
 
@@ -1184,7 +1167,7 @@ https://todaysdailybattle.com/yearly-rhythm.html#yr-print-planners</pre>
           <ul class="section-note" style="margin-top:0">
             <li><strong>Parent-child stations.</strong> Three simple stations&mdash;Beatitudes for Kids, Sower for Kids, Lord&rsquo;s Prayer for Kids&mdash;families rotate together. The grown-up prompts on each plan keep leadership natural.</li>
             <li><strong>Holy Week / Easter.</strong> For older children or families, <a href="plans.html?plan=easter">Resurrection Hope</a> (seven days) reads at an adult pace; younger rooms can stay with <a href="plans.html?plan=sower-kids">Sower for Kids</a> and talk about &ldquo;good soil&rdquo; for the resurrection message. Short readings anytime: <a href="he-is-risen.html">He is risen</a>.</li>
-            <li><strong>After VBS or camp.</strong> Point parents to <a href="plans.html">The Paths</a> as a one-day-a-week &ldquo;keep going&rdquo; habit&mdash;momentum without a new program.</li>
+            <li><strong>After VBS or camp.</strong> Point parents to <a href="plans.html">Plans</a> as a one-day-a-week &ldquo;keep going&rdquo; habit&mdash;momentum without a new program.</li>
           </ul>
 
           <h3 class="csk-h3" id="csk-children-leaders">Tips for leaders and volunteers</h3>
@@ -1248,7 +1231,7 @@ https://todaysdailybattle.com/yearly-rhythm.html#yr-print-planners</pre>
 
         <section class="glass tdb-porch-paper-glass" id="csk-vbs-ideas" aria-labelledby="csk-vbs-ideas-title">
           <h2 class="section-divider" id="csk-vbs-ideas-title">Vacation Bible School &mdash; three gentle themes</h2>
-          <p class="section-note">Five-day shapes; keep production light. Default block about <strong>45&ndash;60 minutes</strong> per rotation (adjust for snack and transitions). On Battle Plans, volunteers tap <strong>Start Free</strong> on the card, then step through the day&mdash;no account required to read.</p>
+          <p class="section-note">Five-day shapes; keep production light. Default block about <strong>45&ndash;60 minutes</strong> per rotation (adjust for snack and transitions). On Plans, volunteers tap <strong>Start Free</strong> on the card, then step through the day&mdash;no account required to read.</p>
 
           <h3 class="csk-h3" id="csk-vbs-daily-flow">Daily flow (45&ndash;60 min)</h3>
           <ol class="section-note" style="margin-top:0; line-height:1.6">
@@ -1721,7 +1704,7 @@ todaysdailybattle.com/plans.html</pre>
           <p class="section-note">Black on white, 280&times;280 &mdash; save or screenshot for bulletins, slides, or table tents. Regenerate anytime: <code>npm run build:church-qr</code> (see <code>scripts/generate-church-share-qr.cjs</code>).</p>
           <div class="csk-qr-grid">
             <figure class="csk-qr-card">
-              <img src="/assets/share/tdb-plans-qr.png" width="280" height="280" alt="QR code that opens Today&#39;s Daily Battle Battle Plans" loading="lazy" decoding="async">
+              <img src="/assets/share/tdb-plans-qr.png" width="280" height="280" alt="QR code that opens Today&#39;s Daily Plans" loading="lazy" decoding="async">
               <figcaption class="section-note">Opens <a href="https://todaysdailybattle.com/plans.html">todaysdailybattle.com/plans.html</a></figcaption>
             </figure>
             <figure class="csk-qr-card">
@@ -1784,16 +1767,16 @@ Kids & family tracks available · No login</pre>
             <li><strong>Youth:</strong> Emphasize quiet journaling, Peacemakers, Sermon intro&mdash;no performance.</li>
             <li><strong>Women&rsquo;s / men&rsquo;s / mixed groups:</strong> Emphasize supplement to your teaching, Lord&rsquo;s Prayer or Beatitudes, device-first privacy.</li>
           </ul>
-          <p class="section-note util-mt-1"><a href="plans.html">&larr; Back to Battle Plans</a> &middot; <a href="resources.html">Pastor Resources</a> &middot; <a href="for-pastors.html">For pastors &amp; teachers</a></p>
+          <p class="section-note util-mt-1"><a href="plans.html">&larr; Back to Plans</a> &middot; <a href="resources.html">Pastor Resources</a> &middot; <a href="for-pastors.html">For pastors &amp; teachers</a></p>
         </section>
       </div>
     </main>
-    <nav class="tdb-bottom-dock" aria-label="Campus navigation">
-      <a href="/" aria-label="The Grove — today’s verse">🌳 Grove</a>
-      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
-      <a href="/plans.html" aria-label="The Paths">🗓️ Paths</a>
-      <a href="/calm.html" aria-label="Quiet Hall — one steady verse">🌿 Quiet Hall</a>
-      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="Explore — full map">🗺️ Explore</a>
+    <nav class="tdb-bottom-dock" aria-label="Main navigation">
+      <a href="/" aria-label="Home — today’s verse">Home</a>
+      <a href="/#feel-section" aria-label="How I feel">Feel</a>
+      <a href="/plans.html" aria-label="Reading plans">Plans</a>
+      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
+      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
     </nav>
 
 
@@ -1814,23 +1797,23 @@ Kids & family tracks available · No login</pre>
   </nav>
 
   <nav class="site-footer-essentials" aria-label="Key pages">
-    <a href="/" aria-label="The Grove — today's verse and Ask the Word">The Grove</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/plans.html">The Paths</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support</a>
+    <a href="/" aria-label="Home — today’s verse">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/calm.html">When it’s hard</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/reader.html">Read</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/kids/">Kids</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Optional support — you choose the amount">Support</a>
   </nav>
 
   <p class="site-footer-share-wrap">
     <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
-    <span class="site-footer-share-sep" aria-hidden="true">·</span>
-    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
   </p>
 
   <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
-    <a href="/plans.html">The Paths</a>
-    <a href="/kids/">Kids play</a>
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids</a>
     <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
       <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
       <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
@@ -1843,33 +1826,23 @@ Kids & family tracks available · No login</pre>
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
     <a href="/bible-credits.html">Bible credits</a>
-    <a href="/verse.html">Today&rsquo;s Lesson</a>
-    <a href="/mystudy">My Study</a>
+    <a href="/verse.html">Today’s verse</a>
+    <a href="/mystudy">Saved verses</a>
     <a href="/prayer-wall.html">Prayer</a>
-    <a href="/media.html">Media</a>
-    <a href="/roadmap.html">Roadmap</a>
-    <a href="/give">Support</a>
-    <a href="/church-hub.html">Pastor&rsquo;s Study</a>
+    <a href="/family.html">Family</a>
+    <a href="/printables.html">Print</a>
+    <a href="/bible-tool.html">Look up a verse</a>
     <a href="/reader.html">Chapter reader</a>
-    <a href="/bible/tools.html">Study workshop</a>
-    <a href="/bible-tool.html">The Library</a>
-    <a href="/testimonials.html">Reader stories</a>
-    <a href="/journal/">Journal</a>
-    <a href="/updates.html">Monthly updates</a>
-    <a href="/emergency-calm-pack.html">Emergency calm pack</a>
-    <a href="/where-support-goes.html">Where support goes</a>
-    <a href="/verse-cards/">Verse cards</a>
-    <a href="/security.html">Security</a>
+    <a href="/explore.html">All pages</a>
     <a href="/contact.html">Contact</a>
     <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
   </nav>
 
   <details class="footer-sitemap">
-    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <summary>More pages (tap to expand)</summary>
     <div class="footer-sitemap-grid">
       <div class="footer-sitemap-col">
-        <h3>The Narrow Paths</h3>
-        <a href="/explore.html">Full list (all pages)</a>
+        <h3>Topics</h3>
         <a href="/topic-anxiety.html">Anxiety</a>
         <a href="/topic-fear.html">Fear</a>
         <a href="/topic-grief.html">Grief</a>
@@ -1878,67 +1851,35 @@ Kids & family tracks available · No login</pre>
         <a href="/topic-parenting.html">Parenting</a>
         <a href="/topic-loneliness.html">Loneliness</a>
         <a href="/topic-forgiveness.html">Forgiveness</a>
-        <a href="/topic-guilt.html">Guilt</a>
-        <a href="/topic-overwhelmed.html">Overwhelmed</a>
-        <a href="/topic-worthless.html">Worth / identity</a>
+        <a href="/explore.html#topics">All topics</a>
       </div>
       <div class="footer-sitemap-col footer-sitemap-col--es-links">
-        <h3>Spanish devotionals</h3>
+        <h3>Spanish</h3>
         <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
         <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
         <a href="/paz.html" hreflang="es" lang="es">Paz</a>
-        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+        <a href="/es/">Español hub</a>
       </div>
       <div class="footer-sitemap-col">
-        <h3>Tools of the Quiet Trade</h3>
-        <a href="/verse.html">Verse of the Day</a>
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the day</a>
         <a href="/reader.html">Chapter reader</a>
-        <a href="/bible/tools.html">Study workshop</a>
-        <a href="/bible-tool.html">The Library</a>
-        <a href="/mystudy">My Study</a>
-        <a href="/calm.html">Quiet Hall</a>
-        <a href="/mobius.html">Grace Ribbon</a>
-        <a href="/one-family-in-christ.html">One Family in Christ</a>
-        <a href="/red-letters.html">Red letters</a>
-        <a href="/plans.html">The Paths</a>
-        <a href="/reading-plan.html">7-day plan (under Paths)</a>
-        <a href="/study.html">Study workspace</a>
-        <a href="/wins.html">Wins</a>
-        <a href="/progress.html">Progress</a>
+        <a href="/bible-tool.html">Look up</a>
+        <a href="/mystudy">Saved on this device</a>
+        <a href="/calm.html">When it’s hard</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/memorize.html">Memorize</a>
+        <a href="/coloring.html">Kids coloring</a>
       </div>
       <div class="footer-sitemap-col">
-        <h3>For the Household of Faith</h3>
-        <a href="/church-hub.html">Pastor&rsquo;s Study</a>
-        <a href="/sermon.html">Sermon builder</a>
-        <a href="/church-sharing-kit.html">Church sharing kit</a>
-        <a href="/church.html">Church center</a>
-        <a href="/team-toolkit.html">Team toolkit</a>
-        <a href="/pastor-toolkit.html">Pastor toolkit (nested)</a>
-        <a href="/for-pastors.html">For pastors (nested)</a>
-        <a href="/family.html">Family hub</a>
-        <a href="/little-ones.html">For the Little Ones</a>
-        <a href="/family-armor.html">Family Armor</a>
-        <a href="/kids/">Kids play</a>
-        <a href="/coloring.html">Kids Coloring</a>
-      </div>
-      <div class="footer-sitemap-col">
-        <h3>Further In</h3>
-        <a href="/prayer-wall.html">Prayer</a>
-        <a href="/offline-porch.html">Offline porch</a>
-        <a href="/porch-map-one-page-print.html">Porch map (print)</a>
-        <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
-        <a href="/explore.html#start-here">Explore start here</a>
-        <a href="/learn-the-word.html">Learn the Word</a>
-        <a href="/bible-study.html">Bible studies</a>
-        <a href="/shop.html">Shop</a>
+        <h3>About</h3>
+        <a href="/about.html">About</a>
         <a href="/story.html">Story</a>
-        <a href="/media.html">Media</a>
-        <a href="/roadmap.html">Roadmap</a>
-        <a href="/approach.html">How we respond</a>
-        <a href="/curriculum.html">Curriculum</a>
-        <a href="/verse-cards/">Verse cards</a>
-        <a href="/contact.html">Contact</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/give">Support</a>
+        <a href="/where-support-goes.html">Where support goes</a>
         <a href="/security.html">Security</a>
+        <a href="/contact.html">Contact</a>
       </div>
     </div>
   </details>
@@ -1946,7 +1887,7 @@ Kids & family tracks available · No login</pre>
   <p class="footer-humility">We battle. He wins.</p>
   <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
   <p class="site-footer-story">
-    Steady KJV for honest days. Prayers and notes stay on this device unless you sync on purpose.
+    One KJV verse for what you&rsquo;re carrying. Free. Private. Built so anyone can open the Word without a maze.
   </p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
@@ -1965,7 +1906,7 @@ Kids & family tracks available · No login</pre>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">August 7, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 11, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>

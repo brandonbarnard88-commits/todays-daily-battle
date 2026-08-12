@@ -1,55 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260805-four-pillars"></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260809-vbd-labels"></script>
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
   <script defer src="../analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Match the Verse • Kids • Today&rsquo;s Daily Battle</title>
-  <meta name="description" content="Tap to match kid-friendly phrases to short KJV lines. One round, no score pressure.">
+  <meta name="description" content="Match kid phrases to KJV lines with character cards, daily verses, stars, and device-only high scores. Fun and educational.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids/match-buddies.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="../styles.css?v=20260809-vbd-labels" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260809-vbd-labels">
-  <link rel="preload" href="kids-battle.css?v=20260405kidsfollowup" as="style">
-  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="preload" href="kids-battle.css?v=20260809easy" as="style">
+  <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    .match-page { max-width: 36rem; margin: 0 auto; padding: 0.5rem 0 1.5rem; }
-    .match-hero h1 { font-family: "Bangers", cursive; font-size: 1.75rem; color: #fde68a; margin: 0 0 0.35rem; letter-spacing: 0.04em; }
-    .match-hero p { margin: 0 0 1rem; color: #e2e8f0; line-height: 1.5; font-size: 0.95rem; }
-    .match-board { display: grid; gap: 0.75rem; }
-    @media (min-width: 520px) { .match-board { grid-template-columns: 1fr 1fr; } }
-    .match-col h2 { font-family: "Nunito", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin: 0 0 0.4rem; }
+    .match-page { max-width: 42rem; margin: 0 auto; padding: 0.35rem 0.75rem 2rem; }
+    .match-hud {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem;
+      margin: 0 0 0.65rem; padding: 0.55rem 0.75rem; border-radius: 14px;
+      background: #fffef8; border: 2px solid rgba(251, 191, 36, 0.55);
+    }
+    .match-hud-round { font-family: Nunito, system-ui, sans-serif; font-weight: 800; font-size: 0.92rem; color: #92400e; }
+    .match-score-pill {
+      font-family: Nunito, system-ui, sans-serif; font-weight: 800; font-size: 0.82rem; color: #0f172a;
+      background: #ecfdf5; border: 2px solid #34d399; border-radius: 999px; padding: 0.25rem 0.65rem;
+    }
+    .match-stars { display: flex; gap: 0.2rem; font-size: 1.2rem; }
+    .match-star { opacity: 0.28; }
+    .match-star.on { opacity: 1; transform: scale(1.12); }
+    .match-hero {
+      padding: 0.85rem 1rem; border-radius: 16px; margin-bottom: 0.65rem;
+      background: linear-gradient(165deg, #fffbeb, #fef3c7 50%, #ecfccb);
+      border: 3px solid #f59e0b; color: #0f172a;
+    }
+    .match-hero h1 { font-family: Bangers, cursive; font-size: clamp(1.5rem, 5vw, 1.85rem); margin: 0 0 0.25rem; color: #0f172a; }
+    .match-hero p { margin: 0; font-family: Nunito, system-ui, sans-serif; font-weight: 600; color: #334155; line-height: 1.45; font-size: 0.95rem; }
+    .match-daily {
+      margin: 0 0 0.65rem; padding: 0.55rem 0.75rem; border-radius: 12px;
+      background: #eff6ff; border: 2px solid #93c5fd; font-family: Nunito, system-ui, sans-serif;
+      font-size: 0.88rem; font-weight: 700; color: #1e3a8a;
+    }
+    .match-board { display: grid; gap: 0.85rem; }
+    @media (min-width: 560px) { .match-board { grid-template-columns: 1fr 1fr; } }
+    .match-col h2 {
+      font-family: Nunito, sans-serif; font-size: 0.78rem; text-transform: uppercase;
+      letter-spacing: 0.08em; color: #92400e; margin: 0 0 0.45rem; font-weight: 800;
+    }
     .match-btn {
-      display: block; width: 100%;
-      min-height: 56px; padding: 0.65rem 0.75rem; margin-bottom: 0.45rem;
-      border-radius: 14px; border: 3px solid rgba(255, 217, 61, 0.4);
-      background: rgba(15, 23, 42, 0.85);
-      color: #f8fafc; font-family: "Nunito", sans-serif; font-weight: 800; font-size: 0.92rem;
-      text-align: left; cursor: pointer; transition: background 0.15s, border-color 0.15s, transform 0.1s;
+      display: flex; align-items: flex-start; gap: 0.55rem; width: 100%;
+      min-height: 72px; padding: 0.6rem 0.7rem; margin-bottom: 0.5rem;
+      border-radius: 16px; border: 3px solid #e2e8f0; background: #fff; color: #0f172a;
+      font-family: Nunito, system-ui, sans-serif; font-weight: 800; font-size: 0.95rem;
+      text-align: left; cursor: pointer; line-height: 1.35;
+      box-shadow: 0 2px 0 #cbd5e1; transition: transform 0.12s, border-color 0.15s, background 0.15s;
       -webkit-tap-highlight-color: transparent;
     }
-    .match-btn:hover, .match-btn:focus-visible { background: rgba(255, 217, 61, 0.12); border-color: #fde047; outline: none; }
-    .match-btn[aria-pressed="true"] { background: rgba(59, 130, 246, 0.35); border-color: #60a5fa; }
-    .match-btn.matched { opacity: 0.45; pointer-events: none; border-color: #22c55e; background: rgba(34, 197, 94, 0.15); }
-    .match-kjv { font-size: 0.82rem; line-height: 1.4; font-weight: 600; }
-    .match-status { min-height: 1.5rem; margin: 0.75rem 0; font-size: 0.9rem; color: #fde68a; }
-    .match-win { display: none; text-align: center; padding: 1rem; border-radius: 16px; border: 2px solid #22c55e; background: rgba(34, 197, 94, 0.12); color: #ecfccb; }
-    .match-win.show { display: block; }
-    .match-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+    .match-btn:hover, .match-btn:focus-visible { border-color: #f59e0b; outline: none; transform: translateY(-1px); }
+    .match-btn:active { transform: scale(0.98); }
+    .match-btn[aria-pressed="true"] { background: #dbeafe; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.25); }
+    .match-btn.matched { opacity: 0.55; pointer-events: none; border-color: #22c55e; background: #ecfdf5; animation: match-pop 0.4s ease; }
+    .match-btn.match-wrong { animation: match-shake 0.4s ease; border-color: #f87171; background: #fef2f2; }
+    .match-btn.match-kjv { border-color: #fcd34d; background: #fffbeb; }
+    .match-avatar {
+      flex: 0 0 2.6rem; width: 2.6rem; height: 2.6rem; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; background: linear-gradient(160deg, #fef3c7, #fde68a);
+      border: 2px solid #f59e0b; box-shadow: inset 0 1px 0 #fff;
+    }
+    .match-btn.match-kjv .match-avatar { background: linear-gradient(160deg, #dbeafe, #93c5fd); border-color: #3b82f6; }
+    .match-btn-body { flex: 1; min-width: 0; }
+    .match-who { display: block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #92400e; margin-bottom: 0.15rem; }
+    .match-btn.match-kjv .match-who { color: #1d4ed8; }
+    @keyframes match-pop { 0% { transform: scale(1); } 40% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    @keyframes match-shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+    .match-status {
+      min-height: 1.6rem; margin: 0.45rem 0 0.65rem; font-size: 1.02rem; font-weight: 800;
+      color: #0f172a; text-align: center; font-family: Nunito, system-ui, sans-serif;
+    }
+    .match-status.good { color: #047857; }
+    .match-status.try { color: #b45309; }
+    .match-teach {
+      display: none; margin: 0.5rem 0 0.75rem; padding: 0.75rem 0.9rem; border-radius: 14px;
+      background: #fffef8; border: 2px solid #f59e0b; color: #0f172a;
+      font-family: Nunito, system-ui, sans-serif; font-weight: 700; font-size: 0.95rem; line-height: 1.45;
+      animation: match-pop 0.35s ease;
+    }
+    .match-teach.show { display: block; }
+    .match-teach strong { color: #92400e; }
+    .match-teach cite { display: block; margin-top: 0.35rem; font-style: normal; font-size: 0.85rem; color: #64748b; }
+    .match-win {
+      display: none; text-align: center; padding: 1.1rem 1rem; margin-top: 0.75rem;
+      border-radius: 18px; border: 3px solid #22c55e; background: linear-gradient(180deg, #ecfdf5, #d1fae5); color: #064e3b;
+    }
+    .match-win.show { display: block; animation: match-pop 0.5s ease; }
+    .match-win p { margin: 0; font-size: 1.1rem; font-weight: 800; font-family: Nunito, system-ui, sans-serif; line-height: 1.4; }
+    .match-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.85rem; justify-content: center; }
     .match-actions a, .match-actions button {
-      min-height: 48px; padding: 0.5rem 0.9rem; border-radius: 12px; font-weight: 800; font-family: "Nunito", sans-serif;
-      text-decoration: none; border: 2px solid #fde68a; background: rgba(255, 217, 61, 0.12); color: #fef9c3; cursor: pointer;
+      min-height: 48px; padding: 0.55rem 1rem; border-radius: 14px; font-weight: 800;
+      font-family: Nunito, system-ui, sans-serif; font-size: 0.95rem; text-decoration: none;
+      border: 3px solid #f59e0b; background: #fff; color: #92400e; cursor: pointer;
+    }
+    .match-actions button.match-next { background: linear-gradient(180deg, #fde68a, #fbbf24); border-color: #d97706; color: #422006; }
+    .match-sound-row {
+      display: flex; align-items: center; gap: 0.4rem; margin: 0 0 0.55rem;
+      font-family: Nunito, system-ui, sans-serif; font-size: 0.88rem; font-weight: 700; color: #475569;
+    }
+    .match-best {
+      margin: 0.75rem 0 0; padding: 0.55rem 0.75rem; border-radius: 12px;
+      background: #f8fafc; border: 2px solid #e2e8f0; font-family: Nunito, system-ui, sans-serif;
+      font-size: 0.88rem; font-weight: 700; color: #334155; text-align: center;
     }
   </style>
 </head>
@@ -63,288 +127,106 @@
       </div>
       <nav class="kids-header-nav" aria-label="Kids navigation">
         <a href="/kids/">Kids home</a>
-        <a href="corner.html">Bible Story Library</a>
-        <a href="parent.html">Parent Dashboard</a>
+        <a href="corner.html">Stories</a>
       </nav>
     </header>
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner match-page">
-        <p class="section-note topic-mood-porch kids-site-porch" lang="en">You&rsquo;re already welcome here&mdash;fun first, short moments, tiny KJV line. No rush.</p>
-        <div class="kids-pasture-shell kids-pasture-shell--compact" role="region" aria-label="Your quiet field with Little Shepherd">
-          <div class="kids-pasture-card kids-pasture-card--straggler" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
-            <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
-            <div class="kids-pasture-illu" aria-hidden="true">
-              <span class="kids-pasture-bloom pt-a" aria-hidden="true"></span>
-              <span class="kids-pasture-bloom pt-b" aria-hidden="true"></span>
-              <span class="kids-pasture-bloom pt-c" aria-hidden="true"></span>
-              <span class="kids-pasture-bloom pt-d" aria-hidden="true"></span>
-              <span class="kids-pasture-sheep" aria-hidden="true"></span>
-              <span class="kids-pasture-sheep2" aria-hidden="true"></span>
-              <span class="kids-pasture-sheep3" aria-hidden="true"></span>
-              <span class="kids-pasture-flower1" aria-hidden="true"></span>
-              <span class="kids-pasture-flower2" aria-hidden="true"></span>
-              <span class="kids-pasture-tree" aria-hidden="true"></span>
-              <span class="kids-pasture-fruit" aria-hidden="true"></span>
-              <span class="kids-pasture-brook" aria-hidden="true"></span>
-              <span class="kids-pasture-fence" aria-hidden="true"></span>
-            </div>
-            <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
-            <p class="kids-sheep-tokens" id="kids-sheep-tokens-line" aria-live="polite"></p>
-            <p class="sr-only" id="kids-pasture-aria">Story opens on this device: loading.</p>
-            <p class="sr-only" id="kids-pasture-bloom-announce" role="status" aria-live="polite" aria-atomic="true"></p>
-          </div>
-          <section class="kids-shepherd-compact glass tdb-porch-paper-glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0.75rem 0 0">
-            <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
-            <div class="kids-buddy-mascot-row">
-              <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
-                <span class="kids-shepherd-hero-wrap">
-                  <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
-                </span>
-              </button>
-              <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
-                <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—with you in the match game.</p>
-                <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
-              </div>
-            </div>
-          </section>
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Fun + God&rsquo;s Word—short matches, real KJV. No rush.</p>
+
+        <div class="match-hud" aria-label="Round progress">
+          <span class="match-hud-round" id="match-round-label">Round 1 · Easy</span>
+          <span class="match-score-pill" id="match-score-pill" title="Saved on this device only">This device: —</span>
+          <div class="match-stars" id="match-stars" role="img" aria-label="Pairs found"></div>
         </div>
-        <div class="match-hero glass tdb-porch-paper-glass" style="padding:1rem 1.1rem; border-radius:16px; margin-bottom:1rem;">
-          <h1>Match the buddy pairs</h1>
-          <p>Tap a picture + phrase, then the KJV line that goes with it. All King James&mdash;short lines so little eyes can win fast.</p>
+
+        <div class="match-hero">
+          <h1>Match verse friends</h1>
+          <p>Tap a <strong>character card</strong>, then the <strong>KJV line</strong>. Learn a short truth each match—then try a harder round!</p>
         </div>
-        <p id="match-status" class="match-status" role="status" aria-live="polite"></p>
+
+        <p class="match-daily" id="match-daily-note">Today&rsquo;s mix includes verses from the kids 365 list when available.</p>
+
+        <label class="match-sound-row">
+          <input type="checkbox" id="match-sound" checked>
+          Soft game sounds (this tab only)
+        </label>
+
+        <p id="match-status" class="match-status" role="status" aria-live="polite">Pick a character card to start.</p>
+        <div id="match-teach" class="match-teach" role="status" aria-live="polite"></div>
+
         <div class="match-board" id="match-board">
-          <div class="match-col" aria-label="What it means in kid words">
-            <h2>What it means</h2>
+          <div class="match-col" aria-label="Kid phrases with characters">
+            <h2>Character · kid phrase</h2>
             <div id="match-plain" role="group"></div>
           </div>
-          <div class="match-col" aria-label="KJV lines from the Bible">
+          <div class="match-col" aria-label="KJV lines">
             <h2>KJV line</h2>
             <div id="match-kjv" role="group"></div>
           </div>
         </div>
+
         <div id="match-win" class="match-win" hidden>
-          <p id="match-win-line" style="margin:0;font-size:1.1rem;"></p>
+          <p id="match-win-line"></p>
           <div class="match-actions">
-            <a href="corner.html?random=1" class="kids-surprise-random">Read a surprise story</a>
-            <button type="button" id="match-shuffle">Play again (mixed)</button>
+            <button type="button" class="match-next" id="match-next-round">Next round (harder)</button>
+            <button type="button" id="match-shuffle">Play again (same level)</button>
+            <a href="corner.html?choose=1#kids-library-grid">Pick a story</a>
           </div>
         </div>
-        <details class="kids-magic-more" style="margin-top:1.25rem">
-          <summary class="kids-magic-more-summary">More play<small>other games still here</small></summary>
-          <div class="kids-magic-grid kids-magic-grid--more" role="group" aria-label="More Bible games">
-            <a class="kids-magic-btn kids-magic-mini" href="lost-sheep.html">Find the sheep<small>tap game</small></a>
-            <a class="kids-magic-btn kids-magic-mini" href="memory-flock.html">Memory flock<small>match pairs</small></a>
-            <a class="kids-magic-btn kids-magic-mini" href="shepherds-path.html">Shepherd&rsquo;s Path<small>stepping stones</small></a>
-            <a class="kids-magic-btn kids-magic-shelf" href="my-pasture.html">My pasture<small>your field</small></a>
-            <a class="kids-magic-btn kids-magic-loop" href="../kids-corner.html">Quick loop<small>short cartoon</small></a>
-            <a class="kids-magic-btn kids-magic-night" href="good-night.html">Good night<small>prayer + Shepherd</small></a>
-          </div>
+
+        <p class="match-best" id="match-best-line">Scores stay on this device only—no public leaderboard.</p>
+
+        <details style="margin-top:1rem">
+          <summary style="cursor:pointer;font-weight:700;color:#64748b;font-family:Nunito,sans-serif">More games</summary>
+          <p style="text-align:center;margin:0.75rem 0">
+            <a href="memory-flock.html">Memory flock</a> ·
+            <a href="lost-sheep.html">Find the sheep</a> ·
+            <a href="shepherds-path.html">Shepherd&rsquo;s Path</a>
+          </p>
         </details>
-        <p class="section-note" style="text-align:center;margin-top:1rem"><a href="/kids/">← Kids play home</a></p>
+        <p class="section-note" style="text-align:center;margin-top:1rem"><a href="/kids/">← Kids home</a></p>
       </div>
     </main>
-    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
-  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
-    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
-    <span class="tdb-lang-switcher-inner">
-      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
-    </span>
-  </nav>
-
-  <nav class="site-footer-essentials" aria-label="Key pages">
-    <a href="/" aria-label="The Grove — today's verse and Ask the Word">The Grove</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/plans.html">The Paths</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support</a>
-  </nav>
-
-  <p class="site-footer-share-wrap">
-    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
-    <span class="site-footer-share-sep" aria-hidden="true">·</span>
-    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
-  </p>
-
-  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
-    <a href="/plans.html">The Paths</a>
-    <a href="/kids/">Kids play</a>
-    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
-      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
-      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
-      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
-    </span>
-  </nav>
-
-  <nav class="site-footer-nav" aria-label="Footer links">
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/bible-credits.html">Bible credits</a>
-    <a href="/verse.html">Today&rsquo;s Lesson</a>
-    <a href="/mystudy">My Study</a>
-    <a href="/prayer-wall.html">Prayer</a>
-    <a href="/media.html">Media</a>
-    <a href="/roadmap.html">Roadmap</a>
-    <a href="/give">Support</a>
-    <a href="/church-hub.html">Pastor&rsquo;s Study</a>
-    <a href="/reader.html">Chapter reader</a>
-    <a href="/bible/tools.html">Study workshop</a>
-    <a href="/bible-tool.html">The Library</a>
-    <a href="/testimonials.html">Reader stories</a>
-    <a href="/journal/">Journal</a>
-    <a href="/updates.html">Monthly updates</a>
-    <a href="/emergency-calm-pack.html">Emergency calm pack</a>
-    <a href="/where-support-goes.html">Where support goes</a>
-    <a href="/verse-cards/">Verse cards</a>
-    <a href="/security.html">Security</a>
-    <a href="/contact.html">Contact</a>
-    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
-  </nav>
-
-  <details class="footer-sitemap">
-    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
-    <div class="footer-sitemap-grid">
-      <div class="footer-sitemap-col">
-        <h3>The Narrow Paths</h3>
-        <a href="/explore.html">Full list (all pages)</a>
-        <a href="/topic-anxiety.html">Anxiety</a>
-        <a href="/topic-fear.html">Fear</a>
-        <a href="/topic-grief.html">Grief</a>
-        <a href="/topic-hope.html">Hope</a>
-        <a href="/topic-strength.html">Strength</a>
-        <a href="/topic-parenting.html">Parenting</a>
-        <a href="/topic-loneliness.html">Loneliness</a>
-        <a href="/topic-forgiveness.html">Forgiveness</a>
-        <a href="/topic-guilt.html">Guilt</a>
-        <a href="/topic-overwhelmed.html">Overwhelmed</a>
-        <a href="/topic-worthless.html">Worth / identity</a>
-      </div>
-      <div class="footer-sitemap-col footer-sitemap-col--es-links">
-        <h3>Spanish devotionals</h3>
-        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
-        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
-        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
-        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
-      </div>
-      <div class="footer-sitemap-col">
-        <h3>Tools of the Quiet Trade</h3>
-        <a href="/verse.html">Verse of the Day</a>
-        <a href="/reader.html">Chapter reader</a>
-        <a href="/bible/tools.html">Study workshop</a>
-        <a href="/bible-tool.html">The Library</a>
-        <a href="/mystudy">My Study</a>
-        <a href="/calm.html">Quiet Hall</a>
-        <a href="/mobius.html">Grace Ribbon</a>
-        <a href="/one-family-in-christ.html">One Family in Christ</a>
-        <a href="/red-letters.html">Red letters</a>
-        <a href="/plans.html">The Paths</a>
-        <a href="/reading-plan.html">7-day plan (under Paths)</a>
-        <a href="/study.html">Study workspace</a>
-        <a href="/wins.html">Wins</a>
-        <a href="/progress.html">Progress</a>
-      </div>
-      <div class="footer-sitemap-col">
-        <h3>For the Household of Faith</h3>
-        <a href="/church-hub.html">Pastor&rsquo;s Study</a>
-        <a href="/sermon.html">Sermon builder</a>
-        <a href="/church-sharing-kit.html">Church sharing kit</a>
-        <a href="/church.html">Church center</a>
-        <a href="/team-toolkit.html">Team toolkit</a>
-        <a href="/pastor-toolkit.html">Pastor toolkit (nested)</a>
-        <a href="/for-pastors.html">For pastors (nested)</a>
-        <a href="/family.html">Family hub</a>
-        <a href="/little-ones.html">For the Little Ones</a>
-        <a href="/family-armor.html">Family Armor</a>
-        <a href="/kids/">Kids play</a>
-        <a href="/coloring.html">Kids Coloring</a>
-      </div>
-      <div class="footer-sitemap-col">
-        <h3>Further In</h3>
-        <a href="/prayer-wall.html">Prayer</a>
-        <a href="/offline-porch.html">Offline porch</a>
-        <a href="/porch-map-one-page-print.html">Porch map (print)</a>
-        <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
-        <a href="/explore.html#start-here">Explore start here</a>
-        <a href="/learn-the-word.html">Learn the Word</a>
-        <a href="/bible-study.html">Bible studies</a>
-        <a href="/shop.html">Shop</a>
-        <a href="/story.html">Story</a>
-        <a href="/media.html">Media</a>
-        <a href="/roadmap.html">Roadmap</a>
-        <a href="/approach.html">How we respond</a>
-        <a href="/curriculum.html">Curriculum</a>
-        <a href="/verse-cards/">Verse cards</a>
-        <a href="/contact.html">Contact</a>
-        <a href="/security.html">Security</a>
-      </div>
-    </div>
-  </details>
-
-  <p class="footer-humility">We battle. He wins.</p>
-  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
-  <p class="site-footer-story">
-    Steady KJV for honest days. Prayers and notes stay on this device unless you sync on purpose.
-  </p>
-
-  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
-    <p class="footer-friday-signup-label" id="footerFridaySignupHeading">Short <abbr title="King James Version">KJV</abbr> Friday letter only&mdash;one message a week, easy unsubscribe, never sold. Want the daily calendar verse too? <a href="/#newsletter">Use the home signup</a>.</p>
-    <div class="footer-friday-signup-row">
-      <label for="footer-friday-email" class="sr-only">Email for Friday letter</label>
-      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="you@example.com" aria-label="Email for Friday letter" autocomplete="email">
-      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit" aria-label="Sign up for the short Friday email">Sign me up</button>
-    </div>
-    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
   </div>
-
-  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
-  <p class="site-footer-copy site-footer-legal-line">Primary Scripture is the <abbr title="King James Version">KJV</abbr> (public domain). Optional simpler English may quote the <abbr title="Bible in Basic English">BBE</abbr> (public domain). <a href="/bible-credits.html">Bible credits</a>.</p>
-  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
-
-  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
-  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">August 7, 2026</span></p>
-  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
-    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
-  </div>
-  <script defer src="/language-switcher.js?v=20260809-vbd-labels"></script>
-</footer>
-  </div>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
+  <script src="kids-game-kit.js?v=20260809funedu"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
-  <script src="kids-gentle-shepherd.js?v=20260806mascot" defer></script>
+  <script src="kids-gentle-shepherd.js?v=20260810ls" defer></script>
   <script nonce="tdb2025s">
-  document.addEventListener('DOMContentLoaded', function initMatchBuddies() {
-  (function () {
+  document.addEventListener('DOMContentLoaded', function () {
     'use strict';
     try {
       if (window.tdbKidsActivityLog && tdbKidsActivityLog.log) {
         tdbKidsActivityLog.log({ type: 'game', label: 'Play: Match the Verse' });
       }
-    } catch (e0) { /* no-op */ }
-    var PAIRS = [
-      { id: 'a1', plain: '\uD83C\uDF3F God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.' },
-      { id: 'a2', plain: '\uD83C\uDF1F Jesus says come to me', kjv: 'Suffer the little children to come unto me.' },
-      { id: 'a3', plain: '\uD83C\uDF0E Do not be scared—God is with you', kjv: 'Be strong and of a good courage; be not afraid.' },
-      { id: 'a4', plain: '\uD83D\uDCD6 Give your worries to God', kjv: 'Casting all your care upon him; for he careth for you.' }
-    ];
+    } catch (e0) {}
+
+    var kit = window.tdbKidsGameKit;
+    var ROUND_SIZES = [4, 5, 6];
+    var roundIndex = 0;
     var plainEl = document.getElementById('match-plain');
     var kjvEl = document.getElementById('match-kjv');
     var statusEl = document.getElementById('match-status');
+    var teachEl = document.getElementById('match-teach');
     var winEl = document.getElementById('match-win');
+    var starsEl = document.getElementById('match-stars');
+    var roundLabel = document.getElementById('match-round-label');
+    var scorePill = document.getElementById('match-score-pill');
+    var bestLine = document.getElementById('match-best-line');
+    var dailyNote = document.getElementById('match-daily-note');
+    var soundBox = document.getElementById('match-sound');
     var firstPick = null;
     var matched = {};
+    var pairsThisRound = [];
+    var pairMap = {};
+    var lockBoard = false;
+    var audioCtx = null;
 
     function shuffle(a) {
+      if (kit && kit.seededShuffle) return kit.seededShuffle(a, Date.now() % 100000);
       var x = a.slice();
       for (var i = x.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -353,47 +235,177 @@
       return x;
     }
 
+    function soundOn() { return soundBox && soundBox.checked; }
+    function beep(freq, ms, type) {
+      if (!soundOn()) return;
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        var o = audioCtx.createOscillator();
+        var g = audioCtx.createGain();
+        o.type = type || 'sine';
+        o.frequency.value = freq;
+        g.gain.value = 0.06;
+        o.connect(g); g.connect(audioCtx.destination);
+        o.start();
+        g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (ms || 0.12));
+        o.stop(audioCtx.currentTime + (ms || 0.12));
+      } catch (e) {}
+    }
+
+    function setStatus(msg, kind) {
+      if (!statusEl) return;
+      statusEl.textContent = msg;
+      statusEl.className = 'match-status' + (kind ? ' ' + kind : '');
+    }
+
+    function hideTeach() {
+      if (teachEl) { teachEl.classList.remove('show'); teachEl.textContent = ''; }
+    }
+
+    function showTeach(pair) {
+      if (!teachEl || !pair) return;
+      teachEl.innerHTML =
+        '<strong>Remember:</strong> ' + (pair.teach || 'God’s Word is true.') +
+        (pair.ref ? '<cite>' + pair.ref + ' (KJV)</cite>' : '');
+      teachEl.classList.add('show');
+    }
+
+    function paintStars() {
+      if (!starsEl) return;
+      var n = pairsThisRound.length;
+      var found = Object.keys(matched).length;
+      var html = '';
+      for (var i = 0; i < n; i++) html += '<span class="match-star' + (i < found ? ' on' : '') + '" aria-hidden="true">\u2B50</span>';
+      starsEl.innerHTML = html;
+      starsEl.setAttribute('aria-label', found + ' of ' + n + ' pairs found');
+    }
+
+    function paintScores() {
+      if (!kit) return;
+      var g = kit.getScore('match') || {};
+      var streak = kit.streakDays('match') || 0;
+      if (scorePill) {
+        scorePill.textContent =
+          'Wins: ' + (g.totalWins || 0) +
+          ' · Best round: ' + (g.bestPairsRound || 0) +
+          (streak ? ' · Streak: ' + streak + 'd' : '');
+      }
+      if (bestLine) {
+        bestLine.textContent =
+          'This device only: ' + (g.totalPairs || 0) + ' pairs matched all-time' +
+          (g.bestPairsRound ? ' · best single round ' + g.bestPairsRound : '') +
+          '. No public leaderboard.';
+      }
+    }
+
     function clearPressed() {
       [].forEach.call(document.querySelectorAll('.match-btn[aria-pressed="true"]'), function (b) {
         b.setAttribute('aria-pressed', 'false');
       });
     }
 
+    function makeBtn(p, side) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'match-btn' + (side === 'kjv' ? ' match-kjv' : '');
+      b.setAttribute('data-pair', p.id);
+      b.setAttribute('data-side', side);
+      b.setAttribute('aria-pressed', 'false');
+      var av = document.createElement('span');
+      av.className = 'match-avatar';
+      av.setAttribute('aria-hidden', 'true');
+      av.textContent = p.icon || '📖';
+      var body = document.createElement('span');
+      body.className = 'match-btn-body';
+      var who = document.createElement('span');
+      who.className = 'match-who';
+      who.textContent = side === 'plain' ? (p.who || 'Friend') : (p.ref || 'KJV');
+      body.appendChild(who);
+      body.appendChild(document.createTextNode(side === 'plain' ? p.plain : p.kjv));
+      b.appendChild(av);
+      b.appendChild(body);
+      return b;
+    }
+
+    function pickPairs() {
+      var size = ROUND_SIZES[Math.min(roundIndex, ROUND_SIZES.length - 1)];
+      if (kit && kit.mixDailyAndCore) return kit.mixDailyAndCore(size);
+      if (kit && kit.dailyCorePairs) return kit.dailyCorePairs(size);
+      return (kit && kit.MATCH_CORE ? kit.MATCH_CORE : []).slice(0, size);
+    }
+
+    function roundName() {
+      if (roundIndex <= 0) return 'Round 1 · Easy';
+      if (roundIndex === 1) return 'Round 2 · Bigger';
+      return 'Round ' + (roundIndex + 1) + ' · Challenge';
+    }
+
     function render() {
       matched = {};
       firstPick = null;
+      lockBoard = false;
+      hideTeach();
+      pairsThisRound = pickPairs();
+      pairMap = {};
+      pairsThisRound.forEach(function (p) { pairMap[p.id] = p; });
+      if (roundLabel) roundLabel.textContent = roundName() + ' · ' + pairsThisRound.length + ' pairs';
+      if (dailyNote) {
+        var has365 = !!(window.__TDB_KIDS_VERSES_365 && window.__TDB_KIDS_VERSES_365.length);
+        dailyNote.textContent = has365
+          ? 'Today’s mix: character cards + lines from the kids KJV 365 list (changes each day).'
+          : 'Today’s mix: character cards + KJV lines (play again for a new shuffle).';
+      }
       winEl.classList.remove('show');
       winEl.hidden = true;
-      if (statusEl) statusEl.textContent = 'Pick a white card, then a gold card.';
+      setStatus('Pick a character card to start.', '');
       plainEl.textContent = '';
       kjvEl.textContent = '';
-      var pOrder = shuffle(PAIRS);
-      var kOrder = shuffle(PAIRS);
-      pOrder.forEach(function (p) {
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'match-btn';
-        b.setAttribute('data-pair', p.id);
-        b.setAttribute('data-side', 'plain');
-        b.setAttribute('aria-pressed', 'false');
-        b.textContent = p.plain;
-        plainEl.appendChild(b);
-      });
-      kOrder.forEach(function (p) {
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'match-btn match-kjv';
-        b.setAttribute('data-pair', p.id);
-        b.setAttribute('data-side', 'kjv');
-        b.setAttribute('aria-pressed', 'false');
-        b.textContent = p.kjv;
-        kjvEl.appendChild(b);
-      });
+      paintStars();
+      paintScores();
+      shuffle(pairsThisRound).forEach(function (p) { plainEl.appendChild(makeBtn(p, 'plain')); });
+      shuffle(pairsThisRound).forEach(function (p) { kjvEl.appendChild(makeBtn(p, 'kjv')); });
+      beep(520, 0.08);
+    }
+
+    function setStatus(msg, kind) {
+      if (!statusEl) return;
+      statusEl.textContent = msg;
+      statusEl.className = 'match-status' + (kind ? ' ' + kind : '');
+    }
+
+    function celebrateWin() {
+      setStatus('All pairs found—you learned them!', 'good');
+      var winP = document.getElementById('match-win-line');
+      if (winP) {
+        var winMsg = "You matched them all! God's words stick when we play with them.";
+        if (window.tdbLittleShepherd && window.tdbLittleShepherd.pickMatchWin) {
+          try { winMsg = window.tdbLittleShepherd.pickMatchWin(); } catch (e) {}
+        }
+        winP.textContent = winMsg;
+      }
+      winEl.classList.add('show');
+      winEl.hidden = false;
+      if (kit) kit.recordScore('match', { pairs: pairsThisRound.length, wins: 1, round: roundIndex + 1 });
+      paintScores();
+      beep(660, 0.1);
+      setTimeout(function () { beep(880, 0.14); }, 90);
+      try {
+        if (typeof window.confetti === 'function') {
+          window.confetti({ particleCount: 100, spread: 72, origin: { y: 0.7 }, colors: ['#fbbf24', '#34d399', '#60a5fa', '#f472b6'] });
+        }
+      } catch (eC) {}
+      if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
+        try { window.tdbLittleShepherd.notify('gameWin'); } catch (eN) {}
+      }
+      var nextBtn = document.getElementById('match-next-round');
+      if (nextBtn) {
+        nextBtn.textContent = roundIndex + 1 < ROUND_SIZES.length ? 'Next round (harder)' : 'Play a new daily mix';
+      }
     }
 
     function onBoardClick(ev) {
-      var t = ev.target;
-      if (!t || !t.getAttribute || t.classList.contains('matched')) return;
+      var t = ev.target.closest ? ev.target.closest('.match-btn') : null;
+      if (!t || lockBoard || t.classList.contains('matched')) return;
       if (t.getAttribute('data-pair') == null) return;
       if (t.getAttribute('aria-pressed') === 'true') {
         t.setAttribute('aria-pressed', 'false');
@@ -404,7 +416,8 @@
         clearPressed();
         firstPick = t;
         t.setAttribute('aria-pressed', 'true');
-        if (statusEl) statusEl.textContent = 'Now pick the matching KJV line (or the other way around).';
+        beep(440, 0.05);
+        setStatus(t.getAttribute('data-side') === 'plain' ? 'Now tap the matching KJV line!' : 'Now tap the matching character card!', '');
         return;
       }
       if (firstPick === t) return;
@@ -419,46 +432,53 @@
         t.setAttribute('aria-pressed', 'false');
         firstPick = null;
         matched[a] = true;
-        if (Object.keys(matched).length === PAIRS.length) {
-          if (statusEl) statusEl.textContent = 'All four pairs found—you did it!';
-          var winP = document.getElementById('match-win-line');
-          if (winP) {
-            var winMsg = "You matched them all! God's words stick when we play with them.";
-            if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.pickMatchWin === 'function') {
-              try {
-                winMsg = window.tdbLittleShepherd.pickMatchWin();
-              } catch (e) {}
-            }
-            winP.textContent = winMsg;
-          }
-          winEl.classList.add('show');
-          winEl.hidden = false;
-          if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
-            try { window.tdbLittleShepherd.notify('gameWin'); } catch (eN) {}
-          }
-        } else {
-          if (statusEl) statusEl.textContent = 'That pair matches—pick the next one.';
-        }
+        paintStars();
+        showTeach(pairMap[a]);
+        beep(720, 0.1, 'triangle');
+        if (Object.keys(matched).length === pairsThisRound.length) celebrateWin();
+        else setStatus('Yes! Read the Remember tip—then next pair. ⭐', 'good');
       } else {
         t.setAttribute('aria-pressed', 'true');
-        if (statusEl) statusEl.textContent = 'Not that pair—try a different second tap.';
-        if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+        firstPick.classList.add('match-wrong');
+        t.classList.add('match-wrong');
+        setStatus('Not that pair—read both cards slowly.', 'try');
+        beep(180, 0.1, 'square');
+        lockBoard = true;
+        if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
           try { window.tdbLittleShepherd.notify('wrongMatch'); } catch (eM) {}
         }
+        var f = firstPick;
         setTimeout(function () {
-          firstPick.setAttribute('aria-pressed', 'false');
+          f.classList.remove('match-wrong');
+          t.classList.remove('match-wrong');
+          f.setAttribute('aria-pressed', 'false');
           t.setAttribute('aria-pressed', 'false');
           firstPick = null;
-        }, 650);
+          lockBoard = false;
+        }, 520);
       }
+    }
+
+    function clearPressed() {
+      [].forEach.call(document.querySelectorAll('.match-btn[aria-pressed="true"]'), function (b) {
+        b.setAttribute('aria-pressed', 'false');
+      });
     }
 
     var board = document.getElementById('match-board');
     if (board) board.addEventListener('click', onBoardClick);
     var sh = document.getElementById('match-shuffle');
     if (sh) sh.addEventListener('click', render);
+    var next = document.getElementById('match-next-round');
+    if (next) {
+      next.addEventListener('click', function () {
+        if (roundIndex + 1 < ROUND_SIZES.length) roundIndex += 1;
+        else roundIndex = 0;
+        render();
+        try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (eS) {}
+      });
+    }
     render();
-  })();
   });
   </script>
   <script src="/tdb-offline-strip.js?v=20260421pwa1" defer></script>

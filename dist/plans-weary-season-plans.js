@@ -1,5 +1,5 @@
 /**
- * Weary-season Battle Plans — device-local merge into PLANS (plans.html).
+ * Weary-season Plans — device-local merge into PLANS (plans.html).
  */
 (function () {
   'use strict';

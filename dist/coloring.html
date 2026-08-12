@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260809-vbd-labels"></script>
+  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260809-vbd-labels"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -27,10 +30,10 @@
   <link rel="stylesheet" href="styles.css?v=20260809-vbd-labels">
   <link rel="preload" href="kids/kids-design-tokens.css" as="style">
   <link rel="stylesheet" href="kids/kids-design-tokens.css">
-  <link rel="preload" href="kids/kids-kids-world.css?v=20260428kids100" as="style">
-  <link rel="stylesheet" href="kids/kids-kids-world.css?v=20260428kids100">
-  <link rel="preload" href="kids/color-and-tell.css?v=21" as="style">
-  <link rel="stylesheet" href="kids/color-and-tell.css?v=21">
+  <link rel="preload" href="kids/kids-kids-world.css?v=20260810contrast" as="style">
+  <link rel="stylesheet" href="kids/kids-kids-world.css?v=20260810contrast">
+  <link rel="preload" href="kids/color-and-tell.css?v=20260812grid" as="style">
+  <link rel="stylesheet" href="kids/color-and-tell.css?v=20260812grid">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,14 +72,11 @@
         <span class="tdb-nav-flyout-toggle__label">Menu</span>
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
-        <a href="/" aria-label="Home — today’s verse">Home</a>
-        <a href="/#feel-section">Ask</a>
+        <a href="/" aria-label="Home — today’s verse">Today</a>
+        <a href="/#feel-section">How I feel</a>
         <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
         <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
         <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
-        <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
-        <a href="/about.html">About</a>
-        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
@@ -90,28 +90,30 @@
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family</span>
+              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
               <a href="/family.html">Family</a>
               <a href="/coloring.html">Kids coloring</a>
               <a href="/printables.html" aria-label="Print pages">Print</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Site</span>
-              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
+              <a href="/about.html">About</a>
               <a href="/search.html" id="nav-site-search" aria-label="Search the site">Search</a>
+              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
               <a href="/faq.html">FAQ</a>
               <a href="/give" aria-label="Optional support">Support</a>
+              <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
             </div>
           </div>
         </details>
       </div>
     </nav>
       <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
-        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
-        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
+        <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
       </div>
-
       <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
 </header>
 
@@ -161,7 +163,7 @@
           <div class="kids-buddy-mascot-row">
             <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
               <span class="kids-shepherd-hero-wrap">
-                <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="kids/shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
+                <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="kids/shepherd-mascot-welcome.png?v=20260810" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
               </span>
             </button>
             <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
@@ -173,7 +175,7 @@
         <section class="glass tdb-porch-paper-glass tdb-cat-story-bridge" id="tdb-cat-story-bridge-top" hidden aria-live="polite"></section>
         <details class="tdb-cat-parent-tip-details" id="tdb-cat-parent-tip-details">
           <summary class="tdb-cat-parent-tip-summary">How Color &amp; Tell works <span class="tdb-cat-parent-tip-summary-hint">(tap to expand)</span></summary>
-          <p class="tdb-cat-parent-tip" role="note">Color the scene(s), tap <strong>Save</strong>, then open <strong>Watch My Story</strong>—one saved scene is enough; more panels make a fuller storyboard. Every story is a gentle panel sequence with a short KJV line under each panel and one big idea. Use <strong>Print storyboard</strong> for a blank fridge page. On phones and tablets the cards scroll sideways. Everything stays private on this device.</p>
+          <p class="tdb-cat-parent-tip" role="note">Pick a color, then <strong>tap an area</strong> to fill inside the lines (Fill tool is on by default). Switch to the brush if you want to draw freehand. Tap <strong>Save</strong>, then open <strong>Watch My Story</strong>—one saved scene is enough; more panels make a fuller storyboard. Every story is a gentle panel sequence with a short KJV line under each panel and one big idea. Use <strong>Print storyboard</strong> for a blank fridge page. On phones and tablets the cards scroll sideways. Everything stays private on this device.</p>
         </details>
         <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">One Quiet Moment</h2>
@@ -188,22 +190,9 @@
             <div class="list-item"><div><strong>Coloring memory</strong><p>When you finish, tell someone — or just remember — one thing from the story you want to keep.</p></div></div>
           </div>
         </section>
-        <section class="glass tdb-porch-paper-glass">
-          <h2 class="section-divider">Choose your story</h2>
-          <p class="section-note">These five are the gentlest first doors. Each label is a feeling — pick the one that matches today.</p>
-          <div class="cta-group">
-            <a class="btn btn-primary" href="coloring.html?story=david">Brave — David &amp; Goliath</a>
-            <a class="btn btn-secondary" href="coloring.html?story=jesus-children">Safe — Jesus &amp; the children</a>
-            <a class="btn btn-secondary" href="coloring.html?story=daniel">Courage — Daniel &amp; the lions</a>
-            <a class="btn btn-secondary" href="coloring.html?story=creation">Wonder — Creation</a>
-            <a class="btn btn-secondary" href="coloring.html?story=resurrection">Hope — Empty tomb</a>
-          </div>
-          <p class="section-note" style="margin-top:0.85rem">Littles (3&ndash;5) with a grown-up: start at <a href="coloring.html?story=jesus-children">Safe — Jesus &amp; the children</a> or <a href="coloring.html?story=creation">Wonder — Creation</a>—Scene 1 first, then tap Save when you’re done (one panel is enough for Watch My Story). Middles (5&ndash;8): color the panels in order, save as you go, then Watch My Story. The full library is below. After Easter (or any Sunday you want resurrection hope without a sermon), try <a href="coloring.html?story=resurrection">Hope — Empty tomb</a>&mdash;one beautiful full-page scene to color and treasure.</p>
-          <div class="list" style="margin-top:0.9rem">
-            <div class="list-item"><div><strong>Littles (3–5 with a grown-up)</strong><p>Begin with Jesus &amp; the children or Creation. Start with Scene 1 — save when you’re done. One short KJV line under the panel is enough for today.</p></div></div>
-            <div class="list-item"><div><strong>Middles (5–8)</strong><p>Color the panels → save → Watch My Story. Add more scenes when you’re ready for a fuller storyboard.</p></div></div>
-            <div class="list-item"><div><strong>Older kids (9+)</strong><p>Finish a whole story over a few sittings, or color one story as the response after a plan day, Family Armor, or a read-aloud story card.</p></div></div>
-          </div>
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="tdb-cat-choose-h">
+          <h2 class="section-divider" id="tdb-cat-choose-h">Choose your story</h2>
+          <p class="section-note">Picture cards load below — just like Story Library. Tap one to open the paint tools.</p>
         </section>
         <script nonce="tdb2025s">
           (function () {
@@ -222,7 +211,7 @@
             });
           })();
         </script>
-        <div id="tdb-cat-root" data-tdb-color-tell="Watch My Story unlocks when at least one scene for that story is saved on this device." data-tdb-scene-assets="/coloring-pages/creation-s1.svg /coloring-pages/baby-moses-s1.svg /coloring-pages/moses-red-sea-s1.svg /coloring-pages/jonah-s1.svg /coloring-pages/noah-s1.svg /coloring-pages/david-s1.svg /coloring-pages/daniel-lions-s1.svg /coloring-pages/daniel-lions-s4.svg /coloring-pages/feeding-5000-s1.svg /coloring-pages/jesus-storm-s1.svg /coloring-pages/jesus-children-s1.svg /coloring-pages/good-samaritan-s1.svg /coloring-pages/empty-tomb-s1.svg /coloring-pages/prodigal-son-s1.svg /coloring-pages/walks-on-water-s1.svg /coloring-pages/zacchaeus-s1.svg /coloring-pages/woman-at-well-s1.svg /coloring-pages/ruth-naomi-s1.svg /coloring-pages/lazarus-s1.svg /coloring-pages/lost-sheep-s1.svg /coloring-pages/jairus-daughter-s1.svg /coloring-pages/blind-man-s1.svg /coloring-pages/fishers-of-men-s1.svg /coloring-pages/wedding-cana-s1.svg /coloring-pages/mustard-seed-s1.svg /coloring-pages/the-sower-s1.svg /coloring-pages/triumphal-entry-s1.svg /coloring-pages/lost-coin-s1.svg /coloring-pages/healing-paralytic-s1.svg /coloring-pages/good-shepherd-s1.svg /coloring-pages/feeding-4000-s1.svg /coloring-pages/wise-foolish-builders-s1.svg /coloring-pages/the-talents-s1.svg /coloring-pages/persistent-widow-s1.svg /coloring-pages/healing-leper-s1.svg /coloring-pages/joseph-coat-s1.svg /coloring-pages/joseph-dreams-s1.svg /coloring-pages/burning-bush-s1.svg /coloring-pages/jericho-s1.svg /coloring-pages/gideon-fleece-s1.svg /coloring-pages/samson-s1.svg /coloring-pages/esther-s1.svg /coloring-pages/fiery-furnace-s1.svg /coloring-pages/abraham-isaac-s1.svg /coloring-pages/elijah-carmel-s1.svg /coloring-pages/naaman-s1.svg /coloring-pages/boy-samuel-s1.svg /coloring-pages/ten-lepers-s1.svg /coloring-pages/pharisee-tax-collector-s1.svg /coloring-pages/widows-mite-s1.svg /coloring-pages/centurion-servant-s1.svg /coloring-pages/abraham-sarah-s1.svg /coloring-pages/elisha-oil-s1.svg /coloring-pages/hannah-samuel-s1.svg /coloring-pages/david-jonathan-s1.svg /coloring-pages/rich-young-ruler-s1.svg /coloring-pages/pearl-great-price-s1.svg /coloring-pages/withered-hand-s1.svg /coloring-pages/unforgiving-servant-s1.svg /coloring-pages/boy-david-s1.svg /coloring-pages/elijah-ravens-s1.svg /coloring-pages/writing-on-wall-s1.svg /coloring-pages/ruth-boaz-s1.svg /coloring-pages/jesus-baptism-s1.svg /coloring-pages/emmaus-road-s1.svg /coloring-pages/jesus-washes-feet-s1.svg /coloring-pages/transfiguration-s1.svg /coloring-pages/jordan-crossing-s1.svg /coloring-pages/balaams-donkey-s1.svg /coloring-pages/elijah-taken-up-s1.svg /coloring-pages/nehemiah-walls-s1.svg /coloring-pages/jesus-tempted-s1.svg /coloring-pages/paul-silas-prison-s1.svg /coloring-pages/lydia-purple-s1.svg /coloring-pages/tabitha-dorcas-s1.svg /coloring-pages/nativity-s1.svg /coloring-pages/paul-shipwreck-s1.svg /coloring-pages/rahab-spies-s1.svg /coloring-pages/elijah-widow-s1.svg /coloring-pages/philip-ethiopian-s1.svg /coloring-pages/david-spares-saul-s1.svg"></div>
+        <div id="tdb-cat-root" data-tdb-color-tell="Watch My Story unlocks when at least one scene for that story is saved on this device." data-tdb-scene-assets="/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg /coloring-pages/bible-stories/david-and-goliath-v2.jpg /coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg /coloring-pages/bible-stories/empty-tomb-coloring-page.jpg /coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg"></div>
         <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Weekly &amp; offline pairings</h2>
           <p class="section-note">Coloring works best when it helps the verse stay in little hands after the screen goes quiet.</p>
@@ -321,7 +310,7 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/" aria-label="Home — today’s verse">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">Ask</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/calm.html">When it’s hard</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/reader.html">Read</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -410,7 +399,7 @@
   <p class="footer-humility">We battle. He wins.</p>
   <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
   <p class="site-footer-story">
-    One honest KJV verse at a time. Free forever. Built so anyone can open the Word without a maze.
+    One KJV verse for what you&rsquo;re carrying. Free. Private. Built so anyone can open the Word without a maze.
   </p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
@@ -429,7 +418,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 11, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -439,10 +428,10 @@
 
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
-  <script defer src="kids/kids-gentle-shepherd.js?v=20260806mascot"></script>
-  <script defer src="/vendor/jl-coloringBook.js?v=25"></script>
+  <script defer src="kids/kids-gentle-shepherd.js?v=20260810ears2"></script>
+  <script defer src="/vendor/jl-coloringBook.js?v=34restore"></script>
   <script defer src="/kids/kids-gentle-journey.js?v=20260503goal365"></script>
-  <script defer src="kids/color-and-tell.js?v=25"></script>
+  <script defer src="kids/color-and-tell.js?v=20260812grid"></script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260809-vbd-labels" data-cfasync="false"></script>
 </body>

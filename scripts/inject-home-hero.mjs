@@ -352,12 +352,12 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
   }
 
   const brandTitle =
-    'Today\u2019s Daily Battle \u2014 One KJV Verse, One Small Step, One Prayer';
+    'Today\u2019s Daily Battle \u2014 One KJV verse for what you\u2019re carrying';
   const title = brandTitle;
   const desc =
-    'Today\u2019s KJV: ' +
+    'Today\u2019s verse: ' +
     refPlain +
-    '. Quiet KJV daily devotional. No ads, no login. Start with today\u2019s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.';
+    ' (KJV). One KJV verse for what you\u2019re carrying. Free. Private. No ads, no login wall.';
   const ldWebPageName = brandTitle + ' \u00b7 Today\u2019s KJV: ' + refPlain;
 
   html = html.replace(/<title>[^<]*<\/title>/, '<title>' + escapeHtmlText(title) + '</title>');

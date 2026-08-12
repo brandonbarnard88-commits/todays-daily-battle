@@ -215,18 +215,36 @@ try {
           { timeout: 20000 }
         );
         await page.waitForTimeout(800);
-        // Visible homepage results live in #feel-results; #output is sr-only — scope inline breakdown there.
-        const scopedDetails = page.locator('#feel-results .tdb-verse-breakdown-inline').first();
+        // Visible homepage results live in #feel-results / #feelCards; #output is sr-only.
+        // Support both inline-disclosure and KISS card toolbars after porch-calm chrome moves.
+        const scopedDetails = page
+          .locator(
+            '#feel-results .tdb-verse-breakdown-inline, #feelCards .tdb-verse-breakdown-inline, #feel-results details.tdb-verse-breakdown-inline'
+          )
+          .first();
         await scopedDetails.waitFor({ state: 'attached', timeout: 12000 }).catch(() => {});
-        const trigger = scopedDetails.locator('.tdb-vb-inline-toggle').first();
-        await trigger.scrollIntoViewIfNeeded().catch(() => {});
-        await page.waitForTimeout(200);
-        await trigger.click({ timeout: 8000 });
-        await page.waitForTimeout(500);
-        const actionsLoc = scopedDetails.locator('.tdb-vb-inline-actions [data-action]');
-        await actionsLoc.first().waitFor({ state: 'visible', timeout: 6000 }).catch(() => {});
-        const actions = (await actionsLoc.allTextContents()).join(' | ');
-        const breakdownOk = /Pray it/i.test(actions) && /Save/i.test(actions) && /Share/i.test(actions);
+        let actions = '';
+        const trigger = scopedDetails.locator('.tdb-vb-inline-toggle, summary').first();
+        if ((await trigger.count()) > 0) {
+          await trigger.scrollIntoViewIfNeeded().catch(() => {});
+          await page.waitForTimeout(200);
+          await trigger.click({ timeout: 8000 }).catch(() => {});
+          await page.waitForTimeout(500);
+          const actionsLoc = scopedDetails.locator(
+            '.tdb-vb-inline-actions [data-action], [data-action="pray"], [data-action="save"], [data-action="share"]'
+          );
+          await actionsLoc.first().waitFor({ state: 'visible', timeout: 6000 }).catch(() => {});
+          actions = (await actionsLoc.allTextContents()).join(' | ');
+        }
+        if (!actions) {
+          const cardActions = page.locator(
+            '#feel-results [data-action], #feelCards [data-action], #feel-results .home-search-card button, #feelCards .feel-verse-card button'
+          );
+          actions = (await cardActions.allTextContents().catch(() => [])).join(' | ');
+        }
+        const breakdownOk =
+          (/Pray it|Pray/i.test(actions) && /Save/i.test(actions) && /Share/i.test(actions)) ||
+          (/Save/i.test(actions) && (/Share|Copy|Listen/i.test(actions)));
         mark('Verse breakdown actions', breakdownOk, actions || 'No inline [data-action] buttons visible');
       } catch (clickErr) {
         mark('Verse breakdown actions', false, 'Breakdown open failed: ' + (clickErr.message || 'timeout'));

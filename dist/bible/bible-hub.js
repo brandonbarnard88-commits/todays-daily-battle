@@ -249,7 +249,26 @@
     if (!ch) return;
     titleEl.textContent = ch.chapter;
     contentEl.innerHTML = (ch.verses || []).map(function (v) {
-      return '<p class="chapter-verse"><span class="chapter-verse-num">' + escapeHtml(String(v.ref || '')) + '.</span> ' + escapeHtml(String(v.text || '')) + '</p>';
+      var ref = String(v.ref || '');
+      var text = String(v.text || '');
+      var body = escapeHtml(text);
+      if (
+        window.TDBRedLetter &&
+        typeof window.TDBRedLetter.renderHtml === 'function' &&
+        typeof window.TDBRedLetter.isEnabled === 'function' &&
+        window.TDBRedLetter.isEnabled()
+      ) {
+        body = window.TDBRedLetter.renderHtml(ref, text, { quote: false });
+      }
+      return (
+        '<p class="chapter-verse verse-body" data-verse-ref="' +
+        escapeHtml(ref) +
+        '"><span class="chapter-verse-num">' +
+        escapeHtml(ref) +
+        '.</span> ' +
+        body +
+        '</p>'
+      );
     }).join('');
     paraphraseEl.textContent = ch.paraphrase || '';
     paraphraseEl.style.display = ch.paraphrase ? 'block' : 'none';
@@ -522,7 +541,7 @@
         console.warn('Fallback audio failed:', e);
         ttsOfflineAudio = null;
         setBtn('Listen', false);
-        showToast('Offline clip is not on the page for this verse yet—that is all right. Add MP3 files to /audio/ when you are building offline audio.');
+        showToast('Offline clip is not on the page for this verse yet.');
       });
       audio.onended = audio.onerror = function () {
         ttsOfflineAudio = null;
@@ -533,7 +552,7 @@
 
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     setBtn('Listen', false);
-    showToast('Voice read-aloud is turned off on this host for now—that is all right.');
+    showToast('Voice read-aloud is turned off on this host for now.');
   }
 
   function wireAudioBtn() {

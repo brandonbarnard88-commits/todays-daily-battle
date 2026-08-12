@@ -81,8 +81,15 @@
     refEl.textContent = verse.ref + ' (KJV)';
     while (textEl.firstChild) textEl.removeChild(textEl.firstChild);
     var p = document.createElement('p');
-    p.textContent = '\u201c' + verse.text + '\u201d';
-    textEl.appendChild(p);
+    p.className = 'verse-body';
+    p.setAttribute('data-verse-ref', verse.ref);
+    if (window.TDBRedLetter && typeof window.TDBRedLetter.applyToElement === 'function') {
+      textEl.appendChild(p);
+      window.TDBRedLetter.applyToElement(p, verse.ref, verse.text, { quote: true });
+    } else {
+      p.textContent = '\u201c' + verse.text + '\u201d';
+      textEl.appendChild(p);
+    }
   }
 
   function init() {

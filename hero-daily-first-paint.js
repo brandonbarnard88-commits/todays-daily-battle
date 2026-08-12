@@ -1318,11 +1318,31 @@
       }
     }
 
-    var title = 'Today\u2019s Daily Battle: ' + v.ref + ' \u2014 Daily KJV Verse';
+    var title = 'Today\u2019s Daily Battle: ' + v.ref + ' \u2014 One KJV verse';
     document.title = title;
     var metaDesc = document.querySelector('meta[name="description"]');
-    var desc = 'Today\u2019s verse: ' + v.ref + ' (KJV). Search by how you\u2019re really feeling, quiet prayer wall, works offline. No ads, no login, no mess.';
+    var desc = 'Today\u2019s verse: ' + v.ref + ' (KJV). One KJV verse for what you\u2019re carrying. Free. Private. No ads, no login wall.';
     if (metaDesc) metaDesc.setAttribute('content', desc);
+    try {
+      if (!window.__tdbTimeToFirstVerseLogged) {
+        window.__tdbTimeToFirstVerseLogged = true;
+        var ms = Math.round(
+          (window.performance && typeof performance.now === 'function')
+            ? performance.now()
+            : 0
+        );
+        if (typeof window.trackEvent === 'function') {
+          window.trackEvent('time_to_first_verse', {
+            ms: ms,
+            ref: String(v.ref || '').slice(0, 64),
+            source: 'hero_daily_first_paint'
+          });
+        }
+        if (window.performance && typeof performance.mark === 'function') {
+          performance.mark('tdb-first-verse');
+        }
+      }
+    } catch (eTtfv) { /* non-fatal */ }
     ['og:title', 'twitter:title'].forEach(function (p) {
       var el = document.querySelector('meta[property="' + p + '"], meta[name="' + p + '"]');
       if (el) el.setAttribute('content', title);

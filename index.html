@@ -17,6 +17,7 @@
   <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260809-vbd-labels" fetchpriority="low"></script>
   <!-- Quiet room lives only on prayer-wall.html; old /#prayer-wall bookmarks still work -->
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
+  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260811-one-interrupt"></script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260809-vbd-labels"></script>
 
   <title>Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer</title>
@@ -401,25 +402,15 @@
           </defs>
         </svg>
       </div>
-      <div class="hero-brand-taglines" role="group" aria-label="Site motto: pace, devotion, and learning">
-        <p class="soul-tag">Less scroll, more soul</p>
-        <p class="tdb-header-heartbeat hero-home-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
-      </div>
       <span class="site-title" aria-label="Today's Daily Battle">Today&rsquo;s Daily Battle</span>
       <span class="site-title-underline" aria-hidden="true"></span>
-      <nav class="site-top-links" aria-label="Account and site information">
+      <p class="soul-tag site-header-tagline">Less scroll, more soul</p>
+      <nav class="site-top-links" aria-label="Account and appearance">
         <span id="header-auth-links">
-          <a href="login.html" aria-label="Sign In">Sign In</a>
-          <span aria-hidden="true"> · </span>
-          <a href="login.html?mode=signup" aria-label="Sign Up">Sign Up</a>
+          <a href="login.html" aria-label="Sign in">Sign in</a>
         </span>
         <span aria-hidden="true"> · </span>
-        
         <button type="button" data-tdb-theme-toggle="home_header" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
-        <a href="/about.html" aria-label="About Today&apos;s Daily Battle" class="site-top-links-secondary">About</a>
-        <a href="faq.html" aria-label="FAQ" class="site-top-links-secondary">FAQ</a>
-        <a href="privacy.html" aria-label="Privacy policy" class="site-top-links-secondary">Privacy</a>
-        <a href="terms.html" aria-label="Terms of service" class="site-top-links-secondary">Terms</a>
       </nav>
       <nav class="tdb-home-main-nav tdb-primary-site-nav" aria-label="Main site navigation">
         <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-home" id="tdb-primary-nav-toggle-home">
@@ -427,26 +418,23 @@
           <span class="tdb-nav-flyout-toggle__label">Menu</span>
         </button>
         <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-home">
-          <a href="/" aria-current="page" aria-label="Home — today’s verse">Home</a>
+          <a href="/" aria-current="page" aria-label="Home — today’s verse">Today</a>
           <a href="/#feel-section">How I feel</a>
           <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
           <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
           <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
-          <a href="/kids/" id="nav-kids-corner-home" aria-label="Kids stories and coloring">Kids</a>
-          <a href="/about.html">About</a>
-          <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
           <details class="tdb-nav-more">
             <summary aria-haspopup="true">More</summary>
             <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+              <a href="/kids/" id="nav-kids-corner-home" aria-label="Kids stories and coloring">Kids</a>
               <a href="/verse.html">Today&rsquo;s verse</a>
               <a href="/bible-tool.html" aria-label="Look up a verse">Look up</a>
               <a href="/mystudy" aria-label="Saved verses on this device">Saved</a>
               <a href="/prayer-wall.html">Prayer</a>
               <a href="/family.html">Family</a>
-              <a href="/coloring.html" id="nav-kids-coloring">Kids coloring</a>
-              <a href="/printables.html" aria-label="Print pages">Print</a>
-              <a href="/explore.html" id="nav-site-guide">All pages</a>
+              <a href="/about.html">About</a>
               <a href="/search.html" id="nav-site-search">Search</a>
+              <a href="/explore.html" id="nav-site-guide">All pages</a>
               <a href="/give" aria-label="Optional support">Support</a>
             </div>
           </details>
@@ -455,15 +443,15 @@
     </header>
 
 
-    <!-- Single combined bottom navigation bar (replaces the old overlapping dual bars) -->
+    <!-- Mobile primary dock: 5 items aligned with main IA (no second More system) -->
     <nav class="tdb-bottom-dock" aria-label="Main site navigation">
-      <a href="/" aria-current="page" aria-label="Home — today’s verse">🏠 Home</a>
-      <a href="#feel-section" aria-label="How I feel">💬 How I feel</a>
-      <a href="/plans.html" aria-label="Reading plans">🗓️ Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one steady verse">🌿 When it's hard</a>
-      <a href="/kids/" aria-label="Kids stories">✨ Kids</a>
-      <a href="#quick-search-hero" id="nav-search-btn" class="tdb-bottom-dock-sr-tool" aria-label="Search Scripture">🔍 Search</a>
-      <button type="button" id="nav-more-btn" class="tdb-bottom-dock-more" aria-label="More tools" aria-haspopup="true" aria-expanded="false">☰ More</button>
+      <a href="/" aria-current="page" aria-label="Home — today’s verse">Home</a>
+      <a href="#feel-section" aria-label="How I feel">Feel</a>
+      <a href="/plans.html" aria-label="Reading plans">Plans</a>
+      <a href="/calm.html" aria-label="When it’s hard — one steady verse">Hard day</a>
+      <a href="/kids/" aria-label="Kids stories">Kids</a>
+      <a href="#quick-search-hero" id="nav-search-btn" class="tdb-bottom-dock-sr-tool" aria-label="Search Scripture">Search</a>
+      <button type="button" id="nav-more-btn" class="tdb-bottom-dock-more" hidden aria-hidden="true" tabindex="-1" aria-label="More tools" aria-haspopup="true" aria-expanded="false">More</button>
     </nav>
 
     <!-- Hidden search plumbing for script.js compatibility (not a screen-reader destination) -->
@@ -478,12 +466,11 @@
 
       <!-- Primary: verse + plain words + Ask -->
       <div class="tdb-home-primary-pair tdb-grove" id="tdbHomePrimaryPair" data-tdb-grove="1">
-      <p class="tdb-grove__sign tdb-quiet-container" id="tdbGroveSign">Today&rsquo;s Daily Battle</p>
-      <p class="tdb-grove__tagline tdb-quiet-container">One verse. Plain words. Free.</p>
-      <!-- ══ Primary: Today's verse (top of page) ══ -->
-      <!-- ── Today's verse — primary hero after calm first-visit banner ── -->
-      <p class="tdb-hero-quiet-eyebrow tdb-quiet-container" id="tdbHeroQuietEyebrow">Today&rsquo;s Daily Battle &middot; free forever &middot; KJV</p>
+      <!-- ══ Primary: Today's verse (first screen) ══ -->
       <h1 class="tdb-verse-section-label" id="tdbTodaysVerseHeading">Today&rsquo;s verse</h1>
+      <p class="tdb-hero-quiet-eyebrow tdb-quiet-container" id="tdbHeroQuietEyebrow">Free forever · KJV</p>
+      <p class="tdb-grove__sign tdb-quiet-container sr-only" id="tdbGroveSign">Today&rsquo;s Daily Battle</p>
+      <p class="tdb-grove__tagline tdb-quiet-container sr-only">One verse. Plain words. Free.</p>
       <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn" role="region" aria-labelledby="tdbTodaysVerseHeading">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true" data-tdb-hero-prebuilt="1">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
@@ -555,9 +542,9 @@
           <p id="heroSimpleBreakdown" class="sr-only" hidden aria-hidden="true">What was going on: A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the Lord’s mercy held him up. What it means: If I say, My foot is slipping; your mercy, O Lord, is my support.</p>
         </div>
 
-        <!-- More from the Word — always open with the verse (no disclosure). -->
-        <div class="tdb-dig-deeper tdb-dig-deeper--always-open" id="heroDigDeeper" data-tdb-dig-always-open="1" role="region" aria-label="More from the Word">
-          <h3 class="tdb-dig-deeper__always-heading tdb-vbd-label">More from the Word</h3>
+        <!-- More from the Word — collapsed so the verse stays primary -->
+        <details class="tdb-dig-deeper tdb-dig-deeper--disclosure" id="heroDigDeeper" data-tdb-dig-always-open="0">
+          <summary class="tdb-dig-deeper__summary tdb-vbd-label">More from the Word</summary>
           <div class="tdb-dig-deeper__content">
             <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="Context from the Word">
               <div class="hero-vbd-bundle" id="heroVbdRowSit" hidden>
@@ -589,7 +576,7 @@
               <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this plan &rarr;</a>
             </p>
           </div>
-        </div>
+        </details>
 
         <div class="next-step" id="heroVotdNextStep">
           <strong>One honest step, just for today:</strong> <span id="heroVotdOneStep">If you feel empty, ask God to fill the next small task with His help.</span>
@@ -605,11 +592,15 @@
         <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
         <p class="application" id="heroApplication" hidden></p>
         </div><!-- /#heroVotdBreakdown -->
+        <nav class="tdb-hero-primary-actions" aria-label="Primary verse actions">
+          <a class="btn btn-secondary tdb-hero-primary-actions__link" href="#feel-section">How I feel</a>
+          <button type="button" class="btn btn-secondary" id="hero-save-my-verses" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save</button>
+          <a class="btn btn-secondary tdb-hero-primary-actions__link" href="/plans.html">Plans</a>
+        </nav>
         <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: copy, share, save to My Study">
-            <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, save to My Study">
+            <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, more tools">
             <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
             <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse: KJV text, one small step when available, and a link a friend can open without an account">Share</button>
-            <button type="button" id="hero-save-my-verses" class="hero-toolbar-btn hero-votd-save-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
             </div>
             <details class="tdb-hero-share-more">
               <summary class="tdb-hero-share-more__sum">Email, text, or image</summary>
@@ -693,7 +684,7 @@
         <button type="button" id="morningSkipBtn" class="morning-skip-btn" hidden aria-label="Skip morning flow">Skip →</button>
       </section>
       <a href="/memorize.html" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Open memory verses">Memory</a>
-      <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
+      <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" hidden aria-hidden="true" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
 
       <!-- Ask the Word — after today’s verse + teaching -->
@@ -774,18 +765,16 @@
           </div>
         </details>
         <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Ten feelings first; all topics listed below. Tap searches; Alt-click or long-press opens a matching reading plan lane. Combine mode: pick two then search.">
-          <div class="tdb-feel-quick-strip" id="tdbFeelQuickStrip" role="group" aria-label="Ten common feeling shortcuts">
+          <div class="tdb-feel-quick-strip" id="tdbFeelQuickStrip" role="group" aria-label="Six common feeling shortcuts">
             <button type="button" class="btn btn-secondary quick-topic" data-topic="anxiety" aria-label="Restless or anxious">Restless</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="fear" aria-label="Fear">Fear</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="overwhelmed" aria-label="Heavy or overwhelmed">Heavy</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="grief" aria-label="Grief">Grief</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="strength" aria-label="Tired or weary">Tired</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="hope" aria-label="Hope or discouraged">Hope</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="peace" aria-label="Peace">Peace</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="parenting" aria-label="Parenting">Parenting</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="finances" aria-label="Money worry">Money</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="faith" aria-label="Faith">Faith</button>
           </div>
+          <details class="tdb-feel-all-disclosure tdb-ask-quiet-details" id="tdbFeelAllDisclosure">
+            <summary class="tdb-feel-all-disclosure__sum">All feelings</summary>
           <div class="tdb-feel-all-chips feel-topic-expanded" id="tdbFeelAllChips" role="region" aria-label="All feeling topics">
             <p class="section-note util-mb-0_5" id="feelTopicExpandedHint"><strong>Tap</strong> a feeling for verses. Or <a href="plans.html">open a short plan</a>.</p>
             <div class="feel-band-panel" data-feel-band="heavy">
@@ -856,6 +845,7 @@
               </div>
             </div>
           </div>
+          </details>
         </div>
         <div id="tdbFeelPathCard" class="tdb-feel-path-card" hidden role="region" aria-label="A gentle next path" aria-live="polite"></div>
         <div id="feel-results" aria-live="polite" hidden></div>

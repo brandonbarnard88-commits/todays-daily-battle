@@ -30,14 +30,11 @@
       <span class="tdb-nav-flyout-toggle__label">Menu</span>
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
+      <a href="/" aria-label="Home — today’s verse">Today</a>
       <a href="/#feel-section">How I feel</a>
       <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
       <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
       <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
-      <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
-      <a href="/about.html">About</a>
-      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More</summary>
         <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
@@ -51,16 +48,19 @@
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family</span>
+              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
               <a href="/family.html">Family</a>
               <a href="/coloring.html">Kids coloring</a>
               <a href="/printables.html" aria-label="Print pages">Print</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Site</span>
-              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
+              <a href="/about.html">About</a>
               <a href="/search.html" id="nav-site-search" aria-current="page" aria-label="Search the site">Search</a>
+              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
               <a href="/faq.html">FAQ</a>
               <a href="/give" aria-label="Optional support">Support</a>
+              <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
             </div>
           </div>
       </details>
@@ -249,25 +249,48 @@
     return true;
   }
 
-  function render(q) {
+  var EMPTY_HINT = 'Type a plan, feeling, or tool name. Results appear here — the full directory stays out of the way until you search.';
+  var RECENT_KEY = 'tdb_site_search_recent_v1';
+  var RECENT_DEFAULT = [
+    { t: "Today's verse (Home)", u: '/' },
+    { t: 'How I feel', u: '/#feel-section' },
+    { t: 'Plans', u: '/plans.html' },
+    { t: "When it's hard", u: '/calm.html' },
+    { t: 'Kids', u: '/kids/' }
+  ];
+
+  function readRecent() {
+    try {
+      var raw = localStorage.getItem(RECENT_KEY);
+      var arr = raw ? JSON.parse(raw) : null;
+      if (Array.isArray(arr) && arr.length) return arr.slice(0, 6);
+    } catch (e) {}
+    return RECENT_DEFAULT.slice();
+  }
+
+  function rememberHit(entry) {
+    if (!entry || !entry.u) return;
+    try {
+      var next = [{ t: entry.t, u: entry.u }].concat(
+        readRecent().filter(function (r) { return r.u !== entry.u; })
+      ).slice(0, 6);
+      localStorage.setItem(RECENT_KEY, JSON.stringify(next));
+    } catch (e) {}
+  }
+
+  function renderList(hits, emptyMessage) {
     list.replaceChildren();
-    var needle = String(q || '').trim().toLowerCase();
-    var hits = !needle
-      ? entries.slice()
-      : entries.filter(function (e) {
-          return matchesEntry(needle, e);
-        });
-    status.textContent = hits.length
-      ? (needle
-        ? hits.length + ' quiet door' + (hits.length === 1 ? '' : 's') + ' — take your time; open one only if it helps today.'
-        : 'All ' + hits.length + ' doors are here — type if you want to narrow, or read a title and let the rest wait.')
-      : 'Nothing here right now — that\'s okay. You\'re still welcome here. Try another gentle word, or open Explore for a slower walk.';
+    if (!hits.length) {
+      status.textContent = emptyMessage || EMPTY_HINT;
+      return;
+    }
     hits.forEach(function (e) {
       var li = document.createElement('li');
       li.setAttribute('role', 'listitem');
       var a = document.createElement('a');
       a.href = e.u;
       a.textContent = e.t;
+      a.addEventListener('click', function () { rememberHit(e); });
       li.appendChild(a);
       var span = document.createElement('span');
       span.className = 'tdb-site-search-results__url';
@@ -275,6 +298,25 @@
       li.appendChild(span);
       list.appendChild(li);
     });
+  }
+
+  function render(q) {
+    var needle = String(q || '').trim().toLowerCase();
+    if (!needle) {
+      var recent = readRecent();
+      status.textContent = entries.length
+        ? EMPTY_HINT
+        : 'Ready when you are.';
+      renderList(recent, EMPTY_HINT);
+      return;
+    }
+    var hits = entries.filter(function (e) {
+      return matchesEntry(needle, e);
+    });
+    status.textContent = hits.length
+      ? hits.length + ' quiet door' + (hits.length === 1 ? '' : 's') + ' — open one only if it helps today.'
+      : 'Nothing here right now — that\'s okay. You\'re still welcome here. Try another gentle word, or open Explore for a slower walk.';
+    renderList(hits);
   }
 
   fetch('/site-search-index.json', { credentials: 'same-origin' })

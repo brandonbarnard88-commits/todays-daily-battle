@@ -12561,3 +12561,134 @@ body:has(#tdbCampusMapHome) #tdbGentleNextSteps {
 body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
   gap: 0.45rem;
 }
+
+
+/* ── Design audit porch calm (2026-08-11) ─────────────────────────────
+   Verse first; less chrome; dig-deeper disclosure; restrained dock. */
+.site-header .site-header-tagline,
+.site-header .soul-tag.site-header-tagline {
+  margin: 0.15rem 0 0.35rem;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  color: var(--muted, #a8b3c4);
+  text-align: center;
+}
+.site-header .hero-brand-taglines { display: none !important; }
+.site-top-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 0.5rem;
+  font-size: 0.88rem;
+}
+.site-top-links-secondary { display: none !important; }
+
+/* Primary three actions under verse */
+.tdb-hero-primary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  margin: 0.85rem 0 0.65rem;
+}
+.tdb-hero-primary-actions .btn,
+.tdb-hero-primary-actions__link {
+  min-height: 44px;
+  min-width: 6.5rem;
+}
+
+/* Dig deeper as quiet disclosure */
+#verseCard details.tdb-dig-deeper,
+#verseCard .tdb-dig-deeper--disclosure {
+  margin: 0.75rem 0 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 22%, transparent);
+  border-radius: 12px;
+  padding: 0.35rem 0.75rem 0.5rem;
+  background: color-mix(in srgb, var(--card, #161c26) 92%, transparent);
+}
+#verseCard .tdb-dig-deeper__summary {
+  cursor: pointer;
+  list-style: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--gold, #e3bc67);
+  font-weight: 600;
+}
+#verseCard .tdb-dig-deeper__summary::-webkit-details-marker { display: none; }
+#verseCard .tdb-dig-deeper__summary::after {
+  content: "+";
+  margin-left: auto;
+  font-weight: 500;
+}
+#verseCard details.tdb-dig-deeper[open] > .tdb-dig-deeper__summary::after { content: "−"; }
+
+/* Feeling chips: quick strip only until disclosure opens */
+.tdb-feel-all-disclosure {
+  margin-top: 0.65rem;
+}
+.tdb-feel-all-disclosure__sum {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--muted, #a8b3c4);
+  font-size: 0.92rem;
+  font-weight: 550;
+}
+.tdb-feel-quick-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+/* Decorative sky/moon label: demote so it never steals the first screen */
+#sky-moon-label,
+.sky-moon-label {
+  opacity: 0.55;
+  font-size: 0.72rem;
+  pointer-events: none;
+}
+@media (max-width: 720px) {
+  #sky-moon-label,
+  .sky-moon-label {
+    display: none !important;
+  }
+  /* Dock is primary chrome on small screens */
+  .site-header .tdb-home-main-nav .tdb-primary-nav-panel > a:not([aria-current]),
+  .site-header .tdb-nav-flyout-toggle {
+    /* keep menu toggle; panel opens on demand */
+  }
+  .tdb-bottom-dock a.tdb-bottom-dock-sr-tool,
+  .tdb-bottom-dock #nav-search-btn {
+    /* keep search available but not emoji-heavy */
+    font-size: 0.78rem;
+  }
+  .tdb-bottom-dock {
+    gap: 0.15rem;
+  }
+  .tdb-bottom-dock a {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.3rem;
+  }
+}
+
+/* Hide competing float share when verse tools already offer Share */
+.tdb-float-share-verse[hidden] { display: none !important; }
+
+/* Quiet update: single thin strip */
+.tdb-quiet-update-strip {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Plans full library disclosure summary should feel primary */
+#plansAllLibrary > summary {
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+  justify-content: center;
+}

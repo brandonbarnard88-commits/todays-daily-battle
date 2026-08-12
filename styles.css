@@ -26212,3 +26212,16 @@ html[data-theme="sepia"] .tdb-kiss-verse__kjv {
 #feelCards .tdb-kiss-verse {
   animation: none;
 }
+
+
+/* Design audit: Plans library collapsed by default */
+#plansAllLibrary {
+  margin: 1.25rem 0 2rem;
+}
+#plansAllLibrary > .tdb-hub-disclosure__summary {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+body.tdb-search-page .tdb-site-search-results:empty {
+  min-height: 0;
+}

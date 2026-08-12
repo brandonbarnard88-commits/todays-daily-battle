@@ -9,6 +9,8 @@
   var LAST_BACKUP_KEY = 'tdb_mystudy_last_backup_ms';
   var SEEN_KEY = 'tdb_site_backup_banner_seen_v1';
   var RETURNING_KEY = 'has_visited_porch';
+  var FIRST_SEEN_KEY = 'tdb_porch_first_seen_ms';
+  var MIN_AGE_MS = 2 * 86400000; /* day 2–3 before backup interrupt */
 
   function lsGet(key) {
     try {
@@ -103,12 +105,43 @@
     return lsGet(RETURNING_KEY) === '1' || lsGet(SEEN_KEY) === '1';
   }
 
+  function firstSeenMs() {
+    var raw = lsGet(FIRST_SEEN_KEY);
+    var n = parseInt(raw || '0', 10) || 0;
+    if (!n) {
+      n = Date.now();
+      lsSet(FIRST_SEEN_KEY, String(n));
+    }
+    return n;
+  }
+
+  function isPastGracePeriod() {
+    return Date.now() - firstSeenMs() >= MIN_AGE_MS;
+  }
+
+  function otherInterruptVisible() {
+    try {
+      if (document.documentElement.classList.contains('tdb-interrupt-active')) return true;
+      var cookie = document.getElementById('tdb-cookie-banner') || document.querySelector('[data-tdb-cookie-banner]');
+      if (cookie && cookie.offsetParent !== null && !cookie.hidden) return true;
+      var quiet = document.getElementById('quiet-update');
+      if (quiet && !quiet.hidden && quiet.offsetParent !== null && !document.documentElement.classList.contains('tdb-quiet-update-dismissed')) return true;
+      var smd = document.getElementById('tdbStartMyDayDialog');
+      if (smd && smd.open) return true;
+      var welcome = document.getElementById('tdbFirstVisitDialog');
+      if (welcome && welcome.open) return true;
+    } catch (e) {}
+    return false;
+  }
+
   function shouldShow() {
     if (shouldSkipPage()) return false;
     if (!hasWorthwhileData()) return false;
     if (isSnoozed()) return false;
     if (!backupIsStale()) return false;
     if (!isReturningVisitor()) return false;
+    if (!isPastGracePeriod()) return false;
+    if (otherInterruptVisible()) return false;
     if (document.getElementById('tdb-backup-reminder')) return false;
     return true;
   }

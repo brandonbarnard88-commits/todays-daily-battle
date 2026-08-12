@@ -20628,8 +20628,7 @@ const BIBLE_DATA_CACHE_BUST = '20260802fullkjv';
 const KJV_MIN_VERSE_COUNT = 1000;
 const KJV_FULL_URLS = [
   '/data/kjv-full.json',
-  '/data/kjv-verses.json',
-  '/kjv-full.json'
+  '/data/kjv-verses.json'
 ];
 const KJV_STUB_URLS = [
   '/kjv.json',

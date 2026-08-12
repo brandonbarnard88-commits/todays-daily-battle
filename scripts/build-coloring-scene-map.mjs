@@ -31,7 +31,7 @@ const outPath = path.join(root, 'kids', 'coloring-scene-art-map.json');
 const HERO = {
   'daniel-lions': 'bible-stories/daniel-in-the-lions-den-coloring-page.jpg',
   creation: 'bible-stories/creation-six-days-coloring-page.jpg',
-  david: 'bible-stories/david-and-goliath-coloring-page.jpg',
+  david: 'bible-stories/david-and-goliath-v2.jpg',
   'jesus-children': 'bible-stories/jesus-and-the-children-coloring-page.jpg',
   'empty-tomb': 'bible-stories/empty-tomb-coloring-page.jpg',
   jonah: 'jonah-and-the-great-fish.jpg',

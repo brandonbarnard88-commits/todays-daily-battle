@@ -690,7 +690,7 @@
     if (!slug) return [];
     /* Premium full-page Color & Tell heroes (bible-stories folder) */
     var heroes = {
-      david: ['/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg'],
+      david: ['/coloring-pages/bible-stories/david-and-goliath-v2.jpg'],
       creation: [
         '/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg',
         '/coloring-pages/creation.jpg'

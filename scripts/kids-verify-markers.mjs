@@ -48,9 +48,9 @@ export const STORY_HTML_MARKERS = [
   '/coloring.html?story=prodigal-son',
   'story-library-fonts.css?v=1',
   'loop-library-coloring.js?v=20260524readquiz',
-  'kids-corner.js?v=20260811audio2',
+  'kids-corner.js?v=20260812goliathv2',
   'kids-gentle-shepherd.js?v=20260811audio2',
-  'kids-battle.js?v=20260811firstpaint',
+  'kids-battle.js?v=20260812goliathv2',
   'kids-battle.css?v=20260811firstpaint',
   'kids-library-card--static',
   'kids-library-show-more',
@@ -63,7 +63,7 @@ export const STORY_HTML_MARKERS = [
   'kids-story-remember.js?v=20260803remember',
   'TDB_PANEL_RASTER',
   'nunito-latin.woff2',
-  '/coloring-pages/colored/david-and-goliath-coloring-page.jpg'
+  '/coloring-pages/colored/david-and-goliath-v2.jpg'
 ];
 
 export const OG_ASSET_PATHS = [

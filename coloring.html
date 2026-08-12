@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="kids/kids-design-tokens.css">
   <link rel="preload" href="kids/kids-kids-world.css?v=20260810contrast" as="style">
   <link rel="stylesheet" href="kids/kids-kids-world.css?v=20260810contrast">
-  <link rel="preload" href="kids/color-and-tell.css?v=31" as="style">
-  <link rel="stylesheet" href="kids/color-and-tell.css?v=31">
+  <link rel="preload" href="kids/color-and-tell.css?v=20260812grid" as="style">
+  <link rel="stylesheet" href="kids/color-and-tell.css?v=20260812grid">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -188,16 +188,9 @@
             <div class="list-item"><div><strong>Coloring memory</strong><p>When you finish, tell someone — or just remember — one thing from the story you want to keep.</p></div></div>
           </div>
         </section>
-        <section class="glass tdb-porch-paper-glass">
-          <h2 class="section-divider">Choose your story</h2>
-          <p class="section-note">These five are the gentlest first doors. Each label is a feeling — pick the one that matches today.</p>
-          <div class="cta-group">
-            <a class="btn btn-primary" href="coloring.html?story=david">Brave — David &amp; Goliath</a>
-            <a class="btn btn-secondary" href="coloring.html?story=jesus-children">Safe — Jesus &amp; the children</a>
-            <a class="btn btn-secondary" href="coloring.html?story=daniel">Courage — Daniel &amp; the lions</a>
-            <a class="btn btn-secondary" href="coloring.html?story=creation">Wonder — Creation</a>
-            <a class="btn btn-secondary" href="coloring.html?story=resurrection">Hope — Empty tomb</a>
-          </div>
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="tdb-cat-choose-h">
+          <h2 class="section-divider" id="tdb-cat-choose-h">Choose your story</h2>
+          <p class="section-note">Picture cards load below — just like Story Library. Tap one to open the paint tools.</p>
         </section>
         <script nonce="tdb2025s">
           (function () {
@@ -436,7 +429,7 @@
   <script defer src="kids/kids-gentle-shepherd.js?v=20260810ears2"></script>
   <script defer src="/vendor/jl-coloringBook.js?v=34restore"></script>
   <script defer src="/kids/kids-gentle-journey.js?v=20260503goal365"></script>
-  <script defer src="kids/color-and-tell.js?v=34restore"></script>
+  <script defer src="kids/color-and-tell.js?v=20260812grid"></script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260809-vbd-labels" data-cfasync="false"></script>
 </body>

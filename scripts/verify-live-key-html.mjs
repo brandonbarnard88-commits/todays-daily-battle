@@ -70,13 +70,13 @@ const checks = [
   {
     path: '/',
     needles: [
-      'Save to My Study',
+      'id="hero-save-my-verses"',
       'href="/mystudy?tab=library#saved-verses"',
       'href="/prayer-wall.html"',
-      // Homepage dig-deeper must stay always-open (no nest disclosure).
+      // Homepage teaching stays always-open (no nest disclosure, no extra heading).
       'tdb-dig-deeper--always-open',
-      'tdb-dig-deeper__always-heading',
-      'More from the Word',
+      'id="heroDigDeeper"',
+      'id="heroDeepWho"',
     ],
     forbidden: [
       'Save to My Verses',

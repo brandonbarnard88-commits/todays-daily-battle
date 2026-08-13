@@ -12,7 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
 const HEARTBEAT =
-  '<p class="tdb-header-heartbeat site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</p>';
+  '<p class="tdb-header-heartbeat site-tagline" lang="en">For God, For Family, For Country</p>';
 
 const EXCLUDE_DIRS = new Set(['node_modules', 'dist', '.git']);
 

@@ -18,7 +18,7 @@ import { injectMissingPrimaryNav } from './inject-missing-primary-nav.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
-const EXCLUDE_DIRS = new Set(['node_modules', 'dist', '.git']);
+const EXCLUDE_DIRS = new Set(['node_modules', 'dist', '.git', '.worktrees']);
 
 const ES_ROOT_SKIP = new Set([
   'agobio.html',
@@ -185,8 +185,8 @@ function main() {
 
     if (rel === 'verse.html' && touched) {
       next = next.replace(
-        /<a href="\/verse\.html">Today&rsquo;s Verse<\/a>/,
-        '<a href="/verse.html" aria-current="page">Today&rsquo;s Verse</a>'
+        /<a href="\/verse\.html">Today(?:&rsquo;|'|’)s [Vv]erse<\/a>/,
+        '<a href="/verse.html" aria-current="page">Today\u2019s verse</a>'
       );
     }
 

@@ -40,9 +40,9 @@ const pages = [
   'id="search-btn"',
   'class="quick-links',
   "Today's Daily Battle",
-  'hero-brand-taglines',
   'soul-tag',
-  'One KJV verse for what you',
+  'Less Scroll, More Soul',
+  'For God, For Family, For Country',
   'sky-ip-geo.js?v=20260327ipgeo',
   'id="family-armor-stories-btn"',
   'id="armor-builder-btn"',
@@ -57,6 +57,11 @@ const pages = [
   'footer-build-stamp.js',
   'id="heroShareBtn"',
   'id="heroImageBtn"',
+  'tdb-layman-always-open',
+  'tdb-dig-deeper--always-open',
+  'tdb-dig-deeper__always-heading',
+  'id="heroVbdPrimary"',
+  'id="heroDigDeeper"',
   'id="nav-kids-corner-home"',
   'id="tdbFirstVisitStrip"',
   'id="tdb-home-welcome-heading"',
@@ -143,9 +148,9 @@ const pages = [
   { path: '/verse-image.html', name: 'Verse image generator', mustInclude: ['Verse image generator', 'id="verse-image-free-starters"', 'Free starter examples', 'Isaiah 40:31', 'Deuteronomy 6:6', 'Psalm 23:1', 'Matthew 11:28', 'Philippians 4:6', 'id="verse-image-porch-polish-presets"', 'Porch polish presets', 'Empty porch at first light', 'autoload=1', 'cormorant-latin-subset.css', 'verse-image.js?v=20260523wearyT25', 'verse-ref-slug.js', 'qrcode.browser.min.js', 'verse-image-include-qr', 'Include scan link (QR)', 'assets/share/verse-share.jpg', 'recent-gens', 'verse-image-tweet', 'verse-image-print-btn', 'verse-image-download-svg-btn', 'Download SVG', 'T21 — Candle glow', 'T22 — Still cove', 'T23 — Gentle grief rain', 'T24 — Morning hope mist', 'T25 — Phone wallpaper quiet', 'set as wallpaper', 'vi-preset-square', 'data-vi-tpl', 'data-verse-store="verseGens"', 'verse-image-text-color', 'verse-image-layout', 'verse-image-template', 'Classic soar', 'Peace &amp; hope', 'Eagle flight', 'Morning mist', '1080×1080', 'Night peace', 'Silver mist', 'Centered', 'value="cross"', 'value="soar"', 'dawn sky', 'value="hush"', 'Quiet field', 'verse-image-v2-roadmap', 'Gentle roadmap', 'id="verse-image-uog-prompts"', 'University of God', 'verse-image-uog-preset-row', 'id="verse-image-uog-preset-list"', 'id="verse-image-gifts-plan-prompts"', 'Father of Lights', 'Copy all five prompts', 'many small streams flowing', 'verse-image-uog-cat-btn', 'data-tdb-uog-cat', 'Copy all summer prompts', 'Lakeside dock at mid-morning', 'Family Armor morning reset', 'Field edge at deep twilight', 'Small orchard', 'data-verse-image-uog-copy', 'Copy all fall harvest prompts', 'data-verse-image-uog-copy-fall', 'Wheat stubble', 'University of Comparison mood', 'heat leaving the room', 'Contentment in small seasons mood', 'University of Overwhelm mood', 'Fear for my children mood', 'steaming mug beside', 'Psalm 91:11', 'T20 — Season bridge soft', 'id="verse-image-life-lessons-prompts"', 'Copy all prompts', 'judge-not-when-eyes-are-heavy.html', 'data-verse-image-ll-copy-all', 'Matthew 7:1-2', 'house-on-rock-when-storms-hit.html', 'Nineteen', 'Peace in the Storm', 'Come Unto Me', 'cast-your-care-when-burden-is-heavy.html', 'render-unto-caesar-when-laws-pull-apart.html'] },
   { path: '/v.html', name: 'Verse short link', mustInclude: ['verse-ref-slug.js', 'bible-api.com', 'v-ref', 'v-text', 'Bible Tool'] },
   { path: '/prayer-wall.html', name: 'Quiet prayer room', mustInclude: ['id="prayer-panel-private"', 'id="prayer-private-prompt"', 'One line is enough', 'Your private prayers stay on this device', 'id="prayer-private-template-btn"', 'id="loop-prayer-use-btn"', 'id="prayer-wall-list"', 'What battle are you facing today?', 'id="prayer-counter"', 'Total prayers', 'data-prayer-tab="with-others"', 'id="message-list"', 'tt-bootstrap.js', 'script.js?v=20260418prayerwall2', 'tdb-cache-hygiene:'] },
-  { path: '/yearly-rhythm.html', name: 'Year-round rhythm', mustInclude: ['Year-round rhythm', 'Year-round rhythm', 'Print year', 'id="yr-summer"', 'Summer Seeds', 'plans.html?plan=summer-seeds', 'rel="canonical" href="https://todaysdailybattle.com/yearly-rhythm.html"', 'August', 'July', 'id="yr-memory"', 'yr-month-glance', 'id="yr-memory-spotlight"', 'id="yr-memory-tbody"', 'memory-verses.js', 'mountYearlyMemorySpotlight', 'mountYearlyTable', 'yr-table-wrap--mv', 'id="yearly-rhythm-planner"', 'id="yearly-rhythm-planner-plain"', 'Plain text for copy', 'yr-copy-planner-plain-btn', 'church-sharing-kit.html#csk-memory-verse-cards', 'church-sharing-kit.html#csk-homeschool-year-round', 'Homeschool week tracker', 'family.html', 'year-at-a-glance.html', 'church-sharing-kit.html#csk-memory-verse-activities', 'memory-verse-activities-print.html', 'id="yr-print-planners"', 'id="yr-print-planners-plain"', 'Monthly Memory Verse Planner', 'Year-Round Rhythm', 'Verse to Hide in My Heart', 'Psalm 119:11', 'church-sharing-kit.html#csk-print-planners', 'class="yearly-rhythm-hub"'] },
-  { path: '/year-at-a-glance.html', name: 'Year at a glance', mustInclude: ['Year at a glance', 'rel="canonical" href="https://todaysdailybattle.com/year-at-a-glance.html"', 'memory-verses.js', 'yag-tbody', 'yag-plain-pre', 'yag-print-btn', 'id="yag-month-grid"', 'id="yag-activities-block"', 'Activities only (print)', 'memory-verse-activities-print.html', 'church-sharing-kit.html#csk-memory-verse-activities', 'Gentle activity reminders', 'Seasonal door', 'yearly-rhythm.html', 'Year-round rhythm', 'Print year', 'Print-friendly', 'yag-print-friendly-note'] },
-  { path: '/memory-verse-activities-print.html', name: 'Memory verse activities print', mustInclude: ['Memory Verse Teaching Methods &amp; Activities', 'rel="canonical" href="https://todaysdailybattle.com/memory-verse-activities-print.html"', 'id="mva-teaching-methods"', 'id="mva-seasonal-kjv"', 'mva-seasonal-table', 'id="mva-method-cards"', 'id="mva-cards"', 'id="mva-plain-pre"', 'id="mva-print-btn"', 'church-sharing-kit.html#csk-memory-verse-activities', 'yearly-rhythm.html', 'Morning whisper', 'Lam 3:22-23', 'KJV Verses by Month &amp; Season', 'Activity Reminders', 'quiet place with Scripture', 'Give thanks always', 'Print year', 'mva-print-friendly-note', 'Print-friendly'] },
+  { path: '/yearly-rhythm.html', name: 'Year-round rhythm', mustInclude: ['Year-round rhythm', 'Year-round rhythm', 'id="yr-summer"', 'Summer Seeds', 'plans.html?plan=summer-seeds', 'rel="canonical" href="https://todaysdailybattle.com/yearly-rhythm.html"', 'August', 'July', 'id="yr-memory"', 'yr-month-glance', 'id="yr-memory-spotlight"', 'id="yr-memory-tbody"', 'memory-verses.js', 'mountYearlyMemorySpotlight', 'mountYearlyTable', 'yr-table-wrap--mv', 'id="yearly-rhythm-planner"', 'id="yearly-rhythm-planner-plain"', 'Plain text for copy', 'yr-copy-planner-plain-btn', 'church-sharing-kit.html#csk-memory-verse-cards', 'church-sharing-kit.html#csk-homeschool-year-round', 'Homeschool week tracker', 'family.html', 'year-at-a-glance.html', 'church-sharing-kit.html#csk-memory-verse-activities', 'memory-verse-activities-print.html', 'id="yr-print-planners"', 'id="yr-print-planners-plain"', 'Monthly Memory Verse Planner', 'Year-Round Rhythm', 'Verse to Hide in My Heart', 'Psalm 119:11', 'church-sharing-kit.html#csk-print-planners', 'class="yearly-rhythm-hub"'] },
+  { path: '/year-at-a-glance.html', name: 'Year at a glance', mustInclude: ['Year at a glance', 'rel="canonical" href="https://todaysdailybattle.com/year-at-a-glance.html"', 'memory-verses.js', 'yag-tbody', 'yag-plain-pre', 'yag-print-btn', 'id="yag-month-grid"', 'id="yag-activities-block"', 'Activities only (print)', 'memory-verse-activities-print.html', 'church-sharing-kit.html#csk-memory-verse-activities', 'Gentle activity reminders', 'Seasonal door', 'yearly-rhythm.html', 'Year-round rhythm', 'Print-friendly', 'yag-print-friendly-note'] },
+  { path: '/memory-verse-activities-print.html', name: 'Memory verse activities print', mustInclude: ['Memory Verse Teaching Methods &amp; Activities', 'rel="canonical" href="https://todaysdailybattle.com/memory-verse-activities-print.html"', 'id="mva-teaching-methods"', 'id="mva-seasonal-kjv"', 'mva-seasonal-table', 'id="mva-method-cards"', 'id="mva-cards"', 'id="mva-plain-pre"', 'id="mva-print-btn"', 'church-sharing-kit.html#csk-memory-verse-activities', 'yearly-rhythm.html', 'Morning whisper', 'Lam 3:22-23', 'KJV Verses by Month &amp; Season', 'Activity Reminders', 'quiet place with Scripture', 'Give thanks always', 'mva-print-friendly-note', 'Print-friendly'] },
   { path: '/evening-university-print.html', name: 'Evening University print', mustInclude: ['Evening in the University', 'rel="canonical" href="https://todaysdailybattle.com/evening-university-print.html"', 'Deuteronomy 6:6', 'Psalm 4:8', 'Luke 24:29', 'Matthew 11:28', 'plans.html?plan=eveninguog', 'morning-evening-family-print.html', 'university-at-the-table-print.html', 'one-week-in-the-university-print.html', 'family.html'] },
   { path: '/university-at-the-table-print.html', name: 'University at the Table print', mustInclude: ['University at the Table', 'rel="canonical" href="https://todaysdailybattle.com/university-at-the-table-print.html"', 'John 14:27', 'Matthew 11:28', 'Isaiah 54:13', 'Psalm 118:24', '60-second family aloud', 'Let not your heart be troubled', 'plans.html', 'evening-university-print.html', 'family.html', 'printables.html'] },
   { path: '/morning-evening-family-print.html', name: 'Morning evening print', mustInclude: ['rel="canonical" href="https://todaysdailybattle.com/morning-evening-family-print.html"', 'Morning &amp; evening (family)', 'Lamentations 3:22', 'Deuteronomy 6:6', 'fa-littles-morning-reset', 'evening-university-print.html', 'one-week-in-the-university-print.html', 'plans.html?plan=eveninguog'] },
@@ -221,7 +226,7 @@ const pages = [
     'kids-daily-verse-body', 'tdb-privacy-whisper',
     'kids-family-hub-banner', 'Open Family hub', 'For parents',
     'kids-daily-verse-root', 'kids/kids-page-sky.css?v=20260326playful', 'sky-ip-geo.js?v=20260327ipgeo', 'kids/kids-page-sky.js?v=20260327ipgeo', '/kids/prayer-activities.html', 'Calm prayer habits', 'Three story anchors', 'loop-story-anchors'] },
-  { path: '/kids/index.html', name: 'Kids home', mustInclude: ['choose=1', 'Pick a picture', 'Kids', 'kids-site-porch', 'You&rsquo;re already welcome here', 'kids-hub-play.css', 'Little Shepherd', 'Tell me a Bible story', 'kids-gentle-shepherd.js', 'match-buddies.html', 'shepherds-path.html', 'my-pasture.html', 'Library deep links must hit corner.html', "location.replace('corner.html' + location.search)", 'Kids coloring', 'coloring.html', 'prayer-activities.html', '../family.html', '../printables.html', 'Grown-ups', 'uFuzzy.iife.min.js', 'kids-verses-365.js?v=20260802-calendar-mix', 'kids-battle.js?v=20260810nostick', 'kids-page-sky.css?v=20260326playful', 'sky-ip-geo.js?v=20260327ipgeo', 'kids-page-sky.js?v=20260327ipgeo', 'kids-header-site-link-wrap', 'kids-magic-more', 'More play', 'lost-sheep.html', 'memory-flock.html', 'good-night.html', 'footer-humility', 'We battle. He wins.'] },
+  { path: '/kids/index.html', name: 'Kids home', mustInclude: ['choose=1', 'Pick a picture', 'What sounds fun?', 'Kids', 'kids-easy-home', 'kids-hub-play.css', 'match-buddies.html', 'shepherds-path.html', 'my-pasture.html', "location.replace('corner.html' + location.search)", 'coloring.html', 'prayer-activities.html', '../family.html', '../printables.html', 'Grown-ups', 'lost-sheep.html', 'memory-flock.html', 'good-night.html', 'A quiet Bible place for kids'] },
   { path: '/kids/prayer-activities.html', name: 'Kids prayer habits', mustInclude: ['Calm prayer habits', 'Five-finger prayer', 'Thank-you jar', 'Prayer chain', 'Printable thank-you slips', '1 Thessalonians 5:18', 'Paper airplane prayers', 'kids-battle.css?v=20260421print-preview', 'kids-prayer-slip-preview-btn', 'Prayer habits', 'corner.html', '/mobius.html'] },
   { path: '/kids/porch-read-little-hearts.html', name: 'Porch read little hearts', mustInclude: ['When little hearts feel big fear', 'Psalm 56:3', 'Isaiah 41:10', 'plans.html?plan=littlehearts', 'corner.html#kids-porch-readalouds', 'verse-image.html?ref=Psalm%2056%3A3&tpl=T19-morning-window', 'application/ld+json', 'tdb-breadcrumb', 'Explore'] },
   { path: '/kids/porch-read-ordinary-tuesday.html', name: 'Porch read ordinary Tuesday', mustInclude: ['Plain Tuesday weariness', 'Matthew 11:28', 'plans.html?plan=ordinarytuesday', 'verse-image.html?ref=Matthew%2011%3A28&tpl=T16-open-bible-table', 'application/ld+json', 'tdb-breadcrumb'] },
@@ -512,6 +517,22 @@ function run() {
       failed++;
     } else {
       console.log('\nOK  homepage search wiring guard');
+    }
+    const homeNavChunk = (function () {
+      const start = homeBodyForSearch.indexOf('id="tdb-primary-nav-panel-home"');
+      if (start === -1) return '';
+      const end = homeBodyForSearch.indexOf('</nav>', start);
+      return homeBodyForSearch.slice(start, end === -1 ? start + 3500 : end);
+    })();
+    const moreIdx = homeNavChunk.indexOf('class="tdb-nav-more"');
+    const kidsIdx = homeNavChunk.indexOf('id="nav-kids-corner-home"');
+    const verseIdx = homeNavChunk.indexOf('href="/verse.html"');
+    const kidsAndVerseOnBar = kidsIdx !== -1 && verseIdx !== -1 && moreIdx !== -1 && kidsIdx < moreIdx && verseIdx < moreIdx;
+    if (!kidsAndVerseOnBar) {
+      console.log('\nFAIL homepage nav: Kids and Today’s verse must sit on the bar, not inside More');
+      failed++;
+    } else {
+      console.log('\nOK  homepage nav Kids + Today’s verse on the bar');
     }
     // Prayer counter: element present on home, script wires it and formats numbers
     let homeBody = '';

@@ -24,7 +24,7 @@
       display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
       padding: 0.35rem 0.75rem; min-height: 52px;
       background: rgba(8, 12, 22, 0.55); border-bottom: 1px solid rgba(227, 188, 103, 0.22);
-      position: sticky; top: 0; z-index: 201; backdrop-filter: blur(10px); font-size: 0.86rem;
+      position: relative; top: auto; z-index: 12; backdrop-filter: blur(10px); font-size: 0.86rem;
     }
     .tdb-global-nav a {
       color: rgba(226, 232, 240, 0.85); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 6px;
@@ -78,12 +78,13 @@
       <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
       <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
       <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
+      <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
+      <a href="/verse.html">Today’s verse</a>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More</summary>
         <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Scripture</span>
-              <a href="/verse.html">Today’s verse</a>
               <a href="/bible-tool.html" aria-label="Look up a verse">Look up</a>
               <a href="/memorize.html">Memorize</a>
               <a href="/mystudy">Saved on this device</a>
@@ -91,7 +92,6 @@
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family</span>
-              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
               <a href="/family.html">Family</a>
               <a href="/coloring.html">Kids coloring</a>
               <a href="/printables.html" aria-label="Print pages">Print</a>

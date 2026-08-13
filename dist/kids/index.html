@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -13,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kids • Story, Color, Play — Today's Daily Battle</title>
   <meta name="description" content="Simple KJV Bible fun for kids: read a story, color a page, or play one game. Free. No rush.">
+  <meta name="apple-mobile-web-app-title" content="Daily Battle">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids/">
   <meta property="og:title" content="Kids • Story, Color, Play">
@@ -47,7 +47,7 @@
     .kids-easy-door:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
     .kids-easy-mascot { width: 120px; height: auto; margin: 0.25rem auto 0.35rem; display: block; }
     .kids-easy-more { margin-top: 1.5rem; text-align: left; }
-    .kids-easy-more summary { cursor: pointer; font-weight: 700; text-align: center; padding: 0.5rem; list-style: none; }
+    .kids-easy-more summary { cursor: pointer; font-weight: 700; text-align: center; padding: 0.75rem 0.5rem; min-height: 44px; display: flex; align-items: center; justify-content: center; list-style: none; }
     .kids-easy-more summary::-webkit-details-marker { display: none; }
     .kids-easy-more ul { margin: 0.5rem 0 0; padding-left: 1.25rem; line-height: 1.7; }
     .kids-easy-header { text-align: center; padding: 0.75rem 1rem 0.25rem; }
@@ -98,7 +98,7 @@
       <div class="content-inner kids-battle-inner">
         <div class="kids-easy-home">
           <img class="kids-easy-mascot" src="shepherd-mascot-welcome.png?v=20260810ears2" width="120" height="132" alt="" decoding="async" loading="lazy">
-          <h1 id="kids-hub-play-h">Pick one</h1>
+          <h1 id="kids-hub-play-h">What sounds fun?</h1>
 
           <div class="kids-easy-doors" role="navigation" aria-label="Story, color, or play">
             <a class="kids-easy-door kids-easy-door--story" href="corner.html?choose=1#kids-library-grid">
@@ -121,7 +121,11 @@
               <li><a href="corner.html">All stories</a></li>
               <li><a href="good-night.html">Good night prayer</a></li>
               <li><a href="lost-sheep.html">Find the sheep</a></li>
+              <li><a href="shepherds-path.html">Shepherd&rsquo;s path</a></li>
+              <li><a href="my-pasture.html">My pasture</a></li>
+              <li><a href="memory-flock.html">Memory flock</a></li>
               <li><a href="prayer-activities.html">Prayer ideas</a></li>
+              <li><a href="../printables.html">Printables</a></li>
               <li><a href="../family.html">Grown-ups</a></li>
               <li><a href="/">Main site</a></li>
             </ul>
@@ -134,7 +138,7 @@
       <p><a href="/privacy.html">Privacy</a></p>
     
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
-    <p class="tdb-site-footer-finale__love site-tagline-footer">Made with love &mdash; One KJV verse for what you&rsquo;re carrying.</p>
+    <p class="tdb-site-footer-finale__love site-tagline-footer">A quiet Bible place for kids &mdash; story, color, play.</p>
   </div>
 
 </footer>

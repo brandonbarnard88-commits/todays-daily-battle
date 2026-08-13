@@ -4117,7 +4117,7 @@
       letter-spacing: normal;
       font-size: 0.95em;
     }
-    /* Pass 6 — More from the Word: collapsed optional depth on today’s verse */
+    /* Pass 6 — More from the Word: always open under today’s verse (no disclosure) */
     .hero-vbd-primary {
       margin: 0;
     }
@@ -12279,6 +12279,9 @@ a.plan-category-chip:focus-visible,
 }
 
 /* Always-open layman on home (not details) */
+.tdb-layman-always-open {
+  margin: 0.45rem 0 0.65rem;
+}
 .tdb-layman-always-open > .tdb-layman-heading {
   margin: 0.45rem 0 0.3rem;
   font-size: 0.92rem;
@@ -12286,6 +12289,9 @@ a.plan-category-chip:focus-visible,
   letter-spacing: 0.01em;
   text-transform: none;
   color: var(--muted);
+}
+.tdb-layman-always-open > .hero-vbd-split {
+  margin-top: 0.15rem;
 }
 /* Combined legacy line must stay invisible (split situation/meaning are the UI). */
 .tdb-layman-always-open > #heroSimpleBreakdown,
@@ -12576,7 +12582,18 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
   color: var(--muted, #a8b3c4);
   text-align: center;
 }
-.site-header .hero-brand-taglines { display: none !important; }
+.site-header .hero-brand-taglines {
+  display: block;
+  margin: 0.2rem auto 0.45rem;
+  max-width: min(26rem, 92vw);
+  text-align: center;
+}
+.site-header .hero-brand-taglines .soul-tag {
+  margin: 0 0 0.22rem;
+}
+.site-header .hero-brand-taglines .hero-home-heartbeat {
+  margin: 0;
+}
 .site-top-links {
   display: flex;
   flex-wrap: wrap;

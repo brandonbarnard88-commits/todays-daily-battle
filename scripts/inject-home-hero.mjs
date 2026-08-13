@@ -275,14 +275,7 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
       /(<p[^>]*id="heroSimpleSituation"[^>]*>)[\s\S]*?(<\/p>)/,
       '$1' + escapeHtmlText(sitOnly) + '$2'
     );
-    html = html.replace(
-      /(<div class="hero-vbd-bundle" id="heroVbdRowSit"[^>]*)\s*hidden/,
-      '$1'
-    );
-    html = html.replace(
-      /(<p[^>]*id="heroDeepSituation"[^>]*>)[\s\S]*?(<\/p>)/,
-      '$1' + escapeHtmlText(sitOnly) + '$2'
-    );
+    /* Keep #heroVbdRowSit hidden — primary split already shows situation. */
   }
   if (meaningOnly) {
     html = html.replace(
@@ -393,10 +386,7 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
       '\n  </script>',
   );
 
-  var appleShort = 'Quiet place · ' + refPlain;
-  if (appleShort.length > 29) {
-    appleShort = refPlain.length > 26 ? refPlain.slice(0, 24) + '…' : refPlain;
-  }
+  var appleShort = 'Daily Battle';
   html = html.replace(
     /<meta name="apple-mobile-web-app-title" content="[^"]*"/,
     '<meta name="apple-mobile-web-app-title" content="' + escapeHtmlAttr(appleShort) + '"'

@@ -413,7 +413,7 @@ export function buildFamousVersePlain(ref, text) {
     return 'Come into God’s presence with thanksgiving and praise — enter with a grateful heart.';
   }
   if (/psalm\s+118:24/.test(r) || /this is the day which the lord hath made/.test(lower)) {
-    return 'Today is a gift from the Lord — choose gladness in it, even if the schedule is hard.';
+    return 'This is the day the Lord has made — we will rejoice and be glad in it.';
   }
   if (/begat|son of|daughter of|the generations of/i.test(body) && body.length < 180) {
     return 'This verse records real family lines in God’s story — names and people matter to Him.';

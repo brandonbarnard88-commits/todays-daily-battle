@@ -275,14 +275,7 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
       /(<p[^>]*id="heroSimpleSituation"[^>]*>)[\s\S]*?(<\/p>)/,
       '$1' + escapeHtmlText(sitOnly) + '$2'
     );
-    html = html.replace(
-      /(<div class="hero-vbd-bundle" id="heroVbdRowSit"[^>]*)\s*hidden/,
-      '$1'
-    );
-    html = html.replace(
-      /(<p[^>]*id="heroDeepSituation"[^>]*>)[\s\S]*?(<\/p>)/,
-      '$1' + escapeHtmlText(sitOnly) + '$2'
-    );
+    /* Keep #heroVbdRowSit hidden — primary split already shows situation. */
   }
   if (meaningOnly) {
     html = html.replace(

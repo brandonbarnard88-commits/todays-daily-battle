@@ -41,7 +41,8 @@ const pages = [
   'class="quick-links',
   "Today's Daily Battle",
   'soul-tag',
-  'One KJV verse for what you',
+  'Less Scroll, More Soul',
+  'For God, For Family, For Country',
   'sky-ip-geo.js?v=20260327ipgeo',
   'id="family-armor-stories-btn"',
   'id="armor-builder-btn"',
@@ -56,6 +57,11 @@ const pages = [
   'footer-build-stamp.js',
   'id="heroShareBtn"',
   'id="heroImageBtn"',
+  'tdb-layman-always-open',
+  'tdb-dig-deeper--always-open',
+  'tdb-dig-deeper__always-heading',
+  'id="heroVbdPrimary"',
+  'id="heroDigDeeper"',
   'id="nav-kids-corner-home"',
   'id="tdbFirstVisitStrip"',
   'id="tdb-home-welcome-heading"',
@@ -511,6 +517,22 @@ function run() {
       failed++;
     } else {
       console.log('\nOK  homepage search wiring guard');
+    }
+    const homeNavChunk = (function () {
+      const start = homeBodyForSearch.indexOf('id="tdb-primary-nav-panel-home"');
+      if (start === -1) return '';
+      const end = homeBodyForSearch.indexOf('</nav>', start);
+      return homeBodyForSearch.slice(start, end === -1 ? start + 3500 : end);
+    })();
+    const moreIdx = homeNavChunk.indexOf('class="tdb-nav-more"');
+    const kidsIdx = homeNavChunk.indexOf('id="nav-kids-corner-home"');
+    const verseIdx = homeNavChunk.indexOf('href="/verse.html"');
+    const kidsAndVerseOnBar = kidsIdx !== -1 && verseIdx !== -1 && moreIdx !== -1 && kidsIdx < moreIdx && verseIdx < moreIdx;
+    if (!kidsAndVerseOnBar) {
+      console.log('\nFAIL homepage nav: Kids and Today’s verse must sit on the bar, not inside More');
+      failed++;
+    } else {
+      console.log('\nOK  homepage nav Kids + Today’s verse on the bar');
     }
     // Prayer counter: element present on home, script wires it and formats numbers
     let homeBody = '';

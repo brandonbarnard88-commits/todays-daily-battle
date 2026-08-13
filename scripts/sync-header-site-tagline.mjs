@@ -1,6 +1,6 @@
 /**
- * Canonical header tagline: "One KJV verse for what you're carrying" replaces the old
- * "Learning of Him, one day at a time." heartbeat line across English shells.
+ * Canonical header tagline: "For God, For Family, For Country"
+ * (with homepage “Less Scroll, More Soul” in index.html).
  * Run from repo root: node scripts/sync-header-site-tagline.mjs
  *
  * Leaves dist/ alone (built output). Skips localization pilots under ar|bn|es|etc.
@@ -12,18 +12,23 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
-const EXCLUDE_DIRS = new Set(['node_modules', 'dist', '.git']);
+const EXCLUDE_DIRS = new Set(['node_modules', 'dist', '.git', '.worktrees']);
 const SKIP_LOCALIZED = /^(ar|bn|es|fr|hi|id|pt|ru|sv|sw|tl|zh)\//;
+
+const CARRYING_P =
+  /<p class="tdb-header-heartbeat site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying<\/p>/g;
+const TAGLINE_PARAGRAPH =
+  '<p class="tdb-header-heartbeat site-tagline" lang="en">For God, For Family, For Country</p>';
+
+const CARRYING_SPAN =
+  /<span class="brand-subtitle tdb-brand-subtitle-learning site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying<\/span>/g;
+const TAGLINE_SPAN =
+  '<span class="brand-subtitle tdb-brand-subtitle-learning site-tagline" lang="en">For God, For Family, For Country</span>';
 
 const LEARNING_PARAGRAPH =
   /<p class="tdb-header-heartbeat" lang="en">Learning of Him, one day at a time\.(?: <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me\.">Matthew 11:29<\/span>)?<\/p>/g;
-const TAGLINE_PARAGRAPH =
-  '<p class="tdb-header-heartbeat site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</p>';
-
 const LEARNING_SPAN =
   /<span class="brand-subtitle tdb-brand-subtitle-learning" lang="en">Learning of Him, one day at a time\.(?: <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me\.">Matthew 11:29<\/span>)?<\/span>/g;
-const TAGLINE_SPAN =
-  '<span class="brand-subtitle tdb-brand-subtitle-learning site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</span>';
 
 const UOG_UNIV_LINE =
   /<p class="tdb-brand-subtitle-learning uog-header-learning-line" lang="en">The University of God &mdash; learning of Him, one day at a time\.<\/p>/g;
@@ -52,6 +57,8 @@ function main() {
     if (SKIP_LOCALIZED.test(rel)) continue;
     let raw = fs.readFileSync(full, 'utf8');
     let next = raw;
+    next = next.replace(CARRYING_P, TAGLINE_PARAGRAPH);
+    next = next.replace(CARRYING_SPAN, TAGLINE_SPAN);
     next = next.replace(LEARNING_PARAGRAPH, TAGLINE_PARAGRAPH);
     next = next.replace(LEARNING_SPAN, TAGLINE_SPAN);
     next = next.replace(UOG_UNIV_LINE, UOG_REPLACE);

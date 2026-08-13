@@ -31,7 +31,7 @@
     "text": "Thy word is a lamp unto my feet.",
     "plain": "God’s Word lights the next step—not always the whole road, but enough to walk.",
     "step": "On a walk or dish-wash, turn the verse over in your mind once more.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -49,7 +49,7 @@
     "text": "Be still, and know that I am God.",
     "plain": "Stop striving and know that God is God — He is in charge, not your panic.",
     "step": "Sit still for sixty seconds with this verse—phone face down.",
-    "about": "A psalm writer",
+    "about": "The sons of Korah",
     "to": "Anyone in trouble who needs a refuge",
     "setting": "When the earth shakes and nations rage, this psalm declares God is a present refuge and strength — “be still, and know that I am God.”"
   },
@@ -103,7 +103,7 @@
     "text": "The Lord is good; his mercy is everlasting.",
     "plain": "The Lord is good; His mercy lasts. That is a foundation you can stand on today.",
     "step": "Text one line of this verse to someone who needs steady words.",
-    "about": "A psalm writer",
+    "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
     "setting": "A call for all lands to enter the Lord’s gates with thanksgiving and His courts with praise."
   },
@@ -166,7 +166,7 @@
     "text": "This is the day which the Lord hath made; we will rejoice.",
     "plain": "This is the day the Lord has made; we will rejoice and be glad in it.",
     "step": "Text one line of this verse to someone who needs steady words.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -184,7 +184,7 @@
     "text": "God is our refuge and strength, a very present help.",
     "plain": "God is our safe place and our strength; He is right here with us when trouble comes.",
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
-    "about": "A psalm writer",
+    "about": "The sons of Korah",
     "to": "Anyone in trouble who needs a refuge",
     "setting": "When the earth shakes and nations rage, this psalm declares God is a present refuge and strength — “be still, and know that I am God.”"
   },
@@ -256,7 +256,7 @@
     "text": "He shall give his angels charge over thee.",
     "plain": "The one who stays close to the Most High rests under His shadow — protected near Him.",
     "step": "Before you open messages, pray this verse once as a quiet start.",
-    "about": "A psalm writer",
+    "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
     "to": "Those who dwell in the secret place of the Most High",
     "setting": "A hymn of refuge under the shadow of the Almighty — protection for those who dwell in the secret place of the Most High."
   },
@@ -553,9 +553,9 @@
     "text": "For thou, Lord, art good, and ready to forgive.",
     "plain": "You are good, O Lord, and full of forgiveness; your mercy is great to all who make their cry to you.",
     "step": "Tell God one honest sentence about what this verse touches.",
-    "about": "Sons of Korah, David, or Ethan",
-    "to": "Pilgrims and those clinging to God’s promise",
-    "setting": "Longing for God’s courts; mercy and truth meet; Ethan wrestles with the seeming failure of David’s line."
+    "about": "David",
+    "to": "Anyone poor in spirit who still calls on God",
+    "setting": "David prays for mercy when he is poor and needy; God is good and ready to forgive."
   },
   {
     "ref": "Mark 9:23",
@@ -571,16 +571,16 @@
     "text": "And let the beauty of the Lord our God be upon us: and establish thou the work of our hands upon us; yea, the work of our hands establish thou it.",
     "plain": "And let the beauty of the Lord our God be upon us.",
     "step": "On a walk or dish-wash, turn the verse over in your mind once more.",
-    "about": "Moses or another psalm writer",
-    "to": "A people numbering their days and needing shelter",
-    "setting": "Moses numbers our short days; a hymn of refuge under the shadow of the Almighty."
+    "about": "Moses — a prayer of the man of God",
+    "to": "A people numbering their days",
+    "setting": "Moses numbers our short days and asks God to establish the work of our hands."
   },
   {
     "ref": "Psalm 94:19",
     "text": "In the multitude of my thoughts within me thy comforts delight my soul.",
     "plain": "When anxiety was great within me, Your consolation brought me joy—God meets us in the overwhelm.",
     "step": "Name the fear in one sentence to God, then reread this verse slowly.",
-    "about": "A psalm writer (unattributed)",
+    "about": "An unnamed psalm of Israel — a cry against unjust thrones, then mercy when the foot slips",
     "to": "Anyone whose footing feels uncertain under pressure",
     "setting": "A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the Lord’s mercy held him up."
   },
@@ -625,7 +625,7 @@
     "text": "O give thanks unto the Lord, for he is good.",
     "plain": "O give praise to the Lord, for he is good: for his mercy is unchanging for ever.",
     "step": "End the day by thanking God for one way this verse proved true.",
-    "about": "A psalm writer of thanksgiving",
+    "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
     "to": "The redeemed telling what God has done",
     "setting": "Book V opens: the redeemed from trouble give thanks — desert, prison, sickness, and storm."
   },
@@ -634,7 +634,7 @@
     "text": "The Lord is on my side; I will not fear.",
     "plain": "The Lord is on my side; I will have no fear: what is man able to do to me?",
     "step": "Ask God for strength for the next hour only — then take the next step.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -652,7 +652,7 @@
     "text": "The Lord is my strength and song.",
     "plain": "The Lord is my strength and my song; he has become my salvation.",
     "step": "Leave one worry with God for ten minutes after reading this.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -661,7 +661,7 @@
     "text": "Thy testimonies also are my delight and my counsellors.",
     "plain": "Your unchanging word is my delight, and the guide of my footsteps.",
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -679,7 +679,7 @@
     "text": "This is my comfort in my affliction: for thy word hath quickened me.",
     "plain": "This is my comfort in my trouble; that your sayings have given me life.",
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -688,7 +688,7 @@
     "text": "Let, I pray thee, thy merciful kindness be for my comfort.",
     "plain": "Let your mercy now be my comfort, as you have said to your servant.",
     "step": "Replace one anxious loop with this verse for the next five minutes.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -706,7 +706,7 @@
     "text": "Great peace have they which love thy law.",
     "plain": "Great peace belongs to those who love God’s law — rest that holds when the day is loud.",
     "step": "Sit still for sixty seconds with this verse — phone face down.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -787,7 +787,7 @@
     "text": "He healeth the broken in heart, and bindeth up their wounds.",
     "plain": "God heals the brokenhearted and binds up their wounds.",
     "step": "Text one line of this verse to someone who needs steady words.",
-    "about": "A psalm writer",
+    "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
     "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
   },
@@ -805,7 +805,7 @@
     "text": "Let every thing that hath breath praise the Lord.",
     "plain": "Let everything which has breath give praise to the Lord. Let the Lord be praised.",
     "step": "Share the reference only with someone who is carrying a heavy week.",
-    "about": "A psalm writer",
+    "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
     "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
   },
@@ -832,9 +832,9 @@
     "text": "O Lord of hosts, blessed is the man that trusteth in thee.",
     "plain": "O Lord of armies, happy is the man whose hope is in you.",
     "step": "Sit still for sixty seconds with this verse—phone face down.",
-    "about": "Sons of Korah, David, or Ethan",
-    "to": "Pilgrims and those clinging to God’s promise",
-    "setting": "Longing for God’s courts; mercy and truth meet; Ethan wrestles with the seeming failure of David’s line."
+    "about": "The sons of Korah",
+    "to": "Pilgrims longing for God’s house",
+    "setting": "Longing for God’s courts; mercy and truth meet; the Lord is sun and shield."
   },
   {
     "ref": "Psalm 4:8",
@@ -1327,7 +1327,7 @@
     "text": "In God we boast all the day long, and praise thy name for ever.",
     "plain": "Our pride is in God at all times, to his name we give praise for ever. (Selah.).",
     "step": "Text one line of this verse to someone who needs steady words.",
-    "about": "Sons of Korah or another psalm writer",
+    "about": "The sons of Korah",
     "to": "Worshipers in joy and national distress",
     "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
   },
@@ -1336,7 +1336,7 @@
     "text": "The Lord of hosts is with us; the God of Jacob is our refuge.",
     "plain": "The Lord of armies is with us; the God of Jacob is our high tower. (Selah.).",
     "step": "Before you open messages, pray this verse once as a quiet start.",
-    "about": "A psalm writer",
+    "about": "The sons of Korah",
     "to": "Anyone in trouble who needs a refuge",
     "setting": "When the earth shakes and nations rage, this psalm declares God is a present refuge and strength — “be still, and know that I am God.”"
   },
@@ -1354,7 +1354,7 @@
     "text": "O clap your hands, all ye people; shout unto God with the voice of triumph.",
     "plain": "- To the chief music-maker. A Psalm. Of the sons of Korah. - O make a glad noise with your hands, all you peoples; letting your voices go up to God with joy.",
     "step": "End the day by thanking God for one way this verse proved true.",
-    "about": "Sons of Korah or another psalm writer",
+    "about": "The sons of Korah",
     "to": "Worshipers in joy and national distress",
     "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
   },
@@ -1363,7 +1363,7 @@
     "text": "For this God is our God for ever and ever: he will be our guide even unto death.",
     "plain": "Life and death are in view here. God is not far from either one.",
     "step": "Say the verse once out loud, then name the one weight it meets.",
-    "about": "Sons of Korah or another psalm writer",
+    "about": "The sons of Korah",
     "to": "Worshipers in joy and national distress",
     "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
   },
@@ -1822,18 +1822,18 @@
     "text": "For the Lord God is a sun and shield: the Lord will give grace and glory.",
     "plain": "The Lord God is our sun and our strength: the Lord will give grace and glory: he will not keep back any good thing from those whose ways are upright.",
     "step": "Say the verse once out loud, then name the one weight it meets.",
-    "about": "Sons of Korah, David, or Ethan",
-    "to": "Pilgrims and those clinging to God’s promise",
-    "setting": "Longing for God’s courts; mercy and truth meet; Ethan wrestles with the seeming failure of David’s line."
+    "about": "The sons of Korah",
+    "to": "Pilgrims longing for God’s house",
+    "setting": "Longing for God’s courts; mercy and truth meet; the Lord is sun and shield."
   },
   {
     "ref": "Psalm 85:6",
     "text": "Wilt thou not revive us again: that thy people may rejoice in thee?",
     "plain": "Will you not give us life again, so that your people may be glad in you?",
     "step": "List one mercy you can thank God for that fits this verse.",
-    "about": "Sons of Korah, David, or Ethan",
-    "to": "Pilgrims and those clinging to God’s promise",
-    "setting": "Longing for God’s courts; mercy and truth meet; Ethan wrestles with the seeming failure of David’s line."
+    "about": "The sons of Korah",
+    "to": "Pilgrims longing for God’s house",
+    "setting": "Longing for God’s courts; mercy and truth meet; the Lord is sun and shield."
   },
   {
     "ref": "Hebrews 10:23",
@@ -1849,18 +1849,18 @@
     "text": "But thou, O Lord, art a God full of compassion, and gracious, longsuffering, and plenteous in mercy and truth.",
     "plain": "But you, O Lord, are a God full of pity and forgiveness, slow to get angry, great in mercy and wisdom.",
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
-    "about": "Sons of Korah, David, or Ethan",
-    "to": "Pilgrims and those clinging to God’s promise",
-    "setting": "Longing for God’s courts; mercy and truth meet; Ethan wrestles with the seeming failure of David’s line."
+    "about": "David",
+    "to": "Anyone poor in spirit who still calls on God",
+    "setting": "David prays for mercy when he is poor and needy; God is good and ready to forgive."
   },
   {
     "ref": "Psalm 87:3",
     "text": "Glorious things are spoken of thee, O city of God.",
     "plain": "Noble things are said of you, O town of God. (Selah.).",
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
-    "about": "Sons of Korah, David, or Ethan",
-    "to": "Pilgrims and those clinging to God’s promise",
-    "setting": "Longing for God’s courts; mercy and truth meet; Ethan wrestles with the seeming failure of David’s line."
+    "about": "The sons of Korah",
+    "to": "Worshipers of Zion — and the nations gathered in",
+    "setting": "Zion is the city God loves; people from the nations are counted as born there."
   },
   {
     "ref": "Isaiah 43:2",
@@ -1876,9 +1876,9 @@
     "text": "But unto thee have I cried, O Lord; and in the morning shall my prayer prevent thee.",
     "plain": "But to you did I send up my cry, O Lord; in the morning my prayer came before you.",
     "step": "Tell God one honest sentence about what this verse touches.",
-    "about": "Sons of Korah, David, or Ethan",
-    "to": "Pilgrims and those clinging to God’s promise",
-    "setting": "Longing for God’s courts; mercy and truth meet; Ethan wrestles with the seeming failure of David’s line."
+    "about": "Heman the Ezrahite",
+    "to": "Anyone whose prayer feels like night with no morning yet",
+    "setting": "Heman cries from the edge of the grave; darkness is his closest companion, yet he still prays."
   },
   {
     "ref": "John 6:35",
@@ -1894,18 +1894,18 @@
     "text": "I will sing of the mercies of the Lord for ever.",
     "plain": "- Maschil. Of Ethan the Ezrahite. - My song will be of the mercies of the Lord for ever: with my mouth will I make his faith clear to all generations.",
     "step": "Ask God what one step of obedience looks like before noon.",
-    "about": "Sons of Korah, David, or Ethan",
-    "to": "Pilgrims and those clinging to God’s promise",
-    "setting": "Longing for God’s courts; mercy and truth meet; Ethan wrestles with the seeming failure of David’s line."
+    "about": "Ethan the Ezrahite",
+    "to": "Those clinging to God’s promise when it looks broken",
+    "setting": "Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy."
   },
   {
     "ref": "Psalm 89:15",
     "text": "Blessed is the people that know the joyful sound: they shall walk, O Lord, in the light of thy countenance.",
     "plain": "Happy are the people who have knowledge of the holy cry: the light of your face, O Lord, will be shining on their way.",
     "step": "When fear returns, repeat one short clause of this verse once more.",
-    "about": "Sons of Korah, David, or Ethan",
-    "to": "Pilgrims and those clinging to God’s promise",
-    "setting": "Longing for God’s courts; mercy and truth meet; Ethan wrestles with the seeming failure of David’s line."
+    "about": "Ethan the Ezrahite",
+    "to": "Those clinging to God’s promise when it looks broken",
+    "setting": "Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy."
   },
   {
     "ref": "Luke 6:38",
@@ -1921,18 +1921,18 @@
     "text": "Before the mountains were brought forth, or ever thou hadst formed the earth and the world, even from everlasting to everlasting, thou art God.",
     "plain": "Before the mountains were made, before you had given birth to the earth and the world, before time was, and for ever, you are God.",
     "step": "End the day by reading this verse again, without rushing.",
-    "about": "Moses or another psalm writer",
-    "to": "A people numbering their days and needing shelter",
-    "setting": "Moses numbers our short days; a hymn of refuge under the shadow of the Almighty."
+    "about": "Moses — a prayer of the man of God",
+    "to": "A people numbering their days",
+    "setting": "Moses numbers our short days and asks God to establish the work of our hands."
   },
   {
     "ref": "Psalm 90:14",
     "text": "O satisfy us early with thy mercy; that we may rejoice and be glad all our days.",
     "plain": "In the morning give us your mercy in full measure; so that we may have joy and delight all our days.",
     "step": "Name the fear in one sentence to God, then reread this verse slowly.",
-    "about": "Moses or another psalm writer",
-    "to": "A people numbering their days and needing shelter",
-    "setting": "Moses numbers our short days; a hymn of refuge under the shadow of the Almighty."
+    "about": "Moses — a prayer of the man of God",
+    "to": "A people numbering their days",
+    "setting": "Moses numbers our short days and asks God to establish the work of our hands."
   },
   {
     "ref": "Matthew 11:28",
@@ -1948,7 +1948,7 @@
     "text": "He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty.",
     "plain": "When you stay close to God, you rest in His protection and care.",
     "step": "Leave one worry with God for ten minutes after reading this.",
-    "about": "A psalm writer",
+    "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
     "to": "Those who dwell in the secret place of the Most High",
     "setting": "A hymn of refuge under the shadow of the Almighty — protection for those who dwell in the secret place of the Most High."
   },
@@ -1957,7 +1957,7 @@
     "text": "I will say of the Lord, He is my refuge and my fortress: my God; in him will I trust.",
     "plain": "Who says of the Lord, He is my safe place and my tower of strength: he is my God, in whom is my hope.",
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
-    "about": "A psalm writer",
+    "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
     "to": "Those who dwell in the secret place of the Most High",
     "setting": "A hymn of refuge under the shadow of the Almighty — protection for those who dwell in the secret place of the Most High."
   },
@@ -1975,7 +1975,7 @@
     "text": "It is a good thing to give thanks unto the Lord, and to sing praises unto thy name, O most High.",
     "plain": "- A Psalm. A Song for the Sabbath. - It is a good thing to give praise to the Lord, and to make melody to your name, O Most High;.",
     "step": "End the day by thanking God for one way this verse proved true.",
-    "about": "A psalm writer of thanksgiving",
+    "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
     "to": "Worshipers giving thanks for God’s works",
     "setting": "A Sabbath song of thanksgiving in Israel’s worship: the psalmist praises the Lord because His works make the heart glad, the wicked will not last, and the righteous still flourish in old age."
   },
@@ -1984,7 +1984,7 @@
     "text": "For thou, Lord, hast made me glad through thy work.",
     "plain": "God’s work is what makes the heart glad — joy rises when you look at what He has done, not only at how the day feels.",
     "step": "Name one work of God you can see this week — then thank Him for it out loud.",
-    "about": "A psalm writer of thanksgiving",
+    "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
     "to": "Worshipers giving thanks for God’s works",
     "setting": "A Sabbath song of thanksgiving in Israel’s worship: the psalmist praises the Lord because His works make the heart glad, the wicked will not last, and the righteous still flourish in old age."
   },
@@ -2002,7 +2002,7 @@
     "text": "The Lord on high is mightier than the noise of many waters.",
     "plain": "The Lord in heaven is stronger than the noise of great waters, yes, he is stronger than the great waves of the sea.",
     "step": "Kneel or sit—body still—and ask God to make this word yours today.",
-    "about": "A psalm writer",
+    "about": "Israel’s congregation — a song that the Lord is King over the flood",
     "to": "Anyone who needs to know God still reigns",
     "setting": "The Lord reigns: floods and noise cannot unseat Him; He is robed in majesty forever."
   },
@@ -2011,7 +2011,7 @@
     "text": "When I said, My foot slippeth; thy mercy, O Lord, held me up.",
     "plain": "If I say, My foot is slipping; your mercy, O Lord, is my support.",
     "step": "If you feel empty, ask God to fill the next small task with His help.",
-    "about": "A psalm writer (unattributed)",
+    "about": "An unnamed psalm of Israel — a cry against unjust thrones, then mercy when the foot slips",
     "to": "Anyone whose footing feels uncertain under pressure",
     "setting": "A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the Lord’s mercy held him up."
   },
@@ -2029,18 +2029,18 @@
     "text": "O come, let us sing unto the Lord: let us make a joyful noise to the rock of our salvation.",
     "plain": "O come, let us make songs to the Lord; sending up glad voices to the Rock of our salvation.",
     "step": "Do the next honest task while holding one phrase from this verse.",
-    "about": "A psalm writer",
-    "to": "Anyone who needs to know God still reigns",
-    "setting": "Worship the Lord as King: soft hearts, idol-smashing glory, and joy for the upright."
+    "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
+    "to": "Israel gathered to worship — and anyone whose heart is growing hard",
+    "setting": "Come, sing to the Lord as King: do not harden your heart as Israel did in the wilderness."
   },
   {
     "ref": "Psalm 95:7",
     "text": "For he is our God; and we are the people of his pasture, and the sheep of his hand.",
     "plain": "For he is our God; and we are the people to whom he gives food, and the sheep of his flock. Today, if you would only give ear to his voice!",
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
-    "about": "A psalm writer",
-    "to": "Anyone who needs to know God still reigns",
-    "setting": "Worship the Lord as King: soft hearts, idol-smashing glory, and joy for the upright."
+    "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
+    "to": "Israel gathered to worship — and anyone whose heart is growing hard",
+    "setting": "Come, sing to the Lord as King: do not harden your heart as Israel did in the wilderness."
   },
   {
     "ref": "1 John 4:7",
@@ -2056,18 +2056,18 @@
     "text": "O sing unto the Lord a new song: sing unto the Lord, all the earth.",
     "plain": "O make a new song to the Lord; let all the earth make melody to the Lord.",
     "step": "Leave one worry with God for ten minutes after reading this.",
-    "about": "A psalm writer",
-    "to": "Anyone who needs to know God still reigns",
-    "setting": "Worship the Lord as King: soft hearts, idol-smashing glory, and joy for the upright."
+    "about": "Israel’s congregation — a song that the Lord is King over all the earth",
+    "to": "All lands called to joyful worship",
+    "setting": "Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright."
   },
   {
     "ref": "Psalm 96:2",
     "text": "Sing unto the Lord, bless his name; shew forth his salvation from day to day.",
     "plain": "Make songs to the Lord, blessing his name; give the good news of his salvation day by day.",
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
-    "about": "A psalm writer",
-    "to": "Anyone who needs to know God still reigns",
-    "setting": "Worship the Lord as King: soft hearts, idol-smashing glory, and joy for the upright."
+    "about": "Israel’s congregation — a song that the Lord is King over all the earth",
+    "to": "All lands called to joyful worship",
+    "setting": "Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright."
   },
   {
     "ref": "1 Peter 1:3",
@@ -2083,16 +2083,16 @@
     "text": "Light is sown for the righteous, and gladness for the upright in heart.",
     "plain": "Light is shining on the lovers of righteousness, and for the upright in heart there is joy.",
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
-    "about": "A psalm writer",
-    "to": "Anyone who needs to know God still reigns",
-    "setting": "Worship the Lord as King: soft hearts, idol-smashing glory, and joy for the upright."
+    "about": "Israel’s congregation — a song that the Lord is King over all the earth",
+    "to": "All lands called to joyful worship",
+    "setting": "Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright."
   },
   {
     "ref": "Psalm 98:1",
     "text": "O sing unto the Lord a new song; for he hath done marvellous things.",
     "plain": "- A Psalm. - O make a new song to the Lord, because he has done works of wonder; with his right hand, and with his holy arm, he has overcome.",
     "step": "Say the verse once out loud, then name the one weight it meets.",
-    "about": "A psalm writer",
+    "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
     "setting": "A new song for all the earth; holy worship; enter His gates with thanksgiving."
   },
@@ -2110,7 +2110,7 @@
     "text": "The Lord is great in Zion; and he is high above all the people.",
     "plain": "The Lord is great in Zion; and he is high above all the people.",
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
-    "about": "A psalm writer",
+    "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
     "setting": "A new song for all the earth; holy worship; enter His gates with thanksgiving."
   },
@@ -2128,7 +2128,7 @@
     "text": "Make a joyful noise unto the Lord, all ye lands.",
     "plain": "- A Psalm of Praise. - Make a glad sound to the Lord, all the earth.",
     "step": "When comparison rises, answer it with one truth from this verse.",
-    "about": "A psalm writer",
+    "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
     "setting": "A call for all lands to enter the Lord’s gates with thanksgiving and His courts with praise."
   },
@@ -2137,7 +2137,7 @@
     "text": "Serve the Lord with gladness: come before his presence with singing.",
     "plain": "Give worship to the Lord with joy; come before him with a song.",
     "step": "End the day by reading this verse again, without rushing.",
-    "about": "A psalm writer",
+    "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
     "setting": "A call for all lands to enter the Lord’s gates with thanksgiving and His courts with praise."
   },
@@ -2155,7 +2155,7 @@
     "text": "Know ye that the Lord he is God: it is he that hath made us, and not we ourselves.",
     "plain": "Be certain that the Lord is God; it is he who has made us, and we are his; we are his people, and the sheep to whom he gives food.",
     "step": "Share the reference only with someone who is carrying a heavy week.",
-    "about": "A psalm writer",
+    "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
     "setting": "A call for all lands to enter the Lord’s gates with thanksgiving and His courts with praise."
   },
@@ -2164,7 +2164,7 @@
     "text": "Enter into his gates with thanksgiving, and into his courts with praise.",
     "plain": "Come into his doors with joy, and into his house with praise; give him honour, blessing his name.",
     "step": "Ask God what one step of obedience looks like before noon.",
-    "about": "A psalm writer",
+    "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
     "setting": "A call for all lands to enter the Lord’s gates with thanksgiving and His courts with praise."
   },
@@ -2299,7 +2299,7 @@
     "text": "Bless the Lord, O my soul. O Lord my God, thou art very great.",
     "plain": "Give praise to the Lord, O my soul. O Lord my God, you are very great; you are robed with honour and power.",
     "step": "Write one short phrase from this verse where you will see it tonight.",
-    "about": "A psalm writer",
+    "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
     "setting": "Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”"
   },
@@ -2317,7 +2317,7 @@
     "text": "I will sing unto the Lord as long as I live: I will sing praise to my God while I have my being.",
     "plain": "I will make songs to the Lord all my life; I will make melody to my God while I have my being.",
     "step": "Take one small action today that matches what this verse asks.",
-    "about": "A psalm writer",
+    "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
     "setting": "Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”"
   },
@@ -2326,7 +2326,7 @@
     "text": "O give thanks unto the Lord; call upon his name: make known his deeds among the people.",
     "plain": "O give praise to the Lord; give honour to his name, talking of his doings among the peoples.",
     "step": "Sit still for sixty seconds with this verse — phone face down.",
-    "about": "A psalm writer",
+    "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
     "setting": "Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”"
   },
@@ -2344,7 +2344,7 @@
     "text": "Praise ye the Lord. O give thanks unto the Lord; for he is good.",
     "plain": "Let the Lord be praised. O give praise to the Lord, for he is good: for his mercy is unchanging for ever.",
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
-    "about": "A psalm writer",
+    "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
     "setting": "Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”"
   },
@@ -2362,7 +2362,7 @@
     "text": "Oh that men would praise the Lord for his goodness, and for his wonderful works to the children of men!",
     "plain": "Let men give praise to the Lord for his mercy, and for the wonders which he does for the children of men!",
     "step": "Say the verse once out loud, then name the one weight it meets.",
-    "about": "A psalm writer of thanksgiving",
+    "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
     "to": "The redeemed telling what God has done",
     "setting": "Book V opens: the redeemed from trouble give thanks — desert, prison, sickness, and storm."
   },
@@ -2371,7 +2371,7 @@
     "text": "For he satisfieth the longing soul, and filleth the hungry soul with goodness.",
     "plain": "He gives its desire to the unresting soul, so that it is full of good things.",
     "step": "List one mercy you can thank God for that fits this verse.",
-    "about": "A psalm writer of thanksgiving",
+    "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
     "to": "The redeemed telling what God has done",
     "setting": "Book V opens: the redeemed from trouble give thanks — desert, prison, sickness, and storm."
   },
@@ -2425,7 +2425,7 @@
     "text": "Praise ye the Lord. I will praise the Lord with my whole heart.",
     "plain": "Let the Lord be praised. I will give praise to the Lord with all my heart, among the upright, and in the meeting of the people.",
     "step": "Take one small action today that matches what this verse asks.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2443,7 +2443,7 @@
     "text": "He hath made his wonderful works to be remembered: the Lord is gracious and full of compassion.",
     "plain": "Certain for ever is the memory of his wonders: the Lord is full of pity and mercy.",
     "step": "When fear returns, repeat one short clause of this verse once more.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2452,7 +2452,7 @@
     "text": "Praise ye the Lord. Blessed is the man that feareth the Lord.",
     "plain": "Let the Lord be praised. Happy is the man who gives honour to the Lord, and has great delight in his laws.",
     "step": "Share one line of this verse with someone who needs steady words.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2470,7 +2470,7 @@
     "text": "Unto the upright there ariseth light in the darkness: he is gracious, and full of compassion, and righteous.",
     "plain": "For the upright there is a light shining in the dark; he is full of grace and pity.",
     "step": "Ask God for strength for the next hour only — then take the next step.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2479,7 +2479,7 @@
     "text": "Blessed be the name of the Lord from this time forth and for evermore.",
     "plain": "Let blessing be on the name of the Lord, from this time and for ever.",
     "step": "List one mercy you can thank God for that fits this verse.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2497,7 +2497,7 @@
     "text": "From the rising of the sun unto the going down of the same the Lord's name is to be praised.",
     "plain": "Give God your attention and thanks — He is worthy of it — \"From the rising of the sun to the going down of the\".",
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2506,7 +2506,7 @@
     "text": "To him which alone doeth great wonders: for his mercy endureth for ever.",
     "plain": "To him who only does great wonders: for his mercy is unchanging for ever.",
     "step": "Before a hard conversation, read this verse once under your breath.",
-    "about": "A psalm writer",
+    "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
     "to": "Exiles and all who refuse false gods",
     "setting": "Praise for the living God versus idols; by the rivers of Babylon, exiles weep for Zion."
   },
@@ -2524,7 +2524,7 @@
     "text": "The Lord hath been mindful of us: he will bless us.",
     "plain": "The Lord has kept us in mind and will give us his blessing; he will send blessings on the house of Israel and on the house of Aaron.",
     "step": "Before you open messages, pray this verse once as a quiet start.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2533,7 +2533,7 @@
     "text": "I love the Lord, because he hath heard my voice and my supplications.",
     "plain": "I have given my love to the Lord, because he has given ear to the voice of my cry and my prayer.",
     "step": "Take one small action today that matches what this verse asks.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2551,7 +2551,7 @@
     "text": "Because he hath inclined his ear unto me, therefore will I call upon him as long as I live.",
     "plain": "He has let my request come before him, and I will make my prayer to him all my days.",
     "step": "When fear returns, repeat one short clause of this verse once more.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2560,7 +2560,7 @@
     "text": "Gracious is the Lord, and righteous; yea, our God is merciful.",
     "plain": "The Lord is full of grace and righteousness; truly, he is a God of mercy.",
     "step": "Ask God for strength for the next hour only, then take one small step.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2578,7 +2578,7 @@
     "text": "Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.",
     "plain": "Come back to your rest, O my soul; for the Lord has given you your reward.",
     "step": "Ask God for strength for the next hour only — then take the next step.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2596,7 +2596,7 @@
     "text": "O praise the Lord, all ye nations: praise him, all ye people.",
     "plain": "Let all the nations give praise to the Lord: let all the people give him praise.",
     "step": "Leave one worry with God for ten minutes after reading this.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2605,7 +2605,7 @@
     "text": "For his merciful kindness is great toward us: and the truth of the Lord endureth for ever.",
     "plain": "For great is his mercy to us, and his faith is unchanging for ever. Praise be to the Lord.",
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2623,7 +2623,7 @@
     "text": "O give thanks unto the Lord; for he is good: because his mercy endureth for ever.",
     "plain": "O give thanks unto the Lord; for he is good: because his mercy endureth for ever.",
     "step": "Write one short phrase from this verse where you will see it tonight.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2632,7 +2632,7 @@
     "text": "I called upon the Lord in distress: the Lord answered me, and set me in a large place.",
     "plain": "I made my prayer to the Lord in my trouble: and the Lord gave me an answer, and put me in a wide place.",
     "step": "Write a one-line prayer that answers this verse in your own words.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2650,7 +2650,7 @@
     "text": "It is better to trust in the Lord than to put confidence in man.",
     "plain": "It is better to have faith in the Lord than to put one's hope in man.",
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2659,7 +2659,7 @@
     "text": "I shall not die, but live, and declare the works of the Lord.",
     "plain": "Life and not death will be my part, and I will give out the story of the works of the Lord.",
     "step": "Write a one-line prayer that answers this verse in your own words.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2677,7 +2677,7 @@
     "text": "I will praise thee: for thou hast heard me, and art become my salvation.",
     "plain": "I will give you praise, for you have given me an answer, and have become my salvation.",
     "step": "End the day by reading this verse again, without rushing.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2686,7 +2686,7 @@
     "text": "This is the Lord's doing; it is marvellous in our eyes.",
     "plain": "This is the Lord's doing; it is marvellous in our eyes.",
     "step": "Ask God for strength for the next hour only — then take the next step.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2704,7 +2704,7 @@
     "text": "Thou art my God, and I will praise thee: thou art my God, I will exalt thee.",
     "plain": "You are my God, and I will give you praise; my God, and I will give honour to your name.",
     "step": "Leave one worry with God for ten minutes after reading this.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2713,7 +2713,7 @@
     "text": "O give thanks unto the Lord; for he is good: for his mercy endureth for ever.",
     "plain": "Give thanks to the Lord again — he is good, and his mercy endures forever to the end of the song.",
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
-    "about": "A psalm writer",
+    "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
     "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
   },
@@ -2731,7 +2731,7 @@
     "text": "Wherewithal shall a young man cleanse his way? by taking heed thereto according to thy word.",
     "plain": "- BETH - How may a young man make his way clean? by guiding it after your word.",
     "step": "Write one short phrase from this verse where you will see it tonight.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2740,7 +2740,7 @@
     "text": "Open thou mine eyes, that I may behold wondrous things out of thy law.",
     "plain": "Let my eyes be open to see the wonders of your law.",
     "step": "Tell God one honest sentence about what this verse touches.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2758,7 +2758,7 @@
     "text": "Make me to understand the way of thy precepts: so shall I talk of thy wondrous works.",
     "plain": "Make the way of your orders clear to me; then my thoughts will be ever on your wonders.",
     "step": "Sit still for sixty seconds with this verse — phone face down.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2767,7 +2767,7 @@
     "text": "I have longed for thy salvation, O Lord; and thy law is my delight.",
     "plain": "All my desire has been for your salvation, O Lord; and your law is my delight.",
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2785,7 +2785,7 @@
     "text": "I will run the way of thy commandments, when thou shalt enlarge my heart.",
     "plain": "I will go quickly in the way of your teaching, because you have given me a free heart.",
     "step": "End the day by reading this verse again, without rushing.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2794,7 +2794,7 @@
     "text": "And I will walk at liberty: for I seek thy precepts.",
     "plain": "So that my way may be in a wide place: because my search has been for your orders.",
     "step": "Ask God for strength for the next hour only — then take the next step.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2812,7 +2812,7 @@
     "text": "Thou hast dealt well with thy servant, O Lord, according unto thy word.",
     "plain": "- TETH - You have done good to your servant, O Lord, in keeping with your word.",
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2830,7 +2830,7 @@
     "text": "Thy testimonies have I taken as an heritage for ever: for they are the rejoicing of my heart.",
     "plain": "I have taken your unchanging word as an eternal heritage; for it is the joy of my heart.",
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2839,7 +2839,7 @@
     "text": "Thou art good, and doest good; teach me thy statutes.",
     "plain": "You are good, and your works are good; give me knowledge of your rules.",
     "step": "Write one short phrase from this verse where you will see it tonight.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2857,7 +2857,7 @@
     "text": "Thy hands have made me and fashioned me: give me understanding, that I may learn thy commandments.",
     "plain": "- JOD - Your hands have made me, and given me form: give me wisdom, so that I may have knowledge of your teaching.",
     "step": "Take one small action today that matches what this verse asks.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2866,7 +2866,7 @@
     "text": "For ever, O Lord, thy word is settled in heaven.",
     "plain": "- LAMED - For ever, O Lord, your word is fixed in heaven.",
     "step": "Sit still for sixty seconds with this verse — phone face down.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2884,7 +2884,7 @@
     "text": "I will never forget thy precepts: for with them thou hast quickened me.",
     "plain": "I will ever keep your orders in mind; for in them I have life.",
     "step": "Share one line of this verse with someone who needs steady words.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2893,7 +2893,7 @@
     "text": "O how love I thy law! it is my meditation all the day.",
     "plain": "- MEM - O what love I have for your law! I give thought to it all the day.",
     "step": "End the day by reading this verse again, without rushing.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2911,7 +2911,7 @@
     "text": "How sweet are thy words unto my taste! yea, sweeter than honey to my mouth!",
     "plain": "How sweet are your sayings to my taste! truly, they are sweeter than honey in my mouth!",
     "step": "List one mercy you can thank God for that fits this verse.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2920,7 +2920,7 @@
     "text": "Thou art my hiding place and my shield: I hope in thy word.",
     "plain": "You are my secret place and my breastplate against danger; my hope is in your word.",
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2938,7 +2938,7 @@
     "text": "Uphold me according unto thy word, that I may live: and let me not be ashamed of my hope.",
     "plain": "Be my support as you have said, and give me life; let not my hope be turned to shame.",
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2947,7 +2947,7 @@
     "text": "The entrance of thy words giveth light; it giveth understanding unto the simple.",
     "plain": "The opening of your words gives light; it gives good sense to the simple.",
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2965,7 +2965,7 @@
     "text": "Thou art near, O Lord; and all thy commandments are truth.",
     "plain": "You are near, O Lord; and all your teachings are true.",
     "step": "Take one small action today that matches what this verse asks.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2974,7 +2974,7 @@
     "text": "Thy word is very pure: therefore thy servant loveth it.",
     "plain": "Your word is of tested value; and it is dear to your servant.",
     "step": "Sit still for sixty seconds with this verse — phone face down.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -2992,7 +2992,7 @@
     "text": "Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.",
     "plain": "Your word is true from the first; and your upright decision is unchanging for ever.",
     "step": "Share one line of this verse with someone who needs steady words.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -3001,7 +3001,7 @@
     "text": "I rejoice at thy word, as one that findeth great spoil.",
     "plain": "I am delighted by your saying, like a man who makes discovery of great wealth.",
     "step": "End the day by reading this verse again, without rushing.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -3019,7 +3019,7 @@
     "text": "Let my soul live, and it shall praise thee; and let thy judgments help me.",
     "plain": "Give life to my soul so that it may give you praise; and let your decisions be my support.",
     "step": "List one mercy you can thank God for that fits this verse.",
-    "about": "A psalm writer devoted to God’s Word",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
     "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
   },
@@ -3073,7 +3073,7 @@
     "text": "Our help is in the name of the Lord, who made heaven and earth.",
     "plain": "God is the Maker. Nothing exists outside His hand — \"Our help is in the name of the Lord, who made heaven and\".",
     "step": "Take one small action today that matches what this verse asks.",
-    "about": "A song of ascents writer",
+    "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
     "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
   },
@@ -3091,7 +3091,7 @@
     "text": "They that trust in the Lord shall be as mount Zion, which cannot be removed.",
     "plain": "- A Song of the going up. - Those whose hope is in the Lord are like the mountain of Zion, which may not be moved, but keeps its place for ever.",
     "step": "When fear returns, repeat one short clause of this verse once more.",
-    "about": "A song of ascents writer",
+    "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
     "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
   },
@@ -3100,7 +3100,7 @@
     "text": "Then was our mouth filled with laughter, and our tongue with singing.",
     "plain": "Then our mouths were full of laughing, and our tongues gave a glad cry; they said among the nations, The Lord has done great things for them.",
     "step": "Ask forgiveness for one sharp word or thought, then receive mercy.",
-    "about": "A song of ascents writer",
+    "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
     "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
   },
@@ -3118,7 +3118,7 @@
     "text": "The Lord hath done great things for us; whereof we are glad.",
     "plain": "The Lord has done great things for us; because of which we are glad.",
     "step": "Ask God for strength for the next hour only — then take the next step.",
-    "about": "A song of ascents writer",
+    "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
     "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
   },
@@ -3127,7 +3127,7 @@
     "text": "It is vain for you to rise up early, to sit up late: for so he giveth his beloved sleep.",
     "plain": "It is of no use for you to get up early, and to go late to your rest, with the bread of sorrow for your food; for the Lord gives to his loved ones in sleep.",
     "step": "Choose one person to treat gently because of this verse.",
-    "about": "A song of ascents writer",
+    "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
     "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
   },
@@ -3145,7 +3145,7 @@
     "text": "Blessed is every one that feareth the Lord; that walketh in his ways.",
     "plain": "- A Song of the going up. - Happy is the worshipper of the Lord, who is walking in his ways.",
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
-    "about": "A song of ascents writer",
+    "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
     "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
   },
@@ -3154,7 +3154,7 @@
     "text": "I wait for the Lord, my soul doth wait, and in his word do I hope.",
     "plain": "I am waiting for the Lord, my soul is waiting for him, and my hope is in his word.",
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
-    "about": "A song of ascents writer",
+    "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
     "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
   },
@@ -3172,7 +3172,7 @@
     "text": "Let Israel hope in the Lord: for with the Lord there is mercy.",
     "plain": "O Israel, have hope in the Lord; for with the Lord is mercy and full salvation.",
     "step": "Before you open messages, pray this verse once as a quiet start.",
-    "about": "A song of ascents writer",
+    "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
     "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
   },
@@ -3181,7 +3181,7 @@
     "text": "Let Israel hope in the Lord from henceforth and for ever.",
     "plain": "O Israel, have hope in the Lord, from this time and for ever.",
     "step": "Take one small action today that matches what this verse asks.",
-    "about": "A song of ascents writer",
+    "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
     "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
   },
@@ -3199,7 +3199,7 @@
     "text": "Behold, how good and how pleasant it is for brethren to dwell together in unity!",
     "plain": "- A Song of the going up. Of David. - See how good and how pleasing it is for brothers to be living together in harmony!",
     "step": "When fear returns, repeat one short clause of this verse once more.",
-    "about": "A song of ascents writer",
+    "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
     "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
   },
@@ -3208,7 +3208,7 @@
     "text": "Lift up your hands in the sanctuary, and bless the Lord.",
     "plain": "Give praise to the Lord, lifting up your hands in his holy place.",
     "step": "Share one line of this verse with someone who needs steady words.",
-    "about": "A song of ascents writer",
+    "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
     "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
   },
@@ -3226,7 +3226,7 @@
     "text": "Praise the Lord; for the Lord is good: sing praises unto his name; for it is pleasant.",
     "plain": "Give praise to Jah, for he is good: make melody to his name, for it is pleasing.",
     "step": "Ask God for strength for the next hour only — then take the next step.",
-    "about": "A psalm writer",
+    "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
     "to": "Exiles and all who refuse false gods",
     "setting": "Praise for the living God versus idols; by the rivers of Babylon, exiles weep for Zion."
   },
@@ -3235,7 +3235,7 @@
     "text": "O give thanks unto the Lord; for he is good: for his mercy endureth for ever.",
     "plain": "O give thanks to the Lord; for he is good: for his mercy endures for ever (Psalm 136:1).",
     "step": "List one mercy you can thank God for that fits this verse.",
-    "about": "A psalm writer",
+    "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
     "to": "Exiles and all who refuse false gods",
     "setting": "Praise for the living God versus idols; by the rivers of Babylon, exiles weep for Zion."
   },

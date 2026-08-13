@@ -59,7 +59,6 @@ const pages = [
   'id="heroImageBtn"',
   'tdb-layman-always-open',
   'tdb-dig-deeper--always-open',
-  'tdb-dig-deeper__always-heading',
   'id="heroVbdPrimary"',
   'id="heroDigDeeper"',
   'id="nav-kids-corner-home"',
@@ -526,13 +525,14 @@ function run() {
     })();
     const moreIdx = homeNavChunk.indexOf('class="tdb-nav-more"');
     const kidsIdx = homeNavChunk.indexOf('id="nav-kids-corner-home"');
-    const verseIdx = homeNavChunk.indexOf('href="/verse.html"');
-    const kidsAndVerseOnBar = kidsIdx !== -1 && verseIdx !== -1 && moreIdx !== -1 && kidsIdx < moreIdx && verseIdx < moreIdx;
-    if (!kidsAndVerseOnBar) {
-      console.log('\nFAIL homepage nav: Kids and Today’s verse must sit on the bar, not inside More');
+    const verseOnBar = homeNavChunk.indexOf('href="/verse.html"');
+    const kidsOnBar = kidsIdx !== -1 && moreIdx !== -1 && kidsIdx < moreIdx;
+    const verseNotOnBar = verseOnBar === -1 || verseOnBar > moreIdx;
+    if (!kidsOnBar || !verseNotOnBar) {
+      console.log('\nFAIL homepage nav: Kids must sit on the bar; Today’s verse must not');
       failed++;
     } else {
-      console.log('\nOK  homepage nav Kids + Today’s verse on the bar');
+      console.log('\nOK  homepage nav Kids on the bar, Today’s verse not');
     }
     // Prayer counter: element present on home, script wires it and formats numbers
     let homeBody = '';

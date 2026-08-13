@@ -506,6 +506,12 @@
       min-width: 0;
       box-sizing: border-box;
     }
+    /* More menu (and mobile flyout) must sit above the sticky verse, which paints at z-index 26 */
+    .site-header:has(details.tdb-nav-more[open]),
+    .site-header:has(.tdb-primary-site-nav.is-open) {
+      overflow: visible;
+      z-index: 80;
+    }
     /* Horizon blur line */
     .site-header::after {
       content: '';
@@ -968,6 +974,9 @@
       position: relative;
       flex-shrink: 0;
     }
+    .tdb-home-main-nav details.tdb-nav-more[open] {
+      z-index: 80;
+    }
     .tdb-home-main-nav details.tdb-nav-more > summary {
       list-style: none;
       cursor: pointer;
@@ -1000,9 +1009,9 @@
       padding: 0.35rem;
       border-radius: 12px;
       border: 1px solid rgba(227, 188, 103, 0.28);
-      background: rgba(12, 16, 26, 0.96);
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
-      z-index: 30;
+      background: rgba(12, 16, 26, 0.98);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+      z-index: 90;
       display: flex;
       flex-direction: column;
       gap: 0.15rem;
@@ -1221,7 +1230,10 @@
       }
       .tdb-home-main-nav::-webkit-scrollbar { display: none; }
       .tdb-home-main-nav .tdb-primary-nav-panel > a { flex-shrink: 0; padding: 0.35rem 0.55rem; }
-      .tdb-home-main-nav:has(details.tdb-nav-more[open]) { overflow: visible; }
+      .tdb-home-main-nav:has(details.tdb-nav-more[open]) {
+        overflow: visible;
+        z-index: 80;
+      }
       .tdb-home-main-nav .tdb-nav-more-panel {
         right: auto;
         left: 50%;
@@ -4117,7 +4129,7 @@
       letter-spacing: normal;
       font-size: 0.95em;
     }
-    /* Pass 6 — More from the Word: always open under today’s verse (no disclosure) */
+    /* Context from the Word — always open under today’s verse (no section title) */
     .hero-vbd-primary {
       margin: 0;
     }
@@ -4159,7 +4171,7 @@
       color: var(--text);
     }
 
-    /* More from the Word — always open under today’s verse (no disclosure) */
+    /* Context rows — always open under today’s verse */
     #verseCard .tdb-dig-deeper--always-open {
       display: block;
       margin: 0.85rem 0 0.65rem;
@@ -4170,11 +4182,7 @@
       display: none !important;
     }
     #verseCard .tdb-dig-deeper__always-heading {
-      margin: 0 0 0.55rem;
-      font-size: 0.95rem;
-      font-weight: 650;
-      letter-spacing: 0.01em;
-      color: color-mix(in srgb, var(--text) 88%, var(--gold, #e3bc67));
+      display: none;
     }
     #verseCard .tdb-dig-deeper--always-open .hero-vbd-bundle {
       margin: 0 0 0.7rem;
@@ -11170,7 +11178,7 @@
 }
 .tdb-hero-share-more__sum::-webkit-details-marker { display: none; }
 
-/* VP3: Ask the Word — examples + feeling pairs behind quiet disclosures */
+/* VP3: Ask the Word — example questions stay in a quiet disclosure; feeling chips stay in the open */
 .tdb-ask-quiet-details {
   margin: 0.45rem 0 0.15rem;
   border: 0;
@@ -11203,9 +11211,16 @@
   color: var(--text, #e8eef8);
   margin-bottom: 0.25rem;
 }
-.feel-combo-presets-wrap.tdb-ask-quiet-details .feel-combo-presets {
+.feel-combo-presets-wrap .feel-combo-presets {
   margin: 0.35rem 0 0.65rem;
   justify-content: flex-start;
+}
+.feel-combo-presets-heading {
+  margin: 0.55rem 0 0.15rem;
+  font-size: 0.88rem;
+  font-weight: 550;
+  line-height: 1.4;
+  color: var(--muted, #8a95a8);
 }
 .tdb-hero-share-more__tools {
   display: flex;
@@ -11677,7 +11692,7 @@ html[data-theme="light"] .tdb-home-grow-path__list {
   letter-spacing: 0.01em;
 }
 
-/* Unified quick-topic chips (pinned strip + Show all groups) */
+/* Unified quick-topic chips (pinned strip + always-open groups) */
 .feel-quick-topics-root .quick-topic,
 .quick-topic-group-chips .quick-topic {
   font-size: var(--tdb-text-chip, 0.88rem);
@@ -12643,18 +12658,9 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
 }
 #verseCard details.tdb-dig-deeper[open] > .tdb-dig-deeper__summary::after { content: "−"; }
 
-/* Feeling chips: quick strip only until disclosure opens */
-.tdb-feel-all-disclosure {
+/* Feeling chips: common strip, then every group in the open */
+.tdb-feel-all-chips {
   margin-top: 0.65rem;
-}
-.tdb-feel-all-disclosure__sum {
-  cursor: pointer;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  color: var(--muted, #a8b3c4);
-  font-size: 0.92rem;
-  font-weight: 550;
 }
 .tdb-feel-quick-strip {
   display: flex;

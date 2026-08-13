@@ -108,6 +108,7 @@ export function speakerBelongsToBook(about, ref) {
     if (/^psalm/.test(book)) {
       const ch = chapterOf(ref);
       if (ch === 72 && /prayer for solomon|for the king|solomon \(or/i.test(a)) return true;
+      if (ch === 127 && /solomon|song of degrees/i.test(a)) return true;
       return false;
     }
     if (/^matthew\b|^mark\b|^luke\b|^john\b|^acts\b/.test(book)) return false;
@@ -132,7 +133,7 @@ export function situationLooksWrongForRef(sit, ref) {
   if (!s || !r) return false;
   if (!/^Psalm(s)?\s+92:/i.test(r) && /Sabbath song of thanksgiving/i.test(s)) return true;
   if (/floods,\s*thrones,\s*and idols|floods and noise cannot unseat/i.test(s)) {
-    if (!/^Psalm(s)?\s+(93|95|96|97):/i.test(r)) return true;
+    if (!/^Psalm(s)?\s+93:/i.test(r)) return true;
   }
   if (/straight path for work and plans|learning a straight path/i.test(s) && !/^Proverbs\b/i.test(r)) {
     return true;

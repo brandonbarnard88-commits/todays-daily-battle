@@ -2897,6 +2897,7 @@ body {
   }
   .tdb-global-nav:has(details.tdb-nav-more[open]) {
     overflow: visible;
+    z-index: 80;
   }
   .tdb-global-nav .tdb-nav-more-panel {
     right: auto;
@@ -2930,6 +2931,9 @@ body {
 .tdb-global-nav details.tdb-nav-more {
   position: relative;
   flex-shrink: 0;
+}
+.tdb-global-nav details.tdb-nav-more[open] {
+  z-index: 80;
 }
 .tdb-global-nav details.tdb-nav-more > summary {
   list-style: none;

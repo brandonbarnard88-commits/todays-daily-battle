@@ -464,7 +464,7 @@
     Joshua: { s: 'Joshua', a: 'Israel' }, Judges: { s: 'Unknown', a: 'Israel' }, Ruth: { s: 'Unknown', a: 'Israel' },
     '1 Samuel': { s: 'Samuel', a: 'Israel' }, '2 Samuel': { s: 'Nathan', a: 'Israel' }, '1 Kings': { s: 'Unknown', a: 'Israel' }, '2 Kings': { s: 'Unknown', a: 'Israel' },
     '1 Chronicles': { s: 'Chronicler', a: 'Exiles' }, '2 Chronicles': { s: 'Chronicler', a: 'Exiles' }, Ezra: { s: 'Ezra', a: 'Exiles' }, Nehemiah: { s: 'Nehemiah', a: 'Exiles' }, Esther: { s: 'Unknown', a: 'Israel' },
-    Job: { s: 'Job and the Lord', a: 'All' }, Psalm: { s: 'David or another psalm writer', a: 'Everyone hurting or thankful' }, Psalms: { s: 'David or another psalm writer', a: 'Everyone hurting or thankful' },
+    Job: { s: 'Job and the Lord', a: 'All' }, Psalm: { s: 'A named voice in the Psalms — David, Asaph, Moses, or Israel’s worship', a: 'Everyone hurting or thankful' }, Psalms: { s: 'A named voice in the Psalms — David, Asaph, Moses, or Israel’s worship', a: 'Everyone hurting or thankful' },
     Proverbs: { s: 'Solomon giving wisdom', a: 'Everyone seeking guidance' }, Ecclesiastes: { s: 'Solomon', a: 'All' }, 'Song of Solomon': { s: 'Solomon', a: 'All' },
     Isaiah: { s: 'Isaiah', a: 'Judah' }, Jeremiah: { s: 'Jeremiah', a: 'Judah and the exiles' }, Lamentations: { s: 'Jeremiah', a: 'Exiles' }, Ezekiel: { s: 'Ezekiel', a: 'Exiles' }, Daniel: { s: 'Daniel', a: 'Exiles' },
     Hosea: { s: 'Hosea', a: 'Israel' }, Joel: { s: 'Joel', a: 'Judah' }, Amos: { s: 'Amos', a: 'Israel' }, Obadiah: { s: 'Obadiah', a: 'Edom' }, Jonah: { s: 'Jonah', a: 'Nineveh' }, Micah: { s: 'Micah', a: 'Judah' }, Nahum: { s: 'Nahum', a: 'Nineveh' }, Habakkuk: { s: 'Habakkuk', a: 'Judah' }, Zephaniah: { s: 'Zephaniah', a: 'Judah' }, Haggai: { s: 'Haggai', a: 'Exiles' }, Zechariah: { s: 'Zechariah', a: 'Exiles' }, Malachi: { s: 'Malachi', a: 'Israel' },
@@ -722,6 +722,7 @@
       if (/^psalm/.test(book)) {
         var ch = chapterOfHeroRef(ref);
         if (ch === 72 && /prayer for solomon|for the king|solomon \(or/i.test(a)) return true;
+        if (ch === 127 && /solomon|song of degrees/i.test(a)) return true;
         return false;
       }
       if (/^matthew\b|^mark\b|^luke\b|^john\b|^acts\b/.test(book)) return false;
@@ -745,7 +746,7 @@
     if (!s || !r) return false;
     if (!/^Psalm(s)?\s+92:/i.test(r) && /Sabbath song of thanksgiving/i.test(s)) return true;
     if (/floods,\s*thrones,\s*and idols|floods and noise cannot unseat/i.test(s)) {
-      if (!/^Psalm(s)?\s+(93|95|96|97):/i.test(r)) return true;
+      if (!/^Psalm(s)?\s+93:/i.test(r)) return true;
     }
     if (/straight path for work and plans|learning a straight path/i.test(s) && !/^Proverbs\b/i.test(r)) {
       return true;

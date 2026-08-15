@@ -3,11 +3,28 @@
  * Keep in sync with runtime checks in verse-breakdown.js / hero-daily-first-paint.js.
  */
 
+export function cleanSituationStamp(s) {
+  let t = String(s || '').replace(/\s+/g, ' ').trim();
+  t = t.replace(/^In this passage of Scripture, the focus is this:\s*/i, '');
+  const spoken = t.match(/^(.{2,80}?)\s+[—–-]\s+spoken by\s+(.+?)\s+to\s+(.+?)\.?$/i);
+  if (spoken) {
+    const title = spoken[1].replace(/\s+/g, ' ').trim();
+    const who = spoken[2].replace(/\s+/g, ' ').trim().replace(/^The\s+/, 'the ');
+    const audience = spoken[3].replace(/\s+/g, ' ').trim().replace(/^The\s+/, 'the ');
+    if (who && audience && title) {
+      return who.charAt(0).toUpperCase() + who.slice(1) + ' said this to ' + audience + ': ' + title.replace(/[.!?]$/, '') + '.';
+    }
+  }
+  return t;
+}
+
 export function isThinSpeakerLine(s) {
-  const t = String(s || '').replace(/\s+/g, ' ').trim();
+  const t = cleanSituationStamp(s);
   if (!t) return true;
+  if (/^In this passage of Scripture/i.test(t)) return true;
   if (/ speaking to /i.test(t) && t.length < 100) return true;
   if (/^.{3,55}\s+speaking to\s+/i.test(t) && t.length < 120) return true;
+  if (/^.{3,70}\s+[—–-]\s+spoken by\s+.+\s+to\s+/i.test(t) && t.length < 180) return true;
   return false;
 }
 
@@ -57,7 +74,7 @@ export function isBbeEcho(plain, bbeText) {
 }
 
 export function scoreSituationLine(s) {
-  let t = String(s || '')
+  let t = cleanSituationStamp(s)
     .replace(/^What was going on:\s*/i, '')
     .replace(/\s+/g, ' ')
     .trim();

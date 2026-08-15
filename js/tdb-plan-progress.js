@@ -50,6 +50,7 @@
     moneyworry: 'Financial Stress & Provision (7 days)',
     addictionhope: 'Addiction & Strongholds (7 days)',
     guiltshame: 'Guilt & Shame (7 days)',
+    shamelift: 'Lifted from Shame (7 days)',
     overwhelmedburnout: 'Overwhelmed / Burnout (7 days)',
     selfworth: 'Self-Worth / Identity (7 days)',
     caregiverrest: 'Caregiver Rest (7 days)',

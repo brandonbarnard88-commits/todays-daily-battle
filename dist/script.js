@@ -31170,7 +31170,15 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=guiltshame',
     days: 7,
     description: 'Seven days with Him when guilt or shame feels heavy. Come guilty, ashamed, or exactly as you are — you are already welcome here.',
-    topics: ['guilt', 'shame', 'forgiveness', 'condemnation', 'hope']
+    topics: ['guilt', 'forgiveness', 'condemnation', 'hope']
+  },
+  {
+    id: 'shamelift',
+    title: 'Lifted from Shame',
+    href: 'plans.html?plan=shamelift',
+    days: 7,
+    description: 'Seven KJV days when shame names you instead of a sin — hiding, face-down, sure everyone sees it. He lifts the face.',
+    topics: ['shame', 'identity', 'worth', 'hiding', 'face', 'reproach']
   },
   {
     id: 'trustbroken',
@@ -32675,8 +32683,8 @@ var HOME_SEARCH_TOPIC_PLAN_PREFS = {
   doubt: ['universitydoubt', 'firststeps', 'gospeljohn'],
   waiting: ['universitywaiting', 'hopeuncertain', 'peace'],
   depression: ['heavyhope', 'psalmscomfort', 'comeuntome'],
-  shame: ['guiltshame', 'selfworth', 'galatiansfreedom'],
-  temptation: ['addictionhope', 'firststeps', 'galatiansfreedom'],
+  shame: ['shamelift', 'selfworth', 'galatiansfreedom'],
+  temptation: ['standfirm', 'firststeps', 'galatiansfreedom'],
   caregiver: ['caregiverrest', 'comeuntome', 'universityexhaustion'],
   suffering: ['sufferendure', 'painwontquit', 'longillness']
 };

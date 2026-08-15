@@ -467,11 +467,16 @@ export function composeSituationLine(situation, about, to) {
   const sit = String(situation || '').replace(/\s+/g, ' ').trim();
   const a = String(about || '').replace(/\s+/g, ' ').trim();
   const t = String(to || '').replace(/\s+/g, ' ').trim();
+  if (sit && sit.length >= 55) {
+    return /[.!?]$/.test(sit) ? sit : sit + '.';
+  }
   if (sit && a && t) {
-    return sit.replace(/\.$/, '') + ' — spoken by ' + a + ' to ' + t + '.';
+    const who = a.replace(/^The\s+/, 'the ');
+    const audience = t.replace(/^The\s+/, 'the ');
+    return who.charAt(0).toUpperCase() + who.slice(1) + ' said this to ' + audience + ': ' + sit.replace(/[.!?]$/, '') + '.';
   }
   if (sit) return /[.!?]$/.test(sit) ? sit : sit + '.';
-  if (a && t) return a + ' speaking to ' + t + '.';
+  if (a && t) return a + ' said this to ' + t + '.';
   return 'God’s Word spoken into a real moment — still true for you.';
 }
 

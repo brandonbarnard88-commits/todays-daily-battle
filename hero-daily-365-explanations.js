@@ -150,7 +150,7 @@
     "step": "Replace one anxious loop with this verse for the next five minutes.",
     "about": "David (and the narrator)",
     "to": "Israel facing Goliath — and anyone facing a giant fear",
-    "setting": "In this passage of Scripture, the focus is this: David and Goliath — spoken by David (and the narrator) to Israel facing Goliath — and anyone facing a giant fear."
+    "setting": "David (and the narrator) said this to Israel facing Goliath — and anyone facing a giant fear: David and Goliath."
   },
   {
     "ref": "Psalm 16:11",
@@ -276,7 +276,7 @@
     "step": "Ask God what one step of obedience looks like before noon.",
     "about": "Paul",
     "to": "Timothy (and every timid heart)",
-    "setting": "In this passage of Scripture, the focus is this: Spirit of power and love — spoken by Paul to Timothy (and every timid heart)."
+    "setting": "Paul said this to Timothy (and every timid heart): Spirit of power and love."
   },
   {
     "ref": "Psalm 27:14",
@@ -357,7 +357,7 @@
     "step": "End the day by thanking God for one way this verse proved true.",
     "about": "Paul",
     "to": "The churches of Galatia",
-    "setting": "In this passage of Scripture, the focus is this: Freedom in Christ — spoken by Paul to The churches of Galatia."
+    "setting": "Paul said this to the churches of Galatia: Freedom in Christ."
   },
   {
     "ref": "Psalm 19:14",
@@ -438,7 +438,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "James",
     "to": "Scattered believers under trial",
-    "setting": "In this passage of Scripture, the focus is this: Faith under pressure — spoken by James to Scattered believers under trial."
+    "setting": "James said this to Scattered believers under trial: Faith under pressure."
   },
   {
     "ref": "Psalm 55:22",
@@ -483,7 +483,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Jesus",
     "to": "His disciples the night before the cross",
-    "setting": "In this passage of Scripture, the focus is this: Upper room comfort — spoken by Jesus to His disciples the night before the cross."
+    "setting": "Jesus said this to His disciples the night before the cross: Upper room comfort."
   },
   {
     "ref": "Psalm 62:5",
@@ -510,7 +510,7 @@
     "step": "Share one line of this verse with someone who needs steady words.",
     "about": "The Lord",
     "to": "Joshua",
-    "setting": "In this passage of Scripture, the focus is this: Charge to Joshua — spoken by The Lord to Joshua."
+    "setting": "The Lord said this to Joshua: Charge to Joshua."
   },
   {
     "ref": "Psalm 68:19",
@@ -672,7 +672,7 @@
     "step": "Ask forgiveness for one sharp word or thought, then receive mercy.",
     "about": "Solomon giving wisdom",
     "to": "A son (and every reader seeking guidance)",
-    "setting": "In this passage of Scripture, the focus is this: Trust in the Lord — spoken by Solomon giving wisdom to A son (and every reader seeking guidance)."
+    "setting": "Solomon giving wisdom said this to A son (and every reader seeking guidance): Trust in the Lord."
   },
   {
     "ref": "Psalm 119:50",
@@ -771,7 +771,7 @@
     "step": "Write a one-line prayer that answers this verse in your own words.",
     "about": "Paul",
     "to": "The church at Corinth learning real love",
-    "setting": "In this passage of Scripture, the focus is this: Love chapter — spoken by Paul to The church at Corinth learning real love."
+    "setting": "Paul said this to the church at Corinth learning real love: Love chapter."
   },
   {
     "ref": "Psalm 145:18",
@@ -1032,7 +1032,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "In this passage of Scripture, the focus is this: Comfort and renewed strength — spoken by Isaiah (comfort from God) to Weary Judah — and anyone waiting on the Lord."
+    "setting": "Isaiah (comfort from God) said this to Weary Judah — and anyone waiting on the Lord: Comfort and renewed strength."
   },
   {
     "ref": "Psalm 25:5",
@@ -1059,7 +1059,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "James",
     "to": "Scattered believers under trial",
-    "setting": "In this passage of Scripture, the focus is this: Faith under pressure — spoken by James to Scattered believers under trial."
+    "setting": "James said this to Scattered believers under trial: Faith under pressure."
   },
   {
     "ref": "Psalm 29:11",
@@ -1140,7 +1140,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "Gabriel (and ultimately God)",
     "to": "Mary",
-    "setting": "In this passage of Scripture, the focus is this: Annunciation — spoken by Gabriel (and ultimately God) to Mary."
+    "setting": "Gabriel (and ultimately God) said this to Mary: Annunciation."
   },
   {
     "ref": "Psalm 34:9",
@@ -1185,7 +1185,7 @@
     "step": "Leave one worry with God for ten minutes—set a timer if you need to.",
     "about": "Jesus",
     "to": "His disciples who worry about tomorrow",
-    "setting": "In this passage of Scripture, the focus is this: Do not be anxious — spoken by Jesus to His disciples who worry about tomorrow."
+    "setting": "Jesus said this to His disciples who worry about tomorrow: Do not be anxious."
   },
   {
     "ref": "Psalm 37:3",
@@ -1266,7 +1266,7 @@
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "In this passage of Scripture, the focus is this: Letter to Rome — spoken by Paul to Believers in Rome (and you today)."
+    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
   },
   {
     "ref": "Psalm 40:4",
@@ -1293,7 +1293,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "Paul",
     "to": "The church at Corinth learning real love",
-    "setting": "In this passage of Scripture, the focus is this: Love chapter — spoken by Paul to The church at Corinth learning real love."
+    "setting": "Paul said this to the church at Corinth learning real love: Love chapter."
   },
   {
     "ref": "Psalm 43:3",
@@ -1401,7 +1401,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "Paul",
     "to": "Believers learning strength in weakness",
-    "setting": "In this passage of Scripture, the focus is this: Thorn and grace — spoken by Paul to Believers learning strength in weakness."
+    "setting": "Paul said this to Believers learning strength in weakness: Thorn and grace."
   },
   {
     "ref": "Psalm 52:8",
@@ -1581,7 +1581,7 @@
     "step": "Write a one-line prayer that answers this verse in your own words.",
     "about": "John the apostle",
     "to": "Readers meeting the Word made flesh",
-    "setting": "In this passage of Scripture, the focus is this: Prologue — spoken by John the apostle to Readers meeting the Word made flesh."
+    "setting": "John the apostle said this to Readers meeting the Word made flesh: Prologue."
   },
   {
     "ref": "Psalm 65:4",
@@ -1635,7 +1635,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "Jesus",
     "to": "His disciples learning faith and prayer",
-    "setting": "In this passage of Scripture, the focus is this: Faith and prayer — spoken by Jesus to His disciples learning faith and prayer."
+    "setting": "Jesus said this to His disciples learning faith and prayer: Faith and prayer."
   },
   {
     "ref": "Psalm 70:4",
@@ -1941,7 +1941,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "Jesus",
     "to": "The weary and heavy laden",
-    "setting": "In this passage of Scripture, the focus is this: Come unto Me — spoken by Jesus to The weary and heavy laden."
+    "setting": "Jesus said this to the weary and heavy laden: Come unto Me."
   },
   {
     "ref": "Psalm 91:1",
@@ -1968,7 +1968,7 @@
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "In this passage of Scripture, the focus is this: Letter from prison — spoken by Paul to the church at Philippi (and you today)."
+    "setting": "Paul said this to the church at Philippi (and you today): Letter from prison."
   },
   {
     "ref": "Psalm 92:1",
@@ -2022,7 +2022,7 @@
     "step": "Share one line of this verse with someone who needs steady words.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "In this passage of Scripture, the focus is this: Letter to Rome — spoken by Paul to Believers in Rome (and you today)."
+    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
   },
   {
     "ref": "Psalm 95:1",
@@ -2103,7 +2103,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "The writer of Hebrews",
     "to": "Believers running with patience",
-    "setting": "In this passage of Scripture, the focus is this: Cloud of witnesses — spoken by The writer of Hebrews to Believers running with patience."
+    "setting": "The writer of Hebrews said this to Believers running with patience: Cloud of witnesses."
   },
   {
     "ref": "Psalm 99:2",
@@ -2229,7 +2229,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "In this passage of Scripture, the focus is this: Letter from prison — spoken by Paul to the church at Philippi (and you today)."
+    "setting": "Paul said this to the church at Philippi (and you today): Letter from prison."
   },
   {
     "ref": "Psalm 103:5",
@@ -2517,7 +2517,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "In this passage of Scripture, the focus is this: Comfort and renewed strength — spoken by Isaiah (comfort from God) to Weary Judah — and anyone waiting on the Lord."
+    "setting": "Isaiah (comfort from God) said this to Weary Judah — and anyone waiting on the Lord: Comfort and renewed strength."
   },
   {
     "ref": "Psalm 115:12",
@@ -2643,7 +2643,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "In this passage of Scripture, the focus is this: Letter to Rome — spoken by Paul to Believers in Rome (and you today)."
+    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
   },
   {
     "ref": "Psalm 118:8",
@@ -2697,7 +2697,7 @@
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "Jesus",
     "to": "Martha, Mary, and those at Lazarus’ tomb",
-    "setting": "In this passage of Scripture, the focus is this: Lazarus raised — spoken by Jesus to Martha, Mary, and those at Lazarus’ tomb."
+    "setting": "Jesus said this to Martha, Mary, and those at Lazarus’ tomb: Lazarus raised."
   },
   {
     "ref": "Psalm 118:28",
@@ -2724,7 +2724,7 @@
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
     "about": "Jesus",
     "to": "His disciples who worry about tomorrow",
-    "setting": "In this passage of Scripture, the focus is this: Do not be anxious — spoken by Jesus to His disciples who worry about tomorrow."
+    "setting": "Jesus said this to His disciples who worry about tomorrow: Do not be anxious."
   },
   {
     "ref": "Psalm 119:9",
@@ -2751,7 +2751,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "In this passage of Scripture, the focus is this: Letter from prison — spoken by Paul to the church at Philippi (and you today)."
+    "setting": "Paul said this to the church at Philippi (and you today): Letter from prison."
   },
   {
     "ref": "Psalm 119:27",
@@ -2958,7 +2958,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Jesus",
     "to": "His disciples the night before the cross",
-    "setting": "In this passage of Scripture, the focus is this: Upper room comfort — spoken by Jesus to His disciples the night before the cross."
+    "setting": "Jesus said this to His disciples the night before the cross: Upper room comfort."
   },
   {
     "ref": "Psalm 119:151",
@@ -3057,7 +3057,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Jesus",
     "to": "His disciples the night before the cross",
-    "setting": "In this passage of Scripture, the focus is this: Upper room comfort — spoken by Jesus to His disciples the night before the cross."
+    "setting": "Jesus said this to His disciples the night before the cross: Upper room comfort."
   },
   {
     "ref": "Psalm 121:6",
@@ -3219,7 +3219,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "In this passage of Scripture, the focus is this: Comfort and renewed strength — spoken by Isaiah (comfort from God) to Weary Judah — and anyone waiting on the Lord."
+    "setting": "Isaiah (comfort from God) said this to Weary Judah — and anyone waiting on the Lord: Comfort and renewed strength."
   },
   {
     "ref": "Psalm 135:3",

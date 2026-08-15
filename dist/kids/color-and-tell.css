@@ -134,11 +134,11 @@
   font-family: 'Nunito', system-ui, sans-serif;
   font-size: clamp(1.25rem, 4vw, 1.5rem);
   font-weight: 800;
-  color: #92400e;
+  color: #0f172a;
   text-align: center;
 }
 .dark-mode .tdb-cat-story-grid-heading {
-  color: #fde68a;
+  color: #0f172a;
 }
 .tdb-cat-story-grid-outer {
   margin: 0 0 1.5rem;
@@ -164,7 +164,7 @@
   cursor: pointer;
   min-height: 44px;
   font: inherit;
-  color: inherit;
+  color: #0f172a;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .tdb-cat-story-grid-card:hover,
@@ -175,9 +175,9 @@
   border-color: #f59e0b;
 }
 .dark-mode .tdb-cat-story-grid-card {
-  background: rgba(30, 41, 59, 0.9);
-  border-color: rgba(251, 191, 36, 0.4);
-  color: #f8fafc;
+  background: #fffef8;
+  border-color: #d97706;
+  color: #0f172a;
 }
 .tdb-cat-story-grid-thumb-wrap {
   display: block;
@@ -202,18 +202,19 @@
 .tdb-cat-story-grid-card .tdb-cat-progress-card-title {
   margin: 0 0 0.25rem;
   font-weight: 800;
-  font-size: 0.95rem;
-  line-height: 1.25;
-  color: #92400e;
+  font-size: 1.08rem;
+  line-height: 1.3;
+  color: #0f172a;
 }
 .dark-mode .tdb-cat-story-grid-card .tdb-cat-progress-card-title {
-  color: #fde68a;
+  color: #0f172a;
 }
 .tdb-cat-story-grid-card .tdb-cat-progress-card-status {
   margin: 0 0 0.35rem;
-  font-size: 0.75rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  opacity: 0.85;
+  opacity: 1;
+  color: #334155;
 }
 .tdb-cat-story-grid-card .tdb-cat-progress-meter {
   width: 100%;
@@ -923,11 +924,37 @@
 }
 
 .dark-mode .tdb-cat-progress-card-title {
-  color: #1e3a5f !important;
+  color: #0f172a !important;
 }
 
 .dark-mode .tdb-cat-progress-card-status {
   color: #334155 !important;
+}
+
+/* Story-name grid: cream paper + near-black titles. Body stays .dark-mode
+   on kids coloring, so gold-on-cream titles were washing out. */
+.tdb-cat-story-grid-heading,
+.dark-mode .tdb-cat-story-grid-heading {
+  color: #0f172a !important;
+}
+.tdb-cat-story-grid-card,
+.dark-mode .tdb-cat-story-grid-card {
+  background: #fffef8 !important;
+  border-color: #d97706 !important;
+  color: #0f172a !important;
+}
+.tdb-cat-story-grid-card .tdb-cat-progress-card-title,
+.dark-mode .tdb-cat-story-grid-card .tdb-cat-progress-card-title {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a;
+  font-size: 1.08rem !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+}
+.tdb-cat-story-grid-card .tdb-cat-progress-card-status,
+.dark-mode .tdb-cat-story-grid-card .tdb-cat-progress-card-status {
+  color: #334155 !important;
+  opacity: 1 !important;
 }
 
 .dark-mode .tdb-cat-progress-card-status--done {

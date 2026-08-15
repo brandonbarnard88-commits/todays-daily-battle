@@ -10,7 +10,7 @@ const TARGETS = [
   { label: 'source', dir: root },
   { label: 'dist', dir: path.join(root, 'dist') },
 ];
-const SKIP_DIRS = new Set(['.git', 'node_modules']);
+const SKIP_DIRS = new Set(['.git', 'node_modules', '.worktrees']);
 
 function walkHtml(dir, results = []) {
   if (!fs.existsSync(dir)) return results;

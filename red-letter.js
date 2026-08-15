@@ -291,18 +291,31 @@
       }
     }
 
+    var looksLikeRef = function (t) {
+      var s = stripQuotes(t || '').replace(/\s*\(KJV\)\s*$/i, '');
+      if (/^(Matthew|Mark|Luke|John|Acts|Revelation)\s+\d/i.test(s)) return s;
+      if (/^[1-3]?\s*[A-Za-z][A-Za-z\s.]+\s+\d+:\d+/.test(s)) return s;
+      return '';
+    };
+
     var parent = el.parentElement;
-    for (var depth = 0; parent && depth < 5; depth++) {
+    for (var depth = 0; parent && depth < 6; depth++) {
       var near =
         parent.querySelector &&
         parent.querySelector(
-          '.verse-ref, .big-kjv, [data-verse-ref], [data-ref], .plan-day-verse-ref, .verse-reference'
+          '.verse-ref, .big-kjv, [data-verse-ref], [data-ref], .plan-day-verse-ref, .verse-reference, .tdb-kiss-verse__ref, strong'
         );
       if (near && near !== el) {
-        var t = stripQuotes(near.textContent || '').replace(/\s*\(KJV\)\s*$/i, '');
-        if (/^\d?\s?[A-Za-z].+\d+:\d+/.test(t) || /^(Matthew|Mark|Luke|John|Acts|Revelation)\s+\d/i.test(t)) {
-          return t;
-        }
+        var hit = looksLikeRef(near.textContent || '');
+        if (hit) return hit;
+      }
+      var prev = el.previousElementSibling || parent.previousElementSibling;
+      var hops = 0;
+      while (prev && hops < 6) {
+        var prevHit = looksLikeRef(prev.textContent || '');
+        if (prevHit && String(prev.textContent || '').length < 80) return prevHit;
+        prev = prev.previousElementSibling;
+        hops += 1;
       }
       var pref = parent.getAttribute && (parent.getAttribute('data-verse-ref') || parent.getAttribute('data-ref'));
       if (pref) return stripQuotes(pref).replace(/\s*\(KJV\)\s*$/i, '');
@@ -332,6 +345,9 @@
       '.plan-day-verse-text',
       '.verse-text',
       '.kjv-verse-text',
+      '.tdb-ll-kjv p',
+      '.daily-verse-text',
+      'p.kjv',
       '.memory-verse-text',
       '.bible-hub-verse-text',
       '.tdb-porch-verse-text p',
@@ -378,6 +394,16 @@
     setTimeout(run, 400);
     setTimeout(run, 1500);
     setTimeout(run, 4000);
+    try {
+      if (global.MutationObserver && global.document && global.document.body) {
+        var t = null;
+        var mo = new global.MutationObserver(function () {
+          if (t) global.clearTimeout(t);
+          t = global.setTimeout(run, 180);
+        });
+        mo.observe(global.document.body, { childList: true, subtree: true });
+      }
+    } catch (eMo) { /* ignore */ }
   }
 
   global.TDBRedLetter = {

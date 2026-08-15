@@ -4851,7 +4851,7 @@ const QUERY_TO_TOPIC = {
   panic: 'fear', panicking: 'fear', scared: 'fear', afraid: 'fear', fearful: 'fear', terrified: 'fear',
   dread: 'fear', dreadful: 'fear', freaking: 'fear', terrifying: 'fear',
   // grief / sadness
-  sad: 'grief', sadness: 'grief', depressed: 'grief', depression: 'grief', sorrow: 'grief', sorrowful: 'grief',
+  sad: 'grief', sadness: 'grief', depressed: 'depression', depression: 'depression', sorrow: 'grief', sorrowful: 'grief',
   mourning: 'grief', mourn: 'grief', heartbroken: 'heartache', heartache: 'heartache', brokenhearted: 'grief',
   loss: 'grief', grieving: 'grief', grieve: 'grief', bereaved: 'grief', bereavement: 'grief',
   crying: 'grief', cry: 'grief', weeping: 'grief', weep: 'grief', devastated: 'grief',
@@ -4884,10 +4884,10 @@ const QUERY_TO_TOPIC = {
   serenity: 'peace', serene: 'peace', quiet: 'peace', quietness: 'peace', shalom: 'peace',
   // hope
   hope: 'hope', hopeful: 'hope', hopeless: 'grief', despair: 'grief', hopelessness: 'grief',
-  waiting: 'hope', encourage: 'hope', encouragement: 'hope', lifted: 'hope',
+  waiting: 'waiting', encourage: 'hope', encouragement: 'hope', lifted: 'hope',
   // faith / trust
   faith: 'faith', believe: 'faith', belief: 'faith', trust: 'faith', confidence: 'faith', assurance: 'faith',
-  doubt: 'faith', doubting: 'faith', unsure: 'faith', uncertain: 'faith', uncertainty: 'faith',
+  doubt: 'doubt', doubting: 'doubt', unsure: 'doubt', uncertain: 'faith', uncertainty: 'faith',
   questioning: 'faith', lost: 'faith', confused: 'faith',
   // love
   love: 'love', loving: 'love', compassion: 'love', kindness: 'love', charity: 'love', affection: 'love',
@@ -4900,7 +4900,7 @@ const QUERY_TO_TOPIC = {
   courage: 'courage', courageous: 'courage', brave: 'courage', bold: 'courage', fearless: 'courage',
   cowardly: 'courage', cowardice: 'courage', timid: 'courage', shy: 'courage',
   // patience
-  patience: 'patience', patient: 'patience', wait: 'patience', waiting: 'patience', endure: 'patience',
+  patience: 'patience', patient: 'patience', wait: 'waiting', waiting: 'waiting', endure: 'patience',
   impatient: 'patience', impatience: 'patience', rushing: 'patience', hurry: 'patience',
   // wisdom
   wisdom: 'wisdom', wise: 'wisdom', understanding: 'wisdom', discernment: 'wisdom',
@@ -4949,6 +4949,13 @@ const QUERY_TO_TOPIC = {
   tired: 'strength',
   wonder: 'wonder',
   exhaustion: 'exhaustion',
+  worry: 'worry',
+  worthless: 'worthless',
+  prayer: 'prayer',
+  doubt: 'doubt',
+  waiting: 'waiting',
+  depression: 'depression',
+  down: 'depression',
   // free will
   choice: 'free will', choices: 'free will', choosing: 'free will', freedom: 'free will',
   freewill: 'free will', will: 'free will',
@@ -4966,7 +4973,7 @@ const QUERY_TO_TOPIC = {
   comfort: 'grief', comforted: 'grief', consolation: 'grief',
   depression2: 'grief', depressing: 'grief',
   // "feeling X" patterns — these need the adjective mapped
-  hopeless: 'hope', helpless: 'strength', worthless: 'love', useless: 'love',
+  hopeless: 'hope', helpless: 'strength', worthless: 'worthless', useless: 'worthless',
   overwhelm: 'anxiety', nervous: 'anxiety', panic: 'fear',
   frustrated: 'anger', frustrating: 'anger',
   blessed: 'gratitude', bless: 'gratitude',
@@ -5072,7 +5079,7 @@ const VOCABULARY = {
   emboldened: 'courage', empowered: 'strength', invigorated: 'strength', refreshed: 'rest',
   // High-impact real-user patterns (1D)
   overwhelmed: 'overwhelmed', hopeless: 'hope', despairing: 'grief', fearful: 'fear', terrified: 'fear',
-  panicked: 'fear', worthless: 'love', ashamed: 'guilt', bitter: 'anger', resentful: 'anger',
+  panicked: 'fear', worthless: 'worthless', ashamed: 'guilt', bitter: 'anger', resentful: 'anger',
   betrayed: 'loneliness', abandoned: 'loneliness', rejected: 'loneliness', empty: 'hope',
   purposeless: 'purpose', joyful: 'joy', peaceful: 'peace', content: 'joy', grateful: 'gratitude',
   unforgiveness: 'forgiveness', breakthrough: 'hope', perseverance: 'strength', endurance: 'strength',
@@ -11424,6 +11431,48 @@ const topics = {
     explain: {
       kid: "God gives you His love as a gift — you can't earn it.",
       teen: "Grace means God loves you before you get it right, not after."
+    }
+  },
+  worthless: {
+    synonyms: ['worthless', 'worth', 'no value', 'useless', 'not enough'],
+    verses: ['Genesis 1:27', 'Psalm 139:14', 'Isaiah 43:4', '1 Peter 2:9', 'Zephaniah 3:17', 'Romans 8:38'],
+    guidance: {
+      kid: "God made you on purpose. You are not leftover.",
+      teen: "Your worth is not a score. He named you precious before anyone else spoke.",
+      adult: "You are made in His image and precious in His sight — not extra, not a mistake.",
+      pastor: "Preach dignity from creation and redemption; do not flatten this into a pep talk."
+    },
+    explain: {
+      kid: "God made you special. You matter to Him.",
+      teen: "Feeling worthless is a lie. God already said you are precious."
+    }
+  },
+  doubt: {
+    synonyms: ['doubt', 'unbelief', 'questions', 'hard to believe', 'skeptic'],
+    verses: ['Mark 9:24', 'John 20:27', 'Jude 1:22', 'Proverbs 3:5', 'James 1:5', 'Psalm 73:26'],
+    guidance: {
+      kid: "You can tell God when you are not sure. He still loves you.",
+      teen: "Honest questions are allowed. Bring them to Jesus, not away from Him.",
+      adult: "I believe; help thou mine unbelief is still prayer. Doubt brought to Him is not the end of faith.",
+      pastor: "Make room for honest doubt; Thomas was invited to come closer, not shamed away."
+    },
+    explain: {
+      kid: "God is not mad when you have questions.",
+      teen: "Doubt is not the opposite of faith when you take it to Jesus."
+    }
+  },
+  waiting: {
+    synonyms: ['waiting', 'not yet', 'delay', 'unanswered', 'how long'],
+    verses: ['Psalm 27:14', 'Isaiah 40:31', 'Lamentations 3:25', 'Psalm 130:5', 'Habakkuk 2:3', 'Psalm 37:7'],
+    guidance: {
+      kid: "Waiting is hard. God is still with you while you wait.",
+      teen: "Waiting on God is not wasted time. He renews strength in the long stretch.",
+      adult: "Wait on the Lord. He is good to those who wait for Him, and He is not late.",
+      pastor: "Distinguish waiting from passivity; this is trust when the calendar will not move."
+    },
+    explain: {
+      kid: "God is still working even when you have to wait.",
+      teen: "Waiting does not mean He forgot you."
     }
   },
   rest: {
@@ -31941,6 +31990,26 @@ var TDB_HOME_FEEL_ANCHORS = {
     text: 'For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.',
     leadYou: 'Right now, if you are wondering “what is the point?”, He already has thoughts of peace and a good end—not harm—for you.'
   },
+  worthless: {
+    ref: 'Isaiah 43:4',
+    text: 'Since thou wast precious in my sight, thou hast been honourable, and I have loved thee: therefore will I give men for thee, and people for thy life.',
+    leadYou: 'Right now, if you feel leftover, hear this: precious in His sight. That is His name for you, not a slogan.'
+  },
+  prayer: {
+    ref: 'Philippians 4:6',
+    text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',
+    leadYou: 'Right now, you do not have to polish the words. Tell Him the real thing — He already invited that.'
+  },
+  depression: {
+    ref: 'Psalm 42:11',
+    text: 'Why art thou cast down, O my soul? and why art thou disquieted within me? hope thou in God: for I shall yet praise him, who is the health of my countenance, and my God.',
+    leadYou: 'Right now, a cast-down soul is named honestly in Scripture. Hope in God is not a grin — it is a next hold.'
+  },
+  worry: {
+    ref: 'Matthew 6:34',
+    text: 'Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.',
+    leadYou: 'Right now, tomorrow is not yours to live yet. This day is enough — hand the rest to Him.'
+  },
   'free will': {
     ref: 'Joshua 24:15',
     text: 'Choose you this day whom ye will serve; whether the gods which your fathers served, or the gods in whose land ye dwell: but as for me and my house, we will serve the Lord.',
@@ -32434,7 +32503,13 @@ function titleCaseHomeTopic(topic) {
     'jesus said': 'Jesus said',
     overwhelmed: 'Heavy',
     heavy: 'Heavy',
-    restless: 'Restless'
+    restless: 'Restless',
+    worry: 'Worry',
+    worthless: 'Worthless',
+    prayer: 'Prayer',
+    doubt: 'Doubt',
+    waiting: 'Waiting',
+    depression: 'Down'
   };
   if (labels[t]) return labels[t];
   return t.split(/\s+/).map(function (part) {
@@ -32544,7 +32619,13 @@ var HOME_SEARCH_TOPIC_PLAN_PREFS = {
   obedience: ['firststeps', 'galatiansfreedom', 'gospeljohn'],
   'free will': ['galatiansfreedom', 'firststeps', 'gospeljohn'],
   'difficult person': ['lettinggo', 'forgiveness', 'universityanger'],
-  'difficult boss': ['lettinggo', 'universityanger', 'forgiveness']
+  'difficult boss': ['lettinggo', 'universityanger', 'forgiveness'],
+  worry: ['worrytrust', 'anxiety7', 'universityanxiety'],
+  worthless: ['selfworth', 'galatiansfreedom', 'firststeps'],
+  prayer: ['universitysecretprayer', 'firststeps', 'comeuntome'],
+  doubt: ['universitydoubt', 'firststeps', 'gospeljohn'],
+  waiting: ['universitywaiting', 'hopeuncertain', 'peace'],
+  depression: ['heavyhope', 'psalmscomfort', 'comeuntome']
 };
 
 function queryLooksSeasonal(queryText, activeTopics) {
@@ -34322,7 +34403,8 @@ var HOME_QUIET_TOPIC_CHIPS = {
   exhaustion: 1, joy: 1, love: 1, faith: 1, courage: 1, patience: 1,
   wisdom: 1, rest: 1, sleep: 1, family: 1, parenting: 1, marriage: 1,
   relationships: 1, finances: 1, money: 1, forgiveness: 1, obedience: 1,
-  'jesus said': 1, spiritualwarfare: 1, identity: 1, purpose: 1, 'free will': 1
+  'jesus said': 1, spiritualwarfare: 1, identity: 1, purpose: 1, 'free will': 1,
+  worry: 1, worthless: 1, prayer: 1, doubt: 1, waiting: 1, depression: 1
 };
 
 function isQuietHomeTopicSearch(queryText, results, askProfile) {

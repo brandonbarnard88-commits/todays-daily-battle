@@ -5,7 +5,7 @@
   <!-- GA4 + GSC loaded on idle (see script.js loadDeferredScriptsOnIdle) -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preload" href="/core-home.js?v=20260815-topic-check" as="script" fetchpriority="high">
+  <link rel="preload" href="/core-home.js?v=20260815-topics-add" as="script" fetchpriority="high">
   <style id="tdb-critical-shell">html{background:#080c14}body{margin:0;background:#080c14;color:#f0f2f7}#tdb-first-tour-prompt,.tdb-first-tour-prompt{display:none!important;visibility:hidden!important;pointer-events:none!important;position:absolute!important;left:-9999px!important;width:0!important;height:0!important;overflow:hidden!important}</style>
   <link rel="preload" as="script" href="/assets/perf-hint.js?v=20260515-strip-tour-chip-early-v3" fetchpriority="high">
   <script nonce="tdb2025s" src="/assets/perf-hint.js?v=20260515-strip-tour-chip-early-v3"></script>
@@ -14,11 +14,11 @@
   <!-- DOMPurify + tt-bootstrap stay synchronous before any body innerHTML (Trusted Types). Low fetch priority reduces contention with LCP text paint. -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="low">
   <script nonce="tdb2025s" src="/vendor/dompurify.min.js" fetchpriority="low"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260815-topic-check" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260815-topics-add" fetchpriority="low"></script>
   <!-- Quiet room lives only on prayer-wall.html; old /#prayer-wall bookmarks still work -->
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
   <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260811-one-interrupt"></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260815-topic-check"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260815-topics-add"></script>
 
   <title>Today’s Daily Battle — Less scroll, more soul</title>
   <meta name="description" content="Today’s verse: 1 John 4:7 (KJV). Less scroll, more soul. For Family, For Country, For GOD. No ads, no login wall.">
@@ -140,8 +140,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260815-topic-check" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260815-topic-check">
+  <link rel="preload" href="tdb-home-page.css?v=20260815-topics-add" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260815-topics-add">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260812unstick-nav" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260812unstick-nav">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -770,10 +770,13 @@
                 <h3 class="quick-topic-group-title" id="qtg-heavy">When it feels heavy</h3>
                 <div class="quick-topic-group-chips">
                   <button type="button" class="quick-topic" data-topic="anxiety" aria-label="Restless"><span aria-hidden="true">🌊</span> Restless</button>
+                  <button type="button" class="quick-topic" data-topic="worry" aria-label="Worry"><span aria-hidden="true">🌀</span> Worry</button>
                   <button type="button" class="quick-topic" data-topic="overwhelmed" aria-label="Heavy"><span aria-hidden="true">⛰️</span> Heavy</button>
                   <button type="button" class="quick-topic" data-topic="fear" aria-label="Fear"><span aria-hidden="true">🌧️</span> Fear</button>
                   <button type="button" class="quick-topic" data-topic="grief" aria-label="Grief"><span aria-hidden="true">🕯️</span> Grief</button>
                   <button type="button" class="quick-topic" data-topic="heartache" aria-label="Heartache"><span aria-hidden="true">💔</span> Heartache</button>
+                  <button type="button" class="quick-topic" data-topic="depression" aria-label="Down"><span aria-hidden="true">🌑</span> Down</button>
+                  <button type="button" class="quick-topic" data-topic="worthless" aria-label="Worthless"><span aria-hidden="true">🪞</span> Worthless</button>
                   <button type="button" class="quick-topic" data-topic="anger" aria-label="Anger"><span aria-hidden="true">🔥</span> Anger</button>
                   <button type="button" class="quick-topic" data-topic="difficult person" aria-label="Toxic people"><span aria-hidden="true">🧱</span> Toxic People</button>
                   <button type="button" class="quick-topic" data-topic="difficult boss" aria-label="Anger at work"><span aria-hidden="true">💼</span> Anger at Work</button>
@@ -799,6 +802,7 @@
                   <button type="button" class="quick-topic" data-topic="faith" aria-label="Faith"><span aria-hidden="true">🌱</span> Faith</button>
                   <button type="button" class="quick-topic" data-topic="courage" aria-label="Courage"><span aria-hidden="true">🛡️</span> Courage</button>
                   <button type="button" class="quick-topic" data-topic="patience" aria-label="Patience"><span aria-hidden="true">⏳</span> Patience</button>
+                  <button type="button" class="quick-topic" data-topic="waiting" aria-label="Waiting"><span aria-hidden="true">🕯️</span> Waiting</button>
                   <button type="button" class="quick-topic" data-topic="wisdom" aria-label="Wisdom"><span aria-hidden="true">📖</span> Wisdom</button>
                   <button type="button" class="quick-topic" data-topic="hope" aria-label="Hope"><span aria-hidden="true">♥️</span> Hope</button>
                   <button type="button" class="quick-topic" data-topic="rest" aria-label="Rest"><span aria-hidden="true">🌙</span> Rest</button>
@@ -823,6 +827,8 @@
                 <h3 class="quick-topic-group-title" id="qtg-faith">Faith and calling</h3>
                 <div class="quick-topic-group-chips">
                   <button type="button" class="quick-topic" data-topic="forgiveness" aria-label="Forgiveness"><span aria-hidden="true">✝️</span> Forgiveness</button>
+                  <button type="button" class="quick-topic" data-topic="prayer" aria-label="Prayer"><span aria-hidden="true">🙏</span> Prayer</button>
+                  <button type="button" class="quick-topic" data-topic="doubt" aria-label="Doubt"><span aria-hidden="true">❓</span> Doubt</button>
                   <button type="button" class="quick-topic" data-topic="obedience" aria-label="Obey"><span aria-hidden="true">✨</span> Obey</button>
                   <button type="button" class="quick-topic" data-topic="jesus said" aria-label="Jesus said"><span aria-hidden="true">💬</span> Jesus said</button>
                   <button type="button" class="quick-topic" data-topic="spiritualwarfare" aria-label="Spiritual warfare"><span aria-hidden="true">📜</span> Spiritual warfare</button>
@@ -1176,7 +1182,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260815-topic-check"></script>
+  <script defer src="/language-switcher.js?v=20260815-topics-add"></script>
 </footer>
 
   </div>
@@ -1258,13 +1264,13 @@
   <script nonce="tdb2025s" src="js/surfaces/home.js?v=20260807-dig-always-open"></script>
   <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260520-att-ask" data-tdb-verse-breakdown-standard="1"></script>
   <script nonce="tdb2025s" src="verse-context.js?v=20260811-psalm94" data-tdb-verse-context="1"></script>
-  <script nonce="tdb2025s" src="hero-daily-365-explanations.js?v=20260815-topic-check" fetchpriority="low"></script>
-  <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260815-topic-check" data-tdb-verse-breakdown-overrides="1" defer></script>
-  <script nonce="tdb2025s" src="verse-breakdown.js?v=20260815-topic-check" data-tdb-verse-breakdown="1" defer></script>
-  <script nonce="tdb2025s" src="bbe-simple.js?v=20260815-topic-check" data-tdb-bbe-simple="1" defer></script>
+  <script nonce="tdb2025s" src="hero-daily-365-explanations.js?v=20260815-topics-add" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260815-topics-add" data-tdb-verse-breakdown-overrides="1" defer></script>
+  <script nonce="tdb2025s" src="verse-breakdown.js?v=20260815-topics-add" data-tdb-verse-breakdown="1" defer></script>
+  <script nonce="tdb2025s" src="bbe-simple.js?v=20260815-topics-add" data-tdb-bbe-simple="1" defer></script>
   <script nonce="tdb2025s" src="red-letter.js?v=20260815-red-always" data-tdb-red-letter="1"></script>
   <script nonce="tdb2025s" src="tdb-verse-accuracy.js?v=20260815-accuracy" data-tdb-verse-accuracy="1"></script>
-  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260815-topic-check" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260815-topics-add" fetchpriority="low"></script>
   <!-- Phase 6: tdb-home-mobius-week.js?v=20260330home + /sky-ip-geo.js?v=20260327ipgeo load with home secondary stack (see script.js tdbScheduleDeferredVodAndReaderTooling) -->
   <!-- ── SOS Button ── -->
   <button type="button" id="sos-btn" class="sos-btn" aria-label="SOS">SOS</button>
@@ -1512,7 +1518,7 @@
   <script nonce="tdb2025s" defer src="tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
-  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260815-topic-check"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260815-topics-add"></script>
   <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260712-first-doors"></script>
   <script nonce="tdb2025s" defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script nonce="tdb2025s" defer src="/js/feel-combo-presets.js"></script>
@@ -1520,7 +1526,7 @@
   <!-- Unified Ask the Word brain (curated + full KJV) — same as bible-tool; before core-home/script.js -->
   <script nonce="tdb2025s" defer src="ask-the-word-core.js?v=20260802-teach"></script>
   <!-- Home core first: load script.js interaction stack on user intent/idle (core-home.js). -->
-  <script nonce="tdb2025s" defer src="core-home.js?v=20260815-topic-check" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" defer src="core-home.js?v=20260815-topics-add" data-cfasync="false" fetchpriority="high"></script>
   <script nonce="tdb2025s">
     (function () {
       var loadPorchEffects = function () {

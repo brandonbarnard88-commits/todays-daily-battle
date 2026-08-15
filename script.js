@@ -35844,7 +35844,9 @@ async function tdbInitImpl() {
       }
       function hasSearchCards(outEl) {
         if (!outEl) return false;
-        return !!outEl.querySelector('.verse-card, .result-section, .empty');
+        return !!outEl.querySelector(
+          '.verse-card, .result-section, .empty, .home-search-card, .tdb-kiss-verse, .feel-verse-card, [data-home-result-card], .home-search-results-shell'
+        );
       }
       function renderEmergencySearchResults(queryText) {
         var out = (typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : null) || ensureOutputElement();
@@ -35858,6 +35860,23 @@ async function tdbInitImpl() {
             if (String(pair[1]).toLowerCase().indexOf(term) !== -1 || String(pair[0]).toLowerCase().indexOf(term) !== -1) {
               picks.push({ ref: pair[0], text: pair[1] });
             }
+          }
+        }
+        if (!picks.length) {
+          var topicKey =
+            (typeof QUERY_TO_TOPIC !== 'undefined' && QUERY_TO_TOPIC[term]) ||
+            (topics && topics[term] ? term : '');
+          var curatedRefs =
+            topicKey && topics && topics[topicKey] && Array.isArray(topics[topicKey].verses)
+              ? topics[topicKey].verses
+              : [];
+          for (var cr = 0; cr < curatedRefs.length && picks.length < 8; cr++) {
+            var cRef = curatedRefs[cr];
+            var cText =
+              (bible && bible[cRef]) ||
+              (typeof getBibleVerseText === 'function' ? getBibleVerseText(cRef) : '') ||
+              '';
+            if (cText) picks.push({ ref: cRef, text: cText });
           }
         }
         if (!picks.length) {

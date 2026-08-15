@@ -61,6 +61,10 @@ if (!script.includes('function getSearchOutputElement')) {
   fail('script.js must define getSearchOutputElement() and use it for homepage results.');
 }
 
+if (!script.includes('.home-search-card') || !script.includes('hasSearchCards')) {
+  fail('hasSearchCards must recognize .home-search-card so emergency fallback cannot overwrite distinct topic results.');
+}
+
 if (!script.includes("getElementById('feelSuggestDropdown')") || !script.includes('wireSmartSearch')) {
   fail('script.js must keep wireSmartSearch + feelSuggestDropdown gate for homepage.');
 }

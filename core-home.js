@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260807-dig-always-open';
+  var INTERACTIVE_SRC = 'script.js?v=20260815-topic-distinct';
   var loaded = false;
   var pendingQuery = '';
 

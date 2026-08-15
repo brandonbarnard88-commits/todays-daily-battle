@@ -504,7 +504,14 @@ function resolveFeelGroup(raw) {
   const q = String(raw || "").trim().toLowerCase();
   if (!q) return null;
 
-  // 1) Exact FEEL_MAP key → hand-curated pack (never substring-match first — that was collapsing chips).
+  // 1) Exact chip / topics key → that topic's own verses (grief ≠ guilt ≠ trauma).
+  const topicsKey = resolveTopicsKey(q);
+  if (topicsKey) {
+    const fromTopics = buildFeelGroupFromScriptTopics(topicsKey, q);
+    if (fromTopics) return fromTopics;
+  }
+
+  // 2) Exact FEEL_MAP key → hand-curated pack (never substring-match first — that was collapsing chips).
   for (let gi = 0; gi < FEEL_MAP.length; gi++) {
     const group = FEEL_MAP[gi];
     for (let ki = 0; ki < group.keys.length; ki++) {
@@ -513,23 +520,6 @@ function resolveFeelGroup(raw) {
         if (pack) return pack;
       }
     }
-  }
-
-  // 2) Exact chip / topics key → curated topic verses from script.js
-  const topicsKey = resolveTopicsKey(q);
-  if (topicsKey) {
-    // Prefer hand pack when chip aliases into one of the 8 rich moods
-    for (let gi = 0; gi < FEEL_MAP.length; gi++) {
-      const group = FEEL_MAP[gi];
-      for (let ki = 0; ki < group.keys.length; ki++) {
-        if (topicsKey === group.keys[ki] || q === group.keys[ki]) {
-          const pack = FEEL_GROUPS[group.group];
-          if (pack) return pack;
-        }
-      }
-    }
-    const fromTopics = buildFeelGroupFromScriptTopics(topicsKey, q);
-    if (fromTopics) return fromTopics;
   }
 
   // 3) Substring match on FEEL_MAP keys (longest key first) for free-typed phrases

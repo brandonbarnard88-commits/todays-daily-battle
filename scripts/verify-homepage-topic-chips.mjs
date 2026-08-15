@@ -117,6 +117,12 @@ if (!index.includes('id="tdbFeelMoreDetails"') || !/id="tdbFeelMoreDetails"[\s\S
 if (!/tdbFeelQuickStrip[\s\S]*?data-topic="prayer"[\s\S]*?data-topic="depression"[\s\S]*?data-topic="worry"/.test(index)) {
   fail('Top strip must include Prayer, Down, and Worry.');
 }
+if (!/tdbFeelQuickStrip[\s\S]*?data-topic="hope"/.test(index)) {
+  fail('Top strip must include Hope so the porch is not only heavy feelings.');
+}
+if (!index.includes('for anyone') || !index.includes('You don&rsquo;t need church words')) {
+  fail('Homepage must say the porch is for anyone, without church words required.');
+}
 if (!/shame:\s*\['shamelift'/.test(script)) {
   fail('Shame must prefer its own Lifted from Shame week first.');
 }

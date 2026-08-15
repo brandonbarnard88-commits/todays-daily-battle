@@ -12640,7 +12640,7 @@ label.inline-toggle:has(#red-letter-toggle),
   grid-template-columns: 1fr;
 }
 @media (min-width: 640px) {
-  .tdb-grove-paths__list { grid-template-columns: repeat(3, 1fr); }
+  .tdb-grove-paths__list { grid-template-columns: repeat(2, 1fr); }
 }
 .tdb-grove-paths__stone {
   display: flex;

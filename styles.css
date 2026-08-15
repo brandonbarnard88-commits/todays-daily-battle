@@ -10303,10 +10303,16 @@ body:has(.pricing-grid) .content-inner .glass:last-of-type {
   margin-bottom: 0.4rem;
   font-family: var(--font-display);
   font-size: 1.12rem;
-  color: var(--text-dark, #eef1f6);
+  color: #f2dc98;
 }
-.dark-mode .content-inner .list .list-item strong {
-  color: #eef1f6;
+.dark-mode .content-inner .list .list-item strong,
+html[data-theme="dark"] .content-inner .list .list-item strong,
+html[data-theme="night"] .content-inner .list .list-item strong {
+  color: #f2dc98;
+}
+html[data-theme="light"] .content-inner .list .list-item strong,
+html[data-theme="sepia"] .content-inner .list .list-item strong {
+  color: #b07a18;
 }
 .content-inner .list .list-item-link {
   display: block;
@@ -18865,9 +18871,11 @@ a.feel-view-more,
   font-size: 1.05rem;
   line-height: 1.75;
 }
-#feel-results .home-search-card-ref,
+#feel-results .home-search-card-ref {
+  color: #f2dc98 !important;
+}
 #feel-results .home-search-card-copy {
-  color: #f8fafc !important;
+  color: #ffffff !important;
 }
 #feel-results .home-search-card-copy {
   font-size: 1.1rem;
@@ -18891,9 +18899,11 @@ html[data-theme="light"] #feel-results .home-search-results-shell {
   color: #1c1917;
 }
 html[data-theme="light"] #feel-results .home-search-response-lead,
-html[data-theme="light"] #feel-results .home-search-card-copy,
-html[data-theme="light"] #feel-results .home-search-card-ref {
+html[data-theme="light"] #feel-results .home-search-card-copy {
   color: #1c1917 !important;
+}
+html[data-theme="light"] #feel-results .home-search-card-ref {
+  color: #b07a18 !important;
 }
 html[data-theme="light"] #feel-results .home-search-card {
   background: #f8f5ef;
@@ -18907,11 +18917,14 @@ html[data-theme="sepia"] #feel-results .home-search-response-lead,
 html[data-theme="sepia"] #feel-results .home-search-card-copy {
   color: #292524 !important;
 }
+html[data-theme="sepia"] #feel-results .home-search-card-ref {
+  color: #b07a18 !important;
+}
 
 /* Optional class on KJV lines in results; matches .home-search-card-copy on dark */
 #feel-results .verse-text {
   line-height: 1.75;
-  color: #f8fafc;
+  color: #ffffff;
 }
 html[data-theme="light"] #feel-results .verse-text {
   color: #1c1c1c !important;
@@ -19297,7 +19310,7 @@ html[data-theme="sepia"] .home-qa-title {
   margin: 0;
   font-weight: 700;
   font-size: 1rem;
-  color: #f8fafc;
+  color: #f2dc98;
 }
 
 .home-search-card-copy {
@@ -19678,10 +19691,12 @@ html[data-theme="light"] .home-qa-prayer {
 }
 
 html[data-theme="light"] .home-search-link-title a,
-html[data-theme="light"] .home-search-card-ref,
 html[data-theme="light"] .home-search-detail-text,
 html[data-theme="light"] .home-search-accordion summary {
   color: #0f172a;
+}
+html[data-theme="light"] .home-search-card-ref {
+  color: #b07a18;
 }
 
 html[data-theme="light"] .home-search-detail-ref {
@@ -26146,7 +26161,7 @@ body.light:not(.dark-mode) .tdb-kiss-verse {
   letter-spacing: 0.02em;
 }
 .tdb-kiss-verse__ref strong {
-  color: #e8c47a;
+  color: #f2dc98;
   font-weight: 700;
 }
 html[data-theme="light"] .tdb-kiss-verse__ref strong,
@@ -26182,7 +26197,7 @@ html[data-theme="sepia"] .tdb-kiss-verse__label {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.12rem;
   line-height: 1.55;
-  color: #e8f0fb !important;
+  color: #ffffff !important;
 }
 html[data-theme="light"] .tdb-kiss-verse__kjv,
 html[data-theme="sepia"] .tdb-kiss-verse__kjv {

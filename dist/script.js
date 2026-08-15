@@ -41084,7 +41084,7 @@ async function tdbInitImpl() {
 
   // Phase 2b-1: no subscription checkouts — send any leftover buttons to Give.
   if (pricingNote) {
-    pricingNote.textContent = 'Everything is free. Giving is completely optional — use Give if you want to support the porch.';
+    pricingNote.textContent = 'Everything is free. You do not have to give. If you want to help, you choose the amount.';
   }
   function wirePricingBtnToGive(btn, source) {
     if (!btn) return;

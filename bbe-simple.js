@@ -458,7 +458,11 @@
     kjvBody.textContent = kjv ? '\u201c' + kjv + '\u201d' : '';
     try {
       if (kjv && global.TDBRedLetter && typeof global.TDBRedLetter.applyToElement === 'function') {
-        global.TDBRedLetter.applyToElement(kjvBody, primaryRef, kjv, { quote: true });
+        var jesusSpeech =
+          (typeof global.TDBRedLetter.isJesusSpeechBook === 'function' && global.TDBRedLetter.isJesusSpeechBook(primaryRef)) ||
+          (typeof global.TDBRedLetter.isRedLetterLike === 'function' && global.TDBRedLetter.isRedLetterLike(primaryRef, kjv));
+        if (jesusSpeech) kjvBody.classList.add('red-letter');
+        global.TDBRedLetter.applyToElement(kjvBody, primaryRef, kjv, { quote: true, forceWhole: !!jesusSpeech });
       }
     } catch (eRl) { /* non-fatal */ }
     kjvBlock.appendChild(kjvLab);

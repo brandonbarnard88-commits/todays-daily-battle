@@ -149,7 +149,7 @@ function tdbIsHomePage() {
   if (window.TDBRedLetter) return;
   if (document.querySelector('script[data-tdb-red-letter]')) return;
   var rl = document.createElement('script');
-  rl.src = '/red-letter.js?v=20260815-red-letter';
+  rl.src = '/red-letter.js?v=20260815-red-now';
   rl.setAttribute('data-tdb-red-letter', '1');
   (document.head || document.documentElement).appendChild(rl);
 })();

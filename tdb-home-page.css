@@ -12518,7 +12518,11 @@ body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__mean {
 #feelCards .red-letter,
 .feel-verse-card .red-letter,
 .tdb-kiss-verse__kjv .red-letter,
-.verse-body .red-letter {
+.tdb-kiss-verse__kjv.red-letter,
+.tdb-kiss-verse__kjv.has-red-letter,
+.verse-body .red-letter,
+.verse-body.red-letter,
+.verse-body.has-red-letter {
   color: #ff6b6b !important;
   font-weight: 600 !important;
   text-shadow: none !important;

@@ -214,12 +214,20 @@
   function setElementHtml(el, html) {
     if (!el) return;
     try {
+      if (typeof global.tdbSetHtml === 'function') {
+        global.tdbSetHtml(el, html);
+        return;
+      }
+    } catch (e0) { /* fall through */ }
+    try {
       if (global.trustedTypes && global.trustedTypes.defaultPolicy && global.trustedTypes.defaultPolicy.createHTML) {
         el.innerHTML = global.trustedTypes.defaultPolicy.createHTML(html);
         return;
       }
     } catch (e) { /* fall through */ }
-    el.innerHTML = html;
+    try {
+      el.innerHTML = html;
+    } catch (e2) { /* ignore */ }
   }
 
   function stripQuotes(s) {
@@ -235,24 +243,31 @@
     var opts = options || {};
     if (!raw) return;
 
-    if (!isEnabled() && !opts.force) {
+    if (!isEnabled() && !opts.force && !opts.forceWhole) {
       var openQ = opts.quote === false ? '' : '\u201c';
       var closeQ = opts.quote === false ? '' : '\u201d';
       el.textContent = openQ + raw + closeQ;
-      el.classList.remove('has-red-letter');
+      el.classList.remove('has-red-letter', RED_CLASS);
       return;
     }
 
     var html = renderHtml(ref, raw, opts);
-    /* Only use HTML when we actually wrapped something in red */
-    if (html.indexOf('class="' + RED_CLASS + '"') !== -1 || html.indexOf("class='" + RED_CLASS + "'") !== -1) {
+    var painted = html.indexOf('class="' + RED_CLASS + '"') !== -1 || html.indexOf("class='" + RED_CLASS + "'") !== -1;
+    /* Gospel speech with no detected range: still mark the line so CSS can paint it red. */
+    if (!painted && isJesusSpeechBook(ref) && (opts.forceWhole || speakerLooksLikeJesus(opts) || WHOLE_VERSE_JESUS_RE.test(raw.trim()))) {
+      var oq2 = opts.quote === false ? '' : '\u201c';
+      var cq2 = opts.quote === false ? '' : '\u201d';
+      html = '<span class="' + RED_CLASS + '">' + escapeHtml(oq2 + raw + cq2) + '</span>';
+      painted = true;
+    }
+    if (painted) {
       setElementHtml(el, html);
-      el.classList.add('has-red-letter');
+      el.classList.add('has-red-letter', RED_CLASS);
     } else {
       var oq = opts.quote === false ? '' : '\u201c';
       var cq = opts.quote === false ? '' : '\u201d';
       el.textContent = oq + raw + cq;
-      el.classList.remove('has-red-letter');
+      el.classList.remove('has-red-letter', RED_CLASS);
     }
   }
 

@@ -17,7 +17,7 @@
 
   /* Whole-verse openers common in Jesus' teaching (Sermon on the Mount, I am sayings, etc.). */
   var WHOLE_VERSE_JESUS_RE =
-    /^(?:Verily,?\s*verily|I\s+say\s+unto\s+you|Peace\s+(?:I\s+leave|be\s+still)|I\s+am\s+the\s+|I\s+am\s+come|I\s+am\s+Alpha|I\s+am\s+he|Let\s+not\s+your|If\s+ye\s+|Father,|Come\s+unto\s+me|Whosoever\s+|Ask,?\s+and|He\s+that\s+|My\s+sheep|Abide\s+in\s+me|If\s+any\s+man|For\s+the\s+Father|In\s+my\s+Father|And\s+I\s+|But\s+I\s+(?:say|tell)|Ye\s+are\s+|O\s+ye\s+|It\s+is\s+|There\s+is\s+|By\s+this\s+|Now\s+is\s+|He\s+that\s+believeth|Blessed\s+are|If\s+ye\s+love\s+me|I\s+go\s+unto|Neither\s+pray\s+I|These\s+things\s+have\s+I|In\s+my\s+name|Take\s+(?:heed|eat)|This\s+is\s+my\s+body|This\s+cup|Behold,?\s+I\s+stand|I\s+will\s+come|Fear\s+not|Go\s+ye|All\s+power\s+is\s+given|For\s+God\s+so\s+loved|God\s+so\s+loved|Jesus\s+wept)/i;
+    /^(?:Verily,?\s*verily|I\s+say\s+unto\s+you|Peace\s+(?:I\s+leave|be\s+still)|I\s+am\s+the\s+|I\s+am\s+come|I\s+am\s+Alpha|I\s+am\s+he|Let\s+not\s+your|If\s+ye\s+|Father,|Come\s+unto\s+me|Whosoever\s+|Ask,?\s+and|He\s+that\s+|My\s+sheep|Abide\s+in\s+me|If\s+any\s+man|For\s+the\s+Father|In\s+my\s+Father|And\s+I\s+|But\s+(?:I\s+)?(?:say|tell|seek)|Ye\s+are\s+|O\s+ye\s+|It\s+is\s+|There\s+is\s+|By\s+this\s+|Now\s+is\s+|He\s+that\s+believeth|Blessed\s+are|If\s+ye\s+love\s+me|I\s+go\s+unto|Neither\s+pray\s+I|These\s+things\s+have\s+I|In\s+my\s+name|Take\s+(?:heed|eat|therefore)|This\s+is\s+my\s+body|This\s+cup|Behold,?\s+I\s+stand|I\s+will\s+come|Fear\s+not|Go\s+ye|All\s+power\s+is\s+given|For\s+God\s+so\s+loved|God\s+so\s+loved|Jesus\s+wept|The\s+thief\s+cometh|Teaching\s+them|I\s+am\s+with\s+you|Seek\s+ye\s+first|Sufficient\s+unto)/i;
 
   function escapeHtml(str) {
     return String(str == null ? '' : str)
@@ -326,6 +326,9 @@
       '#daily-battle-verse',
       '.verse-body',
       '.hero-verse',
+      '.tdb-kiss-verse__kjv',
+      '.fvc-kjv',
+      '.home-search-card-copy',
       '.plan-day-verse-text',
       '.verse-text',
       '.kjv-verse-text',

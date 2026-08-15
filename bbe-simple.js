@@ -178,6 +178,11 @@
           try {
             card.setAttribute('data-verse-text', txt);
           } catch (eA) { /* non-fatal */ }
+          try {
+            if (global.TDBRedLetter && typeof global.TDBRedLetter.applyToElement === 'function') {
+              global.TDBRedLetter.applyToElement(el, ref, txt, { quote: true });
+            }
+          } catch (eRlFill) { /* non-fatal */ }
         }
       })(nodes[i]);
     }

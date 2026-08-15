@@ -4399,8 +4399,8 @@
       color: var(--text);
     }
     /* Hard readability guard for Night/Night alias states */
-    :root[data-theme="dark"] #verseCard :is(#heroVerse, #heroVerse *, .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub),
-    :root[data-theme="night"] #verseCard :is(#heroVerse, #heroVerse *, .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub) {
+    :root[data-theme="dark"] #verseCard :is(#heroVerse, #heroVerse *:not(.red-letter), .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub),
+    :root[data-theme="night"] #verseCard :is(#heroVerse, #heroVerse *:not(.red-letter), .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub) {
       color: #eaf2ff !important;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
     }
@@ -12510,6 +12510,34 @@ body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__mean {
 #feelCards .tdb-kiss-verse__block--kjv > .tdb-kiss-verse__label,
 .feel-verse-card .tdb-kiss-verse__block--kjv > .tdb-kiss-verse__label {
   display: none;
+}
+/* Words of Jesus stay red on Night (beats white KJV !important). */
+#verseCard .red-letter,
+#heroVerse .red-letter,
+#feel-results .red-letter,
+#feelCards .red-letter,
+.feel-verse-card .red-letter,
+.tdb-kiss-verse__kjv .red-letter,
+.verse-body .red-letter {
+  color: #ff6b6b !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+html[data-theme="light"] #verseCard .red-letter,
+html[data-theme="light"] #feel-results .red-letter,
+html[data-theme="light"] #feelCards .red-letter,
+html[data-theme="light"] .feel-verse-card .red-letter,
+html[data-theme="sepia"] #verseCard .red-letter,
+html[data-theme="sepia"] #feel-results .red-letter,
+html[data-theme="sepia"] #feelCards .red-letter,
+html[data-theme="sepia"] .feel-verse-card .red-letter,
+body.light:not(.dark-mode) .red-letter,
+body.sepia-mode:not(.dark-mode) .red-letter {
+  color: #b91c1c !important;
+}
+body.red-letter-off .red-letter {
+  color: inherit !important;
+  font-weight: inherit !important;
 }
 .tdb-layman-always-open > .hero-vbd-split {
   margin-top: 0.15rem;

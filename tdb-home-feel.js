@@ -1974,6 +1974,9 @@ const FEEL_MORE = {
       if (window.TDBBbeSimple && typeof window.TDBBbeSimple.fillKissKjvBodies === "function") {
         window.TDBBbeSimple.fillKissKjvBodies(cards);
       }
+      if (window.TDBRedLetter && typeof window.TDBRedLetter.scanAndPaint === "function") {
+        window.TDBRedLetter.scanAndPaint(cards);
+      }
     } catch (eTeach) { /* non-fatal */ }
     const topEntry = group && Array.isArray(group.verses) && group.verses.length ? group.verses[0] : null;
     updateSearchNextStep(rawQuery || (group && group.label) || "", topEntry);

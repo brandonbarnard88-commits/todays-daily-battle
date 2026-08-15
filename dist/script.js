@@ -15053,7 +15053,7 @@ function wireDonationModal() {
 
   function openModal() {
     modal.classList.remove('hidden');
-    if (amountInput) amountInput.value = '5';
+    if (amountInput) amountInput.value = '';
     selectedInterval = 'one_time';
     intervalBtns.forEach(function (b) {
       b.classList.toggle('active', (b.getAttribute('data-interval') || '') === 'one_time');
@@ -15082,9 +15082,16 @@ function wireDonationModal() {
   });
 
   submitBtn.addEventListener('click', function () {
-    var raw = amountInput ? parseFloat(String(amountInput.value).replace(/[^0-9.]/g, '')) : 5;
-    var dollars = isNaN(raw) || raw < 1 ? 5 : Math.min(9999, Math.max(1, raw));
-    var amountCents = Math.round(dollars * 100);
+    var raw = amountInput ? parseFloat(String(amountInput.value).replace(/[^0-9.]/g, '')) : NaN;
+    if (!raw || isNaN(raw) || raw <= 0) {
+      if (statusEl) { statusEl.textContent = 'You do not have to give. If you want to, type any amount.'; statusEl.classList.remove('hidden'); }
+      return;
+    }
+    var amountCents = Math.round(raw * 100);
+    if (amountCents < 50) {
+      if (statusEl) { statusEl.textContent = 'The card processor needs at least fifty cents. That is not a suggested gift.'; statusEl.classList.remove('hidden'); }
+      return;
+    }
 
     if (!navigator.onLine) {
       if (statusEl) { statusEl.textContent = 'Donations need a connection. Try again when you are online.'; statusEl.classList.remove('hidden'); }

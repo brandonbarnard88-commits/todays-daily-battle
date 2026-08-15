@@ -3,7 +3,7 @@
  * No auth required — donations are anonymous.
  *
  * POST body: { amount_cents: number, interval: 'one_time' | 'monthly' }
- * amount_cents: 100–999999 (min $1, max $9999.99)
+ * amount_cents: 50–9999999 (processor floor ~$0.50; no suggested gift size)
  *
  * Returns: { url: string } or { error: string }
  *
@@ -46,11 +46,17 @@ Deno.serve(async (req) => {
     return jsonResponse({ error: "Invalid JSON body" }, 400);
   }
 
-  const amountCents = typeof body.amount_cents === "number" ? Math.round(body.amount_cents) : 500;
+  if (typeof body.amount_cents !== "number" || !Number.isFinite(body.amount_cents)) {
+    return jsonResponse({ error: "Enter any amount you choose." }, 400);
+  }
+  const amountCents = Math.round(body.amount_cents);
   const interval = typeof body.interval === "string" && body.interval === "monthly" ? "monthly" : "one_time";
 
-  if (amountCents < 100 || amountCents > 999999) {
-    return jsonResponse({ error: "Amount must be between $1 and $9999.99" }, 400);
+  if (amountCents < 50) {
+    return jsonResponse({ error: "The card processor needs at least fifty cents." }, 400);
+  }
+  if (amountCents > 9999999) {
+    return jsonResponse({ error: "That amount is larger than checkout can take in one gift." }, 400);
   }
 
   const origin = req.headers.get("origin") || "https://todaysdailybattle.com";

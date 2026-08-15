@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260815-for-anyone';
+  var INTERACTIVE_SRC = 'script.js?v=20260815-give-open';
   var loaded = false;
   var pendingQuery = '';
 

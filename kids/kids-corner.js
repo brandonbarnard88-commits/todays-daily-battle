@@ -9982,17 +9982,19 @@
       var n = voiceNameLower(v);
       if (!n) return 0;
       var s = 0;
-      /* Prefer warm, high-quality local story voices (macOS/iOS/Android). */
-      if (/samantha|karen|moira|daniel \(english|fred|victoria|alex|susan|tom|allison|ava|zoe|nicky|serena|tessa|fiona|hazel|siri/.test(n)) s += 12;
-      if (/neural|natural|premium|enhanced|wavenet|studio|online \(natural\)|super/.test(n)) s += 10;
-      if (/microsoft (aria|jenny|guy|david|mark|zira)|google us english|google uk english female|samsung/.test(n)) s += 7;
+      /* Warm human storytellers — not catalog / “say” chips. */
+      if (/samantha|ava|zoe|nicky|serena|karen|moira|tessa|fiona|hazel|allison|siri/.test(n)) s += 18;
+      if (/neural|natural|premium|enhanced|wavenet|studio|online \(natural\)/.test(n)) s += 14;
+      if (/microsoft (aria|jenny|sara)|google us english|google uk english female/.test(n)) s += 12;
+      if (/victoria|susan|salli|zira/.test(n)) s += 6;
       if (/google|microsoft|apple|samsung/.test(n)) s += 2;
       if (/en-us|united states|american/.test(n) || (v.lang && /^en-us/i.test(String(v.lang)))) s += 3;
-      if (v.localService === true) s += 4; /* local voices usually calmer for kids */
+      if (v.localService === true) s += 3;
       if (v.localService === false) s -= 1;
-      /* Avoid compact / novelty / robotic chips. */
-      if (/compact|eloquence|novelty|whisper|robot|zarvox|bad news|pipes|trinoids|boing|bubbles|cellos|good news|hysterical|junior|kathy|organ|superstar|trinoids|deranged|bells|bahh|albert|agnes|princess|ralph/.test(n)) s -= 14;
-      if (/\b(com\.apple\.eloquence|compact)\b/.test(n)) s -= 12;
+      /* Daniel / Fred / classic Alex are the Mac “robot” voices kids hear. */
+      if (/\b(daniel|fred|alex|ralph)\b/.test(n)) s -= 22;
+      if (/compact|eloquence|novelty|whisper|robot|zarvox|bad news|pipes|trinoids|boing|bubbles|cellos|good news|hysterical|junior|kathy|organ|superstar|deranged|bells|bahh|albert|agnes|princess/.test(n)) s -= 18;
+      if (/\b(com\.apple\.eloquence|compact)\b/.test(n)) s -= 16;
       return s;
     }
     var scored = pool
@@ -10006,23 +10008,44 @@
     kidsPreferredNarrationVoice = (scored[0] && scored[0].v) || pool[0] || null;
   }
 
-  /** Calm device TTS — slow, neutral pitch; warm voice when available. */
+  /** Calm device TTS — parent pace, slightly warm; never the Mac robot chips. */
   function applyKidsCalmUtteranceDefaults(u) {
     if (!u) return;
     u.lang = 'en-US';
-    u.rate = 0.8;
-    u.pitch = 1.0;
+    u.rate = 0.92;
+    u.pitch = 1.04;
     u.volume = 1;
     refreshKidsPreferredNarrationVoice();
     if (kidsPreferredNarrationVoice) u.voice = kidsPreferredNarrationVoice;
   }
 
   /**
-   * Split long narration so the browser speaks in short phrases with tiny pauses.
-   * One giant utterance often sounds more robotic.
+   * Spoken script only (on-screen text stays). Drop catalog lead-ins and
+   * read “For you” like a person, not a heading.
+   */
+  function humanizeKidsNarrationForSpeech(text) {
+    var raw = String(text || '').replace(/\s+/g, ' ').trim();
+    if (!raw) return '';
+    var lead = raw.match(/^(.+?)[.!?]\s+/);
+    if (
+      lead &&
+      lead[1].length < 90 &&
+      /[–—]/.test(lead[1]) &&
+      /\d/.test(lead[1])
+    ) {
+      raw = raw.slice(lead[0].length).trim();
+    }
+    raw = raw.replace(/[–—]/g, ', ');
+    raw = raw.replace(/\s*,\s*,/g, ',');
+    raw = raw.replace(/\bFor you:\s*/i, 'And here is something for you. ');
+    return raw.replace(/\s+/g, ' ').trim();
+  }
+
+  /**
+   * Split so a grown-up would breathe: one thought at a time, two if both are short.
    */
   function splitKidsNarrationSpeechChunks(text) {
-    var raw = String(text || '').replace(/\s+/g, ' ').trim();
+    var raw = humanizeKidsNarrationForSpeech(text);
     if (!raw) return [];
     /* No lookbehind — older WebKit/Safari still need this path. */
     var parts = [];
@@ -10038,7 +10061,8 @@
     for (var i = 0; i < parts.length; i++) {
       var p = parts[i].trim();
       if (!p) continue;
-      if (buf && (buf.length + 1 + p.length) > 180) {
+      var nextLen = buf ? buf.length + 1 + p.length : p.length;
+      if (buf && (nextLen > 110 || buf.length > 70)) {
         chunks.push(buf);
         buf = p;
       } else {
@@ -10102,11 +10126,12 @@
       };
       u.onend = function () {
         if (!kidsNarrationChunkQueue) return;
-        /* Short breath between sentences — less “robot run-on”. */
+        var breath = /[.!?…]\s*$/.test(piece) ? 320 : 180;
+        if (/something for you/i.test(piece)) breath = 420;
         kidsNarrationChunkTimer = setTimeout(function () {
           kidsNarrationChunkTimer = null;
           speakNext();
-        }, 220);
+        }, breath);
       };
       try {
         synth.speak(u);
@@ -10114,7 +10139,12 @@
         finish();
       }
     }
-    speakNext();
+    /* Chrome drops the first utterance if it follows cancel() immediately. */
+    kidsNarrationChunkTimer = setTimeout(function () {
+      kidsNarrationChunkTimer = null;
+      refreshKidsPreferredNarrationVoice();
+      speakNext();
+    }, 70);
     return true;
   }
 

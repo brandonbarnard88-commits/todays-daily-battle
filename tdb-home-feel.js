@@ -1796,23 +1796,26 @@ const FEEL_MORE = {
     }
     if (!situation && !meaning && !about) return null;
 
-    const heading = document.createElement("p");
-    heading.className = "tdb-topic-vbd__heading";
-    heading.textContent = "What was going on & what it means";
-    wrap.appendChild(heading);
-
-    const combined = document.createElement("p");
-    combined.className = "tdb-topic-vbd__combined";
-    if (situation && meaning) {
-      combined.textContent =
-        "What was going on: " +
-        situation.replace(/\.$/, "") +
-        ". What it means: " +
-        meaning.replace(/^What it means:\s*/i, "");
-    } else {
-      combined.textContent = meaning || situation;
+    if (situation) {
+      const sitLab = document.createElement("h4");
+      sitLab.className = "tdb-kiss-verse__label tdb-vbd-label";
+      sitLab.textContent = "What was going on";
+      const sitBody = document.createElement("p");
+      sitBody.className = "tdb-kiss-verse__sit tdb-vbd-body";
+      sitBody.textContent = situation;
+      wrap.appendChild(sitLab);
+      wrap.appendChild(sitBody);
     }
-    wrap.appendChild(combined);
+    if (meaning) {
+      const meanLab = document.createElement("h4");
+      meanLab.className = "tdb-kiss-verse__label tdb-vbd-label";
+      meanLab.textContent = "What it means";
+      const meanBody = document.createElement("p");
+      meanBody.className = "tdb-kiss-verse__mean tdb-vbd-body";
+      meanBody.textContent = meaning.replace(/^What it means:\s*/i, "");
+      wrap.appendChild(meanLab);
+      wrap.appendChild(meanBody);
+    }
 
     if (about) {
       const who = document.createElement("p");
@@ -1864,6 +1867,8 @@ const FEEL_MORE = {
     if (!article) {
       article = document.createElement("article");
       article.className = "feel-verse-card tdb-kiss-verse";
+      article.setAttribute("data-tdb-kiss-verse", "1");
+      article.setAttribute("data-ref", primaryFeelRef(entry.ref));
       const ref = document.createElement("p");
       ref.className = "tdb-kiss-verse__ref fvc-ref";
       ref.textContent = sanitizeText(entry.ref) + " (KJV)";
@@ -1871,6 +1876,32 @@ const FEEL_MORE = {
       kjv.className = "tdb-kiss-verse__kjv fvc-kjv";
       kjv.textContent = "\u201c" + sanitizeText(entry.text) + "\u201d";
       article.append(ref, kjv);
+      const bbeBlock = document.createElement("div");
+      bbeBlock.className = "tdb-kiss-verse__block tdb-kiss-verse__block--bbe tdb-bbe-simple tdb-bbe-simple--always-open";
+      bbeBlock.setAttribute("data-bbe-simple", "1");
+      bbeBlock.setAttribute("data-bbe-ref", primaryFeelRef(entry.ref));
+      bbeBlock.setAttribute("data-bbe-always-open", "1");
+      const bbeLab = document.createElement("h4");
+      bbeLab.className = "tdb-kiss-verse__label tdb-bbe-simple__heading";
+      bbeLab.textContent = "In simpler words";
+      const bbeBody = document.createElement("div");
+      bbeBody.className = "tdb-bbe-simple__body";
+      const bbeStatus = document.createElement("p");
+      bbeStatus.className = "tdb-bbe-simple__status section-note";
+      bbeStatus.setAttribute("data-bbe-status", "1");
+      bbeStatus.setAttribute("hidden", "");
+      const bbeText = document.createElement("p");
+      bbeText.className = "tdb-bbe-simple__text tdb-kiss-verse__bbe";
+      bbeText.setAttribute("data-bbe-text", "1");
+      bbeText.setAttribute("lang", "en");
+      bbeBody.append(bbeStatus, bbeText);
+      bbeBlock.append(bbeLab, bbeBody);
+      article.appendChild(bbeBlock);
+      try {
+        if (window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === "function") {
+          window.TDBBbeSimple.fillHost(bbeBody, primaryFeelRef(entry.ref));
+        }
+      } catch (eBbeFb) { /* non-fatal */ }
       const situationBlock = buildSituationMeaningBlock(entry.ref, entry.plain);
       if (situationBlock) article.appendChild(situationBlock);
     }
@@ -1946,6 +1977,14 @@ const FEEL_MORE = {
     (group.verses || []).forEach((entry, idx) => {
       cards.appendChild(buildVerseCard(entry, idx));
     });
+    try {
+      if (window.TDBBbeSimple && typeof window.TDBBbeSimple.enhanceDocument === "function") {
+        window.TDBBbeSimple.enhanceDocument(cards);
+      }
+      if (window.TDBBbeSimple && typeof window.TDBBbeSimple.fillKissKjvBodies === "function") {
+        window.TDBBbeSimple.fillKissKjvBodies(cards);
+      }
+    } catch (eTeach) { /* non-fatal */ }
     const topEntry = group && Array.isArray(group.verses) && group.verses.length ? group.verses[0] : null;
     updateSearchNextStep(rawQuery || (group && group.label) || "", topEntry);
     renderFeelPathCard(rawQuery || (group && group.label) || "");
@@ -1969,6 +2008,11 @@ const FEEL_MORE = {
           card.classList.add("feel-verse-card--more");
           cards.insertBefore(card, wrap);
         });
+        try {
+          if (window.TDBBbeSimple && typeof window.TDBBbeSimple.enhanceDocument === "function") {
+            window.TDBBbeSimple.enhanceDocument(cards);
+          }
+        } catch (eMoreBbe) { /* non-fatal */ }
         wrap.replaceChildren();
         const doneLink = document.createElement("a");
         doneLink.href = "#feel-search";

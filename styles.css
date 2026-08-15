@@ -26186,7 +26186,7 @@ html[data-theme="sepia"] .tdb-kiss-verse__block {
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: none;
-  color: #e8c47a !important;
+  color: #f2dc98 !important;
 }
 html[data-theme="light"] .tdb-kiss-verse__label,
 html[data-theme="sepia"] .tdb-kiss-verse__label {
@@ -26200,7 +26200,15 @@ html[data-theme="sepia"] .tdb-kiss-verse__label {
   color: #ffffff !important;
 }
 html[data-theme="light"] .tdb-kiss-verse__kjv,
-html[data-theme="sepia"] .tdb-kiss-verse__kjv {
+html[data-theme="sepia"] .tdb-kiss-verse__kjv,
+html[data-theme="light"] .tdb-kiss-verse__bbe,
+html[data-theme="sepia"] .tdb-kiss-verse__bbe,
+html[data-theme="light"] .tdb-kiss-verse .tdb-bbe-simple__text,
+html[data-theme="sepia"] .tdb-kiss-verse .tdb-bbe-simple__text,
+html[data-theme="light"] .tdb-kiss-verse__sit,
+html[data-theme="sepia"] .tdb-kiss-verse__sit,
+html[data-theme="light"] .tdb-kiss-verse__mean,
+html[data-theme="sepia"] .tdb-kiss-verse__mean {
   color: #1f2937 !important;
 }
 .tdb-kiss-verse__bbe,
@@ -26209,12 +26217,14 @@ html[data-theme="sepia"] .tdb-kiss-verse__kjv {
   font-size: 1.02rem;
   line-height: 1.5;
   font-family: 'Cormorant Garamond', Georgia, serif;
+  color: #ffffff !important;
 }
 .tdb-kiss-verse__sit,
 .tdb-kiss-verse__mean {
   margin: 0;
   font-size: 0.98rem;
   line-height: 1.5;
+  color: #ffffff !important;
   font-weight: 500;
 }
 .tdb-kiss-verse__block--bbe {

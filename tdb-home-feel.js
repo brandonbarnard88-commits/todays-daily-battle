@@ -397,7 +397,13 @@ const CHIP_TO_TOPICS_KEY = {
   spiritualwarfare: "spiritualwarfare",
   identity: "identity",
   purpose: "purpose",
-  "free will": "free will"
+  "free will": "free will",
+  worry: "worry",
+  worthless: "worthless",
+  prayer: "prayer",
+  doubt: "doubt",
+  waiting: "waiting",
+  depression: "depression"
 };
 
 function getScriptTopicsDict() {
@@ -1403,7 +1409,8 @@ const FEEL_MORE = {
     family: "familyworship", parenting: "parenting", finances: "moneyworry", sleep: "peace",
     obedience: "walktheword", identity: "identityinchrist", purpose: "greatcommission",
     heartache: "griefhope", shame: "guiltshame", overwhelmed: "overwhelmedburnout", burnout: "overwhelmedburnout",
-    worth: "selfworth"
+    worth: "selfworth", worthless: "selfworth", prayer: "universitysecretprayer",
+    doubt: "universitydoubt", waiting: "universitywaiting", depression: "heavyhope", worry: "worrytrust"
   };
   const FEEL_MOOD_TO_PLAN = {
     anxious: "worrytrust",

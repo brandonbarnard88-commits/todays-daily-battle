@@ -149,7 +149,7 @@ function tdbIsHomePage() {
   if (window.TDBRedLetter) return;
   if (document.querySelector('script[data-tdb-red-letter]')) return;
   var rl = document.createElement('script');
-  rl.src = '/red-letter.js?v=20260808-red-always';
+  rl.src = '/red-letter.js?v=20260815-red-letter';
   rl.setAttribute('data-tdb-red-letter', '1');
   (document.head || document.documentElement).appendChild(rl);
 })();
@@ -34328,7 +34328,11 @@ function renderHomeSearchResults(results, output, queryText) {
         if (window.TDBBbeSimple && typeof window.TDBBbeSimple.ensureKjvLoaded === 'function') {
           window.TDBBbeSimple.ensureKjvLoaded().then(function () {
             if (window.TDBBbeSimple.fillKissKjvBodies) window.TDBBbeSimple.fillKissKjvBodies(verseList);
+            if (window.TDBRedLetter && window.TDBRedLetter.scanAndPaint) window.TDBRedLetter.scanAndPaint(verseList);
           }).catch(function () {});
+        }
+        if (window.TDBRedLetter && typeof window.TDBRedLetter.scanAndPaint === 'function') {
+          window.TDBRedLetter.scanAndPaint(verseList);
         }
       } catch (eKjvFill) { /* non-fatal */ }
       try {

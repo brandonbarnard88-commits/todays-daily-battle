@@ -12068,10 +12068,14 @@ body.dark-mode .tdb-topic-vbd {
 #heroVerse .red-letter,
 .hero-verse .red-letter,
 .verse-body .red-letter,
+.tdb-kiss-verse__kjv .red-letter,
 [data-theme="night"] .red-letter,
+[data-theme="dark"] .red-letter,
+html[data-theme="night"] .red-letter,
+html[data-theme="dark"] .red-letter,
 body.night .red-letter,
 .hero-daily .red-letter {
-  color: #f87171;
+  color: #ff6b6b !important;
   font-weight: 600;
 }
 

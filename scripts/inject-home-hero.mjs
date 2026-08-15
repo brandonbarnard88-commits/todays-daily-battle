@@ -354,7 +354,7 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
   const desc =
     'Today\u2019s verse: ' +
     refPlain +
-    ' (KJV). Less scroll, more soul. For Family, For Country, For GOD. No ads, no login wall.';
+    ' (KJV). Less scroll, more soul. For anyone. For Family, For Country, For GOD. No ads, no login wall.';
   const ldWebPageName = brandTitle + ' \u00b7 Today\u2019s KJV: ' + refPlain;
 
   html = html.replace(/<title>[^<]*<\/title>/, '<title>' + escapeHtmlText(title) + '</title>');

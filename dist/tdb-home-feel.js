@@ -2155,8 +2155,17 @@ const FEEL_MORE = {
     if (!val) return;
     if (typeof window.tryStillEaster === "function" && window.tryStillEaster(input)) return;
     if (typeof window.tryAmenEaster === "function" && window.tryAmenEaster(input)) return;
-    const group = resolveFeelGroup(val);
-    if (group) showGroup(group, val);
+    /* One results host: the home-search shell. A second feel-card stack doubles the chrome. */
+    if (typeof window.runSearchWithInput === "function") {
+      if (cards) cards.replaceChildren();
+      if (welcome) {
+        welcome.textContent = "";
+        welcome.classList.remove("show");
+      }
+    } else {
+      const group = resolveFeelGroup(val);
+      if (group) showGroup(group, val);
+    }
     // Always run battle search for any query — ensures results for any term
     if (typeof window.runSearchWithInput === "function") {
       var tdb = document.getElementById("tdb-search");
@@ -2199,9 +2208,17 @@ const FEEL_MORE = {
 
   function paintTopicAfterBible(topic) {
     input.value = topic;
+    if (typeof window.runSearchWithInput === "function") {
+      if (cards) cards.replaceChildren();
+      if (welcome) {
+        welcome.textContent = "";
+        welcome.classList.remove("show");
+      }
+      return;
+    }
     const group = resolveFeelGroup(topic);
     if (group) showGroup(group, topic);
-    else if (typeof window.runSearchWithInput !== 'function') showNoMatch();
+    else showNoMatch();
     try {
       if (window.TDBBbeSimple && typeof window.TDBBbeSimple.fillKissKjvBodies === 'function') {
         window.TDBBbeSimple.fillKissKjvBodies(cards || document);

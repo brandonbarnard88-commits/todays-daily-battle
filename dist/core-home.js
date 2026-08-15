@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260815-quiet-ask';
+  var INTERACTIVE_SRC = 'script.js?v=20260815-topic-check';
   var loaded = false;
   var pendingQuery = '';
 

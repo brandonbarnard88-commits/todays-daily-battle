@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260815-quiet-ask"></script>
-  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260815-quiet-ask"></script>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260815-quiet-ask"></script>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260815-topic-check"></script>
+  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260815-topic-check"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260815-topic-check"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260815-quiet-ask"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260815-topic-check"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
@@ -53,8 +53,8 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Calm page?","acceptedAnswer":{"@type":"Answer","text":"Calm is a quiet page with one KJV Bible verse — no ads, no account, no noise. It's a place to breathe and rest in Scripture when life is heavy. Works offline after first visit."}},{"@type":"Question","name":"Do I need an account to use Calm?","acceptedAnswer":{"@type":"Answer","text":"No account or sign-up is needed. Open it, breathe, receive the verse, and go. Verse text stays on your device; optional analytics never include your private prayer text. See Privacy for the short version."}},{"@type":"Question","name":"Does Calm work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. After your first visit, Calm works without an internet connection — built for hard moments at 3am or anywhere you have no signal."}}]}
   </script>
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260815-quiet-ask" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260815-quiet-ask">
+  <link rel="preload" href="styles.css?v=20260815-topic-check" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260815-topic-check">
   <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
   <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
 
@@ -821,11 +821,11 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260815-quiet-ask"></script>
+  <script defer src="/language-switcher.js?v=20260815-topic-check"></script>
 </footer>
 
-  <script src="share-page.js?v=20260815-quiet-ask" defer></script>
-  <script defer src="footer-build-stamp.js?v=20260815-quiet-ask"></script>
+  <script src="share-page.js?v=20260815-topic-check" defer></script>
+  <script defer src="footer-build-stamp.js?v=20260815-topic-check"></script>
 
   <!-- Full app bundle deferred to idle — categories + inline verses work without it; semantic input polls until resolveSemanticWithScore (script.js). Share uses showEliteToast or button fallback. -->
   <script nonce="tdb2025s">
@@ -834,7 +834,7 @@
         if (document.querySelector('script[data-tdb-calm-app]')) return;
         var s = document.createElement('script');
         s.type = 'module';
-        s.src = 'script.js?v=20260815-quiet-ask';
+        s.src = 'script.js?v=20260815-topic-check';
         s.setAttribute('data-tdb-calm-app', '1');
         document.head.appendChild(s);
       }

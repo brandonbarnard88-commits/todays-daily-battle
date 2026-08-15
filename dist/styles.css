@@ -1,8 +1,6 @@
 @import url("tdb-visual-tokens.css");
 @import url("tdb-heavy-now.css");
 @import url("tdb-quiet-luxury.css");
-@import url("tdb-swoop-surfaces.css");
-
 /*
  * ── Design System Architecture ────────────────────────────────────────────────
  *
@@ -10303,10 +10301,16 @@ body:has(.pricing-grid) .content-inner .glass:last-of-type {
   margin-bottom: 0.4rem;
   font-family: var(--font-display);
   font-size: 1.12rem;
-  color: var(--text-dark, #eef1f6);
+  color: #f2dc98;
 }
-.dark-mode .content-inner .list .list-item strong {
-  color: #eef1f6;
+.dark-mode .content-inner .list .list-item strong,
+html[data-theme="dark"] .content-inner .list .list-item strong,
+html[data-theme="night"] .content-inner .list .list-item strong {
+  color: #f2dc98;
+}
+html[data-theme="light"] .content-inner .list .list-item strong,
+html[data-theme="sepia"] .content-inner .list .list-item strong {
+  color: #b07a18;
 }
 .content-inner .list .list-item-link {
   display: block;
@@ -12051,21 +12055,32 @@ body.dark-mode .tdb-topic-vbd {
 }
 
 .red-letter {
-  color: #b91c1c;
-  font-weight: 500;
+  color: #b91c1c !important;
+  font-weight: 600;
   line-height: inherit;
   padding: 0 1px;
   border-radius: 2px;
 }
 
-/* Dark hero / night sky: keep Jesus' words clearly red (not washed out white). */
+/* Dark / Night: keep Jesus' words clearly red (not washed out by white verse text). */
 #heroVerse .red-letter,
 .hero-verse .red-letter,
 .verse-body .red-letter,
+.verse-body.red-letter,
+.verse-body.has-red-letter,
+.tdb-kiss-verse__kjv .red-letter,
+.tdb-kiss-verse__kjv.red-letter,
+.tdb-kiss-verse__kjv.has-red-letter,
+.context-line .red-letter,
+.tdb-ll-kjv .red-letter,
 [data-theme="night"] .red-letter,
+[data-theme="dark"] .red-letter,
+html[data-theme="night"] .red-letter,
+html[data-theme="dark"] .red-letter,
 body.night .red-letter,
+body.dark-mode .red-letter,
 .hero-daily .red-letter {
-  color: #f87171;
+  color: #ff6b6b !important;
   font-weight: 600;
 }
 
@@ -12090,8 +12105,19 @@ body.night .red-letter,
   margin-bottom: 0.25rem;
 }
 
+/* Always on — do not honor a stored off switch. */
 body.red-letter-off .red-letter {
-  color: inherit;
+  color: #ff6b6b !important;
+  font-weight: 600 !important;
+}
+#settings-red-letter,
+.settings-row:has(#settings-red-letter),
+#red-letter-toggle,
+label.inline-toggle:has(#red-letter-toggle),
+#reader-red-letter-toggle,
+label:has(#reader-red-letter-toggle),
+.rl-toggle-switch {
+  display: none !important;
 }
 
 body.red-letter-off .red-letter-card {
@@ -18865,9 +18891,11 @@ a.feel-view-more,
   font-size: 1.05rem;
   line-height: 1.75;
 }
-#feel-results .home-search-card-ref,
+#feel-results .home-search-card-ref {
+  color: #f2dc98 !important;
+}
 #feel-results .home-search-card-copy {
-  color: #f8fafc !important;
+  color: #ffffff !important;
 }
 #feel-results .home-search-card-copy {
   font-size: 1.1rem;
@@ -18891,9 +18919,11 @@ html[data-theme="light"] #feel-results .home-search-results-shell {
   color: #1c1917;
 }
 html[data-theme="light"] #feel-results .home-search-response-lead,
-html[data-theme="light"] #feel-results .home-search-card-copy,
-html[data-theme="light"] #feel-results .home-search-card-ref {
+html[data-theme="light"] #feel-results .home-search-card-copy {
   color: #1c1917 !important;
+}
+html[data-theme="light"] #feel-results .home-search-card-ref {
+  color: #b07a18 !important;
 }
 html[data-theme="light"] #feel-results .home-search-card {
   background: #f8f5ef;
@@ -18907,11 +18937,14 @@ html[data-theme="sepia"] #feel-results .home-search-response-lead,
 html[data-theme="sepia"] #feel-results .home-search-card-copy {
   color: #292524 !important;
 }
+html[data-theme="sepia"] #feel-results .home-search-card-ref {
+  color: #b07a18 !important;
+}
 
 /* Optional class on KJV lines in results; matches .home-search-card-copy on dark */
 #feel-results .verse-text {
   line-height: 1.75;
-  color: #f8fafc;
+  color: #ffffff;
 }
 html[data-theme="light"] #feel-results .verse-text {
   color: #1c1c1c !important;
@@ -19297,7 +19330,7 @@ html[data-theme="sepia"] .home-qa-title {
   margin: 0;
   font-weight: 700;
   font-size: 1rem;
-  color: #f8fafc;
+  color: #f2dc98;
 }
 
 .home-search-card-copy {
@@ -19678,10 +19711,12 @@ html[data-theme="light"] .home-qa-prayer {
 }
 
 html[data-theme="light"] .home-search-link-title a,
-html[data-theme="light"] .home-search-card-ref,
 html[data-theme="light"] .home-search-detail-text,
 html[data-theme="light"] .home-search-accordion summary {
   color: #0f172a;
+}
+html[data-theme="light"] .home-search-card-ref {
+  color: #b07a18;
 }
 
 html[data-theme="light"] .home-search-detail-ref {
@@ -26146,7 +26181,7 @@ body.light:not(.dark-mode) .tdb-kiss-verse {
   letter-spacing: 0.02em;
 }
 .tdb-kiss-verse__ref strong {
-  color: #e8c47a;
+  color: #f2dc98;
   font-weight: 700;
 }
 html[data-theme="light"] .tdb-kiss-verse__ref strong,
@@ -26171,7 +26206,7 @@ html[data-theme="sepia"] .tdb-kiss-verse__block {
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: none;
-  color: #e8c47a !important;
+  color: #f2dc98 !important;
 }
 html[data-theme="light"] .tdb-kiss-verse__label,
 html[data-theme="sepia"] .tdb-kiss-verse__label {
@@ -26182,10 +26217,18 @@ html[data-theme="sepia"] .tdb-kiss-verse__label {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.12rem;
   line-height: 1.55;
-  color: #e8f0fb !important;
+  color: #ffffff !important;
 }
 html[data-theme="light"] .tdb-kiss-verse__kjv,
-html[data-theme="sepia"] .tdb-kiss-verse__kjv {
+html[data-theme="sepia"] .tdb-kiss-verse__kjv,
+html[data-theme="light"] .tdb-kiss-verse__bbe,
+html[data-theme="sepia"] .tdb-kiss-verse__bbe,
+html[data-theme="light"] .tdb-kiss-verse .tdb-bbe-simple__text,
+html[data-theme="sepia"] .tdb-kiss-verse .tdb-bbe-simple__text,
+html[data-theme="light"] .tdb-kiss-verse__sit,
+html[data-theme="sepia"] .tdb-kiss-verse__sit,
+html[data-theme="light"] .tdb-kiss-verse__mean,
+html[data-theme="sepia"] .tdb-kiss-verse__mean {
   color: #1f2937 !important;
 }
 .tdb-kiss-verse__bbe,
@@ -26194,12 +26237,14 @@ html[data-theme="sepia"] .tdb-kiss-verse__kjv {
   font-size: 1.02rem;
   line-height: 1.5;
   font-family: 'Cormorant Garamond', Georgia, serif;
+  color: #ffffff !important;
 }
 .tdb-kiss-verse__sit,
 .tdb-kiss-verse__mean {
   margin: 0;
   font-size: 0.98rem;
   line-height: 1.5;
+  color: #ffffff !important;
   font-weight: 500;
 }
 .tdb-kiss-verse__block--bbe {
@@ -26338,4 +26383,449 @@ body.tdb-topic-mood-page .app-content {
 .chapter-content {
   max-width: 40rem;
   margin-inline: auto;
+}
+
+/* tdb-swoop-surfaces bundled */
+/**
+ * TDB swoop — surface discipline (Phases 1 & 4).
+ * Refines typography, card rhythm, and mobile polish without a palette rebrand.
+ */
+
+:root {
+  --gold: #f4c95d;
+  --gold-soft: #e8d088;
+  --tdb-swoop-section-gap: 2.5rem;
+}
+
+/* ── Phase 1: Typography ── */
+body,
+.app-content,
+.content-inner,
+.tdb-body {
+  font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+.hero-banner h1,
+.section-divider {
+  font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  line-height: 1.3;
+}
+
+h1,
+.hero-banner h1 {
+  font-size: clamp(1.55rem, 4.2vw, 2.05rem);
+}
+
+h2,
+.section-divider {
+  font-size: clamp(1.05rem, 2.6vw, 1.28rem);
+}
+
+.hero-verse,
+.verse-body,
+.verse-text,
+.big-kjv,
+#heroVerse,
+blockquote.day-card-verse-text,
+.plan-day-verse-shell .day-card-verse-text {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.tdb-card,
+.plan-day-verse-shell,
+.verse-breakdown-container,
+.glass.tdb-porch-paper-glass,
+.topic-mood-hero {
+  line-height: 1.6;
+}
+
+/* ── Phase 1: Card surfaces ── */
+.tdb-swoop-card,
+.verse-breakdown-container,
+.glass.tdb-porch-paper-glass,
+.plan-day-verse-shell,
+.topic-mood-hero.tdb-dawn-bg--mist {
+  background: color-mix(in srgb, var(--card, #1b212d) 92%, rgba(255, 255, 255, 0.04));
+  border: 1px solid color-mix(in srgb, var(--gold, #f4c95d) 18%, var(--line, #2a3344) 82%);
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
+.glass.tdb-porch-paper-glass,
+.verse-breakdown-container,
+.plan-day-verse-shell {
+  padding: clamp(1.35rem, 3vw, 2rem) clamp(1.15rem, 2.8vw, 1.75rem);
+  margin-bottom: var(--tdb-swoop-section-gap);
+}
+
+.content-inner > section.glass,
+.content-inner > aside.glass {
+  margin-bottom: var(--tdb-swoop-section-gap);
+}
+
+.content-inner > header.hero-banner {
+  margin-bottom: calc(var(--tdb-swoop-section-gap) - 0.5rem);
+}
+
+/* Topic mood — gold-bordered verse rows (do not strip styles.css glass .list-item cards) */
+.tdb-topic-mood-page .content-inner section.glass .list .list-item {
+  line-height: 1.7;
+  padding: clamp(1.35rem, 3vw, 2rem) clamp(1.15rem, 2.8vw, 1.75rem);
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--card, #1b212d) 92%, rgba(255, 255, 255, 0.04));
+  border: 1px solid color-mix(in srgb, var(--gold, #f4c95d) 22%, var(--line, #2a3344) 78%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  border-left: none;
+}
+
+.tdb-topic-mood-page .content-inner section.glass .list .list-item:last-child {
+  margin-bottom: 0;
+}
+
+.tdb-topic-mood-page .content-inner section.glass .list .list-item p {
+  line-height: 1.7;
+}
+
+.tdb-topic-mood-page .key-verse,
+.plans-page .plan-day-verse-shell,
+.plans-page .day-card {
+  line-height: 1.7;
+}
+
+/* ── Phase 1: Buttons ── */
+.btn,
+.hero-toolbar-btn,
+.tdb-porch-feel__btn,
+.quick-topic {
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .hero-toolbar-btn,
+  .tdb-porch-feel__btn,
+  .quick-topic {
+    transition: none;
+  }
+}
+
+/* ── Phase 2: Start strip (topic landers) ── */
+.tdb-start-strip {
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--gold, #f4c95d) 28%, var(--line, #2a3344) 72%);
+  background: color-mix(in srgb, var(--card, #1b212d) 94%, rgba(139, 166, 217, 0.06));
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.tdb-start-strip a {
+  font-weight: 600;
+}
+
+/* ── Phase 3: Share on breakdown surfaces ── */
+.tdb-vb-share-row {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid color-mix(in srgb, var(--line, #2a3344) 75%, transparent);
+}
+
+.tdb-vb-share-btn {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--gold, #f4c95d) 35%, var(--line, #2a3344) 65%);
+  background: color-mix(in srgb, var(--gold, #f4c95d) 10%, transparent);
+  color: var(--gold-soft, #e8d088);
+  font-family: var(--font-ui, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tdb-vb-share-btn:hover,
+.tdb-vb-share-btn:focus-visible {
+  border-color: color-mix(in srgb, var(--gold, #f4c95d) 55%, transparent);
+  background: color-mix(in srgb, var(--gold, #f4c95d) 16%, transparent);
+  outline: 2px solid color-mix(in srgb, var(--gold, #f4c95d) 45%, transparent);
+  outline-offset: 2px;
+}
+
+.tdb-vb-share-row--topic {
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+}
+
+.tdb-vb-share-row--plan {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+}
+
+/* ── Phase 3: Trust quotes near hero ── */
+.tdb-home-reader-stories.tdb-home-reader-stories--hero-trust {
+  display: block !important;
+}
+
+#tdbStartMyDayBand.tdb-start-my-day-band {
+  display: block !important;
+}
+
+.tdb-home-reader-stories--hero-trust {
+  margin: 1.25rem 0 1.75rem;
+}
+
+.tdb-home-reader-stories--hero-trust .tdb-home-reader-stories-grid {
+  gap: 0.85rem;
+}
+
+.tdb-porch-feel__eyebrow-link {
+  color: var(--gold-soft, #e8d088);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  font-weight: 600;
+  opacity: 1;
+}
+
+.tdb-porch-feel__eyebrow-link:hover,
+.tdb-porch-feel__eyebrow-link:focus-visible {
+  opacity: 1;
+  color: var(--gold-soft, #e8d088);
+}
+
+.tdb-hero-quiet-eyebrow,
+#tdbHeroQuietEyebrow.tdb-hero-quiet-eyebrow {
+  display: block !important;
+  visibility: visible !important;
+  margin: 0.15rem 0 0.35rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--gold, #f4c95d) 80%, var(--muted, #94a3b8));
+  line-height: 1.45;
+}
+
+/* Hide duplicate porch-feel eyebrow when hero quiet eyebrow is present */
+#tdbPorchFeel > .tdb-porch-feel__eyebrow {
+  display: none !important;
+}
+
+#tdbHeroQuietEyebrow .tdb-porch-feel__eyebrow-link {
+  color: var(--gold-soft, #e8d088);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+/* ── Site-wide bottom dock (homepage + inner pages) ── */
+.tdb-bottom-dock {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  width: min(calc(100% - 24px), 520px);
+  margin: 0.85rem auto 1.1rem;
+  background: color-mix(in srgb, var(--card, #1b212d) 97%, transparent);
+  border: 1px solid var(--line, #2a3344);
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 6px 8px;
+  z-index: 2;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  isolation: isolate;
+}
+
+.tdb-bottom-dock a,
+.tdb-bottom-dock button.tdb-bottom-dock-more,
+.tdb-bottom-dock a.tdb-bottom-dock-more {
+  color: var(--muted, #94a3b8);
+  text-decoration: none;
+  font-size: 0.78rem;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--card, #1b212d) 65%, transparent);
+  border: 1px solid color-mix(in srgb, var(--line, #2a3344) 35%, transparent);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  min-height: 44px;
+}
+
+.tdb-bottom-dock button.tdb-bottom-dock-more {
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.tdb-bottom-dock a:hover,
+.tdb-bottom-dock a:focus-visible,
+.tdb-bottom-dock button.tdb-bottom-dock-more:hover,
+.tdb-bottom-dock button.tdb-bottom-dock-more:focus-visible {
+  color: var(--gold-soft, #e8d088);
+  background: color-mix(in srgb, var(--gold, #f4c95d) 18%, transparent);
+  border-color: color-mix(in srgb, var(--gold, #f4c95d) 35%, transparent);
+}
+
+/* VP2: current page on dock (inner pages + home) */
+.tdb-bottom-dock a[aria-current="page"] {
+  color: var(--gold-soft, #e8d088);
+  font-weight: 650;
+  background: color-mix(in srgb, var(--gold, #f4c95d) 16%, var(--bg-soft, var(--card, #1b212d)));
+  border-color: color-mix(in srgb, var(--gold, #f4c95d) 42%, var(--line, #2a3344));
+}
+
+body.tdb-inner-page:has(.tdb-bottom-dock),
+body.no-tdb-bottom-nav:has(.tdb-bottom-dock) {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+:root[data-theme="light"] .tdb-bottom-dock,
+:root[data-theme="daylight"] .tdb-bottom-dock,
+:root[data-theme="parchment"] .tdb-bottom-dock {
+  background: color-mix(in srgb, var(--card, #f8f9fc) 99%, #fff 1%);
+  border-color: color-mix(in srgb, var(--line, #d8d0be) 70%, #000 8%);
+}
+
+/* ── Phase 4: Mobile polish ── */
+@media (max-width: 768px) {
+  .content-inner {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .tdb-bottom-dock a.tdb-bottom-dock-sr-tool,
+  .tdb-bottom-dock #nav-search-btn.tdb-bottom-dock-sr-tool {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+    min-height: 0;
+    min-width: 0;
+    display: block;
+    flex: none;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .tdb-porch-feel__eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    line-height: 1.45;
+  }
+}
+
+:root[data-theme="light"] .glass.tdb-porch-paper-glass,
+:root[data-theme="daylight"] .glass.tdb-porch-paper-glass,
+:root[data-theme="parchment"] .glass.tdb-porch-paper-glass {
+  background: color-mix(in srgb, var(--card, #f8f9fc) 96%, rgba(255, 255, 255, 0.4));
+  border-color: color-mix(in srgb, var(--gold, #c9b28a) 22%, var(--line, #d8d0be) 78%);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+/* ── Phase 2: Start map (/start.html) ── */
+.tdb-start-page .content-inner {
+  max-width: 42rem;
+}
+
+.tdb-start-map-lead {
+  margin: 0 0 1.75rem;
+  color: var(--muted, #94a3b8);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.tdb-start-doors {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .tdb-start-doors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.tdb-start-door {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 1.35rem 1.25rem;
+}
+
+.tdb-start-door__eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-soft, #e8d088);
+}
+
+.tdb-start-door:hover,
+.tdb-start-door:focus-within {
+  border-color: color-mix(in srgb, var(--gold, #f4c95d) 42%, transparent);
+}
+
+.tdb-start-door__title {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.tdb-start-door__title a {
+  color: var(--text, #f0f2f7);
+  text-decoration: none;
+}
+
+.tdb-start-door__title a:hover,
+.tdb-start-door__title a:focus-visible {
+  color: var(--gold-soft, #e8d088);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.tdb-start-door__links {
+  margin: 0.15rem 0 0;
+  font-size: 0.88rem;
+}
+
+.tdb-start-door__desc {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted, #94a3b8);
+}
+
+.tdb-start-foot {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted, #94a3b8);
 }

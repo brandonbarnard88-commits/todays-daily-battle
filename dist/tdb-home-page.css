@@ -4399,8 +4399,8 @@
       color: var(--text);
     }
     /* Hard readability guard for Night/Night alias states */
-    :root[data-theme="dark"] #verseCard :is(#heroVerse, #heroVerse *, .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub),
-    :root[data-theme="night"] #verseCard :is(#heroVerse, #heroVerse *, .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub) {
+    :root[data-theme="dark"] #verseCard :is(#heroVerse, #heroVerse *:not(.red-letter), .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub),
+    :root[data-theme="night"] #verseCard :is(#heroVerse, #heroVerse *:not(.red-letter), .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub) {
       color: #eaf2ff !important;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
     }
@@ -5433,7 +5433,7 @@
     .fvc-ref {
       font-size: 0.78rem;
       font-weight: 700;
-      color: var(--gold-soft);
+      color: #f2dc98;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin: 0 0 4px;
@@ -5455,7 +5455,7 @@
 
     .fvc-kjv {
       font-size: clamp(0.97rem, 3.5vw, 1.1rem);
-      color: var(--text);
+      color: #ffffff;
       line-height: 1.6;
       margin: 0 0 0.85rem;
       font-style: italic;
@@ -12337,6 +12337,221 @@ body.sepia-mode:not(.dark-mode) #verseCard #heroVbdPrimary .tdb-vbd-label {
   color: #b07a18 !important;
   text-shadow: none !important;
 }
+/* Chosen topic / Ask the Word: book + verse = same gold as 1 JOHN 4:7; KJV text = white */
+#feel-results .tdb-kiss-verse__ref,
+#feel-results .tdb-kiss-verse__ref strong,
+#feel-results .home-search-card-ref,
+#feel-results .fvc-ref,
+#feelCards .tdb-kiss-verse__ref,
+#feelCards .tdb-kiss-verse__ref strong,
+#feelCards .fvc-ref,
+.feel-verse-card .tdb-kiss-verse__ref,
+.feel-verse-card .tdb-kiss-verse__ref strong,
+.feel-verse-card .fvc-ref {
+  color: #f2dc98 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+  font-weight: 700 !important;
+}
+#feel-results .tdb-kiss-verse__kjv,
+#feel-results .home-search-card-copy,
+#feel-results .verse-text,
+#feel-results .fvc-kjv,
+#feelCards .tdb-kiss-verse__kjv,
+#feelCards .fvc-kjv,
+.feel-verse-card .tdb-kiss-verse__kjv,
+.feel-verse-card .fvc-kjv {
+  color: #ffffff !important;
+}
+html[data-theme="light"] #feel-results .tdb-kiss-verse__ref,
+html[data-theme="light"] #feel-results .tdb-kiss-verse__ref strong,
+html[data-theme="light"] #feel-results .home-search-card-ref,
+html[data-theme="light"] #feel-results .fvc-ref,
+html[data-theme="light"] #feelCards .tdb-kiss-verse__ref,
+html[data-theme="light"] #feelCards .tdb-kiss-verse__ref strong,
+html[data-theme="light"] #feelCards .fvc-ref,
+html[data-theme="light"] .feel-verse-card .tdb-kiss-verse__ref,
+html[data-theme="light"] .feel-verse-card .tdb-kiss-verse__ref strong,
+html[data-theme="light"] .feel-verse-card .fvc-ref,
+html[data-theme="sepia"] #feel-results .tdb-kiss-verse__ref,
+html[data-theme="sepia"] #feel-results .tdb-kiss-verse__ref strong,
+html[data-theme="sepia"] #feel-results .home-search-card-ref,
+html[data-theme="sepia"] #feel-results .fvc-ref,
+html[data-theme="sepia"] #feelCards .tdb-kiss-verse__ref,
+html[data-theme="sepia"] #feelCards .tdb-kiss-verse__ref strong,
+html[data-theme="sepia"] #feelCards .fvc-ref,
+html[data-theme="sepia"] .feel-verse-card .tdb-kiss-verse__ref,
+html[data-theme="sepia"] .feel-verse-card .tdb-kiss-verse__ref strong,
+html[data-theme="sepia"] .feel-verse-card .fvc-ref,
+body.light:not(.dark-mode) #feel-results .tdb-kiss-verse__ref,
+body.light:not(.dark-mode) #feel-results .tdb-kiss-verse__ref strong,
+body.light:not(.dark-mode) #feel-results .home-search-card-ref,
+body.light:not(.dark-mode) #feel-results .fvc-ref,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__ref,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__ref strong,
+body.sepia-mode:not(.dark-mode) #feel-results .home-search-card-ref,
+body.sepia-mode:not(.dark-mode) #feel-results .fvc-ref {
+  color: #b07a18 !important;
+  text-shadow: none !important;
+}
+html[data-theme="light"] #feel-results .tdb-kiss-verse__kjv,
+html[data-theme="light"] #feel-results .home-search-card-copy,
+html[data-theme="light"] #feel-results .verse-text,
+html[data-theme="light"] #feel-results .fvc-kjv,
+html[data-theme="light"] #feelCards .tdb-kiss-verse__kjv,
+html[data-theme="light"] #feelCards .fvc-kjv,
+html[data-theme="light"] .feel-verse-card .tdb-kiss-verse__kjv,
+html[data-theme="light"] .feel-verse-card .fvc-kjv,
+html[data-theme="sepia"] #feel-results .tdb-kiss-verse__kjv,
+html[data-theme="sepia"] #feel-results .home-search-card-copy,
+html[data-theme="sepia"] #feel-results .verse-text,
+html[data-theme="sepia"] #feel-results .fvc-kjv,
+html[data-theme="sepia"] #feelCards .tdb-kiss-verse__kjv,
+html[data-theme="sepia"] #feelCards .fvc-kjv,
+html[data-theme="sepia"] .feel-verse-card .tdb-kiss-verse__kjv,
+html[data-theme="sepia"] .feel-verse-card .fvc-kjv,
+body.light:not(.dark-mode) #feel-results .tdb-kiss-verse__kjv,
+body.light:not(.dark-mode) #feel-results .home-search-card-copy,
+body.light:not(.dark-mode) #feel-results .fvc-kjv,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__kjv,
+body.sepia-mode:not(.dark-mode) #feel-results .home-search-card-copy,
+body.sepia-mode:not(.dark-mode) #feel-results .fvc-kjv {
+  color: #1c1917 !important;
+}
+/* Topic results: same gold teaching labels as today’s verse */
+#feel-results .tdb-kiss-verse__label,
+#feel-results .tdb-bbe-simple__heading,
+#feel-results .tdb-vbd-label,
+#feelCards .tdb-kiss-verse__label,
+#feelCards .tdb-bbe-simple__heading,
+#feelCards .tdb-vbd-label,
+#feelCards .tdb-topic-vbd__heading,
+#feelCards .tdb-topic-vbd__label,
+.feel-verse-card .tdb-kiss-verse__label,
+.feel-verse-card .tdb-bbe-simple__heading,
+.feel-verse-card .tdb-vbd-label {
+  color: #f2dc98 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+  font-weight: 700 !important;
+}
+#feel-results .tdb-kiss-verse__bbe,
+#feel-results .tdb-bbe-simple__text,
+#feel-results .tdb-kiss-verse__sit,
+#feel-results .tdb-kiss-verse__mean,
+#feel-results .tdb-vbd-body,
+#feelCards .tdb-kiss-verse__bbe,
+#feelCards .tdb-bbe-simple__text,
+#feelCards .tdb-kiss-verse__sit,
+#feelCards .tdb-kiss-verse__mean,
+#feelCards .tdb-vbd-body,
+#feelCards .tdb-topic-vbd__combined,
+.feel-verse-card .tdb-kiss-verse__bbe,
+.feel-verse-card .tdb-bbe-simple__text,
+.feel-verse-card .tdb-kiss-verse__sit,
+.feel-verse-card .tdb-kiss-verse__mean {
+  color: #ffffff !important;
+}
+html[data-theme="light"] #feel-results .tdb-kiss-verse__label,
+html[data-theme="light"] #feel-results .tdb-bbe-simple__heading,
+html[data-theme="light"] #feel-results .tdb-vbd-label,
+html[data-theme="light"] #feelCards .tdb-kiss-verse__label,
+html[data-theme="light"] #feelCards .tdb-bbe-simple__heading,
+html[data-theme="light"] #feelCards .tdb-vbd-label,
+html[data-theme="light"] #feelCards .tdb-topic-vbd__heading,
+html[data-theme="light"] .feel-verse-card .tdb-kiss-verse__label,
+html[data-theme="sepia"] #feel-results .tdb-kiss-verse__label,
+html[data-theme="sepia"] #feel-results .tdb-bbe-simple__heading,
+html[data-theme="sepia"] #feel-results .tdb-vbd-label,
+html[data-theme="sepia"] #feelCards .tdb-kiss-verse__label,
+html[data-theme="sepia"] #feelCards .tdb-bbe-simple__heading,
+html[data-theme="sepia"] #feelCards .tdb-vbd-label,
+html[data-theme="sepia"] #feelCards .tdb-topic-vbd__heading,
+html[data-theme="sepia"] .feel-verse-card .tdb-kiss-verse__label,
+body.light:not(.dark-mode) #feel-results .tdb-kiss-verse__label,
+body.light:not(.dark-mode) #feel-results .tdb-bbe-simple__heading,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__label,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-bbe-simple__heading {
+  color: #b07a18 !important;
+  text-shadow: none !important;
+}
+html[data-theme="light"] #feel-results .tdb-kiss-verse__bbe,
+html[data-theme="light"] #feel-results .tdb-bbe-simple__text,
+html[data-theme="light"] #feel-results .tdb-kiss-verse__sit,
+html[data-theme="light"] #feel-results .tdb-kiss-verse__mean,
+html[data-theme="light"] #feelCards .tdb-kiss-verse__bbe,
+html[data-theme="light"] #feelCards .tdb-bbe-simple__text,
+html[data-theme="light"] #feelCards .tdb-kiss-verse__sit,
+html[data-theme="light"] #feelCards .tdb-kiss-verse__mean,
+html[data-theme="light"] #feelCards .tdb-topic-vbd__combined,
+html[data-theme="light"] .feel-verse-card .tdb-kiss-verse__bbe,
+html[data-theme="light"] .feel-verse-card .tdb-kiss-verse__sit,
+html[data-theme="light"] .feel-verse-card .tdb-kiss-verse__mean,
+html[data-theme="sepia"] #feel-results .tdb-kiss-verse__bbe,
+html[data-theme="sepia"] #feel-results .tdb-bbe-simple__text,
+html[data-theme="sepia"] #feel-results .tdb-kiss-verse__sit,
+html[data-theme="sepia"] #feel-results .tdb-kiss-verse__mean,
+html[data-theme="sepia"] #feelCards .tdb-kiss-verse__bbe,
+html[data-theme="sepia"] #feelCards .tdb-bbe-simple__text,
+html[data-theme="sepia"] #feelCards .tdb-kiss-verse__sit,
+html[data-theme="sepia"] #feelCards .tdb-kiss-verse__mean,
+html[data-theme="sepia"] #feelCards .tdb-topic-vbd__combined,
+html[data-theme="sepia"] .feel-verse-card .tdb-kiss-verse__bbe,
+html[data-theme="sepia"] .feel-verse-card .tdb-kiss-verse__sit,
+html[data-theme="sepia"] .feel-verse-card .tdb-kiss-verse__mean,
+body.light:not(.dark-mode) #feel-results .tdb-kiss-verse__bbe,
+body.light:not(.dark-mode) #feel-results .tdb-kiss-verse__sit,
+body.light:not(.dark-mode) #feel-results .tdb-kiss-verse__mean,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__bbe,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__sit,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__mean {
+  color: #1c1917 !important;
+}
+/* Ref already names the verse — don’t stack a second “KJV” heading */
+#feel-results .tdb-kiss-verse__block--kjv > .tdb-kiss-verse__label,
+#feelCards .tdb-kiss-verse__block--kjv > .tdb-kiss-verse__label,
+.feel-verse-card .tdb-kiss-verse__block--kjv > .tdb-kiss-verse__label {
+  display: none;
+}
+/* Words of Jesus stay red on Night (beats white KJV !important). */
+#verseCard .red-letter,
+#heroVerse .red-letter,
+#feel-results .red-letter,
+#feelCards .red-letter,
+.feel-verse-card .red-letter,
+.tdb-kiss-verse__kjv .red-letter,
+.tdb-kiss-verse__kjv.red-letter,
+.tdb-kiss-verse__kjv.has-red-letter,
+.verse-body .red-letter,
+.verse-body.red-letter,
+.verse-body.has-red-letter {
+  color: #ff6b6b !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+html[data-theme="light"] #verseCard .red-letter,
+html[data-theme="light"] #feel-results .red-letter,
+html[data-theme="light"] #feelCards .red-letter,
+html[data-theme="light"] .feel-verse-card .red-letter,
+html[data-theme="sepia"] #verseCard .red-letter,
+html[data-theme="sepia"] #feel-results .red-letter,
+html[data-theme="sepia"] #feelCards .red-letter,
+html[data-theme="sepia"] .feel-verse-card .red-letter,
+body.light:not(.dark-mode) .red-letter,
+body.sepia-mode:not(.dark-mode) .red-letter {
+  color: #b91c1c !important;
+}
+/* Red letters are always on — never wash them out. */
+body.red-letter-off .red-letter {
+  color: #ff6b6b !important;
+  font-weight: 600 !important;
+}
+#settings-red-letter,
+.settings-row:has(#settings-red-letter),
+#red-letter-toggle,
+label.inline-toggle:has(#red-letter-toggle),
+#reader-red-letter-toggle,
+.rl-toggle-switch {
+  display: none !important;
+}
 .tdb-layman-always-open > .hero-vbd-split {
   margin-top: 0.15rem;
 }
@@ -12774,4 +12989,17 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
   .site-header .tdb-nav-flyout-toggle {
     display: inline-flex;
   }
+}
+
+/* After Ask the Word: keep grove / Heavy / plan CTA inside one quiet disclosure */
+#tdbHomeAfterAsk {
+  margin: 0.85rem 0 1.25rem;
+}
+#tdbHomeAfterAsk .tdb-grove-paths,
+#tdbHomeAfterAsk #tdbHeavyNow,
+#tdbHomeAfterAsk .tdb-home-hero-primary-cta {
+  margin-top: 0.85rem;
+}
+#tdbHomeSecondaryStack > #tdbCampusOptionalRest {
+  display: none;
 }

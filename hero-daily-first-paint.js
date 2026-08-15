@@ -591,7 +591,38 @@
     return false;
   }
 
-  /** Weak plain stamps from last-resort theme engine. */
+  /** Weak plain stamps from last-resort theme engine, plus BBE used as a takeaway. */
+  function isBbeEchoMeaning(plain, ref) {
+    var t = sanitizeText(plain);
+    if (!t) return false;
+    if (/^My loved ones, let us have love for one another/i.test(t)) return true;
+    try {
+      if (window.TDBTeachingQuality && typeof window.TDBTeachingQuality.isBbeEcho === 'function') {
+        return !!window.TDBTeachingQuality.isBbeEcho(t, ref);
+      }
+      if (window.TDBBbeSimple && typeof window.TDBBbeSimple.getTextSync === 'function') {
+        var bbe = sanitizeText(window.TDBBbeSimple.getTextSync(ref) || '');
+        if (bbe && t.toLowerCase() === bbe.toLowerCase()) return true;
+      }
+    } catch (eBbe) { /* non-fatal */ }
+    return false;
+  }
+
+  function takeawayForHeroRef(ref, verseText) {
+    var r = String(ref || '').toLowerCase();
+    if (/^1\s+john\s+4:7/.test(r) || /beloved, let us love one another/.test(String(verseText || '').toLowerCase())) {
+      return 'Love is not something you manufacture — it comes from God. When you love others, you are showing you belong to Him.';
+    }
+    try {
+      if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
+        var bd = window.TDBVerseBreakdown.getBreakdown(ref, verseText || '', { group: 'general' }) || {};
+        var mean = sanitizeText(bd.plainMeaningOnly || bd.layman || '');
+        if (mean && !isWeakMeaningStamp(mean) && !isBbeEchoMeaning(mean, ref)) return mean;
+      }
+    } catch (eBd) { /* non-fatal */ }
+    return '';
+  }
+
   function isWeakMeaningStamp(s) {
     var t = sanitizeText(s);
     if (!t) return true;
@@ -599,6 +630,7 @@
     if (/Sit with that until one phrase lands/i.test(t)) return true;
     if (/^Read this verse slowly/i.test(t)) return true;
     if (/^What was going on:\s*.{0,60}speaking to/i.test(t)) return true;
+    if (/^My loved ones, let us have love for one another/i.test(t)) return true;
     return false;
   }
 
@@ -976,12 +1008,16 @@
     var meaningOnly = plainE || sanitizeText(v.plain) || sanitizeText(lines[0] || '') || sanitizeText(v.app);
     meaningOnly = meaningOnly.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
     /* Always prefer curated plain over weak theme stamps (even if stamp came first). */
-    if (isWeakMeaningStamp(meaningOnly)) {
+    if (isWeakMeaningStamp(meaningOnly) || isBbeEchoMeaning(meaningOnly, v.ref)) {
       var betterPlain = pickBestText(
         [sanitizeText(v.plain), sanitizeText(sh.preserveDomSnapshot && sh.preserveDomSnapshot.meaning)],
         scoreMeaningLine
       );
-      if (betterPlain && !isWeakMeaningStamp(betterPlain)) meaningOnly = betterPlain;
+      if (betterPlain && !isWeakMeaningStamp(betterPlain) && !isBbeEchoMeaning(betterPlain, v.ref)) {
+        meaningOnly = betterPlain;
+      } else {
+        meaningOnly = takeawayForHeroRef(v.ref, v.text || v.kjv || '') || meaningOnly;
+      }
     }
     /* Live resolver + shared + same-ref DOM only — never keep Solomon/SSR stubs under a psalm. */
     var snapIn = sh.preserveDomSnapshot || null;
@@ -1018,7 +1054,7 @@
       }
     }
     var meaningClean = meaningOnly.replace(/^What it means:\s*/i, '');
-    if (isWeakMeaningStamp(meaningClean)) {
+    if (isWeakMeaningStamp(meaningClean) || isBbeEchoMeaning(meaningClean, v.ref)) {
       var upgradeMean = pickBestText(
         [
           sanitizeText(v.plain),
@@ -1027,7 +1063,11 @@
         ],
         scoreMeaningLine
       );
-      if (upgradeMean && !isWeakMeaningStamp(upgradeMean)) meaningClean = upgradeMean;
+      if (upgradeMean && !isWeakMeaningStamp(upgradeMean) && !isBbeEchoMeaning(upgradeMean, v.ref)) {
+        meaningClean = upgradeMean;
+      } else {
+        meaningClean = takeawayForHeroRef(v.ref, v.text || v.kjv || '') || meaningClean;
+      }
     }
     var simple = meaningClean;
     if (situation && meaningClean) {

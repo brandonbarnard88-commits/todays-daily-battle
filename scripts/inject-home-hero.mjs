@@ -193,7 +193,11 @@ function buildInjectedHeroLesson(refPlain, textPlain, plainMap, explMap, resolve
       'Before you open messages, pray once: “Satisfy me early with Your mercy.” Then name one thing you can be glad for today.';
     prayer =
       'Lord, sink Psalm 90:14 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.';
-  } else if (expl && expl.plain) {
+  } else if (/^1\s+john\s+4:7$/i.test(ref) || /beloved, let us love one another/i.test(lower)) {
+    meaningOnly =
+      'Love is not something you manufacture — it comes from God. When you love others, you are showing you belong to Him.';
+    if (expl && expl.step) step = String(expl.step).replace(/\s+/g, ' ').trim();
+  } else if (expl && expl.plain && !/^My loved ones, let us have love for one another/i.test(String(expl.plain))) {
     meaningOnly = String(expl.plain).replace(/\s+/g, ' ').trim();
     if (expl.step) step = String(expl.step).replace(/\s+/g, ' ').trim();
   } else {

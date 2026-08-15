@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-12T01:56:48.931Z",
-  "surfacedRefCount": 3799,
-  "overrideCount": 3799,
+  "generatedAt": "2026-08-13T14:37:39.162Z",
+  "surfacedRefCount": 3801,
+  "overrideCount": 3801,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -191,6 +191,10 @@
       "refs": 315,
       "pairs": 455
     },
+    "data/verse-context-chapters.json": {
+      "refs": 2,
+      "pairs": 0
+    },
     "easter-eggs.js": {
       "refs": 34,
       "pairs": 6
@@ -268,7 +272,7 @@
       "pairs": 365
     },
     "hero-daily-365-explanations.js": {
-      "refs": 365,
+      "refs": 366,
       "pairs": 365
     },
     "hero-daily-first-paint.js": {
@@ -304,7 +308,7 @@
       "pairs": 0
     },
     "index.html": {
-      "refs": 6,
+      "refs": 7,
       "pairs": 0
     },
     "journal/anxiety-before-tomorrow.html": {
@@ -1251,6 +1255,10 @@
       "refs": 15,
       "pairs": 0
     },
+    "verse-context.js": {
+      "refs": 2,
+      "pairs": 0
+    },
     "verse-image.html": {
       "refs": 51,
       "pairs": 0
@@ -2042,6 +2050,7 @@
     "Acts 4:14",
     "Acts 4:19",
     "Acts 4:19-20",
+    "Acts 4:25",
     "Acts 4:28",
     "Acts 4:36",
     "Acts 5:12-16",
@@ -2772,6 +2781,7 @@
     "Hebrews 4:15",
     "Hebrews 4:16",
     "Hebrews 4:2",
+    "Hebrews 4:7",
     "Hebrews 4:9",
     "Hebrews 4:9-10",
     "Hebrews 5:12",
@@ -6480,7 +6490,7 @@
     },
     "1 John 4:7": {
       "general": {
-        "plainExplanation": "My loved ones, let us have love for one another: because love is of God, and everyone who has love is a child of God and has knowledge of God.",
+        "plainExplanation": "Love is not something you manufacture — it comes from God. When you love others, you are showing you belong to Him.",
         "modernApplication": "Do one concrete kind act today that matches the love in this verse.",
         "about": "John",
         "to": "Beloved children learning God’s love"
@@ -11354,6 +11364,14 @@
       "general": {
         "plainExplanation": "But Peter and John answered and said to them, Whether it be right in the sight of God to hearken to you more than to God, judge you. For we cannot but speak the things which we have seen and heard.",
         "modernApplication": "Use this verse as a quiet answer when worry starts talking first.",
+        "about": "Luke",
+        "to": "The early church under pressure"
+      }
+    },
+    "Acts 4:25": {
+      "general": {
+        "plainExplanation": "Who has said, by the Holy Spirit, through the mouth of our father David your servant, Why are the nations so violently moved, and why are the thoughts of the people so foolish?",
+        "modernApplication": "Return to this line when the day gets loud.",
         "about": "Luke",
         "to": "The early church under pressure"
       }
@@ -17194,6 +17212,14 @@
       "general": {
         "plainExplanation": "And, truly, the good news came to us, even as it did to them; but the hearing of the word did them no good, because they were not united in faith with the true hearers.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
+        "about": "The writer of Hebrews",
+        "to": "Hebrew believers holding fast to Christ"
+      }
+    },
+    "Hebrews 4:7": {
+      "general": {
+        "plainExplanation": "After a long time, again naming a certain day, he says in David, Today (as he had said before), Today if you will let his voice come to your ears, be not hard of heart,.",
+        "modernApplication": "Hold this truth when you feel pressed to hurry past God.",
         "about": "The writer of Hebrews",
         "to": "Hebrew believers holding fast to Christ"
       }
@@ -30634,7 +30660,7 @@
       "general": {
         "plainExplanation": "- A Psalm of Praise. - Make a glad sound to the Lord, all the earth.",
         "modernApplication": "Write one word from this verse where you will see it later.",
-        "about": "A psalm writer",
+        "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
         "to": "All lands called to joyful worship"
       }
     },
@@ -30642,7 +30668,7 @@
       "general": {
         "plainExplanation": "God’s care is for you today — hold that truth when the day feels thin — \"Make a joyful noise to the LORD, all you lands\".",
         "modernApplication": "Return to this line when the day gets loud.",
-        "about": "A psalm writer",
+        "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
         "to": "All lands called to joyful worship"
       }
     },
@@ -30650,7 +30676,7 @@
       "general": {
         "plainExplanation": "Come into God’s presence with thanksgiving and praise — enter with a grateful heart.",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "A psalm writer",
+        "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
         "to": "All lands called to joyful worship"
       }
     },
@@ -30658,7 +30684,7 @@
       "general": {
         "plainExplanation": "Give worship to the Lord with joy; come before him with a song.",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "A psalm writer",
+        "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
         "to": "All lands called to joyful worship"
       }
     },
@@ -30666,7 +30692,7 @@
       "general": {
         "plainExplanation": "Be certain that the Lord is God; it is he who has made us, and we are his; we are his people, and the sheep to whom he gives food.",
         "modernApplication": "Hold this truth when you feel pressed to hurry past God.",
-        "about": "A psalm writer",
+        "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
         "to": "All lands called to joyful worship"
       }
     },
@@ -30674,7 +30700,7 @@
       "general": {
         "plainExplanation": "Enter His gates with thanksgiving and His courts with praise.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
         "to": "All lands called to joyful worship"
       }
     },
@@ -30682,7 +30708,7 @@
       "general": {
         "plainExplanation": "For the Lord is good, and his mercy is never-ending; his faith is unchanging through all generations.",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "A psalm writer",
+        "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
         "to": "All lands called to joyful worship"
       }
     },
@@ -30802,7 +30828,7 @@
       "general": {
         "plainExplanation": "Give praise to the Lord, O my soul. O Lord my God, you are very great; you are robed with honour and power.",
         "modernApplication": "End the day by reading this line again, slowly.",
-        "about": "A psalm writer",
+        "about": "Israel remembering — creation praise and the story of God’s faithfulness",
         "to": "A people remembering creation and covenant"
       }
     },
@@ -30810,7 +30836,7 @@
       "general": {
         "plainExplanation": "Real wisdom starts with taking God seriously and walking in His way — \"O LORD, how manifold are your works\".",
         "modernApplication": "Share one sentence of this verse with someone who needs steady words.",
-        "about": "A psalm writer",
+        "about": "Israel remembering — creation praise and the story of God’s faithfulness",
         "to": "A people remembering creation and covenant"
       }
     },
@@ -30818,7 +30844,7 @@
       "general": {
         "plainExplanation": "I will make songs to the Lord all my life; I will make melody to my God while I have my being.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel remembering — creation praise and the story of God’s faithfulness",
         "to": "A people remembering creation and covenant"
       }
     },
@@ -30826,7 +30852,7 @@
       "general": {
         "plainExplanation": "O give praise to the Lord; give honour to his name, talking of his doings among the peoples.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel remembering — creation praise and the story of God’s faithfulness",
         "to": "A people remembering creation and covenant"
       }
     },
@@ -30834,7 +30860,7 @@
       "general": {
         "plainExplanation": "He sent a man before them, even Joseph, who was sold for a servant:.",
         "modernApplication": "Take one honest step today that matches what this verse says.",
-        "about": "A psalm writer",
+        "about": "Israel remembering — creation praise and the story of God’s faithfulness",
         "to": "A people remembering creation and covenant"
       }
     },
@@ -30842,7 +30868,7 @@
       "general": {
         "plainExplanation": "Let the Lord be praised. O give praise to the Lord, for he is good: for his mercy is unchanging for ever.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel remembering — creation praise and the story of God’s faithfulness",
         "to": "A people remembering creation and covenant"
       }
     },
@@ -30850,7 +30876,7 @@
       "general": {
         "plainExplanation": "God’s kindness meets you as you are — not after you perform — \"O give thanks to the LORD, for he is good\".",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "A psalm writer of thanksgiving",
+        "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
         "to": "The redeemed telling what God has done"
       }
     },
@@ -30858,7 +30884,7 @@
       "general": {
         "plainExplanation": "He took them out of the dark and the black night, and all their chains were broken.",
         "modernApplication": "Return to this line when the day gets loud.",
-        "about": "A psalm writer of thanksgiving",
+        "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
         "to": "The redeemed telling what God has done"
       }
     },
@@ -30866,7 +30892,7 @@
       "general": {
         "plainExplanation": "Let men give praise to the Lord for his mercy, and for the wonders which he does for the children of men!",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer of thanksgiving",
+        "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
         "to": "The redeemed telling what God has done"
       }
     },
@@ -30874,7 +30900,7 @@
       "general": {
         "plainExplanation": "He gives its desire to the unresting soul, so that it is full of good things.",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "A psalm writer of thanksgiving",
+        "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
         "to": "The redeemed telling what God has done"
       }
     },
@@ -30922,7 +30948,7 @@
       "general": {
         "plainExplanation": "Let the Lord be praised. I will give praise to the Lord with all my heart, among the upright, and in the meeting of the people.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -30930,7 +30956,7 @@
       "general": {
         "plainExplanation": "Certain for ever is the memory of his wonders: the Lord is full of pity and mercy.",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -30938,7 +30964,7 @@
       "general": {
         "plainExplanation": "Let the Lord be praised. Happy is the man who gives honour to the Lord, and has great delight in his laws.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -30946,7 +30972,7 @@
       "general": {
         "plainExplanation": "For the upright there is a light shining in the dark; he is full of grace and pity.",
         "modernApplication": "Take one honest step today that matches what this verse says.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -30954,7 +30980,7 @@
       "general": {
         "plainExplanation": "Let blessing be on the name of the Lord, from this time and for ever.",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -30962,7 +30988,7 @@
       "general": {
         "plainExplanation": "Give God your attention and thanks — He is worthy of it — \"From the rising of the sun to the going down of the\".",
         "modernApplication": "Take one honest step today that matches what this verse says.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -30970,7 +30996,7 @@
       "general": {
         "plainExplanation": "He gives the unfertile woman a family, making her a happy mother of children. Give praise to the Lord.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -30978,7 +31004,7 @@
       "general": {
         "plainExplanation": "The Lord has kept us in mind and will give us his blessing; he will send blessings on the house of Israel and on the house of Aaron.",
         "modernApplication": "Write one word from this verse where you will see it later.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -30986,7 +31012,7 @@
       "general": {
         "plainExplanation": "I have given my love to the Lord, because he has given ear to the voice of my cry and my prayer.",
         "modernApplication": "Return to this line when the day gets loud.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -30994,7 +31020,7 @@
       "general": {
         "plainExplanation": "God’s care is for you today — hold that truth when the day feels thin — \"I love the Lord, because he has heard my voice and my\".",
         "modernApplication": "End the day by reading this line again, slowly.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31002,7 +31028,7 @@
       "general": {
         "plainExplanation": "I will give an offering of praise to you, and make my prayer in the name of the Lord.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31010,7 +31036,7 @@
       "general": {
         "plainExplanation": "He has let my request come before him, and I will make my prayer to him all my days.",
         "modernApplication": "Pray this verse once, then act as if God heard you.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31018,7 +31044,7 @@
       "general": {
         "plainExplanation": "The Lord is full of grace and righteousness; truly, he is a God of mercy.",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31026,7 +31052,7 @@
       "general": {
         "plainExplanation": "Come back to your rest, O my soul; for the Lord has given you your reward.",
         "modernApplication": "Sit still for sixty seconds with this verse — phone face down — before the next task.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31034,7 +31060,7 @@
       "general": {
         "plainExplanation": "Let all the nations give praise to the Lord: let all the people give him praise.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31042,7 +31068,7 @@
       "general": {
         "plainExplanation": "For great is his mercy to us, and his faith is unchanging for ever. Praise be to the Lord.",
         "modernApplication": "Share one sentence of this verse with someone who needs steady words.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31050,7 +31076,7 @@
       "general": {
         "plainExplanation": "God’s kindness meets you as you are — not after you perform — \"O give thanks to the Lord\".",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31058,7 +31084,7 @@
       "general": {
         "plainExplanation": "The Lord is my strength and my song; he has become my salvation.",
         "modernApplication": "Ask God for strength for the next hour only, then do the next honest small thing.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31066,7 +31092,7 @@
       "general": {
         "plainExplanation": "Life and not death will be my part, and I will give out the story of the works of the Lord.",
         "modernApplication": "Hold this truth when you feel pressed to hurry past God.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31074,7 +31100,7 @@
       "general": {
         "plainExplanation": "I will give you praise, for you have given me an answer, and have become my salvation.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31082,15 +31108,15 @@
       "general": {
         "plainExplanation": "This is the Lord's doing; it is marvellous in our eyes.",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
     "Psalm 118:24": {
       "general": {
-        "plainExplanation": "Today is a gift from the Lord — choose gladness in it, even if the schedule is hard.",
+        "plainExplanation": "This is the day which the Lord has made; we will be full of joy and delight in it.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31098,7 +31124,7 @@
       "general": {
         "plainExplanation": "You are my God, and I will give you praise; my God, and I will give honour to your name.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31106,7 +31132,7 @@
       "general": {
         "plainExplanation": "God’s kindness meets you as you are — not after you perform — \"O give thanks to the Lord\".",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31114,7 +31140,7 @@
       "general": {
         "plainExplanation": "I made my prayer to the Lord in my trouble: and the Lord gave me an answer, and put me in a wide place.",
         "modernApplication": "Use this verse as a quiet answer when worry starts talking first.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31122,7 +31148,7 @@
       "general": {
         "plainExplanation": "The Lord is on my side; I will have no fear: what is man able to do to me?",
         "modernApplication": "Name the worry to God in one sentence, then reread this verse before you react.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31130,7 +31156,7 @@
       "general": {
         "plainExplanation": "It is better to have faith in the Lord than to put one's hope in man.",
         "modernApplication": "Take one honest step today that matches what this verse says.",
-        "about": "A psalm writer",
+        "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
         "to": "All who praise the Lord"
       }
     },
@@ -31138,7 +31164,7 @@
       "general": {
         "plainExplanation": "How sweet are your sayings to my taste! truly, they are sweeter than honey in my mouth!",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31146,7 +31172,7 @@
       "general": {
         "plainExplanation": "God’s Word is a lamp for your feet and a light for your path — enough light for the next step.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31154,7 +31180,7 @@
       "general": {
         "plainExplanation": "I have kept your sayings secretly in my heart, so that I might do no sin against you.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31162,7 +31188,7 @@
       "general": {
         "plainExplanation": "I have taken your unchanging word as an eternal heritage; for it is the joy of my heart.",
         "modernApplication": "Write one word from this verse where you will see it later.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31170,7 +31196,7 @@
       "general": {
         "plainExplanation": "You are my secret place and my breastplate against danger; my hope is in your word.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31178,7 +31204,7 @@
       "general": {
         "plainExplanation": "Be my support as you have said, and give me life; let not my hope be turned to shame.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31186,7 +31212,7 @@
       "general": {
         "plainExplanation": "The opening of your words gives light; it gives good sense to the simple.",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31194,7 +31220,7 @@
       "general": {
         "plainExplanation": "Your word is of tested value; and it is dear to your servant.",
         "modernApplication": "Do one concrete kind act today that matches the love in this verse.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31202,7 +31228,7 @@
       "general": {
         "plainExplanation": "Before the sun is up, my cry for help comes to your ear; my hope is in your words.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31210,7 +31236,7 @@
       "general": {
         "plainExplanation": "You are near, O Lord; and all your teachings are true.",
         "modernApplication": "End the day by reading this line again, slowly.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31218,7 +31244,7 @@
       "general": {
         "plainExplanation": "Your word is true from the first; and your upright decision is unchanging for ever.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31226,7 +31252,7 @@
       "general": {
         "plainExplanation": "I am delighted by your saying, like a man who makes discovery of great wealth.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31234,7 +31260,7 @@
       "general": {
         "plainExplanation": "Great peace have lovers of your law; they have no cause for falling.",
         "modernApplication": "Sit still for sixty seconds with this verse — phone face down — before the next task.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31242,7 +31268,7 @@
       "general": {
         "plainExplanation": "All my desire has been for your salvation, O Lord; and your law is my delight.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31250,7 +31276,7 @@
       "general": {
         "plainExplanation": "Give life to my soul so that it may give you praise; and let your decisions be my support.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31258,7 +31284,7 @@
       "general": {
         "plainExplanation": "Let my eyes be open to see the wonders of your law.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31266,7 +31292,7 @@
       "general": {
         "plainExplanation": "Your unchanging word is my delight, and the guide of my footsteps.",
         "modernApplication": "Use this verse as a quiet answer when worry starts talking first.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31274,7 +31300,7 @@
       "general": {
         "plainExplanation": "Make the way of your orders clear to me; then my thoughts will be ever on your wonders.",
         "modernApplication": "Write one word from this verse where you will see it later.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31282,7 +31308,7 @@
       "general": {
         "plainExplanation": "My soul is wasted with sorrow; give me strength again in keeping with your word.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31290,7 +31316,7 @@
       "general": {
         "plainExplanation": "I will go quickly in the way of your teaching, because you have given me a free heart.",
         "modernApplication": "End the day by reading this line again, slowly.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31298,7 +31324,7 @@
       "general": {
         "plainExplanation": "So that my way may be in a wide place: because my search has been for your orders.",
         "modernApplication": "Write one word from this verse where you will see it later.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31306,7 +31332,7 @@
       "general": {
         "plainExplanation": "This is my comfort in my trouble; that your sayings have given me life.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31314,7 +31340,7 @@
       "general": {
         "plainExplanation": "- TETH - You have done good to your servant, O Lord, in keeping with your word.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31322,7 +31348,7 @@
       "general": {
         "plainExplanation": "You are good, and your works are good; give me knowledge of your rules.",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31330,7 +31356,7 @@
       "general": {
         "plainExplanation": "- JOD - Your hands have made me, and given me form: give me wisdom, so that I may have knowledge of your teaching.",
         "modernApplication": "Share one sentence of this verse with someone who needs steady words.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31338,7 +31364,7 @@
       "general": {
         "plainExplanation": "Let your mercy now be my comfort, as you have said to your servant.",
         "modernApplication": "Pray this verse once as written, then tell God one real need without polishing it.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31346,7 +31372,7 @@
       "general": {
         "plainExplanation": "- LAMED - For ever, O Lord, your word is fixed in heaven.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31354,7 +31380,7 @@
       "general": {
         "plainExplanation": "- BETH - How may a young man make his way clean? by guiding it after your word.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31362,7 +31388,7 @@
       "general": {
         "plainExplanation": "If your law had not been my delight, my troubles would have put an end to me.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31370,7 +31396,7 @@
       "general": {
         "plainExplanation": "I will ever keep your orders in mind; for in them I have life.",
         "modernApplication": "Return to this line when the day gets loud.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31378,7 +31404,7 @@
       "general": {
         "plainExplanation": "- MEM - O what love I have for your law! I give thought to it all the day.",
         "modernApplication": "Write one phrase from this verse where you will see it tonight.",
-        "about": "A psalm writer devoted to God’s Word",
+        "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
         "to": "Anyone learning to walk by Scripture"
       }
     },
@@ -31394,7 +31420,7 @@
       "general": {
         "plainExplanation": "God offers real rest — a quiet place to set the day down with Him — \"I am for peace\".",
         "modernApplication": "Sit still for sixty seconds with this verse — phone face down — before the next task.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31490,7 +31516,7 @@
       "general": {
         "plainExplanation": "May peace be inside your walls, and wealth in your noble houses.",
         "modernApplication": "Sit still for sixty seconds with this verse — phone face down — before the next task.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31498,7 +31524,7 @@
       "general": {
         "plainExplanation": "See! as the eyes of servants are turned to the hands of their masters, and the eyes of a servant-girl to her owner, so our eyes are waiting for the Lord our God, till he has mercy on us.",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31506,7 +31532,7 @@
       "general": {
         "plainExplanation": "God is the Maker. Nothing exists outside His hand — \"Our help is in the name of the Lord, who made heaven and\".",
         "modernApplication": "Use this verse as a quiet answer when worry starts talking first.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31514,7 +31540,7 @@
       "general": {
         "plainExplanation": "- A Song of the going up. - Those whose hope is in the Lord are like the mountain of Zion, which may not be moved, but keeps its place for ever.",
         "modernApplication": "Return to this line when the day gets loud.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31522,7 +31548,7 @@
       "general": {
         "plainExplanation": "Then our mouths were full of laughing, and our tongues gave a glad cry; they said among the nations, The Lord has done great things for them.",
         "modernApplication": "Share one sentence of this verse with someone who needs steady words.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31530,7 +31556,7 @@
       "general": {
         "plainExplanation": "The Lord has done great things for us; because of which we are glad.",
         "modernApplication": "Ask God for strength for the next hour only, then do the next honest small thing.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31538,7 +31564,7 @@
       "general": {
         "plainExplanation": "Those who put in seed with weeping will get in the grain with cries of joy.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31546,7 +31572,7 @@
       "general": {
         "plainExplanation": "God’s care is for you today — hold that truth when the day feels thin — \"They that sow in tears shall reap in joy\".",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31554,7 +31580,7 @@
       "general": {
         "plainExplanation": "- A Song of the going up. Of Solomon.",
         "modernApplication": "Share one sentence of this verse with someone who needs steady words.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31562,7 +31588,7 @@
       "general": {
         "plainExplanation": "It is of no use for you to get up early, and to go late to your rest, with the bread of sorrow for your food; for the Lord gives to his loved ones in sleep.",
         "modernApplication": "Write one word from this verse where you will see it later.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31570,7 +31596,7 @@
       "general": {
         "plainExplanation": "See, sons are a heritage from the Lord; the fruit of the body is his reward.",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31578,7 +31604,7 @@
       "general": {
         "plainExplanation": "Like arrows in the hand of a man of war, are the children of the young.",
         "modernApplication": "Hold this truth when you feel pressed to hurry past God.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31586,7 +31612,7 @@
       "general": {
         "plainExplanation": "- A Song of the going up. - Happy is the worshipper of the Lord, who is walking in his ways.",
         "modernApplication": "Write one word from this verse where you will see it later.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31594,7 +31620,7 @@
       "general": {
         "plainExplanation": "Your wife will be like a fertile vine in the inmost parts of your house: your children will be like olive plants round your table.",
         "modernApplication": "Hold this truth when you feel pressed to hurry past God.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31610,7 +31636,7 @@
       "general": {
         "plainExplanation": "O Jah, if you took note of every sin, who would go free?",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31618,7 +31644,7 @@
       "general": {
         "plainExplanation": "You do not have to carry fear alone — bring it to God and let Him steady you — \"But there is forgiveness with you, that you may be\".",
         "modernApplication": "Take one honest step today that matches what this verse says.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31626,7 +31652,7 @@
       "general": {
         "plainExplanation": "I am waiting for the Lord, my soul is waiting for him, and my hope is in his word.",
         "modernApplication": "When you want to force an answer, return to this verse and wait one more honest hour.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31634,7 +31660,7 @@
       "general": {
         "plainExplanation": "Hand the real weight to God. Trust that He hears and holds you — \"I wait for the LORD, my soul does wait, and in his word\".",
         "modernApplication": "When you want to force an answer, return to this verse and wait one more honest hour.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31642,7 +31668,7 @@
       "general": {
         "plainExplanation": "O Israel, have hope in the Lord; for with the Lord is mercy and full salvation.",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31650,7 +31676,7 @@
       "general": {
         "plainExplanation": "Lord, my heart is not haughty, nor mine eyes lofty: neither do I exercise myself in great matters, or in things too high for me.",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31658,7 +31684,7 @@
       "general": {
         "plainExplanation": "See, I have made my soul calm and quiet, like a child on its mother's breast; my soul is like a child on its mother's breast.",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31666,7 +31692,7 @@
       "general": {
         "plainExplanation": "O Israel, have hope in the Lord, from this time and for ever.",
         "modernApplication": "Take one honest step today that matches what this verse says.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31674,7 +31700,7 @@
       "general": {
         "plainExplanation": "- A Song of the going up. Of David. - See how good and how pleasing it is for brothers to be living together in harmony!",
         "modernApplication": "Take one honest step today that matches what this verse says.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31682,7 +31708,7 @@
       "general": {
         "plainExplanation": "Give praise to the Lord, lifting up your hands in his holy place.",
         "modernApplication": "Pray this verse once, then act as if God heard you.",
-        "about": "A song of ascents writer",
+        "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
         "to": "Travelers and worshipers going up to God’s house"
       }
     },
@@ -31690,7 +31716,7 @@
       "general": {
         "plainExplanation": "Give praise to Jah, for he is good: make melody to his name, for it is pleasing.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
         "to": "Exiles and all who refuse false gods"
       }
     },
@@ -31698,7 +31724,7 @@
       "general": {
         "plainExplanation": "God’s kindness meets you as you are — not after you perform — \"O give thanks to the LORD\".",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "A psalm writer",
+        "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
         "to": "Exiles and all who refuse false gods"
       }
     },
@@ -31706,7 +31732,7 @@
       "general": {
         "plainExplanation": "To him who only does great wonders: for his mercy is unchanging for ever.",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "A psalm writer",
+        "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
         "to": "Exiles and all who refuse false gods"
       }
     },
@@ -31922,7 +31948,7 @@
       "general": {
         "plainExplanation": "God heals the brokenhearted and binds up their wounds.",
         "modernApplication": "Use this verse as a quiet answer when worry starts talking first.",
-        "about": "A psalm writer",
+        "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
         "to": "All creation called to praise"
       }
     },
@@ -31930,7 +31956,7 @@
       "general": {
         "plainExplanation": "Make songs of praise to the Lord; make melody to our God with instruments of music.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
         "to": "All creation called to praise"
       }
     },
@@ -31938,7 +31964,7 @@
       "general": {
         "plainExplanation": "Let them give glory to the name of the Lord: for his name only is to be praised: his kingdom is over the earth and the heaven.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
         "to": "All creation called to praise"
       }
     },
@@ -31954,7 +31980,7 @@
       "general": {
         "plainExplanation": "When you feel empty, God gives strength beyond your own — \"Praise you the LORD\".",
         "modernApplication": "Ask God for strength for the next hour only, then do the next honest small thing.",
-        "about": "A psalm writer",
+        "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
         "to": "All creation called to praise"
       }
     },
@@ -31962,7 +31988,7 @@
       "general": {
         "plainExplanation": "Let everything which has breath give praise to the Lord. Let the Lord be praised.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
+        "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
         "to": "All creation called to praise"
       }
     },
@@ -32746,7 +32772,7 @@
       "general": {
         "plainExplanation": "Our pride is in God at all times, to his name we give praise for ever. (Selah.).",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "Sons of Korah or another psalm writer",
+        "about": "The sons of Korah",
         "to": "Worshipers in joy and national distress"
       }
     },
@@ -32754,7 +32780,7 @@
       "general": {
         "plainExplanation": "God is our safe place and our strength; He is right here with us when trouble comes.",
         "modernApplication": "Ask God for strength for the next hour only, then do the next honest small thing.",
-        "about": "A psalm writer",
+        "about": "The sons of Korah",
         "to": "Anyone in trouble who needs a refuge"
       }
     },
@@ -32762,7 +32788,7 @@
       "general": {
         "plainExplanation": "Be still and know that I am God; I will be exalted.",
         "modernApplication": "Sit still for sixty seconds with this verse — phone face down — before the next task.",
-        "about": "A psalm writer",
+        "about": "The sons of Korah",
         "to": "Anyone in trouble who needs a refuge"
       }
     },
@@ -32770,7 +32796,7 @@
       "general": {
         "plainExplanation": "For this cause we will have no fear, even though the earth is changed, and though the mountains are moved in the heart of the sea;.",
         "modernApplication": "Name the worry to God in one sentence, then reread this verse before you react.",
-        "about": "A psalm writer",
+        "about": "The sons of Korah",
         "to": "Anyone in trouble who needs a refuge"
       }
     },
@@ -32778,7 +32804,7 @@
       "general": {
         "plainExplanation": "God has taken his place in her; she will not be moved: he will come to her help at the dawn of morning.",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "A psalm writer",
+        "about": "The sons of Korah",
         "to": "Anyone in trouble who needs a refuge"
       }
     },
@@ -32786,7 +32812,7 @@
       "general": {
         "plainExplanation": "The Lord of armies is with us; the God of Jacob is our high tower. (Selah.).",
         "modernApplication": "Use this verse as a quiet answer when worry starts talking first.",
-        "about": "A psalm writer",
+        "about": "The sons of Korah",
         "to": "Anyone in trouble who needs a refuge"
       }
     },
@@ -32794,7 +32820,7 @@
       "general": {
         "plainExplanation": "- To the chief music-maker. A Psalm. Of the sons of Korah. - O make a glad noise with your hands, all you peoples; letting your voices go up to God with joy.",
         "modernApplication": "Pray this verse once, then act as if God heard you.",
-        "about": "Sons of Korah or another psalm writer",
+        "about": "The sons of Korah",
         "to": "Worshipers in joy and national distress"
       }
     },
@@ -32802,7 +32828,7 @@
       "general": {
         "plainExplanation": "For this God is our God forever: he will be our guide even to death.",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "Sons of Korah or another psalm writer",
+        "about": "The sons of Korah",
         "to": "Worshipers in joy and national distress"
       }
     },
@@ -33370,120 +33396,120 @@
       "general": {
         "plainExplanation": "For a day in your courts is better than a thousand. I had rather be a doorkeeper in the house of my God, than to live in the tents of wickedness.",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "The sons of Korah",
+        "to": "Pilgrims longing for God’s house"
       }
     },
     "Psalm 84:11": {
       "general": {
         "plainExplanation": "The Lord God is our sun and our strength: the Lord will give grace and glory: he will not keep back any good thing from those whose ways are upright.",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "The sons of Korah",
+        "to": "Pilgrims longing for God’s house"
       }
     },
     "Psalm 84:12": {
       "general": {
         "plainExplanation": "O Lord of armies, happy is the man whose hope is in you.",
         "modernApplication": "Use this verse as a quiet answer when worry starts talking first.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "The sons of Korah",
+        "to": "Pilgrims longing for God’s house"
       }
     },
     "Psalm 84:3": {
       "general": {
         "plainExplanation": "The little birds have places for themselves, where they may put their young, even your altars, O Lord of armies, my King and my God.",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "The sons of Korah",
+        "to": "Pilgrims longing for God’s house"
       }
     },
     "Psalm 84:5": {
       "general": {
         "plainExplanation": "Happy is the man whose strength is in you; in whose heart are the highways to Zion.",
         "modernApplication": "Ask God for strength for the next hour only, then do the next honest small thing.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "The sons of Korah",
+        "to": "Pilgrims longing for God’s house"
       }
     },
     "Psalm 85:6": {
       "general": {
         "plainExplanation": "Will you not give us life again, so that your people may be glad in you?",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "The sons of Korah",
+        "to": "Pilgrims longing for God’s house"
       }
     },
     "Psalm 86:11": {
       "general": {
         "plainExplanation": "Make your way clear to me, O Lord; I will go on my way in your faith: let my heart be glad in the fear of your name.",
         "modernApplication": "Name the worry to God in one sentence, then reread this verse before you react.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "David",
+        "to": "Anyone poor in spirit who still calls on God"
       }
     },
     "Psalm 86:15": {
       "general": {
         "plainExplanation": "But you, O Lord, are a God full of pity and forgiveness, slow to get angry, great in mercy and wisdom.",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "David",
+        "to": "Anyone poor in spirit who still calls on God"
       }
     },
     "Psalm 86:5": {
       "general": {
         "plainExplanation": "You are good, O Lord, and full of forgiveness; your mercy is great to all who make their cry to you.",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "David",
+        "to": "Anyone poor in spirit who still calls on God"
       }
     },
     "Psalm 86:6": {
       "general": {
         "plainExplanation": "O Lord, give ear to my prayer; and take note of the sound of my requests.",
         "modernApplication": "Pray this verse once as written, then tell God one real need without polishing it.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "David",
+        "to": "Anyone poor in spirit who still calls on God"
       }
     },
     "Psalm 87:3": {
       "general": {
         "plainExplanation": "Noble things are said of you, O town of God. (Selah.).",
         "modernApplication": "End the day by reading this line again, slowly.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "The sons of Korah",
+        "to": "Worshipers of Zion — and the nations gathered in"
       }
     },
     "Psalm 88:1": {
       "general": {
         "plainExplanation": "God’s care is for you today — hold that truth when the day feels thin — \"O LORD God of my salvation, I have cried day and night\".",
         "modernApplication": "Use this verse as a quiet answer when worry starts talking first.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "Heman the Ezrahite",
+        "to": "Anyone whose prayer feels like night with no morning yet"
       }
     },
     "Psalm 88:13": {
       "general": {
         "plainExplanation": "But to you did I send up my cry, O Lord; in the morning my prayer came before you.",
         "modernApplication": "Pray this verse once as written, then tell God one real need without polishing it.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "Heman the Ezrahite",
+        "to": "Anyone whose prayer feels like night with no morning yet"
       }
     },
     "Psalm 89:1": {
       "general": {
         "plainExplanation": "- Maschil. Of Ethan the Ezrahite. - My song will be of the mercies of the Lord for ever: with my mouth will I make his faith clear to all generations.",
         "modernApplication": "End the day by reading this line again, slowly.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "Ethan the Ezrahite",
+        "to": "Those clinging to God’s promise when it looks broken"
       }
     },
     "Psalm 89:15": {
       "general": {
         "plainExplanation": "Happy are the people who have knowledge of the holy cry: the light of your face, O Lord, will be shining on their way.",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "Sons of Korah, David, or Ethan",
-        "to": "Pilgrims and those clinging to God’s promise"
+        "about": "Ethan the Ezrahite",
+        "to": "Those clinging to God’s promise when it looks broken"
       }
     },
     "Psalm 8:2": {
@@ -33506,39 +33532,39 @@
       "general": {
         "plainExplanation": "So give us knowledge of the number of our days, that we may get a heart of wisdom.",
         "modernApplication": "Write one word from this verse where you will see it later.",
-        "about": "Moses or another psalm writer",
-        "to": "A people numbering their days and needing shelter"
+        "about": "Moses — a prayer of the man of God",
+        "to": "A people numbering their days"
       }
     },
     "Psalm 90:14": {
       "general": {
         "plainExplanation": "In the morning give us your mercy in full measure; so that we may have joy and delight all our days.",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "Moses or another psalm writer",
-        "to": "A people numbering their days and needing shelter"
+        "about": "Moses — a prayer of the man of God",
+        "to": "A people numbering their days"
       }
     },
     "Psalm 90:17": {
       "general": {
         "plainExplanation": "Let the pleasure of the Lord our God be on us: O Lord, give strength to the work of our hands.",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "Moses or another psalm writer",
-        "to": "A people numbering their days and needing shelter"
+        "about": "Moses — a prayer of the man of God",
+        "to": "A people numbering their days"
       }
     },
     "Psalm 90:2": {
       "general": {
         "plainExplanation": "Before the mountains were made, before you had given birth to the earth and the world, before time was, and for ever, you are God.",
         "modernApplication": "Return to this line when the day gets loud.",
-        "about": "Moses or another psalm writer",
-        "to": "A people numbering their days and needing shelter"
+        "about": "Moses — a prayer of the man of God",
+        "to": "A people numbering their days"
       }
     },
     "Psalm 91:1": {
       "general": {
         "plainExplanation": "When you stay close to God, you rest in His protection and care.",
         "modernApplication": "Return to this line when the day gets loud.",
-        "about": "A psalm writer",
+        "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
         "to": "Those who dwell in the secret place of the Most High"
       }
     },
@@ -33546,7 +33572,7 @@
       "general": {
         "plainExplanation": "The one who stays close to the Most High rests under His shadow — protected near Him.",
         "modernApplication": "Write one word from this verse where you will see it later.",
-        "about": "A psalm writer",
+        "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
         "to": "Those who dwell in the secret place of the Most High"
       }
     },
@@ -33554,7 +33580,7 @@
       "general": {
         "plainExplanation": "The one who stays close to the Most High rests under His shadow — protected near Him.",
         "modernApplication": "Write one word from this verse where you will see it later.",
-        "about": "A psalm writer",
+        "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
         "to": "Those who dwell in the secret place of the Most High"
       }
     },
@@ -33562,7 +33588,7 @@
       "general": {
         "plainExplanation": "The one who stays close to the Most High rests under His shadow — protected near Him.",
         "modernApplication": "Use this verse as a quiet answer when worry starts talking first.",
-        "about": "A psalm writer",
+        "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
         "to": "Those who dwell in the secret place of the Most High"
       }
     },
@@ -33570,7 +33596,7 @@
       "general": {
         "plainExplanation": "The one who stays close to the Most High rests under His shadow — protected near Him.",
         "modernApplication": "End the day by reading this line again, slowly.",
-        "about": "A psalm writer",
+        "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
         "to": "Those who dwell in the secret place of the Most High"
       }
     },
@@ -33578,7 +33604,7 @@
       "general": {
         "plainExplanation": "The one who stays close to the Most High rests under His shadow — protected near Him.",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "A psalm writer",
+        "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
         "to": "Those who dwell in the secret place of the Most High"
       }
     },
@@ -33586,7 +33612,7 @@
       "general": {
         "plainExplanation": "Who says of the Lord, He is my safe place and my tower of strength: he is my God, in whom is my hope.",
         "modernApplication": "Pray this verse once, then act as if God heard you.",
-        "about": "A psalm writer",
+        "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
         "to": "Those who dwell in the secret place of the Most High"
       }
     },
@@ -33594,7 +33620,7 @@
       "general": {
         "plainExplanation": "You will be covered by his feathers; under his wings you will be safe: his good faith will be your salvation.",
         "modernApplication": "Write one word from this verse where you will see it later.",
-        "about": "A psalm writer",
+        "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
         "to": "Those who dwell in the secret place of the Most High"
       }
     },
@@ -33602,7 +33628,7 @@
       "general": {
         "plainExplanation": "It is a good thing to thank the Lord and to sing praise to His name.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer of thanksgiving",
+        "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
         "to": "Worshipers giving thanks for God’s works"
       }
     },
@@ -33610,7 +33636,7 @@
       "general": {
         "plainExplanation": "God’s work is what makes the heart glad — joy rises when you look at what He has done, not only at how the day feels.",
         "modernApplication": "Name one work of God you can see this week — then thank Him for it out loud.",
-        "about": "A psalm writer of thanksgiving",
+        "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
         "to": "Worshipers giving thanks for God’s works"
       }
     },
@@ -33618,7 +33644,7 @@
       "general": {
         "plainExplanation": "It is a good thing to thank the Lord and to sing praise to His name.",
         "modernApplication": "Sit still for sixty seconds with this verse — phone face down — before the next task.",
-        "about": "A psalm writer of thanksgiving",
+        "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
         "to": "Worshipers giving thanks for God’s works"
       }
     },
@@ -33626,7 +33652,7 @@
       "general": {
         "plainExplanation": "God’s work is what makes the heart glad — joy rises when you look at what He has done, not only at how the day feels.",
         "modernApplication": "Name one work of God you can see this week — then thank Him for it out loud.",
-        "about": "A psalm writer of thanksgiving",
+        "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
         "to": "Worshipers giving thanks for God’s works"
       }
     },
@@ -33634,7 +33660,7 @@
       "general": {
         "plainExplanation": "The Lord in heaven is stronger than the noise of great waters, yes, he is stronger than the great waves of the sea.",
         "modernApplication": "Hold this truth when you feel pressed to hurry past God.",
-        "about": "A psalm writer",
+        "about": "Israel’s congregation — a song that the Lord is King over the flood",
         "to": "Anyone who needs to know God still reigns"
       }
     },
@@ -33642,7 +33668,7 @@
       "general": {
         "plainExplanation": "If I say, My foot is slipping; your mercy, O Lord, is my support.",
         "modernApplication": "If someone comes to mind, ask God for the mercy this verse describes — for them and for you.",
-        "about": "A psalm writer (unattributed)",
+        "about": "An unnamed psalm of Israel — a cry against unjust thrones, then mercy when the foot slips",
         "to": "Anyone whose footing feels uncertain under pressure"
       }
     },
@@ -33650,7 +33676,7 @@
       "general": {
         "plainExplanation": "When anxiety was great within me, Your consolation brought me joy—God meets us in the overwhelm.",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "A psalm writer (unattributed)",
+        "about": "An unnamed psalm of Israel — a cry against unjust thrones, then mercy when the foot slips",
         "to": "Anyone whose footing feels uncertain under pressure"
       }
     },
@@ -33658,7 +33684,7 @@
       "general": {
         "plainExplanation": "But the Lord is my safe resting-place; my God is the Rock where I am safe.",
         "modernApplication": "Sit with one phrase from this verse before you move on.",
-        "about": "A psalm writer (unattributed)",
+        "about": "An unnamed psalm of Israel — a cry against unjust thrones, then mercy when the foot slips",
         "to": "Anyone whose footing feels uncertain under pressure"
       }
     },
@@ -33666,79 +33692,79 @@
       "general": {
         "plainExplanation": "O come, let us make songs to the Lord; sending up glad voices to the Rock of our salvation.",
         "modernApplication": "Let this verse set the pace of your next conversation.",
-        "about": "A psalm writer",
-        "to": "Anyone who needs to know God still reigns"
+        "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
+        "to": "Israel gathered to worship — and anyone whose heart is growing hard"
       }
     },
     "Psalm 95:1-2": {
       "general": {
         "plainExplanation": "God’s care is for you today — hold that truth when the day feels thin — \"O come, let us sing to the LORD\".",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
-        "to": "Anyone who needs to know God still reigns"
+        "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
+        "to": "Israel gathered to worship — and anyone whose heart is growing hard"
       }
     },
     "Psalm 95:1-7": {
       "general": {
         "plainExplanation": "When you feel empty, God gives strength beyond your own — \"O come, let us sing to the LORD\".",
         "modernApplication": "Ask God for strength for the next hour only, then do the next honest small thing.",
-        "about": "A psalm writer",
-        "to": "Anyone who needs to know God still reigns"
+        "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
+        "to": "Israel gathered to worship — and anyone whose heart is growing hard"
       }
     },
     "Psalm 95:2": {
       "general": {
         "plainExplanation": "Let us come before his face with praises; and make melody with holy songs.",
         "modernApplication": "List three ordinary mercies out loud, then thank God for them before the day ends.",
-        "about": "A psalm writer",
-        "to": "Anyone who needs to know God still reigns"
+        "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
+        "to": "Israel gathered to worship — and anyone whose heart is growing hard"
       }
     },
     "Psalm 95:6": {
       "general": {
         "plainExplanation": "O come, let us give worship, falling down on our knees before the Lord our Maker.",
         "modernApplication": "Take one honest step today that matches what this verse says.",
-        "about": "A psalm writer",
-        "to": "Anyone who needs to know God still reigns"
+        "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
+        "to": "Israel gathered to worship — and anyone whose heart is growing hard"
       }
     },
     "Psalm 95:7": {
       "general": {
         "plainExplanation": "For he is our God; and we are the people to whom he gives food, and the sheep of his flock. Today, if you would only give ear to his voice!",
         "modernApplication": "Return to this line when the day gets loud.",
-        "about": "A psalm writer",
-        "to": "Anyone who needs to know God still reigns"
+        "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
+        "to": "Israel gathered to worship — and anyone whose heart is growing hard"
       }
     },
     "Psalm 96:1": {
       "general": {
         "plainExplanation": "O make a new song to the Lord; let all the earth make melody to the Lord.",
         "modernApplication": "Hold this truth when you feel pressed to hurry past God.",
-        "about": "A psalm writer",
-        "to": "Anyone who needs to know God still reigns"
+        "about": "Israel’s congregation — a song that the Lord is King over all the earth",
+        "to": "All lands called to joyful worship"
       }
     },
     "Psalm 96:2": {
       "general": {
         "plainExplanation": "Make songs to the Lord, blessing his name; give the good news of his salvation day by day.",
         "modernApplication": "Use this verse as a quiet answer when worry starts talking first.",
-        "about": "A psalm writer",
-        "to": "Anyone who needs to know God still reigns"
+        "about": "Israel’s congregation — a song that the Lord is King over all the earth",
+        "to": "All lands called to joyful worship"
       }
     },
     "Psalm 97:11": {
       "general": {
         "plainExplanation": "Light is shining on the lovers of righteousness, and for the upright in heart there is joy.",
         "modernApplication": "Take one honest step today that matches what this verse says.",
-        "about": "A psalm writer",
-        "to": "Anyone who needs to know God still reigns"
+        "about": "Israel’s congregation — a song that the Lord is King over all the earth",
+        "to": "All lands called to joyful worship"
       }
     },
     "Psalm 98:1": {
       "general": {
         "plainExplanation": "- A Psalm. - O make a new song to the Lord, because he has done works of wonder; with his right hand, and with his holy arm, he has overcome.",
         "modernApplication": "End the day by reading this line again, slowly.",
-        "about": "A psalm writer",
+        "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
         "to": "All lands called to joyful worship"
       }
     },
@@ -33746,7 +33772,7 @@
       "general": {
         "plainExplanation": "The Lord is great in Zion; and he is high above all the people.",
         "modernApplication": "Take one honest step today that matches what this verse says.",
-        "about": "A psalm writer",
+        "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
         "to": "All lands called to joyful worship"
       }
     },

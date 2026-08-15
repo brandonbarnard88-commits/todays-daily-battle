@@ -12990,3 +12990,16 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
     display: inline-flex;
   }
 }
+
+/* After Ask the Word: keep grove / Heavy / plan CTA inside one quiet disclosure */
+#tdbHomeAfterAsk {
+  margin: 0.85rem 0 1.25rem;
+}
+#tdbHomeAfterAsk .tdb-grove-paths,
+#tdbHomeAfterAsk #tdbHeavyNow,
+#tdbHomeAfterAsk .tdb-home-hero-primary-cta {
+  margin-top: 0.85rem;
+}
+#tdbHomeSecondaryStack > #tdbCampusOptionalRest {
+  display: none;
+}

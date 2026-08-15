@@ -423,8 +423,13 @@
   line-height: 1.5;
 }
 body.red-letter-off .tdb-ll-kjv .red-letter {
-  color: inherit;
+  color: inherit !important;
 }
 .tdb-ll-kjv .red-letter {
-  color: #c45c5c;
+  color: #b91c1c !important;
+}
+html[data-theme="dark"] .tdb-ll-kjv .red-letter,
+html[data-theme="night"] .tdb-ll-kjv .red-letter,
+body.dark-mode .tdb-ll-kjv .red-letter {
+  color: #ff6b6b !important;
 }

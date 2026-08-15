@@ -23,6 +23,39 @@ export function isWeakPlainStamp(plain) {
   return false;
 }
 
+function normTeachingLine(s) {
+  return String(s || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** True when “What it means” is just the verse or the BBE restated. */
+export function isNearVerbatimPlain(plain, verseText) {
+  const p = normTeachingLine(plain);
+  const v = normTeachingLine(verseText);
+  if (!p) return true;
+  if (v && p === v) return true;
+  if (v && (p.indexOf(v) === 0 || v.indexOf(p) === 0) && Math.abs(p.length - v.length) < 48) return true;
+  if (v && p.length >= Math.max(24, v.length * 0.72)) {
+    const pTok = p.split(' ').filter(Boolean);
+    const vSet = new Set(v.split(' ').filter(Boolean));
+    if (pTok.length >= 6) {
+      const hit = pTok.filter((tok) => vSet.has(tok)).length;
+      if (hit / pTok.length >= 0.78) return true;
+    }
+  }
+  return false;
+}
+
+export function isBbeEcho(plain, bbeText) {
+  const p = String(plain || '').replace(/\s+/g, ' ').trim();
+  const b = String(bbeText || '').replace(/\s+/g, ' ').trim();
+  if (!p || !b) return false;
+  return isNearVerbatimPlain(p, b);
+}
+
 export function scoreSituationLine(s) {
   let t = String(s || '')
     .replace(/^What was going on:\s*/i, '')

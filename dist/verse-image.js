@@ -1743,7 +1743,7 @@
     var link = origin ? origin + path : 'https://todaysdailybattle.com' + path;
     var snip = tweetSnippet(body);
     // Calmer, mission-aligned share text — no hype, quiet invitation
-    return ref + ' — ' + snip + '\nA quiet place for real battles.\ntodaysdailybattle.com';
+    return ref + ' — ' + snip + '\nA quiet KJV porch.\ntodaysdailybattle.com';
   }
 
   function fetchVerse(ref, cb) {
@@ -1876,7 +1876,7 @@
       var opts = getCardOpts();
       opts.layout = 'centered';
       renderCardWithQr(canvas, ref, body, opts, function () {
-        setStatus('Story preset ready (1080×1920). Download or share below. A quiet place for real battles.');
+        setStatus('Story preset ready (1080×1920). Download or share below. A quiet KJV porch.');
       });
     }
 

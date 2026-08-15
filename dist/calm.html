@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260809-vbd-labels"></script>
-  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260809-vbd-labels"></script>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -55,9 +52,6 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260809-vbd-labels" as="style">
   <link rel="stylesheet" href="styles.css?v=20260809-vbd-labels">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
@@ -412,7 +406,7 @@
     <header class="top-bar" style="minimal">
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <p class="tdb-header-heartbeat site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</p>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
       </div>
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
       <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
@@ -425,6 +419,7 @@
         <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
         <a href="/calm.html" aria-current="page" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
         <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
+        <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
@@ -438,7 +433,6 @@
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family</span>
-              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
               <a href="/family.html">Family</a>
               <a href="/coloring.html">Kids coloring</a>
               <a href="/printables.html" aria-label="Print pages">Print</a>
@@ -683,14 +677,6 @@
 
 </main>
   </div>
-    <nav class="tdb-bottom-dock" aria-label="Main navigation">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/#feel-section" aria-label="How I feel">Feel</a>
-      <a href="/plans.html" aria-label="Reading plans">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
-      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
-    </nav>
-
 <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
     <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
@@ -798,7 +784,7 @@
   <p class="footer-humility">We battle. He wins.</p>
   <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
   <p class="site-footer-story">
-    One KJV verse for what you&rsquo;re carrying. Free. Private. Built so anyone can open the Word without a maze.
+    Less scroll, more soul. For Family, For Country, For GOD. Built so anyone can open the Word without a maze.
   </p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
@@ -817,7 +803,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">August 11, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -847,6 +833,7 @@
   </script>
   <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260520-att-ask" data-tdb-verse-breakdown-standard="1"></script>
   <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260805-audit-focus-lock" data-tdb-verse-breakdown-overrides="1"></script>
+  <script nonce="tdb2025s" src="tdb-verse-accuracy.js?v=20260815-accuracy" data-tdb-verse-accuracy="1"></script>
   <script nonce="tdb2025s" src="verse-breakdown.js?v=20260809-search-fix" data-tdb-verse-breakdown="1"></script>
   <script nonce="tdb2025s">
     (function () {
@@ -1328,7 +1315,5 @@
   <script defer src="calm-rest-kit.js?v=20260523"></script>
   <script defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script defer src="porch-effects.js?v=20260507"></script>
-
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

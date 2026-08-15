@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -31,9 +30,6 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260809-vbd-labels" as="style">
   <link rel="stylesheet" href="styles.css?v=20260809-vbd-labels">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <script src="scripts/header-search-bar.js?v=3" defer></script>
@@ -722,7 +718,7 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <p class="tdb-header-heartbeat site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying</p>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
         <span class="brand-subtitle">Look up a verse — KJV verse lookup, notes, and reading plans</span>
       </div>
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
@@ -736,6 +732,7 @@
         <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
         <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
         <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
+        <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
@@ -749,7 +746,6 @@
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family</span>
-              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
               <a href="/family.html">Family</a>
               <a href="/coloring.html">Kids coloring</a>
               <a href="/printables.html" aria-label="Print pages">Print</a>
@@ -1164,6 +1160,7 @@
   <script src="verse-narration.js?v=20260329narr12"></script>
   <script src="verse-study.js?v=20260328pass4vs"></script>
   <script src="verse-context.js?v=20260806-context" data-tdb-verse-context="1"></script>
+<script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
 <script src="verse-breakdown.js?v=20260809-search-fix"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
@@ -2958,14 +2955,5 @@
     window.addEventListener('hashchange', tdbOpenBibleToolDisclosureForHash);
   })();
   </script>
-
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
-    <nav class="tdb-bottom-dock" aria-label="Main navigation">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/#feel-section" aria-label="How I feel">Feel</a>
-      <a href="/plans.html" aria-label="Reading plans">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
-      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
-    </nav>
 </body>
 </html>

@@ -86,59 +86,228 @@ export function plainOverlapsVerse(plain, verseText) {
   return { ok: overlap >= need, overlap, need, shared };
 }
 
+/**
+ * If a teaching line names this person as the voice, the book must be on the allow list.
+ * Serialized into tdb-verse-accuracy.js so build and the live page cannot drift.
+ */
+export const SPEAKER_RULES = [
+  {
+    id: 'solomon',
+    name: /\bsolomon\b/,
+    allow: /^(proverbs|ecclesiastes|song of solomon|[12] kings|[12] chronicles)\b/,
+    psalmCh: [72, 127]
+  },
+  {
+    id: 'paul',
+    name: /\bpaul\b/,
+    allow: /^(romans|[12] corinthians|galatians|ephesians|philippians|colossians|[12] thessalonians|[12] timothy|titus|philemon|acts|hebrews)\b/
+  },
+  {
+    id: 'david',
+    name: /\bdavid\b/,
+    allow: /^(psalm|[12] samuel|[12] kings|[12] chronicles|matthew|mark|luke|john|acts)\b/,
+    unless: /\bjesus\b/
+  },
+  {
+    id: 'peter',
+    name: /\bpeter\b/,
+    allow: /^([12] peter|matthew|mark|luke|john|acts)\b/,
+    unless: /\bjesus\b/
+  },
+  {
+    id: 'james',
+    name: /\bjames\b/,
+    allow: /^(james|matthew|mark|luke|john|acts)\b/,
+    unless: /\bjesus\b/
+  },
+  {
+    id: 'jude',
+    name: /\bjude\b/,
+    allow: /^(jude|matthew|mark|luke|john|acts)\b/
+  },
+  {
+    id: 'isaiah',
+    name: /\bisaiah\b/,
+    allow: /^(isaiah|[12] kings|[12] chronicles|matthew|mark|luke|john|acts|romans)\b/
+  },
+  {
+    id: 'moses',
+    name: /\bmoses\b/,
+    allow: /^(genesis|exodus|leviticus|numbers|deuteronomy|joshua|psalm|matthew|mark|luke|john|acts|hebrews|jude|revelation)\b/
+  },
+  {
+    id: 'john',
+    name: /\bjohn\b/,
+    allow: /^(john|[123] john|revelation|matthew|mark|luke|acts)\b/,
+    unless: /\bjohnson\b/
+  }
+];
+
 /** Speaker string must not contradict the book. */
 export function speakerBelongsToBook(about, ref) {
   const a = String(about || '').toLowerCase();
-  const book = bookOf(ref).toLowerCase();
+  const book = bookKey(bookOf(ref));
   if (!a || !book) return true;
-  if (/^isaiah\b/.test(book) && /\bdavid\b/.test(a) && !/isaiah/.test(a)) return false;
-  if (/^joshua\b/.test(book) && /\bdavid\b/.test(a) && !/joshua/.test(a)) return false;
-  if (/^deuteronomy\b/.test(book) && /\bdavid\b/.test(a) && !/moses/.test(a)) return false;
-  if (/^matthew\b|^mark\b|^luke\b|^john\b/.test(book) && /\bdavid\b/.test(a) && !/jesus/.test(a)) return false;
-  if (/^proverbs\b|^ecclesiastes\b/.test(book) && /\bdavid\b/.test(a) && !/solomon/.test(a)) return false;
-  if (
-    /^romans\b|^corinthians\b|^galatians\b|^ephesians\b|^philippians\b|^colossians\b|^timothy\b/.test(book) &&
-    /\bdavid\b/.test(a) &&
-    !/paul/.test(a)
-  ) {
-    return false;
-  }
-  if (/\bsolomon\b/.test(a)) {
-    /* Psalm 72 may be framed as a prayer for Solomon / the king — not “Solomon wrote every psalm.” */
-    if (/^psalm/.test(book)) {
-      const ch = chapterOf(ref);
-      if (ch === 72 && /prayer for solomon|for the king|solomon \(or/i.test(a)) return true;
-      if (ch === 127 && /solomon|song of degrees/i.test(a)) return true;
-      return false;
+  const ch = chapterOf(ref);
+  let matched = 0;
+  let allowed = 0;
+  for (let i = 0; i < SPEAKER_RULES.length; i++) {
+    const rule = SPEAKER_RULES[i];
+    if (!rule.name.test(a)) continue;
+    if (rule.unless && rule.unless.test(a)) continue;
+    matched += 1;
+    if (rule.allow.test(book)) {
+      allowed += 1;
+      continue;
     }
-    if (/^matthew\b|^mark\b|^luke\b|^john\b|^acts\b/.test(book)) return false;
-    if (
-      /^romans\b|^corinthians\b|^galatians\b|^ephesians\b|^philippians\b|^colossians\b|^thessalonians\b|^timothy\b|^titus\b|^philemon\b|^hebrews\b|^james\b|^peter\b|^jude\b|^revelation\b/.test(
-        book
-      )
-    ) {
-      return false;
+    if (rule.psalmCh && /^psalm/.test(book) && rule.psalmCh.indexOf(ch) !== -1) {
+      allowed += 1;
     }
   }
-  if (/\bpaul\b/.test(a) && /^psalm|^matthew\b|^mark\b|^luke\b|^john\b/.test(book) && !/paul/.test(book)) {
-    return false;
-  }
-  return true;
+  if (!matched) return true;
+  return allowed > 0;
 }
 
-/** Situation line must not be a known blurb from a different chapter cluster. */
+/**
+ * Distinctive teaching stamps that may only sit under a matching ref.
+ * `allow: null` means the phrase is never legal (mashup / contamination).
+ */
+export const PHRASE_LOCKS = [
+  { id: '1jn-mashup', re: /Love one another;\s*test the spirits/i, allow: null },
+  { id: '1jn-test-spirits', re: /test the spirits/i, allow: /^1 John\s+4:[1-6]\b/i },
+  { id: '1jn-victory', re: /victory that overcomes the world/i, allow: /^1 John\s+5:/i },
+  { id: 'ps92-sabbath', re: /Sabbath song of thanksgiving/i, allow: /^Psalm(s)?\s+92:/i },
+  { id: 'ps93-floods', re: /floods and noise cannot unseat|floods,\s*thrones/i, allow: /^Psalm(s)?\s+93:/i },
+  { id: 'ps94-slip', re: /when (his |the )?foot slipp/i, allow: /^Psalm(s)?\s+94:/i },
+  { id: 'prov-path', re: /straight path for work and plans|learning a straight path/i, allow: /^Proverbs\b/i },
+  { id: 'solomon-under-wrong', re: /\bSolomon giving wisdom\b/i, allow: /^(Proverbs|Ecclesiastes|Song of Solomon)\b/i }
+];
+
+export function refAllowsLock(ref, lock) {
+  if (!lock) return true;
+  if (lock.allow == null) return false;
+  return lock.allow.test(normalizeRef(ref));
+}
+
+/** Situation / audience / plain must not carry a locked stamp from another verse. */
 export function situationLooksWrongForRef(sit, ref) {
   const s = String(sit || '');
-  const r = String(ref || '');
+  const r = normalizeRef(ref);
   if (!s || !r) return false;
-  if (!/^Psalm(s)?\s+92:/i.test(r) && /Sabbath song of thanksgiving/i.test(s)) return true;
-  if (/floods,\s*thrones,\s*and idols|floods and noise cannot unseat/i.test(s)) {
-    if (!/^Psalm(s)?\s+93:/i.test(r)) return true;
-  }
-  if (/straight path for work and plans|learning a straight path/i.test(s) && !/^Proverbs\b/i.test(r)) {
-    return true;
+  for (let i = 0; i < PHRASE_LOCKS.length; i++) {
+    const lock = PHRASE_LOCKS[i];
+    if (!lock.re.test(s)) continue;
+    if (!refAllowsLock(r, lock)) return true;
   }
   return false;
+}
+
+/**
+ * Per-book chapter-band fingerprints: tokens unique to one band in that book.
+ * Used so a 1 John 5 “victory” line cannot sit under 1 John 4:7 without a new wanted-poster.
+ */
+export function buildBandFingerprints(map) {
+  const out = [];
+  const books = map && typeof map === 'object' ? Object.keys(map) : [];
+  for (let b = 0; b < books.length; b++) {
+    const book = books[b];
+    const bands = map[book] || [];
+    const tokenSets = bands.map((band) => contentTokens(band && band.situation));
+    for (let i = 0; i < bands.length; i++) {
+      const others = new Set();
+      for (let j = 0; j < tokenSets.length; j++) {
+        if (j === i) continue;
+        tokenSets[j].forEach((t) => others.add(t));
+      }
+      const distinctive = [];
+      tokenSets[i].forEach((t) => {
+        if (!others.has(t) && t.length >= 4) distinctive.push(t);
+      });
+      if (distinctive.length >= 2) {
+        out.push({
+          book,
+          from: bands[i].from,
+          thru: bands[i].thru,
+          tokens: distinctive,
+          situation: String(bands[i].situation || '')
+        });
+      }
+    }
+  }
+  return out;
+}
+
+function bookKey(name) {
+  return String(name || '')
+    .replace(/^Psalms$/i, 'Psalm')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+/** Tokens in `text` that belong only to a different chapter-band of the same book. */
+export function foreignBandHits(text, ref, fingerprints) {
+  const book = bookKey(bookOf(ref));
+  const ch = chapterOf(ref);
+  if (!book || !ch || !Array.isArray(fingerprints)) return [];
+  const sit = String(text || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const hits = [];
+  for (let i = 0; i < fingerprints.length; i++) {
+    const fp = fingerprints[i];
+    if (bookKey(fp.book) !== book) continue;
+    if (ch >= fp.from && ch <= fp.thru) continue;
+    const otherSit = String(fp.situation || '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (otherSit.length >= 40 && sit === otherSit) {
+      hits.push('exact:' + fp.book + ' ' + fp.from + '-' + fp.thru);
+    }
+  }
+  return hits;
+}
+
+/**
+ * One answer for “may this teaching sit under this ref?”
+ * Hard errors only — missing is not an error here (callers require fields separately).
+ */
+export function evaluateTeachingFields(input) {
+  const ref = normalizeRef(input && input.ref);
+  const about = String((input && input.about) || '');
+  const to = String((input && input.to) || '');
+  const setting = String((input && (input.setting || input.situation)) || '');
+  const plain = String((input && (input.plain || input.plainExplanation)) || '');
+  const verseText = String((input && (input.verseText || input.text)) || '');
+  const fingerprints = (input && input.fingerprints) || null;
+  const errors = [];
+  if (!ref) {
+    errors.push('missing ref');
+    return { ok: false, errors };
+  }
+  if (about && !speakerBelongsToBook(about, ref)) {
+    errors.push('speaker does not fit book: "' + about.slice(0, 80) + '"');
+  }
+  ['setting', 'audience', 'plain'].forEach((slot) => {
+    const val = slot === 'setting' ? setting : slot === 'audience' ? to : plain;
+    if (val && situationLooksWrongForRef(val, ref)) {
+      errors.push(slot + ' carries a locked phrase that does not belong to ' + ref);
+    }
+  });
+  if (fingerprints && setting) {
+    /* Exact paste of another chapter-band’s full situation — not shared letter-level words. */
+    const foreign = foreignBandHits(setting, ref, fingerprints).filter((h) => /exact:/.test(h));
+    if (foreign.length) {
+      errors.push('setting is another chapter’s situation: ' + foreign.join('; '));
+    }
+  }
+  if (verseText && plain) {
+    const ov = plainOverlapsVerse(plain, verseText);
+    if (ov.overlap === 0 && /Scripture meets ordinary hours|Stay until one sentence lands|Trust God with what you cannot control|a place to set the day down|God's care is not abstract/i.test(plain)) {
+      errors.push('plain is a reusable pastoral stamp with 0 KJV overlap');
+    }
+  }
+  return { ok: errors.length === 0, errors };
 }
 
 /**

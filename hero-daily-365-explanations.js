@@ -96,7 +96,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "John",
     "to": "Beloved children learning God’s love",
-    "setting": "Love one another; test the spirits; God is love; victory that overcomes the world."
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love."
   },
   {
     "ref": "Psalm 100:5",
@@ -797,8 +797,8 @@
     "plain": "And this is the record, that God has given to us eternal life, and this life is in his Son.",
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "John",
-    "to": "Beloved children learning God’s love",
-    "setting": "Love one another; test the spirits; God is love; victory that overcomes the world."
+    "to": "Believers holding the record that life is in the Son",
+    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given eternal life in His Son."
   },
   {
     "ref": "Psalm 150:6",
@@ -1319,8 +1319,8 @@
     "plain": "See what great love the Father has given us in naming us the children of God; and such we are. For this reason the world does not see who we are, because it did not see who he was.",
     "step": "When comparison rises, answer it with one truth from this verse.",
     "about": "John",
-    "to": "Beloved children learning God’s love",
-    "setting": "Love one another; test the spirits; God is love; victory that overcomes the world."
+    "to": "Beloved children learning they are God’s sons",
+    "setting": "John marvels that the Father calls us children of God, and says real love must show in deed and truth—not in word only."
   },
   {
     "ref": "Psalm 44:8",
@@ -1760,8 +1760,8 @@
     "plain": "Greater is the one who is in you, than the one who is in the world.",
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "John",
-    "to": "Beloved children learning God’s love",
-    "setting": "Love one another; test the spirits; God is love; victory that overcomes the world."
+    "to": "Beloved children learning to test the spirits",
+    "setting": "John tells beloved children to test the spirits: not every spirit is of God, but greater is He that is in you than he that is in the world."
   },
   {
     "ref": "Psalm 79:13",
@@ -2049,7 +2049,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "John",
     "to": "Beloved children learning God’s love",
-    "setting": "Love one another; test the spirits; God is love; victory that overcomes the world."
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love."
   },
   {
     "ref": "Psalm 96:1",
@@ -2310,7 +2310,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "John",
     "to": "Beloved children learning God’s love",
-    "setting": "Love one another; test the spirits; God is love; victory that overcomes the world."
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love."
   },
   {
     "ref": "Psalm 104:33",
@@ -2489,8 +2489,8 @@
     "plain": "And we are certain that if we make any request to him which is right in his eyes, he will give ear to us:.",
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "John",
-    "to": "Beloved children learning God’s love",
-    "setting": "Love one another; test the spirits; God is love; victory that overcomes the world."
+    "to": "Believers holding the record that life is in the Son",
+    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given eternal life in His Son."
   },
   {
     "ref": "Psalm 113:3",

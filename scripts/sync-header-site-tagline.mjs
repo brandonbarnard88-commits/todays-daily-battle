@@ -1,5 +1,5 @@
 /**
- * Canonical header tagline: "For God, For Family, For Country"
+ * Canonical header tagline: "For Family, For Country, For GOD"
  * (with homepage “Less Scroll, More Soul” in index.html).
  * Run from repo root: node scripts/sync-header-site-tagline.mjs
  *
@@ -18,12 +18,12 @@ const SKIP_LOCALIZED = /^(ar|bn|es|fr|hi|id|pt|ru|sv|sw|tl|zh)\//;
 const CARRYING_P =
   /<p class="tdb-header-heartbeat site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying<\/p>/g;
 const TAGLINE_PARAGRAPH =
-  '<p class="tdb-header-heartbeat site-tagline" lang="en">For God, For Family, For Country</p>';
+  '<p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>';
 
 const CARRYING_SPAN =
   /<span class="brand-subtitle tdb-brand-subtitle-learning site-tagline" lang="en">One KJV verse for what you&rsquo;re carrying<\/span>/g;
 const TAGLINE_SPAN =
-  '<span class="brand-subtitle tdb-brand-subtitle-learning site-tagline" lang="en">For God, For Family, For Country</span>';
+  '<span class="brand-subtitle tdb-brand-subtitle-learning site-tagline" lang="en">For Family, For Country, For GOD</span>';
 
 const LEARNING_PARAGRAPH =
   /<p class="tdb-header-heartbeat" lang="en">Learning of Him, one day at a time\.(?: <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me\.">Matthew 11:29<\/span>)?<\/p>/g;

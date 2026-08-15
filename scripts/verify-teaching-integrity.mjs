@@ -25,6 +25,10 @@ import {
   sampleRefs,
   scoreSituationLine,
 } from './lib/teaching-quality.mjs';
+import {
+  situationLooksWrongForRef as sharedSituationLooksWrong,
+  speakerBelongsToBook as sharedSpeakerBelongs
+} from './lib/verse-teaching-guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -86,48 +90,12 @@ function bookOf(ref) {
   return m ? m[1].replace(/\./g, '').replace(/\s+/g, ' ').trim() : '';
 }
 
-/** Speaker string must not contradict the book. */
 function speakerBelongsToBook(about, ref) {
-  const a = String(about || '').toLowerCase();
-  const book = bookOf(ref).toLowerCase();
-  if (!a || !book) return true;
-  // Hard contradictions
-  if (/^isaiah\b/.test(book) && /\bdavid\b/.test(a) && !/isaiah/.test(a)) return false;
-  if (/^joshua\b/.test(book) && /\bdavid\b/.test(a) && !/joshua/.test(a)) return false;
-  if (/^deuteronomy\b/.test(book) && /\bdavid\b/.test(a) && !/moses/.test(a)) return false;
-  if (/^matthew\b|^mark\b|^luke\b|^john\b/.test(book) && /\bdavid\b/.test(a) && !/jesus/.test(a)) return false;
-  if (/^proverbs\b|^ecclesiastes\b/.test(book) && /\bdavid\b/.test(a) && !/solomon/.test(a)) return false;
-  if (/^romans\b|^corinthians\b|^galatians\b|^ephesians\b|^philippians\b|^colossians\b|^timothy\b/.test(book) &&
-      /\bdavid\b/.test(a) && !/paul/.test(a)) return false;
-  /* Solomon is for wisdom books — never paint him as the voice of a Psalm/Gospel/Paul letter. */
-  if (/\bsolomon\b/.test(a)) {
-    if (/^psalm/.test(book)) return false;
-    if (/^matthew\b|^mark\b|^luke\b|^john\b|^acts\b/.test(book)) return false;
-    if (/^romans\b|^corinthians\b|^galatians\b|^ephesians\b|^philippians\b|^colossians\b|^thessalonians\b|^timothy\b|^titus\b|^philemon\b|^hebrews\b|^james\b|^peter\b|^jude\b|^revelation\b/.test(book)) {
-      return false;
-    }
-  }
-  /* Paul never wrote the Psalms or the Gospels. */
-  if (/\bpaul\b/.test(a) && /^psalm|^matthew\b|^mark\b|^luke\b|^john\b/.test(book) && !/paul/.test(book)) {
-    return false;
-  }
-  return true;
+  return sharedSpeakerBelongs(about, ref);
 }
 
-/** Situation line must not be a known blurb from a different chapter cluster. */
 function situationLooksWrongForRef(sit, ref) {
-  const s = String(sit || '');
-  const r = String(ref || '');
-  if (!s || !r) return false;
-  if (!/^Psalm(s)?\s+92:/i.test(r) && /Sabbath song of thanksgiving/i.test(s)) return true;
-  /* Enthronement “floods/thrones” is 93/95–97 — not 94 (foot slips / justice). */
-  if (/floods,\s*thrones,\s*and idols|floods and noise cannot unseat/i.test(s)) {
-    if (!/^Psalm(s)?\s+(93|95|96|97):/i.test(r)) return true;
-  }
-  if (/straight path for work and plans|learning a straight path/i.test(s) && !/^Proverbs\b/i.test(r)) {
-    return true;
-  }
-  return false;
+  return sharedSituationLooksWrong(sit, ref);
 }
 
 /* isWeakPlainStamp imported from teaching-quality.mjs */

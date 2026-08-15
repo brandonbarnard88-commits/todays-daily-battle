@@ -408,7 +408,11 @@ export const BOOK_CHAPTER_SITUATIONS = {
   ],
   '1 John': [
     { from: 1, thru: 2, situation: 'John writes about fellowship, light, and assurance against early antichrist lies.', about: 'John', to: 'beloved children walking in the light' },
-    { from: 3, thru: 5, situation: 'Love one another; test the spirits; God is love; victory that overcomes the world.', about: 'John', to: 'Beloved children learning God’s love' }
+    /* 3 is sons-of-God / love-in-deed — not 4:1 “test the spirits” or 5:4 “victory.” */
+    { from: 3, thru: 3, situation: 'John marvels that the Father calls us children of God, and says real love must show in deed and truth—not in word only.', about: 'John', to: 'Beloved children learning they are God’s sons' },
+    /* 4:1–6 tests spirits; 4:7–21 is love-of-God. Default the chapter to the love half (most calendar days). */
+    { from: 4, thru: 4, situation: 'John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love.', about: 'John', to: 'Beloved children learning God’s love' },
+    { from: 5, thru: 5, situation: 'John writes that faith in the Son is the victory that overcomes the world, and that God has given eternal life in His Son.', about: 'John', to: 'Believers holding the record that life is in the Son' }
   ],
   '2 John': [
     { from: 1, thru: 1, situation: 'John urges a church to walk in truth and refuse false teachers.', about: 'John', to: 'the elect lady and her children' }

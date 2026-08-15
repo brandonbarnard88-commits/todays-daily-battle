@@ -553,11 +553,19 @@
   },
   {
     "book": "1 John",
+    "from": "4:1",
+    "thru": "4:6",
+    "about": "John",
+    "audience": "Beloved children learning to test the spirits",
+    "setting": "John tells beloved children to test the spirits: not every spirit is of God, but greater is He that is in you than he that is in the world."
+  },
+  {
+    "book": "1 John",
     "from": "4:7",
     "thru": "4:21",
     "about": "John",
     "audience": "Beloved children learning God’s love",
-    "setting": "Love one another; test the spirits; God is love; victory that overcomes the world."
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love."
   },
   {
     "book": "Revelation",

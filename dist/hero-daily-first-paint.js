@@ -230,7 +230,12 @@
       todayLine = 'In ' + yr + ', gladness is easy to skip when the day feels ordinary or hard. This verse says real joy can rise from looking at what God has already done.';
       youLine = 'If your heart feels flat, you do not have to fake cheer. Look at one work of God you can still name — that is enough to start gladness.';
       stepLine = 'So do this: Name one work of God you can see this week — then thank Him for it out loud.';
-    } else if (/love|light|shepherd|save|salvation|bless/i.test(bodyLower)) {
+    } else if (/\blove\b|\bcharity\b|\bbeloved\b/i.test(bodyLower)) {
+      themeKey = 'love';
+      todayLine = 'In ' + yr + ', love is often treated as a mood, a brand, or a feeling you wait to have. This verse says love starts with God — then we give it to one another.';
+      youLine = 'You are not asked to manufacture love from an empty tank. Love is of God. Receive it, then give one person a share of it today.';
+      stepLine = 'So do this: Choose one person to treat gently because of this verse.';
+    } else if (/light|shepherd|save|salvation|bless/i.test(bodyLower)) {
       themeKey = 'care';
       todayLine = 'In ' + yr + ', good news can feel thin. This verse holds God’s care in plain sight — something solid to rest in.';
       youLine = 'This word is for you personally: God’s care is not abstract. It meets you in the day you are actually living.';
@@ -464,7 +469,7 @@
     Joshua: { s: 'Joshua', a: 'Israel' }, Judges: { s: 'Unknown', a: 'Israel' }, Ruth: { s: 'Unknown', a: 'Israel' },
     '1 Samuel': { s: 'Samuel', a: 'Israel' }, '2 Samuel': { s: 'Nathan', a: 'Israel' }, '1 Kings': { s: 'Unknown', a: 'Israel' }, '2 Kings': { s: 'Unknown', a: 'Israel' },
     '1 Chronicles': { s: 'Chronicler', a: 'Exiles' }, '2 Chronicles': { s: 'Chronicler', a: 'Exiles' }, Ezra: { s: 'Ezra', a: 'Exiles' }, Nehemiah: { s: 'Nehemiah', a: 'Exiles' }, Esther: { s: 'Unknown', a: 'Israel' },
-    Job: { s: 'Job and the Lord', a: 'All' }, Psalm: { s: 'David or another psalm writer', a: 'Everyone hurting or thankful' }, Psalms: { s: 'David or another psalm writer', a: 'Everyone hurting or thankful' },
+    Job: { s: 'Job and the Lord', a: 'All' }, Psalm: { s: 'A named voice in the Psalms — David, Asaph, Moses, or Israel’s worship', a: 'Everyone hurting or thankful' }, Psalms: { s: 'A named voice in the Psalms — David, Asaph, Moses, or Israel’s worship', a: 'Everyone hurting or thankful' },
     Proverbs: { s: 'Solomon giving wisdom', a: 'Everyone seeking guidance' }, Ecclesiastes: { s: 'Solomon', a: 'All' }, 'Song of Solomon': { s: 'Solomon', a: 'All' },
     Isaiah: { s: 'Isaiah', a: 'Judah' }, Jeremiah: { s: 'Jeremiah', a: 'Judah and the exiles' }, Lamentations: { s: 'Jeremiah', a: 'Exiles' }, Ezekiel: { s: 'Ezekiel', a: 'Exiles' }, Daniel: { s: 'Daniel', a: 'Exiles' },
     Hosea: { s: 'Hosea', a: 'Israel' }, Joel: { s: 'Joel', a: 'Judah' }, Amos: { s: 'Amos', a: 'Israel' }, Obadiah: { s: 'Obadiah', a: 'Edom' }, Jonah: { s: 'Jonah', a: 'Nineveh' }, Micah: { s: 'Micah', a: 'Judah' }, Nahum: { s: 'Nahum', a: 'Nineveh' }, Habakkuk: { s: 'Habakkuk', a: 'Judah' }, Zephaniah: { s: 'Zephaniah', a: 'Judah' }, Haggai: { s: 'Haggai', a: 'Exiles' }, Zechariah: { s: 'Zechariah', a: 'Exiles' }, Malachi: { s: 'Malachi', a: 'Israel' },
@@ -703,6 +708,9 @@
 
   /** Runtime fail-safe: wrong speaker must never paint (blank better than Solomon under a Psalm). */
   function speakerBelongsToBookRuntime(about, ref) {
+    if (typeof window !== 'undefined' && window.TDB_verseAccuracy && typeof window.TDB_verseAccuracy.speakerBelongsToBook === 'function') {
+      return window.TDB_verseAccuracy.speakerBelongsToBook(about, ref);
+    }
     var a = String(about || '').toLowerCase();
     var book = bookOfHeroRef(ref).toLowerCase();
     if (!a || !book) return true;
@@ -722,6 +730,7 @@
       if (/^psalm/.test(book)) {
         var ch = chapterOfHeroRef(ref);
         if (ch === 72 && /prayer for solomon|for the king|solomon \(or/i.test(a)) return true;
+        if (ch === 127 && /solomon|song of degrees/i.test(a)) return true;
         return false;
       }
       if (/^matthew\b|^mark\b|^luke\b|^john\b|^acts\b/.test(book)) return false;
@@ -740,14 +749,26 @@
   }
 
   function situationLooksWrongForRefRuntime(sit, ref) {
+    if (typeof window !== 'undefined' && window.TDB_verseAccuracy && typeof window.TDB_verseAccuracy.situationLooksWrongForRef === 'function') {
+      return window.TDB_verseAccuracy.situationLooksWrongForRef(sit, ref);
+    }
     var s = String(sit || '');
     var r = String(ref || '');
     if (!s || !r) return false;
     if (!/^Psalm(s)?\s+92:/i.test(r) && /Sabbath song of thanksgiving/i.test(s)) return true;
     if (/floods,\s*thrones,\s*and idols|floods and noise cannot unseat/i.test(s)) {
-      if (!/^Psalm(s)?\s+(93|95|96|97):/i.test(r)) return true;
+      if (!/^Psalm(s)?\s+93:/i.test(r)) return true;
     }
     if (/straight path for work and plans|learning a straight path/i.test(s) && !/^Proverbs\b/i.test(r)) {
+      return true;
+    }
+    if (/Love one another;\s*test the spirits;\s*God is love;\s*victory that overcomes/i.test(s)) {
+      return true;
+    }
+    if (/victory that overcomes the world/i.test(s) && !/^1 John\s+5:/i.test(r)) {
+      return true;
+    }
+    if (/test the spirits/i.test(s) && !/^1 John\s+4:[1-6]\b/i.test(r)) {
       return true;
     }
     return false;
@@ -899,7 +920,7 @@
   function looksLikeActionStepLine(s) {
     var t = sanitizeText(s);
     if (!t) return false;
-    return /^(so do this:|name one |name the |sit still|sit with|write one|list three|list one|ask god|pray this|pray it|return to this|take one|say the|say one|read the verse|read it slowly|thank god|end the day|hold this truth|use this verse|before you open)/i.test(
+    return /^(so do this:|name one |name the |sit still|sit with|write one|list three|list one|ask god|pray this|pray it|return to this|take one|say the|say one|read the verse|read it slowly|thank god|end the day|hold this truth|use this verse|before you open|do one concrete|do one kind)/i.test(
       t
     );
   }
@@ -1048,7 +1069,12 @@
     }
     var relatesToday = modernA;
     if (!relatesToday || looksLikeActionStepLine(relatesToday)) {
-      relatesToday = defaultRelatesTodayLine(yr);
+      var lessonToday = sanitizeText(v.modernApplication || '');
+      if (lessonToday && !looksLikeActionStepLine(lessonToday) && looksLikeCultureLine(lessonToday)) {
+        relatesToday = lessonToday;
+      } else {
+        relatesToday = defaultRelatesTodayLine(yr);
+      }
     }
     var curatorYou = sanitizeText(v.today);
     /* lines[1] is often the raw KJV body — do not use it as a personal line. */
@@ -1321,7 +1347,7 @@
     var title = 'Today\u2019s Daily Battle \u2014 Today\u2019s Verse \u2014 ' + v.ref;
     document.title = title;
     var metaDesc = document.querySelector('meta[name="description"]');
-    var desc = 'Today\u2019s verse: ' + v.ref + ' (KJV). One KJV verse for what you\u2019re carrying. Free. Private. No ads, no login wall.';
+    var desc = 'Today\u2019s verse: ' + v.ref + ' (KJV). Less scroll, more soul. For Family, For Country, For GOD. No ads, no login wall.';
     if (metaDesc) metaDesc.setAttribute('content', desc);
     try {
       if (!window.__tdbTimeToFirstVerseLogged) {
@@ -1518,6 +1544,9 @@
       if (/\bdoubt(s|ed|ful|eth)?\b|unbelief|disbelief|faithless|be not faithless|waver(ing|ed|eth)?\b|staggered not|help thou mine|mine unbelief|look we for another|art thou he that should come\b/.test(low)) return 'doubt';
       if (/\bproverbs\b|commit thy works|commit your works|thoughts shall be established|wisdom\b|understanding\b|fear of the lord is the beginning\b/.test(low)) return 'wisdom';
       if (/\bhope|hopeless|discouraged\b/.test(low)) return 'hope';
+      if (/\blove one another\b|\blove is of god\b|\bperfect love\b|\bfirst loved us\b|\bcharity suffereth\b|\bbeloved, let us love\b/.test(low)) {
+        return 'love';
+      }
       return 'peace';
     }
     var UOG_PLANS = {
@@ -1621,6 +1650,11 @@
         { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
         { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' },
         { href: '/plans.html?plan=praisethanks30', label: 'Praise and Thanksgiving' }
+      ],
+      love: [
+        { href: '/reading-plan.html?study=love-one-another', label: 'Love One Another' },
+        { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' },
+        { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' }
       ],
       peace: [
         { href: '/plans.html?plan=peace', label: '7-Day Peace' },

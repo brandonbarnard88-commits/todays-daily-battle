@@ -34312,6 +34312,28 @@ function buildStoryIntentCard(storyIntent, compact) {
   return card;
 }
 
+function isQuietHomeTopicSearch(queryText, results, askProfile) {
+  if (results && results.intent === 'jesus_said') return true;
+  var q = normalizeInput(String(queryText || ''));
+  if (q === 'jesus said' || q === 'red letter' || q === 'words of jesus') return true;
+  if (askProfile && askProfile.kind === 'topic') return true;
+  return isAskTheWordSingleWordTopic(queryText, results);
+}
+
+function setHomeAskChromeForResults(hasResults) {
+  var welcome = document.getElementById('feelWelcome');
+  if (welcome && hasResults) {
+    welcome.textContent = '';
+    welcome.classList.remove('show');
+  }
+  var more = document.querySelector('#quick-search-hero .feel-view-more, a.feel-view-more');
+  if (more) {
+    more.setAttribute('hidden', '');
+    more.setAttribute('aria-hidden', 'true');
+  }
+}
+window.setHomeAskChromeForResults = setHomeAskChromeForResults;
+
 function renderHomeSearchResults(results, output, queryText) {
   if (!output) return;
   output.removeAttribute('hidden');
@@ -34320,6 +34342,7 @@ function renderHomeSearchResults(results, output, queryText) {
   output.setAttribute('role', 'region');
   output.setAttribute('aria-live', 'polite');
   output.setAttribute('aria-label', 'Search results');
+  setHomeAskChromeForResults(true);
 
   var shell = document.createElement('div');
   shell.className = 'home-search-results-shell';
@@ -34342,45 +34365,53 @@ function renderHomeSearchResults(results, output, queryText) {
   var resourceMatches = askProfile && askProfile.offTopic ? [] : buildHomeSearchResourceMatches(results, queryText);
   var activeTopics = askProfile && askProfile.offTopic ? [] : getHomeSearchActiveTopics(results, queryText);
   var askResponse = askProfile && askProfile.offTopic ? null : getHomeAskTheWordResponse(queryText);
-  var askLead = askResponse && askResponse.answer
-    ? tdbPlainTextForUi(askResponse.answer)
-    : buildAskTheWordLocalLead(queryText, results);
+  var quietTopic = isQuietHomeTopicSearch(queryText, results, askProfile);
+  if (quietTopic) shell.classList.add('home-search-results-shell--quiet');
 
   var header = document.createElement('div');
-  header.className = 'home-search-header';
+  header.className = quietTopic ? 'home-search-header home-search-header--quiet' : 'home-search-header';
 
-  var kicker = document.createElement('p');
-  kicker.className = 'home-search-kicker';
-  kicker.textContent = 'Ask the Word';
-  header.appendChild(kicker);
+  if (!quietTopic) {
+    var kicker = document.createElement('p');
+    kicker.className = 'home-search-kicker';
+    kicker.textContent = 'Ask the Word';
+    header.appendChild(kicker);
+  }
 
   var title = document.createElement('h3');
   title.className = 'home-search-response-title';
   title.textContent = (askProfile && askProfile.offTopic)
     ? 'Stay with the Word'
-    : getAskTheWordHeading(queryText, results, askResponse);
+    : (quietTopic
+      ? titleCaseHomeTopic((results && results.topic) || queryText || '')
+      : getAskTheWordHeading(queryText, results, askResponse));
   header.appendChild(title);
 
-  var lead = document.createElement('p');
-  lead.className = 'home-search-response-lead';
-  lead.textContent = askLead;
-  header.appendChild(lead);
+  if (!quietTopic) {
+    var askLead = askResponse && askResponse.answer
+      ? tdbPlainTextForUi(askResponse.answer)
+      : buildAskTheWordLocalLead(queryText, results);
+    var lead = document.createElement('p');
+    lead.className = 'home-search-response-lead';
+    lead.textContent = askLead;
+    header.appendChild(lead);
 
-  var eyebrow = document.createElement('p');
-  eyebrow.className = 'home-search-count-line';
-  eyebrow.textContent = buildHomeSearchCountLine(results, planMatches, resourceMatches, queryText);
-  header.appendChild(eyebrow);
+    var eyebrow = document.createElement('p');
+    eyebrow.className = 'home-search-count-line';
+    eyebrow.textContent = buildHomeSearchCountLine(results, planMatches, resourceMatches, queryText);
+    header.appendChild(eyebrow);
 
-  var guide = document.createElement('p');
-  guide.className = 'home-search-note';
-  guide.textContent = buildHomeSearchGuideLine(planMatches, resourceMatches);
-  header.appendChild(guide);
+    var guide = document.createElement('p');
+    guide.className = 'home-search-note';
+    guide.textContent = buildHomeSearchGuideLine(planMatches, resourceMatches);
+    header.appendChild(guide);
+  }
 
   var availableSections = [];
   if (results && results.verses && results.verses.length) availableSections.push('verses');
   if (planMatches.length) availableSections.push('plans');
   if (resourceMatches.length) availableSections.push('resources');
-  if (availableSections.length) {
+  if (!quietTopic && availableSections.length) {
     header.appendChild(buildHomeSearchFilterRow(output, availableSections, activeTopics));
   }
 
@@ -34392,9 +34423,10 @@ function renderHomeSearchResults(results, output, queryText) {
     shell.appendChild(detailHost);
   }
 
-  // Curated Bible Answer when matched; otherwise universal Scripture-led frame
-  // suicidal-despair is specially wired to never appear without the crisis block
-  appendAskTheWordAnswerSection(shell, queryText, results, true);
+  // Topic chips already are the verses. Keep the answer block for real questions only.
+  if (!quietTopic) {
+    appendAskTheWordAnswerSection(shell, queryText, results, true);
+  }
 
   if (results && results.fallback) {
     var fallback = document.createElement('p');
@@ -34407,14 +34439,16 @@ function renderHomeSearchResults(results, output, queryText) {
     var versesSection = document.createElement('section');
     versesSection.className = 'home-search-section';
     versesSection.setAttribute('data-home-search-section', 'verses');
-    var versesHeading = document.createElement('h3');
-    versesHeading.className = 'home-search-section-heading';
-    versesHeading.textContent = 'Verses that meet you here';
-    versesSection.appendChild(versesHeading);
-    var versesNote = document.createElement('p');
-    versesNote.className = 'home-search-note';
-    versesNote.textContent = 'Start with the verse that stays with you.';
-    versesSection.appendChild(versesNote);
+    if (!quietTopic) {
+      var versesHeading = document.createElement('h3');
+      versesHeading.className = 'home-search-section-heading';
+      versesHeading.textContent = 'Verses that meet you here';
+      versesSection.appendChild(versesHeading);
+      var versesNote = document.createElement('p');
+      versesNote.className = 'home-search-note';
+      versesNote.textContent = 'Start with the verse that stays with you.';
+      versesSection.appendChild(versesNote);
+    }
     var verseList = document.createElement('div');
     verseList.className = 'home-search-card-grid';
     var initialLimit = (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 4 : 6;
@@ -34483,7 +34517,9 @@ function renderHomeSearchResults(results, output, queryText) {
       var nextEntry = Object.assign({}, entry);
       if (index === 0) {
         nextEntry.featured = true;
-        nextEntry.matchNote = 'Best first plan if the verses feel right but you need a steadier path than one screen.';
+        if (!quietTopic) {
+          nextEntry.matchNote = 'Best first plan if the verses feel right but you need a steadier path than one screen.';
+        }
       }
       return nextEntry;
     });
@@ -34492,14 +34528,16 @@ function renderHomeSearchResults(results, output, queryText) {
     plansSection.setAttribute('data-home-search-section', 'plans');
     var plansHeading = document.createElement('h3');
     plansHeading.className = 'home-search-section-heading';
-    plansHeading.textContent = 'Plans if you need a steadier path';
+    plansHeading.textContent = quietTopic ? 'Plans' : 'Plans if you need a steadier path';
     plansSection.appendChild(plansHeading);
-    var plansNote = document.createElement('p');
-    plansNote.className = 'home-search-note';
-    plansNote.textContent = planMatches.length === 1
-      ? 'One plan matches this search.'
-      : (planMatches.length + ' plans match this search. Start with the first one.');
-    plansSection.appendChild(plansNote);
+    if (!quietTopic) {
+      var plansNote = document.createElement('p');
+      plansNote.className = 'home-search-note';
+      plansNote.textContent = planMatches.length === 1
+        ? 'One plan matches this search.'
+        : (planMatches.length + ' plans match this search. Start with the first one.');
+      plansSection.appendChild(plansNote);
+    }
     var planList = document.createElement('div');
     planList.className = 'home-search-card-grid';
     rankedPlans.forEach(function (entry) {
@@ -34530,12 +34568,21 @@ function renderHomeSearchResults(results, output, queryText) {
     shell.appendChild(resourcesSection);
   }
 
-  var footerNote = document.createElement('p');
-  footerNote.className = 'home-search-note';
-  footerNote.textContent = 'Stay with the verse that hits hardest. Save it, pray it, open the full chapter, or take one short plan when you need a steadier next step.';
-  shell.appendChild(footerNote);
+  if (!quietTopic) {
+    var footerNote = document.createElement('p');
+    footerNote.className = 'home-search-note';
+    footerNote.textContent = 'Stay with the verse that hits hardest. Save it, pray it, open the full chapter, or take one short plan when you need a steadier next step.';
+    shell.appendChild(footerNote);
+  }
 
   output.appendChild(shell);
+  if (quietTopic) {
+    var nextStep = document.getElementById('tdbSearchNextStep');
+    if (nextStep) {
+      nextStep.classList.add('hidden');
+      nextStep.setAttribute('hidden', '');
+    }
+  }
   tdbLogWeakQuery(queryText, results);
 }
 
@@ -36175,7 +36222,7 @@ async function tdbInitImpl() {
           hideHomeQaResult();
           return;
         }
-        if (results && (results.intent === 'reference' || results.intent === 'empty') && !hasStrongAnswer) {
+        if (results && (results.intent === 'reference' || results.intent === 'empty' || results.intent === 'jesus_said' || results.intent === 'topic') && !hasStrongAnswer) {
           hideHomeQaResult();
           return;
         }

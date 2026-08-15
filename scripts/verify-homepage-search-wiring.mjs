@@ -69,6 +69,10 @@ if (!script.includes("results.topic = 'jesus said'") || !script.includes("id: 'h
   fail('Jesus said search must keep curated verses and His-words plans (not seasonal fallbacks).');
 }
 
+if (!script.includes('function isQuietHomeTopicSearch') || !script.includes('home-search-header--quiet')) {
+  fail('Jesus said / topic chips must use a quiet results header so verses lead, not stacked intros.');
+}
+
 if (!script.includes('HOME_SEARCH_TOPIC_PLAN_PREFS') || !script.includes("overwhelmed: ['overwhelmedburnout'")) {
   fail('Each topic chip must have preferred plans (HOME_SEARCH_TOPIC_PLAN_PREFS), including Heavy/overwhelmed.');
 }

@@ -403,7 +403,11 @@ const CHIP_TO_TOPICS_KEY = {
   prayer: "prayer",
   doubt: "doubt",
   waiting: "waiting",
-  depression: "depression"
+  depression: "depression",
+  shame: "shame",
+  temptation: "temptation",
+  caregiver: "caregiver",
+  suffering: "suffering"
 };
 
 function getScriptTopicsDict() {
@@ -1410,7 +1414,8 @@ const FEEL_MORE = {
     obedience: "walktheword", identity: "identityinchrist", purpose: "greatcommission",
     heartache: "griefhope", shame: "guiltshame", overwhelmed: "overwhelmedburnout", burnout: "overwhelmedburnout",
     worth: "selfworth", worthless: "selfworth", prayer: "universitysecretprayer",
-    doubt: "universitydoubt", waiting: "universitywaiting", depression: "heavyhope", worry: "worrytrust"
+    doubt: "universitydoubt", waiting: "universitywaiting", depression: "heavyhope", worry: "worrytrust",
+    shame: "guiltshame", temptation: "addictionhope", caregiver: "caregiverrest", suffering: "sufferendure"
   };
   const FEEL_MOOD_TO_PLAN = {
     anxious: "worrytrust",

@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260815-topic-distinct';
+  var INTERACTIVE_SRC = 'script.js?v=20260815-jesus-said';
   var loaded = false;
   var pendingQuery = '';
 

@@ -12995,6 +12995,8 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
 #feel-results.results ~ a.feel-view-more,
 #feel-results.results ~ #homeQaResult,
 #feel-results.results ~ #feelWelcome,
+#feel-results.results ~ #feelCards,
+#feel-results.results ~ #tdbFeelPlanCta,
 #feel-results.results ~ #tdbSearchNextStep {
   display: none !important;
 }

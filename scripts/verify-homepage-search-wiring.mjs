@@ -73,6 +73,10 @@ if (!script.includes('function isQuietHomeTopicSearch') || !script.includes('hom
   fail('Jesus said / topic chips must use a quiet results header so verses lead, not stacked intros.');
 }
 
+if (!script.includes('HOME_QUIET_TOPIC_CHIPS') || !script.includes('wonder: 1') || !script.includes("'difficult person': 1")) {
+  fail('Every homepage chip must be listed in HOME_QUIET_TOPIC_CHIPS.');
+}
+
 if (!script.includes('HOME_SEARCH_TOPIC_PLAN_PREFS') || !script.includes("overwhelmed: ['overwhelmedburnout'")) {
   fail('Each topic chip must have preferred plans (HOME_SEARCH_TOPIC_PLAN_PREFS), including Heavy/overwhelmed.');
 }

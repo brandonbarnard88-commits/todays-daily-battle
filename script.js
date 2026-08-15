@@ -4877,8 +4877,8 @@ const QUERY_TO_TOPIC = {
   // joy
   joy: 'joy', joyful: 'joy', rejoice: 'joy', rejoicing: 'joy', glad: 'joy', gladness: 'joy', delight: 'joy',
   happy: 'joy', happiness: 'joy', laughter: 'joy', celebrate: 'joy', celebration: 'joy',
-  // wonder / awe — route to hope lane for now so the chip feels expansive, not sparse
-  wonder: 'hope', awe: 'hope', awestruck: 'hope',
+  // wonder / awe — keep the Wonder chip on its own creation verses
+  wonder: 'wonder', awe: 'wonder', awestruck: 'wonder',
   // peace
   peace: 'peace', peaceful: 'peace', calm: 'peace', stillness: 'peace', tranquility: 'peace',
   serenity: 'peace', serene: 'peace', quiet: 'peace', quietness: 'peace', shalom: 'peace',
@@ -4944,11 +4944,11 @@ const QUERY_TO_TOPIC = {
   'jesus said': 'jesus said',
   'free will': 'free will',
   'spiritual warfare': 'spiritualwarfare',
-  heavy: 'anxiety',
+  heavy: 'overwhelmed',
   restless: 'anxiety',
   tired: 'strength',
-  wonder: 'hope',
-  exhaustion: 'strength',
+  wonder: 'wonder',
+  exhaustion: 'exhaustion',
   // free will
   choice: 'free will', choices: 'free will', choosing: 'free will', freedom: 'free will',
   freewill: 'free will', will: 'free will',
@@ -4972,7 +4972,7 @@ const QUERY_TO_TOPIC = {
   blessed: 'gratitude', bless: 'gratitude',
   happy: 'joy', happiness: 'joy', unhappy: 'grief',
   crying: 'grief', weeping: 'grief',
-  exhaustion: 'strength', fatigue: 'strength',
+  exhaustion: 'exhaustion', fatigue: 'exhaustion',
   habit: 'addiction', habits: 'addiction',
   sinful: 'guilt', guilty: 'guilt',
   help: 'hope', helping: 'love',
@@ -10753,17 +10753,17 @@ const topics = {
     }
   },
   heartache: {
-    synonyms: ['heartache', 'heartbroken', 'sorrow', 'grief', 'loss', 'brokenhearted'],
-    verses: ['Psalms 34:18', 'Revelation 21:4', 'Matthew 5:4', 'Psalms 147:3', '2 Corinthians 1:3', 'Lamentations 3:22', 'Psalms 23:4', 'Romans 8:38'],
+    synonyms: ['heartache', 'heartbroken', 'aching heart', 'hurt', 'brokenhearted'],
+    verses: ['Psalms 147:3', 'Proverbs 13:12', 'Psalms 61:2', 'Psalms 73:26', 'John 14:1', 'Isaiah 61:1', 'Psalms 42:11'],
     guidance: {
-      kid: "When you're sad, God is close and will comfort you. It's okay to cry; He sees your tears.",
-      teen: "It's okay to grieve. God comforts those who are hurting and promises that nothing can separate you from His love.",
-      adult: "The Lord is near the brokenhearted and binds up their wounds. One day He will wipe away every tear; until then, He holds you.",
-      pastor: "Incorporate into grief ministry; highlight God's nearness, His comfort, and eternal hope without minimizing pain."
+      kid: "When your heart hurts, God stays close and can heal what feels broken.",
+      teen: "An aching heart is not ignored. He heals the broken in heart and binds up their wounds.",
+      adult: "Hope deferred can make the heart sick. Bring the ache to Him — He heals, He hears, He does not rush you.",
+      pastor: "Distinguish heartache from bereavement: this lane is the wound of the heart, not only the funeral."
     },
     explain: {
-      kid: "God sees your tears and stays close when you are sad. He is the God of all comfort.",
-      teen: "Grief is hard, but God comforts and gives hope. His love and compassion are new every morning."
+      kid: "God can heal a hurting heart. You can tell Him it hurts.",
+      teen: "Heartache is real. God does not tell you to pretend; He comes near and mends."
     }
   },
   'free will': {
@@ -30673,7 +30673,7 @@ function executeQuery(parsed, tier, filters) {
       var alias = {
         overwhelmed: 'overwhelmed', heavy: 'overwhelmed', burnout: 'rest', tired: 'strength',
         restless: 'anxiety', stress: 'anxiety', stressed: 'anxiety',
-        wonder: 'hope', exhaustion: 'strength', money: 'finances',
+        wonder: 'wonder', exhaustion: 'exhaustion', money: 'finances',
         'difficult person': 'forgiveness', 'difficult boss': 'forgiveness'
       };
       if (alias[topicKey]) topicKey = alias[topicKey];
@@ -32542,7 +32542,9 @@ var HOME_SEARCH_TOPIC_PLAN_PREFS = {
   'jesus said': ['hisownwords', 'comeuntome', 'gospeljohn'],
   spiritualwarfare: ['fearfaith', 'hisownwords', 'peace'],
   obedience: ['firststeps', 'galatiansfreedom', 'gospeljohn'],
-  'free will': ['galatiansfreedom', 'firststeps', 'gospeljohn']
+  'free will': ['galatiansfreedom', 'firststeps', 'gospeljohn'],
+  'difficult person': ['lettinggo', 'forgiveness', 'universityanger'],
+  'difficult boss': ['lettinggo', 'universityanger', 'forgiveness']
 };
 
 function queryLooksSeasonal(queryText, activeTopics) {
@@ -34312,10 +34314,22 @@ function buildStoryIntentCard(storyIntent, compact) {
   return card;
 }
 
+var HOME_QUIET_TOPIC_CHIPS = {
+  anxiety: 1, restless: 1, fear: 1, overwhelmed: 1, heavy: 1, grief: 1,
+  strength: 1, tired: 1, hope: 1, heartache: 1, anger: 1,
+  'difficult person': 1, 'difficult boss': 1, guilt: 1, loneliness: 1,
+  trauma: 1, addiction: 1, cancer: 1, peace: 1, gratitude: 1, wonder: 1,
+  exhaustion: 1, joy: 1, love: 1, faith: 1, courage: 1, patience: 1,
+  wisdom: 1, rest: 1, sleep: 1, family: 1, parenting: 1, marriage: 1,
+  relationships: 1, finances: 1, money: 1, forgiveness: 1, obedience: 1,
+  'jesus said': 1, spiritualwarfare: 1, identity: 1, purpose: 1, 'free will': 1
+};
+
 function isQuietHomeTopicSearch(queryText, results, askProfile) {
-  if (results && results.intent === 'jesus_said') return true;
+  if (results && (results.intent === 'jesus_said' || results.intent === 'topic')) return true;
   var q = normalizeInput(String(queryText || ''));
-  if (q === 'jesus said' || q === 'red letter' || q === 'words of jesus') return true;
+  if (HOME_QUIET_TOPIC_CHIPS[q]) return true;
+  if (q === 'red letter' || q === 'words of jesus') return true;
   if (askProfile && askProfile.kind === 'topic') return true;
   return isAskTheWordSingleWordTopic(queryText, results);
 }

@@ -4956,6 +4956,13 @@ const QUERY_TO_TOPIC = {
   waiting: 'waiting',
   depression: 'depression',
   down: 'depression',
+  shame: 'shame',
+  temptation: 'temptation',
+  tempted: 'temptation',
+  caregiver: 'caregiver',
+  caregiving: 'caregiver',
+  suffering: 'suffering',
+  pain: 'suffering',
   // free will
   choice: 'free will', choices: 'free will', choosing: 'free will', freedom: 'free will',
   freewill: 'free will', will: 'free will',
@@ -5052,7 +5059,7 @@ const VOCABULARY = {
   // sleep / rest
   insomnia: 'sleep', insomniac: 'sleep', sleepless: 'sleep', slumber: 'sleep', repose: 'rest',
   // spiritual warfare
-  spiritualwarfare: 'spiritualwarfare', adversary: 'spiritualwarfare', temptation: 'spiritualwarfare',
+  spiritualwarfare: 'spiritualwarfare', adversary: 'spiritualwarfare', temptation: 'temptation',
   // 1D extended: emotional depth
   vexed: 'anger', irritable: 'anger', exasperated: 'anger', aggrieved: 'anger', offended: 'anger',
   wistful: 'grief', nostalgic: 'grief', pensive: 'grief', somber: 'grief', sullen: 'grief',
@@ -11487,6 +11494,34 @@ const topics = {
     explain: {
       kid: "God says rest is good. He made a whole day for it.",
       teen: "Jesus invites the tired. You don't have to keep running."
+    }
+  },
+  shame: {
+    synonyms: ['ashamed', 'disgrace', 'humiliated', 'exposed', 'unworthy'],
+    verses: ['Romans 10:11', 'Isaiah 54:4', 'Psalms 34:5', 'Hebrews 12:2', 'Zephaniah 3:19', 'Romans 8:1'],
+    guidance: {
+      kid: "God does not want you to hide your face. He loves you.",
+      teen: "Shame says you are the worst thing you did. God says whoever believes on Him shall not be ashamed.",
+      adult: "Shame is not the same as guilt. Guilt names a wrong; shame names you as the wrong. In Christ there is no condemnation.",
+      pastor: "Separate shame from conviction. Lead people out of hiding into the light of the cross."
+    },
+    explain: {
+      kid: "You do not have to hide from God. He is kind.",
+      teen: "Shame wants you in the dark. Jesus endured shame so you do not have to wear it."
+    }
+  },
+  temptation: {
+    synonyms: ['tempted', 'entice', 'lure', 'weak moment', 'trial'],
+    verses: ['1 Corinthians 10:13', 'Matthew 26:41', 'Hebrews 4:15', 'James 1:12', 'Matthew 6:13', 'James 4:7'],
+    guidance: {
+      kid: "When you want to do the wrong thing, ask God for a way out. He gives one.",
+      teen: "Temptation is common. God is faithful — He will not leave you with no escape.",
+      adult: "Watch and pray. Jesus was tempted in all points like as we are, yet without sin — He knows this fight.",
+      pastor: "Preach a way of escape, not just a scold. Pair with confession and community."
+    },
+    explain: {
+      kid: "God helps you say no and find a better way.",
+      teen: "Being tempted is not the same as falling. Ask Him for the next right step."
     }
   }
   // You can keep adding more here
@@ -32051,14 +32086,24 @@ var TDB_HOME_FEEL_ANCHORS = {
     leadYou: 'Right now, whatever your work feels like today — perform it as unto the Lord. That reframes the grind.'
   },
   shame: {
-    ref: 'Romans 8:1',
-    text: 'There is therefore now no condemnation to them which are in Christ Jesus, who walk not after the flesh, but after the Spirit.',
-    leadYou: 'Right now, shame says you are what you did. God says in Christ there is no condemnation — not excusing, but freeing.'
+    ref: 'Romans 10:11',
+    text: 'For the scripture saith, Whosoever believeth on him shall not be ashamed.',
+    leadYou: 'Right now, shame wants your face down. Scripture says whoever believes on Him shall not be ashamed.'
+  },
+  temptation: {
+    ref: '1 Corinthians 10:13',
+    text: 'There hath no temptation taken you but such as is common to man: but God is faithful, who will not suffer you to be tempted above that ye are able; but will with the temptation also make a way to escape, that ye may be able to bear it.',
+    leadYou: 'Right now, this pull is not unique to you — and He is faithful to make a way out, one moment at a time.'
+  },
+  caregiver: {
+    ref: 'Galatians 6:2',
+    text: 'Bear ye one another’s burdens, and so fulfil the law of Christ.',
+    leadYou: 'Right now, you are carrying someone. He sees that load — and He does not ask you to pour from an empty cup.'
   },
   suffering: {
-    ref: 'Romans 8:18',
-    text: 'For I reckon that the sufferings of this present time are not worthy to be compared with the glory which shall be revealed in us.',
-    leadYou: 'Right now, suffering is real and heavy. But it is not the last word — the weight of future glory outweighs present pain.'
+    ref: '2 Corinthians 12:9',
+    text: 'And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness.',
+    leadYou: 'Right now, the body or the long fight may be loud. His grace is enough in the weakness, not after it leaves.'
   },
   betrayal: {
     ref: 'Psalm 55:22',
@@ -32509,7 +32554,11 @@ function titleCaseHomeTopic(topic) {
     prayer: 'Prayer',
     doubt: 'Doubt',
     waiting: 'Waiting',
-    depression: 'Down'
+    depression: 'Down',
+    shame: 'Shame',
+    temptation: 'Temptation',
+    caregiver: 'Caregiver',
+    suffering: 'Pain'
   };
   if (labels[t]) return labels[t];
   return t.split(/\s+/).map(function (part) {
@@ -32625,7 +32674,11 @@ var HOME_SEARCH_TOPIC_PLAN_PREFS = {
   prayer: ['universitysecretprayer', 'firststeps', 'comeuntome'],
   doubt: ['universitydoubt', 'firststeps', 'gospeljohn'],
   waiting: ['universitywaiting', 'hopeuncertain', 'peace'],
-  depression: ['heavyhope', 'psalmscomfort', 'comeuntome']
+  depression: ['heavyhope', 'psalmscomfort', 'comeuntome'],
+  shame: ['guiltshame', 'selfworth', 'galatiansfreedom'],
+  temptation: ['addictionhope', 'firststeps', 'galatiansfreedom'],
+  caregiver: ['caregiverrest', 'comeuntome', 'universityexhaustion'],
+  suffering: ['sufferendure', 'painwontquit', 'longillness']
 };
 
 function queryLooksSeasonal(queryText, activeTopics) {
@@ -34404,7 +34457,8 @@ var HOME_QUIET_TOPIC_CHIPS = {
   wisdom: 1, rest: 1, sleep: 1, family: 1, parenting: 1, marriage: 1,
   relationships: 1, finances: 1, money: 1, forgiveness: 1, obedience: 1,
   'jesus said': 1, spiritualwarfare: 1, identity: 1, purpose: 1, 'free will': 1,
-  worry: 1, worthless: 1, prayer: 1, doubt: 1, waiting: 1, depression: 1
+  worry: 1, worthless: 1, prayer: 1, doubt: 1, waiting: 1, depression: 1,
+  shame: 1, temptation: 1, caregiver: 1, suffering: 1
 };
 
 function isQuietHomeTopicSearch(queryText, results, askProfile) {

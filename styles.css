@@ -12057,23 +12057,26 @@ body.dark-mode .tdb-topic-vbd {
 }
 
 .red-letter {
-  color: #b91c1c;
-  font-weight: 500;
+  color: #b91c1c !important;
+  font-weight: 600;
   line-height: inherit;
   padding: 0 1px;
   border-radius: 2px;
 }
 
-/* Dark hero / night sky: keep Jesus' words clearly red (not washed out white). */
+/* Dark / Night: keep Jesus' words clearly red (not washed out by white verse text). */
 #heroVerse .red-letter,
 .hero-verse .red-letter,
 .verse-body .red-letter,
 .tdb-kiss-verse__kjv .red-letter,
+.context-line .red-letter,
+.tdb-ll-kjv .red-letter,
 [data-theme="night"] .red-letter,
 [data-theme="dark"] .red-letter,
 html[data-theme="night"] .red-letter,
 html[data-theme="dark"] .red-letter,
 body.night .red-letter,
+body.dark-mode .red-letter,
 .hero-daily .red-letter {
   color: #ff6b6b !important;
   font-weight: 600;
@@ -12101,7 +12104,8 @@ body.night .red-letter,
 }
 
 body.red-letter-off .red-letter {
-  color: inherit;
+  color: inherit !important;
+  font-weight: inherit !important;
 }
 
 body.red-letter-off .red-letter-card {

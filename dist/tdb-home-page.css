@@ -4404,8 +4404,10 @@
       color: #eaf2ff !important;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
     }
-    :root[data-theme="dark"] #verseCard :is(.verse-ref, .hero-daily-ref-above, .verse-breakdown > h4),
-    :root[data-theme="night"] #verseCard :is(.verse-ref, .hero-daily-ref-above, .verse-breakdown > h4) {
+    :root[data-theme="dark"] #verseCard :is(.verse-ref, .hero-daily-ref-above, .verse-breakdown > h4, .tdb-bbe-simple__heading, .tdb-vbd-label),
+    :root[data-theme="night"] #verseCard :is(.verse-ref, .hero-daily-ref-above, .verse-breakdown > h4, .tdb-bbe-simple__heading, .tdb-vbd-label),
+    html[data-theme="dark"] #verseCard :is(.tdb-bbe-simple__heading, .tdb-vbd-label),
+    html[data-theme="night"] #verseCard :is(.tdb-bbe-simple__heading, .tdb-vbd-label) {
       color: #f2dc98 !important;
     }
     .hero-calendar-breakdown-wrap .hero-breakdown-panels {
@@ -12314,6 +12316,26 @@ a.plan-category-chip:focus-visible,
   letter-spacing: 0.01em;
   text-transform: none;
   color: var(--muted);
+}
+/* Today’s verse: In simpler words / What was going on / What it means — same gold as the verse ref */
+#verseCard #heroBbeSimple .tdb-bbe-simple__heading,
+#verseCard #heroVbdPrimary .tdb-vbd-label,
+#heroVotdBreakdown .tdb-bbe-simple__heading,
+#heroVotdBreakdown #heroVbdPrimary .tdb-vbd-label {
+  color: #f2dc98 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+  font-weight: 700 !important;
+}
+html[data-theme="light"] #verseCard #heroBbeSimple .tdb-bbe-simple__heading,
+html[data-theme="light"] #verseCard #heroVbdPrimary .tdb-vbd-label,
+html[data-theme="sepia"] #verseCard #heroBbeSimple .tdb-bbe-simple__heading,
+html[data-theme="sepia"] #verseCard #heroVbdPrimary .tdb-vbd-label,
+body.light:not(.dark-mode) #verseCard #heroBbeSimple .tdb-bbe-simple__heading,
+body.light:not(.dark-mode) #verseCard #heroVbdPrimary .tdb-vbd-label,
+body.sepia-mode:not(.dark-mode) #verseCard #heroBbeSimple .tdb-bbe-simple__heading,
+body.sepia-mode:not(.dark-mode) #verseCard #heroVbdPrimary .tdb-vbd-label {
+  color: #b07a18 !important;
+  text-shadow: none !important;
 }
 .tdb-layman-always-open > .hero-vbd-split {
   margin-top: 0.15rem;

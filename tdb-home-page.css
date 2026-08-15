@@ -12539,9 +12539,18 @@ body.light:not(.dark-mode) .red-letter,
 body.sepia-mode:not(.dark-mode) .red-letter {
   color: #b91c1c !important;
 }
+/* Red letters are always on — never wash them out. */
 body.red-letter-off .red-letter {
-  color: inherit !important;
-  font-weight: inherit !important;
+  color: #ff6b6b !important;
+  font-weight: 600 !important;
+}
+#settings-red-letter,
+.settings-row:has(#settings-red-letter),
+#red-letter-toggle,
+label.inline-toggle:has(#red-letter-toggle),
+#reader-red-letter-toggle,
+.rl-toggle-switch {
+  display: none !important;
 }
 .tdb-layman-always-open > .hero-vbd-split {
   margin-top: 0.15rem;

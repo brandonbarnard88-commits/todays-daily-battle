@@ -149,7 +149,7 @@ function tdbIsHomePage() {
   if (window.TDBRedLetter) return;
   if (document.querySelector('script[data-tdb-red-letter]')) return;
   var rl = document.createElement('script');
-  rl.src = '/red-letter.js?v=20260815-red-now';
+  rl.src = '/red-letter.js?v=20260815-red-always';
   rl.setAttribute('data-tdb-red-letter', '1');
   (document.head || document.documentElement).appendChild(rl);
 })();
@@ -20428,23 +20428,17 @@ function saveAmenCounts(map) {
 }
 
 function isRedLetterEnabled() {
-  if (typeof window !== 'undefined' && window.TDBRedLetter && typeof window.TDBRedLetter.isEnabled === 'function') {
-    return window.TDBRedLetter.isEnabled();
-  }
-  /* Default ON — words of Jesus in red unless user explicitly turned them off. */
-  const stored = localStorage.getItem(RED_LETTER_TOGGLE_KEY);
-  if (stored === null || stored === '') return true;
-  return stored === 'true' || stored === '1' || stored === 'yes';
+  return true;
 }
 
-function setRedLetterEnabled(value) {
+function setRedLetterEnabled(_value) {
+  try {
+    localStorage.removeItem(RED_LETTER_TOGGLE_KEY);
+  } catch (e) { /* ignore */ }
+  if (document.body) document.body.classList.remove('red-letter-off');
   if (typeof window !== 'undefined' && window.TDBRedLetter && typeof window.TDBRedLetter.setEnabled === 'function') {
-    window.TDBRedLetter.setEnabled(!!value);
-    refreshRedLetterSurfaces();
-    return;
+    window.TDBRedLetter.setEnabled(true);
   }
-  localStorage.setItem(RED_LETTER_TOGGLE_KEY, value ? 'true' : 'false');
-  document.body.classList.toggle('red-letter-off', !value);
   refreshRedLetterSurfaces();
 }
 

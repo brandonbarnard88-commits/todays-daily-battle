@@ -53,34 +53,43 @@
   }
 
   /**
-   * Default ON. Only off when user explicitly chose false.
-   * (User request: words of Jesus in red always, everywhere.)
+   * Always on. Owner request: not a setting — Jesus’ words stay red.
    */
   function isEnabled() {
-    try {
-      var stored = global.localStorage.getItem(RED_LETTER_TOGGLE_KEY);
-      if (stored === null || stored === '') return true;
-      return stored === 'true' || stored === '1' || stored === 'yes';
-    } catch (e) {
-      return true;
-    }
+    return true;
   }
 
-  function setEnabled(value) {
+  function hideRedLetterControls() {
+    if (!global.document) return;
+    ['settings-red-letter', 'red-letter-toggle', 'reader-red-letter-toggle', 'rl-toggle'].forEach(function (id) {
+      var el = global.document.getElementById(id);
+      if (!el) return;
+      var wrap = el.closest && el.closest('.settings-row, .inline-toggle, .rl-toggle-panel, .rl-toggle-switch, label');
+      if (wrap) {
+        wrap.hidden = true;
+        wrap.setAttribute('hidden', '');
+        wrap.style.display = 'none';
+      }
+      el.hidden = true;
+      el.setAttribute('hidden', '');
+      if (el.type === 'checkbox') el.checked = true;
+    });
+  }
+
+  function setEnabled(_value) {
     try {
-      global.localStorage.setItem(RED_LETTER_TOGGLE_KEY, value ? 'true' : 'false');
+      global.localStorage.removeItem(RED_LETTER_TOGGLE_KEY);
     } catch (e) { /* ignore */ }
     if (global.document && global.document.body) {
-      global.document.body.classList.toggle('red-letter-off', !value);
+      global.document.body.classList.remove('red-letter-off');
     }
+    hideRedLetterControls();
     try {
-      global.dispatchEvent(new CustomEvent('tdb-red-letter-changed', { detail: { enabled: !!value } }));
+      global.dispatchEvent(new CustomEvent('tdb-red-letter-changed', { detail: { enabled: true } }));
     } catch (e2) { /* ignore */ }
-    if (value) {
-      try {
-        scanAndPaint(global.document);
-      } catch (e3) { /* ignore */ }
-    }
+    try {
+      scanAndPaint(global.document);
+    } catch (e3) { /* ignore */ }
   }
 
   function normalizeRanges(ranges, textLen) {
@@ -436,14 +445,17 @@
   };
 
   if (global.document && global.document.body) {
-    global.document.body.classList.toggle('red-letter-off', !isEnabled());
+    global.document.body.classList.remove('red-letter-off');
+    hideRedLetterControls();
   } else if (global.document) {
     global.document.addEventListener('DOMContentLoaded', function () {
-      if (global.document.body) {
-        global.document.body.classList.toggle('red-letter-off', !isEnabled());
-      }
+      if (global.document.body) global.document.body.classList.remove('red-letter-off');
+      hideRedLetterControls();
     });
   }
+  try {
+    global.localStorage.removeItem(RED_LETTER_TOGGLE_KEY);
+  } catch (eClr) { /* ignore */ }
 
   wireAutoScan();
 })(typeof window !== 'undefined' ? window : this);

@@ -1715,6 +1715,9 @@ const FEEL_MORE = {
     fullResults.innerHTML = "";
     fullResults.setAttribute("hidden", "");
     fullResults.classList.remove("results");
+    try {
+      if (typeof window.setHomeAskChromeForResults === "function") window.setHomeAskChromeForResults(false);
+    } catch (eChrome) { /* non-fatal */ }
     if (homeQaWrap) {
       homeQaWrap.classList.add("hidden");
       homeQaWrap.setAttribute("hidden", "");

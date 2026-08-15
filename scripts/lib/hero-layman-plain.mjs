@@ -328,6 +328,9 @@ export function buildFamousVersePlain(ref, text) {
   if (/^1\s+john\s+4:7\b/.test(r) || /beloved, let us love one another:\s*for love is of god/.test(lower)) {
     return 'Love is not something you manufacture — it comes from God. When you love others, you are showing you belong to Him.';
   }
+  if (/john\s+14:6/.test(r) || /i am the way, the truth, and the life/.test(lower)) {
+    return 'Jesus is the way to the Father — not one option among many.';
+  }
   if (/philippians\s+4:13/.test(r) || /i can do all things through christ/.test(lower)) {
     return 'I can face what is in front of me because Christ gives me strength.';
   }

@@ -12991,6 +12991,27 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
   }
 }
 
+/* Topic chips: verses first — no stacked intros above the first KJV card */
+#feel-results.results ~ a.feel-view-more,
+#feel-results.results ~ #homeQaResult,
+#feel-results.results ~ #feelWelcome,
+#feel-results.results ~ #tdbSearchNextStep {
+  display: none !important;
+}
+#feel-results .home-search-results-shell--quiet {
+  gap: 0.85rem;
+  margin-top: 0.35rem;
+}
+#feel-results .home-search-header--quiet {
+  gap: 0.25rem;
+  margin-bottom: 0.15rem;
+}
+#feel-results .home-search-header--quiet .home-search-response-title {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--gold, #f2dc98);
+}
+
 /* After Ask the Word: keep grove / Heavy / plan CTA inside one quiet disclosure */
 #tdbHomeAfterAsk {
   margin: 0.85rem 0 1.25rem;

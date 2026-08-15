@@ -235,6 +235,9 @@
     if (/john\s+14:27/.test(r) || /peace i leave with you, my peace i give/.test(lower)) {
       return 'Jesus leaves you His peace — not the thin kind the world gives. Do not let your heart be troubled or afraid.';
     }
+    if (/john\s+14:6/.test(r) || /i am the way, the truth, and the life/.test(lower)) {
+      return 'Jesus is the way to the Father — not one option among many.';
+    }
     if (/psalm\s+92:4/.test(r) || /made me glad through thy work|glad through your work/.test(lower)) {
       return 'God’s work is what makes the heart glad — joy rises when you look at what He has done, not only at how the day feels.';
     }

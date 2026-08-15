@@ -30518,12 +30518,31 @@ function executeQuery(parsed, tier, filters) {
   }
   if (parsed.intent === 'jesus_said') {
     const speechRegex = /(jesus said|jesus saith|then said jesus|and jesus said|jesus answered|jesus cried|jesus spake|verily,? verily|i say unto you)/i;
-    const matches = bibleEntries
-      .filter(([ref]) => isGospelBook(ref))
-      .map(([ref, text]) => (speechRegex.test(text) ? { ref, text } : null))
-      .filter(Boolean)
-      .slice(0, 40);
-    results.verses = matches;
+    var curated = [];
+    var seenJs = {};
+    var jsTopic = topics && topics['jesus said'];
+    if (jsTopic && Array.isArray(jsTopic.verses)) {
+      jsTopic.verses.forEach(function (ref) {
+        if (!ref || seenJs[ref]) return;
+        seenJs[ref] = true;
+        var text =
+          (bible && bible[ref]) ||
+          (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '') ||
+          '';
+        curated.push({ ref: ref, text: text });
+      });
+    }
+    const matches = (bibleEntries || [])
+      .filter(function (pair) { return pair && isGospelBook(pair[0]); })
+      .map(function (pair) { return speechRegex.test(pair[1]) ? { ref: pair[0], text: pair[1] } : null; })
+      .filter(Boolean);
+    matches.forEach(function (row) {
+      if (!row || !row.ref || seenJs[row.ref]) return;
+      seenJs[row.ref] = true;
+      curated.push(row);
+    });
+    results.verses = curated.slice(0, 16);
+    results.topic = 'jesus said';
     results.guidance = 'Words of Jesus from the Gospels (red-letter style).';
     return results;
   }
@@ -31123,7 +31142,23 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=gospeljohn',
     days: 7,
     description: 'Seven days in John for Jesus’ identity, belief, living water, and life through His name.',
-    topics: ['jesus', 'salvation', 'gospel', 'faith', 'hope']
+    topics: ['jesus said', 'jesus', 'salvation', 'gospel', 'faith', 'hope', 'red letter']
+  },
+  {
+    id: 'hisownwords',
+    title: 'Only His Voice',
+    href: 'plans.html?plan=hisownwords',
+    days: 5,
+    description: 'Five quiet days with nothing but the red letters of the Lord Jesus.',
+    topics: ['jesus said', 'red letter', 'words of jesus', 'jesus', 'gospels']
+  },
+  {
+    id: 'comeuntome',
+    title: 'Come Unto Me',
+    href: 'plans.html?plan=comeuntome',
+    days: 5,
+    description: 'When the heart is too heavy for prayer — rest in the Lord Jesus’s own words.',
+    topics: ['jesus said', 'rest', 'weary', 'jesus', 'peace']
   },
   {
     id: 'firststeps',
@@ -32387,7 +32422,8 @@ function titleCaseHomeTopic(topic) {
     jesus: 'Jesus',
     salvation: 'Salvation',
     faith: 'Faith',
-    courage: 'Courage'
+    courage: 'Courage',
+    'jesus said': 'Jesus said'
   };
   if (labels[t]) return labels[t];
   return t.split(/\s+/).map(function (part) {
@@ -32396,6 +32432,10 @@ function titleCaseHomeTopic(topic) {
 }
 
 function getHomeSearchActiveTopics(results, queryText) {
+  var q = normalizeInput(String(queryText || ''));
+  if (q === 'jesus said' || q === 'red letter' || q === 'words of jesus' || (results && results.intent === 'jesus_said')) {
+    return ['jesus said'];
+  }
   var tokens = getHomeSearchQueryTokens(queryText);
   var topicsFound = [];
   if (results && results.topic) topicsFound.push(results.topic);
@@ -32409,7 +32449,7 @@ function getHomeSearchActiveTopics(results, queryText) {
       if (resolved) topicsFound.push(resolved);
     }
     if (typeof topics !== 'undefined' && topics && topics[token]) topicsFound.push(token);
-    if (token === 'jesus' || token === 'salvation') topicsFound.push(token);
+    if (token === 'salvation') topicsFound.push(token);
     // Life-situation clusters: map real-world words ("boss", "cancer", "divorce") to topics
     var situationTopics = typeof SITUATION_TO_TOPICS !== 'undefined' && SITUATION_TO_TOPICS && SITUATION_TO_TOPICS[token];
     if (situationTopics) situationTopics.forEach(function (t) { topicsFound.push(t); });
@@ -32453,12 +32493,14 @@ function pickHomeSearchEntries(library, results, queryText, limit, fallbackIds) 
 }
 
 function buildHomeSearchPlanMatches(results, queryText) {
+  var q = normalizeInput(String(queryText || ''));
+  var jesusSaid = q === 'jesus said' || q === 'red letter' || q === 'words of jesus' || (results && results.intent === 'jesus_said');
   return pickHomeSearchEntries(
     HOME_SEARCH_PLAN_LIBRARY,
     results,
     queryText,
     3,
-    ['psalmscomfort', 'peace', 'hopeuncertain']
+    jesusSaid ? ['hisownwords', 'comeuntome', 'gospeljohn'] : ['psalmscomfort', 'peace', 'hopeuncertain']
   );
 }
 

@@ -49,6 +49,12 @@ const layers = [
     required: true,
   },
   {
+    id: '2b',
+    name: 'Verse accuracy (no mismatched teaching on any surface)',
+    script: 'scripts/verify-verse-accuracy.mjs',
+    required: true,
+  },
+  {
     id: 3,
     name: 'Kids Scripture (coloring + stories KJV)',
     script: 'scripts/verify-kids-scripture-integrity.mjs',

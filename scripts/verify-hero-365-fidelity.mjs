@@ -24,8 +24,10 @@ import { BOOK_CHAPTER_SITUATIONS, situationForChapter } from './lib/bible-situat
 import { isWeakPlainStamp } from './lib/teaching-quality.mjs';
 import {
   bookOf,
+  buildBandFingerprints,
   chapterOf,
   contentTokens,
+  evaluateTeachingFields,
   normalizeRef,
   plainOverlapsVerse,
   situationLooksWrongForRef,
@@ -146,6 +148,18 @@ function main() {
 
     if (situationLooksWrongForRef(setting, ref)) {
       failures.push(`${label}: setting is wrong-chapter blurb: "${setting.slice(0, 100)}"`);
+    }
+    const judged = evaluateTeachingFields({
+      ref,
+      about,
+      to,
+      setting,
+      plain,
+      verseText: text,
+      fingerprints: buildBandFingerprints(BOOK_CHAPTER_SITUATIONS)
+    });
+    if (!judged.ok) {
+      judged.errors.forEach((e) => failures.push(`${label}: ${e}`));
     }
 
     const book = bookForMap(ref);

@@ -27,7 +27,7 @@ const TARGET_GLOBS = [
 ];
 
 const TAGLINE_RE =
-  /\s*<p class="tdb-header-heartbeat site-tagline" lang="en">(?:One KJV verse for what you&rsquo;re carrying|For God, For Family, For Country)<\/p>/gi;
+  /\s*<p class="tdb-header-heartbeat site-tagline" lang="en">(?:One KJV verse for what you&rsquo;re carrying|For Family, For Country, For GOD)<\/p>/gi;
 
 const RL_NAV_RE =
   /<nav class="rl-global-nav"[\s\S]*?<\/nav>\s*/i;

@@ -181,6 +181,9 @@ function tdbIsHomePage() {
     if (/\bthank|thanks|thanksgiving|grateful|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
     if (/\bdoubt(s|ed|ful|eth)?\b|unbelief|disbelief|faithless|be not faithless|waver(ing|ed|eth)?\b|staggered not|help thou mine|mine unbelief|look we for another|art thou he that should come\b/.test(low)) return 'doubt';
     if (/\bhope|hopeless|discouraged\b/.test(low)) return 'hope';
+    if (/\blove one another\b|\blove is of god\b|\bperfect love\b|\bfirst loved us\b|\bcharity suffereth\b|\bbeloved, let us love\b/.test(low)) {
+      return 'love';
+    }
     return 'hope';
   }
   var UOG_PLANS = {
@@ -289,6 +292,11 @@ function tdbIsHomePage() {
       { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
       { href: '/plans.html?plan=universitywaiting', label: 'University of Waiting' },
       { href: '/plans.html?plan=praisethanks30', label: 'Praise and Thanksgiving' }
+    ],
+    love: [
+      { href: '/reading-plan.html?study=love-one-another', label: 'Love One Another' },
+      { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' },
+      { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' }
     ]
   };
   /** @param {string} ref @param {string} text Verse + optional breakdown copy (influence string). */
@@ -33199,22 +33207,13 @@ function attachHomeSearchDigDeeper(verse, verseText) {
   var vbStd = window.TDB_verseBreakdownStandard;
   if (!vbStd || typeof vbStd.hydrateAskTheTeacherDigDeeper !== 'function' || !verse || !verse.ref) return null;
 
-  var digDet = document.createElement('details');
-  digDet.className = 'tdb-dig-deeper';
-
-  if (typeof vbStd.createDigDeeperSummary === 'function') {
-    digDet.appendChild(
-      vbStd.createDigDeeperSummary(
-        'More from the Word',
-        'Cross-references and plain notes \u2014 only if you want them'
-      )
-    );
-  } else {
-    var sumFallback = document.createElement('summary');
-    sumFallback.className = 'tdb-dig-deeper__summary';
-    sumFallback.textContent = 'More from the Word';
-    digDet.appendChild(sumFallback);
-  }
+  var digDet = document.createElement('div');
+  digDet.className = 'tdb-dig-deeper tdb-dig-deeper--always-open';
+  digDet.setAttribute('data-tdb-dig-always-open', '1');
+  var digHeading = document.createElement('h3');
+  digHeading.className = 'tdb-dig-deeper__always-heading';
+  digHeading.textContent = 'More from the Word';
+  digDet.appendChild(digHeading);
 
   var digContent = document.createElement('div');
   digContent.className = 'tdb-dig-deeper__content';
@@ -33264,7 +33263,7 @@ function attachHomeSearchDigDeeper(verse, verseText) {
 
 function buildHomeSearchGuideLine(planMatches, resourceMatches) {
   var lines = [
-    'Verses first. Each card keeps plain help, one small step, and a prayer up front; open More from the Word when you want depth.'
+    'Verses first. Each card keeps plain help, one small step, a prayer, and more from the Word in the open.'
   ];
   if (planMatches && planMatches.length) {
     lines.push('If this battle needs more than one day, start with the first Battle Plan below.');

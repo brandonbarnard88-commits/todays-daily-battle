@@ -52,8 +52,36 @@
     }
   }
 
+  function isInsideVerseOrAsk(el) {
+    if (!el || !el.closest) return false;
+    return !!(el.closest('#verseCard') || el.closest('#quick-search-hero') || el.closest('#feel-section'));
+  }
+
+  /** Today’s verse and Ask the Word stay in the open — no tap-to-open menus. */
+  function flattenVerseAndAskDropdowns() {
+    var roots = [
+      document.getElementById('verseCard'),
+      document.getElementById('quick-search-hero'),
+      document.getElementById('feel-section')
+    ].filter(Boolean);
+    roots.forEach(function (root) {
+      Array.prototype.slice.call(root.querySelectorAll('details')).forEach(function (d) {
+        d.open = true;
+        d.setAttribute('open', '');
+        d.classList.add('tdb-no-dropdown');
+        var sum = d.querySelector(':scope > summary');
+        if (!sum) return;
+        var label = document.createElement('p');
+        label.className = ((sum.className || '') + ' tdb-no-dropdown-label').trim();
+        label.textContent = String(sum.textContent || '').replace(/\s+/g, ' ').trim();
+        d.replaceChild(label, sum);
+      });
+    });
+  }
+
   function wrapInDetails(id, summaryText, nodes, extraClass) {
     if (!nodes.length || document.getElementById(id)) return null;
+    if (nodes.some(isInsideVerseOrAsk)) return null;
     var host = nodes[0].parentNode;
     if (!host) return null;
     var details = document.createElement('details');
@@ -231,7 +259,9 @@
       'tdbFamilyModeBridge',
       'en-hub-daily-verse'
     ];
-    var nodes = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    var nodes = ids.map(function (id) { return document.getElementById(id); }).filter(function (n) {
+      return n && !isInsideVerseOrAsk(n);
+    });
     if (nodes.length) {
       wrapInDetails(
         'tdb-hero-more-tools',
@@ -564,6 +594,7 @@
     }
 
     initFirstVisitStrip();
+    flattenVerseAndAskDropdowns();
 
     /* Tour complete/skip (manual) → same returning layout as strip dismiss */
     try {

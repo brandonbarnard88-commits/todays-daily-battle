@@ -917,6 +917,27 @@
       group: normalizeGroup(group),
       source: base.source || 'generated'
     };
+    if (typeof window !== 'undefined' && window.TDB_verseAccuracy && typeof window.TDB_verseAccuracy.sanitize === 'function') {
+      var acc = window.TDB_verseAccuracy.sanitize(base.ref || '', {
+        about: out.about,
+        setting: out.setting || out.situation,
+        audience: out.to,
+        plain: meaningOnly
+      });
+      if (acc.blocked && acc.blocked.length) {
+        if (acc.blocked.indexOf('who') !== -1) out.about = acc.who;
+        if (acc.blocked.indexOf('situation') !== -1) {
+          out.setting = acc.situation;
+          out.situation = acc.situation;
+        }
+        if (acc.blocked.indexOf('audience') !== -1) out.to = acc.audience;
+        if (acc.blocked.indexOf('plain') !== -1) {
+          meaningOnly = acc.plain;
+          out.plainMeaningOnly = acc.plain;
+          out.plainExplanation = acc.plain;
+        }
+      }
+    }
     out.layman = meaningOnly || 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
     out.applies = out.groupApplication || buildGroupApplication(out.group, inferRelationTopic('', out.layman));
     out.relates = out.modernApplication || inferApplies(out.layman);
@@ -1232,9 +1253,9 @@
     bbeHost.setAttribute('data-bbe-slot', '1');
     breakdown.appendChild(bbeHost);
 
-    var layWrap = document.createElement('details');
-    layWrap.className = 'tdb-layman-collapse tdb-vb-layman-collapse';
-    var laySum = document.createElement('summary');
+    var layWrap = document.createElement('div');
+    layWrap.className = 'tdb-layman-collapse tdb-vb-layman-collapse tdb-layman-always-open';
+    var laySum = document.createElement('h4');
     laySum.className = 'tdb-layman-collapse__summary';
     laySum.appendChild(document.createTextNode('Simple layman terms'));
     layWrap.appendChild(laySum);

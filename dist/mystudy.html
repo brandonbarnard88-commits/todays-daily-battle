@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260809-vbd-labels"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260809-vbd-labels"></script>
@@ -17,9 +16,6 @@
   <meta name="theme-color" content="#0a0c14">
   <link rel="preload" href="styles.css?v=20260809-vbd-labels" as="style">
   <link rel="stylesheet" href="styles.css?v=20260809-vbd-labels">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="preload" href="mystudy.css?v=20260711-ms3-desk" as="style">
@@ -412,6 +408,7 @@
   <script src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <!-- Supabase SDK managed exclusively by script.js (singleton prevents duplicate GoTrueClient instances and auth token races) -->
   <script src="verse-context.js?v=20260806-context" data-tdb-verse-context="1"></script>
+<script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
 <script src="verse-breakdown.js?v=20260809-search-fix" defer></script>
   <script src="gentle-suggest.js?v=20260418gentle" defer></script>
   <script src="highlights.js?v=20260305" defer></script>
@@ -427,14 +424,5 @@
   <script defer src="/js/mystudy-mobile.js"></script>
   <script type="module" src="script.js?v=20260809-vbd-labels" data-cfasync="false"></script>
   <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
-
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
-    <nav class="tdb-bottom-dock" aria-label="Main navigation">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/#feel-section" aria-label="How I feel">Feel</a>
-      <a href="/plans.html" aria-label="Reading plans">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
-      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
-    </nav>
 </body>
 </html>

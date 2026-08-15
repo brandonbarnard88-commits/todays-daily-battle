@@ -6,7 +6,7 @@
     Joshua: { s: 'Joshua', a: 'Israel' }, Judges: { s: 'Unknown', a: 'Israel' }, Ruth: { s: 'Unknown', a: 'Israel' },
     '1 Samuel': { s: 'Samuel', a: 'Israel' }, '2 Samuel': { s: 'Nathan', a: 'Israel' }, '1 Kings': { s: 'Unknown', a: 'Israel' }, '2 Kings': { s: 'Unknown', a: 'Israel' },
     '1 Chronicles': { s: 'Chronicler', a: 'Exiles' }, '2 Chronicles': { s: 'Chronicler', a: 'Exiles' }, Ezra: { s: 'Ezra', a: 'Exiles' }, Nehemiah: { s: 'Nehemiah', a: 'Exiles' }, Esther: { s: 'Unknown', a: 'Israel' },
-    Job: { s: 'Job and the Lord', a: 'All' }, Psalm: { s: 'David or another psalm writer', a: 'Everyone hurting or thankful' }, Psalms: { s: 'David or another psalm writer', a: 'Everyone hurting or thankful' },
+    Job: { s: 'Job and the Lord', a: 'All' }, Psalm: { s: 'A named voice in the Psalms — David, Asaph, Moses, or Israel’s worship', a: 'Everyone hurting or thankful' }, Psalms: { s: 'A named voice in the Psalms — David, Asaph, Moses, or Israel’s worship', a: 'Everyone hurting or thankful' },
     Proverbs: { s: 'Solomon giving wisdom', a: 'Everyone seeking guidance' }, Ecclesiastes: { s: 'Solomon', a: 'All' }, 'Song of Solomon': { s: 'Solomon', a: 'All' },
     Isaiah: { s: 'Isaiah', a: 'Judah' }, Jeremiah: { s: 'Jeremiah', a: 'Judah and the exiles' }, Lamentations: { s: 'Jeremiah', a: 'Exiles' }, Ezekiel: { s: 'Ezekiel', a: 'Exiles' }, Daniel: { s: 'Daniel', a: 'Exiles' },
     Hosea: { s: 'Hosea', a: 'Israel' }, Joel: { s: 'Joel', a: 'Judah' }, Amos: { s: 'Amos', a: 'Israel' }, Obadiah: { s: 'Obadiah', a: 'Edom' }, Jonah: { s: 'Jonah', a: 'Nineveh' }, Micah: { s: 'Micah', a: 'Judah' }, Nahum: { s: 'Nahum', a: 'Nineveh' }, Habakkuk: { s: 'Habakkuk', a: 'Judah' }, Zephaniah: { s: 'Zephaniah', a: 'Judah' }, Haggai: { s: 'Haggai', a: 'Exiles' }, Zechariah: { s: 'Zechariah', a: 'Exiles' }, Malachi: { s: 'Malachi', a: 'Israel' },
@@ -236,7 +236,7 @@
       return 'God’s work is what makes the heart glad — joy rises when you look at what He has done, not only at how the day feels.';
     }
     if (/psalm\s+118:24/.test(r) || /this is the day which the lord hath made/.test(lower)) {
-      return 'Today is a gift from the Lord — choose gladness in it, even if the schedule is hard.';
+      return 'The Lord made this day. Rejoice and be glad in it — even when the hours feel ordinary.';
     }
     if (/begat|son of|daughter of|the generations of/i.test(body) && body.length < 180) {
       return 'This verse records real family lines in God’s story — names and people matter to Him.';
@@ -917,6 +917,27 @@
       group: normalizeGroup(group),
       source: base.source || 'generated'
     };
+    if (typeof window !== 'undefined' && window.TDB_verseAccuracy && typeof window.TDB_verseAccuracy.sanitize === 'function') {
+      var acc = window.TDB_verseAccuracy.sanitize(base.ref || '', {
+        about: out.about,
+        setting: out.setting || out.situation,
+        audience: out.to,
+        plain: meaningOnly
+      });
+      if (acc.blocked && acc.blocked.length) {
+        if (acc.blocked.indexOf('who') !== -1) out.about = acc.who;
+        if (acc.blocked.indexOf('situation') !== -1) {
+          out.setting = acc.situation;
+          out.situation = acc.situation;
+        }
+        if (acc.blocked.indexOf('audience') !== -1) out.to = acc.audience;
+        if (acc.blocked.indexOf('plain') !== -1) {
+          meaningOnly = acc.plain;
+          out.plainMeaningOnly = acc.plain;
+          out.plainExplanation = acc.plain;
+        }
+      }
+    }
     out.layman = meaningOnly || 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
     out.applies = out.groupApplication || buildGroupApplication(out.group, inferRelationTopic('', out.layman));
     out.relates = out.modernApplication || inferApplies(out.layman);
@@ -1232,9 +1253,9 @@
     bbeHost.setAttribute('data-bbe-slot', '1');
     breakdown.appendChild(bbeHost);
 
-    var layWrap = document.createElement('details');
-    layWrap.className = 'tdb-layman-collapse tdb-vb-layman-collapse';
-    var laySum = document.createElement('summary');
+    var layWrap = document.createElement('div');
+    layWrap.className = 'tdb-layman-collapse tdb-vb-layman-collapse tdb-layman-always-open';
+    var laySum = document.createElement('h4');
     laySum.className = 'tdb-layman-collapse__summary';
     laySum.appendChild(document.createTextNode('Simple layman terms'));
     layWrap.appendChild(laySum);

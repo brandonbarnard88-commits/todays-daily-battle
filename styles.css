@@ -12107,9 +12107,19 @@ body.dark-mode .red-letter,
   margin-bottom: 0.25rem;
 }
 
+/* Always on — do not honor a stored off switch. */
 body.red-letter-off .red-letter {
-  color: inherit !important;
-  font-weight: inherit !important;
+  color: #ff6b6b !important;
+  font-weight: 600 !important;
+}
+#settings-red-letter,
+.settings-row:has(#settings-red-letter),
+#red-letter-toggle,
+label.inline-toggle:has(#red-letter-toggle),
+#reader-red-letter-toggle,
+label:has(#reader-red-letter-toggle),
+.rl-toggle-switch {
+  display: none !important;
 }
 
 body.red-letter-off .red-letter-card {

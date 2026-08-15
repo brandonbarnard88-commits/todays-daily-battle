@@ -122,13 +122,30 @@ function buildVbdHtml(refLabel, verseText, plainMap, resolve) {
     .trim()
     .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
     .replace(/^What it means:\s*/i, '');
+  const bbeNow = bbeForRef(ref);
+  if (
+    bbeNow &&
+    plain &&
+    plain.replace(/[^a-z0-9\s]/gi, ' ').replace(/\s+/g, ' ').trim().toLowerCase() ===
+      bbeNow.replace(/[^a-z0-9\s]/gi, ' ').replace(/\s+/g, ' ').trim().toLowerCase()
+  ) {
+    plain = '';
+  }
   if (
     !plain ||
     plain.length < 12 ||
     /^In plain terms for life today:/i.test(plain) ||
     /Sit with that until one phrase lands/i.test(plain)
   ) {
-    plain = 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
+    plain = buildHeroLaymanPlain(ref, text, plainMap, root) ||
+      'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
+    if (
+      bbeNow &&
+      plain.replace(/[^a-z0-9\s]/gi, ' ').replace(/\s+/g, ' ').trim().toLowerCase() ===
+        bbeNow.replace(/[^a-z0-9\s]/gi, ' ').replace(/\s+/g, ' ').trim().toLowerCase()
+    ) {
+      plain = 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
+    }
   }
   let sit = situation;
   if (/ speaking to /i.test(sit) && sit.length < 100) {

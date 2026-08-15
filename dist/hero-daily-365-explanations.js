@@ -2045,7 +2045,7 @@
   {
     "ref": "1 John 4:7",
     "text": "Beloved, let us love one another: for love is of God.",
-    "plain": "My loved ones, let us have love for one another: because love is of God, and everyone who has love is a child of God and has knowledge of God.",
+    "plain": "Love is not something you manufacture — it comes from God. When you love others, you are showing you belong to Him.",
     "step": "Choose one person to treat gently because of this verse.",
     "about": "John",
     "to": "Beloved children learning God’s love",

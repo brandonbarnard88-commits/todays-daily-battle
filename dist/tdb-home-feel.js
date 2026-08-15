@@ -49,6 +49,35 @@ const FEEL_GROUPS = {
       }
     ]
   },
+  overwhelmed: {
+    label: "heavy",
+    verses: [
+      {
+        ref: "Matthew 11:28",
+        speaker: "Jesus to anyone carrying too much—and to you",
+        text: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+        plain: "Jesus is inviting the worn-out, not the people who already have it together.",
+        today: "The load you woke up with is the one He is talking about.",
+        action: "Stop. Say: 'Jesus, I come as I am. I need rest.'"
+      },
+      {
+        ref: "Psalm 55:22",
+        speaker: "David under a weight he could not carry—and you under yours",
+        text: "Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.",
+        plain: "Cast means hand it over. He holds you up; you do not have to keep gripping the whole pile.",
+        today: "You do not have to organize the burden first. Transfer it.",
+        action: "Name the heaviest thing once, then say this verse over it."
+      },
+      {
+        ref: "1 Peter 5:7",
+        speaker: "Peter to believers under pressure—and to you",
+        text: "Casting all your care upon him; for he careth for you.",
+        plain: "Throw the whole care on Him, because He actually cares for you.",
+        today: "All of it. Not the polite half.",
+        action: "Say out loud: 'This is Yours. I cannot hold it all.'"
+      }
+    ]
+  },
   tired: {
     label: "tired",
     verses: [
@@ -313,7 +342,8 @@ const FEEL_GROUPS = {
 // ── Feel Search Mappings ──
 // Hand-curated packs (rich plain/today/action). Other chips build from script.js `topics` verses.
 const FEEL_MAP = [
-  { keys: ["anxious","anxiety","anxiousness","stress","stressed","worry","worried","worrying","nervous","panic","panicking","overwhelmed","overthinking","restless","finances","money"], group: "anxious" },
+  { keys: ["anxious","anxiety","anxiousness","stress","stressed","worry","worried","worrying","nervous","panic","panicking","overthinking","restless","finances","money"], group: "anxious" },
+  { keys: ["overwhelmed","heavy","too much","burdened","laden"], group: "overwhelmed" },
   { keys: ["tired","exhausted","weary","sleepy","drained","worn out","worn-out","fatigued","fatigue","burnt out","burnout","burn out","sleep","exhaustion","strength"], group: "tired" },
   { keys: ["angry","mad","frustrated","frustration","furious","irritated","irritable","rage","fuming","livid","irate","anger"], group: "angry" },
   { keys: ["lonely","alone","isolated","solitude","nobody","no one","nobody cares","nobody gets me","nobody understands","forgotten","invisible","loneliness"], group: "lonely" },
@@ -326,9 +356,10 @@ const FEEL_MAP = [
 /** Chip / query → script.js topics key (exact chip labels first). */
 const CHIP_TO_TOPICS_KEY = {
   anxiety: "anxiety",
+  restless: "anxiety",
   fear: "fear",
-  overwhelmed: "anxiety",
-  heavy: "anxiety",
+  overwhelmed: "overwhelmed",
+  heavy: "overwhelmed",
   grief: "grief",
   strength: "strength",
   tired: "strength",
@@ -473,6 +504,9 @@ function buildFeelGroupFromScriptTopics(topicKey, label) {
           plain = window.TDBTeachingQuality.meaningOnly(plain) || plain;
         }
         plain = plain.replace(/^What was going on:[\s\S]*?What it means:\s*/i, "").trim();
+        if (plain && window.TDBTeachingQuality && typeof window.TDBTeachingQuality.isBbeEcho === "function") {
+          if (window.TDBTeachingQuality.isBbeEcho(plain, ref)) plain = "";
+        }
         action = String(bd.modernApplication || bd.applies || "").trim();
       }
     } catch (eBd) { /* non-fatal */ }
@@ -504,7 +538,14 @@ function resolveFeelGroup(raw) {
   const q = String(raw || "").trim().toLowerCase();
   if (!q) return null;
 
-  // 1) Exact FEEL_MAP key → hand-curated pack (never substring-match first — that was collapsing chips).
+  // 1) Exact chip / topics key → that topic's own verses (grief ≠ guilt ≠ trauma).
+  const topicsKey = resolveTopicsKey(q);
+  if (topicsKey) {
+    const fromTopics = buildFeelGroupFromScriptTopics(topicsKey, q);
+    if (fromTopics) return fromTopics;
+  }
+
+  // 2) Exact FEEL_MAP key → hand-curated pack (never substring-match first — that was collapsing chips).
   for (let gi = 0; gi < FEEL_MAP.length; gi++) {
     const group = FEEL_MAP[gi];
     for (let ki = 0; ki < group.keys.length; ki++) {
@@ -513,23 +554,6 @@ function resolveFeelGroup(raw) {
         if (pack) return pack;
       }
     }
-  }
-
-  // 2) Exact chip / topics key → curated topic verses from script.js
-  const topicsKey = resolveTopicsKey(q);
-  if (topicsKey) {
-    // Prefer hand pack when chip aliases into one of the 8 rich moods
-    for (let gi = 0; gi < FEEL_MAP.length; gi++) {
-      const group = FEEL_MAP[gi];
-      for (let ki = 0; ki < group.keys.length; ki++) {
-        if (topicsKey === group.keys[ki] || q === group.keys[ki]) {
-          const pack = FEEL_GROUPS[group.group];
-          if (pack) return pack;
-        }
-      }
-    }
-    const fromTopics = buildFeelGroupFromScriptTopics(topicsKey, q);
-    if (fromTopics) return fromTopics;
   }
 
   // 3) Substring match on FEEL_MAP keys (longest key first) for free-typed phrases
@@ -1796,23 +1820,26 @@ const FEEL_MORE = {
     }
     if (!situation && !meaning && !about) return null;
 
-    const heading = document.createElement("p");
-    heading.className = "tdb-topic-vbd__heading";
-    heading.textContent = "What was going on & what it means";
-    wrap.appendChild(heading);
-
-    const combined = document.createElement("p");
-    combined.className = "tdb-topic-vbd__combined";
-    if (situation && meaning) {
-      combined.textContent =
-        "What was going on: " +
-        situation.replace(/\.$/, "") +
-        ". What it means: " +
-        meaning.replace(/^What it means:\s*/i, "");
-    } else {
-      combined.textContent = meaning || situation;
+    if (situation) {
+      const sitLab = document.createElement("h4");
+      sitLab.className = "tdb-kiss-verse__label tdb-vbd-label";
+      sitLab.textContent = "What was going on";
+      const sitBody = document.createElement("p");
+      sitBody.className = "tdb-kiss-verse__sit tdb-vbd-body";
+      sitBody.textContent = situation;
+      wrap.appendChild(sitLab);
+      wrap.appendChild(sitBody);
     }
-    wrap.appendChild(combined);
+    if (meaning) {
+      const meanLab = document.createElement("h4");
+      meanLab.className = "tdb-kiss-verse__label tdb-vbd-label";
+      meanLab.textContent = "What it means";
+      const meanBody = document.createElement("p");
+      meanBody.className = "tdb-kiss-verse__mean tdb-vbd-body";
+      meanBody.textContent = meaning.replace(/^What it means:\s*/i, "");
+      wrap.appendChild(meanLab);
+      wrap.appendChild(meanBody);
+    }
 
     if (about) {
       const who = document.createElement("p");
@@ -1864,6 +1891,8 @@ const FEEL_MORE = {
     if (!article) {
       article = document.createElement("article");
       article.className = "feel-verse-card tdb-kiss-verse";
+      article.setAttribute("data-tdb-kiss-verse", "1");
+      article.setAttribute("data-ref", primaryFeelRef(entry.ref));
       const ref = document.createElement("p");
       ref.className = "tdb-kiss-verse__ref fvc-ref";
       ref.textContent = sanitizeText(entry.ref) + " (KJV)";
@@ -1871,6 +1900,32 @@ const FEEL_MORE = {
       kjv.className = "tdb-kiss-verse__kjv fvc-kjv";
       kjv.textContent = "\u201c" + sanitizeText(entry.text) + "\u201d";
       article.append(ref, kjv);
+      const bbeBlock = document.createElement("div");
+      bbeBlock.className = "tdb-kiss-verse__block tdb-kiss-verse__block--bbe tdb-bbe-simple tdb-bbe-simple--always-open";
+      bbeBlock.setAttribute("data-bbe-simple", "1");
+      bbeBlock.setAttribute("data-bbe-ref", primaryFeelRef(entry.ref));
+      bbeBlock.setAttribute("data-bbe-always-open", "1");
+      const bbeLab = document.createElement("h4");
+      bbeLab.className = "tdb-kiss-verse__label tdb-bbe-simple__heading";
+      bbeLab.textContent = "In simpler words";
+      const bbeBody = document.createElement("div");
+      bbeBody.className = "tdb-bbe-simple__body";
+      const bbeStatus = document.createElement("p");
+      bbeStatus.className = "tdb-bbe-simple__status section-note";
+      bbeStatus.setAttribute("data-bbe-status", "1");
+      bbeStatus.setAttribute("hidden", "");
+      const bbeText = document.createElement("p");
+      bbeText.className = "tdb-bbe-simple__text tdb-kiss-verse__bbe";
+      bbeText.setAttribute("data-bbe-text", "1");
+      bbeText.setAttribute("lang", "en");
+      bbeBody.append(bbeStatus, bbeText);
+      bbeBlock.append(bbeLab, bbeBody);
+      article.appendChild(bbeBlock);
+      try {
+        if (window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === "function") {
+          window.TDBBbeSimple.fillHost(bbeBody, primaryFeelRef(entry.ref));
+        }
+      } catch (eBbeFb) { /* non-fatal */ }
       const situationBlock = buildSituationMeaningBlock(entry.ref, entry.plain);
       if (situationBlock) article.appendChild(situationBlock);
     }
@@ -1946,6 +2001,17 @@ const FEEL_MORE = {
     (group.verses || []).forEach((entry, idx) => {
       cards.appendChild(buildVerseCard(entry, idx));
     });
+    try {
+      if (window.TDBBbeSimple && typeof window.TDBBbeSimple.enhanceDocument === "function") {
+        window.TDBBbeSimple.enhanceDocument(cards);
+      }
+      if (window.TDBBbeSimple && typeof window.TDBBbeSimple.fillKissKjvBodies === "function") {
+        window.TDBBbeSimple.fillKissKjvBodies(cards);
+      }
+      if (window.TDBRedLetter && typeof window.TDBRedLetter.scanAndPaint === "function") {
+        window.TDBRedLetter.scanAndPaint(cards);
+      }
+    } catch (eTeach) { /* non-fatal */ }
     const topEntry = group && Array.isArray(group.verses) && group.verses.length ? group.verses[0] : null;
     updateSearchNextStep(rawQuery || (group && group.label) || "", topEntry);
     renderFeelPathCard(rawQuery || (group && group.label) || "");
@@ -1969,6 +2035,11 @@ const FEEL_MORE = {
           card.classList.add("feel-verse-card--more");
           cards.insertBefore(card, wrap);
         });
+        try {
+          if (window.TDBBbeSimple && typeof window.TDBBbeSimple.enhanceDocument === "function") {
+            window.TDBBbeSimple.enhanceDocument(cards);
+          }
+        } catch (eMoreBbe) { /* non-fatal */ }
         wrap.replaceChildren();
         const doneLink = document.createElement("a");
         doneLink.href = "#feel-search";

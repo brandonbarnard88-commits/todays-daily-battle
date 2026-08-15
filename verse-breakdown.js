@@ -30,7 +30,7 @@
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
   /* v4: verse-grounded plains (BBE/modernized KJV), not mood stamps */
-  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v5::';
+  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v6::';
   var BREAKDOWN_MAX_MEMORY_CACHE = 600;
   var KJV_DICT_URLS = ['/data/kjv-full.json', '/kjv.json'];
   var BREAKDOWN_OVERRIDES_SCRIPT_URL = '/verse-breakdown-overrides.js';
@@ -199,6 +199,9 @@
     if (/john\s+3:16/.test(r) || /for god so loved the world/.test(lower)) {
       return 'God loved the world so much He gave His only Son, so whoever believes in Him will not be lost but have eternal life.';
     }
+    if (/^1\s+john\s+4:7/.test(r) || /beloved, let us love one another:\s*for love is of god/.test(lower)) {
+      return 'Love is not something you manufacture — it comes from God. When you love others, you are showing you belong to Him.';
+    }
     if (/philippians\s+4:13/.test(r) || /i can do all things through christ/.test(lower)) {
       return 'I can face what is in front of me because Christ gives me strength.';
     }
@@ -327,9 +330,26 @@
     return out;
   }
 
+  function getBbePlainForRef(ref) {
+    try {
+      if (typeof window !== 'undefined' && window.TDBBbeSimple && typeof window.TDBBbeSimple.getTextSync === 'function') {
+        return tdbPlainTextForUi(window.TDBBbeSimple.getTextSync(ref) || '');
+      }
+    } catch (eBbe) { /* non-fatal */ }
+    return '';
+  }
+
+  function isBbeEcho(plain, ref, bbeText) {
+    var p = tdbPlainTextForUi(plain || '');
+    if (!p) return false;
+    var bbe = tdbPlainTextForUi(bbeText || getBbePlainForRef(ref));
+    if (!bbe) return false;
+    return isNearVerbatimPlain(p, bbe);
+  }
+
   function ensureStrongPlain(ref, verseText, plain) {
     var p = tdbPlainTextForUi(plain || '');
-    if (!p || isNearVerbatimPlain(p, verseText)) {
+    if (!p || isNearVerbatimPlain(p, verseText) || isBbeEcho(p, ref)) {
       return buildThemeLaymanPlain(ref, verseText);
     }
     return p;
@@ -854,10 +874,9 @@
       }
     } catch (eBbe) {}
     var seedPlain = curatedPlain || '';
-    if (!seedPlain && bbePlain && bbePlain.length >= 24 && !isNearVerbatimPlain(bbePlain, raw)) {
-      seedPlain = bbePlain.length > 200
-        ? bbePlain.slice(0, 197).replace(/\s+\S*$/, '') + '…'
-        : bbePlain;
+    /* Never seed “What it means” from BBE — that label is a takeaway, not a second paraphrase. */
+    if (seedPlain && (isNearVerbatimPlain(seedPlain, raw) || (bbePlain && isNearVerbatimPlain(seedPlain, bbePlain)))) {
+      seedPlain = '';
     }
     var plain = ensureStrongPlain(ref, raw, seedPlain);
     if (raw.length > 150 && plain.length > 160 && !isNearVerbatimPlain(plain, raw)) {
@@ -887,10 +906,11 @@
       .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
       .replace(/^What it means:\s*/i, '')
       .trim();
-    /* Never ship the old weak last-resort stamp as “meaning”. */
+    /* Never ship the old weak last-resort stamp, or a BBE paraphrase, as “meaning”. */
     if (
       /^In plain terms for life today:/i.test(meaningOnly) ||
-      /Sit with that until one phrase lands/i.test(meaningOnly)
+      /Sit with that until one phrase lands/i.test(meaningOnly) ||
+      isBbeEcho(meaningOnly, base.ref || '')
     ) {
       meaningOnly = buildThemeLaymanPlain(base.ref || '', base.text || meaningOnly);
     }
@@ -960,6 +980,7 @@
       var weakCached =
         !cachedPlain ||
         isNearVerbatimPlain(cachedPlain, raw) ||
+        isBbeEcho(cachedPlain, ref) ||
         isWeakContextStamp(cached.about, cached.to) ||
         /^In plain terms for life today:/i.test(cachedPlain) ||
         /Sit with that until one phrase lands/i.test(cachedPlain) ||
@@ -2391,6 +2412,8 @@
         .replace(/^What it means:\s*/i, '')
         .trim();
     },
+    isBbeEcho: isBbeEcho,
+    isNearVerbatimPlain: isNearVerbatimPlain,
     preferSituation: function () {
       var best = '';
       var bestLen = 0;
@@ -2409,7 +2432,9 @@
     isThinSpeakerSituation: isThinSpeakerSituation,
     isWeakPlainStamp: window.TDBVerseBreakdown.isWeakPlainStamp,
     meaningOnly: window.TDBVerseBreakdown.meaningOnly,
-    preferSituation: window.TDBVerseBreakdown.preferSituation
+    preferSituation: window.TDBVerseBreakdown.preferSituation,
+    isBbeEcho: isBbeEcho,
+    isNearVerbatimPlain: isNearVerbatimPlain
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wireAutoEnhance);
   else wireAutoEnhance();

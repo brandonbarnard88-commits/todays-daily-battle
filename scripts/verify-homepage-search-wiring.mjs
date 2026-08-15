@@ -69,6 +69,22 @@ if (!script.includes("results.topic = 'jesus said'") || !script.includes("id: 'h
   fail('Jesus said search must keep curated verses and His-words plans (not seasonal fallbacks).');
 }
 
+if (!script.includes('HOME_SEARCH_TOPIC_PLAN_PREFS') || !script.includes("overwhelmed: ['overwhelmedburnout'")) {
+  fail('Each topic chip must have preferred plans (HOME_SEARCH_TOPIC_PLAN_PREFS), including Heavy/overwhelmed.');
+}
+
+if (!script.includes("verses: ['Matthew 11:28', 'Psalm 55:22', '1 Peter 5:7'")) {
+  fail('topics.overwhelmed must be its own Heavy pack, not the anxiety list.');
+}
+
+if (homeFeel.includes('overwhelmed: "anxiety"') || homeFeel.includes("overwhelmed: 'anxiety'")) {
+  fail('tdb-home-feel CHIP_TO_TOPICS_KEY must not map Heavy/overwhelmed onto anxiety.');
+}
+
+if (!script.includes('Never seed') && !script.includes('HOME_SEARCH_SEASONAL_PLAN_IDS')) {
+  fail('Seasonal plans must be gated so Hope/Rest chips cannot rank Advent or After Easter first.');
+}
+
 if (!script.includes("getElementById('feelSuggestDropdown')") || !script.includes('wireSmartSearch')) {
   fail('script.js must keep wireSmartSearch + feelSuggestDropdown gate for homepage.');
 }

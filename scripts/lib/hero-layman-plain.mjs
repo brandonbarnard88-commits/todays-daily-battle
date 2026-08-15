@@ -1,7 +1,7 @@
 /**
  * Shared verse-grounded plain English for hero inject, breakdown overrides, and tests.
- * Priority: curated map → BBE (public domain) → modernized KJV → rare theme fallback.
- * Goal: every plain must still sound like THIS verse, not a recycled mood stamp.
+ * Priority: curated map → famous verse takeaway → theme teaching → modernized KJV.
+ * BBE is “In simpler words” only — never the “What it means” line.
  */
 import fs from 'fs';
 import path from 'path';
@@ -325,6 +325,9 @@ export function buildFamousVersePlain(ref, text) {
   if (/john\s+3:16/.test(r) || /for god so loved the world/.test(lower)) {
     return 'God loved the world so much He gave His only Son, so whoever believes in Him will not be lost but have eternal life.';
   }
+  if (/^1\s+john\s+4:7\b/.test(r) || /beloved, let us love one another:\s*for love is of god/.test(lower)) {
+    return 'Love is not something you manufacture — it comes from God. When you love others, you are showing you belong to Him.';
+  }
   if (/philippians\s+4:13/.test(r) || /i can do all things through christ/.test(lower)) {
     return 'I can face what is in front of me because Christ gives me strength.';
   }
@@ -549,45 +552,36 @@ export function lookupCuratedPlain(ref, map) {
  */
 export function buildHeroLaymanPlain(ref, text, map, rootDir) {
   const raw = String(text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-  const curated = lookupCuratedPlain(ref, map);
-  if (curated && !isWeakLaymanPlain(curated, raw)) return curated;
-
-  const famous = buildFamousVersePlain(ref, raw);
-  if (famous && !isWeakLaymanPlain(famous, raw)) return famous;
-
   const root = rootDir || process.cwd();
   const bbe = lookupBbeText(ref, root);
   const modern = compressToTeachingLine(modernizeKjvText(raw), 200);
 
-  /*
-   * BBE is already shown as “In simpler words.” Layman must teach meaning, not re-print BBE.
-   * Only use BBE when it is clearly more than a word-modernization of the KJV.
-   */
-  if (bbe) {
-    const bbeLine = compressToTeachingLine(bbe, 200);
-    const bbeIsModernEcho =
-      !bbeLine ||
-      normalizeForCompare(bbeLine) === normalizeForCompare(raw) ||
-      normalizeForCompare(bbeLine) === normalizeForCompare(modern) ||
-      isWeakLaymanPlain(bbeLine, raw) ||
-      isWeakLaymanPlain(bbeLine, modern);
-    if (bbeLine && bbeLine.length >= 28 && !bbeIsModernEcho) {
-      return bbeLine;
-    }
+  function isBbeReprint(line) {
+    const t = String(line || '').replace(/\s+/g, ' ').trim();
+    if (!t || !bbe) return false;
+    return (
+      normalizeForCompare(t) === normalizeForCompare(bbe) ||
+      normalizeForCompare(t) === normalizeForCompare(compressToTeachingLine(bbe, 200))
+    );
   }
 
-  /* Prefer a short teaching line from theme+famous before raw modernize echo. */
+  const curated = lookupCuratedPlain(ref, map);
+  if (curated && !isWeakLaymanPlain(curated, raw) && !isBbeReprint(curated)) return curated;
+
+  const famous = buildFamousVersePlain(ref, raw);
+  if (famous && !isWeakLaymanPlain(famous, raw) && !isBbeReprint(famous)) return famous;
+
+  /* Prefer a short teaching line. Never return BBE — that label is “In simpler words.” */
   const theme = buildThemeLaymanPlain(ref, raw);
-  if (theme && !isWeakLaymanPlain(theme, raw) && normalizeForCompare(theme) !== normalizeForCompare(modern)) {
+  if (theme && !isWeakLaymanPlain(theme, raw) && !isBbeReprint(theme) && normalizeForCompare(theme) !== normalizeForCompare(modern)) {
     return theme;
   }
 
-  if (modern && modern.length >= 24 && normalizeForCompare(modern) !== normalizeForCompare(raw)) {
-    /* Frame modernized text as meaning when it actually changed archaic forms. */
+  if (modern && modern.length >= 24 && normalizeForCompare(modern) !== normalizeForCompare(raw) && !isBbeReprint(modern)) {
     if (!isWeakLaymanPlain(modern, raw)) return modern;
   }
 
-  if (theme) return theme;
+  if (theme && !isBbeReprint(theme)) return theme;
   return modern || 'Read this verse slowly and hold the words that land — God is speaking here.';
 }
 

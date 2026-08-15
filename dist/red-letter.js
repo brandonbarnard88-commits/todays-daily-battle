@@ -17,7 +17,7 @@
 
   /* Whole-verse openers common in Jesus' teaching (Sermon on the Mount, I am sayings, etc.). */
   var WHOLE_VERSE_JESUS_RE =
-    /^(?:Verily,?\s*verily|I\s+say\s+unto\s+you|Peace\s+(?:I\s+leave|be\s+still)|I\s+am\s+the\s+|I\s+am\s+come|I\s+am\s+Alpha|I\s+am\s+he|Let\s+not\s+your|If\s+ye\s+|Father,|Come\s+unto\s+me|Whosoever\s+|Ask,?\s+and|He\s+that\s+|My\s+sheep|Abide\s+in\s+me|If\s+any\s+man|For\s+the\s+Father|In\s+my\s+Father|And\s+I\s+|But\s+I\s+(?:say|tell)|Ye\s+are\s+|O\s+ye\s+|It\s+is\s+|There\s+is\s+|By\s+this\s+|Now\s+is\s+|He\s+that\s+believeth|Blessed\s+are|If\s+ye\s+love\s+me|I\s+go\s+unto|Neither\s+pray\s+I|These\s+things\s+have\s+I|In\s+my\s+name|Take\s+(?:heed|eat)|This\s+is\s+my\s+body|This\s+cup|Behold,?\s+I\s+stand|I\s+will\s+come|Fear\s+not|Go\s+ye|All\s+power\s+is\s+given|For\s+God\s+so\s+loved|God\s+so\s+loved|Jesus\s+wept)/i;
+    /^(?:Verily,?\s*verily|I\s+say\s+unto\s+you|Peace\s+(?:I\s+leave|be\s+still)|I\s+am\s+the\s+|I\s+am\s+come|I\s+am\s+Alpha|I\s+am\s+he|Let\s+not\s+your|If\s+ye\s+|Father,|Come\s+unto\s+me|Whosoever\s+|Ask,?\s+and|He\s+that\s+|My\s+sheep|Abide\s+in\s+me|If\s+any\s+man|For\s+the\s+Father|In\s+my\s+Father|And\s+I\s+|But\s+(?:I\s+)?(?:say|tell|seek)|Ye\s+are\s+|O\s+ye\s+|It\s+is\s+|There\s+is\s+|By\s+this\s+|Now\s+is\s+|He\s+that\s+believeth|Blessed\s+are|If\s+ye\s+love\s+me|I\s+go\s+unto|Neither\s+pray\s+I|These\s+things\s+have\s+I|In\s+my\s+name|Take\s+(?:heed|eat|therefore)|This\s+is\s+my\s+body|This\s+cup|Behold,?\s+I\s+stand|I\s+will\s+come|Fear\s+not|Go\s+ye|All\s+power\s+is\s+given|For\s+God\s+so\s+loved|God\s+so\s+loved|Jesus\s+wept|The\s+thief\s+cometh|Teaching\s+them|I\s+am\s+with\s+you|Seek\s+ye\s+first|Sufficient\s+unto)/i;
 
   function escapeHtml(str) {
     return String(str == null ? '' : str)
@@ -53,34 +53,43 @@
   }
 
   /**
-   * Default ON. Only off when user explicitly chose false.
-   * (User request: words of Jesus in red always, everywhere.)
+   * Always on. Owner request: not a setting — Jesus’ words stay red.
    */
   function isEnabled() {
-    try {
-      var stored = global.localStorage.getItem(RED_LETTER_TOGGLE_KEY);
-      if (stored === null || stored === '') return true;
-      return stored === 'true' || stored === '1' || stored === 'yes';
-    } catch (e) {
-      return true;
-    }
+    return true;
   }
 
-  function setEnabled(value) {
+  function hideRedLetterControls() {
+    if (!global.document) return;
+    ['settings-red-letter', 'red-letter-toggle', 'reader-red-letter-toggle', 'rl-toggle'].forEach(function (id) {
+      var el = global.document.getElementById(id);
+      if (!el) return;
+      var wrap = el.closest && el.closest('.settings-row, .inline-toggle, .rl-toggle-panel, .rl-toggle-switch, label');
+      if (wrap) {
+        wrap.hidden = true;
+        wrap.setAttribute('hidden', '');
+        wrap.style.display = 'none';
+      }
+      el.hidden = true;
+      el.setAttribute('hidden', '');
+      if (el.type === 'checkbox') el.checked = true;
+    });
+  }
+
+  function setEnabled(_value) {
     try {
-      global.localStorage.setItem(RED_LETTER_TOGGLE_KEY, value ? 'true' : 'false');
+      global.localStorage.removeItem(RED_LETTER_TOGGLE_KEY);
     } catch (e) { /* ignore */ }
     if (global.document && global.document.body) {
-      global.document.body.classList.toggle('red-letter-off', !value);
+      global.document.body.classList.remove('red-letter-off');
     }
+    hideRedLetterControls();
     try {
-      global.dispatchEvent(new CustomEvent('tdb-red-letter-changed', { detail: { enabled: !!value } }));
+      global.dispatchEvent(new CustomEvent('tdb-red-letter-changed', { detail: { enabled: true } }));
     } catch (e2) { /* ignore */ }
-    if (value) {
-      try {
-        scanAndPaint(global.document);
-      } catch (e3) { /* ignore */ }
-    }
+    try {
+      scanAndPaint(global.document);
+    } catch (e3) { /* ignore */ }
   }
 
   function normalizeRanges(ranges, textLen) {
@@ -214,12 +223,20 @@
   function setElementHtml(el, html) {
     if (!el) return;
     try {
+      if (typeof global.tdbSetHtml === 'function') {
+        global.tdbSetHtml(el, html);
+        return;
+      }
+    } catch (e0) { /* fall through */ }
+    try {
       if (global.trustedTypes && global.trustedTypes.defaultPolicy && global.trustedTypes.defaultPolicy.createHTML) {
         el.innerHTML = global.trustedTypes.defaultPolicy.createHTML(html);
         return;
       }
     } catch (e) { /* fall through */ }
-    el.innerHTML = html;
+    try {
+      el.innerHTML = html;
+    } catch (e2) { /* ignore */ }
   }
 
   function stripQuotes(s) {
@@ -235,24 +252,31 @@
     var opts = options || {};
     if (!raw) return;
 
-    if (!isEnabled() && !opts.force) {
+    if (!isEnabled() && !opts.force && !opts.forceWhole) {
       var openQ = opts.quote === false ? '' : '\u201c';
       var closeQ = opts.quote === false ? '' : '\u201d';
       el.textContent = openQ + raw + closeQ;
-      el.classList.remove('has-red-letter');
+      el.classList.remove('has-red-letter', RED_CLASS);
       return;
     }
 
     var html = renderHtml(ref, raw, opts);
-    /* Only use HTML when we actually wrapped something in red */
-    if (html.indexOf('class="' + RED_CLASS + '"') !== -1 || html.indexOf("class='" + RED_CLASS + "'") !== -1) {
+    var painted = html.indexOf('class="' + RED_CLASS + '"') !== -1 || html.indexOf("class='" + RED_CLASS + "'") !== -1;
+    /* Gospel speech with no detected range: still mark the line so CSS can paint it red. */
+    if (!painted && isJesusSpeechBook(ref) && (opts.forceWhole || speakerLooksLikeJesus(opts) || WHOLE_VERSE_JESUS_RE.test(raw.trim()))) {
+      var oq2 = opts.quote === false ? '' : '\u201c';
+      var cq2 = opts.quote === false ? '' : '\u201d';
+      html = '<span class="' + RED_CLASS + '">' + escapeHtml(oq2 + raw + cq2) + '</span>';
+      painted = true;
+    }
+    if (painted) {
       setElementHtml(el, html);
-      el.classList.add('has-red-letter');
+      el.classList.add('has-red-letter', RED_CLASS);
     } else {
       var oq = opts.quote === false ? '' : '\u201c';
       var cq = opts.quote === false ? '' : '\u201d';
       el.textContent = oq + raw + cq;
-      el.classList.remove('has-red-letter');
+      el.classList.remove('has-red-letter', RED_CLASS);
     }
   }
 
@@ -291,18 +315,31 @@
       }
     }
 
+    var looksLikeRef = function (t) {
+      var s = stripQuotes(t || '').replace(/\s*\(KJV\)\s*$/i, '');
+      if (/^(Matthew|Mark|Luke|John|Acts|Revelation)\s+\d/i.test(s)) return s;
+      if (/^[1-3]?\s*[A-Za-z][A-Za-z\s.]+\s+\d+:\d+/.test(s)) return s;
+      return '';
+    };
+
     var parent = el.parentElement;
-    for (var depth = 0; parent && depth < 5; depth++) {
+    for (var depth = 0; parent && depth < 6; depth++) {
       var near =
         parent.querySelector &&
         parent.querySelector(
-          '.verse-ref, .big-kjv, [data-verse-ref], [data-ref], .plan-day-verse-ref, .verse-reference'
+          '.verse-ref, .big-kjv, [data-verse-ref], [data-ref], .plan-day-verse-ref, .verse-reference, .tdb-kiss-verse__ref, strong'
         );
       if (near && near !== el) {
-        var t = stripQuotes(near.textContent || '').replace(/\s*\(KJV\)\s*$/i, '');
-        if (/^\d?\s?[A-Za-z].+\d+:\d+/.test(t) || /^(Matthew|Mark|Luke|John|Acts|Revelation)\s+\d/i.test(t)) {
-          return t;
-        }
+        var hit = looksLikeRef(near.textContent || '');
+        if (hit) return hit;
+      }
+      var prev = el.previousElementSibling || parent.previousElementSibling;
+      var hops = 0;
+      while (prev && hops < 6) {
+        var prevHit = looksLikeRef(prev.textContent || '');
+        if (prevHit && String(prev.textContent || '').length < 80) return prevHit;
+        prev = prev.previousElementSibling;
+        hops += 1;
       }
       var pref = parent.getAttribute && (parent.getAttribute('data-verse-ref') || parent.getAttribute('data-ref'));
       if (pref) return stripQuotes(pref).replace(/\s*\(KJV\)\s*$/i, '');
@@ -326,9 +363,15 @@
       '#daily-battle-verse',
       '.verse-body',
       '.hero-verse',
+      '.tdb-kiss-verse__kjv',
+      '.fvc-kjv',
+      '.home-search-card-copy',
       '.plan-day-verse-text',
       '.verse-text',
       '.kjv-verse-text',
+      '.tdb-ll-kjv p',
+      '.daily-verse-text',
+      'p.kjv',
       '.memory-verse-text',
       '.bible-hub-verse-text',
       '.tdb-porch-verse-text p',
@@ -375,6 +418,16 @@
     setTimeout(run, 400);
     setTimeout(run, 1500);
     setTimeout(run, 4000);
+    try {
+      if (global.MutationObserver && global.document && global.document.body) {
+        var t = null;
+        var mo = new global.MutationObserver(function () {
+          if (t) global.clearTimeout(t);
+          t = global.setTimeout(run, 180);
+        });
+        mo.observe(global.document.body, { childList: true, subtree: true });
+      }
+    } catch (eMo) { /* ignore */ }
   }
 
   global.TDBRedLetter = {
@@ -392,14 +445,17 @@
   };
 
   if (global.document && global.document.body) {
-    global.document.body.classList.toggle('red-letter-off', !isEnabled());
+    global.document.body.classList.remove('red-letter-off');
+    hideRedLetterControls();
   } else if (global.document) {
     global.document.addEventListener('DOMContentLoaded', function () {
-      if (global.document.body) {
-        global.document.body.classList.toggle('red-letter-off', !isEnabled());
-      }
+      if (global.document.body) global.document.body.classList.remove('red-letter-off');
+      hideRedLetterControls();
     });
   }
+  try {
+    global.localStorage.removeItem(RED_LETTER_TOGGLE_KEY);
+  } catch (eClr) { /* ignore */ }
 
   wireAutoScan();
 })(typeof window !== 'undefined' ? window : this);

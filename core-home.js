@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260815-red-always';
+  var INTERACTIVE_SRC = 'script.js?v=20260815-teach-all';
   var loaded = false;
   var pendingQuery = '';
 

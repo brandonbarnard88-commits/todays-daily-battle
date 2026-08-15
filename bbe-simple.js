@@ -548,6 +548,26 @@
     if (/^In plain terms for life today:/i.test(mean) || /Sit with that until one phrase lands/i.test(mean)) {
       mean = '';
     }
+    try {
+      var bbeNow = '';
+      if (typeof getTextSync === 'function') bbeNow = String(getTextSync(primaryRef) || '').trim();
+      if (mean && bbeNow && global.TDBTeachingQuality && typeof global.TDBTeachingQuality.isBbeEcho === 'function') {
+        if (global.TDBTeachingQuality.isBbeEcho(mean, primaryRef, bbeNow)) mean = '';
+      } else if (mean && bbeNow && mean.replace(/\s+/g, ' ').toLowerCase() === bbeNow.replace(/\s+/g, ' ').toLowerCase()) {
+        mean = '';
+      }
+    } catch (eEcho) { /* non-fatal */ }
+    if (!mean) {
+      try {
+        if (global.TDBVerseBreakdown && typeof global.TDBVerseBreakdown.getBreakdown === 'function' && kjv) {
+          var bdTake = global.TDBVerseBreakdown.getBreakdown(primaryRef, kjv, { group: 'general' }) || {};
+          mean = String(bdTake.plainMeaningOnly || bdTake.layman || '').trim();
+          if (global.TDBTeachingQuality && typeof global.TDBTeachingQuality.meaningOnly === 'function') {
+            mean = global.TDBTeachingQuality.meaningOnly(mean) || mean;
+          }
+        }
+      } catch (eTake) { /* non-fatal */ }
+    }
 
     var ctxBlock = document.createElement('div');
     ctxBlock.className = 'tdb-kiss-verse__block tdb-kiss-verse__block--ctx';

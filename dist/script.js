@@ -149,7 +149,7 @@ function tdbIsHomePage() {
   if (window.TDBRedLetter) return;
   if (document.querySelector('script[data-tdb-red-letter]')) return;
   var rl = document.createElement('script');
-  rl.src = '/red-letter.js?v=20260808-red-always';
+  rl.src = '/red-letter.js?v=20260815-red-always';
   rl.setAttribute('data-tdb-red-letter', '1');
   (document.head || document.documentElement).appendChild(rl);
 })();
@@ -4841,7 +4841,7 @@ const ACTION_REVERSE_MAP = buildReverseLexicon(ACTION_MAP);
 /** Maps search words (meaning, action, emotion) to topics so search is always on topic. */
 const QUERY_TO_TOPIC = {
   // anxiety / stress / worry — expanded synonyms
-  stressed: 'anxiety', stressedout: 'anxiety', stressing: 'anxiety', overwhelm: 'anxiety', overwhelmed: 'anxiety',
+  stressed: 'anxiety', stressedout: 'anxiety', stressing: 'anxiety', overwhelm: 'overwhelmed', overwhelmed: 'overwhelmed', heavy: 'overwhelmed',
   nervous: 'anxiety', nervousness: 'anxiety', worry: 'worry', worrying: 'worry', worried: 'worry',
   anxious: 'anxiety', anxiety: 'anxiety', tense: 'anxiety', uneasy: 'anxiety', restless: 'anxiety',
   burnout: 'anxiety', exhausted: 'anxiety', pressure: 'anxiety', overloaded: 'anxiety', burnedout: 'anxiety',
@@ -5071,7 +5071,7 @@ const VOCABULARY = {
   vindicated: 'guilt', exonerated: 'guilt', acquitted: 'forgiveness',
   emboldened: 'courage', empowered: 'strength', invigorated: 'strength', refreshed: 'rest',
   // High-impact real-user patterns (1D)
-  overwhelmed: 'anxiety', hopeless: 'hope', despairing: 'grief', fearful: 'fear', terrified: 'fear',
+  overwhelmed: 'overwhelmed', hopeless: 'hope', despairing: 'grief', fearful: 'fear', terrified: 'fear',
   panicked: 'fear', worthless: 'love', ashamed: 'guilt', bitter: 'anger', resentful: 'anger',
   betrayed: 'loneliness', abandoned: 'loneliness', rejected: 'loneliness', empty: 'hope',
   purposeless: 'purpose', joyful: 'joy', peaceful: 'peace', content: 'joy', grateful: 'gratitude',
@@ -10837,8 +10837,8 @@ const topics = {
     }
   },
   anxiety: {
-    synonyms: ['worry', 'stress', 'anxious', 'nervous'],
-    verses: ['Philippians 4:6', 'Philippians 4:7', 'Matthew 6:34', '1 Peter 5:7', 'Psalms 55:22', 'Isaiah 41:10', 'Psalms 94:19', 'Isaiah 26:3'],
+    synonyms: ['worry', 'stress', 'anxious', 'nervous', 'restless'],
+    verses: ['Philippians 4:6', 'Philippians 4:7', 'Matthew 6:34', 'Isaiah 41:10', 'Psalms 94:19', 'Isaiah 26:3', 'Psalm 56:3'],
     guidance: {
       kid: "Give your worries to God—He cares for you. Tell Him what's scary and ask for peace.",
       teen: "Pray when anxious; God's peace can guard your heart. You don't have to carry it alone.",
@@ -10848,6 +10848,20 @@ const topics = {
     explain: {
       kid: "You can tell God your worries and He will help you feel safe. He never gets tired of listening.",
       teen: "Anxiety is heavy, but prayer helps us carry it with God. He offers peace that doesn't depend on everything being fixed."
+    }
+  },
+  overwhelmed: {
+    synonyms: ['heavy', 'too much', 'burden', 'laden', 'pressure', 'overloaded'],
+    verses: ['Matthew 11:28', 'Psalm 55:22', '1 Peter 5:7', 'Isaiah 40:29', '2 Corinthians 4:8', 'Psalm 61:2'],
+    guidance: {
+      kid: "When everything feels like too much, Jesus says come to Him. You can set the heavy thing down.",
+      teen: "You do not have to hold every weight. Cast it on Him — He will sustain you.",
+      adult: "Come to Jesus if you are worn out and carrying too much. Cast the burden on the Lord; He will sustain you.",
+      pastor: "Distinguish overwhelm from anxiety: the first is a load to set down, the second is a thought-loop to pray through."
+    },
+    explain: {
+      kid: "Jesus wants to help you carry what feels too heavy.",
+      teen: "The load is real. He does not ask you to be stronger first — He asks you to come."
     }
   },
   addiction: {
@@ -20428,23 +20442,17 @@ function saveAmenCounts(map) {
 }
 
 function isRedLetterEnabled() {
-  if (typeof window !== 'undefined' && window.TDBRedLetter && typeof window.TDBRedLetter.isEnabled === 'function') {
-    return window.TDBRedLetter.isEnabled();
-  }
-  /* Default ON — words of Jesus in red unless user explicitly turned them off. */
-  const stored = localStorage.getItem(RED_LETTER_TOGGLE_KEY);
-  if (stored === null || stored === '') return true;
-  return stored === 'true' || stored === '1' || stored === 'yes';
+  return true;
 }
 
-function setRedLetterEnabled(value) {
+function setRedLetterEnabled(_value) {
+  try {
+    localStorage.removeItem(RED_LETTER_TOGGLE_KEY);
+  } catch (e) { /* ignore */ }
+  if (document.body) document.body.classList.remove('red-letter-off');
   if (typeof window !== 'undefined' && window.TDBRedLetter && typeof window.TDBRedLetter.setEnabled === 'function') {
-    window.TDBRedLetter.setEnabled(!!value);
-    refreshRedLetterSurfaces();
-    return;
+    window.TDBRedLetter.setEnabled(true);
   }
-  localStorage.setItem(RED_LETTER_TOGGLE_KEY, value ? 'true' : 'false');
-  document.body.classList.toggle('red-letter-off', !value);
   refreshRedLetterSurfaces();
 }
 
@@ -24596,7 +24604,7 @@ var PHRASE_SEMANTIC_MAP = {
   'nobody loves me': 'grief', 'no one cares': 'loneliness', 'no one understands': 'loneliness',
   'feel invisible': 'loneliness', 'invisible': 'loneliness', 'forgotten': 'loneliness',
   'cant breathe': 'anxiety', 'cant catch my breath': 'anxiety', 'cant stop crying': 'grief',
-  'feel like im drowning': 'anxiety', 'drowning': 'anxiety', 'overwhelmed': 'anxiety',
+  'feel like im drowning': 'anxiety', 'drowning': 'anxiety', 'overwhelmed': 'overwhelmed',
   'want to give up': 'grief', 'giving up': 'grief', 'no point': 'grief', 'pointless': 'grief',
   'nothing matters': 'grief', 'empty inside': 'grief', 'numb': 'grief',
   'hate myself': 'guilt', 'worthless': 'guilt', 'piece of trash': 'guilt',
@@ -30518,12 +30526,31 @@ function executeQuery(parsed, tier, filters) {
   }
   if (parsed.intent === 'jesus_said') {
     const speechRegex = /(jesus said|jesus saith|then said jesus|and jesus said|jesus answered|jesus cried|jesus spake|verily,? verily|i say unto you)/i;
-    const matches = bibleEntries
-      .filter(([ref]) => isGospelBook(ref))
-      .map(([ref, text]) => (speechRegex.test(text) ? { ref, text } : null))
-      .filter(Boolean)
-      .slice(0, 40);
-    results.verses = matches;
+    var curated = [];
+    var seenJs = {};
+    var jsTopic = topics && topics['jesus said'];
+    if (jsTopic && Array.isArray(jsTopic.verses)) {
+      jsTopic.verses.forEach(function (ref) {
+        if (!ref || seenJs[ref]) return;
+        seenJs[ref] = true;
+        var text =
+          (bible && bible[ref]) ||
+          (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '') ||
+          '';
+        curated.push({ ref: ref, text: text });
+      });
+    }
+    const matches = (bibleEntries || [])
+      .filter(function (pair) { return pair && isGospelBook(pair[0]); })
+      .map(function (pair) { return speechRegex.test(pair[1]) ? { ref: pair[0], text: pair[1] } : null; })
+      .filter(Boolean);
+    matches.forEach(function (row) {
+      if (!row || !row.ref || seenJs[row.ref]) return;
+      seenJs[row.ref] = true;
+      curated.push(row);
+    });
+    results.verses = curated.slice(0, 16);
+    results.topic = 'jesus said';
     results.guidance = 'Words of Jesus from the Gospels (red-letter style).';
     return results;
   }
@@ -30644,7 +30671,7 @@ function executeQuery(parsed, tier, filters) {
       if (!topicKey && topics && topics[rawQ]) topicKey = rawQ;
       // Map common chip labels to topics
       var alias = {
-        overwhelmed: 'anxiety', heavy: 'anxiety', burnout: 'rest', tired: 'strength',
+        overwhelmed: 'overwhelmed', heavy: 'overwhelmed', burnout: 'rest', tired: 'strength',
         restless: 'anxiety', stress: 'anxiety', stressed: 'anxiety',
         wonder: 'hope', exhaustion: 'strength', money: 'finances',
         'difficult person': 'forgiveness', 'difficult boss': 'forgiveness'
@@ -31123,7 +31150,23 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=gospeljohn',
     days: 7,
     description: 'Seven days in John for Jesus’ identity, belief, living water, and life through His name.',
-    topics: ['jesus', 'salvation', 'gospel', 'faith', 'hope']
+    topics: ['jesus said', 'jesus', 'salvation', 'gospel', 'faith', 'hope', 'red letter']
+  },
+  {
+    id: 'hisownwords',
+    title: 'Only His Voice',
+    href: 'plans.html?plan=hisownwords',
+    days: 5,
+    description: 'Five quiet days with nothing but the red letters of the Lord Jesus.',
+    topics: ['jesus said', 'red letter', 'words of jesus', 'jesus', 'gospels']
+  },
+  {
+    id: 'comeuntome',
+    title: 'Come Unto Me',
+    href: 'plans.html?plan=comeuntome',
+    days: 5,
+    description: 'When the heart is too heavy for prayer — rest in the Lord Jesus’s own words.',
+    topics: ['jesus said', 'rest', 'weary', 'jesus', 'peace']
   },
   {
     id: 'firststeps',
@@ -31469,7 +31512,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=adventquiet',
     days: 7,
     description: 'Seven KJV Advent days for waiting and watching — the Savior\'s arrival into the quiet.',
-    topics: ['advent', 'christmas', 'waiting', 'hope', 'jesus', 'incarnation', 'seasonal', 'december']
+    topics: ['advent', 'christmas', 'incarnation', 'seasonal', 'december']
   },
   {
     id: 'christmas7',
@@ -31477,7 +31520,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=christmas7',
     days: 7,
     description: 'Seven KJV days at Christmas — the Light that came into the darkness and was not overcome.',
-    topics: ['christmas', 'advent', 'jesus', 'light', 'hope', 'incarnation', 'holiday', 'december', 'winter']
+    topics: ['christmas', 'advent', 'incarnation', 'holiday', 'december', 'winter', 'seasonal']
   },
   {
     id: 'newyear7',
@@ -31485,7 +31528,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=newyear7',
     days: 7,
     description: 'Seven KJV days to start a new year — not resolution pressure, just a quiet handing-it-over.',
-    topics: ['new year', 'fresh start', 'january', 'reset', 'hope', 'beginnings', 'goals', 'resolve', 'seasonal']
+    topics: ['new year', 'fresh start', 'january', 'reset', 'beginnings', 'goals', 'resolve', 'seasonal']
   },
   {
     id: 'gentleyear',
@@ -31493,7 +31536,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=gentleyear',
     days: 7,
     description: 'A soft re-entry into the new year — no pressure, no streaks, just His mercies new every morning.',
-    topics: ['new year', 'reset', 'fresh start', 'rest', 'mercy', 'january', 'hope', 'quiet']
+    topics: ['new year', 'reset', 'fresh start', 'january', 'seasonal']
   },
   {
     id: 'easter',
@@ -31501,7 +31544,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=easter',
     days: 7,
     description: 'Seven KJV days around the resurrection — the empty tomb, the living Christ, and hope that cannot be sealed in.',
-    topics: ['easter', 'resurrection', 'jesus', 'hope', 'salvation', 'death', 'risen', 'spring', 'seasonal']
+    topics: ['easter', 'resurrection', 'risen', 'spring', 'seasonal']
   },
   {
     id: 'aftereaster',
@@ -31509,7 +31552,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=aftereaster',
     days: 7,
     description: 'Seven gentle days when Holy Week is behind you but your heart still needs the empty tomb.',
-    topics: ['easter', 'resurrection', 'hope', 'quiet', 'reflection', 'rest', 'jesus', 'seasonal']
+    topics: ['easter', 'resurrection', 'seasonal']
   },
   {
     id: 'schoolcourage',
@@ -31533,7 +31576,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=summerstill',
     days: 7,
     description: 'Seven KJV days for the slow pace of summer — stillness, simplicity, and the God who meets you in quiet.',
-    topics: ['summer', 'rest', 'stillness', 'quiet', 'seasonal', 'vacation', 'simplicity', 'peace']
+    topics: ['summer', 'stillness', 'vacation', 'seasonal']
   },
   {
     id: 'summertimesadness',
@@ -31541,7 +31584,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=summertimesadness',
     days: 7,
     description: 'For the melancholy that bright days can make louder — grief, sadness, and the hidden ache of summer.',
-    topics: ['grief', 'sadness', 'depression', 'loneliness', 'summer', 'seasonal depression', 'melancholy', 'hope']
+    topics: ['summer', 'seasonal depression', 'melancholy', 'seasonal']
   },
   // Scripture walks and study
   {
@@ -31598,7 +31641,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=quietfallharvest',
     days: 5,
     description: 'Five KJV days in the quiet harvest — end-of-year rest, slow pace, and a grateful close.',
-    topics: ['fall', 'autumn', 'rest', 'gratitude', 'harvest', 'quiet', 'seasonal', 'reflection']
+    topics: ['fall', 'autumn', 'harvest', 'seasonal']
   },
   {
     id: 'latefallwinter',
@@ -31606,7 +31649,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     href: 'plans.html?plan=latefallwinter',
     days: 7,
     description: 'When light thins before the noise — stillness, warmth, and God\'s presence in the hard, short days.',
-    topics: ['winter', 'seasonal depression', 'quiet', 'darkness', 'loneliness', 'hope', 'rest', 'fall', 'november', 'december']
+    topics: ['winter', 'seasonal depression', 'darkness', 'fall', 'november', 'december', 'seasonal']
   }
 ];
 
@@ -32387,7 +32430,11 @@ function titleCaseHomeTopic(topic) {
     jesus: 'Jesus',
     salvation: 'Salvation',
     faith: 'Faith',
-    courage: 'Courage'
+    courage: 'Courage',
+    'jesus said': 'Jesus said',
+    overwhelmed: 'Heavy',
+    heavy: 'Heavy',
+    restless: 'Restless'
   };
   if (labels[t]) return labels[t];
   return t.split(/\s+/).map(function (part) {
@@ -32396,6 +32443,12 @@ function titleCaseHomeTopic(topic) {
 }
 
 function getHomeSearchActiveTopics(results, queryText) {
+  var q = normalizeInput(String(queryText || ''));
+  if (q === 'jesus said' || q === 'red letter' || q === 'words of jesus' || (results && results.intent === 'jesus_said')) {
+    return ['jesus said'];
+  }
+  if (q === 'overwhelmed' || q === 'heavy') return ['overwhelmed'];
+  if (q === 'restless') return ['anxiety'];
   var tokens = getHomeSearchQueryTokens(queryText);
   var topicsFound = [];
   if (results && results.topic) topicsFound.push(results.topic);
@@ -32409,7 +32462,7 @@ function getHomeSearchActiveTopics(results, queryText) {
       if (resolved) topicsFound.push(resolved);
     }
     if (typeof topics !== 'undefined' && topics && topics[token]) topicsFound.push(token);
-    if (token === 'jesus' || token === 'salvation') topicsFound.push(token);
+    if (token === 'salvation') topicsFound.push(token);
     // Life-situation clusters: map real-world words ("boss", "cancer", "divorce") to topics
     var situationTopics = typeof SITUATION_TO_TOPICS !== 'undefined' && SITUATION_TO_TOPICS && SITUATION_TO_TOPICS[token];
     if (situationTopics) situationTopics.forEach(function (t) { topicsFound.push(t); });
@@ -32432,16 +32485,109 @@ function scoreHomeSearchEntry(entry, activeTopics, queryTokens) {
   return score;
 }
 
+var HOME_SEARCH_SEASONAL_PLAN_IDS = {
+  adventquiet: 1,
+  christmas7: 1,
+  newyear7: 1,
+  gentleyear: 1,
+  easter: 1,
+  aftereaster: 1,
+  harvestthanks: 1,
+  summerstill: 1,
+  summertimesadness: 1,
+  quietfallharvest: 1,
+  latefallwinter: 1
+};
+
+var HOME_SEARCH_SEASONAL_QUERY = /advent|christmas|easter|resurrection|new year|january|december|harvest|thanksgiving|summer|autumn|winter|seasonal/;
+
+/** Exact chip / topic → the three plans that belong with that feeling. */
+var HOME_SEARCH_TOPIC_PLAN_PREFS = {
+  anxiety: ['worrytrust', 'anxiety7', 'universityanxiety'],
+  restless: ['worrytrust', 'restlessnights', 'anxiety7'],
+  fear: ['fearfaith', 'fearnot14', 'universityanxiety'],
+  overwhelmed: ['overwhelmedburnout', 'universityoverwhelm', 'comeuntome'],
+  heavy: ['overwhelmedburnout', 'universityoverwhelm', 'comeuntome'],
+  grief: ['griefhope', 'grief', 'universitygrief'],
+  heartache: ['griefhope', 'heartalone', 'universitygrief'],
+  hope: ['hopeuncertain', 'heavyhope', 'peace'],
+  peace: ['peace', 'worrytrust', 'comeuntome'],
+  strength: ['universityexhaustion', 'comeuntome', 'wearyhands'],
+  tired: ['universityexhaustion', 'comeuntome', 'overwhelmedburnout'],
+  exhaustion: ['universityexhaustion', 'overwhelmedburnout', 'comeuntome'],
+  rest: ['comeuntome', 'peace', 'restlessnights'],
+  sleep: ['restlessnights', 'peace', 'worrytrust'],
+  anger: ['anger', 'universityanger', 'lettinggo'],
+  guilt: ['guiltshame', 'universityregret', 'forgiveness'],
+  loneliness: ['heartalone', 'universityloneliness', 'psalmscomfort'],
+  trauma: ['trustbroken', 'psalmscomfort', 'universitygrief'],
+  addiction: ['addictionhope', 'guiltshame', 'firststeps'],
+  cancer: ['cancercomfort', 'painwontquit', 'longillness'],
+  parenting: ['universityparenting', 'littlehearts', 'familyworship'],
+  family: ['familyworship', 'psalmscomfortfamily', 'universityparenting'],
+  marriage: ['familyworship', 'heartalone', 'forgiveness'],
+  relationships: ['familyworship', 'forgiveness', 'lettinggo'],
+  finances: ['moneyworry', 'hopeuncertain', 'peace'],
+  forgiveness: ['forgiveness', 'universityforgiveness', 'lettinggo'],
+  identity: ['selfworth', 'galatiansfreedom', 'firststeps'],
+  purpose: ['firststeps', 'galatiansfreedom', 'hopeuncertain'],
+  faith: ['firststeps', 'gospeljohn', 'galatiansfreedom'],
+  courage: ['fearfaith', 'fearnot14', 'hopeuncertain'],
+  gratitude: ['universitygratitude', 'simplethanks', 'praisethanks30'],
+  joy: ['universitygratitude', 'simplethanks', 'peace'],
+  love: ['firststeps', 'gospeljohn', 'familyworship'],
+  wisdom: ['hopeuncertain', 'firststeps', 'peace'],
+  patience: ['universitywaiting', 'hopeuncertain', 'peace'],
+  wonder: ['gospeljohn', 'firststeps', 'hopeuncertain'],
+  'jesus said': ['hisownwords', 'comeuntome', 'gospeljohn'],
+  spiritualwarfare: ['fearfaith', 'hisownwords', 'peace'],
+  obedience: ['firststeps', 'galatiansfreedom', 'gospeljohn'],
+  'free will': ['galatiansfreedom', 'firststeps', 'gospeljohn']
+};
+
+function queryLooksSeasonal(queryText, activeTopics) {
+  var blob = normalizeInput([queryText].concat(activeTopics || []).join(' '));
+  return HOME_SEARCH_SEASONAL_QUERY.test(blob);
+}
+
+function pickPreferredHomeSearchPlans(library, activeTopics, limit) {
+  var picked = [];
+  var seen = {};
+  (activeTopics || []).forEach(function (topic) {
+    var prefs = HOME_SEARCH_TOPIC_PLAN_PREFS[topic];
+    if (!prefs) return;
+    prefs.forEach(function (id) {
+      if (picked.length >= limit || seen[id]) return;
+      var match = (library || []).find(function (entry) { return entry.id === id; });
+      if (match) {
+        seen[id] = 1;
+        picked.push(match);
+      }
+    });
+  });
+  return picked;
+}
+
 function pickHomeSearchEntries(library, results, queryText, limit, fallbackIds) {
   var activeTopics = getHomeSearchActiveTopics(results, queryText);
   var queryTokens = getHomeSearchQueryTokens(queryText);
+  var seasonalOk = queryLooksSeasonal(queryText, activeTopics);
+  var preferred = pickPreferredHomeSearchPlans(library, activeTopics, limit);
+  if (preferred.length >= limit) return preferred.slice(0, limit);
   var ranked = (library || []).map(function (entry) {
-    return { entry: entry, score: scoreHomeSearchEntry(entry, activeTopics, queryTokens) };
+    var seasonal = !!(entry && HOME_SEARCH_SEASONAL_PLAN_IDS[entry.id]);
+    var score = scoreHomeSearchEntry(entry, activeTopics, queryTokens);
+    if (seasonal && !seasonalOk) score = 0;
+    return { entry: entry, score: score };
   }).sort(function (a, b) {
     if (b.score !== a.score) return b.score - a.score;
     return String(a.entry.title || '').localeCompare(String(b.entry.title || ''));
   });
-  var picked = ranked.filter(function (row) { return row.score > 0; }).slice(0, limit).map(function (row) { return row.entry; });
+  var picked = preferred.slice();
+  ranked.filter(function (row) { return row.score > 0; }).forEach(function (row) {
+    if (picked.length >= limit) return;
+    if (picked.indexOf(row.entry) === -1) picked.push(row.entry);
+  });
   if (picked.length < limit && Array.isArray(fallbackIds)) {
     fallbackIds.forEach(function (id) {
       if (picked.length >= limit) return;
@@ -32453,12 +32599,17 @@ function pickHomeSearchEntries(library, results, queryText, limit, fallbackIds) 
 }
 
 function buildHomeSearchPlanMatches(results, queryText) {
+  var q = normalizeInput(String(queryText || ''));
+  var jesusSaid = q === 'jesus said' || q === 'red letter' || q === 'words of jesus' || (results && results.intent === 'jesus_said');
+  var active = getHomeSearchActiveTopics(results, queryText);
+  var primary = active[0] || '';
+  var prefs = HOME_SEARCH_TOPIC_PLAN_PREFS[q] || HOME_SEARCH_TOPIC_PLAN_PREFS[primary] || null;
   return pickHomeSearchEntries(
     HOME_SEARCH_PLAN_LIBRARY,
     results,
     queryText,
     3,
-    ['psalmscomfort', 'peace', 'hopeuncertain']
+    jesusSaid ? ['hisownwords', 'comeuntome', 'gospeljohn'] : (prefs || ['psalmscomfort', 'peace', 'hopeuncertain'])
   );
 }
 
@@ -34286,7 +34437,11 @@ function renderHomeSearchResults(results, output, queryText) {
         if (window.TDBBbeSimple && typeof window.TDBBbeSimple.ensureKjvLoaded === 'function') {
           window.TDBBbeSimple.ensureKjvLoaded().then(function () {
             if (window.TDBBbeSimple.fillKissKjvBodies) window.TDBBbeSimple.fillKissKjvBodies(verseList);
+            if (window.TDBRedLetter && window.TDBRedLetter.scanAndPaint) window.TDBRedLetter.scanAndPaint(verseList);
           }).catch(function () {});
+        }
+        if (window.TDBRedLetter && typeof window.TDBRedLetter.scanAndPaint === 'function') {
+          window.TDBRedLetter.scanAndPaint(verseList);
         }
       } catch (eKjvFill) { /* non-fatal */ }
       try {
@@ -35844,7 +35999,9 @@ async function tdbInitImpl() {
       }
       function hasSearchCards(outEl) {
         if (!outEl) return false;
-        return !!outEl.querySelector('.verse-card, .result-section, .empty');
+        return !!outEl.querySelector(
+          '.verse-card, .result-section, .empty, .home-search-card, .tdb-kiss-verse, .feel-verse-card, [data-home-result-card], .home-search-results-shell'
+        );
       }
       function renderEmergencySearchResults(queryText) {
         var out = (typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : null) || ensureOutputElement();
@@ -35858,6 +36015,23 @@ async function tdbInitImpl() {
             if (String(pair[1]).toLowerCase().indexOf(term) !== -1 || String(pair[0]).toLowerCase().indexOf(term) !== -1) {
               picks.push({ ref: pair[0], text: pair[1] });
             }
+          }
+        }
+        if (!picks.length) {
+          var topicKey =
+            (typeof QUERY_TO_TOPIC !== 'undefined' && QUERY_TO_TOPIC[term]) ||
+            (topics && topics[term] ? term : '');
+          var curatedRefs =
+            topicKey && topics && topics[topicKey] && Array.isArray(topics[topicKey].verses)
+              ? topics[topicKey].verses
+              : [];
+          for (var cr = 0; cr < curatedRefs.length && picks.length < 8; cr++) {
+            var cRef = curatedRefs[cr];
+            var cText =
+              (bible && bible[cRef]) ||
+              (typeof getBibleVerseText === 'function' ? getBibleVerseText(cRef) : '') ||
+              '';
+            if (cText) picks.push({ ref: cRef, text: cText });
           }
         }
         if (!picks.length) {

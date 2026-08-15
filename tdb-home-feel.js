@@ -49,6 +49,35 @@ const FEEL_GROUPS = {
       }
     ]
   },
+  overwhelmed: {
+    label: "heavy",
+    verses: [
+      {
+        ref: "Matthew 11:28",
+        speaker: "Jesus to anyone carrying too much—and to you",
+        text: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+        plain: "Jesus is inviting the worn-out, not the people who already have it together.",
+        today: "The load you woke up with is the one He is talking about.",
+        action: "Stop. Say: 'Jesus, I come as I am. I need rest.'"
+      },
+      {
+        ref: "Psalm 55:22",
+        speaker: "David under a weight he could not carry—and you under yours",
+        text: "Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.",
+        plain: "Cast means hand it over. He holds you up; you do not have to keep gripping the whole pile.",
+        today: "You do not have to organize the burden first. Transfer it.",
+        action: "Name the heaviest thing once, then say this verse over it."
+      },
+      {
+        ref: "1 Peter 5:7",
+        speaker: "Peter to believers under pressure—and to you",
+        text: "Casting all your care upon him; for he careth for you.",
+        plain: "Throw the whole care on Him, because He actually cares for you.",
+        today: "All of it. Not the polite half.",
+        action: "Say out loud: 'This is Yours. I cannot hold it all.'"
+      }
+    ]
+  },
   tired: {
     label: "tired",
     verses: [
@@ -313,7 +342,8 @@ const FEEL_GROUPS = {
 // ── Feel Search Mappings ──
 // Hand-curated packs (rich plain/today/action). Other chips build from script.js `topics` verses.
 const FEEL_MAP = [
-  { keys: ["anxious","anxiety","anxiousness","stress","stressed","worry","worried","worrying","nervous","panic","panicking","overwhelmed","overthinking","restless","finances","money"], group: "anxious" },
+  { keys: ["anxious","anxiety","anxiousness","stress","stressed","worry","worried","worrying","nervous","panic","panicking","overthinking","restless","finances","money"], group: "anxious" },
+  { keys: ["overwhelmed","heavy","too much","burdened","laden"], group: "overwhelmed" },
   { keys: ["tired","exhausted","weary","sleepy","drained","worn out","worn-out","fatigued","fatigue","burnt out","burnout","burn out","sleep","exhaustion","strength"], group: "tired" },
   { keys: ["angry","mad","frustrated","frustration","furious","irritated","irritable","rage","fuming","livid","irate","anger"], group: "angry" },
   { keys: ["lonely","alone","isolated","solitude","nobody","no one","nobody cares","nobody gets me","nobody understands","forgotten","invisible","loneliness"], group: "lonely" },
@@ -326,9 +356,10 @@ const FEEL_MAP = [
 /** Chip / query → script.js topics key (exact chip labels first). */
 const CHIP_TO_TOPICS_KEY = {
   anxiety: "anxiety",
+  restless: "anxiety",
   fear: "fear",
-  overwhelmed: "anxiety",
-  heavy: "anxiety",
+  overwhelmed: "overwhelmed",
+  heavy: "overwhelmed",
   grief: "grief",
   strength: "strength",
   tired: "strength",
@@ -473,6 +504,9 @@ function buildFeelGroupFromScriptTopics(topicKey, label) {
           plain = window.TDBTeachingQuality.meaningOnly(plain) || plain;
         }
         plain = plain.replace(/^What was going on:[\s\S]*?What it means:\s*/i, "").trim();
+        if (plain && window.TDBTeachingQuality && typeof window.TDBTeachingQuality.isBbeEcho === "function") {
+          if (window.TDBTeachingQuality.isBbeEcho(plain, ref)) plain = "";
+        }
         action = String(bd.modernApplication || bd.applies || "").trim();
       }
     } catch (eBd) { /* non-fatal */ }

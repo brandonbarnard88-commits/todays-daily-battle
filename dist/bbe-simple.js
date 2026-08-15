@@ -178,6 +178,11 @@
           try {
             card.setAttribute('data-verse-text', txt);
           } catch (eA) { /* non-fatal */ }
+          try {
+            if (global.TDBRedLetter && typeof global.TDBRedLetter.applyToElement === 'function') {
+              global.TDBRedLetter.applyToElement(el, ref, txt, { quote: true });
+            }
+          } catch (eRlFill) { /* non-fatal */ }
         }
       })(nodes[i]);
     }
@@ -453,7 +458,11 @@
     kjvBody.textContent = kjv ? '\u201c' + kjv + '\u201d' : '';
     try {
       if (kjv && global.TDBRedLetter && typeof global.TDBRedLetter.applyToElement === 'function') {
-        global.TDBRedLetter.applyToElement(kjvBody, primaryRef, kjv, { quote: true });
+        var jesusSpeech =
+          (typeof global.TDBRedLetter.isJesusSpeechBook === 'function' && global.TDBRedLetter.isJesusSpeechBook(primaryRef)) ||
+          (typeof global.TDBRedLetter.isRedLetterLike === 'function' && global.TDBRedLetter.isRedLetterLike(primaryRef, kjv));
+        if (jesusSpeech) kjvBody.classList.add('red-letter');
+        global.TDBRedLetter.applyToElement(kjvBody, primaryRef, kjv, { quote: true, forceWhole: !!jesusSpeech });
       }
     } catch (eRl) { /* non-fatal */ }
     kjvBlock.appendChild(kjvLab);
@@ -538,6 +547,26 @@
     }
     if (/^In plain terms for life today:/i.test(mean) || /Sit with that until one phrase lands/i.test(mean)) {
       mean = '';
+    }
+    try {
+      var bbeNow = '';
+      if (typeof getTextSync === 'function') bbeNow = String(getTextSync(primaryRef) || '').trim();
+      if (mean && bbeNow && global.TDBTeachingQuality && typeof global.TDBTeachingQuality.isBbeEcho === 'function') {
+        if (global.TDBTeachingQuality.isBbeEcho(mean, primaryRef, bbeNow)) mean = '';
+      } else if (mean && bbeNow && mean.replace(/\s+/g, ' ').toLowerCase() === bbeNow.replace(/\s+/g, ' ').toLowerCase()) {
+        mean = '';
+      }
+    } catch (eEcho) { /* non-fatal */ }
+    if (!mean) {
+      try {
+        if (global.TDBVerseBreakdown && typeof global.TDBVerseBreakdown.getBreakdown === 'function' && kjv) {
+          var bdTake = global.TDBVerseBreakdown.getBreakdown(primaryRef, kjv, { group: 'general' }) || {};
+          mean = String(bdTake.plainMeaningOnly || bdTake.layman || '').trim();
+          if (global.TDBTeachingQuality && typeof global.TDBTeachingQuality.meaningOnly === 'function') {
+            mean = global.TDBTeachingQuality.meaningOnly(mean) || mean;
+          }
+        }
+      } catch (eTake) { /* non-fatal */ }
     }
 
     var ctxBlock = document.createElement('div');

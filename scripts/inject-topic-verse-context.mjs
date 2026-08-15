@@ -148,9 +148,17 @@ function buildVbdHtml(refLabel, verseText, plainMap, resolve) {
     }
   }
   let sit = situation;
-  if (/ speaking to /i.test(sit) && sit.length < 100) {
+  sit = sit.replace(/^In this passage of Scripture, the focus is this:\s*/i, '');
+  const spoken = sit.match(/^(.{2,80}?)\s+[—–-]\s+spoken by\s+(.+?)\s+to\s+(.+?)\.?$/i);
+  if (spoken) {
+    const title = spoken[1].trim();
+    const who = spoken[2].trim().replace(/^The\s+/, 'the ');
+    const audience = spoken[3].trim().replace(/^The\s+/, 'the ');
+    sit = who.charAt(0).toUpperCase() + who.slice(1) + ' said this to ' + audience + ': ' + title.replace(/[.!?]$/, '') + '.';
+  }
+  if ((/ speaking to /i.test(sit) && sit.length < 100) || /^In this passage of Scripture/i.test(sit)) {
     const setAlt = String(ctx.setting || '').replace(/\s+/g, ' ').trim();
-    sit = setAlt && setAlt.length >= 55 ? setAlt : '';
+    sit = setAlt && setAlt.length >= 55 ? setAlt : sit;
   }
   if (!sit && !plain) return '';
 

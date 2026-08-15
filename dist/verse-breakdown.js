@@ -795,10 +795,27 @@
     return false;
   }
 
+  function cleanSituationStamp(s) {
+    var t = tdbPlainTextForUi(s || '').replace(/\s+/g, ' ').trim();
+    t = t.replace(/^In this passage of Scripture, the focus is this:\s*/i, '');
+    var spoken = t.match(/^(.{2,80}?)\s+[—–-]\s+spoken by\s+(.+?)\s+to\s+(.+?)\.?$/i);
+    if (spoken) {
+      var title = spoken[1].replace(/\s+/g, ' ').trim();
+      var who = spoken[2].replace(/\s+/g, ' ').trim().replace(/^The\s+/, 'the ');
+      var audience = spoken[3].replace(/\s+/g, ' ').trim().replace(/^The\s+/, 'the ');
+      if (who && audience && title) {
+        return who.charAt(0).toUpperCase() + who.slice(1) + ' said this to ' + audience + ': ' + title.replace(/[.!?]$/, '') + '.';
+      }
+    }
+    return t;
+  }
+
   function isThinSpeakerSituation(s) {
-    var t = tdbPlainTextForUi(s || '');
+    var t = cleanSituationStamp(s);
     if (!t) return true;
+    if (/^In this passage of Scripture/i.test(t)) return true;
     if (/ speaking to /i.test(t) && t.length < 100) return true;
+    if (/^.{3,70}\s+[—–-]\s+spoken by\s+.+\s+to\s+/i.test(t) && t.length < 180) return true;
     return false;
   }
 
@@ -807,10 +824,10 @@
       try {
         var hit = window.TDB_resolveVerseContext(ref);
         if (hit && hit.about && hit.to && !isWeakContextStamp(hit.about, hit.to)) {
-          var liveSit = tdbPlainTextForUi(hit.situation || hit.setting || '');
+          var liveSit = cleanSituationStamp(hit.situation || hit.setting || '');
           /* Prefer narrative; never promote thin “X speaking to Y” when setting exists. */
           if (isThinSpeakerSituation(liveSit) && hit.setting && !isThinSpeakerSituation(hit.setting)) {
-            liveSit = tdbPlainTextForUi(hit.setting);
+            liveSit = cleanSituationStamp(hit.setting);
           }
           return {
             s: tdbPlainTextForUi(hit.about),
@@ -917,9 +934,9 @@
     ) {
       meaningOnly = buildThemeLaymanPlain(base.ref || '', base.text || meaningOnly);
     }
-    var situation = tdbPlainTextForUi(base.situation || base.setting || '');
+    var situation = cleanSituationStamp(base.situation || base.setting || '');
     if (isThinSpeakerSituation(situation)) {
-      var alt = tdbPlainTextForUi(base.setting || '');
+      var alt = cleanSituationStamp(base.setting || '');
       if (alt && !isThinSpeakerSituation(alt)) situation = alt;
       else situation = '';
     }
@@ -2401,6 +2418,7 @@
     getAgeMode: getAgeMode,
     setAgeMode: setAgeMode,
     isThinSpeakerSituation: isThinSpeakerSituation,
+    cleanSituationStamp: cleanSituationStamp,
     isWeakPlainStamp: function (p) {
       var t = tdbPlainTextForUi(p || '');
       if (!t) return true;
@@ -2421,7 +2439,7 @@
       var best = '';
       var bestLen = 0;
       for (var i = 0; i < arguments.length; i++) {
-        var c = tdbPlainTextForUi(arguments[i] || '');
+        var c = cleanSituationStamp(arguments[i] || '');
         if (!c || isThinSpeakerSituation(c)) continue;
         if (c.length > bestLen) {
           bestLen = c.length;
@@ -2433,6 +2451,7 @@
   };
   window.TDBTeachingQuality = {
     isThinSpeakerSituation: isThinSpeakerSituation,
+    cleanSituationStamp: cleanSituationStamp,
     isWeakPlainStamp: window.TDBVerseBreakdown.isWeakPlainStamp,
     meaningOnly: window.TDBVerseBreakdown.meaningOnly,
     preferSituation: window.TDBVerseBreakdown.preferSituation,

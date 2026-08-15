@@ -8958,8 +8958,15 @@
     }
     @media (min-width: 720px) {
       .tdb-feel-quick-strip {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
       }
+    }
+    .tdb-feel-more-details {
+      margin: 0.15rem 0 0.35rem;
+    }
+    .tdb-feel-more-details > summary {
+      font-weight: 600;
+      color: var(--text, #e8eef8);
     }
     .tdb-feel-quick-strip .btn {
       min-height: 44px;

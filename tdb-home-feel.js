@@ -1412,10 +1412,10 @@ const FEEL_MORE = {
     faith: "doubtassurance", trauma: "psalmscomfort", addiction: "addictionhope", marriage: "marriage",
     family: "familyworship", parenting: "parenting", finances: "moneyworry", sleep: "peace",
     obedience: "walktheword", identity: "identityinchrist", purpose: "greatcommission",
-    heartache: "griefhope", shame: "guiltshame", overwhelmed: "overwhelmedburnout", burnout: "overwhelmedburnout",
+    heartache: "griefhope", overwhelmed: "overwhelmedburnout", burnout: "overwhelmedburnout",
     worth: "selfworth", worthless: "selfworth", prayer: "universitysecretprayer",
     doubt: "universitydoubt", waiting: "universitywaiting", depression: "heavyhope", worry: "worrytrust",
-    shame: "guiltshame", temptation: "addictionhope", caregiver: "caregiverrest", suffering: "sufferendure"
+    shame: "shamelift", temptation: "standfirm", caregiver: "caregiverrest", suffering: "sufferendure"
   };
   const FEEL_MOOD_TO_PLAN = {
     anxious: "worrytrust",
@@ -1515,6 +1515,16 @@ const FEEL_MORE = {
       plan: "loneliness",
       print: "life-lessons/when-the-heart-feels-alone-print.html",
       anchors: ["Psalm 25:16", "Hebrews 13:5", "Romans 15:13"]
+    },
+    shame: {
+      plan: "shamelift",
+      print: "plans.html?plan=shamelift",
+      anchors: ["Romans 10:11", "Isaiah 54:4", "Hebrews 12:2"]
+    },
+    temptation: {
+      plan: "standfirm",
+      print: "plans.html?plan=standfirm",
+      anchors: ["1 Corinthians 10:13", "Matthew 26:41", "Hebrews 4:15"]
     }
   };
 
@@ -3058,6 +3068,7 @@ var PLAN_CONFIGS = {
   moneyworry: { label: '\uD83D\uDCCB Financial stress & provision', key: 'tdb-plan-moneyworry-day', max: 7 },
   addictionhope: { label: '\uD83D\uDD6F\uFE0F Addiction & strongholds', key: 'tdb-plan-addictionhope-day', max: 7 },
   guiltshame: { label: '\uD83C\uDF27\uFE0F Guilt & shame', key: 'tdb-plan-guiltshame-day', max: 7 },
+  shamelift: { label: '\uD83D\uDE48 Lifted from Shame', key: 'tdb-plan-shamelift-day', max: 7 },
   overwhelmedburnout: { label: '\uD83C\uDF0A Overwhelmed / burnout', key: 'tdb-plan-overwhelmedburnout-day', max: 7 },
   selfworth: { label: '\uD83D\uDD06 Self-worth / identity', key: 'tdb-plan-selfworth-day', max: 7 },
   caregiverrest: { label: '\uD83E\uDEF6 Caregiver Rest', key: 'tdb-plan-caregiverrest-day', max: 7 },

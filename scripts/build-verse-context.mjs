@@ -326,18 +326,35 @@ function buildRuntimeJs(chapters, ranges, bookWarm) {
     return true;
   }
 
+  function cleanSituationStamp(s) {
+    var t = sanitize(s);
+    t = t.replace(/^In this passage of Scripture, the focus is this:\\s*/i, '');
+    var spoken = t.match(/^(.{2,80}?)\\s+[—–-]\\s+spoken by\\s+(.+?)\\s+to\\s+(.+?)\\.?$/i);
+    if (spoken) {
+      var title = spoken[1].replace(/\\s+/g, ' ').trim();
+      var who = spoken[2].replace(/\\s+/g, ' ').trim().replace(/^The\\s+/, 'the ');
+      var audience = spoken[3].replace(/\\s+/g, ' ').trim().replace(/^The\\s+/, 'the ');
+      if (who && audience && title) {
+        return who.charAt(0).toUpperCase() + who.slice(1) + ' said this to ' + audience + ': ' + title.replace(/[.!?]$/, '') + '.';
+      }
+    }
+    return t;
+  }
+
   function composeSituation(setting, about, to) {
-    var sit = sanitize(setting);
+    var sit = cleanSituationStamp(setting);
     var a = sanitize(about);
     var t = sanitize(to);
     if (sit && !isWeakSetting(sit)) {
       return /[.!?]$/.test(sit) ? sit : sit + '.';
     }
-    /* Short title only — still name the moment with speaker/audience */
+    /* Short title only — name speaker and audience without the factory stamp */
     if (sit && a && t) {
-      return sit.replace(/[.!?]$/, '') + ' — spoken by ' + a + ' to ' + t + '.';
+      var who = a.replace(/^The\s+/, 'the ');
+      var audience = t.replace(/^The\s+/, 'the ');
+      return who.charAt(0).toUpperCase() + who.slice(1) + ' said this to ' + audience + ': ' + sit.replace(/[.!?]$/, '') + '.';
     }
-    if (a && t) return a + ' speaking to ' + t + '.';
+    if (a && t) return a + ' said this to ' + t + '.';
     if (sit) return /[.!?]$/.test(sit) ? sit : sit + '.';
     return 'God’s Word spoken into a real moment in history — still true for you.';
   }
@@ -345,7 +362,7 @@ function buildRuntimeJs(chapters, ranges, bookWarm) {
   function packContext(about, to, setting, source) {
     var a = sanitize(about);
     var t = sanitize(to);
-    var s = sanitize(setting);
+    var s = cleanSituationStamp(setting);
     return {
       about: a,
       to: t,

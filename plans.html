@@ -4,7 +4,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260815-topics-all"></script>
+  <script src="/tt-bootstrap.js?v=20260815-site-quiet"></script>
   <!-- tdb-cache-hygiene: _headers no-cache /plans (+ /plans); purge SOCIAL_PURGE_PATHS; bump service-worker CACHE_NAME if edge/PWA stale -->
 
   <!-- GA4 lazy-loaded after interaction -->
@@ -42,8 +42,8 @@
   </script>
   <link rel="preload" href="/plans-data.js" as="script" fetchpriority="low">
   <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
-  <link rel="preload" href="styles.css?v=20260815-topics-all" as="style" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260815-topics-all" media="all">
+  <link rel="preload" href="styles.css?v=20260815-site-quiet" as="style" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20260815-site-quiet" media="all">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase2a" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase2a">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
@@ -3517,6 +3517,8 @@
           <a class="plans-plan-filter-chip" href="plans.html?plan=heavyhope" title="The University of Depression &amp; Hopelessness">Depression &amp; hope</a>
           <a class="plans-plan-filter-chip" href="plans.html?plan=heartalone" title="When the heart feels alone">Heart alone</a>
           <a class="plans-plan-filter-chip" href="plans.html?plan=guiltshame" title="Guilt and shame">Guilt &amp; shame</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=shamelift" title="When shame names you">Lifted from shame</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=standfirm" title="When temptation presses">Stand firm</a>
           <a class="plans-plan-filter-chip" href="plans.html?plan=overwhelmedburnout" title="Overwhelmed or burnt out">Too much</a>
           <a class="plans-plan-filter-chip" href="plans.html?plan=longheavydays" title="When the days feel long and heavy">Long heavy days</a>
           <a class="plans-plan-filter-chip" href="plans.html?plan=selfworth" title="Worth and identity">Worth &amp; identity</a>
@@ -4521,6 +4523,11 @@
           <div class="plan-row-info"><h2>Guilt &amp; Shame</h2><p>Seven days with Him when guilt or shame feels heavy. Come guilty. Come ashamed. Come exactly as you are. You&rsquo;re already welcome here.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-guiltshame">Not started</span></div>
         </a>
+        <a href="plans.html?plan=shamelift" class="plan-row" id="plan-row-shamelift" data-plan="shamelift" aria-label="Lifted from Shame — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">🙈</span>
+          <div class="plan-row-info"><h2>Lifted from Shame</h2><p>Seven days when shame names you instead of a sin. Come hiding. Come face-down. He lifts the face. Pairs with <a href="plans.html?plan=guiltshame">Guilt &amp; Shame</a> if you need both.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-shamelift">Not started</span></div>
+        </a>
         <a href="plans.html?plan=trustbroken" class="plan-row" id="plan-row-trustbroken" data-plan="trustbroken" aria-label="When Trust Was Broken — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🩹</span>
           <div class="plan-row-info"><h2>When Trust Was Broken</h2><p>Seven days with Him when abuse, assault, or betrayal broke trust&mdash;recent or long ago. For survivors, parents, and anyone in the long aftermath. No rush to forgive. Scripture sits beside you; counselors do the deep work.</p></div>
@@ -5074,7 +5081,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260815-topics-all"></script>
+  <script defer src="/language-switcher.js?v=20260815-site-quiet"></script>
 </footer>
 
   <noscript>
@@ -7266,6 +7273,13 @@
         desc: 'Seven days with Him when guilt or shame feels heavy. Come guilty. Come ashamed. Come exactly as you are. You\u2019re already welcome here. Spiritual care alongside any counselor or pastor you trust.',
         key: 'tdb-plan-guiltshame-day', max: 7,
         days: B ? B.guiltShame7 : []
+      },
+
+      shamelift: {
+        id: 'shamelift', icon: '\uD83D\uDE48', label: 'Lifted from Shame',
+        desc: 'Seven days when shame names you instead of a sin. Come hiding. Come face-down. Come exactly as you are. He lifts the face.',
+        key: 'tdb-plan-shamelift-day', max: 7,
+        days: B ? B.shameLift7 : []
       },
 
       overwhelmedburnout: {
@@ -9563,9 +9577,19 @@
       },
       guiltshame: {
         rows: [
+          { planId: 'shamelift', teaser: 'When shame names you, not just a sin\u2026' },
           { planId: 'forgiveness', teaser: 'When you need a whole week to forgive and be forgiven\u2026' },
           { planId: 'addictionhope', teaser: 'When the pull and shame share a room\u2026' },
           { planId: 'heavyhope', teaser: 'When the inner story still lies\u2026' },
+          { planId: 'psalmscomfort', teaser: 'When only the Psalms fit\u2026' }
+        ],
+        showBoard: true
+      },
+      shamelift: {
+        rows: [
+          { planId: 'selfworth', teaser: 'When identity still feels broken\u2026' },
+          { planId: 'guiltshame', teaser: 'When guilt and shame share a room\u2026' },
+          { planId: 'galatiansfreedom', teaser: 'When you need freedom, not hiding\u2026' },
           { planId: 'psalmscomfort', teaser: 'When only the Psalms fit\u2026' },
           { planId: 'firststeps', teaser: 'Clear footing in Christ\u2026' }
         ],
@@ -10166,6 +10190,7 @@
               moneyworry: 'You\'ve brought financial worry before the God who provides.',
               addictionhope: 'You\'ve walked through hope in the middle of addiction.',
               guiltshame: 'You\'ve walked from guilt and shame toward God\'s forgiveness.',
+              shamelift: 'You\'ve walked from hiding toward a lifted face.',
               trustbroken: 'You\'ve walked seven quiet days when trust was broken — one verse, one resting thought, one prayer at a time.',
               overwhelmedburnout: 'You\'ve walked through burnout with the God who restores.',
               selfworth: 'You\'ve walked through what God says about your worth.',
@@ -11763,14 +11788,14 @@
 
   <script type="module" src="config.js"></script>
   <script src="js/surfaces/plans.js?v=20260805-four-pillars"></script>
-  <script type="module" src="script.js?v=20260815-topics-all" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260815-site-quiet" data-cfasync="false"></script>
   <script nonce="tdb2025s">
     (function () {
       var nonCriticalScripts = [
         '/porch-effects.js?v=20260507',
         '/plan-suggest-form.js',
-        '/share-page.js?v=20260815-topics-all',
-        '/footer-build-stamp.js?v=20260815-topics-all'
+        '/share-page.js?v=20260815-site-quiet',
+        '/footer-build-stamp.js?v=20260815-site-quiet'
       ];
       var loadNonCriticalPlansScripts = function () {
         nonCriticalScripts.forEach(function (src) {

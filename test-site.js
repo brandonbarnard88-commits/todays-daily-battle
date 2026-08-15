@@ -47,7 +47,7 @@ const pages = [
   'id="family-armor-stories-btn"',
   'id="armor-builder-btn"',
   'id="hero-save-my-verses"',
-  'core-home.js?v=20260815-topics-all',
+  'core-home.js?v=20260815-site-quiet',
   'tdb-verse-accuracy.js',
   'tdb-home-page.css',
   'id="tdbHeroQuietEyebrow"',

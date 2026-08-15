@@ -111,6 +111,18 @@ if (!homeFeel.includes('One results host')) {
 if (!css.includes('#feel-results.results ~ #feelCards')) {
   fail('tdb-home-page.css must hide #feelCards while #feel-results has results.');
 }
+if (!index.includes('id="tdbFeelMoreDetails"') || !/id="tdbFeelMoreDetails"[\s\S]{0,200}id="tdbFeelAllChips"/.test(index)) {
+  fail('The long topic wall must sit under a collapsed More feelings disclosure.');
+}
+if (!/tdbFeelQuickStrip[\s\S]*?data-topic="prayer"[\s\S]*?data-topic="depression"[\s\S]*?data-topic="worry"/.test(index)) {
+  fail('Top strip must include Prayer, Down, and Worry.');
+}
+if (!/shame:\s*\['shamelift'/.test(script)) {
+  fail('Shame must prefer its own Lifted from Shame week first.');
+}
+if (!/temptation:\s*\['standfirm'/.test(script)) {
+  fail('Temptation must prefer Stand Firm first, not Addiction.');
+}
 
 console.log('OK   every homepage topic chip (' + unique.length + ' unique) — quiet header, own pack, own plans');
 unique.sort().forEach((c) => {

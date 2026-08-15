@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Support the Ministry • Today’s Daily Battle</title>
   <meta name="description" content="Free forever. No paywalls. Optional gifts support teaching and free outreach—never unlock Scripture. You are already welcome here.">
-  <link rel="preload" href="styles.css?v=20260815-for-anyone" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260815-for-anyone">
+  <link rel="preload" href="styles.css?v=20260815-give-open" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260815-give-open">
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260815-for-anyone"></script>
+  <script src="/tt-bootstrap.js?v=20260815-give-open"></script>
   <script defer src="analytics-loader.js"></script>
 </head>
 <body class="dark-mode tdb-inner-page give-page">
@@ -51,52 +51,32 @@
           <p class="section-note topic-mood-porch"><strong>Salvation is not for sale.</strong> Every verse, plan, prayer tool, and study room on this porch is free forever. No paywall. No &ldquo;Pro&rdquo; unlock. No account required for the Word.</p>
           <p class="hero-tagline">KJV-only. Privacy-first. Offline-first. If you choose to give, you are helping servers, free outreach packs, and teaching content for others&mdash;never buying access for yourself. You are already welcome here.</p>
           <div class="cta-group cta-group-flex-wrap">
-            <a class="btn btn-primary" href="#porch-options">See the ways to help</a>
+            <a class="btn btn-secondary" href="/">Stay with today’s verse</a>
             <a class="btn btn-secondary" href="/where-support-goes.html">Where support goes</a>
-            <a class="btn btn-secondary" href="/">Return to Today’s Verse</a>
+            <a class="btn btn-secondary" href="#porch-options">Give only if you want</a>
           </div>
         </header>
 
         <section class="glass tdb-porch-paper-glass" id="porch-options" aria-labelledby="porch-options-heading">
-          <h2 class="section-divider" id="porch-options-heading">Ways to Help the Porch</h2>
-          <p class="section-note" style="text-align:center;max-width:620px;margin:0 auto 2.5rem;">Whether you give once, give monthly if you want, leave a legacy, or honor someone with a memorial gift — every amount helps keep calm, trustworthy KJV tools available when someone needs them most. No pressure. You are already welcome here.</p>
+          <h2 class="section-divider" id="porch-options-heading">If you want to help — only if you want</h2>
+          <p class="section-note" style="text-align:center;max-width:38rem;margin:0 auto 1.25rem;">You do not have to give. Not a dollar. Not a month. The Word stays free either way. If something here helped you and you want to keep the porch open for the next person, you choose the amount. There is no suggested number and no right size.</p>
 
-          <div class="options-grid tdb-give-options-grid">
-            <div class="glass tdb-porch-paper-glass tdb-option-card">
-              <h3>One-time Gift</h3>
-              <div class="amount">$25</div>
-              <p class="section-note">Keeps servers running, new Plans written, and free printables going to churches and hospitals.</p>
-              <div class="cta-group tdb-give-cta-group">
-                <button type="button" onclick="startDonation(2500,'one_time')" class="btn btn-primary">$25</button>
-                <button type="button" onclick="startDonation(5000,'one_time')" class="btn btn-secondary">$50</button>
-                <button type="button" onclick="startDonation(10000,'one_time')" class="btn btn-secondary">$100</button>
+          <div class="glass tdb-porch-paper-glass tdb-option-card tdb-give-open-card">
+            <form id="tdbGiveForm" class="tdb-give-open-form" action="#" method="post">
+              <label for="custom-amount" class="tdb-give-open-label">Your amount, if you want to give</label>
+              <div class="tdb-custom-donation tdb-give-open-row">
+                <span class="tdb-give-currency" aria-hidden="true">$</span>
+                <input type="number" id="custom-amount" class="tdb-custom-input tdb-give-open-input" inputmode="decimal" min="0" step="0.01" placeholder="" autocomplete="off" aria-describedby="tdbGiveAmountHint">
               </div>
-              <div class="tdb-custom-donation">
-                <label for="custom-amount" class="section-note">Custom $</label>
-                <input type="number" id="custom-amount" min="5" value="25" class="tdb-custom-input">
-                <button type="button" onclick="handleCustomDonation()" class="btn btn-secondary">Give</button>
-              </div>
-            </div>
-
-            <div class="glass tdb-porch-paper-glass tdb-option-card">
-              <h3>Monthly gift (optional)</h3>
-              <div class="amount">$7<span class="amount-sub">/mo</span></div>
-              <p class="section-note">Steady, monthly support that sustains teaching content creation, free outreach packs, and the porch for anyone who finds it in a hard moment. Steady optional support—never unlocks tools. The Word stays free.</p>
-              <button type="button" onclick="startDonation(700,'monthly')" class="btn btn-primary">Give monthly (optional)</button>
-            </div>
-
-            <div class="glass tdb-porch-paper-glass tdb-option-card legacy-card">
-              <h3>Legacy / Endowment</h3>
-              <div class="amount">$500+</div>
-              <p class="section-note">Help build something that outlives us — a steady endowment so the porch can support rural churches, print resources for the hurting, and one day sustain a small faithful team or ministry.</p>
-              <button type="button" onclick="startDonation(50000,'one_time')" class="btn btn-primary">Give a Legacy Gift</button>
-            </div>
-
-            <div class="glass tdb-porch-paper-glass tdb-option-card">
-              <h3>Memorial Gift</h3>
-              <p class="section-note">In memory or honor of a loved one. A quiet way to remember them while supporting the work they would have loved.</p>
-              <button type="button" onclick="startMemorial()" class="btn btn-primary">Make a Memorial Gift</button>
-            </div>
+              <p class="section-note" id="tdbGiveAmountHint">Leave it blank and walk on. That is a complete visit.</p>
+              <fieldset class="tdb-give-interval">
+                <legend class="sr-only">How often</legend>
+                <label class="tdb-give-interval-opt"><input type="radio" name="tdb-give-interval" value="one_time" checked> Once</label>
+                <label class="tdb-give-interval-opt"><input type="radio" name="tdb-give-interval" value="monthly"> Monthly, if you want</label>
+              </fieldset>
+              <button type="submit" class="btn btn-secondary" id="tdbGiveSubmit">Give this amount</button>
+            </form>
+            <p class="section-note" style="margin-top:1.15rem;">A memorial or a longer gift can use this same box. Whatever you type is the whole story. There is no suggested number.</p>
           </div>
 
           <div id="donation-status" class="donation-status section-note" style="text-align:center;margin:1.5rem auto;padding:1rem 1.5rem;border-radius:12px;border:1px solid var(--line);max-width:420px;display:none;"></div>
@@ -265,7 +245,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260815-for-anyone"></script>
+  <script defer src="/language-switcher.js?v=20260815-give-open"></script>
 </footer>
   </div>
 
@@ -288,7 +268,7 @@
     }
 
     async function startDonation(amountCents, mode, metadata = {}) {
-      const statusMsg = 'Preparing secure checkout... (Stripe)';
+      const statusMsg = 'Preparing a quiet checkout…';
       showDonationStatus(statusMsg);
       try {
         const payload = {
@@ -296,7 +276,13 @@
           interval: mode,
           ...metadata
         };
-        const res = await fetch('/functions/create-donation-session', {
+        var endpoint = '/functions/create-donation-session';
+        try {
+          if (window.TDB_CONFIG && window.TDB_CONFIG.CREATE_DONATION_SESSION_URL) {
+            endpoint = window.TDB_CONFIG.CREATE_DONATION_SESSION_URL;
+          }
+        } catch (eCfg) {}
+        const res = await fetch(endpoint, {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify(payload)
@@ -307,34 +293,43 @@
           showDonationStatus('Redirecting to secure checkout...');
           window.location.href = data.url;
         } else {
-          showDonationStatus('Thank you. Your support helps keep the porch open.', false);
+          showDonationStatus('Thank you. The porch stays free for the next person.', false);
         }
       } catch (e) {
         console.error(e);
-        showDonationStatus('Connection issue. Please check your internet and try again. The porch remains free regardless.', true);
+        showDonationStatus('Connection issue. You can try again later — or not. The porch remains free either way.', true);
       }
     }
 
-    function handleCustomDonation() {
+    function handleOpenDonation(event) {
+      if (event) event.preventDefault();
       const input = document.getElementById('custom-amount');
-      const amountStr = input ? input.value : '25';
-      const amount = parseFloat(amountStr);
-      if (amount && !isNaN(amount) && amount >= 5) {
-        startDonation(Math.round(amount * 100), 'one_time');
-      } else {
-        showDonationStatus('Please enter an amount of $5 or more.', true);
+      const raw = input ? String(input.value || '').trim() : '';
+      if (!raw) {
+        showDonationStatus('You do not have to give. If you want to, type any amount. If not, stay — this visit is already complete.', false);
+        return;
       }
+      const amount = parseFloat(raw.replace(/[^0-9.]/g, ''));
+      if (!amount || isNaN(amount) || amount <= 0) {
+        showDonationStatus('If you want to give, type any amount you choose. There is no suggested number.', true);
+        return;
+      }
+      const cents = Math.round(amount * 100);
+      if (cents < 50) {
+        showDonationStatus('The card processor needs at least fifty cents. That is their floor, not a suggested gift.', true);
+        return;
+      }
+      const intervalEl = document.querySelector('input[name="tdb-give-interval"]:checked');
+      const mode = intervalEl && intervalEl.value === 'monthly' ? 'monthly' : 'one_time';
+      startDonation(cents, mode);
     }
 
-    function startMemorial() {
-      // For now, serene placeholder until full metadata flow is wired (no prompt)
-      showDonationStatus('Memorials are a beautiful way to honor loved ones. For now, consider a one-time gift above or pray/share the porch. Full memorial form coming soon.', false);
-      // Future: open dialog with name/note and pass as metadata to startDonation(..., 'one_time', {memorial_for: name, note})
-    }
+    var giveForm = document.getElementById('tdbGiveForm');
+    if (giveForm) giveForm.addEventListener('submit', handleOpenDonation);
   </script>
 
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260815-for-anyone"></script>
+  <script type="module" src="script.js?v=20260815-give-open"></script>
 </body>
 </html>

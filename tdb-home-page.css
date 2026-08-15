@@ -12417,6 +12417,100 @@ body.sepia-mode:not(.dark-mode) #feel-results .home-search-card-copy,
 body.sepia-mode:not(.dark-mode) #feel-results .fvc-kjv {
   color: #1c1917 !important;
 }
+/* Topic results: same gold teaching labels as today’s verse */
+#feel-results .tdb-kiss-verse__label,
+#feel-results .tdb-bbe-simple__heading,
+#feel-results .tdb-vbd-label,
+#feelCards .tdb-kiss-verse__label,
+#feelCards .tdb-bbe-simple__heading,
+#feelCards .tdb-vbd-label,
+#feelCards .tdb-topic-vbd__heading,
+#feelCards .tdb-topic-vbd__label,
+.feel-verse-card .tdb-kiss-verse__label,
+.feel-verse-card .tdb-bbe-simple__heading,
+.feel-verse-card .tdb-vbd-label {
+  color: #f2dc98 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+  font-weight: 700 !important;
+}
+#feel-results .tdb-kiss-verse__bbe,
+#feel-results .tdb-bbe-simple__text,
+#feel-results .tdb-kiss-verse__sit,
+#feel-results .tdb-kiss-verse__mean,
+#feel-results .tdb-vbd-body,
+#feelCards .tdb-kiss-verse__bbe,
+#feelCards .tdb-bbe-simple__text,
+#feelCards .tdb-kiss-verse__sit,
+#feelCards .tdb-kiss-verse__mean,
+#feelCards .tdb-vbd-body,
+#feelCards .tdb-topic-vbd__combined,
+.feel-verse-card .tdb-kiss-verse__bbe,
+.feel-verse-card .tdb-bbe-simple__text,
+.feel-verse-card .tdb-kiss-verse__sit,
+.feel-verse-card .tdb-kiss-verse__mean {
+  color: #ffffff !important;
+}
+html[data-theme="light"] #feel-results .tdb-kiss-verse__label,
+html[data-theme="light"] #feel-results .tdb-bbe-simple__heading,
+html[data-theme="light"] #feel-results .tdb-vbd-label,
+html[data-theme="light"] #feelCards .tdb-kiss-verse__label,
+html[data-theme="light"] #feelCards .tdb-bbe-simple__heading,
+html[data-theme="light"] #feelCards .tdb-vbd-label,
+html[data-theme="light"] #feelCards .tdb-topic-vbd__heading,
+html[data-theme="light"] .feel-verse-card .tdb-kiss-verse__label,
+html[data-theme="sepia"] #feel-results .tdb-kiss-verse__label,
+html[data-theme="sepia"] #feel-results .tdb-bbe-simple__heading,
+html[data-theme="sepia"] #feel-results .tdb-vbd-label,
+html[data-theme="sepia"] #feelCards .tdb-kiss-verse__label,
+html[data-theme="sepia"] #feelCards .tdb-bbe-simple__heading,
+html[data-theme="sepia"] #feelCards .tdb-vbd-label,
+html[data-theme="sepia"] #feelCards .tdb-topic-vbd__heading,
+html[data-theme="sepia"] .feel-verse-card .tdb-kiss-verse__label,
+body.light:not(.dark-mode) #feel-results .tdb-kiss-verse__label,
+body.light:not(.dark-mode) #feel-results .tdb-bbe-simple__heading,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__label,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-bbe-simple__heading {
+  color: #b07a18 !important;
+  text-shadow: none !important;
+}
+html[data-theme="light"] #feel-results .tdb-kiss-verse__bbe,
+html[data-theme="light"] #feel-results .tdb-bbe-simple__text,
+html[data-theme="light"] #feel-results .tdb-kiss-verse__sit,
+html[data-theme="light"] #feel-results .tdb-kiss-verse__mean,
+html[data-theme="light"] #feelCards .tdb-kiss-verse__bbe,
+html[data-theme="light"] #feelCards .tdb-bbe-simple__text,
+html[data-theme="light"] #feelCards .tdb-kiss-verse__sit,
+html[data-theme="light"] #feelCards .tdb-kiss-verse__mean,
+html[data-theme="light"] #feelCards .tdb-topic-vbd__combined,
+html[data-theme="light"] .feel-verse-card .tdb-kiss-verse__bbe,
+html[data-theme="light"] .feel-verse-card .tdb-kiss-verse__sit,
+html[data-theme="light"] .feel-verse-card .tdb-kiss-verse__mean,
+html[data-theme="sepia"] #feel-results .tdb-kiss-verse__bbe,
+html[data-theme="sepia"] #feel-results .tdb-bbe-simple__text,
+html[data-theme="sepia"] #feel-results .tdb-kiss-verse__sit,
+html[data-theme="sepia"] #feel-results .tdb-kiss-verse__mean,
+html[data-theme="sepia"] #feelCards .tdb-kiss-verse__bbe,
+html[data-theme="sepia"] #feelCards .tdb-bbe-simple__text,
+html[data-theme="sepia"] #feelCards .tdb-kiss-verse__sit,
+html[data-theme="sepia"] #feelCards .tdb-kiss-verse__mean,
+html[data-theme="sepia"] #feelCards .tdb-topic-vbd__combined,
+html[data-theme="sepia"] .feel-verse-card .tdb-kiss-verse__bbe,
+html[data-theme="sepia"] .feel-verse-card .tdb-kiss-verse__sit,
+html[data-theme="sepia"] .feel-verse-card .tdb-kiss-verse__mean,
+body.light:not(.dark-mode) #feel-results .tdb-kiss-verse__bbe,
+body.light:not(.dark-mode) #feel-results .tdb-kiss-verse__sit,
+body.light:not(.dark-mode) #feel-results .tdb-kiss-verse__mean,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__bbe,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__sit,
+body.sepia-mode:not(.dark-mode) #feel-results .tdb-kiss-verse__mean {
+  color: #1c1917 !important;
+}
+/* Ref already names the verse — don’t stack a second “KJV” heading */
+#feel-results .tdb-kiss-verse__block--kjv > .tdb-kiss-verse__label,
+#feelCards .tdb-kiss-verse__block--kjv > .tdb-kiss-verse__label,
+.feel-verse-card .tdb-kiss-verse__block--kjv > .tdb-kiss-verse__label {
+  display: none;
+}
 .tdb-layman-always-open > .hero-vbd-split {
   margin-top: 0.15rem;
 }

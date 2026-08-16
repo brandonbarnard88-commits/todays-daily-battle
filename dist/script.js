@@ -26807,15 +26807,21 @@ function initImageLazyLoading() {
     var isLikelyHero = !!img.closest('header, .hero-banner, #quick-search-hero, #daily-verse-card');
     var src = String(img.getAttribute('src') || '').toLowerCase();
     var isShieldAsset = /shield|crest|emblem/.test(src);
+    var isDecorative =
+      img.getAttribute('aria-hidden') === 'true' ||
+      !!(img.closest && img.closest('[aria-hidden="true"]')) ||
+      img.classList.contains('tdb-cat-story-grid-thumb');
     if (!img.getAttribute('loading')) {
       img.setAttribute('loading', isLikelyHero ? 'eager' : 'lazy');
     }
     if (!img.getAttribute('decoding')) img.setAttribute('decoding', 'async');
     if (!img.getAttribute('fetchpriority') && !isLikelyHero) img.setAttribute('fetchpriority', 'low');
-    if (isShieldAsset) {
+    if (isDecorative) {
+      if (!img.hasAttribute('alt')) img.setAttribute('alt', '');
+    } else if (isShieldAsset) {
       img.setAttribute('alt', defaultAlt);
-    } else if (!img.getAttribute('alt') || !String(img.getAttribute('alt')).trim()) {
-      img.setAttribute('alt', defaultAlt);
+    } else if (!img.hasAttribute('alt')) {
+      img.setAttribute('alt', '');
     }
     if (parentCard && !img.getAttribute('sizes')) {
       img.setAttribute('sizes', '(max-width: 768px) 92vw, 520px');

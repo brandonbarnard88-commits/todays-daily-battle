@@ -17,7 +17,10 @@
       /^(.+?)\s+((?:[1-3]\s+)?[A-Za-z]+(?:\s+[A-Za-z]+)?\s+\d[\d:,-]*(?:\s*\(KJV\))?)$/i
     );
     if (m && m[1].length > 12) {
-      return { quote: m[1].trim(), ref: m[2].trim() };
+      return {
+        quote: m[1].replace(/[\s.\u2014\u2013\-]+$/, '').trim(),
+        ref: m[2].trim()
+      };
     }
     return { quote: raw, ref: '' };
   }
@@ -4185,6 +4188,7 @@
         img.className = 'tdb-cat-story-grid-thumb';
         img.src = src;
         img.alt = '';
+        img.setAttribute('alt', '');
         img.loading = s < 8 ? 'eager' : 'lazy';
         img.decoding = 'async';
         img.width = 280;
@@ -4715,6 +4719,11 @@
     refreshAllProgress();
     if (!mount.querySelector('.tdb-cat-story--deferred')) {
       showAllStoriesBtn.hidden = true;
+    }
+    if (requestedStorySection && progressOuter && progressOuter.parentNode) {
+      progressOuter.parentNode.insertBefore(requestedStorySection, progressOuter);
+      gridLead.textContent =
+        'Or pick another picture below. ' + STORIES.length + ' Bible stories.';
     }
 
     // Mount only the active story's visible scene (not all 80+ books).

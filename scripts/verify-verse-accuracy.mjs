@@ -222,6 +222,16 @@ function auditRegressionLocks() {
       sit: 'A Sabbath song of thanksgiving',
       bad: false
     },
+    {
+      ref: 'Psalm 96:1',
+      sit: 'John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love.',
+      bad: true
+    },
+    {
+      ref: '1 John 4:7',
+      sit: 'John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love.',
+      bad: false
+    },
     { ref: '1 John 4:7', about: 'Solomon', bad: true },
     { ref: '1 John 4:7', about: 'David', bad: true },
     { ref: '1 John 4:7', about: 'Paul', bad: true },

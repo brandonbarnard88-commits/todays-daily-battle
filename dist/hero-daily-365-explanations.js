@@ -2054,7 +2054,7 @@
   {
     "ref": "Psalm 96:1",
     "text": "O sing unto the Lord a new song: sing unto the Lord, all the earth.",
-    "plain": "O make a new song to the Lord; let all the earth make melody to the Lord.",
+    "plain": "The whole earth is invited to sing a new song to the Lord — praise that is alive, not leftover.",
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "All lands called to joyful worship",

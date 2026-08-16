@@ -27,13 +27,6 @@
     "allowFlags": "i"
   },
   {
-    "id": "1jn-urges-love",
-    "re": "John urges the church to love one another",
-    "flags": "i",
-    "allow": "^1 John\\s+4:",
-    "allowFlags": "i"
-  },
-  {
     "id": "ps92-sabbath",
     "re": "Sabbath song of thanksgiving",
     "flags": "i",

@@ -44,6 +44,20 @@
     .kids-easy-door--story { background: linear-gradient(145deg, #fef3c7, #fde68a); border-color: #f59e0b; }
     .kids-easy-door--color { background: linear-gradient(145deg, #dbeafe, #93c5fd); border-color: #3b82f6; }
     .kids-easy-door--play { background: linear-gradient(145deg, #dcfce7, #86efac); border-color: #22c55e; }
+    .kids-easy-games { margin-top: 1.35rem; text-align: left; }
+    .kids-easy-games h2 {
+      margin: 0 0 0.65rem; text-align: center; font-size: 1.2rem; font-weight: 800; color: #0f172a;
+    }
+    .dark-mode .kids-easy-games h2 { color: #0f172a; }
+    .kids-easy-game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    .kids-easy-game {
+      display: block; text-decoration: none; border-radius: 1rem; padding: 0.9rem 0.75rem;
+      font-weight: 800; font-size: 1.05rem; line-height: 1.2; color: #0f172a; text-align: center;
+      background: linear-gradient(145deg, #dcfce7, #86efac); border: 3px solid #22c55e;
+      box-shadow: 0 3px 12px rgba(15, 23, 42, 0.08); min-height: 72px;
+    }
+    .kids-easy-game small { display: block; font-weight: 600; font-size: 0.82rem; margin-top: 0.2rem; opacity: 0.88; }
+    .kids-easy-game:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
     .kids-easy-door:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
     .kids-easy-mascot { width: 120px; height: auto; margin: 0.25rem auto 0.35rem; display: block; }
     .kids-easy-more { margin-top: 1.5rem; text-align: left; }
@@ -109,21 +123,24 @@
               🖍️ Color
               <small>Paint a Bible picture</small>
             </a>
-            <a class="kids-easy-door kids-easy-door--play" href="match-buddies.html">
-              🎮 Play
-              <small>One short matching game</small>
-            </a>
           </div>
+
+          <section class="kids-easy-games" aria-labelledby="kids-easy-games-h">
+            <h2 id="kids-easy-games-h">Play</h2>
+            <div class="kids-easy-game-grid">
+              <a class="kids-easy-game" href="match-buddies.html">Match the Verse<small>pair a kid line to KJV</small></a>
+              <a class="kids-easy-game" href="lost-sheep.html">Find the sheep<small>tap the grass</small></a>
+              <a class="kids-easy-game" href="memory-flock.html">Memory flock<small>flip and match</small></a>
+              <a class="kids-easy-game" href="shepherds-path.html">Shepherd&rsquo;s Path<small>step the stones</small></a>
+            </div>
+          </section>
 
           <details class="kids-easy-more">
             <summary>More</summary>
             <ul>
               <li><a href="corner.html">All stories</a></li>
               <li><a href="good-night.html">Good night prayer</a></li>
-              <li><a href="lost-sheep.html">Find the sheep</a></li>
-              <li><a href="shepherds-path.html">Shepherd&rsquo;s path</a></li>
               <li><a href="my-pasture.html">My pasture</a></li>
-              <li><a href="memory-flock.html">Memory flock</a></li>
               <li><a href="prayer-activities.html">Prayer ideas</a></li>
               <li><a href="../printables.html">Printables</a></li>
               <li><a href="../family.html">Grown-ups</a></li>

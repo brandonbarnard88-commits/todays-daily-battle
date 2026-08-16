@@ -121,7 +121,8 @@ const CRITICAL_DIST_JS = [
   'hero-daily-first-paint.js',
   'js/surfaces/home.js',
   'js/surfaces/plans.js',
-  'js/surfaces/church.js'
+  'js/surfaces/church.js',
+  'kids/kids-play-helpers.js'
 ];
 const rootFiles = [
   'config.js',

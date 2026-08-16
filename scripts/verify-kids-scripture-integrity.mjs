@@ -180,11 +180,11 @@ function auditKidsWhoMap() {
   }
 }
 
-/** Kids mini-games verse bank (kids-game-kit.js) */
+/** Kids mini-games verse bank (kids-play-helpers.js) */
 function auditKidsGames(kjv) {
-  const p = path.join(root, 'kids/kids-game-kit.js');
+  const p = path.join(root, 'kids/kids-play-helpers.js');
   if (!fs.existsSync(p)) {
-    warn('kids-game-kit.js missing — skip games verse bank');
+    warn('kids-play-helpers.js missing — skip games verse bank');
     return;
   }
   const src = fs.readFileSync(p, 'utf8');
@@ -197,7 +197,7 @@ function auditKidsGames(kjv) {
     // alternate shape
     const refs = [...src.matchAll(/ref:\s*'([^']+\d+:\d+[^']*)'/g)].map((m) => m[1]);
     for (const ref of refs) {
-      if (!resolveKjvText(kjv, ref)) fail(`kids-game-kit ref not in KJV: ${ref}`);
+      if (!resolveKjvText(kjv, ref)) fail(`kids-play-helpers ref not in KJV: ${ref}`);
     }
     return;
   }
@@ -206,11 +206,11 @@ function auditKidsGames(kjv) {
     const ref = m[3];
     const resolved = resolveKjvText(kjv, ref);
     if (!resolved) {
-      fail(`kids-game-kit ref not in KJV: ${ref}`);
+      fail(`kids-play-helpers ref not in KJV: ${ref}`);
       continue;
     }
     if (!quoteAgreesWithKjv(kjvQuote, resolved.text, 10)) {
-      fail(`kids-game-kit quote mismatch for ${ref}: “${kjvQuote.slice(0, 50)}…”`);
+      fail(`kids-play-helpers quote mismatch for ${ref}: “${kjvQuote.slice(0, 50)}…”`);
     }
   }
 }

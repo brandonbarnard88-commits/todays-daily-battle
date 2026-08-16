@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-windoor">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-mixup">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -109,7 +109,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-windoor"></script>
+  <script src="kids-play-helpers.js?v=20260816-mixup"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -157,13 +157,40 @@
     var audioCtx = null;
 
     function shuffle(a) {
-      if (kit && kit.seededShuffle) return kit.seededShuffle(a, Date.now() % 100000);
       var x = a.slice();
       for (var i = x.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var t = x[i]; x[i] = x[j]; x[j] = t;
       }
       return x;
+    }
+
+    function pairIds(list, attr) {
+      return list.map(function (n) {
+        return attr ? n.getAttribute(attr) : n.id;
+      });
+    }
+
+    function sameOrder(a, b) {
+      if (!a.length || a.length !== b.length) return false;
+      var i;
+      for (i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) return false;
+      }
+      return true;
+    }
+
+    function unalign(list, otherIds, idOf) {
+      var out = list.slice();
+      var tries = 0;
+      while (out.length > 1 && sameOrder(out.map(idOf), otherIds) && tries < 16) {
+        out = shuffle(list);
+        tries += 1;
+      }
+      if (out.length > 1 && sameOrder(out.map(idOf), otherIds)) {
+        out = out.slice(1).concat(out.slice(0, 1));
+      }
+      return out;
     }
 
     function soundOn() { return soundBox && soundBox.checked; }
@@ -308,7 +335,8 @@
       paintStars();
       paintScores();
       shuffle(pairsThisRound).forEach(function (p) { plainEl.appendChild(makeBtn(p, 'plain')); });
-      shuffle(pairsThisRound).forEach(function (p) { kjvEl.appendChild(makeBtn(p, 'kjv')); });
+      unalign(pairsThisRound, pairIds([].slice.call(plainEl.children), 'data-pair'), function (p) { return p.id; })
+        .forEach(function (p) { kjvEl.appendChild(makeBtn(p, 'kjv')); });
       var timerRow = document.getElementById('kg-timer-row');
       var cfg = kit && kit.sizeConfig ? kit.sizeConfig(playSize) : {};
       if (timerRow) timerRow.classList.toggle('show', !!cfg.timer);
@@ -416,7 +444,11 @@
           }
           if (playSize === 'bigger') {
             shuffle(leftoverBtns(plainEl)).forEach(function (n) { plainEl.appendChild(n); });
-            shuffle(leftoverBtns(kjvEl)).forEach(function (n) { kjvEl.appendChild(n); });
+            unalign(
+              leftoverBtns(kjvEl),
+              pairIds(leftoverBtns(plainEl), 'data-pair'),
+              function (n) { return n.getAttribute('data-pair'); }
+            ).forEach(function (n) { kjvEl.appendChild(n); });
           }
           var left = leftoverBtns(plainEl).concat(leftoverBtns(kjvEl));
           left.forEach(function (n) {

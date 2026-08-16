@@ -53,6 +53,158 @@ body.kids-kiss-play-home .tdb-site-humility {
   display: none !important;
 }
 
+.kg-sizes {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0 0 0.65rem;
+}
+.kg-sizes button {
+  min-height: 40px !important;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 3px solid #d97706;
+  background: #fffef8;
+  color: #0f172a !important;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.88rem !important;
+  cursor: pointer;
+}
+.kg-sizes button[aria-pressed="true"] {
+  background: #0f172a;
+  color: #f2dc98 !important;
+  border-color: #f2dc98;
+}
+.kg-seal {
+  display: none;
+  margin-left: 0.25rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: #f2dc98;
+  color: #0f172a !important;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.kg-seal.on { display: inline-block; }
+.kg-mix {
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: #f2dc98;
+}
+.kg-buddy {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.65rem 0 0.35rem;
+  padding: 0.4rem 0.55rem;
+  border-radius: 16px;
+  background: #fffef8;
+  border: 3px solid rgba(217, 119, 6, 0.45);
+}
+.kg-buddy .kids-mascot-tap {
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  min-height: 0 !important;
+}
+.kg-buddy .kids-shepherd-hero-img {
+  width: 64px;
+  height: auto;
+  display: block;
+}
+.kg-buddy-line {
+  margin: 0;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: #0f172a !important;
+}
+.kg-how {
+  margin: 0.85rem 0 0;
+  border-radius: 14px;
+  background: #fffef8;
+  border: 2px dashed rgba(217, 119, 6, 0.4);
+  padding: 0.35rem 0.7rem;
+}
+.kg-how summary {
+  cursor: pointer;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  color: #0f172a;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+.kg-verse-friends {
+  display: none;
+  margin: 0.75rem 0 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 16px;
+  background: #fffef8;
+  border: 3px solid #d97706;
+}
+.kg-verse-friends.show { display: block; }
+.kg-verse-friends h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  color: #0f172a !important;
+}
+.kg-verse-friends li {
+  list-style: none;
+  margin: 0 0 0.35rem;
+  padding: 0;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #0f172a;
+}
+.kg-carry {
+  display: none;
+  text-align: center;
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ecfdf5, #bbf7d0);
+  border: 3px solid #16a34a;
+}
+.kg-carry.show { display: block; animation: kg-found 0.45s ease; }
+.kg-carry-art {
+  font-size: 2.4rem;
+  line-height: 1;
+  margin: 0 0 0.35rem;
+}
+.kg-carry p {
+  margin: 0;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  color: #14532d !important;
+}
+.sp-path.is-trail {
+  box-shadow: 0 0 0 4px #f2dc98, 4px 4px 0 rgba(15, 23, 42, 0.12);
+}
+.kg-timer-row {
+  display: none;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0 0 0.45rem;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 700;
+  color: #0f172a !important;
+}
+.kg-timer-row.show { display: flex; align-items: center; }
+body.kids-mini-game .kids-site-porch,
+body.kids-mini-game .match-hero,
+body.kids-mini-game .ls-hero,
+body.kids-mini-game .mf-hero,
+body.kids-mini-game .sp-hero,
+body.kids-mini-game .match-daily {
+  display: none !important;
+}
+
 body.kids-mini-game,
 body.kids-kiss-play-home {
   --kg-ink: #0f172a;

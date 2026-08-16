@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-uniquepairs">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playall">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -34,21 +34,41 @@
     </header>
     <main class="app-content" id="main" role="main">
       <div class="content-inner ls-page">
-        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Jesus told this story—He comes looking for the one who is lost.</p>
+        <div class="kg-sizes" role="group" aria-label="How big a game">
+          <button type="button" data-kg-size="little">Little</button>
+          <button type="button" data-kg-size="middle">Middle</button>
+          <button type="button" data-kg-size="bigger">Bigger</button>
+        </div>
         <div class="ls-hud">
-          <span id="ls-level">Level 1 · 9 patches</span>
+          <span id="ls-level">Level 1</span>
+          <span class="kg-seal" id="kg-seal" hidden>3-day seal</span>
           <span id="ls-best">Best find: —</span>
         </div>
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Jesus told this story—He comes looking for the one who is lost.</p>
         <div class="ls-hero" data-kg-ico="🐑">
           <h1>Where is the sheep?</h1>
           <p>Tap the grass. One sheep is hidden. The Good Shepherd never loses count of His sheep—and He is glad when the lost one is found.</p>
         </div>
         <p id="ls-status" class="ls-status" role="status">Tap a square—find the sheep!</p>
-        <div class="ls-grid cols3" id="ls-grid" role="group" aria-label="Grass squares"></div>
-        <p id="ls-win" class="ls-win" hidden></p>
-        <div class="ls-kjv" id="ls-kjv">
-          <strong>KJV (Luke 15:4–6 idea):</strong> What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine… and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing.
+        <div class="kg-buddy">
+          <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a line">
+            <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.png?v=20260810ears2" width="72" height="80" alt="Little Shepherd" decoding="async"/>
+          </button>
+          <p class="kg-buddy-line" id="kids-little-shepherd-line" aria-live="polite">I will peek when you get warmer.</p>
         </div>
+        <div class="ls-grid cols3" id="ls-grid" role="group" aria-label="Grass squares"></div>
+        <div class="kg-carry" id="kg-carry">
+          <div class="kg-carry-art" aria-hidden="true">🧑‍🌾🐑</div>
+          <p>On His shoulders—rejoicing.</p>
+        </div>
+        <p id="ls-win" class="ls-win" hidden></p>
+        <details class="kg-how">
+          <summary>How to play</summary>
+          <p>Tap the grass. One sheep is hidden. The Good Shepherd never loses count.</p>
+          <div class="ls-kjv" id="ls-kjv">
+            <strong>KJV (Luke 15:4–6 idea):</strong> What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine… and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing.
+          </div>
+        </details>
         <div class="ls-actions">
           <button type="button" id="ls-again" hidden>Play again (same level)</button>
           <button type="button" id="ls-harder" hidden>Harder field</button>
@@ -64,10 +84,10 @@
       </div>
     </main>
   </div>
-  <script src="kids-play-helpers.js?v=20260816-uniquepairs"></script>
+  <script src="kids-play-helpers.js?v=20260816-playall"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
-  <script src="kids-gentle-shepherd.js?v=20260810ls" defer></script>
+  <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
   <script nonce="tdb2025s">
   document.addEventListener('DOMContentLoaded', function initLostSheep() {
     'use strict';
@@ -81,6 +101,14 @@
       { n: 20, cols: 'cols5', label: 'Level 4 · 20 patches' }
     ];
     var levelIndex = 0;
+    var playSize = 'middle';
+    function sizeLevels() {
+      var cfg = kit && kit.sizeConfig ? kit.sizeConfig(playSize) : null;
+      if (!cfg || !cfg.sheep) return LEVELS;
+      return cfg.sheep.map(function (n, i) {
+        return { n: n, cols: cfg.sheepCols[i] || 'cols3', label: 'Level ' + (i + 1) + ' · ' + n + ' patches' };
+      });
+    }
     var grid = document.getElementById('ls-grid');
     var st = document.getElementById('ls-status');
     var w = document.getElementById('ls-win');
@@ -113,6 +141,13 @@
       if (wc < c) dir.push('more to the left');
       if (wc > c) dir.push('more to the right');
       var where = dir.length ? dir.join(' and ') : 'nearby';
+      if (playSize === 'little') {
+        return dist <= 2 ? '🐑 Warmer.' : 'Colder. Try another patch.';
+      }
+      if (playSize === 'bigger') {
+        if (missStreak < 2) return 'Not that patch.';
+        return 'Search ' + where + '.';
+      }
       if (missStreak <= 1) {
         return dist <= 2
           ? 'Not that patch. You are getting warmer—keep looking close by.'
@@ -132,14 +167,24 @@
       } else {
         bestEl.textContent = 'Wins: ' + (g.totalWins || 0) + ' (this device)';
       }
+      var sealEl = document.getElementById('kg-seal');
+      var seal = kit.sealInfo ? kit.sealInfo('sheep') : { on: false };
+      if (sealEl) {
+        sealEl.hidden = !seal.on;
+        sealEl.className = 'kg-seal' + (seal.on ? ' on' : '');
+        sealEl.textContent = seal.text || '3-day seal';
+      }
     }
 
     function build() {
       done = false;
       tries = 0;
       missStreak = 0;
-      var L = LEVELS[Math.min(levelIndex, LEVELS.length - 1)];
+      var levels = sizeLevels();
+      var L = levels[Math.min(levelIndex, levels.length - 1)];
       if (levelEl) levelEl.textContent = L.label;
+      var carry = document.getElementById('kg-carry');
+      if (carry) carry.classList.remove('show');
       if (w) { w.hidden = true; w.textContent = ''; }
       if (again) again.hidden = true;
       if (harder) harder.hidden = true;
@@ -176,7 +221,9 @@
                   (window.tdbLittleShepherd && tdbLittleShepherd.pickCheer ? tdbLittleShepherd.pickCheer() : 'Rejoice with the Shepherd.');
               }
               if (again) again.hidden = false;
-              if (harder) harder.hidden = levelIndex + 1 >= LEVELS.length;
+              if (harder) harder.hidden = levelIndex + 1 >= sizeLevels().length;
+              var carryWin = document.getElementById('kg-carry');
+              if (carryWin) carryWin.classList.add('show');
               if (kit) kit.recordScore('sheep', { wins: 1, tries: tries, level: levelIndex + 1 });
               paintBest();
               if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
@@ -184,7 +231,11 @@
               }
             } else if (st) {
               missStreak += 1;
-              st.textContent = sheepHint(idx, L.n);
+              var hint = sheepHint(idx, L.n);
+              st.textContent = hint;
+              if (/[Ww]armer/.test(hint) && window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
+                try { window.tdbLittleShepherd.notify('warmer'); } catch (eW) {}
+              }
             }
           });
           if (grid) grid.appendChild(b);
@@ -194,7 +245,14 @@
     if (again) again.addEventListener('click', build);
     if (harder) {
       harder.addEventListener('click', function () {
-        if (levelIndex + 1 < LEVELS.length) levelIndex += 1;
+        if (levelIndex + 1 < sizeLevels().length) levelIndex += 1;
+        build();
+      });
+    }
+    if (kit && kit.bindSizePicker) {
+      playSize = kit.bindSizePicker(function (next) {
+        playSize = next;
+        levelIndex = 0;
         build();
       });
     }

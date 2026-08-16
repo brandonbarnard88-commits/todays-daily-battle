@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-uniquepairs">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playall">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -34,20 +34,38 @@
     </header>
     <main class="app-content" id="main" role="main">
       <div class="content-inner mf-page">
-        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Flip, match, remember—KJV lines stick when we play.</p>
+        <div class="kg-sizes" role="group" aria-label="How big a game">
+          <button type="button" data-kg-size="little">Little</button>
+          <button type="button" data-kg-size="middle">Middle</button>
+          <button type="button" data-kg-size="bigger">Bigger</button>
+        </div>
         <div class="mf-hud">
           <span id="mf-hud-left">Today’s flock</span>
+          <span class="kg-mix" id="kg-mix-name"></span>
+          <span class="kg-seal" id="kg-seal" hidden>3-day seal</span>
           <span id="mf-hud-right">This device: —</span>
         </div>
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Flip, match, remember—KJV lines stick when we play.</p>
         <div class="mf-hero" data-kg-ico="🃏">
           <h1>Harder memory mode</h1>
           <p>Tap a card, then its pair—<strong>character phrase</strong> to <strong>KJV line</strong>. A short Remember tip appears each time you match.</p>
         </div>
         <p id="mf-st" class="mf-st" role="status">Find two that go together—tap a card!</p>
+        <div class="kg-buddy">
+          <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a line">
+            <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.png?v=20260810ears2" width="72" height="80" alt="Little Shepherd" decoding="async"/>
+          </button>
+          <p class="kg-buddy-line" id="kids-little-shepherd-line" aria-live="polite">I will cheer when two cards belong.</p>
+        </div>
         <div id="mf-teach" class="mf-teach" role="status"></div>
         <div class="mf-board" id="mf-board" role="group" aria-label="Memory cards"></div>
+        <div class="kg-verse-friends" id="kg-verse-friends"></div>
         <p id="mf-win" class="section-note" style="text-align:center;margin:0.75rem 0;font-weight:800;color:#14532d" hidden>All pairs found!</p>
         <p style="text-align:center"><button type="button" id="mf-again" class="mf-again">Play again (new daily mix)</button></p>
+        <details class="kg-how">
+          <summary>How to play</summary>
+          <p>Tap a card, then its pair—character phrase to KJV line.</p>
+        </details>
         <nav class="kg-more" aria-label="More games">
           <p>
             <a href="match-buddies.html">Match the Verse</a>
@@ -60,10 +78,10 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-uniquepairs"></script>
+  <script src="kids-play-helpers.js?v=20260816-playall"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
-  <script src="kids-gentle-shepherd.js?v=20260810ls" defer></script>
+  <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
   <script nonce="tdb2025s">
   window.addEventListener('load', function () {
     'use strict';
@@ -71,6 +89,7 @@
       try { tdbKidsActivityLog.log({ type: 'game', label: 'Play: Memory flock' }); } catch (e) {}
     }
     var kit = window.tdbKidsGameKit;
+    var playSize = kit && kit.getSize ? kit.getSize() : 'middle';
     var FALLBACK_PAIRS = [
       { id: 'p23', plain: 'God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', teach: 'Jesus cares for you the way a good shepherd cares for sheep.' },
       { id: 'kids', plain: 'Jesus says kids can come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', teach: 'You are welcome with Jesus—kids matter to Him.' },
@@ -94,6 +113,13 @@
       if (!hudR || !kit) return;
       var g = kit.getScore('memory') || {};
       hudR.textContent = 'Wins: ' + (g.totalWins || 0) + ' · Pairs: ' + (g.totalPairs || 0);
+      var sealEl = document.getElementById('kg-seal');
+      var seal = kit.sealInfo ? kit.sealInfo('memory') : { on: false };
+      if (sealEl) {
+        sealEl.hidden = !seal.on;
+        sealEl.className = 'kg-seal' + (seal.on ? ' on' : '');
+        sealEl.textContent = seal.text || '3-day seal';
+      }
     }
 
     function build() {
@@ -107,7 +133,12 @@
       if (teach) { teach.classList.remove('show'); teach.textContent = ''; }
       if (st) st.textContent = 'Find two that go together—tap a card!';
       if (board) board.textContent = '';
-      usePairs = kit && kit.mixDailyAndCore ? kit.mixDailyAndCore(4) : (kit && kit.MATCH_CORE ? kit.MATCH_CORE.slice(0, 4) : FALLBACK_PAIRS.slice(0, 4));
+      var want = (kit && kit.sizeConfig(playSize).pairs) || 4;
+      usePairs = kit && kit.mixDailyAndCore ? kit.mixDailyAndCore(want) : (kit && kit.MATCH_CORE ? kit.MATCH_CORE.slice(0, want) : FALLBACK_PAIRS.slice(0, want));
+      var mixEl = document.getElementById('kg-mix-name');
+      if (mixEl && kit && kit.mixName) mixEl.textContent = kit.mixName(usePairs);
+      var friends = document.getElementById('kg-verse-friends');
+      if (friends) { friends.classList.remove('show'); friends.textContent = ''; }
       usePairs.forEach(function (p) {
         pairTeach[p.id] = p;
       });
@@ -156,6 +187,21 @@
               if (st) {
                 st.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin) ? tdbLittleShepherd.pickMatchWin() : 'You matched the flock!';
               }
+              var box = document.getElementById('kg-verse-friends');
+              if (box) {
+                box.textContent = '';
+                var h3 = document.createElement('h3');
+                h3.textContent = 'Your verse friends';
+                box.appendChild(h3);
+                var ul = document.createElement('ul');
+                usePairs.forEach(function (p) {
+                  var li = document.createElement('li');
+                  li.textContent = (p.icon ? p.icon + ' ' : '') + p.plain + (p.ref ? ' — ' + p.ref : '');
+                  ul.appendChild(li);
+                });
+                box.appendChild(ul);
+                box.classList.add('show');
+              }
               if (kit) kit.recordScore('memory', { pairs: usePairs.length, wins: 1 });
               paintHud();
               if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
@@ -164,13 +210,16 @@
             } else if (st) {
               st.textContent = 'Nice! Read the tip—then keep going.';
             }
+            if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
+              try { window.tdbLittleShepherd.notify('pairFound'); } catch (ePf) {}
+            }
           } else {
             missStreak += 1;
             lock = true;
             b.classList.add('mf-wrong');
             if (st) {
               st.textContent = kit && kit.missHint
-                ? kit.missHint(pairTeach[a], missStreak)
+                ? kit.missHint(pairTeach[a], missStreak, playSize)
                 : 'Not that pair. Think about the idea on the first card—then try another leftover card.';
             }
             if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
@@ -189,6 +238,12 @@
       paintHud();
     }
     if (again) again.addEventListener('click', build);
+    if (kit && kit.bindSizePicker) {
+      playSize = kit.bindSizePicker(function (next) {
+        playSize = next;
+        build();
+      });
+    }
     build();
   });
   </script>

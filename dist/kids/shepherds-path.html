@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-uniquepairs">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playall">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -34,16 +34,28 @@
     </header>
     <main class="app-content" id="main" role="main">
       <div class="content-inner sp-page">
-        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Follow one step at a time—like walking with the Shepherd.</p>
+        <div class="kg-sizes" role="group" aria-label="How big a game">
+          <button type="button" data-kg-size="little">Little</button>
+          <button type="button" data-kg-size="middle">Middle</button>
+          <button type="button" data-kg-size="bigger">Bigger</button>
+        </div>
         <div class="sp-hud">
           <span id="sp-level-label">Level 1 · 5 stones</span>
+          <span class="kg-seal" id="kg-seal" hidden>3-day seal</span>
           <span id="sp-best-label">Best level: —</span>
         </div>
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Follow one step at a time—like walking with the Shepherd.</p>
         <div class="sp-hero mini-game-hero" data-kg-ico="🪨">
           <h1>Step the path</h1>
           <p>Tap stones <strong>in order</strong> (1, then 2, then 3…). Jesus is the Good Shepherd—we follow one step at a time. Each level adds more stones!</p>
         </div>
-        <p id="sp-status" class="sp-status" role="status" aria-live="polite">Start with stone 1.</p>
+        <p id="sp-status" class="sp-status" role="status" aria-live="polite">Start at the first number on the path.</p>
+        <div class="kg-buddy">
+          <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a line">
+            <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.png?v=20260810ears2" width="72" height="80" alt="Little Shepherd" decoding="async"/>
+          </button>
+          <p class="kg-buddy-line" id="kids-little-shepherd-line" aria-live="polite">I will step with you.</p>
+        </div>
         <div class="sp-path" id="sp-path" role="group" aria-label="Stepping stones"></div>
         <div class="sp-kjv" id="sp-kjv-box">
           <strong>KJV:</strong> <span id="sp-kjv-text">The Lord is my shepherd; I shall not want.</span>
@@ -56,8 +68,13 @@
             <button type="button" id="sp-next">Next level</button>
             <button type="button" id="sp-again">Replay level</button>
             <a href="corner.html?choose=1#kids-library-grid">Pick a story</a>
+            <a href="my-pasture.html">My pasture</a>
           </div>
         </div>
+        <details class="kg-how">
+          <summary>How to play</summary>
+          <p>Step the path. Tap stones in order. Jesus is the Good Shepherd—we follow one step at a time.</p>
+        </details>
         <nav class="kg-more" aria-label="More games">
           <p>
             <a href="match-buddies.html">Match the Verse</a>
@@ -70,10 +87,10 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-uniquepairs"></script>
+  <script src="kids-play-helpers.js?v=20260816-playall"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
-  <script src="kids-gentle-shepherd.js?v=20260810ls" defer></script>
+  <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
   <script nonce="tdb2025s">
   document.addEventListener('DOMContentLoaded', function initShepherdsPath() {
     'use strict';
@@ -81,6 +98,12 @@
       try { tdbKidsActivityLog.log({ type: 'game', label: "Play: Shepherd's Path" }); } catch (e) {}
     }
     var LEVELS = [5, 7, 9, 12];
+    var playSize = 'middle';
+    var kitEarly = window.tdbKidsGameKit;
+    function sizeLevels() {
+      var cfg = kitEarly && kitEarly.sizeConfig ? kitEarly.sizeConfig(playSize) : null;
+      return (cfg && cfg.path) || LEVELS;
+    }
     var TEACH = [
       'Remember: the Shepherd leads; we take the next right step.',
       'Remember: following Jesus is one obedient step after another.',
@@ -92,6 +115,13 @@
     var missStreak = 0;
 
     function pathHint() {
+      if (playSize === 'little') {
+        return expect === 1 ? 'Start at the first number.' : 'Count the green stones. Next is one more.';
+      }
+      if (playSize === 'bigger') {
+        if (missStreak < 2) return 'Not next.';
+        return 'Count the green stones. Next is one more.';
+      }
       if (expect === 1) {
         return 'Not that stone. The path starts at the first number.';
       }
@@ -118,6 +148,13 @@
       if (!bestLabel || !kit) return;
       var g = kit.getScore('path') || {};
       bestLabel.textContent = 'Best level: ' + (g.bestLevel || 0) + ' · Wins: ' + (g.totalWins || 0);
+      var sealEl = document.getElementById('kg-seal');
+      var seal = kit.sealInfo ? kit.sealInfo('path') : { on: false };
+      if (sealEl) {
+        sealEl.hidden = !seal.on;
+        sealEl.className = 'kg-seal' + (seal.on ? ' on' : '');
+        sealEl.textContent = seal.text || '3-day seal';
+      }
     }
 
     function dailyVerse() {
@@ -132,11 +169,15 @@
     function build() {
       expect = 1;
       missStreak = 0;
-      var N = LEVELS[Math.min(levelIndex, LEVELS.length - 1)];
+      var levels = sizeLevels();
+      var N = levels[Math.min(levelIndex, levels.length - 1)];
       if (levelLabel) levelLabel.textContent = 'Level ' + (levelIndex + 1) + ' · ' + N + ' stones';
       if (win) { win.classList.remove('show'); win.hidden = true; }
       if (st) st.textContent = 'Start at the first number on the path.';
-      if (path) path.textContent = '';
+      if (path) {
+        path.textContent = '';
+        path.classList.remove('is-trail');
+      }
       var v = dailyVerse();
       if (kjvText) kjvText.textContent = v.text;
       if (kjvRef) kjvRef.textContent = v.ref + ' (KJV)';
@@ -156,6 +197,7 @@
               expect += 1;
               if (expect > N) {
                 if (st) st.textContent = 'You finished the path!';
+                if (path) path.classList.add('is-trail');
                 if (winL) {
                   winL.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin)
                     ? tdbLittleShepherd.pickMatchWin()
@@ -170,6 +212,9 @@
               } else if (st) {
                 missStreak = 0;
                 st.textContent = 'Nice! Keep going in order.';
+                if (window.tdbLittleShepherd && tdbLittleShepherd.notify) {
+                  try { window.tdbLittleShepherd.notify('pathStep'); } catch (eS) {}
+                }
               }
             } else {
               missStreak += 1;
@@ -189,13 +234,20 @@
     var next = document.getElementById('sp-next');
     if (next) {
       next.addEventListener('click', function () {
-        if (levelIndex + 1 < LEVELS.length) levelIndex += 1;
+        if (levelIndex + 1 < sizeLevels().length) levelIndex += 1;
         else levelIndex = 0;
         build();
       });
     }
     var again = document.getElementById('sp-again');
     if (again) again.addEventListener('click', build);
+    if (kitEarly && kitEarly.bindSizePicker) {
+      playSize = kitEarly.bindSizePicker(function (nextSize) {
+        playSize = nextSize;
+        levelIndex = 0;
+        build();
+      });
+    }
     build();
   });
   </script>

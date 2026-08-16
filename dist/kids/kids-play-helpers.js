@@ -108,18 +108,21 @@
     return streak;
   }
 
-  /** Kid-friendly plain line for common KJV snippets */
+  /** Kid-friendly plain line for common KJV snippets — each phrase must stay unique. */
   var PLAIN_MAP = [
     { re: /shepherd/i, plain: 'God cares for me like a shepherd', icon: '🐑', who: 'Shepherd' },
-    { re: /lamp unto my feet/i, plain: 'God’s Word shows me the way', icon: '💡', who: 'Light' },
-    { re: /little children|suffer the/i, plain: 'Jesus welcomes kids', icon: '⭐', who: 'Jesus' },
-    { re: /be not afraid|fear not|whom shall I fear/i, plain: 'I do not have to be scared', icon: '🛡️', who: 'Brave' },
-    { re: /careth for you|cast.*care/i, plain: 'I can give God my worries', icon: '🙏', who: 'Care' },
+    { re: /lamp unto my feet|word is a lamp/i, plain: 'God’s Word shows me the way', icon: '💡', who: 'Light' },
+    { re: /little children|suffer the|suffer little/i, plain: 'Jesus welcomes kids', icon: '⭐', who: 'Jesus' },
+    { re: /be not afraid|fear not|whom shall I fear|fear thou not/i, plain: 'I do not have to be scared', icon: '🛡️', who: 'Brave' },
+    { re: /careth for you|cast.*care|cast thy burden/i, plain: 'I can give God my worries', icon: '🙏', who: 'Care' },
     { re: /loved the world|first loved us/i, plain: 'God loved us first', icon: '❤️', who: 'Love' },
-    { re: /peace, be still|great calm/i, plain: 'Jesus can calm the storm', icon: '🌊', who: 'Peace' },
-    { re: /ask, and it shall|seek, and ye/i, plain: 'I can talk to God anytime', icon: '🙏', who: 'Pray' },
+    { re: /peace, be still|great calm|peace I leave|my peace I give/i, plain: 'Jesus can calm the storm', icon: '🌊', who: 'Peace' },
+    { re: /ask, and it shall|seek, and ye|lack wisdom/i, plain: 'I can talk to God anytime', icon: '🙏', who: 'Pray' },
     { re: /whatsoever ye would that men/i, plain: 'Treat others the way I want to be treated', icon: '🤝', who: 'Kind' },
+    { re: /joyful noise/i, plain: 'I can make a joyful noise to God', icon: '🎺', who: 'Joy' },
+    { re: /sing unto the lord|sing of thy|i will sing/i, plain: 'I can sing and bless the Lord’s name', icon: '🎵', who: 'Sing' },
     { re: /rejoice/i, plain: 'I can be glad in the Lord', icon: '☀️', who: 'Joy' },
+    { re: /give thanks|o give thanks/i, plain: 'I can thank the Lord because He is good', icon: '🙏', who: 'Thanks' },
     { re: /trust in the lord/i, plain: 'I can trust God with my whole heart', icon: '💪', who: 'Trust' },
     { re: /strengtheneth me|i can do all things/i, plain: 'Jesus gives me strength', icon: '💪', who: 'Strong' },
     { re: /wonderfully made/i, plain: 'God made me on purpose', icon: '✨', who: 'You' },
@@ -128,16 +131,78 @@
     { re: /taste and see/i, plain: 'God is good—try trusting Him', icon: '🍯', who: 'Good' },
     { re: /be still/i, plain: 'Quiet your heart—God is God', icon: '🤫', who: 'Still' },
     { re: /this is the day/i, plain: 'Today is a gift from God', icon: '📅', who: 'Today' },
-    { re: /helper.*fear/i, plain: 'The Lord helps me', icon: '🤝', who: 'Help' },
-    { re: /word is a lamp/i, plain: 'God’s Word lights my steps', icon: '📖', who: 'Bible' }
+    { re: /helper.*fear|i will not fear/i, plain: 'The Lord helps me', icon: '🤝', who: 'Help' },
+    { re: /lift up mine eyes/i, plain: 'I look to God for help', icon: '⛰️', who: 'Help' },
+    { re: /my rock|my fortress/i, plain: 'The Lord is my rock', icon: '🪨', who: 'Safe' },
+    { re: /path of life/i, plain: 'God shows me the path of life', icon: '🌿', who: 'Path' },
+    { re: /angels charge/i, plain: 'God sends help to watch over me', icon: '✨', who: 'Help' },
+    { re: /spirit of fear/i, plain: 'God does not give a scared spirit', icon: '🛡️', who: 'Brave' },
+    { re: /wait on the lord|waited patiently/i, plain: 'I can wait on the Lord', icon: '⏳', who: 'Wait' },
+    { re: /heartily, as to the lord/i, plain: 'I can do my work for the Lord', icon: '🛠️', who: 'Work' },
+    { re: /strong in the lord/i, plain: 'I can be strong in the Lord', icon: '💪', who: 'Strong' },
+    { re: /father pitieth/i, plain: 'God cares like a good father', icon: '💛', who: 'Father' },
+    { re: /whole heart/i, plain: 'I can praise God with my whole heart', icon: '💛', who: 'Praise' },
+    { re: /fruit of the spirit/i, plain: 'Love, joy, and peace grow in us', icon: '🍇', who: 'Fruit' },
+    { re: /strength and my shield/i, plain: 'The Lord is my strength and shield', icon: '🛡️', who: 'Safe' },
+    { re: /word of the lord is right/i, plain: 'God’s Word is right and true', icon: '📖', who: 'Bible' },
+    { re: /hope thou in god|i will hope/i, plain: 'I can put my hope in God', icon: '🌅', who: 'Hope' },
+    { re: /possible to him that believeth/i, plain: 'Believe—God can do it', icon: '⭐', who: 'Faith' },
+    { re: /hear the word of god/i, plain: 'Hear God’s Word and hold it', icon: '👂', who: 'Hear' },
+    { re: /mercy endureth|his mercy|tender mercies/i, plain: 'God’s mercy does not run out', icon: '💧', who: 'Mercy' }
   ];
 
-  function plainForKjv(text) {
-    var t = String(text || '');
-    for (var i = 0; i < PLAIN_MAP.length; i++) {
-      if (PLAIN_MAP[i].re.test(t)) return PLAIN_MAP[i];
+  function firstClause(text) {
+    var t = String(text || '').replace(/\s+/g, ' ').trim();
+    if (!t) return '';
+    var cut = t.split(/[;:]/)[0].trim();
+    if (cut.length < 14) {
+      var parts = t.split(/[,.]/);
+      cut = ((parts[0] || '') + (parts[1] ? ', ' + parts[1] : '')).trim();
     }
-    return { plain: 'God’s Word is true and good', icon: '📖', who: 'Bible' };
+    if (cut.length > 70) cut = cut.slice(0, 67).replace(/\s+\S*$/, '');
+    return cut.replace(/[,;:\s]+$/, '');
+  }
+
+  function softenKjvClause(text) {
+    return String(text || '')
+      .replace(/\bunto\b/gi, 'to')
+      .replace(/\bthy\b/gi, 'your')
+      .replace(/\bthine\b/gi, 'your')
+      .replace(/\bthou\b/gi, 'you')
+      .replace(/\bthee\b/gi, 'you')
+      .replace(/\bye\b/gi, 'you')
+      .replace(/\bhath\b/gi, 'has')
+      .replace(/\bshew\b/gi, 'show')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function bookWho(ref) {
+    var r = String(ref || '').trim();
+    var m = r.match(/^(?:\d+\s+)?[A-Za-z]+/);
+    return m ? m[0] : 'Bible';
+  }
+
+  function plainForKjv(text, ref) {
+    var t = String(text || '');
+    var i;
+    for (i = 0; i < PLAIN_MAP.length; i++) {
+      if (PLAIN_MAP[i].re.test(t)) {
+        return {
+          plain: PLAIN_MAP[i].plain,
+          icon: PLAIN_MAP[i].icon,
+          who: PLAIN_MAP[i].who,
+          clue: PLAIN_MAP[i].plain
+        };
+      }
+    }
+    var clause = softenKjvClause(firstClause(t)) || 'This verse is about the Lord';
+    return {
+      plain: clause,
+      icon: '📖',
+      who: bookWho(ref),
+      clue: clause
+    };
   }
 
   /** Fixed educational pairs with character art chips */
@@ -197,12 +262,17 @@
     var day = dayIndex();
     var out = [];
     var used = {};
+    var usedPlain = {};
     var i;
     for (i = 0; i < list.length && out.length < (count || 4); i++) {
       var v = list[(day + i * 7) % list.length];
       if (!v || !v.text || used[v.ref]) continue;
+      var probe = plainForKjv(v.text, v.ref);
+      var plainKey = String(probe.plain || '').toLowerCase();
+      if (plainKey && usedPlain[plainKey]) continue;
       used[v.ref] = true;
-      var meta = plainForKjv(v.text);
+      if (plainKey) usedPlain[plainKey] = true;
+      var meta = probe;
       out.push({
         id: 'd' + out.length + '_' + String(v.ref).replace(/\W+/g, ''),
         plain: meta.plain,
@@ -210,7 +280,7 @@
         ref: v.ref,
         icon: meta.icon,
         who: meta.who,
-        clue: meta.plain || meta.who || 'the same big idea',
+        clue: meta.clue || meta.plain || meta.who || 'the same big idea',
         teach: 'Today’s line: ' + v.ref + ' — listen for what it says about God.'
       });
     }
@@ -224,19 +294,35 @@
     return out;
   }
 
+  function takeUniquePairs(list, count) {
+    var want = count || 4;
+    var seenId = {};
+    var seenPlain = {};
+    var seenRef = {};
+    var out = [];
+    var i;
+    for (i = 0; i < list.length && out.length < want; i++) {
+      var p = list[i];
+      if (!p || !p.kjv) continue;
+      var id = String(p.id || '');
+      var plainKey = String(p.plain || '').toLowerCase();
+      var refKey = String(p.ref || '').toLowerCase();
+      if (id && seenId[id]) continue;
+      if (plainKey && seenPlain[plainKey]) continue;
+      if (refKey && seenRef[refKey]) continue;
+      if (id) seenId[id] = true;
+      if (plainKey) seenPlain[plainKey] = true;
+      if (refKey) seenRef[refKey] = true;
+      out.push(p);
+    }
+    return out;
+  }
+
   function mixDailyAndCore(count) {
-    var half = Math.ceil((count || 4) / 2);
-    var daily = dailyVersePairs(half);
-    var core = dailyCorePairs(count || 4);
-    var map = {};
-    var mixed = [];
-    daily.concat(core).forEach(function (p) {
-      if (!map[p.id] && mixed.length < (count || 4)) {
-        map[p.id] = true;
-        mixed.push(p);
-      }
-    });
-    return seededShuffle(mixed, dayIndex() * 31 + (count || 4));
+    var want = count || 4;
+    var daily = dailyVersePairs(want);
+    var core = dailyCorePairs(8);
+    return seededShuffle(takeUniquePairs(daily.concat(core), want), dayIndex() * 31 + want);
   }
 
   global.tdbKidsGameKit = {

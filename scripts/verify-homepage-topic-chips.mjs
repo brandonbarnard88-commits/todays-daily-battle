@@ -111,8 +111,14 @@ if (!homeFeel.includes('One results host')) {
 if (!css.includes('#feel-results.results ~ #feelCards')) {
   fail('tdb-home-page.css must hide #feelCards while #feel-results has results.');
 }
-if (!index.includes('id="tdbFeelMoreDetails"') || !/id="tdbFeelMoreDetails"[\s\S]{0,200}id="tdbFeelAllChips"/.test(index)) {
-  fail('The long topic wall must sit under a collapsed More feelings disclosure.');
+if (index.includes('<summary>More feelings</summary>') || /<details[^>]*id="tdbFeelMoreDetails"/.test(index)) {
+  fail('Ask the Word must show the topic wall in the open — no More feelings dropdown.');
+}
+if (!index.includes('id="tdbFeelAllChips"') || !index.includes('id="tdbFeelMoreDetails"')) {
+  fail('Ask the Word must keep the full topic wall in the open (tdbFeelAllChips).');
+}
+if (/<details[^>]*id="tdbKbExamples"/.test(index) || /<details[^>]*id="tdbFeelComboPresets"/.test(index)) {
+  fail('Ask the Word example questions and feeling pairs must stay open — no details menus.');
 }
 if (!/tdbFeelQuickStrip[\s\S]*?data-topic="prayer"[\s\S]*?data-topic="depression"[\s\S]*?data-topic="worry"/.test(index)) {
   fail('Top strip must include Prayer, Down, and Worry.');

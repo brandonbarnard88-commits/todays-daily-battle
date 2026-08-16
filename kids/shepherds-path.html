@@ -16,49 +16,8 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playfun">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    .sp-page { max-width: 26rem; margin: 0 auto; padding: 0.5rem 0.75rem 2rem; }
-    .sp-hero {
-      padding: 1rem; border-radius: 16px; margin-bottom: 0.75rem;
-      background: linear-gradient(165deg, #fffbeb, #ecfccb); border: 3px solid #f59e0b;
-    }
-    .sp-hero h1 { font-family: Bangers, cursive; font-size: 1.65rem; color: #0f172a; margin: 0 0 0.35rem; }
-    .sp-hero p { margin: 0; line-height: 1.5; color: #334155; font-size: 0.95rem; font-weight: 600; font-family: Nunito, system-ui, sans-serif; }
-    .sp-hud {
-      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between; align-items: center;
-      margin: 0 0 0.65rem; padding: 0.5rem 0.75rem; border-radius: 12px; background: #fffef8; border: 2px solid #fcd34d;
-      font-family: Nunito, system-ui, sans-serif; font-weight: 800; font-size: 0.9rem; color: #92400e;
-    }
-    .sp-path { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin: 1rem 0; }
-    .sp-stone {
-      min-width: 56px; min-height: 56px; border-radius: 14px; border: 3px solid rgba(217, 119, 6, 0.5);
-      background: linear-gradient(180deg, #fef9c3, #fde68a); font-size: 1.35rem; font-weight: 800;
-      font-family: Nunito, sans-serif; color: #422006; cursor: pointer; -webkit-tap-highlight-color: transparent;
-      box-shadow: 0 3px 0 #fbbf24; transition: transform 0.1s;
-    }
-    .sp-stone:active { transform: scale(0.96); }
-    .sp-stone:focus-visible { outline: 3px solid #0ea5e9; }
-    .sp-stone.is-done { opacity: 0.45; pointer-events: none; border-color: #22c55e; background: #ecfdf5; box-shadow: none; }
-    .sp-stone.wrong { animation: sp-shake 0.4s ease; }
-    @keyframes sp-shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
-    .sp-kjv {
-      margin: 0.75rem 0; padding: 0.75rem; border-radius: 12px; background: #fff; border: 2px solid #e2e8f0;
-      font-size: 0.95rem; line-height: 1.5; color: #0f172a; font-weight: 700; font-family: Nunito, system-ui, sans-serif;
-    }
-    .sp-teach { font-size: 0.9rem; font-weight: 600; color: #334155; margin: 0.35rem 0 0; }
-    .sp-win {
-      text-align: center; padding: 0.85rem; border-radius: 14px; border: 2px solid #22c55e;
-      background: rgba(34, 197, 94, 0.12); color: #14532d; display: none; font-weight: 800;
-    }
-    .sp-win.show { display: block; }
-    .sp-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 0.75rem; }
-    .sp-actions button, .sp-actions a {
-      min-height: 48px; padding: 0.5rem 0.9rem; border-radius: 12px; font-weight: 800; font-family: Nunito, system-ui, sans-serif;
-      border: 2px solid #f59e0b; background: #fffbeb; color: #92400e; text-decoration: none; cursor: pointer;
-    }
-    .sp-status { text-align: center; margin: 0.5rem 0; font-weight: 800; color: #0f172a; font-family: Nunito, system-ui, sans-serif; }
-  </style>
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -80,7 +39,7 @@
           <span id="sp-level-label">Level 1 · 5 stones</span>
           <span id="sp-best-label">Best level: —</span>
         </div>
-        <div class="sp-hero mini-game-hero">
+        <div class="sp-hero mini-game-hero" data-kg-ico="🪨">
           <h1>Step the path</h1>
           <p>Tap stones <strong>in order</strong> (1, then 2, then 3…). Jesus is the Good Shepherd—we follow one step at a time. Each level adds more stones!</p>
         </div>
@@ -99,7 +58,14 @@
             <a href="corner.html?choose=1#kids-library-grid">Pick a story</a>
           </div>
         </div>
-        <p style="text-align:center;margin-top:1rem"><a href="match-buddies.html">Match game</a> · <a href="/kids/">Home</a></p>
+        <nav class="kg-more" aria-label="More games">
+          <p>
+            <a href="match-buddies.html">Match the Verse</a>
+            <a href="lost-sheep.html">Find the sheep</a>
+            <a href="memory-flock.html">Memory flock</a>
+          </p>
+        </nav>
+        <p class="kg-home"><a href="/kids/">← Kids home</a></p>
       </div>
     </main>
   </div>

@@ -17,105 +17,8 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playfun">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    .match-page { max-width: 42rem; margin: 0 auto; padding: 0.35rem 0.75rem 2rem; }
-    .match-hud {
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem;
-      margin: 0 0 0.65rem; padding: 0.55rem 0.75rem; border-radius: 14px;
-      background: #fffef8; border: 2px solid rgba(251, 191, 36, 0.55);
-    }
-    .match-hud-round { font-family: Nunito, system-ui, sans-serif; font-weight: 800; font-size: 0.92rem; color: #92400e; }
-    .match-score-pill {
-      font-family: Nunito, system-ui, sans-serif; font-weight: 800; font-size: 0.82rem; color: #0f172a;
-      background: #ecfdf5; border: 2px solid #34d399; border-radius: 999px; padding: 0.25rem 0.65rem;
-    }
-    .match-stars { display: flex; gap: 0.2rem; font-size: 1.2rem; }
-    .match-star { opacity: 0.28; }
-    .match-star.on { opacity: 1; transform: scale(1.12); }
-    .match-hero {
-      padding: 0.85rem 1rem; border-radius: 16px; margin-bottom: 0.65rem;
-      background: linear-gradient(165deg, #fffbeb, #fef3c7 50%, #ecfccb);
-      border: 3px solid #f59e0b; color: #0f172a;
-    }
-    .match-hero h1 { font-family: Bangers, cursive; font-size: clamp(1.5rem, 5vw, 1.85rem); margin: 0 0 0.25rem; color: #0f172a; }
-    .match-hero p { margin: 0; font-family: Nunito, system-ui, sans-serif; font-weight: 600; color: #334155; line-height: 1.45; font-size: 0.95rem; }
-    .match-daily {
-      margin: 0 0 0.65rem; padding: 0.55rem 0.75rem; border-radius: 12px;
-      background: #eff6ff; border: 2px solid #93c5fd; font-family: Nunito, system-ui, sans-serif;
-      font-size: 0.88rem; font-weight: 700; color: #1e3a8a;
-    }
-    .match-board { display: grid; gap: 0.85rem; }
-    @media (min-width: 560px) { .match-board { grid-template-columns: 1fr 1fr; } }
-    .match-col h2 {
-      font-family: Nunito, sans-serif; font-size: 0.78rem; text-transform: uppercase;
-      letter-spacing: 0.08em; color: #92400e; margin: 0 0 0.45rem; font-weight: 800;
-    }
-    .match-btn {
-      display: flex; align-items: flex-start; gap: 0.55rem; width: 100%;
-      min-height: 72px; padding: 0.6rem 0.7rem; margin-bottom: 0.5rem;
-      border-radius: 16px; border: 3px solid #e2e8f0; background: #fff; color: #0f172a;
-      font-family: Nunito, system-ui, sans-serif; font-weight: 800; font-size: 0.95rem;
-      text-align: left; cursor: pointer; line-height: 1.35;
-      box-shadow: 0 2px 0 #cbd5e1; transition: transform 0.12s, border-color 0.15s, background 0.15s;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .match-btn:hover, .match-btn:focus-visible { border-color: #f59e0b; outline: none; transform: translateY(-1px); }
-    .match-btn:active { transform: scale(0.98); }
-    .match-btn[aria-pressed="true"] { background: #dbeafe; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.25); }
-    .match-btn.matched { opacity: 0.55; pointer-events: none; border-color: #22c55e; background: #ecfdf5; animation: match-pop 0.4s ease; }
-    .match-btn.match-wrong { animation: match-shake 0.4s ease; border-color: #f87171; background: #fef2f2; }
-    .match-btn.match-kjv { border-color: #fcd34d; background: #fffbeb; }
-    .match-avatar {
-      flex: 0 0 2.6rem; width: 2.6rem; height: 2.6rem; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.35rem; background: linear-gradient(160deg, #fef3c7, #fde68a);
-      border: 2px solid #f59e0b; box-shadow: inset 0 1px 0 #fff;
-    }
-    .match-btn.match-kjv .match-avatar { background: linear-gradient(160deg, #dbeafe, #93c5fd); border-color: #3b82f6; }
-    .match-btn-body { flex: 1; min-width: 0; }
-    .match-who { display: block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #92400e; margin-bottom: 0.15rem; }
-    .match-btn.match-kjv .match-who { color: #1d4ed8; }
-    @keyframes match-pop { 0% { transform: scale(1); } 40% { transform: scale(1.05); } 100% { transform: scale(1); } }
-    @keyframes match-shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-    .match-status {
-      min-height: 1.6rem; margin: 0.45rem 0 0.65rem; font-size: 1.02rem; font-weight: 800;
-      color: #0f172a; text-align: center; font-family: Nunito, system-ui, sans-serif;
-    }
-    .match-status.good { color: #047857; }
-    .match-status.try { color: #b45309; }
-    .match-teach {
-      display: none; margin: 0.5rem 0 0.75rem; padding: 0.75rem 0.9rem; border-radius: 14px;
-      background: #fffef8; border: 2px solid #f59e0b; color: #0f172a;
-      font-family: Nunito, system-ui, sans-serif; font-weight: 700; font-size: 0.95rem; line-height: 1.45;
-      animation: match-pop 0.35s ease;
-    }
-    .match-teach.show { display: block; }
-    .match-teach strong { color: #92400e; }
-    .match-teach cite { display: block; margin-top: 0.35rem; font-style: normal; font-size: 0.85rem; color: #64748b; }
-    .match-win {
-      display: none; text-align: center; padding: 1.1rem 1rem; margin-top: 0.75rem;
-      border-radius: 18px; border: 3px solid #22c55e; background: linear-gradient(180deg, #ecfdf5, #d1fae5); color: #064e3b;
-    }
-    .match-win.show { display: block; animation: match-pop 0.5s ease; }
-    .match-win p { margin: 0; font-size: 1.1rem; font-weight: 800; font-family: Nunito, system-ui, sans-serif; line-height: 1.4; }
-    .match-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.85rem; justify-content: center; }
-    .match-actions a, .match-actions button {
-      min-height: 48px; padding: 0.55rem 1rem; border-radius: 14px; font-weight: 800;
-      font-family: Nunito, system-ui, sans-serif; font-size: 0.95rem; text-decoration: none;
-      border: 3px solid #f59e0b; background: #fff; color: #92400e; cursor: pointer;
-    }
-    .match-actions button.match-next { background: linear-gradient(180deg, #fde68a, #fbbf24); border-color: #d97706; color: #422006; }
-    .match-sound-row {
-      display: flex; align-items: center; gap: 0.4rem; margin: 0 0 0.55rem;
-      font-family: Nunito, system-ui, sans-serif; font-size: 0.88rem; font-weight: 700; color: #475569;
-    }
-    .match-best {
-      margin: 0.75rem 0 0; padding: 0.55rem 0.75rem; border-radius: 12px;
-      background: #f8fafc; border: 2px solid #e2e8f0; font-family: Nunito, system-ui, sans-serif;
-      font-size: 0.88rem; font-weight: 700; color: #334155; text-align: center;
-    }
-  </style>
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -140,7 +43,7 @@
           <div class="match-stars" id="match-stars" role="img" aria-label="Pairs found"></div>
         </div>
 
-        <div class="match-hero">
+        <div class="match-hero" data-kg-ico="⭐">
           <h1>Match verse friends</h1>
           <p>Tap a <strong>character card</strong>, then the <strong>KJV line</strong>. Learn a short truth each match—then try a harder round!</p>
         </div>
@@ -177,15 +80,14 @@
 
         <p class="match-best" id="match-best-line">Scores stay on this device only—no public leaderboard.</p>
 
-        <details style="margin-top:1rem">
-          <summary style="cursor:pointer;font-weight:700;color:#64748b;font-family:Nunito,sans-serif">More games</summary>
-          <p style="text-align:center;margin:0.75rem 0">
-            <a href="memory-flock.html">Memory flock</a> ·
-            <a href="lost-sheep.html">Find the sheep</a> ·
+        <nav class="kg-more" aria-label="More games">
+          <p>
+            <a href="memory-flock.html">Memory flock</a>
+            <a href="lost-sheep.html">Find the sheep</a>
             <a href="shepherds-path.html">Shepherd&rsquo;s Path</a>
           </p>
-        </details>
-        <p class="section-note" style="text-align:center;margin-top:1rem"><a href="/kids/">← Kids home</a></p>
+        </nav>
+        <p class="kg-home"><a href="/kids/">← Kids home</a></p>
       </div>
     </main>
   </div>

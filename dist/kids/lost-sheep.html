@@ -16,44 +16,8 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playfun">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
-  <style>
-    .ls-page { max-width: 32rem; margin: 0 auto; padding: 0.5rem 0.75rem 2rem; }
-    .ls-hero {
-      padding: 1rem; border-radius: 16px; margin-bottom: 0.65rem;
-      background: linear-gradient(165deg, #ecfdf5, #fef9c3); border: 3px solid #22c55e; color: #0f172a;
-    }
-    .ls-hero h1 { font-family: Bangers, cursive; font-size: 1.6rem; margin: 0 0 0.35rem; }
-    .ls-hero p { margin: 0; font-family: Nunito, system-ui, sans-serif; font-weight: 600; line-height: 1.45; font-size: 0.95rem; color: #14532d; }
-    .ls-hud {
-      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between;
-      margin: 0 0 0.55rem; padding: 0.45rem 0.7rem; border-radius: 12px; background: #fffef8; border: 2px solid #86efac;
-      font-family: Nunito, system-ui, sans-serif; font-weight: 800; font-size: 0.88rem; color: #14532d;
-    }
-    .ls-grid { display: grid; gap: 0.45rem; max-width: 18rem; margin: 0.75rem auto; }
-    .ls-grid.cols3 { grid-template-columns: repeat(3, 1fr); }
-    .ls-grid.cols4 { grid-template-columns: repeat(4, 1fr); max-width: 20rem; }
-    .ls-grid.cols5 { grid-template-columns: repeat(5, 1fr); max-width: 22rem; }
-    .ls-tile {
-      min-height: 64px; border-radius: 14px; border: 3px solid rgba(34, 197, 94, 0.45);
-      background: linear-gradient(180deg, #bbf7d0, #86efac); font-size: 1.6rem; cursor: pointer;
-      -webkit-tap-highlight-color: transparent; transition: transform 0.1s;
-    }
-    .ls-tile:active { transform: scale(0.96); }
-    .ls-tile:focus-visible { outline: 3px solid #0ea5e9; }
-    .ls-tile.reveal { background: linear-gradient(180deg, #fef9c3, #fde68a); border-color: #f59e0b; }
-    .ls-win { text-align: center; margin-top: 0.75rem; font-weight: 800; color: #14532d; font-family: Nunito, system-ui, sans-serif; line-height: 1.45; }
-    .ls-kjv {
-      margin: 0.75rem 0; padding: 0.75rem; border-radius: 12px; background: #fff; border: 2px solid #e2e8f0;
-      font-family: Nunito, system-ui, sans-serif; font-weight: 700; font-size: 0.92rem; color: #0f172a; line-height: 1.45;
-    }
-    .ls-status { min-height: 1.5rem; text-align: center; margin: 0.5rem 0; font-weight: 800; color: #14532d; font-family: Nunito, system-ui, sans-serif; }
-    .ls-actions { text-align: center; margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
-    .ls-actions button {
-      min-height: 48px; font-weight: 800; border-radius: 12px; border: 2px solid #22c55e; background: #ecfdf5;
-      padding: 0.5rem 1rem; cursor: pointer; font-family: Nunito, system-ui, sans-serif; color: #14532d;
-    }
-  </style>
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
   <a href="#main" class="skip-link">Skip to content</a>
@@ -75,7 +39,7 @@
           <span id="ls-level">Level 1 · 9 patches</span>
           <span id="ls-best">Best find: —</span>
         </div>
-        <div class="ls-hero">
+        <div class="ls-hero" data-kg-ico="🐑">
           <h1>Where is the sheep?</h1>
           <p>Tap the grass. One sheep is hidden. The Good Shepherd never loses count of His sheep—and He is glad when the lost one is found.</p>
         </div>
@@ -89,7 +53,14 @@
           <button type="button" id="ls-again" hidden>Play again (same level)</button>
           <button type="button" id="ls-harder" hidden>Harder field</button>
         </div>
-        <p style="text-align:center;margin-top:1rem"><a href="match-buddies.html">Match game</a> · <a href="/kids/">Home</a></p>
+        <nav class="kg-more" aria-label="More games">
+          <p>
+            <a href="match-buddies.html">Match the Verse</a>
+            <a href="memory-flock.html">Memory flock</a>
+            <a href="shepherds-path.html">Shepherd&rsquo;s Path</a>
+          </p>
+        </nav>
+        <p class="kg-home"><a href="/kids/">← Kids home</a></p>
       </div>
     </main>
   </div>

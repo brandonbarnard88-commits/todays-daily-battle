@@ -267,6 +267,18 @@ function auditHeroInject(kjv, resolve) {
   if (!fp.includes('sanitizeDigDeeperFieldsForRef')) {
     fail('hero-daily-first-paint.js missing sanitizeDigDeeperFieldsForRef (runtime blank-over-wrong)');
   }
+  if (!/if\s*\(\s*!bound\s*\|\|\s*bound\s*!==\s*target\s*\)\s*return false/.test(fp)) {
+    fail('hero-daily-first-paint.js must refuse unbound leftover snapshots');
+  }
+  if (/displayed\s*&&\s*displayed\s*===\s*target\s*&&\s*!bound/.test(fp)) {
+    fail('hero-daily-first-paint.js still trusts unbound snapshot after the on-screen ref flips');
+  }
+  const boundPrimary = html.match(/id="heroVbdPrimary"[^>]*data-tdb-bound-ref="([^"]+)"/i) ||
+    html.match(/data-tdb-bound-ref="([^"]+)"[^>]*id="heroVbdPrimary"/i);
+  const boundVal = boundPrimary ? String(boundPrimary[1]).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+  if (boundVal !== expect) {
+    fail('Hero first-paint missing data-tdb-bound-ref=' + expect + ' (got "' + boundVal + '")');
+  }
 }
 
 /* ─── 2. Feeling search relevance ─── */

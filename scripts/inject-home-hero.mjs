@@ -319,6 +319,18 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
     '$1' + escapeHtmlText(lesson.prayer) + '$2'
   );
 
+  /* Bind first-paint teaching to this ref so leftover yesterday copy cannot merge. */
+  ['heroVbdPrimary', 'heroSimpleBreakdown', 'heroDigDeeper', 'heroVotdBreakdown'].forEach(function (id) {
+    var re = new RegExp('(<[^>]*\\bid="' + id + '"[^>]*)');
+    if (!re.test(html)) return;
+    html = html.replace(re, function (open) {
+      if (/data-tdb-bound-ref=/.test(open)) {
+        return open.replace(/data-tdb-bound-ref="[^"]*"/, 'data-tdb-bound-ref="' + escapeHtmlAttr(refPlain) + '"');
+      }
+      return open + ' data-tdb-bound-ref="' + escapeHtmlAttr(refPlain) + '"';
+    });
+  });
+
   html = html.replace(
     /<p class="verse-img-text" id="verseImgText"><\/p>/,
     '<p class="verse-img-text" id="verseImgText">' + verseInner + '</p>'

@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playfun">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playhint">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -60,7 +60,7 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-gameslive"></script>
+  <script src="kids-play-helpers.js?v=20260816-playhint"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260810ls" defer></script>
@@ -86,6 +86,7 @@
     var first = null;
     var matched = {};
     var lock = false;
+    var missStreak = 0;
     var usePairs = [];
     var pairTeach = {};
 
@@ -99,6 +100,7 @@
       first = null;
       matched = {};
       lock = false;
+      missStreak = 0;
       pairTeach = {};
       if (winEl) winEl.hidden = true;
       if (again) again.classList.remove('show');
@@ -129,6 +131,7 @@
           b.textContent = b.getAttribute('data-text') || '';
           if (!first) {
             first = b;
+            missStreak = 0;
             if (st) st.textContent = 'Pick the matching line.';
             return;
           }
@@ -140,6 +143,7 @@
             b.classList.add('mf-match');
             matched[a] = true;
             first = null;
+            missStreak = 0;
             var p = pairTeach[a];
             if (teach && p) {
               teach.innerHTML = '<strong>Remember:</strong> ' + (p.teach || 'God’s Word is true.') +
@@ -161,20 +165,23 @@
               st.textContent = 'Nice! Read the tip—then keep going.';
             }
           } else {
+            missStreak += 1;
             lock = true;
-            var f = first;
-            setTimeout(function () {
-              f.setAttribute('aria-pressed', 'false');
-              b.setAttribute('aria-pressed', 'false');
-              f.textContent = '?';
-              b.textContent = '?';
-              first = null;
-              lock = false;
-            }, 650);
-            if (st) st.textContent = 'Try again—read slow.';
+            b.classList.add('mf-wrong');
+            if (st) {
+              st.textContent = kit && kit.missHint
+                ? kit.missHint(pairTeach[a], missStreak)
+                : 'Not that pair. Think about the idea on the first card—then try another leftover card.';
+            }
             if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
               try { window.tdbLittleShepherd.notify('wrongMatch'); } catch (e4) {}
             }
+            setTimeout(function () {
+              b.classList.remove('mf-wrong');
+              b.setAttribute('aria-pressed', 'false');
+              b.textContent = '?';
+              lock = false;
+            }, 700);
           }
         });
         if (board) board.appendChild(b);

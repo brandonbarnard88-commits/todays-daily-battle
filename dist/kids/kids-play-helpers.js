@@ -142,23 +142,48 @@
 
   /** Fixed educational pairs with character art chips */
   var MATCH_CORE = [
-    { id: 'p23', plain: 'God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', who: 'Shepherd', teach: 'Jesus cares for you the way a good shepherd cares for sheep.' },
-    { id: 'kids', plain: 'Jesus says kids can come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', who: 'Jesus', teach: 'You are welcome with Jesus—kids matter to Him.' },
-    { id: 'strong', plain: 'Be brave—God is with you', kjv: 'Be strong and of a good courage; be not afraid.', ref: 'Joshua 1:9', icon: '🛡️', who: 'Joshua', teach: 'Courage means trusting God is with you, not that you never feel small.' },
-    { id: 'care', plain: 'Give your worries to God', kjv: 'Casting all your care upon him; for he careth for you.', ref: '1 Peter 5:7', icon: '🙏', who: 'Friend', teach: 'You do not have to carry every worry alone—God cares.' },
-    { id: 'light', plain: 'God’s Word shows the way', kjv: 'Thy word is a lamp unto my feet, and a light unto my path.', ref: 'Psalm 119:105', icon: '💡', who: 'Light', teach: 'Reading the Bible helps us know the next right step.' },
-    { id: 'love', plain: 'God loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', who: 'Love', teach: 'God’s love is a gift—Jesus came for us.' },
-    { id: 'peace', plain: 'Jesus can calm the storm', kjv: 'Peace, be still. And the wind ceased, and there was a great calm.', ref: 'Mark 4:39', icon: '🌊', who: 'Jesus', teach: 'When life feels stormy, Jesus still speaks peace.' },
-    { id: 'pray', plain: 'Ask God—He hears you', kjv: 'Ask, and it shall be given you; seek, and ye shall find.', ref: 'Matthew 7:7', icon: '🙏', who: 'Pray', teach: 'Prayer is talking with God—He invites you to ask and seek.' },
-    { id: 'kind', plain: 'Treat others kindly', kjv: 'All things whatsoever ye would that men should do to you, do ye even so to them.', ref: 'Matthew 7:12', icon: '🤝', who: 'Kind', teach: 'The Golden Rule: treat others the way you want to be treated.' },
-    { id: 'trust', plain: 'Trust God with all your heart', kjv: 'Trust in the Lord with all thine heart; and lean not unto thine own understanding.', ref: 'Proverbs 3:5', icon: '💪', who: 'Trust', teach: 'Trust means leaning on God even when we do not know everything.' },
-    { id: 'strength', plain: 'Jesus gives me strength', kjv: 'I can do all things through Christ which strengtheneth me.', ref: 'Philippians 4:13', icon: '💪', who: 'Strong', teach: 'Our strength is not only muscles—Christ helps us obey and love.' },
-    { id: 'made', plain: 'God made me on purpose', kjv: 'I am fearfully and wonderfully made.', ref: 'Psalm 139:14', icon: '✨', who: 'You', teach: 'You are not an accident—God made you with care.' },
-    { id: 'battle', plain: 'The battle is the Lord’s', kjv: 'The battle is the Lord\'s.', ref: '1 Samuel 17:47', icon: '⚔️', who: 'David', teach: 'David faced Goliath trusting God—not his own size.' },
-    { id: 'refuge', plain: 'God is my safe place', kjv: 'God is our refuge and strength, a very present help.', ref: 'Psalm 46:1', icon: '🏰', who: 'Safe', teach: 'When you need help now, God is a present help.' },
-    { id: 'rejoice', plain: 'Rejoice in the Lord', kjv: 'Rejoice in the Lord alway: and again I say, Rejoice.', ref: 'Philippians 4:4', icon: '☀️', who: 'Joy', teach: 'Joy can grow even on hard days because the Lord is near.' },
-    { id: 'still', plain: 'Be still—know God', kjv: 'Be still, and know that I am God.', ref: 'Psalm 46:10', icon: '🤫', who: 'Still', teach: 'Quiet moments help us remember who God is.' }
+    { id: 'p23', plain: 'God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', who: 'Shepherd', clue: 'a shepherd who cares', teach: 'Jesus cares for you the way a good shepherd cares for sheep.' },
+    { id: 'kids', plain: 'Jesus says kids can come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', who: 'Jesus', clue: 'children being welcomed', teach: 'You are welcome with Jesus—kids matter to Him.' },
+    { id: 'strong', plain: 'Be brave—God is with you', kjv: 'Be strong and of a good courage; be not afraid.', ref: 'Joshua 1:9', icon: '🛡️', who: 'Joshua', clue: 'being brave, not afraid', teach: 'Courage means trusting God is with you, not that you never feel small.' },
+    { id: 'care', plain: 'Give your worries to God', kjv: 'Casting all your care upon him; for he careth for you.', ref: '1 Peter 5:7', icon: '🙏', who: 'Friend', clue: 'giving God your worries', teach: 'You do not have to carry every worry alone—God cares.' },
+    { id: 'light', plain: 'God’s Word shows the way', kjv: 'Thy word is a lamp unto my feet, and a light unto my path.', ref: 'Psalm 119:105', icon: '💡', who: 'Light', clue: 'a lamp on a path', teach: 'Reading the Bible helps us know the next right step.' },
+    { id: 'love', plain: 'God loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', who: 'Love', clue: 'God loving the world', teach: 'God’s love is a gift—Jesus came for us.' },
+    { id: 'peace', plain: 'Jesus can calm the storm', kjv: 'Peace, be still. And the wind ceased, and there was a great calm.', ref: 'Mark 4:39', icon: '🌊', who: 'Jesus', clue: 'a storm going still', teach: 'When life feels stormy, Jesus still speaks peace.' },
+    { id: 'pray', plain: 'Ask God—He hears you', kjv: 'Ask, and it shall be given you; seek, and ye shall find.', ref: 'Matthew 7:7', icon: '🙏', who: 'Pray', clue: 'asking and seeking', teach: 'Prayer is talking with God—He invites you to ask and seek.' },
+    { id: 'kind', plain: 'Treat others kindly', kjv: 'All things whatsoever ye would that men should do to you, do ye even so to them.', ref: 'Matthew 7:12', icon: '🤝', who: 'Kind', clue: 'treating others the way you want', teach: 'The Golden Rule: treat others the way you want to be treated.' },
+    { id: 'trust', plain: 'Trust God with all your heart', kjv: 'Trust in the Lord with all thine heart; and lean not unto thine own understanding.', ref: 'Proverbs 3:5', icon: '💪', who: 'Trust', clue: 'trusting with your whole heart', teach: 'Trust means leaning on God even when we do not know everything.' },
+    { id: 'strength', plain: 'Jesus gives me strength', kjv: 'I can do all things through Christ which strengtheneth me.', ref: 'Philippians 4:13', icon: '💪', who: 'Strong', clue: 'Christ making you strong', teach: 'Our strength is not only muscles—Christ helps us obey and love.' },
+    { id: 'made', plain: 'God made me on purpose', kjv: 'I am fearfully and wonderfully made.', ref: 'Psalm 139:14', icon: '✨', who: 'You', clue: 'being made on purpose', teach: 'You are not an accident—God made you with care.' },
+    { id: 'battle', plain: 'The battle is the Lord’s', kjv: 'The battle is the Lord\'s.', ref: '1 Samuel 17:47', icon: '⚔️', who: 'David', clue: 'whose battle it really is', teach: 'David faced Goliath trusting God—not his own size.' },
+    { id: 'refuge', plain: 'God is my safe place', kjv: 'God is our refuge and strength, a very present help.', ref: 'Psalm 46:1', icon: '🏰', who: 'Safe', clue: 'a safe place and present help', teach: 'When you need help now, God is a present help.' },
+    { id: 'rejoice', plain: 'Rejoice in the Lord', kjv: 'Rejoice in the Lord alway: and again I say, Rejoice.', ref: 'Philippians 4:4', icon: '☀️', who: 'Joy', clue: 'rejoicing in the Lord', teach: 'Joy can grow even on hard days because the Lord is near.' },
+    { id: 'still', plain: 'Be still—know God', kjv: 'Be still, and know that I am God.', ref: 'Psalm 46:10', icon: '🤫', who: 'Still', clue: 'being still and knowing God', teach: 'Quiet moments help us remember who God is.' }
   ];
+
+  function clueIdea(pair) {
+    if (!pair) return 'the big idea you already picked';
+    if (pair.clue) return pair.clue;
+    var who = String(pair.who || '').trim();
+    if (who && who !== 'Bible' && who !== 'You' && who !== 'Friend') {
+      return 'the same idea as “' + who + '”';
+    }
+    var plain = String(pair.plain || '').replace(/\.$/, '');
+    if (plain.length > 8 && plain.length < 48) return plain;
+    return 'the same big idea as the card you already picked';
+  }
+
+  /** Nudge after a miss — never names the matching card, verse, or number. */
+  function missHint(pair, n) {
+    var idea = clueIdea(pair);
+    var misses = n || 1;
+    if (misses <= 1) {
+      return 'Not that pair. Think about ' + idea + '—then try a different leftover card.';
+    }
+    if (misses === 2) {
+      return 'Still not it. Read the leftover cards slowly and listen for ' + idea + '.';
+    }
+    return 'Keep the first card. Hunt for the matching idea, not the same words. Think: ' + idea + '.';
+  }
 
   function dailyCorePairs(count) {
     var n = count || 4;
@@ -185,6 +210,7 @@
         ref: v.ref,
         icon: meta.icon,
         who: meta.who,
+        clue: meta.plain || meta.who || 'the same big idea',
         teach: 'Today’s line: ' + v.ref + ' — listen for what it says about God.'
       });
     }
@@ -220,6 +246,8 @@
     getScore: getScore,
     streakDays: streakDays,
     plainForKjv: plainForKjv,
+    clueIdea: clueIdea,
+    missHint: missHint,
     MATCH_CORE: MATCH_CORE,
     dailyCorePairs: dailyCorePairs,
     dailyVersePairs: dailyVersePairs,

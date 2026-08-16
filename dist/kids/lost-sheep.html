@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playfun">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playhint">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -64,7 +64,7 @@
       </div>
     </main>
   </div>
-  <script src="kids-play-helpers.js?v=20260816-gameslive"></script>
+  <script src="kids-play-helpers.js?v=20260816-playhint"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260810ls" defer></script>
@@ -91,6 +91,38 @@
     var kit = window.tdbKidsGameKit;
     var done = false;
     var tries = 0;
+    var missStreak = 0;
+    var sheepAt = 0;
+
+    function colsFor(n) {
+      if (n <= 9) return 3;
+      if (n <= 16) return 4;
+      return 5;
+    }
+
+    function sheepHint(tapIdx, n) {
+      var cols = colsFor(n);
+      var wr = Math.floor(sheepAt / cols);
+      var wc = sheepAt % cols;
+      var r = Math.floor(tapIdx / cols);
+      var c = tapIdx % cols;
+      var dist = Math.abs(wr - r) + Math.abs(wc - c);
+      var dir = [];
+      if (wr < r) dir.push('higher up');
+      if (wr > r) dir.push('lower down');
+      if (wc < c) dir.push('more to the left');
+      if (wc > c) dir.push('more to the right');
+      var where = dir.length ? dir.join(' and ') : 'nearby';
+      if (missStreak <= 1) {
+        return dist <= 2
+          ? 'Not that patch. You are getting warmer—keep looking close by.'
+          : 'Not that patch. That one is colder. Try a different part of the field.';
+      }
+      if (missStreak === 2) {
+        return 'Still hiding. Search ' + where + '.';
+      }
+      return 'Close your eyes a second, then look ' + where + '. The sheep is still in the grass.';
+    }
 
     function paintBest() {
       if (!bestEl || !kit) return;
@@ -105,6 +137,7 @@
     function build() {
       done = false;
       tries = 0;
+      missStreak = 0;
       var L = LEVELS[Math.min(levelIndex, LEVELS.length - 1)];
       if (levelEl) levelEl.textContent = L.label;
       if (w) { w.hidden = true; w.textContent = ''; }
@@ -117,6 +150,7 @@
       }
       paintBest();
       var win = Math.floor(Math.random() * L.n);
+      sheepAt = win;
       for (var i = 0; i < L.n; i++) {
         (function (idx) {
           var b = document.createElement('button');
@@ -149,7 +183,8 @@
                 try { window.tdbLittleShepherd.notify('gameWin'); } catch (eN) {}
               }
             } else if (st) {
-              st.textContent = 'Not there—keep looking! He finds what is lost.';
+              missStreak += 1;
+              st.textContent = sheepHint(idx, L.n);
             }
           });
           if (grid) grid.appendChild(b);

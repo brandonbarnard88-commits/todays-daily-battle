@@ -1068,11 +1068,10 @@ function dailyVerseByOffset(offsetDays) {
   date.setUTCDate(date.getUTCDate() + offsetDays);
   const year365 = window.__TDB_HERO_DAILY_YEAR || [];
   if (year365.length) {
-    const y = date.getUTCFullYear();
-    const jan1 = Date.UTC(y, 0, 1);
     const todayUtc = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
-    const dayOfYear = Math.floor((todayUtc - jan1) / 86400000) + 1;
-    const idx = (dayOfYear - 1) % year365.length;
+    const epoch = Date.UTC(2026, 0, 1);
+    const days = Math.floor((todayUtc - epoch) / 86400000);
+    const idx = ((days % year365.length) + year365.length) % year365.length;
     return year365[idx];
   }
   const daySeed = Math.floor(Date.UTC(

@@ -15,7 +15,7 @@ import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
 import { fileURLToPath } from 'url';
-import { loadYear365, utcDayOfYear, pickVerseForDay } from './lib/hero-daily-verse-pick.mjs';
+import { loadYear365, utcDayOfYear, utcDaysSinceHeroEpoch, pickVerseAtOffset } from './lib/hero-daily-verse-pick.mjs';
 import { BOOK_CHAPTER_SITUATIONS } from './lib/bible-situation-map.mjs';
 import { isWeakPlainStamp } from './lib/teaching-quality.mjs';
 import {
@@ -111,16 +111,18 @@ function main() {
   const kjv = loadKjv();
   const fps = buildBandFingerprints(BOOK_CHAPTER_SITUATIONS);
   const today = utcDayOfYear(new Date());
+  const startOffset = utcDaysSinceHeroEpoch(new Date());
   const failures = [];
   let checked = 0;
+  const want = year.length;
 
-  if (!Array.isArray(year) || year.length !== 365) {
-    failures.push('Calendar must have 365 days, has ' + (year && year.length));
+  if (!Array.isArray(year) || (want !== 365 && want !== 730)) {
+    failures.push('Calendar must have 365 or 730 days, has ' + (year && year.length));
   }
 
-  for (let i = 0; i < 365; i++) {
+  for (let i = 0; i < want; i++) {
     const doy = ((today - 1 + i) % 365) + 1;
-    const cal = pickVerseForDay(year, doy) || {};
+    const cal = pickVerseAtOffset(year, startOffset + i) || {};
     const ref = normalizeRef(cal.ref);
     const label = 'doy ' + String(doy).padStart(3, '0') + ' (+' + String(i).padStart(3, '0') + ') ' + (ref || '(no ref)');
     if (!ref) {
@@ -184,8 +186,8 @@ function main() {
     checked += 1;
   }
 
-  if (checked !== 365) {
-    failures.push('Expected to check 365 upcoming days, checked ' + checked);
+  if (checked !== want) {
+    failures.push('Expected to check ' + want + ' upcoming days, checked ' + checked);
   }
 
   if (failures.length) {
@@ -195,13 +197,15 @@ function main() {
     process.exit(1);
   }
 
-  const first = pickVerseForDay(year, today);
+  const first = pickVerseAtOffset(year, startOffset);
   console.log(
-    'Hero 365 days-in-order PASS: 365 days from UTC doy ' +
+    'Hero queue days-in-order PASS: ' +
+      want +
+      ' days from UTC doy ' +
       today +
       ' (' +
       (first && first.ref) +
-      ') — official KJV, no leftover teaching.'
+      ') — official KJV, no leftover teaching, then it restarts.'
   );
 }
 

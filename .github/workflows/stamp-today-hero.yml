@@ -1,0 +1,45 @@
+# Stamp today's hero verse into first-paint HTML at midnight UTC.
+# JS still picks the live queue if HTML is a few hours late; this keeps first paint honest.
+name: Stamp today's hero
+
+on:
+  schedule:
+    - cron: '20 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stamp-today-hero
+  cancel-in-progress: false
+
+jobs:
+  stamp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: ${{ github.event.repository.fork == false }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Inject today's verse
+        run: node scripts/inject-home-hero.mjs
+
+      - name: Commit if the stamp changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html dist/index.html dist/today-kjv-verse.json dist/yesterday-kjv-verse.json || true
+          if git diff --cached --quiet; then
+            echo "Today already stamped."
+            exit 0
+          fi
+          git commit -m "chore(home): stamp today's verse for first paint"
+          git push origin HEAD:main

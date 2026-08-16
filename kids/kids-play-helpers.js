@@ -148,7 +148,11 @@
     { re: /hope thou in god|i will hope/i, plain: 'I can put my hope in God', icon: '🌅', who: 'Hope' },
     { re: /possible to him that believeth/i, plain: 'Believe—God can do it', icon: '⭐', who: 'Faith' },
     { re: /hear the word of god/i, plain: 'Hear God’s Word and hold it', icon: '👂', who: 'Hear' },
-    { re: /mercy endureth|his mercy|tender mercies/i, plain: 'God’s mercy does not run out', icon: '💧', who: 'Mercy' }
+    { re: /mercy endureth|his mercy|tender mercies/i, plain: 'God’s mercy does not run out', icon: '💧', who: 'Mercy' },
+    { re: /giveth wisdom|cometh knowledge|get wisdom/i, plain: 'God gives wisdom', icon: '🦉', who: 'Wise' },
+    { re: /regard the prayer|despise their prayer|heareth prayer/i, plain: 'God hears my prayer', icon: '🙏', who: 'Heard' },
+    { re: /call upon me|call upon the lord/i, plain: 'I can call on God', icon: '📞', who: 'Call' },
+    { re: /new every morning/i, plain: 'God’s mercies are new today', icon: '🌅', who: 'Morning' }
   ];
 
   function firstClause(text) {
@@ -192,7 +196,8 @@
           plain: PLAIN_MAP[i].plain,
           icon: PLAIN_MAP[i].icon,
           who: PLAIN_MAP[i].who,
-          clue: PLAIN_MAP[i].plain
+          clue: PLAIN_MAP[i].plain,
+          mapped: true
         };
       }
     }
@@ -201,7 +206,8 @@
       plain: clause,
       icon: '📖',
       who: bookWho(ref),
-      clue: clause
+      clue: clause,
+      mapped: false
     };
   }
 
@@ -237,7 +243,7 @@
     if (/lost|luke 15/.test(hay)) {
       return { story: 'lostSheep', color: 'lost-sheep', label: 'the lost sheep' };
     }
-    if (/joshua 1:9|strong|jericho/.test(hay)) {
+    if (/joshua 1:9|good courage|jericho/.test(hay)) {
       return { story: 'joshuaJericho', color: 'jericho', label: 'Joshua' };
     }
     return null;
@@ -294,14 +300,14 @@
       var d = doorForPair(list[i]);
       if (d && (d.story || d.color)) return d;
     }
-    return { story: 'jesusBlessKids', color: 'jesus-children', label: 'Jesus and the children' };
+    return null;
   }
 
   function fillWinDoors(el, pairsOrDoor) {
     if (!el) return;
     el.textContent = '';
     var d;
-    if (pairsOrDoor && !Array.isArray(pairsOrDoor) && (pairsOrDoor.story || pairsOrDoor.color)) {
+    if (pairsOrDoor && !Array.isArray(pairsOrDoor) && (pairsOrDoor.story || pairsOrDoor.color || pairsOrDoor.label)) {
       d = {
         story: pairsOrDoor.story || '',
         color: pairsOrDoor.color || '',
@@ -310,21 +316,30 @@
     } else {
       d = pickWinDoor(pairsOrDoor);
     }
-    if (!d) return;
-    if (d.story) {
-      var a = document.createElement('a');
-      a.className = 'kg-next-story';
+    var prompt = document.createElement('p');
+    prompt.className = 'kg-next-prompt';
+    prompt.textContent = d && (d.story || d.color) ? 'A door is open:' : 'Keep going:';
+    el.appendChild(prompt);
+    var a = document.createElement('a');
+    a.className = 'kg-next-story';
+    if (d && d.story) {
       a.href = '/kids/corner.html?story=' + encodeURIComponent(d.story);
-      a.textContent = 'Read ' + d.label;
-      el.appendChild(a);
+      a.textContent = 'Read ' + (d.label || 'this story');
+    } else {
+      a.href = '/kids/corner.html?choose=1#kids-library-grid';
+      a.textContent = 'Read a story';
     }
-    if (d.color) {
-      var c = document.createElement('a');
-      c.className = 'kg-next-color';
+    el.appendChild(a);
+    var c = document.createElement('a');
+    c.className = 'kg-next-color';
+    if (d && d.color) {
       c.href = '/coloring.html?story=' + encodeURIComponent(d.color);
-      c.textContent = 'Color ' + d.label;
-      el.appendChild(c);
+      c.textContent = 'Color ' + (d.label || 'this story');
+    } else {
+      c.href = '/coloring.html';
+      c.textContent = 'Color a page';
     }
+    el.appendChild(c);
   }
 
   function clueIdea(pair) {
@@ -448,6 +463,7 @@
       var v = list[(day + i * 7) % list.length];
       if (!v || !v.text || used[v.ref]) continue;
       var probe = plainForKjv(v.text, v.ref);
+      if (!probe.mapped) continue;
       var plainKey = String(probe.plain || '').toLowerCase();
       if (plainKey && usedPlain[plainKey]) continue;
       used[v.ref] = true;
@@ -464,7 +480,7 @@
         icon: meta.icon,
         who: meta.who,
         clue: meta.clue || meta.plain || meta.who || 'the same big idea',
-        teach: 'Today’s line: ' + v.ref + ' — listen for what it says about God.',
+        teach: meta.plain + ' — that is what ' + v.ref + ' is saying.',
         story: door && door.story ? door.story : '',
         color: door && door.color ? door.color : '',
         door: door && door.label ? door.label : ''
@@ -506,9 +522,11 @@
 
   function mixDailyAndCore(count) {
     var want = count || 4;
+    var size = getSize();
+    var coreWant = size === 'little' ? want : Math.max(1, Math.ceil(want / 2));
+    var core = dailyCorePairs(Math.max(coreWant, 4));
     var daily = dailyVersePairs(want);
-    var core = dailyCorePairs(8);
-    return seededShuffle(takeUniquePairs(daily.concat(core), want), dayIndex() * 31 + want);
+    return seededShuffle(takeUniquePairs(core.concat(daily), want), dayIndex() * 31 + want);
   }
 
   global.tdbKidsGameKit = {

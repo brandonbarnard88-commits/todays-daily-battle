@@ -216,7 +216,8 @@ body.kids-mini-game.is-won .match-teach,
 body.kids-mini-game.is-won .mf-board,
 body.kids-mini-game.is-won .mf-teach,
 body.kids-mini-game.is-won .kg-how,
-body.kids-mini-game.is-won .kg-timer-row {
+body.kids-mini-game.is-won .kg-timer-row,
+body.kids-mini-game.is-won .kg-family-row {
   display: none !important;
 }
 .kg-next-doors a,
@@ -240,6 +241,54 @@ a.kg-next-color {
   background: linear-gradient(180deg, #dbeafe, #93c5fd);
   border-color: #2563eb;
   color: #1e3a8a !important;
+}
+a.kg-next-game {
+  background: linear-gradient(180deg, #dcfce7, #86efac);
+  border-color: #16a34a;
+  color: #14532d !important;
+}
+.kg-hear-pair {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.55rem;
+  min-height: 44px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 2px solid #f2dc98;
+  background: #0f172a;
+  color: #f2dc98 !important;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+.kg-family-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin: 0.35rem 0 0.55rem;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #0f172a !important;
+}
+.kg-today-mix {
+  margin: 0 0 0.85rem;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #0f172a !important;
+}
+.kids-easy-game.is-today {
+  box-shadow: 0 0 0 4px #f2dc98, 3px 3px 0 rgba(15, 23, 42, 0.12);
+  transform: translateY(-2px);
+}
+.kids-easy-game.is-today small::after {
+  content: ' · today';
+  color: #b45309;
+  font-weight: 800;
 }
 body.kids-mini-game.is-little .match-btn {
   min-height: 88px !important;
@@ -754,17 +803,19 @@ body.kids-mini-game button.ls-tile,
 }
 body.kids-mini-game button.sp-stone,
 .sp-stone {
-  min-width: 58px;
-  min-height: 58px !important;
-  border-radius: 999px;
+  min-width: 76px;
+  min-height: 52px !important;
+  padding: 0.35rem 0.6rem;
+  border-radius: 18px;
   border: 3px solid #78350f;
   background: linear-gradient(180deg, #fef9c3, #d97706);
-  font-size: 1.3rem !important;
+  font-size: 0.95rem !important;
   font-weight: 800;
   font-family: Nunito, sans-serif;
   color: #1c1917 !important;
   cursor: pointer;
   box-shadow: 0 4px 0 #78350f;
+  line-height: 1.15;
 }
 .sp-stone:nth-child(even) { transform: translateY(8px); }
 .sp-stone:nth-child(3n) { transform: translateY(-4px); }

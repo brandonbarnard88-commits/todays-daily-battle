@@ -340,6 +340,155 @@
       c.textContent = 'Color a page';
     }
     el.appendChild(c);
+    var game = gameDoorFor(d);
+    if (game) {
+      var g = document.createElement('a');
+      g.className = 'kg-next-game';
+      g.href = game.href;
+      g.textContent = game.label;
+      el.appendChild(g);
+    }
+  }
+
+  function gameDoorFor(d) {
+    var here = '';
+    try { here = String(location.pathname || '').toLowerCase(); } catch (e) {}
+    var key = d ? String((d.story || '') + ' ' + (d.color || '') + ' ' + (d.label || '')).toLowerCase() : '';
+    var sheep = { href: '/kids/lost-sheep.html', label: 'Find the sheep' };
+    var path = { href: '/kids/shepherds-path.html', label: 'Step the path' };
+    var match = { href: '/kids/match-buddies.html', label: 'Match the Verse' };
+    var memory = { href: '/kids/memory-flock.html', label: 'Memory flock' };
+    var onSheep = /lost-sheep/.test(here);
+    var onPath = /shepherds-path/.test(here);
+    var onMatch = /match-buddies/.test(here);
+    var onMem = /memory-flock/.test(here);
+    if (/psalm23|good-shepherd|shepherd/.test(key)) {
+      return onPath ? sheep : path;
+    }
+    if (/lostsheep|lost-sheep|lost sheep/.test(key)) {
+      return onSheep ? path : sheep;
+    }
+    if (/storm|jesuscalms/.test(key)) {
+      return onPath ? match : path;
+    }
+    if (onMatch) return memory;
+    if (onMem) return match;
+    if (onPath || onSheep) return match;
+    return null;
+  }
+
+  function pickCalmVoice() {
+    try {
+      if (!global.speechSynthesis || typeof global.speechSynthesis.getVoices !== 'function') return null;
+      var voices = global.speechSynthesis.getVoices() || [];
+      return (
+        voices.filter(function (v) {
+          return v.lang && /^en-us/i.test(v.lang) && /samantha|ava|zoe|karen|moira|neural|natural|premium|google us english|aria|jenny/i.test(v.name || '') && !/\b(daniel|fred|alex)\b/i.test(v.name || '');
+        })[0] ||
+        voices.filter(function (v) { return v.lang && /^en-us/i.test(v.lang) && v.localService && !/\b(daniel|fred|alex)\b/i.test(v.name || ''); })[0] ||
+        voices.filter(function (v) { return v.lang && /^en/i.test(v.lang) && !/\b(daniel|fred|alex)\b/i.test(v.name || ''); })[0] ||
+        null
+      );
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function speakCalm(text) {
+    var t = String(text || '').replace(/\s+/g, ' ').trim();
+    if (!t) return;
+    if (typeof global.tdbKidsSpeakCalm === 'function') {
+      try { if (global.speechSynthesis) global.speechSynthesis.cancel(); } catch (e0) {}
+      global.tdbKidsSpeakCalm(t);
+      return;
+    }
+    if (typeof global.speechSynthesis === 'undefined' || typeof global.SpeechSynthesisUtterance !== 'function') return;
+    try {
+      global.speechSynthesis.cancel();
+      var u = new global.SpeechSynthesisUtterance(t);
+      u.lang = 'en-US';
+      u.rate = 0.92;
+      u.pitch = 1.04;
+      u.volume = 1;
+      var voice = pickCalmVoice();
+      if (voice) u.voice = voice;
+      global.speechSynthesis.speak(u);
+    } catch (e1) { /* no-op */ }
+  }
+
+  function speakPair(pair) {
+    if (!pair) return;
+    var kid = String(pair.plain || pair.short || '').replace(/\.$/, '');
+    var verse = String(pair.kjv || pair.shortKjv || '').trim();
+    var line = kid;
+    if (verse && kid && kid.toLowerCase() !== verse.toLowerCase()) line = kid + '. ' + verse;
+    else if (verse) line = verse;
+    speakCalm(line);
+  }
+
+  function fillHearButton(container, pair) {
+    if (!container) return;
+    var old = container.querySelector('.kg-hear-pair');
+    if (old) old.parentNode.removeChild(old);
+    if (!pair) return;
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'kg-hear-pair';
+    b.textContent = 'Hear this pair';
+    b.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      speakPair(pair);
+    });
+    container.appendChild(b);
+  }
+
+  function verseWords(text, count) {
+    var want = count || 5;
+    var PSALM23 = 'The Lord is my shepherd I shall not want He maketh me to lie down in green pastures He leadeth me beside the still waters';
+    function split(s) {
+      return String(s || '').replace(/[;:,.!?]/g, ' ').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
+    }
+    var words = split(text);
+    var extra = split(PSALM23);
+    var i = 0;
+    while (words.length < want && extra.length) {
+      var w = extra[i % extra.length];
+      if (words[words.length - 1] !== w) words.push(w);
+      i += 1;
+      if (i > 80) break;
+    }
+    return words.slice(0, want);
+  }
+
+  var FAMILY_KEY = 'tdbKidsFamilyTurn';
+
+  function getFamilyTurn() {
+    try { return localStorage.getItem(FAMILY_KEY) === '1'; } catch (e) { return false; }
+  }
+
+  function setFamilyTurn(on) {
+    try { localStorage.setItem(FAMILY_KEY, on ? '1' : '0'); } catch (e2) {}
+    return !!on;
+  }
+
+  function bindFamilyTurn(onChange) {
+    var box = document.getElementById('kg-family-turn');
+    if (!box) return getFamilyTurn();
+    box.checked = getFamilyTurn();
+    box.addEventListener('change', function () {
+      var on = setFamilyTurn(!!box.checked);
+      if (typeof onChange === 'function') onChange(on);
+    });
+    return box.checked;
+  }
+
+  function todayGames(name) {
+    var n = String(name || '').toLowerCase();
+    if (/shepherd/.test(n)) return ['match', 'path', 'sheep'];
+    if (/still|peace|storm|brave/.test(n)) return ['match', 'path'];
+    if (/love|glad|light/.test(n)) return ['match', 'memory'];
+    return ['match', 'memory'];
   }
 
   function clueIdea(pair) {
@@ -405,7 +554,7 @@
 
   function mixName(pairs) {
     var tags = (pairs || []).map(function (p) {
-      return String((p && (p.who || p.clue || p.plain)) || '').toLowerCase();
+      return String((p && (p.who || p.clue || p.plain || p.door || p.story)) || '').toLowerCase();
     }).join(' ');
     if (/shepherd/.test(tags)) return 'Shepherd day';
     if (/brave|joshua|afraid|fear/.test(tags)) return 'Brave day';
@@ -549,6 +698,15 @@
     doorForPair: doorForPair,
     pickWinDoor: pickWinDoor,
     fillWinDoors: fillWinDoors,
+    gameDoorFor: gameDoorFor,
+    speakCalm: speakCalm,
+    speakPair: speakPair,
+    fillHearButton: fillHearButton,
+    verseWords: verseWords,
+    getFamilyTurn: getFamilyTurn,
+    setFamilyTurn: setFamilyTurn,
+    bindFamilyTurn: bindFamilyTurn,
+    todayGames: todayGames,
     MATCH_CORE: MATCH_CORE,
     dailyCorePairs: dailyCorePairs,
     dailyVersePairs: dailyVersePairs,

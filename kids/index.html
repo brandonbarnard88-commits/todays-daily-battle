@@ -28,13 +28,14 @@
   <link rel="stylesheet" href="../styles.css?v=20260816-brightgold">
   <link rel="stylesheet" href="kids-hub-play.css?v=20260810ls">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-windoor">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-together">
   <link rel="manifest" href="../manifest.json">
   <style>
     /* Easy kids home — three big doors only (no second nav stack) */
     .kids-easy-home { max-width: 28rem; margin: 0 auto; padding: 0.75rem 0 2.5rem; text-align: center; }
     .kids-easy-home h1 { font-size: clamp(1.5rem, 5vw, 1.85rem); margin: 0.5rem 0 1rem; color: #0f172a; }
     .dark-mode .kids-easy-home h1 { color: #f8fafc; }
+    .dark-mode .kg-today-mix { color: #f2dc98 !important; }
     .kids-easy-doors { display: flex; flex-direction: column; gap: 0.85rem; }
     .kids-easy-door {
       display: block; text-decoration: none; border-radius: 1.1rem; padding: 1.15rem 1.25rem;
@@ -123,6 +124,7 @@
         <div class="kids-easy-home">
           <img class="kids-easy-mascot" src="shepherd-mascot-welcome.png?v=20260810ears2" width="120" height="132" alt="" decoding="async" loading="lazy">
           <h1 id="kids-hub-play-h">What sounds fun?</h1>
+          <p class="kg-today-mix" id="kg-today-mix"></p>
 
           <div class="kids-easy-doors" role="navigation" aria-label="Story, color, or play">
             <a class="kids-easy-door kids-easy-door--story" href="corner.html?choose=1#kids-library-grid">
@@ -138,10 +140,10 @@
           <section class="kids-easy-games" aria-labelledby="kids-easy-games-h">
             <h2 id="kids-easy-games-h">Play</h2>
             <div class="kids-easy-game-grid">
-              <a class="kids-easy-game kids-easy-game--match" href="match-buddies.html"><span class="kids-easy-game-ico" aria-hidden="true">⭐</span>Match the Verse<small>pair a kid line to KJV</small></a>
-              <a class="kids-easy-game kids-easy-game--sheep" href="lost-sheep.html"><span class="kids-easy-game-ico" aria-hidden="true">🐑</span>Find the sheep<small>tap the grass</small></a>
-              <a class="kids-easy-game kids-easy-game--memory" href="memory-flock.html"><span class="kids-easy-game-ico" aria-hidden="true">🃏</span>Memory flock<small>flip and match</small></a>
-              <a class="kids-easy-game kids-easy-game--path" href="shepherds-path.html"><span class="kids-easy-game-ico" aria-hidden="true">🪨</span>Shepherd&rsquo;s Path<small>step the stones</small></a>
+              <a class="kids-easy-game kids-easy-game--match" data-kg-game="match" href="match-buddies.html"><span class="kids-easy-game-ico" aria-hidden="true">⭐</span>Match the Verse<small>pair a kid line to KJV</small></a>
+              <a class="kids-easy-game kids-easy-game--sheep" data-kg-game="sheep" href="lost-sheep.html"><span class="kids-easy-game-ico" aria-hidden="true">🐑</span>Find the sheep<small>tap the grass</small></a>
+              <a class="kids-easy-game kids-easy-game--memory" data-kg-game="memory" href="memory-flock.html"><span class="kids-easy-game-ico" aria-hidden="true">🃏</span>Memory flock<small>flip and match</small></a>
+              <a class="kids-easy-game kids-easy-game--path" data-kg-game="path" href="shepherds-path.html"><span class="kids-easy-game-ico" aria-hidden="true">🪨</span>Shepherd&rsquo;s Path<small>step the stones</small></a>
             </div>
           </section>
 
@@ -170,5 +172,22 @@
 
 </footer>
   </div>
+  <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
+  <script src="kids-play-helpers.js?v=20260816-together"></script>
+  <script nonce="tdb2025s">
+  document.addEventListener('DOMContentLoaded', function () {
+    var kit = window.tdbKidsGameKit;
+    var line = document.getElementById('kg-today-mix');
+    if (!kit || !line) return;
+    var pairs = kit.mixDailyAndCore ? kit.mixDailyAndCore(4) : [];
+    var name = kit.mixName ? kit.mixName(pairs) : 'Verse friends day';
+    line.textContent = 'Today is ' + name + '.';
+    var lit = kit.todayGames ? kit.todayGames(name) : ['match'];
+    lit.forEach(function (id) {
+      var a = document.querySelector('[data-kg-game="' + id + '"]');
+      if (a) a.classList.add('is-today');
+    });
+  });
+  </script>
 </body>
 </html>

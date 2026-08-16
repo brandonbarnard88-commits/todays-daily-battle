@@ -25209,7 +25209,7 @@ body[class*="kids"] .section-note {
 }
 
 /* Buttons on kids pages — amber gold, strong contrast, big touch target */
-body[class*="kids"] button:not(.tdb-cat-slideshow-close):not(.tdb-cat-slideshow-nav button):not(.tdb-cat-story-grid-card),
+body[class*="kids"] button:not(.tdb-cat-slideshow-close):not(.tdb-cat-slideshow-nav button):not(.tdb-cat-story-grid-card):not(.match-btn):not(.mf-card):not(.ls-tile):not(.sp-stone),
 body[class*="kids"] .kids-magic-btn,
 body[class*="kids"] .btn,
 body[class*="kids"] .filter-btn {

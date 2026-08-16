@@ -1,0 +1,548 @@
+/* Kids play skin — toy-board look, cream pasture, big taps. No keyframe fun:
+   kids pages strip animations, so delight is color, shape, and lift. */
+
+body.kids-mini-game,
+body.kids-kiss-play-home {
+  --kg-ink: #0f172a;
+  --kg-gold: #f2dc98;
+  --kg-gold-deep: #d97706;
+  --kg-navy: #0f172a;
+  --kg-cream: #fff9eb;
+  --kg-paper: #fffef8;
+  --kg-grass: #86efac;
+  --kg-sky: #93c5fd;
+}
+
+body.kids-mini-game .content-inner {
+  max-width: 44rem;
+}
+
+body.kids-mini-game .kids-site-porch {
+  text-align: center;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 700;
+  color: #1e293b !important;
+  margin: 0 0 0.75rem;
+}
+
+/* —— Stage / HUD / hero —— */
+.kg-hud,
+.match-hud,
+.mf-hud,
+.ls-hud,
+.sp-hud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem;
+  margin: 0 0 0.75rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  background: #0f172a !important;
+  border: 3px solid #d97706 !important;
+  color: #f2dc98 !important;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.88rem;
+  box-shadow: 3px 3px 0 rgba(15, 23, 42, 0.18);
+}
+
+.match-hud-round,
+.match-score-pill,
+.mf-hud span,
+.ls-hud span,
+.sp-hud span {
+  color: #f2dc98 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.match-score-pill {
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(242, 220, 152, 0.16) !important;
+}
+
+.match-stars { display: flex; gap: 0.15rem; font-size: 1.15rem; }
+.match-star { opacity: 0.28; filter: grayscale(0.4); }
+.match-star.on { opacity: 1; filter: none; }
+
+body.kids-world-surface.kids-mini-game .match-hero,
+body.kids-world-surface.kids-mini-game .mini-game-hero,
+body.kids-world-surface.kids-mini-game .ls-hero,
+body.kids-world-surface.kids-mini-game .mf-hero,
+body.kids-world-surface.kids-mini-game .sp-hero,
+.match-hero,
+.ls-hero,
+.mf-hero,
+.sp-hero {
+  position: relative;
+  padding: 1rem 1.05rem 1.05rem 4.6rem;
+  margin: 0 0 0.75rem;
+  border-radius: 20px;
+  background: linear-gradient(165deg, #fffef8 0%, #fef3c7 62%, #ecfccb 100%) !important;
+  border: 3px solid #d97706 !important;
+  box-shadow: 4px 4px 0 rgba(15, 23, 42, 0.12);
+  color: #0f172a !important;
+  overflow: hidden;
+}
+
+.match-hero::before,
+.ls-hero::before,
+.mf-hero::before,
+.sp-hero::before {
+  content: attr(data-kg-ico);
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  background: #0f172a;
+  border: 3px solid #f2dc98;
+  box-shadow: 2px 2px 0 rgba(15, 23, 42, 0.16);
+}
+
+body.kids-world-surface.kids-mini-game .match-hero h1,
+body.kids-world-surface.kids-mini-game .mini-game-hero h1,
+.match-hero h1,
+.ls-hero h1,
+.mf-hero h1,
+.sp-hero h1 {
+  font-family: Bangers, Nunito, system-ui, sans-serif;
+  font-size: clamp(1.65rem, 5.4vw, 2.05rem);
+  letter-spacing: 0.02em;
+  margin: 0 0 0.28rem;
+  color: #0f172a !important;
+  line-height: 1.05;
+}
+
+body.kids-world-surface.kids-mini-game .match-hero p,
+.match-hero p,
+.ls-hero p,
+.mf-hero p,
+.sp-hero p {
+  margin: 0;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #1e293b !important;
+}
+
+.match-daily,
+.match-best,
+.ls-kjv,
+.sp-kjv {
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 700;
+  color: #0f172a !important;
+  background: #fff !important;
+  border: 2px solid rgba(217, 119, 6, 0.35) !important;
+  border-radius: 14px;
+  padding: 0.7rem 0.85rem;
+}
+
+.match-status,
+.mf-st,
+.ls-status,
+.sp-status {
+  min-height: 1.55rem;
+  text-align: center;
+  margin: 0.35rem 0 0.7rem;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #0f172a !important;
+}
+
+.match-status.good,
+.ls-win { color: #047857 !important; }
+.match-status.try { color: #b45309 !important; }
+
+.match-teach,
+.mf-teach {
+  display: none;
+  margin: 0 0 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 14px;
+  background: #0f172a !important;
+  border: 3px solid #f2dc98 !important;
+  color: #f2dc98 !important;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.match-teach.show,
+.mf-teach.show { display: block; }
+.match-teach strong,
+.mf-teach strong { color: #fff8dc !important; }
+.match-teach cite { display: block; margin-top: 0.3rem; font-style: normal; color: #fde68a; }
+
+/* —— Shared action chips / more games —— */
+.kg-more,
+.match-actions,
+.sp-actions,
+.ls-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.85rem;
+}
+
+.kg-more a,
+.match-actions a,
+.match-actions button,
+.sp-actions a,
+.sp-actions button,
+.ls-actions button,
+.mf-again {
+  min-height: 48px;
+  padding: 0.55rem 1rem;
+  border-radius: 14px;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 3px solid #d97706;
+  background: #fffef8;
+  color: #0f172a !important;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 rgba(15, 23, 42, 0.12);
+}
+
+.match-actions button.match-next,
+.ls-actions button,
+.mf-again { display: none; }
+.mf-again.show {
+  display: inline-block;
+  background: linear-gradient(180deg, #fde68a, #fbbf24);
+  color: #422006 !important;
+}
+
+.kg-more {
+  margin: 1.15rem 0 0;
+  padding: 0.75rem;
+  border-radius: 16px;
+  background: rgba(255, 254, 248, 0.9);
+  border: 2px dashed rgba(217, 119, 6, 0.4);
+}
+.kg-more p { margin: 0; text-align: center; }
+.kg-home {
+  display: block;
+  text-align: center;
+  margin: 0.9rem 0 0;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  color: #0f172a !important;
+}
+
+.match-sound-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0 0 0.55rem;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 700;
+  color: #334155 !important;
+}
+
+.match-win { display: none; }
+.match-win.show { display: block; }
+.sp-win { display: none; }
+.sp-win.show { display: block; }
+.match-win,
+.sp-win,
+#mf-win {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 0.75rem;
+  border-radius: 18px;
+  border: 3px solid #16a34a;
+  background: linear-gradient(180deg, #ecfdf5, #bbf7d0);
+  color: #14532d !important;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+}
+
+/* —— Match the Verse —— */
+.match-page { max-width: 44rem; margin: 0 auto; padding: 0.35rem 0.75rem 2rem; }
+.match-board {
+  display: grid;
+  gap: 0.85rem;
+}
+@media (min-width: 560px) {
+  .match-board { grid-template-columns: 1fr 1fr; }
+}
+body.kids-world-surface.kids-mini-game .match-col h2,
+.match-col h2 {
+  font-family: Nunito, sans-serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0f172a !important;
+  margin: 0 0 0.5rem;
+  font-weight: 800;
+}
+.match-col {
+  padding: 0.65rem 0.6rem 0.45rem;
+  border-radius: 18px;
+  background: #fffef8;
+  border: 3px solid rgba(217, 119, 6, 0.4);
+}
+.match-col:first-child { border-color: #f59e0b; background: #fffbeb; }
+.match-col:last-child { border-color: #3b82f6; background: #eff6ff; }
+
+body.kids-mini-game button.match-btn,
+.match-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  width: 100%;
+  min-height: 76px !important;
+  padding: 0.65rem 0.7rem;
+  margin-bottom: 0.5rem;
+  border-radius: 16px;
+  border: 3px solid #f59e0b;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.98rem !important;
+  text-align: left;
+  cursor: pointer;
+  line-height: 1.35;
+  box-shadow: 3px 3px 0 rgba(15, 23, 42, 0.12);
+}
+.match-btn.match-kjv {
+  border-color: #2563eb;
+  background: #ffffff !important;
+}
+.match-btn:hover,
+.match-btn:focus-visible {
+  transform: translateY(-2px);
+  outline: none;
+  border-color: #b45309;
+}
+.match-btn[aria-pressed="true"] {
+  background: #fde68a !important;
+  border-color: #d97706;
+  box-shadow: 0 0 0 3px rgba(242, 220, 152, 0.7);
+}
+.match-btn.matched {
+  opacity: 0.72;
+  pointer-events: none;
+  border-color: #16a34a;
+  background: #dcfce7 !important;
+}
+.match-btn.match-wrong {
+  border-color: #dc2626;
+  background: #fee2e2 !important;
+}
+.match-avatar {
+  flex: 0 0 2.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background: linear-gradient(160deg, #fef3c7, #f59e0b);
+  border: 3px solid #0f172a;
+}
+.match-btn.match-kjv .match-avatar {
+  background: linear-gradient(160deg, #dbeafe, #3b82f6);
+}
+.match-who {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #b45309;
+  margin-bottom: 0.12rem;
+}
+.match-btn.match-kjv .match-who { color: #1d4ed8; }
+
+/* —— Memory flock —— */
+.mf-page { max-width: 38rem; margin: 0 auto; padding: 0.5rem 0.75rem 2rem; }
+.mf-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  max-width: 26rem;
+  margin: 0.75rem auto;
+}
+@media (min-width: 420px) {
+  .mf-board { grid-template-columns: repeat(4, 1fr); }
+}
+body.kids-mini-game button.mf-card,
+.mf-card {
+  min-height: 104px !important;
+  border-radius: 16px;
+  border: 3px solid #4f46e5;
+  background: linear-gradient(180deg, #818cf8, #4f46e5);
+  color: #f2dc98 !important;
+  font-size: 1.65rem !important;
+  font-weight: 800;
+  padding: 0.45rem;
+  cursor: pointer;
+  line-height: 1.25;
+  font-family: Nunito, system-ui, sans-serif;
+  box-shadow: 3px 3px 0 rgba(49, 46, 129, 0.35);
+}
+.mf-card[aria-pressed="false"] {
+  color: #f2dc98 !important;
+  background: linear-gradient(180deg, #6366f1, #3730a3);
+  border-color: #1e1b4b;
+}
+.mf-card[aria-pressed="true"] {
+  color: #0f172a !important;
+  background: #fffef8 !important;
+  border-color: #d97706;
+  font-size: 0.78rem !important;
+  text-align: left;
+  align-items: flex-start;
+}
+.mf-card.mf-match {
+  opacity: 0.7;
+  pointer-events: none;
+  border-color: #16a34a;
+  background: #dcfce7 !important;
+  color: #14532d !important;
+  font-size: 0.78rem !important;
+}
+
+/* —— Find the sheep —— */
+.ls-page { max-width: 34rem; margin: 0 auto; padding: 0.5rem 0.75rem 2rem; }
+.ls-grid {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 20rem;
+  margin: 0.85rem auto;
+  padding: 0.7rem;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #86efac 0%, #4ade80 55%, #22c55e 100%);
+  border: 4px solid #166534;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.18), 4px 4px 0 rgba(15, 23, 42, 0.14);
+}
+.ls-grid.cols3 { grid-template-columns: repeat(3, 1fr); }
+.ls-grid.cols4 { grid-template-columns: repeat(4, 1fr); max-width: 22rem; }
+.ls-grid.cols5 { grid-template-columns: repeat(5, 1fr); max-width: 24rem; }
+body.kids-mini-game button.ls-tile,
+.ls-tile {
+  min-height: 68px !important;
+  border-radius: 16px;
+  border: 3px solid #166534;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35), transparent 42%),
+    linear-gradient(180deg, #bbf7d0, #4ade80);
+  font-size: 1.7rem !important;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #166534;
+}
+.ls-tile.reveal {
+  background: linear-gradient(180deg, #fef9c3, #fbbf24);
+  border-color: #b45309;
+}
+
+/* —— Shepherd's Path —— */
+.sp-page { max-width: 28rem; margin: 0 auto; padding: 0.5rem 0.75rem 2rem; }
+.sp-path {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem 0.65rem;
+  margin: 1rem 0;
+  padding: 0.85rem 0.6rem;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fef3c7, #fde68a 40%, #86efac 100%);
+  border: 4px solid #d97706;
+  box-shadow: 4px 4px 0 rgba(15, 23, 42, 0.12);
+}
+body.kids-mini-game button.sp-stone,
+.sp-stone {
+  min-width: 58px;
+  min-height: 58px !important;
+  border-radius: 999px;
+  border: 3px solid #78350f;
+  background: linear-gradient(180deg, #fef9c3, #d97706);
+  font-size: 1.3rem !important;
+  font-weight: 800;
+  font-family: Nunito, sans-serif;
+  color: #1c1917 !important;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #78350f;
+}
+.sp-stone:nth-child(even) { transform: translateY(8px); }
+.sp-stone:nth-child(3n) { transform: translateY(-4px); }
+.sp-stone.is-done {
+  opacity: 0.55;
+  pointer-events: none;
+  border-color: #166534;
+  background: #bbf7d0;
+  box-shadow: none;
+  transform: none;
+}
+.sp-teach { font-size: 0.9rem; font-weight: 600; color: #334155; margin: 0.35rem 0 0; }
+
+/* —— Kids home Play cards —— */
+.kids-easy-games h2 {
+  font-family: Nunito, system-ui, sans-serif;
+  font-size: 1.35rem !important;
+  color: #0f172a !important;
+}
+.kids-easy-game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.kids-easy-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  text-decoration: none;
+  border-radius: 1.15rem;
+  padding: 0.95rem 0.65rem 0.85rem;
+  font-weight: 800;
+  font-size: 1.02rem;
+  line-height: 1.2;
+  color: #0f172a !important;
+  text-align: center;
+  border: 3px solid #d97706;
+  box-shadow: 3px 3px 0 rgba(15, 23, 42, 0.12);
+  min-height: 118px;
+  background: #fffef8;
+}
+.kids-easy-game-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 14px;
+  font-size: 1.45rem;
+  background: #0f172a;
+  border: 3px solid #f2dc98;
+  margin-bottom: 0.25rem;
+}
+.kids-easy-game small {
+  display: block;
+  font-weight: 700;
+  font-size: 0.78rem;
+  margin-top: 0.1rem;
+  color: #334155;
+}
+.kids-easy-game--match { background: linear-gradient(165deg, #fffbeb, #fde68a); border-color: #d97706; }
+.kids-easy-game--sheep { background: linear-gradient(165deg, #ecfdf5, #86efac); border-color: #16a34a; }
+.kids-easy-game--memory { background: linear-gradient(165deg, #eef2ff, #a5b4fc); border-color: #4f46e5; }
+.kids-easy-game--path { background: linear-gradient(165deg, #fff7ed, #fdba74); border-color: #ea580c; }
+.kids-easy-game:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }

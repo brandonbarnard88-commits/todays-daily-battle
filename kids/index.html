@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="../styles.css?v=20260816-brightgold">
   <link rel="stylesheet" href="kids-hub-play.css?v=20260810ls">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playfun">
   <link rel="manifest" href="../manifest.json">
   <style>
     /* Easy kids home — three big doors only (no second nav stack) */
@@ -51,12 +52,21 @@
     .dark-mode .kids-easy-games h2 { color: #0f172a; }
     .kids-easy-game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
     .kids-easy-game {
-      display: block; text-decoration: none; border-radius: 1rem; padding: 0.9rem 0.75rem;
-      font-weight: 800; font-size: 1.05rem; line-height: 1.2; color: #0f172a; text-align: center;
-      background: linear-gradient(145deg, #dcfce7, #86efac); border: 3px solid #22c55e;
-      box-shadow: 0 3px 12px rgba(15, 23, 42, 0.08); min-height: 72px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-decoration: none; border-radius: 1.15rem; padding: 0.95rem 0.65rem 0.85rem;
+      font-weight: 800; font-size: 1.02rem; line-height: 1.2; color: #0f172a; text-align: center;
+      border: 3px solid #d97706; box-shadow: 3px 3px 0 rgba(15, 23, 42, 0.12); min-height: 118px;
     }
-    .kids-easy-game small { display: block; font-weight: 600; font-size: 0.82rem; margin-top: 0.2rem; opacity: 0.88; }
+    .kids-easy-game-ico {
+      display: flex; align-items: center; justify-content: center;
+      width: 2.6rem; height: 2.6rem; border-radius: 14px; font-size: 1.45rem;
+      background: #0f172a; border: 3px solid #f2dc98; margin-bottom: 0.25rem;
+    }
+    .kids-easy-game small { display: block; font-weight: 700; font-size: 0.78rem; margin-top: 0.1rem; color: #334155; }
+    .kids-easy-game--match { background: linear-gradient(165deg, #fffbeb, #fde68a); border-color: #d97706; }
+    .kids-easy-game--sheep { background: linear-gradient(165deg, #ecfdf5, #86efac); border-color: #16a34a; }
+    .kids-easy-game--memory { background: linear-gradient(165deg, #eef2ff, #a5b4fc); border-color: #4f46e5; }
+    .kids-easy-game--path { background: linear-gradient(165deg, #fff7ed, #fdba74); border-color: #ea580c; }
     .kids-easy-game:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
     .kids-easy-door:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
     .kids-easy-mascot { width: 120px; height: auto; margin: 0.25rem auto 0.35rem; display: block; }
@@ -128,10 +138,10 @@
           <section class="kids-easy-games" aria-labelledby="kids-easy-games-h">
             <h2 id="kids-easy-games-h">Play</h2>
             <div class="kids-easy-game-grid">
-              <a class="kids-easy-game" href="match-buddies.html">Match the Verse<small>pair a kid line to KJV</small></a>
-              <a class="kids-easy-game" href="lost-sheep.html">Find the sheep<small>tap the grass</small></a>
-              <a class="kids-easy-game" href="memory-flock.html">Memory flock<small>flip and match</small></a>
-              <a class="kids-easy-game" href="shepherds-path.html">Shepherd&rsquo;s Path<small>step the stones</small></a>
+              <a class="kids-easy-game kids-easy-game--match" href="match-buddies.html"><span class="kids-easy-game-ico" aria-hidden="true">⭐</span>Match the Verse<small>pair a kid line to KJV</small></a>
+              <a class="kids-easy-game kids-easy-game--sheep" href="lost-sheep.html"><span class="kids-easy-game-ico" aria-hidden="true">🐑</span>Find the sheep<small>tap the grass</small></a>
+              <a class="kids-easy-game kids-easy-game--memory" href="memory-flock.html"><span class="kids-easy-game-ico" aria-hidden="true">🃏</span>Memory flock<small>flip and match</small></a>
+              <a class="kids-easy-game kids-easy-game--path" href="shepherds-path.html"><span class="kids-easy-game-ico" aria-hidden="true">🪨</span>Shepherd&rsquo;s Path<small>step the stones</small></a>
             </div>
           </section>
 

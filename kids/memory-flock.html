@@ -16,45 +16,8 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playfun">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
-  <style>
-    .mf-page { max-width: 36rem; margin: 0 auto; padding: 0.5rem 0.75rem 2rem; }
-    .mf-hero {
-      padding: 1rem; border-radius: 16px; margin-bottom: 0.65rem;
-      background: linear-gradient(165deg, #eff6ff, #fef3c7); border: 3px solid #6366f1; color: #0f172a;
-    }
-    .mf-hero h1 { font-family: Bangers, cursive; font-size: 1.55rem; margin: 0 0 0.35rem; }
-    .mf-hero p { margin: 0; font-family: Nunito, system-ui, sans-serif; font-weight: 600; line-height: 1.45; font-size: 0.92rem; color: #334155; }
-    .mf-hud {
-      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between;
-      margin: 0 0 0.55rem; padding: 0.45rem 0.7rem; border-radius: 12px; background: #fffef8; border: 2px solid #fcd34d;
-      font-family: Nunito, system-ui, sans-serif; font-weight: 800; font-size: 0.88rem; color: #92400e;
-    }
-    .mf-board { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; max-width: 24rem; margin: 0.75rem auto; }
-    @media (min-width: 420px) { .mf-board { grid-template-columns: repeat(4, 1fr); } }
-    .mf-card {
-      min-height: 92px; border-radius: 14px; border: 3px solid #f59e0b; background: #fffbeb;
-      font-size: 0.8rem; font-weight: 800; padding: 0.4rem; cursor: pointer; line-height: 1.25;
-      color: #0f172a; font-family: Nunito, system-ui, sans-serif; -webkit-tap-highlight-color: transparent;
-    }
-    .mf-card[aria-pressed="false"] {
-      color: #fff; background: linear-gradient(180deg, #818cf8, #6366f1); border-color: #4f46e5;
-      font-size: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center;
-    }
-    .mf-card.mf-match { opacity: 0.55; pointer-events: none; border-color: #22c55e; background: #ecfdf5; }
-    .mf-teach {
-      display: none; margin: 0.5rem auto; max-width: 24rem; padding: 0.65rem 0.8rem; border-radius: 12px;
-      background: #fffef8; border: 2px solid #f59e0b; font-family: Nunito, system-ui, sans-serif;
-      font-weight: 700; font-size: 0.9rem; color: #0f172a; line-height: 1.4;
-    }
-    .mf-teach.show { display: block; }
-    .mf-again {
-      min-height: 48px; margin: 0.75rem auto; display: none; font-weight: 800; border-radius: 12px;
-      border: 2px solid #f59e0b; background: #fffbeb; padding: 0.5rem 1rem; cursor: pointer; font-family: Nunito, system-ui, sans-serif;
-    }
-    .mf-again.show { display: inline-block; }
-    .mf-st { text-align: center; margin: 0.5rem 0; font-weight: 800; color: #0f172a; font-family: Nunito, system-ui, sans-serif; }
-  </style>
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
   <a href="#main" class="skip-link">Skip to content</a>
@@ -76,7 +39,7 @@
           <span id="mf-hud-left">Today’s flock</span>
           <span id="mf-hud-right">This device: —</span>
         </div>
-        <div class="mf-hero">
+        <div class="mf-hero" data-kg-ico="🃏">
           <h1>Harder memory mode</h1>
           <p>Tap a card, then its pair—<strong>character phrase</strong> to <strong>KJV line</strong>. A short Remember tip appears each time you match.</p>
         </div>
@@ -85,7 +48,14 @@
         <div class="mf-board" id="mf-board" role="group" aria-label="Memory cards"></div>
         <p id="mf-win" class="section-note" style="text-align:center;margin:0.75rem 0;font-weight:800;color:#14532d" hidden>All pairs found!</p>
         <p style="text-align:center"><button type="button" id="mf-again" class="mf-again">Play again (new daily mix)</button></p>
-        <p style="text-align:center"><a href="match-buddies.html">Match game</a> · <a href="lost-sheep.html">Find the sheep</a> · <a href="/kids/">Home</a></p>
+        <nav class="kg-more" aria-label="More games">
+          <p>
+            <a href="match-buddies.html">Match the Verse</a>
+            <a href="lost-sheep.html">Find the sheep</a>
+            <a href="shepherds-path.html">Shepherd&rsquo;s Path</a>
+          </p>
+        </nav>
+        <p class="kg-home"><a href="/kids/">← Kids home</a></p>
       </div>
     </main>
   </div>

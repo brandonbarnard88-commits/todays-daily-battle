@@ -122,7 +122,8 @@ const CRITICAL_DIST_JS = [
   'js/surfaces/home.js',
   'js/surfaces/plans.js',
   'js/surfaces/church.js',
-  'kids/kids-play-helpers.js'
+  'kids/kids-play-helpers.js',
+  'kids/kids-play-skin.css'
 ];
 const rootFiles = [
   'config.js',

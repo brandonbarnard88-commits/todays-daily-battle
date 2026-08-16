@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playall">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-deepen">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -79,7 +79,8 @@
           <div class="match-actions">
             <button type="button" class="match-next" id="match-next-round">Next round (harder)</button>
             <button type="button" id="match-shuffle">Play again (same level)</button>
-            <a href="corner.html?choose=1#kids-library-grid">Pick a story</a>
+            <span class="kg-next-doors" id="kg-next-doors"></span>
+            <a href="corner.html?choose=1#kids-library-grid">Pick another story</a>
           </div>
         </div>
         <label class="kg-timer-row" id="kg-timer-row">
@@ -109,7 +110,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-playall"></script>
+  <script src="kids-play-helpers.js?v=20260816-deepen"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -126,12 +127,12 @@
     var playSize = kit && kit.getSize ? kit.getSize() : 'middle';
     var timerId = null;
     var FALLBACK_PAIRS = [
-      { id: 'p23', plain: 'God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', who: 'Shepherd', teach: 'Jesus cares for you the way a good shepherd cares for sheep.' },
-      { id: 'kids', plain: 'Jesus says kids can come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', who: 'Jesus', teach: 'You are welcome with Jesus—kids matter to Him.' },
-      { id: 'strong', plain: 'Be brave—God is with you', kjv: 'Be strong and of a good courage; be not afraid.', ref: 'Joshua 1:9', icon: '🛡️', who: 'Joshua', teach: 'Courage means trusting God is with you, not that you never feel small.' },
-      { id: 'love', plain: 'God loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', who: 'Love', teach: 'God’s love is a gift—Jesus came for us.' },
-      { id: 'light', plain: 'God’s Word shows the way', kjv: 'Thy word is a lamp unto my feet, and a light unto my path.', ref: 'Psalm 119:105', icon: '💡', who: 'Light', teach: 'Reading the Bible helps us know the next right step.' },
-      { id: 'peace', plain: 'Jesus can calm the storm', kjv: 'Peace, be still. And the wind ceased, and there was a great calm.', ref: 'Mark 4:39', icon: '🌊', who: 'Jesus', teach: 'When life feels stormy, Jesus still speaks peace.' }
+      { id: 'p23', plain: 'God is my caring shepherd', short: 'God cares', shortKjv: 'The Lord is my shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', who: 'Shepherd', teach: 'Jesus cares for you the way a good shepherd cares for sheep.', story: 'psalm23Shepherd', color: 'good-shepherd', door: 'the Good Shepherd' },
+      { id: 'kids', plain: 'Jesus says kids can come', short: 'Kids can come', shortKjv: 'Suffer the little children to come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', who: 'Jesus', teach: 'You are welcome with Jesus—kids matter to Him.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' },
+      { id: 'strong', plain: 'Be brave—God is with you', short: 'Be brave', shortKjv: 'Be strong and of a good courage', kjv: 'Be strong and of a good courage; be not afraid.', ref: 'Joshua 1:9', icon: '🛡️', who: 'Joshua', teach: 'Courage means trusting God is with you, not that you never feel small.', story: 'joshuaJericho', color: 'jericho', door: 'Joshua' },
+      { id: 'love', plain: 'God loved the world', short: 'God loved us', shortKjv: 'God so loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', who: 'Love', teach: 'God’s love is a gift—Jesus came for us.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' },
+      { id: 'light', plain: 'God’s Word shows the way', short: 'Word shows way', shortKjv: 'Thy word is a lamp', kjv: 'Thy word is a lamp unto my feet, and a light unto my path.', ref: 'Psalm 119:105', icon: '💡', who: 'Light', teach: 'Reading the Bible helps us know the next right step.' },
+      { id: 'peace', plain: 'Jesus can calm the storm', short: 'Storm, be still', shortKjv: 'Peace, be still', kjv: 'Peace, be still. And the wind ceased, and there was a great calm.', ref: 'Mark 4:39', icon: '🌊', who: 'Jesus', teach: 'When life feels stormy, Jesus still speaks peace.', story: 'jesusCalmsStorm', color: 'jesus-storm', door: 'Jesus calms the storm' }
     ];
     var roundIndex = 0;
     function pairRounds() {
@@ -258,7 +259,10 @@
       who.className = 'match-who';
       who.textContent = side === 'plain' ? (p.who || 'Friend') : (p.ref || 'KJV');
       body.appendChild(who);
-      body.appendChild(document.createTextNode(side === 'plain' ? p.plain : p.kjv));
+      var line = side === 'plain'
+        ? (kit && kit.facePlain ? kit.facePlain(p, playSize) : p.plain)
+        : (kit && kit.faceKjv ? kit.faceKjv(p, playSize) : p.kjv);
+      body.appendChild(document.createTextNode(line));
       b.appendChild(av);
       b.appendChild(body);
       return b;
@@ -295,9 +299,13 @@
       if (friends) { friends.classList.remove('show'); friends.textContent = ''; }
       winEl.classList.remove('show');
       winEl.hidden = true;
+      document.body.classList.remove('is-little', 'is-middle', 'is-bigger');
+      document.body.classList.add('is-' + playSize);
       setStatus('Pick a character card.', '');
       plainEl.textContent = '';
       kjvEl.textContent = '';
+      var doors = document.getElementById('kg-next-doors');
+      if (doors) doors.textContent = '';
       paintStars();
       paintScores();
       shuffle(pairsThisRound).forEach(function (p) { plainEl.appendChild(makeBtn(p, 'plain')); });
@@ -341,6 +349,7 @@
         friends.appendChild(ul);
         friends.classList.add('show');
       }
+      if (kit && kit.fillWinDoors) kit.fillWinDoors(document.getElementById('kg-next-doors'), pairsThisRound);
       if (kit) kit.recordScore('match', { pairs: pairsThisRound.length, wins: 1, round: roundIndex + 1 });
       paintScores();
       beep(660, 0.1);
@@ -397,7 +406,28 @@
           try { window.tdbLittleShepherd.notify('pairFound'); } catch (eP) {}
         }
         if (Object.keys(matched).length === pairsThisRound.length) celebrateWin();
-        else setStatus('Yes! Read the Remember tip—then next pair. ⭐', 'good');
+        else {
+          setStatus('Yes! Read the Remember tip—then next pair. ⭐', 'good');
+          function leftoverBtns(el) {
+            if (!el) return [];
+            return [].slice.call(el.children).filter(function (n) {
+              return n.classList && !n.classList.contains('matched');
+            });
+          }
+          if (playSize === 'bigger') {
+            shuffle(leftoverBtns(plainEl)).forEach(function (n) { plainEl.appendChild(n); });
+            shuffle(leftoverBtns(kjvEl)).forEach(function (n) { kjvEl.appendChild(n); });
+          }
+          var left = leftoverBtns(plainEl).concat(leftoverBtns(kjvEl));
+          left.forEach(function (n) {
+            n.classList.remove('kg-look');
+            void n.offsetWidth;
+            n.classList.add('kg-look');
+          });
+          setTimeout(function () {
+            left.forEach(function (n) { n.classList.remove('kg-look'); });
+          }, 900);
+        }
       } else {
         missStreak += 1;
         t.classList.add('match-wrong');

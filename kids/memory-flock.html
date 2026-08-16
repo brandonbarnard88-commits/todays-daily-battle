@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playall">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-deepen">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -61,7 +61,11 @@
         <div class="mf-board" id="mf-board" role="group" aria-label="Memory cards"></div>
         <div class="kg-verse-friends" id="kg-verse-friends"></div>
         <p id="mf-win" class="section-note" style="text-align:center;margin:0.75rem 0;font-weight:800;color:#14532d" hidden>All pairs found!</p>
-        <p style="text-align:center"><button type="button" id="mf-again" class="mf-again">Play again (new daily mix)</button></p>
+        <p style="text-align:center">
+          <button type="button" id="mf-next" class="mf-again">Next round (harder)</button>
+          <button type="button" id="mf-again" class="mf-again">Play again (same size)</button>
+        </p>
+        <p class="kg-next-doors" id="kg-next-doors"></p>
         <details class="kg-how">
           <summary>How to play</summary>
           <p>Tap a card, then its pair—character phrase to KJV line.</p>
@@ -78,7 +82,7 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-playall"></script>
+  <script src="kids-play-helpers.js?v=20260816-deepen"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -90,12 +94,14 @@
     }
     var kit = window.tdbKidsGameKit;
     var playSize = kit && kit.getSize ? kit.getSize() : 'middle';
+    var roundIndex = 0;
     var FALLBACK_PAIRS = [
-      { id: 'p23', plain: 'God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', teach: 'Jesus cares for you the way a good shepherd cares for sheep.' },
-      { id: 'kids', plain: 'Jesus says kids can come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', teach: 'You are welcome with Jesus—kids matter to Him.' },
-      { id: 'strong', plain: 'Be brave—God is with you', kjv: 'Be strong and of a good courage; be not afraid.', ref: 'Joshua 1:9', icon: '🛡️', teach: 'Courage means trusting God is with you.' },
-      { id: 'love', plain: 'God loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', teach: 'God’s love is a gift—Jesus came for us.' }
+      { id: 'p23', plain: 'God is my caring shepherd', short: 'God cares', shortKjv: 'The Lord is my shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', teach: 'Jesus cares for you the way a good shepherd cares for sheep.', story: 'psalm23Shepherd', color: 'good-shepherd', door: 'the Good Shepherd' },
+      { id: 'kids', plain: 'Jesus says kids can come', short: 'Kids can come', shortKjv: 'Suffer the little children to come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', teach: 'You are welcome with Jesus—kids matter to Him.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' },
+      { id: 'strong', plain: 'Be brave—God is with you', short: 'Be brave', shortKjv: 'Be strong and of a good courage', kjv: 'Be strong and of a good courage; be not afraid.', ref: 'Joshua 1:9', icon: '🛡️', teach: 'Courage means trusting God is with you.', story: 'joshuaJericho', color: 'jericho', door: 'Joshua' },
+      { id: 'love', plain: 'God loved the world', short: 'God loved us', shortKjv: 'God so loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', teach: 'God’s love is a gift—Jesus came for us.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' }
     ];
+    var peekTimer = null;
     var board = document.getElementById('mf-board');
     var st = document.getElementById('mf-st');
     var winEl = document.getElementById('mf-win');
@@ -128,15 +134,25 @@
       lock = false;
       missStreak = 0;
       pairTeach = {};
+      if (peekTimer) { clearTimeout(peekTimer); peekTimer = null; }
       if (winEl) winEl.hidden = true;
       if (again) again.classList.remove('show');
       if (teach) { teach.classList.remove('show'); teach.textContent = ''; }
       if (st) st.textContent = 'Find two that go together—tap a card!';
       if (board) board.textContent = '';
-      var want = (kit && kit.sizeConfig(playSize).pairs) || 4;
+      document.body.classList.remove('is-little', 'is-middle', 'is-bigger');
+      document.body.classList.add('is-' + playSize);
+      var rounds = (kit && kit.sizeConfig(playSize).pairRounds) || [4];
+      var want = rounds[Math.min(roundIndex, rounds.length - 1)];
       usePairs = kit && kit.mixDailyAndCore ? kit.mixDailyAndCore(want) : (kit && kit.MATCH_CORE ? kit.MATCH_CORE.slice(0, want) : FALLBACK_PAIRS.slice(0, want));
+      var nextDoors = document.getElementById('kg-next-doors');
+      if (nextDoors) nextDoors.textContent = '';
+      var nextBtn = document.getElementById('mf-next');
+      if (nextBtn) nextBtn.classList.remove('show');
       var mixEl = document.getElementById('kg-mix-name');
       if (mixEl && kit && kit.mixName) mixEl.textContent = kit.mixName(usePairs);
+      var hudL = document.getElementById('mf-hud-left');
+      if (hudL) hudL.textContent = 'Round ' + (roundIndex + 1) + ' · ' + usePairs.length + ' pairs';
       var friends = document.getElementById('kg-verse-friends');
       if (friends) { friends.classList.remove('show'); friends.textContent = ''; }
       usePairs.forEach(function (p) {
@@ -144,8 +160,10 @@
       });
       var cards = [];
       usePairs.forEach(function (p) {
-        cards.push({ pair: p.id, text: (p.icon || '📖') + ' ' + p.plain });
-        cards.push({ pair: p.id, text: p.kjv });
+        var kid = kit && kit.facePlain ? kit.facePlain(p, playSize) : p.plain;
+        var verse = kit && kit.faceKjv ? kit.faceKjv(p, playSize) : p.kjv;
+        cards.push({ pair: p.id, text: (p.icon || '📖') + ' ' + kid, kind: 'plain' });
+        cards.push({ pair: p.id, text: verse, kind: 'kjv' });
       });
       cards = kit && kit.seededShuffle ? kit.seededShuffle(cards, Date.now() % 99991) : cards;
       cards.forEach(function (c) {
@@ -203,12 +221,37 @@
                 box.classList.add('show');
               }
               if (kit) kit.recordScore('memory', { pairs: usePairs.length, wins: 1 });
+              if (kit && kit.fillWinDoors) kit.fillWinDoors(document.getElementById('kg-next-doors'), usePairs);
+              var nextBtnWin = document.getElementById('mf-next');
+              if (nextBtnWin) {
+                nextBtnWin.classList.add('show');
+                nextBtnWin.textContent = roundIndex + 1 < ((kit && kit.sizeConfig(playSize).pairRounds) || [4]).length
+                  ? 'Next round (harder)'
+                  : 'Play a new mix';
+              }
               paintHud();
               if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
                 try { window.tdbLittleShepherd.notify('gameWin'); } catch (e3) {}
               }
             } else if (st) {
               st.textContent = 'Nice! Read the tip—then keep going.';
+              if (board) {
+                var leftover = [].slice.call(board.children).filter(function (n) {
+                  return n.classList && !n.classList.contains('mf-match') && n.getAttribute('aria-pressed') !== 'true';
+                });
+                if (playSize === 'bigger') {
+                  leftover = kit && kit.seededShuffle ? kit.seededShuffle(leftover, Date.now() % 99991) : leftover;
+                  leftover.forEach(function (n) { board.appendChild(n); });
+                }
+                leftover.forEach(function (n) {
+                  n.classList.remove('kg-look');
+                  void n.offsetWidth;
+                  n.classList.add('kg-look');
+                });
+                setTimeout(function () {
+                  leftover.forEach(function (n) { n.classList.remove('kg-look'); });
+                }, 900);
+              }
             }
             if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
               try { window.tdbLittleShepherd.notify('pairFound'); } catch (ePf) {}
@@ -236,11 +279,43 @@
         if (board) board.appendChild(b);
       });
       paintHud();
+      if (playSize === 'little' && board) {
+        lock = true;
+        var peekCards = [].slice.call(board.querySelectorAll('.mf-card'));
+        peekCards.forEach(function (card) {
+          card.textContent = card.getAttribute('data-text') || '?';
+          card.classList.add('is-peek');
+        });
+        if (st) st.textContent = 'Peek… then remember.';
+        peekTimer = setTimeout(function () {
+          peekCards.forEach(function (card) {
+            if (!card.classList.contains('mf-match')) {
+              card.textContent = '?';
+              card.classList.remove('is-peek');
+              card.setAttribute('aria-pressed', 'false');
+            }
+          });
+          lock = false;
+          first = null;
+          peekTimer = null;
+          if (st) st.textContent = 'Find two that go together—tap a card!';
+        }, 2200);
+      }
     }
     if (again) again.addEventListener('click', build);
+    var nextRound = document.getElementById('mf-next');
+    if (nextRound) {
+      nextRound.addEventListener('click', function () {
+        var rounds = (kit && kit.sizeConfig(playSize).pairRounds) || [4];
+        if (roundIndex + 1 < rounds.length) roundIndex += 1;
+        else roundIndex = 0;
+        build();
+      });
+    }
     if (kit && kit.bindSizePicker) {
       playSize = kit.bindSizePicker(function (next) {
         playSize = next;
+        roundIndex = 0;
         build();
       });
     }

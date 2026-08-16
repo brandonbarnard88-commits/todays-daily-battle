@@ -196,6 +196,65 @@ body.kids-kiss-play-home .tdb-site-humility {
   color: #0f172a !important;
 }
 .kg-timer-row.show { display: flex; align-items: center; }
+.kg-next-doors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0.65rem 0 0;
+}
+.kg-next-doors a,
+a.kg-next-story,
+a.kg-next-color {
+  min-height: 48px;
+  padding: 0.55rem 1rem;
+  border-radius: 14px;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  text-decoration: none;
+  border: 3px solid #d97706;
+  background: linear-gradient(180deg, #fde68a, #fbbf24);
+  color: #422006 !important;
+  display: inline-flex;
+  align-items: center;
+}
+a.kg-next-color {
+  background: linear-gradient(180deg, #dbeafe, #93c5fd);
+  border-color: #2563eb;
+  color: #1e3a8a !important;
+}
+body.kids-mini-game.is-little .match-btn {
+  min-height: 88px !important;
+  font-size: 1.15rem !important;
+}
+body.kids-mini-game.is-little .match-avatar {
+  width: 3.2rem;
+  height: 3.2rem;
+  flex-basis: 3.2rem;
+  font-size: 1.7rem;
+}
+body.kids-mini-game.is-little .match-who { display: none; }
+body.kids-mini-game.is-bigger .match-who { display: none; }
+body.kids-mini-game.is-little .mf-board {
+  grid-template-columns: 1fr 1fr !important;
+  max-width: 22rem;
+}
+body.kids-mini-game.is-little .mf-card {
+  min-height: 118px !important;
+}
+body.kids-mini-game.is-little .mf-card[aria-pressed="true"],
+body.kids-mini-game.is-little .mf-card.is-peek {
+  font-size: 1.08rem !important;
+  text-align: center;
+}
+@keyframes kgLook {
+  0%, 100% { transform: scale(1); }
+  40% { transform: scale(1.05); }
+}
+body.kids-mini-game .match-btn.kg-look,
+body.kids-mini-game .mf-card.kg-look {
+  animation: kgLook 0.4s ease 2 !important;
+}
 body.kids-mini-game .kids-site-porch,
 body.kids-mini-game .match-hero,
 body.kids-mini-game .ls-hero,
@@ -423,9 +482,9 @@ body.kids-world-surface.kids-mini-game .match-hero p,
   box-shadow: 2px 2px 0 rgba(15, 23, 42, 0.12);
 }
 
-.match-actions button.match-next,
-.ls-actions button,
 .mf-again { display: none; }
+.match-win.show .match-actions button,
+.ls-actions button:not([hidden]),
 .mf-again.show {
   display: inline-block;
   background: linear-gradient(180deg, #fde68a, #fbbf24);
@@ -610,7 +669,8 @@ body.kids-mini-game button.mf-card,
   background: linear-gradient(180deg, #6366f1, #3730a3);
   border-color: #1e1b4b;
 }
-.mf-card[aria-pressed="true"] {
+.mf-card[aria-pressed="true"],
+.mf-card.is-peek {
   color: #0f172a !important;
   background: #fffef8 !important;
   border-color: #d97706;

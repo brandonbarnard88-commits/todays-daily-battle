@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playall">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-deepen">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -62,6 +62,7 @@
           <p>On His shoulders—rejoicing.</p>
         </div>
         <p id="ls-win" class="ls-win" hidden></p>
+        <p class="kg-next-doors" id="kg-next-doors"></p>
         <details class="kg-how">
           <summary>How to play</summary>
           <p>Tap the grass. One sheep is hidden. The Good Shepherd never loses count.</p>
@@ -84,7 +85,7 @@
       </div>
     </main>
   </div>
-  <script src="kids-play-helpers.js?v=20260816-playall"></script>
+  <script src="kids-play-helpers.js?v=20260816-deepen"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -186,6 +187,8 @@
       var carry = document.getElementById('kg-carry');
       if (carry) carry.classList.remove('show');
       if (w) { w.hidden = true; w.textContent = ''; }
+      var doors = document.getElementById('kg-next-doors');
+      if (doors) doors.textContent = '';
       if (again) again.hidden = true;
       if (harder) harder.hidden = true;
       if (st) st.textContent = 'Tap a square—find the sheep!';
@@ -224,6 +227,13 @@
               if (harder) harder.hidden = levelIndex + 1 >= sizeLevels().length;
               var carryWin = document.getElementById('kg-carry');
               if (carryWin) carryWin.classList.add('show');
+              if (kit && kit.fillWinDoors) {
+                kit.fillWinDoors(document.getElementById('kg-next-doors'), {
+                  story: 'lostSheep',
+                  color: 'lost-sheep',
+                  label: 'the lost sheep'
+                });
+              }
               if (kit) kit.recordScore('sheep', { wins: 1, tries: tries, level: levelIndex + 1 });
               paintBest();
               if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {

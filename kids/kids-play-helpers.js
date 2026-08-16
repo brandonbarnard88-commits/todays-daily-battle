@@ -205,25 +205,127 @@
     };
   }
 
+  function threeWords(text) {
+    return String(text || '')
+      .replace(/[^\w\s'-]/g, ' ')
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 3)
+      .join(' ');
+  }
+
+  function shortKjvLine(text) {
+    return softenKjvClause(firstClause(text)) || String(text || '');
+  }
+
+  function doorFromRef(ref, id, blob) {
+    var r = String(ref || '').toLowerCase();
+    var key = String(id || '').toLowerCase();
+    var hay = (key + ' ' + r + ' ' + String(blob || '')).toLowerCase();
+    if (/p23|psalm 23|shepherd/.test(hay)) {
+      return { story: 'psalm23Shepherd', color: 'good-shepherd', label: 'the Good Shepherd' };
+    }
+    if (/kids|mark 10:14|children|suffer/.test(hay)) {
+      return { story: 'jesusBlessKids', color: 'jesus-children', label: 'Jesus and the children' };
+    }
+    if (/battle|1 samuel 17|goliath|david/.test(hay) && !/jonathan/.test(hay)) {
+      return { story: 'davidGoliath', color: 'david', label: 'David and Goliath' };
+    }
+    if (/peace|mark 4:39|storm|be still/.test(hay) && !/psalm 46:10/.test(r)) {
+      return { story: 'jesusCalmsStorm', color: 'jesus-storm', label: 'Jesus calms the storm' };
+    }
+    if (/lost|luke 15/.test(hay)) {
+      return { story: 'lostSheep', color: 'lost-sheep', label: 'the lost sheep' };
+    }
+    if (/joshua 1:9|strong|jericho/.test(hay)) {
+      return { story: 'joshuaJericho', color: 'jericho', label: 'Joshua' };
+    }
+    return null;
+  }
+
   /** Fixed educational pairs with character art chips */
   var MATCH_CORE = [
-    { id: 'p23', plain: 'God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', who: 'Shepherd', clue: 'a shepherd who cares', teach: 'Jesus cares for you the way a good shepherd cares for sheep.' },
-    { id: 'kids', plain: 'Jesus says kids can come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', who: 'Jesus', clue: 'children being welcomed', teach: 'You are welcome with Jesus—kids matter to Him.' },
-    { id: 'strong', plain: 'Be brave—God is with you', kjv: 'Be strong and of a good courage; be not afraid.', ref: 'Joshua 1:9', icon: '🛡️', who: 'Joshua', clue: 'being brave, not afraid', teach: 'Courage means trusting God is with you, not that you never feel small.' },
-    { id: 'care', plain: 'Give your worries to God', kjv: 'Casting all your care upon him; for he careth for you.', ref: '1 Peter 5:7', icon: '🙏', who: 'Friend', clue: 'giving God your worries', teach: 'You do not have to carry every worry alone—God cares.' },
-    { id: 'light', plain: 'God’s Word shows the way', kjv: 'Thy word is a lamp unto my feet, and a light unto my path.', ref: 'Psalm 119:105', icon: '💡', who: 'Light', clue: 'a lamp on a path', teach: 'Reading the Bible helps us know the next right step.' },
-    { id: 'love', plain: 'God loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', who: 'Love', clue: 'God loving the world', teach: 'God’s love is a gift—Jesus came for us.' },
-    { id: 'peace', plain: 'Jesus can calm the storm', kjv: 'Peace, be still. And the wind ceased, and there was a great calm.', ref: 'Mark 4:39', icon: '🌊', who: 'Jesus', clue: 'a storm going still', teach: 'When life feels stormy, Jesus still speaks peace.' },
-    { id: 'pray', plain: 'Ask God—He hears you', kjv: 'Ask, and it shall be given you; seek, and ye shall find.', ref: 'Matthew 7:7', icon: '🙏', who: 'Pray', clue: 'asking and seeking', teach: 'Prayer is talking with God—He invites you to ask and seek.' },
-    { id: 'kind', plain: 'Treat others kindly', kjv: 'All things whatsoever ye would that men should do to you, do ye even so to them.', ref: 'Matthew 7:12', icon: '🤝', who: 'Kind', clue: 'treating others the way you want', teach: 'The Golden Rule: treat others the way you want to be treated.' },
-    { id: 'trust', plain: 'Trust God with all your heart', kjv: 'Trust in the Lord with all thine heart; and lean not unto thine own understanding.', ref: 'Proverbs 3:5', icon: '💪', who: 'Trust', clue: 'trusting with your whole heart', teach: 'Trust means leaning on God even when we do not know everything.' },
-    { id: 'strength', plain: 'Jesus gives me strength', kjv: 'I can do all things through Christ which strengtheneth me.', ref: 'Philippians 4:13', icon: '💪', who: 'Strong', clue: 'Christ making you strong', teach: 'Our strength is not only muscles—Christ helps us obey and love.' },
-    { id: 'made', plain: 'God made me on purpose', kjv: 'I am fearfully and wonderfully made.', ref: 'Psalm 139:14', icon: '✨', who: 'You', clue: 'being made on purpose', teach: 'You are not an accident—God made you with care.' },
-    { id: 'battle', plain: 'The battle is the Lord’s', kjv: 'The battle is the Lord\'s.', ref: '1 Samuel 17:47', icon: '⚔️', who: 'David', clue: 'whose battle it really is', teach: 'David faced Goliath trusting God—not his own size.' },
-    { id: 'refuge', plain: 'God is my safe place', kjv: 'God is our refuge and strength, a very present help.', ref: 'Psalm 46:1', icon: '🏰', who: 'Safe', clue: 'a safe place and present help', teach: 'When you need help now, God is a present help.' },
-    { id: 'rejoice', plain: 'Rejoice in the Lord', kjv: 'Rejoice in the Lord alway: and again I say, Rejoice.', ref: 'Philippians 4:4', icon: '☀️', who: 'Joy', clue: 'rejoicing in the Lord', teach: 'Joy can grow even on hard days because the Lord is near.' },
-    { id: 'still', plain: 'Be still—know God', kjv: 'Be still, and know that I am God.', ref: 'Psalm 46:10', icon: '🤫', who: 'Still', clue: 'being still and knowing God', teach: 'Quiet moments help us remember who God is.' }
+    { id: 'p23', plain: 'God is my caring shepherd', short: 'God cares', shortKjv: 'The Lord is my shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', who: 'Shepherd', clue: 'a shepherd who cares', teach: 'Jesus cares for you the way a good shepherd cares for sheep.', story: 'psalm23Shepherd', color: 'good-shepherd', door: 'the Good Shepherd' },
+    { id: 'kids', plain: 'Jesus says kids can come', short: 'Kids can come', shortKjv: 'Suffer the little children to come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', who: 'Jesus', clue: 'children being welcomed', teach: 'You are welcome with Jesus—kids matter to Him.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' },
+    { id: 'strong', plain: 'Be brave—God is with you', short: 'Be brave', shortKjv: 'Be strong and of a good courage', kjv: 'Be strong and of a good courage; be not afraid.', ref: 'Joshua 1:9', icon: '🛡️', who: 'Joshua', clue: 'being brave, not afraid', teach: 'Courage means trusting God is with you, not that you never feel small.', story: 'joshuaJericho', color: 'jericho', door: 'Joshua' },
+    { id: 'care', plain: 'Give your worries to God', short: 'Give worries', shortKjv: 'He careth for you', kjv: 'Casting all your care upon him; for he careth for you.', ref: '1 Peter 5:7', icon: '🙏', who: 'Friend', clue: 'giving God your worries', teach: 'You do not have to carry every worry alone—God cares.' },
+    { id: 'light', plain: 'God’s Word shows the way', short: 'Word shows way', shortKjv: 'Thy word is a lamp', kjv: 'Thy word is a lamp unto my feet, and a light unto my path.', ref: 'Psalm 119:105', icon: '💡', who: 'Light', clue: 'a lamp on a path', teach: 'Reading the Bible helps us know the next right step.' },
+    { id: 'love', plain: 'God loved the world', short: 'God loved us', shortKjv: 'God so loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', who: 'Love', clue: 'God loving the world', teach: 'God’s love is a gift—Jesus came for us.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' },
+    { id: 'peace', plain: 'Jesus can calm the storm', short: 'Storm, be still', shortKjv: 'Peace, be still', kjv: 'Peace, be still. And the wind ceased, and there was a great calm.', ref: 'Mark 4:39', icon: '🌊', who: 'Jesus', clue: 'a storm going still', teach: 'When life feels stormy, Jesus still speaks peace.', story: 'jesusCalmsStorm', color: 'jesus-storm', door: 'Jesus calms the storm' },
+    { id: 'pray', plain: 'Ask God—He hears you', short: 'Ask God', shortKjv: 'Ask, and it shall be given you', kjv: 'Ask, and it shall be given you; seek, and ye shall find.', ref: 'Matthew 7:7', icon: '🙏', who: 'Pray', clue: 'asking and seeking', teach: 'Prayer is talking with God—He invites you to ask and seek.' },
+    { id: 'kind', plain: 'Treat others kindly', short: 'Be kind', shortKjv: 'Do ye even so to them', kjv: 'All things whatsoever ye would that men should do to you, do ye even so to them.', ref: 'Matthew 7:12', icon: '🤝', who: 'Kind', clue: 'treating others the way you want', teach: 'The Golden Rule: treat others the way you want to be treated.' },
+    { id: 'trust', plain: 'Trust God with all your heart', short: 'Trust God', shortKjv: 'Trust in the Lord', kjv: 'Trust in the Lord with all thine heart; and lean not unto thine own understanding.', ref: 'Proverbs 3:5', icon: '💪', who: 'Trust', clue: 'trusting with your whole heart', teach: 'Trust means leaning on God even when we do not know everything.' },
+    { id: 'strength', plain: 'Jesus gives me strength', short: 'Jesus makes strong', shortKjv: 'I can do all things through Christ', kjv: 'I can do all things through Christ which strengtheneth me.', ref: 'Philippians 4:13', icon: '💪', who: 'Strong', clue: 'Christ making you strong', teach: 'Our strength is not only muscles—Christ helps us obey and love.' },
+    { id: 'made', plain: 'God made me on purpose', short: 'Made on purpose', shortKjv: 'I am wonderfully made', kjv: 'I am fearfully and wonderfully made.', ref: 'Psalm 139:14', icon: '✨', who: 'You', clue: 'being made on purpose', teach: 'You are not an accident—God made you with care.' },
+    { id: 'battle', plain: 'The battle is the Lord’s', short: 'God fights', shortKjv: 'The battle is the Lord\'s', kjv: 'The battle is the Lord\'s.', ref: '1 Samuel 17:47', icon: '⚔️', who: 'David', clue: 'whose battle it really is', teach: 'David faced Goliath trusting God—not his own size.', story: 'davidGoliath', color: 'david', door: 'David and Goliath' },
+    { id: 'refuge', plain: 'God is my safe place', short: 'Safe place', shortKjv: 'God is our refuge', kjv: 'God is our refuge and strength, a very present help.', ref: 'Psalm 46:1', icon: '🏰', who: 'Safe', clue: 'a safe place and present help', teach: 'When you need help now, God is a present help.' },
+    { id: 'rejoice', plain: 'Rejoice in the Lord', short: 'Be glad', shortKjv: 'Rejoice in the Lord alway', kjv: 'Rejoice in the Lord alway: and again I say, Rejoice.', ref: 'Philippians 4:4', icon: '☀️', who: 'Joy', clue: 'rejoicing in the Lord', teach: 'Joy can grow even on hard days because the Lord is near.' },
+    { id: 'still', plain: 'Be still—know God', short: 'Be still', shortKjv: 'Be still, and know', kjv: 'Be still, and know that I am God.', ref: 'Psalm 46:10', icon: '🤫', who: 'Still', clue: 'being still and knowing God', teach: 'Quiet moments help us remember who God is.', story: 'psalm23Shepherd', color: 'good-shepherd', door: 'the Good Shepherd' }
   ];
+
+  function facePlain(pair, size) {
+    if (!pair) return '';
+    if (size === 'little') return pair.short || threeWords(pair.plain) || pair.plain;
+    return pair.plain;
+  }
+
+  function faceKjv(pair, size) {
+    if (!pair) return '';
+    if (size === 'little') return pair.shortKjv || shortKjvLine(pair.kjv);
+    return pair.kjv;
+  }
+
+  function doorForPair(pair) {
+    if (!pair) return null;
+    if (pair.story || pair.color) {
+      return {
+        story: pair.story || '',
+        color: pair.color || '',
+        label: pair.door || 'this story'
+      };
+    }
+    return doorFromRef(pair.ref, pair.id, (pair.plain || '') + ' ' + (pair.kjv || '') + ' ' + (pair.who || ''));
+  }
+
+  function pickWinDoor(pairs) {
+    var i;
+    var list = pairs || [];
+    for (i = 0; i < list.length; i++) {
+      var d = doorForPair(list[i]);
+      if (d && (d.story || d.color)) return d;
+    }
+    return { story: 'jesusBlessKids', color: 'jesus-children', label: 'Jesus and the children' };
+  }
+
+  function fillWinDoors(el, pairsOrDoor) {
+    if (!el) return;
+    el.textContent = '';
+    var d;
+    if (pairsOrDoor && !Array.isArray(pairsOrDoor) && (pairsOrDoor.story || pairsOrDoor.color)) {
+      d = {
+        story: pairsOrDoor.story || '',
+        color: pairsOrDoor.color || '',
+        label: pairsOrDoor.label || pairsOrDoor.door || 'this story'
+      };
+    } else {
+      d = pickWinDoor(pairsOrDoor);
+    }
+    if (!d) return;
+    if (d.story) {
+      var a = document.createElement('a');
+      a.className = 'kg-next-story';
+      a.href = '/kids/corner.html?story=' + encodeURIComponent(d.story);
+      a.textContent = 'Read ' + d.label;
+      el.appendChild(a);
+    }
+    if (d.color) {
+      var c = document.createElement('a');
+      c.className = 'kg-next-color';
+      c.href = '/coloring.html?story=' + encodeURIComponent(d.color);
+      c.textContent = 'Color ' + d.label;
+      el.appendChild(c);
+    }
+  }
 
   function clueIdea(pair) {
     if (!pair) return 'the big idea you already picked';
@@ -351,15 +453,21 @@
       used[v.ref] = true;
       if (plainKey) usedPlain[plainKey] = true;
       var meta = probe;
+      var door = doorFromRef(v.ref, '', meta.plain + ' ' + v.text);
       out.push({
         id: 'd' + out.length + '_' + String(v.ref).replace(/\W+/g, ''),
         plain: meta.plain,
+        short: threeWords(meta.plain),
+        shortKjv: shortKjvLine(v.text),
         kjv: v.text,
         ref: v.ref,
         icon: meta.icon,
         who: meta.who,
         clue: meta.clue || meta.plain || meta.who || 'the same big idea',
-        teach: 'Today’s line: ' + v.ref + ' — listen for what it says about God.'
+        teach: 'Today’s line: ' + v.ref + ' — listen for what it says about God.',
+        story: door && door.story ? door.story : '',
+        color: door && door.color ? door.color : '',
+        door: door && door.label ? door.label : ''
       });
     }
     /* fill from core if needed */
@@ -418,6 +526,11 @@
     mixName: mixName,
     sealInfo: sealInfo,
     bindSizePicker: bindSizePicker,
+    facePlain: facePlain,
+    faceKjv: faceKjv,
+    doorForPair: doorForPair,
+    pickWinDoor: pickWinDoor,
+    fillWinDoors: fillWinDoors,
     MATCH_CORE: MATCH_CORE,
     dailyCorePairs: dailyCorePairs,
     dailyVersePairs: dailyVersePairs,

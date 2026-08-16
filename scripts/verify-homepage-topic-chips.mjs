@@ -129,6 +129,18 @@ if (!/tdbFeelQuickStrip[\s\S]*?data-topic="hope"/.test(index)) {
 if (!index.includes('for anyone') || !index.includes('You don&rsquo;t need church words')) {
   fail('Homepage must say the porch is for anyone, without church words required.');
 }
+if (!index.includes('tdb-hero-share-more--quiet') || !index.includes('id="heroFriendEmailBtn"')) {
+  fail('Email/Text/Image must stay as quiet links, not a second toolbar row.');
+}
+if (index.includes('tdb-hero-share-more--open')) {
+  fail('Email/Text/Image must not sit out as an open button row.');
+}
+if (!/href="#feel-section">Ask the Word</.test(index)) {
+  fail('Homepage verse door must say Ask the Word, not How I feel.');
+}
+if (/data-topic="waiting"[^>]*>[\s\S]{0,80}🕯️/.test(index) || /data-topic="worthless"[^>]*>[\s\S]{0,80}🪞/.test(index)) {
+  fail('Waiting and Worthless must not reuse Grief/Identity icons.');
+}
 if (!/shame:\s*\['shamelift'/.test(script)) {
   fail('Shame must prefer its own Lifted from Shame week first.');
 }

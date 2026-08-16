@@ -4,7 +4,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260815-askopen"></script>
+  <script src="/tt-bootstrap.js?v=20260815-porchfour"></script>
   <!-- tdb-cache-hygiene: _headers no-cache /plans (+ /plans); purge SOCIAL_PURGE_PATHS; bump service-worker CACHE_NAME if edge/PWA stale -->
 
   <!-- GA4 lazy-loaded after interaction -->
@@ -42,8 +42,8 @@
   </script>
   <link rel="preload" href="/plans-data.js" as="script" fetchpriority="low">
   <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
-  <link rel="preload" href="styles.css?v=20260815-askopen" as="style" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260815-askopen" media="all">
+  <link rel="preload" href="styles.css?v=20260815-porchfour" as="style" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20260815-porchfour" media="all">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase2a" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase2a">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
@@ -3102,7 +3102,7 @@
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
       <a href="/" aria-label="Home — today’s verse">Today</a>
-      <a href="/#feel-section">How I feel</a>
+      <a href="/#feel-section">Ask the Word</a>
       <a href="/plans.html" id="nav-browse-curriculum" aria-current="page" aria-label="Plans — short KJV reading tracks">Plans</a>
       <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
       <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
@@ -3320,7 +3320,7 @@
         </ul>
           </div>
         </details>
-        <p class="plans-situation-jump__more section-note" role="note">Still scanning? <a href="#plans-browse-by-feeling">More by feeling</a> &middot; <a href="#plans-start-here-title">Start here</a> &middot; <a href="index.html#feel-section">How I feel (home)</a></p>
+        <p class="plans-situation-jump__more section-note" role="note">Still scanning? <a href="#plans-browse-by-feeling">More by feeling</a> &middot; <a href="#plans-start-here-title">Start here</a> &middot; <a href="index.html#feel-section">Ask the Word (home)</a></p>
       </section>
 
         </div>
@@ -4969,7 +4969,7 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/" aria-label="Home — today’s verse">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">How I feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/calm.html">When it’s hard</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/reader.html">Read</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -5081,7 +5081,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260815-askopen"></script>
+  <script defer src="/language-switcher.js?v=20260815-porchfour"></script>
 </footer>
 
   <noscript>
@@ -11788,14 +11788,14 @@
 
   <script type="module" src="config.js"></script>
   <script src="js/surfaces/plans.js?v=20260805-four-pillars"></script>
-  <script type="module" src="script.js?v=20260815-askopen" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260815-porchfour" data-cfasync="false"></script>
   <script nonce="tdb2025s">
     (function () {
       var nonCriticalScripts = [
         '/porch-effects.js?v=20260507',
         '/plan-suggest-form.js',
-        '/share-page.js?v=20260815-askopen',
-        '/footer-build-stamp.js?v=20260815-askopen'
+        '/share-page.js?v=20260815-porchfour',
+        '/footer-build-stamp.js?v=20260815-porchfour'
       ];
       var loadNonCriticalPlansScripts = function () {
         nonCriticalScripts.forEach(function (src) {

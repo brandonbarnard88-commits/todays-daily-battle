@@ -11244,6 +11244,41 @@
   gap: 0.45rem;
   padding: 0.15rem 0 0.35rem;
 }
+.tdb-hero-share-more--quiet {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.35rem;
+  margin: 0.35rem 0 0;
+}
+.tdb-hero-share-quiet-link {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  padding: 0.35rem 0.15rem;
+  min-height: 44px;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--muted, #8a95a8);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+.tdb-hero-share-quiet-link:hover,
+.tdb-hero-share-quiet-link:focus-visible {
+  color: var(--text, #e8eef8);
+  outline: none;
+}
+.tdb-hero-share-quiet-link:focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold, #e3bc67) 50%, transparent);
+  border-radius: 4px;
+}
+.tdb-hero-share-quiet-sep {
+  color: var(--muted, #8a95a8);
+  opacity: 0.7;
+}
 /* Three calm doors — between verse and Ask the Word */
 .tdb-home-first-doors {
   margin: 1.15rem auto 1.35rem;

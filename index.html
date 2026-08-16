@@ -14,11 +14,11 @@
   <!-- DOMPurify + tt-bootstrap stay synchronous before any body innerHTML (Trusted Types). Low fetch priority reduces contention with LCP text paint. -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="low">
   <script nonce="tdb2025s" src="/vendor/dompurify.min.js" fetchpriority="low"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260815-askopen" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260815-porchfour" fetchpriority="low"></script>
   <!-- Quiet room lives only on prayer-wall.html; old /#prayer-wall bookmarks still work -->
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
   <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260811-one-interrupt"></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260815-askopen"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260815-porchfour"></script>
 
   <title>Today’s Daily Battle — Less scroll, more soul</title>
   <meta name="description" content="Today’s verse: 1 John 4:7 (KJV). Less scroll, more soul. For anyone. For Family, For Country, For GOD. No ads, no login wall.">
@@ -140,8 +140,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260815-askopen" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260815-askopen">
+  <link rel="preload" href="tdb-home-page.css?v=20260815-porchfour" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260815-porchfour">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260812unstick-nav" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260812unstick-nav">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -422,7 +422,7 @@
         </button>
         <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-home">
           <a href="/" aria-current="page" aria-label="Home — today’s verse">Today</a>
-          <a href="/#feel-section">How I feel</a>
+          <a href="/#feel-section">Ask the Word</a>
           <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
           <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
           <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
@@ -584,7 +584,7 @@
         <p class="application" id="heroApplication" hidden></p>
         </div><!-- /#heroVotdBreakdown -->
         <nav class="tdb-hero-primary-actions" aria-label="Primary verse actions">
-          <a class="btn btn-secondary tdb-hero-primary-actions__link" href="#feel-section">How I feel</a>
+          <a class="btn btn-secondary tdb-hero-primary-actions__link" href="#feel-section">Ask the Word</a>
           <button type="button" class="btn btn-secondary" id="hero-save-my-verses" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save</button>
           <a class="btn btn-secondary tdb-hero-primary-actions__link" href="/plans.html">Plans</a>
         </nav>
@@ -593,14 +593,13 @@
             <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
             <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse: KJV text, one small step when available, and a link a friend can open without an account">Share</button>
             </div>
-            <div class="tdb-hero-share-more tdb-hero-share-more--open">
-              <p class="tdb-hero-share-more__label">Email, text, or image</p>
-              <div class="tdb-hero-share-more__tools" role="toolbar" aria-label="Email, text, or verse image">
-                <button type="button" class="hero-toolbar-btn" id="heroFriendEmailBtn" aria-label="Open your email app with today’s verse, one small step if shown, and a link">Email</button>
-                <button type="button" class="hero-toolbar-btn friend-sms-btn" id="heroFriendSmsBtn" aria-label="Open your texting app with a short prefilled message and link (phone)">Text</button>
-                <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
-              </div>
-            </div>
+            <p class="tdb-hero-share-more tdb-hero-share-more--quiet" role="group" aria-label="Email, text, or verse image">
+              <button type="button" class="tdb-hero-share-quiet-link" id="heroFriendEmailBtn" aria-label="Open your email app with today’s verse, one small step if shown, and a link">Email</button>
+              <span class="tdb-hero-share-quiet-sep" aria-hidden="true">·</span>
+              <button type="button" class="tdb-hero-share-quiet-link friend-sms-btn" id="heroFriendSmsBtn" aria-label="Open your texting app with a short prefilled message and link (phone)">Text</button>
+              <span class="tdb-hero-share-quiet-sep" aria-hidden="true">·</span>
+              <button type="button" class="tdb-hero-share-quiet-link" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
+            </p>
             <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Saved on this device. <a href="/mystudy?tab=library#saved-verses">Open saved verses</a>.</p>
             <p id="hero-my-verses-privacy-line" class="section-note hero-my-verses-privacy-line">Saves stay on this device unless you choose otherwise.</p>
         </div>
@@ -780,7 +779,7 @@
                   <button type="button" class="quick-topic" data-topic="grief" aria-label="Grief"><span aria-hidden="true">🕯️</span> Grief</button>
                   <button type="button" class="quick-topic" data-topic="heartache" aria-label="Heartache"><span aria-hidden="true">💔</span> Heartache</button>
                   <button type="button" class="quick-topic" data-topic="depression" aria-label="Down"><span aria-hidden="true">🌑</span> Down</button>
-                  <button type="button" class="quick-topic" data-topic="worthless" aria-label="Worthless"><span aria-hidden="true">🪞</span> Worthless</button>
+                  <button type="button" class="quick-topic" data-topic="worthless" aria-label="Worthless"><span aria-hidden="true">🪶</span> Worthless</button>
                   <button type="button" class="quick-topic" data-topic="anger" aria-label="Anger"><span aria-hidden="true">🔥</span> Anger</button>
                   <button type="button" class="quick-topic" data-topic="difficult person" aria-label="Toxic people"><span aria-hidden="true">🧱</span> Toxic People</button>
                   <button type="button" class="quick-topic" data-topic="difficult boss" aria-label="Anger at work"><span aria-hidden="true">💼</span> Anger at Work</button>
@@ -809,7 +808,7 @@
                   <button type="button" class="quick-topic" data-topic="faith" aria-label="Faith"><span aria-hidden="true">🌱</span> Faith</button>
                   <button type="button" class="quick-topic" data-topic="courage" aria-label="Courage"><span aria-hidden="true">🛡️</span> Courage</button>
                   <button type="button" class="quick-topic" data-topic="patience" aria-label="Patience"><span aria-hidden="true">⏳</span> Patience</button>
-                  <button type="button" class="quick-topic" data-topic="waiting" aria-label="Waiting"><span aria-hidden="true">🕯️</span> Waiting</button>
+                  <button type="button" class="quick-topic" data-topic="waiting" aria-label="Waiting"><span aria-hidden="true">🌅</span> Waiting</button>
                   <button type="button" class="quick-topic" data-topic="wisdom" aria-label="Wisdom"><span aria-hidden="true">📖</span> Wisdom</button>
                   <button type="button" class="quick-topic" data-topic="hope" aria-label="Hope"><span aria-hidden="true">♥️</span> Hope</button>
                   <button type="button" class="quick-topic" data-topic="rest" aria-label="Rest"><span aria-hidden="true">🌙</span> Rest</button>
@@ -922,7 +921,7 @@
         <h3 id="new-here-steps-heading" class="tdb-first-visit-strip__steps-h">Best next step</h3>
         <ol class="tdb-first-visit-strip__steps" aria-labelledby="new-here-steps-heading">
           <li>Read <a href="#hero-verse-wrap">today&rsquo;s verse</a> slowly.</li>
-          <li>Name how you feel in <a href="#feel-section">How I feel</a> above.</li>
+          <li>Name how you feel in <a href="#feel-section">Ask the Word</a> above.</li>
           <li>That&rsquo;s enough for today.</li>
         </ol>
         <div class="tdb-first-visit-strip__actions">
@@ -1055,7 +1054,7 @@
     <!-- Same five doors as the header — in the page, not pinned over the verse. -->
     <nav class="tdb-bottom-dock" aria-label="Main site navigation">
       <a href="/" aria-current="page" aria-label="Home — today’s verse">Home</a>
-      <a href="#feel-section" aria-label="How I feel">Feel</a>
+      <a href="#feel-section" aria-label="Ask the Word">Ask</a>
       <a href="/plans.html" aria-label="Reading plans">Plans</a>
       <a href="/calm.html" aria-label="When it’s hard — one steady verse">Hard day</a>
       <a href="/kids/" aria-label="Kids stories">Kids</a>
@@ -1080,7 +1079,7 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/" aria-label="Home — today’s verse">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">How I feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/calm.html">When it’s hard</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/reader.html">Read</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -1192,7 +1191,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260815-askopen"></script>
+  <script defer src="/language-switcher.js?v=20260815-porchfour"></script>
 </footer>
 
   </div>
@@ -1220,7 +1219,7 @@
         <li><a href="bible-tool.html">📖 Look up a verse</a></li>
         <li><a href="/mystudy">📌 Saved verses</a></li>
         <li><a href="memorize.html">🧠 Memorize</a></li>
-        <li><a href="#feel-section" id="nav-more-ask-the-word" aria-label="How I feel">✝️ How I feel</a></li>
+        <li><a href="#feel-section" id="nav-more-ask-the-word" aria-label="Ask the Word">✝️ Ask the Word</a></li>
         <li><a href="reader.html">📖 Read a chapter</a></li>
         <li><a href="plans.html">🗓 Plans</a></li>
         <li><a href="calm.html">🌿 When it’s hard</a></li>

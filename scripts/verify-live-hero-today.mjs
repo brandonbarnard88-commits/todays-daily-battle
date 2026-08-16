@@ -231,7 +231,14 @@ function auditHtml(html, expect, official, label) {
     }
   });
 
-  ['heroSimpleSituation', 'heroSimpleMeaning', 'heroVbdPrimary', 'heroDigDeeper'].forEach((id) => {
+  const bbeRef = normalizeRef(attrOnId(html, 'heroBbeSimple', 'data-bbe-ref'));
+  if (!bbeRef) {
+    fails.push(label + ': #heroBbeSimple missing data-bbe-ref');
+  } else if (!refsEqual(bbeRef, expect.ref)) {
+    fails.push(label + ': simpler English is tagged "' + bbeRef + '" but today is ' + expect.ref);
+  }
+
+  ['heroSimpleSituation', 'heroSimpleMeaning', 'heroVbdPrimary', 'heroDigDeeper', 'heroBbeSimple'].forEach((id) => {
     if (styleHidesId(html, id)) {
       fails.push(label + ': #' + id + ' is hidden — leftover lock is still firing on first paint');
     }

@@ -511,11 +511,11 @@
 
 
         <!-- Always open under KJV: plain BBE text + short meaning only (no credit/disclaimer in this block) -->
-        <div class="tdb-bbe-simple tdb-bbe-simple--hero tdb-bbe-simple--always-open" id="heroBbeSimple" data-bbe-simple="1" data-bbe-ref="Psalm 91:1" data-bbe-always-open="1">
+        <div class="tdb-bbe-simple tdb-bbe-simple--hero tdb-bbe-simple--always-open" id="heroBbeSimple" data-bbe-simple="1" data-bbe-ref="Psalm 96:1" data-bbe-always-open="1">
           <h4 class="tdb-bbe-simple__heading">In simpler words</h4>
           <div class="tdb-bbe-simple__body">
             <p class="tdb-bbe-simple__status section-note" data-bbe-status="1" aria-live="polite" hidden></p>
-            <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
+            <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en">O make a new song to the Lord; let all the earth make melody to the Lord.</p>
           </div>
         </div>
 
@@ -537,10 +537,17 @@
         (function () {
           var wrap = document.getElementById('heroVbdPrimary');
           var refEl = document.getElementById('heroRef');
-          if (!wrap || !refEl) return;
+          var bbe = document.getElementById('heroBbeSimple');
+          if (!refEl) return;
           var shown = String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
-          var bound = String(wrap.getAttribute('data-tdb-bound-ref') || '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
-          if (!bound || !shown || bound !== shown) wrap.hidden = true;
+          if (wrap) {
+            var bound = String(wrap.getAttribute('data-tdb-bound-ref') || '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
+            if (!bound || !shown || bound !== shown) wrap.hidden = true;
+          }
+          if (bbe) {
+            var bbeRef = String(bbe.getAttribute('data-bbe-ref') || '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
+            if (!bbeRef || !shown || bbeRef !== shown) bbe.hidden = true;
+          }
         })();
         </script>
 
@@ -1286,10 +1293,10 @@
   <script nonce="tdb2025s" src="hero-daily-365-explanations.js?v=20260816-twoyear" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260815-voice-all" data-tdb-verse-breakdown-overrides="1" defer></script>
   <script nonce="tdb2025s" src="verse-breakdown.js?v=20260815-voice-all" data-tdb-verse-breakdown="1" defer></script>
-  <script nonce="tdb2025s" src="bbe-simple.js?v=20260815-voice-all" data-tdb-bbe-simple="1" defer></script>
+  <script nonce="tdb2025s" src="bbe-simple.js?v=20260816-bbestamp" data-tdb-bbe-simple="1" defer></script>
   <script nonce="tdb2025s" src="red-letter.js?v=20260815-red-always" data-tdb-red-letter="1"></script>
   <script nonce="tdb2025s" src="tdb-verse-accuracy.js?v=20260816-noleftover" data-tdb-verse-accuracy="1"></script>
-  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260816-twoyear" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260816-bbestamp" fetchpriority="low"></script>
   <!-- Phase 6: tdb-home-mobius-week.js?v=20260330home + /sky-ip-geo.js?v=20260327ipgeo load with home secondary stack (see script.js tdbScheduleDeferredVodAndReaderTooling) -->
   <!-- ── SOS Button ── -->
   <button type="button" id="sos-btn" class="sos-btn" aria-label="SOS">SOS</button>

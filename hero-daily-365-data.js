@@ -60,7 +60,7 @@
   },
   {
     "ref": "Psalm 121:1-2",
-    "text": "I will lift up mine eyes unto the hills, from whence cometh my help."
+    "text": "I will lift up mine eyes unto the hills, from whence cometh my help. My help cometh from the LORD, which made heaven and earth."
   },
   {
     "ref": "Psalm 18:2",
@@ -771,8 +771,8 @@
     "text": "Thou art more glorious and excellent than the mountains of prey."
   },
   {
-    "ref": "Romans 8:38",
-    "text": "Neither death, nor life shall separate us from the love of God."
+    "ref": "Romans 8:38-39",
+    "text": "For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, Nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord."
   },
   {
     "ref": "Psalm 77:14",
@@ -1040,7 +1040,7 @@
   },
   {
     "ref": "Isaiah 33:2",
-    "text": "Be thou our arm every morning, our salvation also in the time of trouble."
+    "text": "O LORD, be gracious unto us; we have waited for thee: be thou their arm every morning, our salvation also in the time of trouble."
   },
   {
     "ref": "Psalm 106:1",
@@ -1116,7 +1116,7 @@
   },
   {
     "ref": "Psalm 136:4",
-    "text": "To him which alone doeth great wonders: for his mercy endureth for ever."
+    "text": "To him who alone doeth great wonders: for his mercy endureth for ever."
   },
   {
     "ref": "Isaiah 40:29",
@@ -1464,7 +1464,7 @@
   },
   {
     "ref": "Proverbs 28:26",
-    "text": "He that trusteth in the Lord shall be made fat."
+    "text": "He that trusteth in his own heart is a fool: but whoso walketh wisely, he shall be delivered."
   }
 ];
 })(typeof window !== 'undefined' ? window : this);

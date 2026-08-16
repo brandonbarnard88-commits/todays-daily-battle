@@ -115,7 +115,7 @@
     'Proverbs 18:10': "Plain nudge: The Lord's name is a safe tower - good people can run to it.",
     'Proverbs 20:7': "Plain nudge: A person who does right with God leaves a rich blessing for their children.",
     'Proverbs 22:1': "Plain nudge: A good, honest name is better than a pile of money.",
-    'Proverbs 28:26': "Plain nudge: The person who trusts the Lord is kept safe - not the self-wise show-off.",
+    'Proverbs 28:26': "Plain nudge: Trusting your own heart is foolish — walk wisely and God keeps you.",
     'Isaiah 26:4': "Plain nudge: Trust the Lord forever - He is the Rock that never quits.",
     'Isaiah 40:29': "Plain nudge: He gives power to the tired; He makes weak people strong.",
     'Isaiah 49:16': "Plain nudge: I have you pictured on my hands - I will not forget you.",

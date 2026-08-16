@@ -26,7 +26,7 @@
   { ref: "Psalm 100:5", text: "The Lord is good; his mercy is everlasting." },
   { ref: "Psalm 37:4", text: "Delight thyself also in the Lord; and he shall give thee the desires of thine heart." },
   { ref: "1 Peter 5:7", text: "Casting all your care upon him; for he careth for you." },
-  { ref: "Psalm 121:1-2", text: "I will lift up mine eyes unto the hills, from whence cometh my help." },
+  { ref: "Psalm 121:1-2", text: "I will lift up mine eyes unto the hills, from whence cometh my help. My help cometh from the LORD, which made heaven and earth." },
   { ref: "Psalm 18:2", text: "The Lord is my rock, and my fortress." },
   { ref: "1 Samuel 17:47", text: "The battle is the Lord's." },
   { ref: "Psalm 16:11", text: "Thou wilt shew me the path of life." },
@@ -204,7 +204,7 @@
   { ref: "Proverbs 22:6", text: "Train up a child in the way he should go." },
   { ref: "Psalm 75:1", text: "Unto thee, O God, do we give thanks, unto thee do we give thanks." },
   { ref: "Psalm 76:4", text: "Thou art more glorious and excellent than the mountains of prey." },
-  { ref: "Romans 8:38", text: "Neither death, nor life shall separate us from the love of God." },
+  { ref: "Romans 8:38-39", text: "For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, Nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord." },
   { ref: "Psalm 77:14", text: "Thou art the God that doest wonders: thou hast declared thy strength among the people." },
   { ref: "Psalm 78:4", text: "We will not hide them from their children, shewing to the generation to come the praises of the Lord." },
   { ref: "1 John 4:4", text: "Greater is he that is in you, than he that is in the world." },
@@ -271,7 +271,7 @@
   { ref: "1 John 4:18", text: "There is no fear in love; but perfect love casteth out fear." },
   { ref: "Psalm 104:33", text: "I will sing unto the Lord as long as I live: I will sing praise to my God while I have my being." },
   { ref: "Psalm 105:1", text: "O give thanks unto the Lord; call upon his name: make known his deeds among the people." },
-  { ref: "Isaiah 33:2", text: "Be thou our arm every morning, our salvation also in the time of trouble." },
+  { ref: "Isaiah 33:2", text: "O LORD, be gracious unto us; we have waited for thee: be thou their arm every morning, our salvation also in the time of trouble." },
   { ref: "Psalm 106:1", text: "Praise ye the Lord. O give thanks unto the Lord; for he is good." },
   { ref: "John 10:11", text: "I am the good shepherd: the good shepherd giveth his life for the sheep." },
   { ref: "Psalm 107:8", text: "Oh that men would praise the Lord for his goodness, and for his wonderful works to the children of men!" },
@@ -290,7 +290,7 @@
   { ref: "Psalm 113:2", text: "Blessed be the name of the Lord from this time forth and for evermore." },
   { ref: "1 John 5:14", text: "This is the confidence that we have in him, that, if we ask any thing according to his will, he heareth us." },
   { ref: "Psalm 113:3", text: "From the rising of the sun unto the going down of the same the Lord's name is to be praised." },
-  { ref: "Psalm 136:4", text: "To him which alone doeth great wonders: for his mercy endureth for ever." },
+  { ref: "Psalm 136:4", text: "To him who alone doeth great wonders: for his mercy endureth for ever." },
   { ref: "Isaiah 40:29", text: "He giveth power to the faint; and to them that have no might he increaseth strength." },
   { ref: "Psalm 115:12", text: "The Lord hath been mindful of us: he will bless us." },
   { ref: "Psalm 116:1", text: "I love the Lord, because he hath heard my voice and my supplications." },
@@ -377,6 +377,6 @@
   { ref: "Psalm 139:17", text: "How precious also are thy thoughts unto me, O God! how great is the sum of them!" },
   { ref: "Proverbs 22:1", text: "A good name is rather to be chosen than great riches." },
   { ref: "Psalm 145:14", text: "The Lord upholdeth all that fall, and raiseth up all those that be bowed down." },
-  { ref: "Proverbs 28:26", text: "He that trusteth in the Lord shall be made fat." }
+  { ref: "Proverbs 28:26", text: "He that trusteth in his own heart is a fool: but whoso walketh wisely, he shall be delivered." }
   ];
 })(typeof window !== 'undefined' ? window : globalThis);

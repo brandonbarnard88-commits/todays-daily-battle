@@ -127,8 +127,8 @@
   },
   {
     "ref": "Psalm 121:1-2",
-    "text": "I will lift up mine eyes unto the hills, from whence cometh my help.",
-    "plain": "I will lift up mine eyes to the hills, from from where comes my help.",
+    "text": "I will lift up mine eyes unto the hills, from whence cometh my help. My help cometh from the LORD, which made heaven and earth.",
+    "plain": "Help is not in the hills. Help comes from the Lord who made heaven and earth.",
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "A song of ascents writer",
     "to": "Travelers and anyone needing help from the Lord",
@@ -1728,9 +1728,9 @@
     "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds."
   },
   {
-    "ref": "Romans 8:38",
-    "text": "Neither death, nor life shall separate us from the love of God.",
-    "plain": "Nothing can separate us from God's love—not trouble, not death, nothing.",
+    "ref": "Romans 8:38-39",
+    "text": "For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, Nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord.",
+    "plain": "Nothing can separate us from God's love in Christ Jesus—not death, not life, not anything created.",
     "step": "Kneel or sit—body still—and ask God to make this word yours today.",
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
@@ -2332,8 +2332,8 @@
   },
   {
     "ref": "Isaiah 33:2",
-    "text": "Be thou our arm every morning, our salvation also in the time of trouble.",
-    "plain": "O Lord, have mercy on us; for we have been waiting for your help: be our strength every morning, our salvation in time of trouble.",
+    "text": "O LORD, be gracious unto us; we have waited for thee: be thou their arm every morning, our salvation also in the time of trouble.",
+    "plain": "Lord, be gracious — we have waited. Be their arm every morning, and our salvation in trouble.",
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Isaiah",
     "to": "A people under threat who need God to reign",
@@ -2503,7 +2503,7 @@
   },
   {
     "ref": "Psalm 136:4",
-    "text": "To him which alone doeth great wonders: for his mercy endureth for ever.",
+    "text": "To him who alone doeth great wonders: for his mercy endureth for ever.",
     "plain": "To him who only does great wonders: for his mercy is unchanging for ever.",
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
@@ -3286,8 +3286,8 @@
   },
   {
     "ref": "Proverbs 28:26",
-    "text": "He that trusteth in the Lord shall be made fat.",
-    "plain": "the one who trusteth in the Lord will be made fat.",
+    "text": "He that trusteth in his own heart is a fool: but whoso walketh wisely, he shall be delivered.",
+    "plain": "Trusting your own heart is foolish. Walking wisely is how you are kept.",
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Solomon (copied for Judah)",
     "to": "Leaders and people needing wisdom",

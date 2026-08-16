@@ -112,6 +112,8 @@
 /kids/kids-play-zone.js /kids/kids-hub-play.js 200
 /kids/kids-little-shepherd.js /kids/kids-gentle-shepherd.js 200
 /kids/kids-activity-log.js /kids/kids-wins-recap.js 200
+/kids/kids-game-kit.js /kids/kids-play-helpers.js 200
+/kids/kids-game-kit.js/ /kids/kids-play-helpers.js 200
 /kids-battle /kids/ 302
 /kids-battle/parent /kids/parent.html 302
 # Library → Kids Corner (merge)

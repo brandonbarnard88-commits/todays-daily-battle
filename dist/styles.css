@@ -25247,18 +25247,18 @@ body[class*="kids"] .filter-btn {
   font-weight: 800 !important;
 }
 
-/* Grid story names — white band, black ink, never flattened by kids button rules */
+/* Grid story names — night gold on navy, never flattened by kids button rules */
 body.tdb-kids-coloring-page button.tdb-cat-story-grid-card {
   font-size: inherit !important;
-  color: #111 !important;
+  color: #f2dc98 !important;
 }
 body.tdb-kids-coloring-page .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
 body.tdb-kids-coloring-page .tdb-cat-story-grid-card .tdb-cat-story-grid-title,
 body[class*="kids"] .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
 body[class*="kids"] .tdb-cat-story-grid-card .tdb-cat-story-grid-title {
-  color: #111 !important;
-  -webkit-text-fill-color: #111 !important;
-  background: #ffffff !important;
+  color: #f2dc98 !important;
+  -webkit-text-fill-color: #f2dc98 !important;
+  background: #0f172a !important;
   font-size: 1.18rem !important;
   font-weight: 800 !important;
   line-height: 1.25 !important;

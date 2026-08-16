@@ -190,6 +190,18 @@ export function refAllowsLock(ref, lock) {
   return lock.allow.test(normalizeRef(ref));
 }
 
+/** First named speaker in a teaching line (“John urges…”, “Paul writes…”). */
+export function leadingSpeakerInText(text) {
+  const t = String(text || '')
+    .replace(/^What was going on:\s*/i, '')
+    .replace(/^What it means:\s*/i, '')
+    .trim();
+  const m = t.match(
+    /^(?:the\s+apostle\s+|the\s+prophet\s+)?(solomon|paul|david|peter|james|jude|isaiah|moses|john)\b/i
+  );
+  return m ? m[1] : '';
+}
+
 /** Situation / audience / plain must not carry a locked stamp from another verse. */
 export function situationLooksWrongForRef(sit, ref) {
   const s = String(sit || '');
@@ -200,6 +212,8 @@ export function situationLooksWrongForRef(sit, ref) {
     if (!lock.re.test(s)) continue;
     if (!refAllowsLock(r, lock)) return true;
   }
+  const lead = leadingSpeakerInText(s);
+  if (lead && !speakerBelongsToBook(lead, r)) return true;
   return false;
 }
 

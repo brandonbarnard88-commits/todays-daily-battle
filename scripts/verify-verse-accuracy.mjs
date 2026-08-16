@@ -232,6 +232,16 @@ function auditRegressionLocks() {
       sit: 'John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love.',
       bad: false
     },
+    {
+      ref: 'Psalm 23:1',
+      sit: 'Paul writes from prison to Philippi: rejoice, do not be anxious, the peace of God guards hearts.',
+      bad: true
+    },
+    {
+      ref: 'Philippians 4:6',
+      sit: 'Paul writes from prison to Philippi: rejoice, do not be anxious, the peace of God guards hearts.',
+      bad: false
+    },
     { ref: '1 John 4:7', about: 'Solomon', bad: true },
     { ref: '1 John 4:7', about: 'David', bad: true },
     { ref: '1 John 4:7', about: 'Paul', bad: true },

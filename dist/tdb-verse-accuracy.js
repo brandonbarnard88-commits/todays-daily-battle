@@ -27,6 +27,13 @@
     "allowFlags": "i"
   },
   {
+    "id": "1jn-urges-love",
+    "re": "John urges the church to love one another",
+    "flags": "i",
+    "allow": "^1 John\\s+4:",
+    "allowFlags": "i"
+  },
+  {
     "id": "ps92-sabbath",
     "re": "Sabbath song of thanksgiving",
     "flags": "i",
@@ -237,6 +244,12 @@
     return m ? Number(m[1]) : 0;
   }
 
+  function leadingSpeakerInText(text) {
+    var t = String(text || '').replace(/^What was going on:\s*/i, '').replace(/^What it means:\s*/i, '').trim();
+    var m = t.match(/^(?:the\s+apostle\s+|the\s+prophet\s+)?(solomon|paul|david|peter|james|jude|isaiah|moses|john)\b/i);
+    return m ? m[1] : '';
+  }
+
   function situationLooksWrongForRef(sit, ref) {
     var s = String(sit || '');
     var r = normalizeRef(ref);
@@ -247,6 +260,8 @@
       if (!lock.allow) return true;
       if (!new RegExp(lock.allow, lock.allowFlags).test(r)) return true;
     }
+    var lead = leadingSpeakerInText(s);
+    if (lead && !speakerBelongsToBook(lead, r)) return true;
     return false;
   }
 

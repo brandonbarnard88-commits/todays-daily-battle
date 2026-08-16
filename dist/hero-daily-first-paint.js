@@ -724,11 +724,8 @@
     var target = normalizeHeroBoundRef(targetRef);
     if (!target) return false;
     var bound = normalizeHeroBoundRef(snap.boundRef || '');
-    if (bound && bound !== target) return false;
-    var displayed = normalizeHeroBoundRef(snap.displayedRef || '');
-    var refLooksSame = (bound && bound === target) || (!!(displayed && displayed === target && !bound));
-    if (!refLooksSame) return false;
-    /* Yesterday’s long 1 John situation must not win just because the ref label already flipped. */
+    /* Unbound leftover HTML is yesterday until inject stamps today’s ref. Never trust it. */
+    if (!bound || bound !== target) return false;
     if (snap.situation && situationLooksWrongForRefRuntime(snap.situation, target)) return false;
     if (snap.who && !speakerBelongsToBookRuntime(snap.who, target)) return false;
     return true;
@@ -813,6 +810,11 @@
     if (/john urges the church to love one another/i.test(s) && !/^1 John\s+4:/i.test(r)) {
       return true;
     }
+    var lead = String(s)
+      .replace(/^What was going on:\s*/i, '')
+      .trim()
+      .match(/^(?:the\s+apostle\s+|the\s+prophet\s+)?(solomon|paul|david|peter|james|jude|isaiah|moses|john)\b/i);
+    if (lead && lead[1] && !speakerBelongsToBookRuntime(lead[1], r)) return true;
     return false;
   }
 
@@ -1036,13 +1038,19 @@
     var snapMean = snapOk ? sanitizeText(snapIn && snapIn.meaning) : '';
     var snapWho = snapOk ? sanitizeText(snapIn && snapIn.who) : '';
     var snapAud = snapOk ? sanitizeText(snapIn && snapIn.audience) : '';
+    function sitForThisRef(s) {
+      var t = sanitizeText(s);
+      if (!t) return '';
+      if (situationLooksWrongForRefRuntime(t, v.ref)) return '';
+      return t;
+    }
     var situation = pickBestText(
       [
-        sanitizeText(ctx.setting || ''),
-        sanitizeText(sh.situation || ''),
-        sanitizeText(sh.setting || ''),
-        sanitizeText(v.setting || ''),
-        snapSit
+        sitForThisRef(ctx.setting || ''),
+        sitForThisRef(sh.situation || ''),
+        sitForThisRef(sh.setting || ''),
+        sitForThisRef(v.setting || ''),
+        sitForThisRef(snapSit)
       ],
       scoreSituationLine
     );
@@ -1227,7 +1235,10 @@
     /* Prefer stronger lines only when the pre-clear DOM was already bound to this same verse. */
     var snap = shIn.preserveDomSnapshot || {};
     if (snapshotMatchesTargetRef(snap, refKey)) {
-      situation = pickBestText([situation, snap.situation], scoreSituationLine);
+      var snapSitOk = snap.situation && !situationLooksWrongForRefRuntime(snap.situation, refKey)
+        ? snap.situation
+        : '';
+      situation = pickBestText([situation, snapSitOk], scoreSituationLine);
       meaningOnly = pickBestText([meaningOnly, snap.meaning], scoreMeaningLine);
     }
     /* Last line of defense before paint — blank mismatched fields rather than show them. */

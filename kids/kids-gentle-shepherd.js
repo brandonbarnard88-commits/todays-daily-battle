@@ -868,6 +868,28 @@
       playSoftChime();
       return;
     }
+    if (type === 'pairFound') {
+      setShepherdPose(3);
+      setShepherdDance(900);
+      if (lineEl) setBubbleVoice(lineEl, pickByDay(CHEER));
+      playSoftChime();
+      return;
+    }
+    if (type === 'warmer') {
+      setShepherdPose(2);
+      if (lineEl) {
+        setBubbleVoice(lineEl, pickByDay([
+          'Warmer… I can almost hear the little one.',
+          'Close! Keep looking in that part of the field.',
+          'I think the sheep is nearby. Soft steps.'
+        ]));
+      }
+      return;
+    }
+    if (type === 'pathStep') {
+      setShepherdPose(1);
+      return;
+    }
     if (type === 'wrongMatch') {
       setShepherdPose(POSE_COMFORT);
       if (lineEl) {

@@ -238,9 +238,20 @@
   }
 
   /** Nudge after a miss — never names the matching card, verse, or number. */
-  function missHint(pair, n) {
+  function missHint(pair, n, size) {
     var idea = clueIdea(pair);
     var misses = n || 1;
+    var ico = (pair && pair.icon) || '⭐';
+    if (size === 'little') {
+      return ico + (misses <= 1
+        ? ' Look for a card that feels like this picture.'
+        : ' The matching card belongs with this picture.');
+    }
+    if (size === 'bigger') {
+      if (misses < 2) return 'Not that pair.';
+      if (misses === 2) return 'Read the leftover lines again.';
+      return 'Stay with the first card. Hunt for the matching idea.';
+    }
     if (misses <= 1) {
       return 'Not that pair. Think about ' + idea + '—then try a different leftover card.';
     }
@@ -248,6 +259,73 @@
       return 'Still not it. Read the leftover cards slowly and listen for ' + idea + '.';
     }
     return 'Keep the first card. Hunt for the matching idea, not the same words. Think: ' + idea + '.';
+  }
+
+  var SIZE_KEY = 'tdbKidsPlaySize';
+  var SIZES = {
+    little: { id: 'little', label: 'Little', pairs: 2, pairRounds: [2, 2, 3], sheep: [6, 9], sheepCols: ['cols3', 'cols3'], path: [4, 5], timer: false },
+    middle: { id: 'middle', label: 'Middle', pairs: 4, pairRounds: [4, 5, 6], sheep: [9, 12, 16], sheepCols: ['cols3', 'cols4', 'cols4'], path: [5, 7, 9], timer: false },
+    bigger: { id: 'bigger', label: 'Bigger', pairs: 6, pairRounds: [6, 7, 8], sheep: [16, 20], sheepCols: ['cols4', 'cols5'], path: [9, 12], timer: true }
+  };
+
+  function getSize() {
+    try {
+      var s = localStorage.getItem(SIZE_KEY);
+      if (s && SIZES[s]) return s;
+    } catch (e) {}
+    return 'middle';
+  }
+
+  function setSize(id) {
+    if (!SIZES[id]) id = 'middle';
+    try { localStorage.setItem(SIZE_KEY, id); } catch (e2) {}
+    return id;
+  }
+
+  function sizeConfig(id) {
+    return SIZES[id || getSize()] || SIZES.middle;
+  }
+
+  function mixName(pairs) {
+    var tags = (pairs || []).map(function (p) {
+      return String((p && (p.who || p.clue || p.plain)) || '').toLowerCase();
+    }).join(' ');
+    if (/shepherd/.test(tags)) return 'Shepherd day';
+    if (/brave|joshua|afraid|fear/.test(tags)) return 'Brave day';
+    if (/love/.test(tags)) return 'Love day';
+    if (/peace|still|storm/.test(tags)) return 'Still day';
+    if (/joy|sing|rejoice|glad/.test(tags)) return 'Glad day';
+    if (/light|lamp/.test(tags)) return 'Light day';
+    return 'Verse friends day';
+  }
+
+  function sealInfo(gameId) {
+    var n = streakDays(gameId) || 0;
+    return {
+      days: n,
+      on: n >= 3,
+      text: n >= 3 ? n + '-day seal' : n ? n + (n === 1 ? ' day' : ' days') : ''
+    };
+  }
+
+  function bindSizePicker(onChange) {
+    var wrap = document.querySelector('.kg-sizes');
+    if (!wrap) return getSize();
+    var current = getSize();
+    function paint() {
+      [].forEach.call(wrap.querySelectorAll('[data-kg-size]'), function (btn) {
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-kg-size') === current ? 'true' : 'false');
+      });
+    }
+    wrap.addEventListener('click', function (ev) {
+      var t = ev.target.closest ? ev.target.closest('[data-kg-size]') : null;
+      if (!t) return;
+      current = setSize(t.getAttribute('data-kg-size'));
+      paint();
+      if (typeof onChange === 'function') onChange(current);
+    });
+    paint();
+    return current;
   }
 
   function dailyCorePairs(count) {
@@ -334,6 +412,12 @@
     plainForKjv: plainForKjv,
     clueIdea: clueIdea,
     missHint: missHint,
+    getSize: getSize,
+    setSize: setSize,
+    sizeConfig: sizeConfig,
+    mixName: mixName,
+    sealInfo: sealInfo,
+    bindSizePicker: bindSizePicker,
     MATCH_CORE: MATCH_CORE,
     dailyCorePairs: dailyCorePairs,
     dailyVersePairs: dailyVersePairs,

@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-uniquepairs">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playall">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -35,28 +35,31 @@
     </header>
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner match-page">
-        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Fun + God&rsquo;s Word—short matches, real KJV. No rush.</p>
-
+        <div class="kg-sizes" role="group" aria-label="How big a game">
+          <button type="button" data-kg-size="little">Little</button>
+          <button type="button" data-kg-size="middle">Middle</button>
+          <button type="button" data-kg-size="bigger">Bigger</button>
+        </div>
         <div class="match-hud" aria-label="Round progress">
-          <span class="match-hud-round" id="match-round-label">Round 1 · Easy</span>
+          <span class="match-hud-round" id="match-round-label">Round 1</span>
+          <span class="kg-mix" id="kg-mix-name">Today&rsquo;s mix</span>
+          <span class="kg-seal" id="kg-seal" hidden>3-day seal</span>
           <span class="match-score-pill" id="match-score-pill" title="Saved on this device only">This device: —</span>
           <div class="match-stars" id="match-stars" role="img" aria-label="Pairs found"></div>
         </div>
-
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Fun + God&rsquo;s Word—short matches, real KJV. No rush.</p>
         <div class="match-hero" data-kg-ico="⭐">
           <h1>Match verse friends</h1>
-          <p>Tap a <strong>character card</strong>, then the <strong>KJV line</strong>. Learn a short truth each match—then try a harder round!</p>
+          <p>Match the buddy pairs. Tap a <strong>character card</strong>, then the <strong>KJV line</strong>.</p>
         </div>
-
         <p class="match-daily" id="match-daily-note">Today&rsquo;s mix includes verses from the kids 365 list when available.</p>
-
-        <label class="match-sound-row">
-          <input type="checkbox" id="match-sound" checked>
-          Soft game sounds (this tab only)
-        </label>
-
-        <p id="match-status" class="match-status" role="status" aria-live="polite">Pick a character card to start.</p>
-        <div id="match-teach" class="match-teach" role="status" aria-live="polite"></div>
+        <p id="match-status" class="match-status" role="status" aria-live="polite">Pick a character card.</p>
+        <div class="kg-buddy">
+          <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a line">
+            <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.png?v=20260810ears2" width="72" height="80" alt="Little Shepherd" decoding="async"/>
+          </button>
+          <p class="kg-buddy-line" id="kids-little-shepherd-line" aria-live="polite">I will cheer when a pair fits.</p>
+        </div>
 
         <div class="match-board" id="match-board">
           <div class="match-col" aria-label="Kid phrases with characters">
@@ -69,15 +72,28 @@
           </div>
         </div>
 
+        <div id="match-teach" class="match-teach" role="status" aria-live="polite"></div>
         <div id="match-win" class="match-win" hidden>
           <p id="match-win-line"></p>
+          <div class="kg-verse-friends" id="kg-verse-friends"></div>
           <div class="match-actions">
             <button type="button" class="match-next" id="match-next-round">Next round (harder)</button>
             <button type="button" id="match-shuffle">Play again (same level)</button>
             <a href="corner.html?choose=1#kids-library-grid">Pick a story</a>
           </div>
         </div>
-
+        <label class="kg-timer-row" id="kg-timer-row">
+          <input type="checkbox" id="kg-timer"> Race the clock
+          <span id="kg-timer-face"></span>
+        </label>
+        <details class="kg-how">
+          <summary>How to play</summary>
+          <p>Match the buddy pairs. Tap a character card, then the KJV line. Learn a short truth each match.</p>
+          <label class="match-sound-row">
+            <input type="checkbox" id="match-sound" checked>
+            Soft game sounds (this tab only)
+          </label>
+        </details>
         <p class="match-best" id="match-best-line">Scores stay on this device only—no public leaderboard.</p>
 
         <nav class="kg-more" aria-label="More games">
@@ -93,10 +109,10 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-uniquepairs"></script>
+  <script src="kids-play-helpers.js?v=20260816-playall"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
-  <script src="kids-gentle-shepherd.js?v=20260810ls" defer></script>
+  <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
   <script nonce="tdb2025s">
   document.addEventListener('DOMContentLoaded', function () {
     'use strict';
@@ -107,6 +123,8 @@
     } catch (e0) {}
 
     var kit = window.tdbKidsGameKit;
+    var playSize = kit && kit.getSize ? kit.getSize() : 'middle';
+    var timerId = null;
     var FALLBACK_PAIRS = [
       { id: 'p23', plain: 'God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', who: 'Shepherd', teach: 'Jesus cares for you the way a good shepherd cares for sheep.' },
       { id: 'kids', plain: 'Jesus says kids can come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', who: 'Jesus', teach: 'You are welcome with Jesus—kids matter to Him.' },
@@ -115,8 +133,10 @@
       { id: 'light', plain: 'God’s Word shows the way', kjv: 'Thy word is a lamp unto my feet, and a light unto my path.', ref: 'Psalm 119:105', icon: '💡', who: 'Light', teach: 'Reading the Bible helps us know the next right step.' },
       { id: 'peace', plain: 'Jesus can calm the storm', kjv: 'Peace, be still. And the wind ceased, and there was a great calm.', ref: 'Mark 4:39', icon: '🌊', who: 'Jesus', teach: 'When life feels stormy, Jesus still speaks peace.' }
     ];
-    var ROUND_SIZES = [4, 5, 6];
     var roundIndex = 0;
+    function pairRounds() {
+      return (kit && kit.sizeConfig(playSize).pairRounds) || [4, 5, 6];
+    }
     var plainEl = document.getElementById('match-plain');
     var kjvEl = document.getElementById('match-kjv');
     var statusEl = document.getElementById('match-status');
@@ -198,8 +218,14 @@
       if (scorePill) {
         scorePill.textContent =
           'Wins: ' + (g.totalWins || 0) +
-          ' · Best round: ' + (g.bestPairsRound || 0) +
-          (streak ? ' · Streak: ' + streak + 'd' : '');
+          ' · Best: ' + (g.bestPairsRound || 0);
+      }
+      var sealEl = document.getElementById('kg-seal');
+      var seal = kit.sealInfo ? kit.sealInfo('match') : { on: false };
+      if (sealEl) {
+        sealEl.hidden = !seal.on;
+        sealEl.className = 'kg-seal' + (seal.on ? ' on' : '');
+        sealEl.textContent = seal.text || '3-day seal';
       }
       if (bestLine) {
         bestLine.textContent =
@@ -239,7 +265,8 @@
     }
 
     function pickPairs() {
-      var size = ROUND_SIZES[Math.min(roundIndex, ROUND_SIZES.length - 1)];
+      var rounds = pairRounds();
+      var size = rounds[Math.min(roundIndex, rounds.length - 1)];
       if (kit && kit.mixDailyAndCore) return kit.mixDailyAndCore(size);
       if (kit && kit.dailyCorePairs) return kit.dailyCorePairs(size);
       if (kit && kit.MATCH_CORE) return kit.MATCH_CORE.slice(0, size);
@@ -262,21 +289,22 @@
       pairMap = {};
       pairsThisRound.forEach(function (p) { pairMap[p.id] = p; });
       if (roundLabel) roundLabel.textContent = roundName() + ' · ' + pairsThisRound.length + ' pairs';
-      if (dailyNote) {
-        var has365 = !!(window.__TDB_KIDS_VERSES_365 && window.__TDB_KIDS_VERSES_365.length);
-        dailyNote.textContent = has365
-          ? 'Today’s mix: character cards + lines from the kids KJV 365 list (changes each day).'
-          : 'Today’s mix: character cards + KJV lines (play again for a new shuffle).';
-      }
+      var mixEl = document.getElementById('kg-mix-name');
+      if (mixEl && kit && kit.mixName) mixEl.textContent = kit.mixName(pairsThisRound);
+      var friends = document.getElementById('kg-verse-friends');
+      if (friends) { friends.classList.remove('show'); friends.textContent = ''; }
       winEl.classList.remove('show');
       winEl.hidden = true;
-      setStatus('Pick a character card to start.', '');
+      setStatus('Pick a character card.', '');
       plainEl.textContent = '';
       kjvEl.textContent = '';
       paintStars();
       paintScores();
       shuffle(pairsThisRound).forEach(function (p) { plainEl.appendChild(makeBtn(p, 'plain')); });
       shuffle(pairsThisRound).forEach(function (p) { kjvEl.appendChild(makeBtn(p, 'kjv')); });
+      var timerRow = document.getElementById('kg-timer-row');
+      var cfg = kit && kit.sizeConfig ? kit.sizeConfig(playSize) : {};
+      if (timerRow) timerRow.classList.toggle('show', !!cfg.timer);
       beep(520, 0.08);
     }
 
@@ -298,6 +326,21 @@
       }
       winEl.classList.add('show');
       winEl.hidden = false;
+      var friends = document.getElementById('kg-verse-friends');
+      if (friends) {
+        friends.textContent = '';
+        var fh = document.createElement('h3');
+        fh.textContent = 'Your verse friends';
+        friends.appendChild(fh);
+        var ul = document.createElement('ul');
+        pairsThisRound.forEach(function (p) {
+          var li = document.createElement('li');
+          li.textContent = (p.icon ? p.icon + ' ' : '') + p.plain + (p.ref ? ' — ' + p.ref : '');
+          ul.appendChild(li);
+        });
+        friends.appendChild(ul);
+        friends.classList.add('show');
+      }
       if (kit) kit.recordScore('match', { pairs: pairsThisRound.length, wins: 1, round: roundIndex + 1 });
       paintScores();
       beep(660, 0.1);
@@ -312,7 +355,7 @@
       }
       var nextBtn = document.getElementById('match-next-round');
       if (nextBtn) {
-        nextBtn.textContent = roundIndex + 1 < ROUND_SIZES.length ? 'Next round (harder)' : 'Play a new daily mix';
+        nextBtn.textContent = roundIndex + 1 < pairRounds().length ? 'Next round (harder)' : 'Play a new daily mix';
       }
     }
 
@@ -350,6 +393,9 @@
         paintStars();
         showTeach(pairMap[a]);
         beep(720, 0.1, 'triangle');
+        if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
+          try { window.tdbLittleShepherd.notify('pairFound'); } catch (eP) {}
+        }
         if (Object.keys(matched).length === pairsThisRound.length) celebrateWin();
         else setStatus('Yes! Read the Remember tip—then next pair. ⭐', 'good');
       } else {
@@ -357,7 +403,7 @@
         t.classList.add('match-wrong');
         setStatus(
           kit && kit.missHint
-            ? kit.missHint(pairMap[a], missStreak)
+            ? kit.missHint(pairMap[a], missStreak, playSize)
             : 'Not that pair. Think about the idea on the card you already picked—then try a different leftover card.',
           'try'
         );
@@ -387,10 +433,36 @@
     var next = document.getElementById('match-next-round');
     if (next) {
       next.addEventListener('click', function () {
-        if (roundIndex + 1 < ROUND_SIZES.length) roundIndex += 1;
+        if (roundIndex + 1 < pairRounds().length) roundIndex += 1;
         else roundIndex = 0;
         render();
         try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (eS) {}
+      });
+    }
+    if (kit && kit.bindSizePicker) {
+      playSize = kit.bindSizePicker(function (next) {
+        playSize = next;
+        roundIndex = 0;
+        render();
+      });
+    }
+    var timerBox = document.getElementById('kg-timer');
+    var timerFace = document.getElementById('kg-timer-face');
+    if (timerBox) {
+      timerBox.addEventListener('change', function () {
+        if (timerId) { clearInterval(timerId); timerId = null; }
+        if (!timerBox.checked) { if (timerFace) timerFace.textContent = ''; return; }
+        var left = 90;
+        if (timerFace) timerFace.textContent = '90s';
+        timerId = setInterval(function () {
+          left -= 1;
+          if (timerFace) timerFace.textContent = left + 's';
+          if (left <= 0) {
+            clearInterval(timerId);
+            timerId = null;
+            setStatus('Time’s up—try again, no rush.', 'try');
+          }
+        }, 1000);
       });
     }
     render();

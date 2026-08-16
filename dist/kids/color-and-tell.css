@@ -202,24 +202,24 @@
 .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
 .tdb-cat-story-grid-card .tdb-cat-story-grid-title {
   margin: 0;
-  padding: 0.45rem 0.4rem 0.4rem;
+  padding: 0.5rem 0.45rem 0.45rem;
   border-radius: 8px;
-  background: #ffffff;
+  background: #0f172a;
   font-family: Inter, 'Nunito', system-ui, sans-serif;
   font-weight: 800;
   font-size: 1.18rem;
   line-height: 1.25;
-  letter-spacing: -0.01em;
-  color: #111;
-  -webkit-text-fill-color: #111;
+  letter-spacing: 0;
+  color: #f2dc98;
+  -webkit-text-fill-color: #f2dc98;
   text-wrap: pretty;
   overflow-wrap: anywhere;
 }
 .dark-mode .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
 .dark-mode .tdb-cat-story-grid-card .tdb-cat-story-grid-title {
-  color: #111;
-  -webkit-text-fill-color: #111;
-  background: #ffffff;
+  color: #f2dc98;
+  -webkit-text-fill-color: #f2dc98;
+  background: #0f172a;
 }
 .tdb-cat-story-grid-card .tdb-cat-progress-card-status,
 .tdb-cat-story-grid-card .tdb-cat-progress-meter,
@@ -927,8 +927,7 @@
   color: #334155 !important;
 }
 
-/* Story-name grid: white title band + near-black ink.
-   Body stays .dark-mode on kids coloring, so gold/amber titles wash out. */
+/* Story-name grid: night-gold titles on a navy band — bright, not dark ink. */
 .tdb-cat-story-grid-heading,
 .dark-mode .tdb-cat-story-grid-heading,
 body.tdb-kids-coloring-page .tdb-cat-story-grid-heading,
@@ -940,7 +939,7 @@ body.tdb-kids-coloring-page h2#tdb-cat-choose-h {
 body.tdb-kids-coloring-page button.tdb-cat-story-grid-card {
   background: #fffef8 !important;
   border-color: #d97706 !important;
-  color: #111 !important;
+  color: #f2dc98 !important;
   font-size: inherit !important;
 }
 .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
@@ -949,9 +948,9 @@ body.tdb-kids-coloring-page button.tdb-cat-story-grid-card {
 .dark-mode .tdb-cat-story-grid-card .tdb-cat-story-grid-title,
 body.tdb-kids-coloring-page .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
 body.tdb-kids-coloring-page .tdb-cat-story-grid-card .tdb-cat-story-grid-title {
-  color: #111 !important;
-  -webkit-text-fill-color: #111 !important;
-  background: #ffffff !important;
+  color: #f2dc98 !important;
+  -webkit-text-fill-color: #f2dc98 !important;
+  background: #0f172a !important;
   font-size: 1.18rem !important;
   font-weight: 800 !important;
   line-height: 1.25 !important;

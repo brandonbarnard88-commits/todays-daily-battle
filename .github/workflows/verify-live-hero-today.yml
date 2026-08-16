@@ -1,0 +1,35 @@
+# After the midnight UTC stamp: production first-paint must be today’s official KJV.
+# Catches leftover teaching (wrong situation under a new verse) and a missed stamp.
+name: Verify live hero today
+
+on:
+  schedule:
+    - cron: '45 0 * * *'
+    - cron: '15 12 * * *'
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: 'Origin to test (leave empty for apex + www)'
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: ${{ github.event.repository.fork == false }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Compare live homepage to today's official KJV
+        env:
+          LIVE_BASE_URL: ${{ github.event.inputs.base_url }}
+          LIVE_HERO_RETRIES: '6'
+          LIVE_HERO_RETRY_MS: '25000'
+        run: npm run verify:live-hero

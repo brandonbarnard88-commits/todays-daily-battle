@@ -3,7 +3,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260816-colorgrid"></script>
+  <script src="/tt-bootstrap.js?v=20260816-colortitles"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
@@ -23,14 +23,14 @@
   <meta name="twitter:description" content="Bible story coloring pages for kids — print, color, and talk about what happened.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260816-colorgrid" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260816-colorgrid">
+  <link rel="preload" href="styles.css?v=20260816-colortitles" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260816-colortitles">
   <link rel="preload" href="kids/kids-design-tokens.css" as="style">
   <link rel="stylesheet" href="kids/kids-design-tokens.css">
   <link rel="preload" href="kids/kids-kids-world.css?v=20260810contrast" as="style">
   <link rel="stylesheet" href="kids/kids-kids-world.css?v=20260810contrast">
-  <link rel="preload" href="kids/color-and-tell.css?v=20260815-storyread" as="style">
-  <link rel="stylesheet" href="kids/color-and-tell.css?v=20260815-storyread">
+  <link rel="preload" href="kids/color-and-tell.css?v=20260816-colortitles" as="style">
+  <link rel="stylesheet" href="kids/color-and-tell.css?v=20260816-colortitles">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -173,40 +173,16 @@
           <summary class="tdb-cat-parent-tip-summary">How Color &amp; Tell works <span class="tdb-cat-parent-tip-summary-hint">(tap to expand)</span></summary>
           <p class="tdb-cat-parent-tip" role="note">Pick a color, then <strong>tap an area</strong> to fill inside the lines (Fill tool is on by default). Switch to the brush if you want to draw freehand. Tap <strong>Save</strong>, then open <strong>Watch My Story</strong>—one saved scene is enough; more panels make a fuller storyboard. Every story is a gentle panel sequence with a short KJV line under each panel and one big idea. Use <strong>Print storyboard</strong> for a blank fridge page. On phones and tablets the cards scroll sideways. Everything stays private on this device.</p>
         </details>
-        <section class="glass tdb-porch-paper-glass">
-          <h2 class="section-divider">One Quiet Moment</h2>
+        <details class="tdb-cat-parent-tip-details" id="tdb-cat-quiet-moment">
+          <summary class="tdb-cat-parent-tip-summary">One Quiet Moment <span class="tdb-cat-parent-tip-summary-hint">(tap to expand)</span></summary>
           <p class="section-note">One slow breath. One verse. Then pick your story.</p>
-          <blockquote class="tdb-porch-still-me" style="font-size:1.05rem;line-height:1.75;border-left-color:var(--gold-soft,#c9a84c);margin:0 0 1rem;">
+          <blockquote class="tdb-porch-still-me" style="font-size:1.05rem;line-height:1.75;border-left-color:var(--gold-soft,#c9a84c);margin:0 0 0.75rem;">
             &ldquo;He maketh me to lie down in green pastures: he leadeth me beside the still waters.&rdquo;<br>
             <cite style="font-size:0.85rem;font-style:normal;opacity:0.7;">Psalm 23:2 (KJV)</cite>
           </blockquote>
-          <div class="list" style="margin-top:0.75rem">
-            <div class="list-item"><div><strong>A tiny prayer before you start</strong><p>Lord, thank you for this story. Help me learn something from it today. Amen.</p></div></div>
-            <div class="list-item"><div><strong>Something to think about while you color</strong><p>What is one thing in today&rsquo;s story that makes you glad God is real?</p></div></div>
-            <div class="list-item"><div><strong>Coloring memory</strong><p>When you finish, tell someone — or just remember — one thing from the story you want to keep.</p></div></div>
-          </div>
-        </section>
-        <section class="glass tdb-porch-paper-glass" aria-labelledby="tdb-cat-choose-h">
-          <h2 class="section-divider" id="tdb-cat-choose-h">Choose your story</h2>
-          <p class="section-note">Picture cards load below — just like Story Library. Tap one to open the paint tools.</p>
-        </section>
-        <script nonce="tdb2025s">
-          (function () {
-            document.addEventListener('DOMContentLoaded', function () {
-              var d = document.getElementById('tdb-cat-parent-tip-details');
-              if (!d) return;
-              try {
-                if (localStorage.getItem('tdb_cat_parent_tip_collapsed') === '1') d.removeAttribute('open');
-                else d.setAttribute('open', '');
-              } catch (e) {}
-              d.addEventListener('toggle', function () {
-                try {
-                  if (!d.open) localStorage.setItem('tdb_cat_parent_tip_collapsed', '1');
-                } catch (e2) {}
-              });
-            });
-          })();
-        </script>
+          <p class="tdb-cat-parent-tip" role="note"><strong>A tiny prayer before you start.</strong> Lord, thank you for this story. Help me learn something from it today. Amen.</p>
+        </details>
+        <h2 class="tdb-cat-story-grid-heading section-divider" id="tdb-cat-choose-h">Choose your story</h2>
         <div id="tdb-cat-root" data-tdb-color-tell="Watch My Story unlocks when at least one scene for that story is saved on this device." data-tdb-scene-assets="/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg /coloring-pages/bible-stories/david-and-goliath-v2.jpg /coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg /coloring-pages/bible-stories/empty-tomb-coloring-page.jpg /coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg"></div>
         <details class="tdb-cat-parent-tip-details" id="tdb-cat-after-color-details">
           <summary class="tdb-cat-parent-tip-summary">After you color <span class="tdb-cat-parent-tip-summary-hint">(for grown-ups)</span></summary>
@@ -421,7 +397,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260816-colorgrid"></script>
+  <script defer src="/language-switcher.js?v=20260816-colortitles"></script>
 </footer>
   </div>
 
@@ -430,8 +406,8 @@
   <script defer src="kids/kids-gentle-shepherd.js?v=20260810ears2"></script>
   <script defer src="/vendor/jl-coloringBook.js?v=34restore"></script>
   <script defer src="/kids/kids-gentle-journey.js?v=20260503goal365"></script>
-  <script defer src="kids/color-and-tell.js?v=20260816-colorgrid"></script>
+  <script defer src="kids/color-and-tell.js?v=20260816-colortitles"></script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260816-colorgrid" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260816-colortitles" data-cfasync="false"></script>
 </body>
 </html>

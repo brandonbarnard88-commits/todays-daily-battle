@@ -213,8 +213,8 @@ function main() {
     }
   }
 
-  if (checked < 300) {
-    failures.push(`Expected ~365 hero days, only checked ${checked}`);
+  if (checked < 360) {
+    failures.push(`Expected a full hero year (365) or two-year queue (730), only checked ${checked}`);
   }
 
   if (warnings.length && process.env.HERO_FIDELITY_VERBOSE) {

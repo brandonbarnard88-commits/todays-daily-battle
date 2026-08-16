@@ -81,12 +81,15 @@ function main() {
   while ((m = re.exec(kids))) {
     kidRefs.push({ ref: m[1], text: m[2] });
   }
-  if (kidRefs.length !== 365 || year.length !== 365) {
-    fail('Kids/hero calendars must each have 365 days (kids=' + kidRefs.length + ' hero=' + year.length + ')');
+  if (kidRefs.length !== 365) {
+    fail('Kids calendar must have 365 days (has ' + kidRefs.length + ')');
+  }
+  if (year.length !== 365 && year.length !== 730) {
+    fail('Hero queue must have 365 or 730 days (has ' + year.length + ')');
   } else {
     for (let i = 0; i < 365; i++) {
       if (kidRefs[i].ref !== year[i].ref || kidRefs[i].text !== year[i].text) {
-        fail('Kids and hero 365 calendars drift at day ' + (i + 1) + ': kids ' + kidRefs[i].ref + ' vs hero ' + year[i].ref);
+        fail('Kids year 1 and hero queue drift at day ' + (i + 1) + ': kids ' + kidRefs[i].ref + ' vs hero ' + year[i].ref);
         break;
       }
     }

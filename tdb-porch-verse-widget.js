@@ -29,7 +29,11 @@
 
   function pickVerseFromYear(arr, d) {
     if (!arr || !arr.length) return null;
-    var idx = (utcDayOfYear(d) - 1) % arr.length;
+    d = d || new Date();
+    var todayUtc = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+    var epoch = Date.UTC(2026, 0, 1);
+    var days = Math.floor((todayUtc - epoch) / 86400000);
+    var idx = ((days % arr.length) + arr.length) % arr.length;
     return arr[idx] || null;
   }
 

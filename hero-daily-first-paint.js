@@ -436,11 +436,10 @@
     var YEAR365 = window.__TDB_HERO_DAILY_YEAR;
     if (YEAR365 && YEAR365.length) {
       var d = new Date();
-      var y = d.getUTCFullYear();
-      var jan1 = Date.UTC(y, 0, 1);
       var todayUtc = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
-      var dayOfYear = Math.floor((todayUtc - jan1) / 86400000) + 1;
-      var idx = (dayOfYear - 1) % YEAR365.length;
+      var epoch = Date.UTC(2026, 0, 1);
+      var days = Math.floor((todayUtc - epoch) / 86400000);
+      var idx = ((days % YEAR365.length) + YEAR365.length) % YEAR365.length;
       return YEAR365[idx];
     }
     var seenRefs = Object.create(null);

@@ -41,10 +41,18 @@ if (!Array.isArray(arr) || arr.length !== 365) {
   throw new Error('Expected 365 verses, got ' + (arr && arr.length));
 }
 
+const year2Path = path.join(root, 'data', 'hero-year2.json');
+let queue = arr.slice();
+if (fs.existsSync(year2Path)) {
+  const year2 = JSON.parse(fs.readFileSync(year2Path, 'utf8'));
+  if (Array.isArray(year2) && year2.length) {
+    queue = arr.concat(year2.map((r) => ({ ref: r.ref, text: r.text })));
+  }
+}
+
 const header = `/**
- * 365 KJV verses for the home hero: ordinal day of year (UTC) → verse.
- * Kept in sync with kids/kids-verses-365.js (uplifting, hope-forward curation).
- * Regenerate: node scripts/sync-hero-365-from-kids.mjs
+ * Home hero queue (730 unique KJV days, then it restarts).
+ * Year 1 matches kids/kids-verses-365.js. Rebuild: node scripts/build-hero-two-year-queue.mjs
  */
 (function (global) {
   'use strict';
@@ -54,5 +62,5 @@ const footer = `;
 })(typeof window !== 'undefined' ? window : this);
 `;
 
-fs.writeFileSync(outPath, header + JSON.stringify(arr, null, 2) + footer, 'utf8');
-console.log('Wrote', path.relative(root, outPath), '(' + arr.length + ' verses)');
+fs.writeFileSync(outPath, header + JSON.stringify(queue, null, 2) + footer, 'utf8');
+console.log('Wrote', path.relative(root, outPath), '(' + queue.length + ' verses)');

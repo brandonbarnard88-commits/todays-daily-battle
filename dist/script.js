@@ -41996,10 +41996,9 @@ function wireRandomBattleVerseHero() {
       var isHomeEnCompanion = root.closest && root.closest('#en-hub-daily-verse');
       var year365 = typeof window !== 'undefined' ? window.__TDB_HERO_DAILY_YEAR : null;
       if (isHomeEnCompanion && year365 && year365.length) {
-        var jan1 = Date.UTC(d.getUTCFullYear(), 0, 1);
-        var dayOfYear = Math.floor((dayKey - jan1) / 86400000) + 1;
-        // Half-year offset so Extra stays different from the hero calendar verse.
-        var companion = year365[((dayOfYear - 1 + 182) % year365.length + year365.length) % year365.length];
+        var epoch = Date.UTC(2026, 0, 1);
+        var days = Math.floor((dayKey - epoch) / 86400000);
+        var companion = year365[(((days + 365) % year365.length) + year365.length) % year365.length];
         if (companion && companion.ref && companion.text) {
           for (var hi = 0; hi < panels.length; hi++) {
             panels[hi].hidden = true;

@@ -224,9 +224,37 @@
     } catch (e) {}
   }
 
+  function heroShownRef() {
+    var el = document.getElementById('heroRef');
+    if (!el) return '';
+    return normalizeRef(el.textContent || '');
+  }
+
+  function heroBbeRoot(host) {
+    if (!host) return null;
+    if (host.id === 'heroBbeSimple') return host;
+    return host.closest ? host.closest('#heroBbeSimple') : null;
+  }
+
+  function heroBbeRefAllowed(host, ref) {
+    if (!heroBbeRoot(host)) return true;
+    var shown = heroShownRef();
+    var want = normalizeRef(ref);
+    if (!shown || !want) return false;
+    return shown === want;
+  }
+
   function fillHost(host, ref, options) {
     var opts = options || {};
     if (!host) return Promise.resolve('');
+    var heroRoot = heroBbeRoot(host);
+    if (heroRoot && !heroBbeRefAllowed(host, ref)) {
+      try { heroRoot.hidden = true; } catch (eHide) { /* non-fatal */ }
+      return Promise.resolve('');
+    }
+    if (heroRoot) {
+      try { heroRoot.hidden = false; } catch (eShow) { /* non-fatal */ }
+    }
     stripHeroDisclaimerChrome(host);
     var root = host.closest ? host.closest('#heroBbeSimple, [data-bbe-always-open="1"]') : null;
     if (root) stripHeroDisclaimerChrome(root);
@@ -238,7 +266,11 @@
       statusEl.setAttribute('hidden', '');
       setTextContent(statusEl, '');
     }
-    if (textEl && textEl !== statusEl) setTextContent(textEl, '');
+    var existing = textEl && textEl !== statusEl ? String(textEl.textContent || '').replace(/\s+/g, ' ').trim() : '';
+    /* Keep a matching first-paint line; do not flash empty while BBE JSON loads. */
+    if (!(existing && heroBbeRefAllowed(host, ref))) {
+      if (textEl && textEl !== statusEl) setTextContent(textEl, '');
+    }
 
     return getText(ref)
       .then(function (text) {
@@ -386,6 +418,10 @@
       (function (el) {
         var ref = el.getAttribute('data-bbe-ref') || '';
         if (!ref) return;
+        if (el.id === 'heroBbeSimple' && !heroBbeRefAllowed(el, ref)) {
+          try { el.hidden = true; } catch (eSkip) { /* non-fatal */ }
+          return;
+        }
         var always = el.getAttribute('data-bbe-always-open') === '1' || el.classList.contains('tdb-bbe-simple--always-open');
         if (el.tagName === 'DETAILS' && !always) {
           el.addEventListener('toggle', function () {

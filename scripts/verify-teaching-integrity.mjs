@@ -279,6 +279,12 @@ function auditHeroInject(kjv, resolve) {
   if (boundVal !== expect) {
     fail('Hero first-paint missing data-tdb-bound-ref=' + expect + ' (got "' + boundVal + '")');
   }
+  const bbeBound = html.match(/id="heroBbeSimple"[^>]*data-bbe-ref="([^"]+)"/i) ||
+    html.match(/data-bbe-ref="([^"]+)"[^>]*id="heroBbeSimple"/i);
+  const bbeVal = bbeBound ? String(bbeBound[1]).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+  if (bbeVal !== expect) {
+    fail('Hero simpler English data-bbe-ref is "' + bbeVal + '" but today is ' + expect);
+  }
 }
 
 /* ─── 2. Feeling search relevance ─── */

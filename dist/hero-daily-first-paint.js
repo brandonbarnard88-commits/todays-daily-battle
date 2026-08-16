@@ -544,14 +544,21 @@
     var displayed = readDisplayedHeroRef();
     var bound = readHeroDigDeeperBoundRef();
     var wrap = document.getElementById('heroVbdPrimary');
-    if (!wrap) return;
-    var ok = !!(displayed && bound && bound === displayed);
-    if (ok) {
-      wrap.removeAttribute('data-tdb-teaching-locked');
-      try { wrap.hidden = false; } catch (eShow) { /* non-fatal */ }
-    } else {
-      wrap.setAttribute('data-tdb-teaching-locked', '1');
-      try { wrap.hidden = true; } catch (eHide) { /* non-fatal */ }
+    if (wrap) {
+      var ok = !!(displayed && bound && bound === displayed);
+      if (ok) {
+        wrap.removeAttribute('data-tdb-teaching-locked');
+        try { wrap.hidden = false; } catch (eShow) { /* non-fatal */ }
+      } else {
+        wrap.setAttribute('data-tdb-teaching-locked', '1');
+        try { wrap.hidden = true; } catch (eHide) { /* non-fatal */ }
+      }
+    }
+    var bbe = document.getElementById('heroBbeSimple');
+    if (bbe) {
+      var bbeRef = normalizeHeroBoundRef(bbe.getAttribute('data-bbe-ref') || '');
+      var bbeOk = !!(displayed && bbeRef && bbeRef === displayed);
+      try { bbe.hidden = !bbeOk; } catch (eBbeHide) { /* non-fatal */ }
     }
   }
 

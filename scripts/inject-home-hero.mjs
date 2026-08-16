@@ -157,6 +157,32 @@ function escapeHtmlAttr(s) {
     .replace(/>/g, '&gt;');
 }
 
+function loadBbeMap() {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(root, 'data', 'bbe-full.json'), 'utf8'));
+  } catch (e) {
+    return null;
+  }
+}
+
+function officialBbeSingle(map, ref) {
+  if (!map) return '';
+  const n = normalizeRefBare(ref);
+  return map[n] || map[n.replace(/^Psalm /i, 'Psalms ')] || map[n.replace(/^Psalms /i, 'Psalm ')] || '';
+}
+
+function officialBbeText(map, ref) {
+  const n = normalizeRefBare(ref);
+  const range = n.match(/^(.+?)\s+(\d+):(\d+)\s*[-–]\s*(\d+)$/);
+  if (!range) return officialBbeSingle(map, n);
+  const parts = [];
+  for (let v = Number(range[3]); v <= Number(range[4]); v++) {
+    const t = officialBbeSingle(map, range[1] + ' ' + range[2] + ':' + v);
+    if (t) parts.push(t);
+  }
+  return parts.join(' ');
+}
+
 function buildReadChapterHref(refStr) {
   const m = refStr.match(/^(.+?)\s+(\d+):\d+/);
   if (!m) return null;
@@ -330,6 +356,21 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
       return open + ' data-tdb-bound-ref="' + escapeHtmlAttr(refPlain) + '"';
     });
   });
+
+  /* Same lock on simpler English — never leave Psalm 91:1 (or any leftover) under today’s KJV. */
+  html = html.replace(/(<div[^>]*\bid="heroBbeSimple"[^>]*)/, function (open) {
+    if (/data-bbe-ref=/.test(open)) {
+      return open.replace(/data-bbe-ref="[^"]*"/, 'data-bbe-ref="' + escapeHtmlAttr(refPlain) + '"');
+    }
+    return open + ' data-bbe-ref="' + escapeHtmlAttr(refPlain) + '"';
+  });
+  const bbeLine = officialBbeText(loadBbeMap(), refPlain);
+  if (bbeLine) {
+    html = html.replace(
+      /(<p class="tdb-bbe-simple__text"[^>]*data-bbe-text="1"[^>]*>)[\s\S]*?(<\/p>)/,
+      '$1' + escapeHtmlText(bbeLine) + '$2'
+    );
+  }
 
   html = html.replace(
     /<p class="verse-img-text" id="verseImgText"><\/p>/,

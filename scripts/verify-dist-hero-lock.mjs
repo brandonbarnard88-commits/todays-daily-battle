@@ -41,6 +41,15 @@ function main() {
   if (!srcIndex.includes('bound !== shown')) {
     fail('index.html must hide teaching immediately if bound-ref does not match the on-screen verse');
   }
+  if (!srcIndex.includes('bbeRef !== shown')) {
+    fail('index.html must hide simpler English if data-bbe-ref does not match the on-screen verse');
+  }
+  if (distIndex && !distIndex.includes('bbeRef !== shown')) {
+    fail('dist/index.html must hide simpler English if data-bbe-ref does not match the on-screen verse');
+  }
+  if (!fp.includes('heroBbeSimple')) {
+    fail('hero-daily-first-paint.js must hide #heroBbeSimple when data-bbe-ref !== displayed verse');
+  }
 
   const files = [
     'hero-daily-first-paint.js',

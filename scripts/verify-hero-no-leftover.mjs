@@ -43,6 +43,9 @@ function auditSourceContracts() {
   if (!inject.includes('data-tdb-bound-ref')) {
     fail('inject-home-hero.mjs must stamp data-tdb-bound-ref on first-paint teaching');
   }
+  if (!inject.includes('heroBbeSimple') || !inject.includes('data-bbe-ref')) {
+    fail('inject-home-hero.mjs must stamp data-bbe-ref on #heroBbeSimple');
+  }
 }
 
 function auditLeftoverCases() {
@@ -92,6 +95,13 @@ function auditInjectedHtml() {
       fail('#' + id + ' data-tdb-bound-ref is "' + bound + '" but today is ' + expect);
     }
   });
+  const bbeM =
+    html.match(/id="heroBbeSimple"[^>]*data-bbe-ref="([^"]+)"/) ||
+    html.match(/data-bbe-ref="([^"]+)"[^>]*id="heroBbeSimple"/);
+  const bbeRef = bbeM ? String(bbeM[1]).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+  if (bbeRef !== expect) {
+    fail('#heroBbeSimple data-bbe-ref is "' + bbeRef + '" but today is ' + expect);
+  }
 }
 
 auditSourceContracts();

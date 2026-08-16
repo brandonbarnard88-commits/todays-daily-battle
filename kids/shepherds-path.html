@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playfun">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-playhint">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -70,7 +70,7 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-gameslive"></script>
+  <script src="kids-play-helpers.js?v=20260816-playhint"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260810ls" defer></script>
@@ -89,6 +89,20 @@
     ];
     var levelIndex = 0;
     var expect = 1;
+    var missStreak = 0;
+
+    function pathHint() {
+      if (expect === 1) {
+        return 'Not that stone. The path starts at the first number.';
+      }
+      if (missStreak <= 1) {
+        return 'Not next. Count the green stones. The next step is one more than that.';
+      }
+      if (missStreak === 2) {
+        return 'Still not it. Walk the numbers in order—like 1, then 2, then 3.';
+      }
+      return 'The next stone is the next number after the last green one. Count them.';
+    }
     var path = document.getElementById('sp-path');
     var st = document.getElementById('sp-status');
     var win = document.getElementById('sp-win');
@@ -117,10 +131,11 @@
 
     function build() {
       expect = 1;
+      missStreak = 0;
       var N = LEVELS[Math.min(levelIndex, LEVELS.length - 1)];
       if (levelLabel) levelLabel.textContent = 'Level ' + (levelIndex + 1) + ' · ' + N + ' stones';
       if (win) { win.classList.remove('show'); win.hidden = true; }
-      if (st) st.textContent = 'Start with stone 1.';
+      if (st) st.textContent = 'Start at the first number on the path.';
       if (path) path.textContent = '';
       var v = dailyVerse();
       if (kjvText) kjvText.textContent = v.text;
@@ -153,12 +168,14 @@
                   try { window.tdbLittleShepherd.notify('gameWin'); } catch (e2) {}
                 }
               } else if (st) {
-                st.textContent = 'Nice! Now tap stone ' + expect + '.';
+                missStreak = 0;
+                st.textContent = 'Nice! Keep going in order.';
               }
             } else {
+              missStreak += 1;
               b.classList.add('wrong');
-              setTimeout(function () { b.classList.remove('wrong'); }, 400);
-              if (st) st.textContent = 'Not that one next—try stone ' + expect + '.';
+              setTimeout(function () { b.classList.remove('wrong'); }, 450);
+              if (st) st.textContent = pathHint();
               if (window.tdbLittleShepherd && tdbLittleShepherd.notify) {
                 try { window.tdbLittleShepherd.notify('wrongMatch'); } catch (e3) {}
               }

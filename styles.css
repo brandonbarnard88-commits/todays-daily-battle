@@ -25017,9 +25017,9 @@ a[role="button"],
 /* 1. Cancel every porch entrance animation on any kids page body.
       Covers kids-world-surface, kids-battle-page, tdb-kids-coloring-page,
       kids-gentle-journey-page, and any future kids-* body class. */
-body[class*="kids"] *,
-body[class*="kids"] *::before,
-body[class*="kids"] *::after {
+body[class*="kids"]:not(.kids-mini-game) *,
+body[class*="kids"]:not(.kids-mini-game) *::before,
+body[class*="kids"]:not(.kids-mini-game) *::after {
   animation-name: none !important;
   animation-delay: 0ms !important;
   animation-duration: 0.01ms !important;

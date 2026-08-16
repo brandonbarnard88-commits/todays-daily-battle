@@ -1,5 +1,6 @@
 # After the midnight UTC stamp: production first-paint must be today’s official KJV.
-# Catches leftover teaching (wrong situation under a new verse) and a missed stamp.
+# If the check fails, restamp, push, purge the edge, and recheck so a missed
+# stamp or stale CDN can fix itself. A wrong verse in the queue still fails.
 name: Verify live hero today
 
 on:
@@ -14,13 +15,22 @@ on:
         default: ''
         type: string
 
+permissions:
+  contents: write
+
+concurrency:
+  group: stamp-today-hero
+  cancel-in-progress: false
+
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     if: ${{ github.event.repository.fork == false }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -28,8 +38,48 @@ jobs:
           node-version: '22'
 
       - name: Compare live homepage to today's official KJV
+        id: check
+        continue-on-error: true
         env:
           LIVE_BASE_URL: ${{ github.event.inputs.base_url }}
           LIVE_HERO_RETRIES: '6'
+          LIVE_HERO_RETRY_MS: '25000'
+        run: npm run verify:live-hero
+
+      - name: Restamp today's verse
+        if: steps.check.outcome == 'failure'
+        run: node scripts/heal-live-hero-today.mjs --stamp-only
+
+      - name: Commit stamp if it changed
+        if: steps.check.outcome == 'failure'
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html dist/index.html dist/today-kjv-verse.json dist/yesterday-kjv-verse.json || true
+          if git diff --cached --quiet; then
+            echo "Stamp already current — leftover is likely a stale edge cache."
+            exit 0
+          fi
+          git commit -m "chore(home): restamp today's verse after live check failed"
+          git push origin HEAD:main
+
+      - name: Wait for Pages to pick up the stamp
+        if: steps.check.outcome == 'failure'
+        run: sleep 90
+
+      - name: Purge homepage cache
+        if: steps.check.outcome == 'failure'
+        env:
+          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: node scripts/heal-live-hero-today.mjs --purge-only
+
+      - name: Recheck live homepage
+        if: steps.check.outcome == 'failure'
+        env:
+          LIVE_BASE_URL: ${{ github.event.inputs.base_url }}
+          LIVE_HERO_RETRIES: '8'
           LIVE_HERO_RETRY_MS: '25000'
         run: npm run verify:live-hero

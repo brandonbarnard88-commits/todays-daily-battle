@@ -64,6 +64,7 @@
     "verify:live-key-html:retry": "node scripts/verify-live-retry.mjs",
     "verify:live-hero": "node scripts/verify-live-hero-today.mjs",
     "verify:live-hero:retry": "LIVE_HERO_RETRIES=6 LIVE_HERO_RETRY_MS=25000 node scripts/verify-live-hero-today.mjs",
+    "heal:live-hero": "node scripts/heal-live-hero-today.mjs",
     "test:authz-smoke": "bash scripts/authz-smoke.sh",
     "test:search-torture": "node scripts/search-torture-test.mjs",
     "test:search-torture-live": "node scripts/search-torture-live.mjs",

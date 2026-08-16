@@ -534,9 +534,26 @@
     var el =
       document.getElementById('heroVotdBreakdown') ||
       document.getElementById('heroSimpleBreakdown') ||
-      document.getElementById('heroDigDeeper');
+      document.getElementById('heroDigDeeper') ||
+      document.getElementById('heroVbdPrimary');
     if (!el) return '';
     return normalizeHeroBoundRef(el.getAttribute('data-tdb-bound-ref') || '');
+  }
+
+  /** Never show situation/meaning if they are not bound to the verse on screen. */
+  function hideHeroTeachingIfMismatched() {
+    var displayed = readDisplayedHeroRef();
+    var bound = readHeroDigDeeperBoundRef();
+    var wrap = document.getElementById('heroVbdPrimary');
+    if (!wrap) return;
+    var ok = !!(displayed && bound && bound === displayed);
+    if (ok) {
+      wrap.removeAttribute('data-tdb-teaching-locked');
+      try { wrap.hidden = false; } catch (eShow) { /* non-fatal */ }
+    } else {
+      wrap.setAttribute('data-tdb-teaching-locked', '1');
+      try { wrap.hidden = true; } catch (eHide) { /* non-fatal */ }
+    }
   }
 
   /**
@@ -1297,6 +1314,7 @@
 
     /* Stamp BEFORE cross-ref/plan hydrate so partial failures still know the bound ref. */
     stampHeroDigDeeperBoundRef(refKey);
+    hideHeroTeachingIfMismatched();
     var wrap = document.getElementById('heroVotdBreakdown');
     if (wrap) {
       try {
@@ -1391,6 +1409,7 @@
     } else {
       heroRef.textContent = v.ref + ' (KJV)';
     }
+    hideHeroTeachingIfMismatched();
 
     // #readChapterLink is below the fold; loadTodaysVerse syncs it when first paint already ran.
     var link = document.getElementById('readChapterLink');
@@ -1525,6 +1544,7 @@
       } catch (eLock) { /* non-fatal */ }
     }
     function scheduleCheck() {
+      try { hideHeroTeachingIfMismatched(); } catch (eHideNow) { /* non-fatal */ }
       if (scheduled) return;
       scheduled = true;
       if (typeof window.requestAnimationFrame === 'function') {

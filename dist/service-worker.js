@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260812-app-kids';
+const CACHE_NAME = 'tdb-cache-v20260816-noleftover';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -50,9 +50,7 @@ const CORE_ASSETS = [
   /* Trailing-only hub URLs (/kids/, /bible/, /pastor/, /church/) omitted for the same reason; index.html + navigate fallback covers offline. */
   '/index.html',
   '/assets/perf-hint.js',
-  '/hero-daily-365-data.js',
   '/hero-hero-pools.js',
-  '/hero-daily-first-paint.js',
   '/red-letter.js',
   '/offline.html',
   '/plans.html',
@@ -719,6 +717,37 @@ self.addEventListener('fetch', (event) => {
 
   // Only cache same-origin GETs; let cross-origin (analytics, third-party CDN) load normally
   if (!sameOrigin) return;
+
+  // Hero teaching calendar / lock files: never serve yesterday from precache.
+  if (
+    url.pathname.endsWith('/hero-daily-365-data.js') ||
+    url.pathname.endsWith('/hero-daily-365-explanations.js') ||
+    url.pathname.endsWith('/hero-daily-first-paint.js') ||
+    url.pathname.endsWith('/tdb-verse-accuracy.js')
+  ) {
+    event.respondWith(
+      fetch(event.request)
+        .then(function (res) {
+          if (res && res.ok) {
+            var clone = res.clone();
+            caches.open(CACHE_NAME).then(function (cache) {
+              cache.put(event.request, clone).catch(function () {});
+            });
+          }
+          return res;
+        })
+        .catch(function () {
+          return matchCachedSameOriginAsset(CACHE_NAME, event.request, url).then(function (hit) {
+            if (hit) return hit;
+            return new Response('/* Offline — hero teaching unavailable */', {
+              status: 503,
+              headers: { 'content-type': 'application/javascript; charset=utf-8' }
+            });
+          });
+        })
+    );
+    return;
+  }
 
   // tt-bootstrap.js: network-first so Trusted Types / DOMPurify wiring updates deploy immediately;
   // precache (CORE_ASSETS) still seeds offline. Avoids stale innerHTML policy stuck in CACHE_NAME.

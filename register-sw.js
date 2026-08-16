@@ -6,7 +6,7 @@
   'use strict';
 
   /** @type {string} Single bump token — keep in sync with SW-VERSION, verify-service-worker.mjs, and precache. */
-  var TDB_SW_QUERY = 'v=20260812-app-kids';
+  var TDB_SW_QUERY = 'v=20260816-noleftover';
   var SW_URL = '/sw.js?' + TDB_SW_QUERY;
 
   if (typeof window === 'undefined') return;

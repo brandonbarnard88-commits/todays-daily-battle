@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-deepen">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-windoor">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -61,11 +61,11 @@
         <div class="mf-board" id="mf-board" role="group" aria-label="Memory cards"></div>
         <div class="kg-verse-friends" id="kg-verse-friends"></div>
         <p id="mf-win" class="section-note" style="text-align:center;margin:0.75rem 0;font-weight:800;color:#14532d" hidden>All pairs found!</p>
+        <p class="kg-next-doors" id="kg-next-doors"></p>
         <p style="text-align:center">
           <button type="button" id="mf-next" class="mf-again">Next round (harder)</button>
           <button type="button" id="mf-again" class="mf-again">Play again (same size)</button>
         </p>
-        <p class="kg-next-doors" id="kg-next-doors"></p>
         <details class="kg-how">
           <summary>How to play</summary>
           <p>Tap a card, then its pair—character phrase to KJV line.</p>
@@ -82,7 +82,7 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-deepen"></script>
+  <script src="kids-play-helpers.js?v=20260816-windoor"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -140,7 +140,7 @@
       if (teach) { teach.classList.remove('show'); teach.textContent = ''; }
       if (st) st.textContent = 'Find two that go together—tap a card!';
       if (board) board.textContent = '';
-      document.body.classList.remove('is-little', 'is-middle', 'is-bigger');
+      document.body.classList.remove('is-little', 'is-middle', 'is-bigger', 'is-won');
       document.body.classList.add('is-' + playSize);
       var rounds = (kit && kit.sizeConfig(playSize).pairRounds) || [4];
       var want = rounds[Math.min(roundIndex, rounds.length - 1)];
@@ -222,6 +222,7 @@
               }
               if (kit) kit.recordScore('memory', { pairs: usePairs.length, wins: 1 });
               if (kit && kit.fillWinDoors) kit.fillWinDoors(document.getElementById('kg-next-doors'), usePairs);
+              document.body.classList.add('is-won');
               var nextBtnWin = document.getElementById('mf-next');
               if (nextBtnWin) {
                 nextBtnWin.classList.add('show');

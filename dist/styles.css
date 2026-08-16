@@ -25207,7 +25207,7 @@ body[class*="kids"] .section-note {
 }
 
 /* Buttons on kids pages — amber gold, strong contrast, big touch target */
-body[class*="kids"] button:not(.tdb-cat-slideshow-close):not(.tdb-cat-slideshow-nav button),
+body[class*="kids"] button:not(.tdb-cat-slideshow-close):not(.tdb-cat-slideshow-nav button):not(.tdb-cat-story-grid-card),
 body[class*="kids"] .kids-magic-btn,
 body[class*="kids"] .btn,
 body[class*="kids"] .filter-btn {
@@ -25240,11 +25240,28 @@ body[class*="kids"] .filter-btn {
   line-height: 1.55 !important;
 }
 
-/* Story title — larger, bolder, dark amber */
+/* Story title — near-black on cream, not amber */
 .tdb-cat-story-title {
-  color: #92400e !important;
-  font-size: clamp(1.25rem, 3.5vw, 1.5rem) !important;
+  color: #111 !important;
+  font-size: clamp(1.35rem, 3.5vw, 1.7rem) !important;
   font-weight: 800 !important;
+}
+
+/* Grid story names — white band, black ink, never flattened by kids button rules */
+body.tdb-kids-coloring-page button.tdb-cat-story-grid-card {
+  font-size: inherit !important;
+  color: #111 !important;
+}
+body.tdb-kids-coloring-page .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
+body.tdb-kids-coloring-page .tdb-cat-story-grid-card .tdb-cat-story-grid-title,
+body[class*="kids"] .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
+body[class*="kids"] .tdb-cat-story-grid-card .tdb-cat-story-grid-title {
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
+  background: #ffffff !important;
+  font-size: 1.18rem !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
 }
 
 /* Story lead copy — dark slate */

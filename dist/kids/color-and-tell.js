@@ -4174,10 +4174,6 @@
       card.type = 'button';
       card.className = 'tdb-cat-progress-card tdb-cat-story-grid-card';
       card.setAttribute('data-tdb-jump-story', story.id);
-      card.setAttribute(
-        'aria-label',
-        (story.title || 'Story') + ' — open to color'
-      );
 
       var thumbWrap = document.createElement('span');
       thumbWrap.className = 'tdb-cat-story-grid-thumb-wrap';
@@ -4206,31 +4202,18 @@
       if (src) badge.hidden = true;
       thumbWrap.appendChild(badge);
 
-      var title = document.createElement('p');
-      title.className = 'tdb-cat-progress-card-title';
-      title.textContent = story.title;
-
-      var status = document.createElement('p');
       var st = statusLabel(story);
-      status.className = 'tdb-cat-progress-card-status' + st.doneClass;
-      status.textContent = st.text;
+      card.setAttribute(
+        'aria-label',
+        (story.title || 'Story') + ' — ' + st.text + ' — open to color'
+      );
 
-      var meter = document.createElement('div');
-      meter.className = 'tdb-cat-progress-meter';
-      var fill = document.createElement('div');
-      fill.className = 'tdb-cat-progress-meter-fill';
-      fill.style.width = pct(story) + '%';
-      meter.appendChild(fill);
-
-      var openLabel = document.createElement('span');
-      openLabel.className = 'tdb-cat-story-grid-open';
-      openLabel.textContent = 'Color me';
+      var title = document.createElement('p');
+      title.className = 'tdb-cat-progress-card-title tdb-cat-story-grid-title';
+      title.textContent = story.title;
 
       card.appendChild(thumbWrap);
       card.appendChild(title);
-      card.appendChild(status);
-      card.appendChild(meter);
-      card.appendChild(openLabel);
       card.addEventListener('click', function () {
         jumpToColorStory(this.getAttribute('data-tdb-jump-story'));
       });
@@ -4334,11 +4317,6 @@
 
     mount.setAttribute('aria-label', 'Color and tell my story');
 
-    var note = document.createElement('p');
-    note.className = 'tdb-cat-hero-note';
-    note.textContent =
-      'Pick a picture below, then color. Save on this device, then Watch My Story. No account needed.';
-
     /* Featured doors still load first for deep links; grid lists every story. */
     var FEATURED_STORY_IDS = {
       creation: true,
@@ -4348,30 +4326,16 @@
       'empty-tomb': true
     };
 
-    /* Picture grid like Story Library — always visible first. */
-    var gridHeading = document.createElement('h2');
-    gridHeading.className = 'tdb-cat-story-grid-heading';
-    gridHeading.id = 'tdb-cat-story-grid-h';
-    gridHeading.textContent = 'Pick a picture to color';
-
-    var gridLead = document.createElement('p');
-    gridLead.className = 'tdb-cat-progress-jump-hint section-note';
-    gridLead.textContent =
-      'Tap a card. Scroll down to paint. ' + STORIES.length + ' Bible stories.';
-
     var progressOuter = document.createElement('div');
     progressOuter.className = 'tdb-cat-progress-outer tdb-cat-story-grid-outer';
 
     var progressWrap = document.createElement('div');
     progressWrap.className = 'tdb-cat-progress tdb-cat-story-grid';
     progressWrap.setAttribute('role', 'region');
-    progressWrap.setAttribute('aria-labelledby', 'tdb-cat-story-grid-h');
+    progressWrap.setAttribute('aria-labelledby', 'tdb-cat-choose-h');
     progressWrap.setAttribute('aria-label', 'Coloring story pictures');
     progressWrap.tabIndex = 0;
 
-    mount.appendChild(note);
-    mount.appendChild(gridHeading);
-    mount.appendChild(gridLead);
     progressOuter.appendChild(progressWrap);
     mount.appendChild(progressOuter);
     if (requestedStoryId) {

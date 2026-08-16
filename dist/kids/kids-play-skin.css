@@ -48,6 +48,11 @@ body.kids-mini-game .sp-stone.is-done {
   animation: kg-pop 0.35s ease !important;
 }
 
+body.kids-mini-game .tdb-site-humility,
+body.kids-kiss-play-home .tdb-site-humility {
+  display: none !important;
+}
+
 body.kids-mini-game,
 body.kids-kiss-play-home {
   --kg-ink: #0f172a;

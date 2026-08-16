@@ -36,7 +36,7 @@
     "verify:phrase-quality": "node scripts/verify-breakdown-phrase-quality.mjs",
     "verify:site-copy": "node scripts/verify-site-copy-phrases.mjs",
     "verify:accuracy": "node scripts/build-verse-accuracy-runtime.mjs && node scripts/verify-verse-accuracy.mjs",
-    "verify:teaching": "node scripts/verify-teaching-integrity.mjs && node scripts/verify-hero-365-fidelity.mjs && node scripts/verify-hero-365-days-in-order.mjs && node scripts/verify-override-fidelity.mjs && node scripts/build-verse-accuracy-runtime.mjs && node scripts/verify-verse-accuracy.mjs && node scripts/verify-hero-no-leftover.mjs",
+    "verify:teaching": "node scripts/verify-teaching-integrity.mjs && node scripts/verify-hero-365-fidelity.mjs && node scripts/verify-hero-365-days-in-order.mjs && node scripts/verify-override-fidelity.mjs && node scripts/build-verse-accuracy-runtime.mjs && node scripts/verify-verse-accuracy.mjs && node scripts/verify-hero-no-leftover.mjs && node scripts/verify-dist-hero-lock.mjs",
     "verify:hero-fidelity": "node scripts/verify-hero-365-fidelity.mjs",
     "verify:override-fidelity": "node scripts/verify-override-fidelity.mjs",
     "audit:teaching": "node scripts/verify-teaching-integrity.mjs",

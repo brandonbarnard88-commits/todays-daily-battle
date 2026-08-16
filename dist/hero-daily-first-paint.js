@@ -613,6 +613,9 @@
     if (/^1\s+john\s+4:7/.test(r) || /beloved, let us love one another/.test(String(verseText || '').toLowerCase())) {
       return 'Love is not something you manufacture — it comes from God. When you love others, you are showing you belong to Him.';
     }
+    if (/^psalm\s+96:1/.test(r) || /o sing unto the lord a new song/.test(String(verseText || '').toLowerCase())) {
+      return 'The whole earth is invited to sing a new song to the Lord — praise that is alive, not leftover.';
+    }
     try {
       if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
         var bd = window.TDBVerseBreakdown.getBreakdown(ref, verseText || '', { group: 'general' }) || {};
@@ -721,10 +724,14 @@
     var target = normalizeHeroBoundRef(targetRef);
     if (!target) return false;
     var bound = normalizeHeroBoundRef(snap.boundRef || '');
-    if (bound && bound === target) return true;
-    /* Unstamped DOM (first paint): only trust snapshot when displayed hero already matches target. */
+    if (bound && bound !== target) return false;
     var displayed = normalizeHeroBoundRef(snap.displayedRef || '');
-    return !!(displayed && displayed === target && !bound);
+    var refLooksSame = (bound && bound === target) || (!!(displayed && displayed === target && !bound));
+    if (!refLooksSame) return false;
+    /* Yesterday’s long 1 John situation must not win just because the ref label already flipped. */
+    if (snap.situation && situationLooksWrongForRefRuntime(snap.situation, target)) return false;
+    if (snap.who && !speakerBelongsToBookRuntime(snap.who, target)) return false;
+    return true;
   }
 
   /** Book name for attribution checks (aligned with build-time verse-teaching-guard). */
@@ -801,6 +808,9 @@
       return true;
     }
     if (/test the spirits/i.test(s) && !/^1 John\s+4:[1-6]\b/i.test(r)) {
+      return true;
+    }
+    if (/john urges the church to love one another/i.test(s) && !/^1 John\s+4:/i.test(r)) {
       return true;
     }
     return false;

@@ -176,6 +176,7 @@ export const PHRASE_LOCKS = [
   { id: '1jn-mashup', re: /Love one another;\s*test the spirits/i, allow: null },
   { id: '1jn-test-spirits', re: /test the spirits/i, allow: /^1 John\s+4:[1-6]\b/i },
   { id: '1jn-victory', re: /victory that overcomes the world/i, allow: /^1 John\s+5:/i },
+  { id: '1jn-urges-love', re: /John urges the church to love one another/i, allow: /^1 John\s+4:/i },
   { id: 'ps92-sabbath', re: /Sabbath song of thanksgiving/i, allow: /^Psalm(s)?\s+92:/i },
   { id: 'ps93-floods', re: /floods and noise cannot unseat|floods,\s*thrones/i, allow: /^Psalm(s)?\s+93:/i },
   { id: 'ps94-slip', re: /when (his |the )?foot slipp/i, allow: /^Psalm(s)?\s+94:/i },

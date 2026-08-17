@@ -294,7 +294,7 @@
     if (viewedCount >= 7) {
       const span = document.createElement('span');
       span.className = 'kids-badge story-master';
-      span.textContent = '★ Story Master';
+      span.textContent = '★ Seven stories';
       list.appendChild(span);
     }
   }

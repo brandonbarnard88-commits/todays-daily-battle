@@ -9,18 +9,18 @@
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Church Center • Today's Daily Battle</title>
-  <meta name="description" content="Same-device group notes for a church code. For pastors and outreach, start at the homepage and the For Pastors page — official KJV, no login.">
+  <title>Church group • Today's Daily Battle</title>
+  <meta name="description" content="Join or start a church group for today’s official KJV verse. Not a church directory, not a sermon host, and not member tracking.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/church.html">
-  <meta property="og:title" content="Church Center • Today's Daily Battle">
-  <meta property="og:description" content="Optional group notes on this device. Churches and outreach should start at today’s KJV verse — no login.">
+  <meta property="og:title" content="Church group • Today's Daily Battle">
+  <meta property="og:description" content="Join or start a church group for today’s official KJV verse. Not a church directory or sermon host.">
   <meta property="og:url" content="https://todaysdailybattle.com/church.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Church Center • Today's Daily Battle">
-  <meta name="twitter:description" content="Find churches, view sermons, and stay connected with the Church Center.">
+  <meta name="twitter:title" content="Church group • Today's Daily Battle">
+  <meta name="twitter:description" content="Join or start a church group for today’s official KJV verse. Not a church directory or sermon host.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
@@ -57,7 +57,7 @@
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
-        <span class="brand-subtitle">Group notes on this device</span>
+        <span class="brand-subtitle">Church group</span>
       </div>
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
       <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
@@ -117,7 +117,7 @@
         <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
         <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
         <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
-        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="/church/" data-section="church-center" data-icon="CC">Church group</a>
         <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
         <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
         <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
@@ -142,157 +142,22 @@
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner tdb-dawn-bg--mist">
-          <h1>Church group notes</h1>
+          <h1>Church group</h1>
           <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome here&mdash;shepherd, member, leader, or first-time visitor.</p>
-          <p class="hero-tagline">A church or outreach ministry should send people to <a href="/">today&rsquo;s verse</a>. This page is optional same-browser notes for a group code &mdash; not a church directory, not sermon hosting, and not member tracking.</p>
+          <p class="hero-tagline">This site is not a church directory, not a sermon host, and not member tracking. A church or outreach ministry should send people to <a href="/">today&rsquo;s verse</a>. If you have a group code, join at the church group door.</p>
           <div class="cta-group">
-            <a class="btn btn-primary" href="/for-pastors.html">For pastors &amp; outreach</a>
-            <a class="btn btn-secondary" href="church-sharing-kit.html">Sharing kit</a>
-            <a class="btn btn-secondary" href="church-starter-pack.html">Starter pack</a>
+            <a class="btn btn-primary" href="/church/">Join or start a group</a>
             <a class="btn btn-secondary" href="/">Today&rsquo;s verse</a>
+            <a class="btn btn-secondary" href="/for-pastors.html">For pastors &amp; outreach</a>
+            <a class="btn btn-secondary" href="church-sharing-kit.html">Sharing kit</a>
           </div>
         </header>
-        <section id="church-group-hub" class="church-group-hub glass tdb-porch-paper-glass" role="region" aria-labelledby="church-group-hub-heading">
-          <h2 id="church-group-hub-heading" class="section-divider">Church Tab — Group Hub</h2>
-          <p class="section-note">Notes and prayers on this board stay in this browser unless your group already uses a working code. They do not appear on someone else&rsquo;s phone by magic. Today&rsquo;s verse below is the same official KJV as the homepage.</p>
-
-          <div class="church-hub-tabs" role="tablist" aria-label="Church tabs">
-            <button type="button" id="church-tab-group" class="church-hub-tab active" role="tab" aria-selected="true" aria-controls="church-group-panel">Group Hub</button>
-            <button type="button" id="church-tab-center" class="church-hub-tab" role="tab" aria-selected="false" aria-controls="church-center">Church Center</button>
-          </div>
-
-          <div id="church-group-panel" class="church-hub-panel" role="tabpanel" aria-labelledby="church-tab-group">
-            <label for="church-code-input" class="church-label">Join with code</label>
-            <div class="church-join-row">
-              <input id="church-code-input" type="text" placeholder="church-789" aria-label="Church code">
-              <button id="church-join-btn" type="button" class="btn btn-primary">Join</button>
-              <button id="church-new-code-btn" type="button" class="btn btn-secondary">New Code</button>
-            </div>
-            <p id="church-code-status" class="section-note" aria-live="polite"></p>
-            <div class="church-share-row">
-              <input id="church-share-link" type="text" readonly aria-label="Church share link">
-              <button id="church-copy-link-btn" type="button" class="btn btn-secondary">Copy Invite</button>
-            </div>
-
-            <div class="church-name-row">
-              <label class="inline-toggle"><input id="church-show-name" type="checkbox"> Show my real name</label>
-              <input id="church-my-name" type="text" maxlength="40" placeholder="My name (saved as my-name)" aria-label="My name">
-            </div>
-            <p class="section-note">My Study stays private unless you share it from the My Study page.</p>
-            <p id="church-family-merge-note" class="section-note"></p>
-
-            <article class="church-board-card">
-              <h3 class="section-divider">Shared Verse Board</h3>
-              <p id="church-daily-ref" class="church-daily-ref">Daily verse loading...</p>
-              <p id="church-daily-text" class="section-note"></p>
-              <div class="church-board-form">
-                <textarea id="church-board-note" rows="3" placeholder="Add group note"></textarea>
-                <textarea id="church-board-prayer" rows="3" placeholder="Add group prayer"></textarea>
-                <div class="church-board-actions">
-                  <button id="church-add-note-btn" type="button" class="btn btn-secondary">Add Note</button>
-                  <button id="church-add-prayer-btn" type="button" class="btn btn-primary">Add Prayer</button>
-                </div>
-              </div>
-              <ul id="church-board-list" class="church-board-list" aria-live="polite"></ul>
-            </article>
-
-            <article class="church-avatar-card">
-              <h3 class="section-divider">Avatar Line</h3>
-              <div id="church-avatar-line" class="church-avatar-line" aria-live="polite"></div>
-            </article>
-
-            <article class="church-streak-card">
-              <h3 class="section-divider">Group Streak</h3>
-              <p id="church-streak-count" class="church-streak-count">0 days</p>
-              <p class="section-note">Counts days with notes/prayers on this group board.</p>
-            </article>
-
-            <article class="church-chat-card">
-              <h3 class="section-divider">Optional Anonymous Chat</h3>
-              <label class="inline-toggle"><input id="church-chat-enabled" type="checkbox"> Enable chat for this group</label>
-              <div id="church-chat-wrap" class="hidden">
-                <div class="church-chat-input-row">
-                  <label class="inline-toggle"><input id="church-chat-anon" type="checkbox" checked> Send anonymous</label>
-                  <input id="church-chat-input" type="text" maxlength="240" placeholder="Encourage your group...">
-                  <button id="church-chat-send-btn" type="button" class="btn btn-secondary">Send</button>
-                </div>
-                <ul id="church-chat-list" class="church-chat-list" aria-live="polite"></ul>
-              </div>
-            </article>
-          </div>
+        <section class="glass tdb-porch-paper-glass" role="region" aria-labelledby="church-what-this-is-heading">
+          <h2 id="church-what-this-is-heading" class="section-divider">What this is</h2>
+          <p class="section-note">A group code is a door to today&rsquo;s official KJV verse, together. It is not a campus app. There is no church search, no weekly sermon upload, no roster, no assigned reading, and no public chat.</p>
+          <p class="section-note">Join or start a group at <a href="/church/">/church/</a>. After you join, the daily page is just the verse and an invite you can hand to someone else.</p>
         </section>
 
-        <section id="church-center" class="church-center church-legacy-panel glass tdb-porch-paper-glass hidden" role="region" aria-labelledby="church-center-heading">
-          <h2 id="church-center-heading" class="section-divider">Church Verse of the Day</h2>
-          <p class="section-note">Your church's chosen verse for today. Pastors can set it below.</p>
-          <div id="church-verse-of-day" class="verse-card" style="min-height:60px;" aria-live="polite" aria-atomic="true"><p class="section-note">Join a church to see the church verse of the day.</p></div>
-          <div id="church-verse-admin" style="display:none; margin-top:0.75rem;">
-            <label for="church-verse-ref">Set verse (e.g. Psalm 23:1)</label>
-            <input id="church-verse-ref" type="text" placeholder="Verse reference">
-            <button id="church-verse-set" type="button" class="btn btn-secondary">Set Church Verse</button>
-          </div>
-
-          <h2 class="section-divider">Shared Prayer List</h2>
-          <p class="section-note">Pray together as a church. Add requests; mark when prayed.</p>
-          <button id="add-prayer-btn" type="button" class="btn btn-primary" aria-label="Add a prayer request">Add Prayer Request</button>
-          <div id="add-prayer-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="add-prayer-title">
-            <form id="prayer-form" class="modal-inner glass tdb-porch-paper-glass">
-              <h3 id="add-prayer-title" class="section-divider">Add a prayer request</h3>
-              <input type="text" placeholder="Your name (optional)" id="prayer-name" aria-label="Your name (optional)">
-              <textarea placeholder="Prayer intention" id="prayer-intent" required aria-label="Prayer intention"></textarea>
-              <div class="cta-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" id="close-modal" class="btn btn-secondary">Close</button>
-              </div>
-            </form>
-          </div>
-          <div id="church-prayer-wrap">
-            <input id="church-prayer-input" type="text" placeholder="Prayer request or name...">
-            <button id="church-prayer-add" type="button" class="btn btn-primary">Add</button>
-            <ul id="church-prayer-list" class="list" aria-live="polite" aria-atomic="false"></ul>
-          </div>
-          <div id="church-progress-wrap" class="church-progress-wrap" style="display: none;" aria-live="polite">
-            <h3 class="section-divider">Group Prayer Progress</h3>
-            <p id="church-progress-text" class="section-note">0</p>
-            <div class="church-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Prayers prayed">
-              <div id="church-progress-fill" class="church-progress-fill"></div>
-            </div>
-          </div>
-          <p class="section-note prayer-sync-note">Saved on this device. Sign in to sync your prayer list across phone and computer.</p>
-
-          <h2 class="section-divider">Assign Reading (Pastors)</h2>
-          <p class="section-note">Assign a passage or plan to a group. Members see it under "My assigned reading."</p>
-          <div id="church-assign-wrap" style="display:none;">
-            <input id="church-assign-passage" type="text" placeholder="e.g. John 1–3 or Psalm 119">
-            <input id="church-assign-group" type="text" placeholder="Group name (e.g. Youth, Class A)">
-            <button id="church-assign-btn" type="button" class="btn btn-secondary">Assign</button>
-          </div>
-          <h3 class="section-divider">My assigned reading</h3>
-          <div id="church-assigned-list" class="list" role="list" aria-label="Assigned reading list"></div>
-
-          <h2 class="section-divider">Find Your Church</h2>
-          <p class="section-note">Search by name or city and view weekly sermons.</p>
-          <div class="church-search">
-            <input id="church-query" placeholder="Search by church name or city...">
-            <input id="church-state" placeholder="State (optional)">
-            <label class="inline-toggle">
-              <input id="church-online" type="checkbox">
-              Online only
-            </label>
-            <button type="button" id="church-search-btn">Search</button>
-          </div>
-          <div id="church-featured" class="featured-list"></div>
-          <div id="church-admin" class="church-admin hidden">
-            <h3>Add Weekly Sermon (Pastors)</h3>
-            <input id="sermon-church-id" placeholder="Church ID (select a church first)" readonly>
-            <input id="sermon-title-input" placeholder="Sermon title">
-            <input id="sermon-date-input" type="date">
-            <textarea id="sermon-summary-input" rows="3" placeholder="Short summary"></textarea>
-            <button type="button" id="add-sermon-btn">Add Sermon</button>
-          </div>
-          <div id="church-results" class="list"></div>
-          <div id="church-sermons" class="list"></div>
-        </section>
       </div>
     </main>
 
@@ -436,7 +301,6 @@
   <script src="verse-context.js?v=20260806-context" data-tdb-verse-context="1"></script>
 <script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
 <script src="verse-breakdown.js?v=20260809-search-fix" defer></script>
-  <script src="church/church.js?v=20260817-churchuse" defer></script>
   <script src="js/surfaces/church.js?v=20260805-four-pillars"></script>
   <script type="module" src="script.js?v=20260816-brightgold" data-cfasync="false"></script>
 </body>

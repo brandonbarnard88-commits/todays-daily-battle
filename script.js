@@ -2905,7 +2905,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var memoryVersesUrl = 'memory-verses.js';
   var homeVotmUrl = 'home-votm.js?v=20260402homevotm4';
   var homeMobiusWeekUrl = 'tdb-home-mobius-week.js?v=20260330home';
-  var skyIpUrl = '/sky-ip-geo.js?v=20260327ipgeo';
+  var skyIpUrl = '/sky-ip-geo.js?v=20260817-skysolar';
 
   /** Run onload when every path has been injected (or was already present). */
   function injectScriptsParallel(paths, onAllDone) {

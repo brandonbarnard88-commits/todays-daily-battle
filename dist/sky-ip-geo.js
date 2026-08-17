@@ -53,12 +53,13 @@
           return;
         }
         var saved = todayStr();
+        var payload = JSON.stringify({ lat: j.lat, lon: j.lon, saved: saved, source: j.source || 'ip' });
         try {
-          sessionStorage.setItem(
-            'tdbSkyGeoIp',
-            JSON.stringify({ lat: j.lat, lon: j.lon, saved: saved, source: j.source || 'ip' })
-          );
+          sessionStorage.setItem('tdbSkyGeoIp', payload);
         } catch (e2) {}
+        try {
+          localStorage.setItem('tdbSkyGeoIp', payload);
+        } catch (e3) {}
         done(true);
       });
   };

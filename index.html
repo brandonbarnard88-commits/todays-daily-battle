@@ -277,15 +277,87 @@
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_quiet_update_dismiss')==='2026-04-24-uog-rollout')document.documentElement.classList.add('tdb-quiet-update-dismissed');}catch(e){}})();</script>
 </head>
 <body class="no-tdb-bottom-nav">
-  <!-- Early sky class so night gradient is ready before deferred feel.js (no stars until JS). -->
+  <!-- Early sky class from real sunrise/sunset (place + season), not a fixed 5am/6:30pm clock. -->
   <script nonce="tdb2025s">
   (function () {
     try {
-      var h = new Date().getHours() + new Date().getMinutes() / 60;
-      var cls = (h < 5 || h >= 21) ? 'sky-night'
-        : (h >= 5 && h < 7.5) ? 'sky-dawn'
-        : (h >= 18.5 && h < 21) ? 'sky-dusk'
-        : 'sky-day';
+      function sunTimes(date, lat, lng) {
+        var PI = Math.PI, sin = Math.sin, cos = Math.cos, acos = Math.acos, asin = Math.asin, rad = PI / 180;
+        var dayMs = 864e5, J1970 = 2440588, J2000 = 2451545, e = rad * 23.4397;
+        function toJ(d) { return d.valueOf() / dayMs - 0.5 + J1970; }
+        function fromJ(j) { return new Date((j + 0.5 - J1970) * dayMs); }
+        function ecl(M) {
+          return M + rad * (1.9148 * sin(M) + 0.02 * sin(2 * M) + 0.0003 * sin(3 * M)) + rad * 102.9372 + PI;
+        }
+        var lw = rad * -lng, phi = rad * lat;
+        var d = toJ(date) - J2000, J0 = 0.0009;
+        var n = Math.round(d - J0 - lw / (2 * PI));
+        var ds = J0 + lw / (2 * PI) + n;
+        var M = rad * (357.5291 + 0.98560028 * ds);
+        var L = ecl(M);
+        var dec = asin(sin(e) * sin(L));
+        var Jnoon = J2000 + ds + 0.0053 * sin(M) - 0.0069 * sin(2 * L);
+        function setJ(hDeg) {
+          var h = hDeg * rad;
+          var w = acos((sin(h) - sin(phi) * sin(dec)) / (cos(phi) * cos(dec)));
+          var a = J0 + (w + lw) / (2 * PI) + n;
+          return J2000 + a + 0.0053 * sin(M) - 0.0069 * sin(2 * L);
+        }
+        var Jset = setJ(-0.833), Jrise = Jnoon - (Jset - Jnoon);
+        var Jdusk = setJ(-6), Jdawn = Jnoon - (Jdusk - Jnoon);
+        return { dawn: fromJ(Jdawn), sunrise: fromJ(Jrise), sunset: fromJ(Jset), dusk: fromJ(Jdusk) };
+      }
+      function stored() {
+        var keys = ['tdbSkyGeoGps', 'tdbSkyGeo', 'tdbSkyGeoIp'];
+        var stores = [];
+        try { stores.push(sessionStorage); } catch (eS) {}
+        try { stores.push(localStorage); } catch (eL) {}
+        for (var s = 0; s < stores.length; s++) {
+          for (var i = 0; i < keys.length; i++) {
+            try {
+              var o = JSON.parse(stores[s].getItem(keys[i]) || '');
+              if (o && isFinite(o.lat) && isFinite(o.lon) && Math.abs(o.lat) <= 90 && Math.abs(o.lon) <= 180) return o;
+            } catch (eR) {}
+          }
+        }
+        var tz = '';
+        try { tz = String(Intl.DateTimeFormat().resolvedOptions().timeZone || ''); } catch (eT) {}
+        var cities = {
+          'America/New_York': [40.71, -74.01], 'America/Chicago': [41.85, -87.65],
+          'America/Denver': [39.74, -104.99], 'America/Los_Angeles': [34.05, -118.24],
+          'America/Phoenix': [33.45, -112.07], 'America/Anchorage': [61.22, -149.9],
+          'Pacific/Honolulu': [21.31, -157.86], 'America/Toronto': [43.65, -79.38],
+          'America/Mexico_City': [19.43, -99.13], 'America/Sao_Paulo': [-23.55, -46.63],
+          'Europe/London': [51.51, -0.13], 'Europe/Paris': [48.86, 2.35],
+          'Europe/Berlin': [52.52, 13.41], 'Asia/Tokyo': [35.68, 139.69],
+          'Asia/Seoul': [37.57, 126.98], 'Asia/Shanghai': [31.23, 121.47],
+          'Asia/Kolkata': [22.57, 88.36], 'Australia/Sydney': [-33.87, 151.21],
+          'Pacific/Auckland': [-36.85, 174.76], 'Africa/Johannesburg': [-26.2, 28.05]
+        };
+        if (cities[tz]) return { lat: cities[tz][0], lon: cities[tz][1] };
+        if (/Chicago|Menominee|Indiana\/Tell_City|Indiana\/Knox/.test(tz)) return { lat: 41.85, lon: -87.65 };
+        if (/New_York|Detroit|Indiana|Kentucky|Toronto/.test(tz)) return { lat: 40.71, lon: -74.01 };
+        if (/Denver|Boise|Edmonton/.test(tz)) return { lat: 39.74, lon: -104.99 };
+        if (/Los_Angeles|Vancouver|Tijuana/.test(tz)) return { lat: 34.05, lon: -118.24 };
+        if (/Europe\//.test(tz)) return { lat: 51.5, lon: 10 };
+        return { lat: 38, lon: -(new Date().getTimezoneOffset() / 60) * 15 };
+      }
+      var now = new Date();
+      var c = stored();
+      var t = sunTimes(now, c.lat, c.lon);
+      var ts = now.getTime();
+      var cls = 'sky-day';
+      if (t && t.dawn < t.sunrise && t.sunrise < t.sunset && t.sunset <= t.dusk &&
+          isFinite(t.dawn.getTime()) && isFinite(t.dusk.getTime())) {
+        if (ts < t.dawn.getTime()) cls = 'sky-night';
+        else if (ts < t.sunrise.getTime()) cls = 'sky-dawn';
+        else if (ts < t.sunset.getTime()) cls = 'sky-day';
+        else if (ts < t.dusk.getTime()) cls = 'sky-dusk';
+        else cls = 'sky-night';
+      } else {
+        var h = now.getHours() + now.getMinutes() / 60;
+        cls = (h < 5 || h >= 21) ? 'sky-night' : (h < 7.5) ? 'sky-dawn' : (h >= 18.5 && h < 21) ? 'sky-dusk' : 'sky-day';
+      }
       document.body.classList.add(cls);
     } catch (e) {}
   })();
@@ -1544,7 +1616,7 @@
   <script nonce="tdb2025s" defer src="tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
-  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260816-twoyear"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260817-skysolar"></script>
   <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260712-first-doors"></script>
   <script nonce="tdb2025s" defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script nonce="tdb2025s" defer src="/js/feel-combo-presets.js"></script>

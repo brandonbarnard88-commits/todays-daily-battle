@@ -4644,20 +4644,66 @@ function skyClassFromSolar(now, t) {
   return 'sky-night';
 }
 
-function readSkyGeoForSolar() {
-  var todayStr = new Date().toDateString();
+function coordsFromTimezone() {
+  var tz = '';
+  try {
+    tz = String(Intl.DateTimeFormat().resolvedOptions().timeZone || '');
+  } catch (eTz) {}
+  var cities = {
+    'America/New_York': [40.71, -74.01],
+    'America/Chicago': [41.85, -87.65],
+    'America/Denver': [39.74, -104.99],
+    'America/Los_Angeles': [34.05, -118.24],
+    'America/Phoenix': [33.45, -112.07],
+    'America/Anchorage': [61.22, -149.9],
+    'Pacific/Honolulu': [21.31, -157.86],
+    'America/Toronto': [43.65, -79.38],
+    'America/Mexico_City': [19.43, -99.13],
+    'America/Sao_Paulo': [-23.55, -46.63],
+    'Europe/London': [51.51, -0.13],
+    'Europe/Paris': [48.86, 2.35],
+    'Europe/Berlin': [52.52, 13.41],
+    'Asia/Tokyo': [35.68, 139.69],
+    'Asia/Seoul': [37.57, 126.98],
+    'Asia/Shanghai': [31.23, 121.47],
+    'Asia/Kolkata': [22.57, 88.36],
+    'Australia/Sydney': [-33.87, 151.21],
+    'Pacific/Auckland': [-36.85, 174.76],
+    'Africa/Johannesburg': [-26.2, 28.05]
+  };
+  if (cities[tz]) return { lat: cities[tz][0], lon: cities[tz][1] };
+  if (/Chicago|Menominee|Indiana\/Tell_City|Indiana\/Knox/.test(tz)) return { lat: 41.85, lon: -87.65 };
+  if (/New_York|Detroit|Indiana|Kentucky|Toronto/.test(tz)) return { lat: 40.71, lon: -74.01 };
+  if (/Denver|Boise|Edmonton/.test(tz)) return { lat: 39.74, lon: -104.99 };
+  if (/Los_Angeles|Vancouver|Tijuana/.test(tz)) return { lat: 34.05, lon: -118.24 };
+  if (/Europe\//.test(tz)) return { lat: 51.5, lon: 10 };
+  var lon = -(new Date().getTimezoneOffset() / 60) * 15;
+  return { lat: 38, lon: lon };
+}
+
+function readStoredSkyGeo(store) {
+  if (!store || !store.getItem) return null;
   var keys = ['tdbSkyGeoGps', 'tdbSkyGeo', 'tdbSkyGeoIp'];
   for (var ki = 0; ki < keys.length; ki++) {
     try {
-      var raw = sessionStorage.getItem(keys[ki]);
+      var raw = store.getItem(keys[ki]);
       if (!raw) continue;
       var og = JSON.parse(raw);
       if (!og || typeof og.lat !== 'number' || typeof og.lon !== 'number') continue;
-      if (og.saved !== todayStr) continue;
+      if (!isFinite(og.lat) || !isFinite(og.lon)) continue;
+      if (Math.abs(og.lat) > 90 || Math.abs(og.lon) > 180) continue;
       return { lat: og.lat, lon: og.lon };
     } catch (e) {}
   }
   return null;
+}
+
+function readSkyGeoForSolar() {
+  var fromSession = null;
+  var fromLocal = null;
+  try { fromSession = readStoredSkyGeo(sessionStorage); } catch (eS) {}
+  try { fromLocal = readStoredSkyGeo(localStorage); } catch (eL) {}
+  return fromSession || fromLocal || coordsFromTimezone();
 }
 
 function getSkyClassFixed(h) {
@@ -4896,7 +4942,8 @@ function initHeaderSky() {
 
   paintSkyDecorations(layer, r, next);
 
-  setInterval(updateSkyClass, 60000);
+  setInterval(updateSkyClass, 120000);
+  scheduleSkyFlip();
 
   function requestSkyGeolocation() {
     if (!navigator.geolocation) return;
@@ -4909,6 +4956,10 @@ function initHeaderSky() {
           sessionStorage.setItem('tdbSkyGeoGps', gpsPayload);
           sessionStorage.setItem('tdbSkyGeo', gpsPayload);
         } catch (e2) {}
+        try {
+          localStorage.setItem('tdbSkyGeoGps', gpsPayload);
+          localStorage.setItem('tdbSkyGeo', gpsPayload);
+        } catch (e3) {}
         var times = tdbGetSunTimes(new Date(), lat, lon);
         if (!tdbSkySolarValid(times)) return;
         var skyNames = ['sky-dawn', 'sky-day', 'sky-dusk', 'sky-night'];
@@ -4949,10 +5000,40 @@ function initHeaderSky() {
     updateSkyClass();
   }
   if (typeof window.tdbFetchSkyGeoFromIp === 'function') {
-    window.tdbFetchSkyGeoFromIp(function (changed) {
-      if (changed) refreshSkyAfterIpGeo();
+    window.tdbFetchSkyGeoFromIp(function () {
+      refreshSkyAfterIpGeo();
+      scheduleSkyFlip();
     });
   }
+}
+
+var tdbSkyFlipTimer = null;
+function nextSkyEventMs(now, t) {
+  if (!tdbSkySolarValid(t)) return 120000;
+  var ts = now.getTime();
+  var marks = [t.dawn, t.sunrise, t.sunset, t.dusk];
+  var soon = Infinity;
+  for (var i = 0; i < marks.length; i++) {
+    var m = marks[i].getTime();
+    if (m > ts + 250) soon = Math.min(soon, m - ts);
+  }
+  if (!isFinite(soon)) {
+    var coords = readSkyGeoForSolar();
+    if (coords) {
+      var t2 = tdbGetSunTimes(new Date(ts + 86400000), coords.lat, coords.lon);
+      if (tdbSkySolarValid(t2) && t2.dawn.getTime() > ts) soon = t2.dawn.getTime() - ts;
+    }
+  }
+  if (!isFinite(soon)) soon = 120000;
+  return Math.max(800, Math.min(soon + 200, 6 * 3600000));
+}
+function scheduleSkyFlip() {
+  if (tdbSkyFlipTimer) clearTimeout(tdbSkyFlipTimer);
+  var wait = nextSkyEventMs(new Date(), tdbSkySolarTimes);
+  tdbSkyFlipTimer = setTimeout(function () {
+    updateSkyClass();
+    scheduleSkyFlip();
+  }, wait);
 }
 
 /** Geocentric illumination: SunCalc getMoonIllumination (Meeus ch.48 / NASA mphase). */

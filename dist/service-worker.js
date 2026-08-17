@@ -154,7 +154,7 @@ const CORE_ASSETS = [
   '/kids/kids-page-sky.css?v=20260817-skylife',
   '/kids/kids-page-sky.js',
   '/kids/kids-page-sky.js?v=20260326playful',
-  '/kids/kids-page-sky.js?v=20260817-skylife',
+  '/kids/kids-page-sky.js?v=20260817-shootvar',
   '/kids/kids-battle.js',
   '/kids/kids-verses-365.js',
   '/kids/kids-parent.js',

@@ -147,6 +147,11 @@
 
     if (!form || !input) return;
 
+    try {
+      var pre = new URLSearchParams(window.location.search || '').get('group') || '';
+      if (pre && !input.value) input.value = String(pre).trim();
+    } catch (ePrefill) { /* non-fatal */ }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var raw = (input.value || '').trim();
@@ -288,15 +293,47 @@
           .then(function (res) {
             var data = res && res.data;
             if (data && data.ok) {
-              setChurchJoined(data.code || code, data.group_id, name || data.code || code, getPastorAnonId());
+              var made = String(data.code || code || '').trim();
+              setChurchJoined(made, data.group_id, name || made, getPastorAnonId());
+              var invite = (window.location.origin || 'https://todaysdailybattle.com') + '/church/?group=' + encodeURIComponent(made);
               if (createResult) {
-                createResult.textContent = 'Created! Redirecting…';
+                while (createResult.firstChild) createResult.removeChild(createResult.firstChild);
+                var p = document.createElement('p');
+                p.textContent = 'Group created. Share this link — people will see today’s official KJV verse.';
+                var row = document.createElement('p');
+                var link = document.createElement('input');
+                link.type = 'text';
+                link.readOnly = true;
+                link.value = invite;
+                link.setAttribute('aria-label', 'Invite link');
+                var copy = document.createElement('button');
+                copy.type = 'button';
+                copy.className = 'btn btn-secondary';
+                copy.textContent = 'Copy invite';
+                copy.addEventListener('click', function () {
+                  try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                      navigator.clipboard.writeText(invite);
+                    } else {
+                      link.select();
+                      document.execCommand('copy');
+                    }
+                    copy.textContent = 'Copied';
+                  } catch (eCopy) { /* non-fatal */ }
+                });
+                row.appendChild(link);
+                row.appendChild(copy);
+                var go = document.createElement('p');
+                var a = document.createElement('a');
+                a.href = '/church/daily.html';
+                a.textContent = 'Open today’s verse for this group →';
+                go.appendChild(a);
+                createResult.appendChild(p);
+                createResult.appendChild(row);
+                createResult.appendChild(go);
                 createResult.classList.remove('hidden', 'error');
                 createResult.classList.add('success');
               }
-              createCode.value = '';
-              createName.value = '';
-              setTimeout(function () { window.location.href = '/church/daily.html'; }, 800);
             } else {
               var reason = (data && data.reason) || 'Failed.';
               if (reason === 'code_taken') reason = 'That code is already taken. Try another.';

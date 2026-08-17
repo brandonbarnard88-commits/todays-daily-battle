@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Church group join — Enter Member Code | Today's Daily Battle</title>
   <meta name="description" content="Enter the code your pastor shared to join your church group on Today's Daily Battle. Shared daily verse, group reflections, and gentle rhythm together. Pastor’s Study is the tools door.">
-  <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/church/">
   <meta property="og:title" content="Church group join | Today's Daily Battle">
   <meta property="og:description" content="Enter your pastor&rsquo;s code to join your church group — shared daily KJV verse and gentle rhythm. Tools live in Pastor’s Study.">
@@ -109,9 +109,9 @@
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner church-hub-inner">
         <header class="church-join-hero">
-          <h1>Church group join</h1>
-          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;the code is a door, not a test. Rest still comes first.</p>
-          <p class="section-note">If your pastor gave you a working group code, enter it here. For the official daily KJV &mdash; the one a church should hand people &mdash; use <a href="/">today&rsquo;s verse</a>. Ministry tools: <a href="/for-pastors.html">For pastors &amp; outreach</a>.</p>
+          <h1>Join a church or ministry group</h1>
+          <p class="section-note topic-mood-porch">The code is a door, not a test. Today&rsquo;s verse is the same official KJV as the homepage.</p>
+          <p class="section-note">If someone handed you a code or a <code>?group=</code> link, enter it here. Pastors and outreach: create a group below, then share the invite. Tools and bulletin copy: <a href="/for-pastors.html">For pastors &amp; outreach</a>.</p>
         </header>
 
         <section class="church-join-card glass tdb-porch-paper-glass" role="region" aria-label="Join church">
@@ -132,11 +132,10 @@
           <p id="church-join-error" class="church-join-error hidden" aria-live="polite"></p>
         </section>
 
-        <section class="glass tdb-porch-paper-glass church-create-section">
-          <h2 class="church-section-title">Pastor?</h2>
-          <p>Create a group and share the code with your church.</p>
-          <details class="church-create-details">
-            <summary>Create church group</summary>
+        <section class="glass tdb-porch-paper-glass church-create-section" id="create">
+          <h2 class="church-section-title">Start a group</h2>
+          <p>Create a code, copy the invite, and hand it to your people. They will see today&rsquo;s official KJV verse together. This is not a church directory or a member roster.</p>
+          <details class="church-create-details" open>
             <form id="church-create-form" class="church-create-form">
               <label for="church-create-code">Code (e.g. GRACE2025)</label>
               <input type="text" id="church-create-code" class="church-code-input" placeholder="GRACE2025" maxlength="24" required>
@@ -150,7 +149,7 @@
 
         <section id="church-roundup-index-section" class="church-roundup glass tdb-porch-paper-glass" role="region" aria-label="Weekly roundup email">
           <h2 class="church-section-title">📬 Get weekly roundup</h2>
-          <p class="church-roundup-note">Monday email: reflections, streak leader, next sermon. Join us Sunday!</p>
+          <p class="church-roundup-note">Optional Monday note with this week&rsquo;s verse. Not required to use the group.</p>
           <form id="church-roundup-index-form" class="church-roundup-form">
             <label for="church-roundup-index-email">Email</label>
             <input
@@ -303,6 +302,6 @@
   </div>
 
   <script type="module" src="../script.js?v=20260816-brightgold" defer></script>
-  <script src="church.js?v=1" defer></script>
+  <script src="church.js?v=20260817-adopt" defer></script>
 </body>
 </html>

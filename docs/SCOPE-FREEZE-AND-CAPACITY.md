@@ -66,4 +66,4 @@ Optional giving and printables fund infrastructure and free outreach. Do not gro
 
 Revisit this freeze after a calm front-door ship has lived in production and Brandon has real headroom—not on a fixed feature calendar.
 
-**Active calendar freeze:** see [FEATURE-FREEZE-90-DAYS.md](./FEATURE-FREEZE-90-DAYS.md) (2026-08-04 → 2026-11-02). Grove polish only.
+**Calendar freeze:** closed 2026-08-17 — see [FEATURE-FREEZE-90-DAYS.md](./FEATURE-FREEZE-90-DAYS.md). Owner override: church and ministry adoption. Capacity rules below still apply.

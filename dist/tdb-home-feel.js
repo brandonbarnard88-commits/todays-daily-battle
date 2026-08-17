@@ -4375,11 +4375,8 @@ function wireMorningFlow() {
     window.speechSynthesis.speak(utt);
   }
 
-  // Scroll after verse loads (no user gesture needed)
-  setTimeout(function () {
-    var heroCard = document.getElementById('verseCard');
-    if (heroCard) heroCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 2200);
+  // Do not auto-scroll the Grove. First paint already shows today’s verse;
+  // centering the card after 2s drops the viewport past it.
 
   // TTS only after first user interaction (required by browsers), and only if opted in
   if (optedIn) {

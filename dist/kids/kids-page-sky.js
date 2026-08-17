@@ -163,6 +163,53 @@ function getSkyCelestialPlane(layer) {
   return plane || layer;
 }
 
+function spawnSkyShooter(plane, r, isMobile) {
+  if (!plane) return;
+  var sh = document.createElement('div');
+  var fireball = r() > 0.84;
+  sh.className = 'sky-shooter' + (fireball ? ' is-fireball' : '');
+  var lane = Math.floor(r() * 4);
+  var startLeft;
+  var startTop;
+  var dx;
+  var dy;
+  if (lane === 0) {
+    startLeft = 2 + r() * 30;
+    startTop = 2 + r() * 24;
+    dx = 34 + r() * 44;
+    dy = 8 + r() * 22;
+  } else if (lane === 1) {
+    startLeft = 60 + r() * 34;
+    startTop = 2 + r() * 24;
+    dx = -(34 + r() * 44);
+    dy = 8 + r() * 22;
+  } else if (lane === 2) {
+    startLeft = 22 + r() * 52;
+    startTop = 1 + r() * 10;
+    dx = (r() > 0.5 ? 1 : -1) * (30 + r() * 40);
+    dy = 14 + r() * 26;
+  } else {
+    startLeft = r() > 0.5 ? (3 + r() * 18) : (76 + r() * 18);
+    startTop = 16 + r() * 30;
+    dx = startLeft < 50 ? (38 + r() * 38) : -(38 + r() * 38);
+    dy = 6 + r() * 16;
+  }
+  var angle = Math.atan2(dy, dx) * (180 / Math.PI);
+  var dur = (isMobile ? 0.9 : 1.05) + r() * 0.7;
+  sh.style.cssText =
+    'top:' + startTop.toFixed(1) + '%;' +
+    'left:' + startLeft.toFixed(1) + '%;' +
+    'width:' + ((isMobile ? 56 : 70) + r() * (fireball ? 90 : 55)) + 'px;' +
+    '--shoot-angle:' + angle.toFixed(1) + 'deg;' +
+    '--shoot-x:' + dx.toFixed(1) + 'vw;' +
+    '--shoot-y:' + dy.toFixed(1) + 'vh;' +
+    'animation-duration:' + dur.toFixed(2) + 's;';
+  plane.appendChild(sh);
+  setTimeout(function () {
+    if (sh.parentNode) sh.parentNode.removeChild(sh);
+  }, (dur + 0.4) * 1000);
+}
+
 function clearDynamicSkyDecor(layer) {
   var plane = getSkyCelestialPlane(layer);
   if (!plane) return;
@@ -230,21 +277,7 @@ function paintSkyDecorations(layer, r, skyClass) {
         (function scheduleShooter(delay) {
           setTimeout(function fire() {
             if (!document.body.classList.contains('sky-night')) return;
-            var sh = document.createElement('div');
-            var fireball = r() > 0.84;
-            sh.className = 'sky-shooter' + (fireball ? ' is-fireball' : '');
-            var angle = 12 + r() * 26;
-            var dur   = 1.0 + r() * 0.7;
-            sh.style.cssText =
-              'top:' + (6 + r() * 30) + '%;' +
-              'left:' + (8 + r() * 44) + '%;' +
-              'width:' + (70 + r() * (fireball ? 90 : 55)) + 'px;' +
-              '--shoot-angle:' + angle.toFixed(1) + 'deg;' +
-              '--shoot-x:' + (46 + r() * 34).toFixed(1) + 'vw;' +
-              '--shoot-y:' + (10 + r() * 16).toFixed(1) + 'vh;' +
-              'animation-duration:' + dur.toFixed(2) + 's;';
-            plane.appendChild(sh);
-            setTimeout(function() { sh.remove(); }, (dur + 0.4) * 1000);
+            spawnSkyShooter(plane, r, isMobile);
             setTimeout(fire, 18000 + r() * 26000);
           }, delay);
         })(si * 8000 + 2000 + r() * 5000);

@@ -373,6 +373,9 @@
     if (cardRef) cardRef.textContent = ref;
     if (cardText) cardText.textContent = text;
     card.classList.add('verse-card-loaded');
+    if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.injectInlineBreakdown === 'function') {
+      window.TDBVerseBreakdown.injectInlineBreakdown(card, ref, text);
+    }
   }
 
   function renderDailyVerse() {
@@ -387,19 +390,10 @@
           paintOfficialDaily(String(row.ref), String(row.text));
           return;
         }
-        var ref = null;
-        var text = '';
-        var getRef = window.getDailyVerseRef || (typeof getDailyVerseRef === 'function' ? getDailyVerseRef : null);
-        var getText = window.getBibleVerseText || (typeof getBibleVerseText === 'function' ? getBibleVerseText : null);
-        var b = window.bible || (typeof bible !== 'undefined' ? bible : {});
-        if (getRef) ref = getRef();
-        if (ref && b[ref]) text = b[ref];
-        else if (getText && ref) text = getText(ref);
-        if (!ref || !text) {
-          ref = 'Psalm 96:2';
-          text = 'Sing unto the Lord, bless his name; shew forth his salvation from day to day.';
-        }
-        paintOfficialDaily(ref, text);
+        paintOfficialDaily(
+          'Psalm 96:2',
+          'Sing unto the Lord, bless his name; shew forth his salvation from day to day.'
+        );
       })
       .catch(function () {
         paintOfficialDaily(
@@ -1580,9 +1574,6 @@
       });
     }
 
-    if (typeof bible !== 'undefined' && Object.keys(bible).length === 0) {
-      setTimeout(renderDailyVerse, 500);
-    }
   }
 
   /* --- Route --- */

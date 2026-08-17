@@ -314,29 +314,15 @@
   }
 
   /* --- Daily page: verse, reflection, list, leaderboard --- */
-  function renderDailyVerse() {
+  function paintOfficialDaily(ref, text) {
     var card = document.getElementById('church-daily-verse-card');
     var refEl = document.getElementById('church-daily-ref');
-    if (!card) return;
-
-    var ref = null;
-    var text = '';
-    var getRef = window.getDailyVerseRef || (typeof getDailyVerseRef === 'function' ? getDailyVerseRef : null);
-    var getText = window.getBibleVerseText || (typeof getBibleVerseText === 'function' ? getBibleVerseText : null);
-    var b = window.bible || (typeof bible !== 'undefined' ? bible : {});
-    if (getRef) ref = getRef();
-    if (ref && b[ref]) text = b[ref];
-    else if (getText && ref) text = getText(ref);
-
-    var fb = { ref: 'Philippians 4:6', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.' };
-    if (!ref || !text) {
-      ref = fb.ref;
-      text = fb.text;
-    }
-
     if (refEl) refEl.textContent = ref;
+    var textEl = document.getElementById('church-daily-text');
+    if (textEl) textEl.textContent = text;
+    if (!card) return;
     if (!card.querySelector('#church-daily-verse-text')) {
-      card.innerHTML = '' +
+      card.innerHTML =
         '<strong id="church-daily-verse-ref"></strong>' +
         '<p id="church-daily-verse-text"></p>';
     }
@@ -345,6 +331,40 @@
     if (cardRef) cardRef.textContent = ref;
     if (cardText) cardText.textContent = text;
     card.classList.add('verse-card-loaded');
+  }
+
+  function renderDailyVerse() {
+    var card = document.getElementById('church-daily-verse-card');
+    var refEl = document.getElementById('church-daily-ref');
+    if (!card && !refEl) return;
+
+    fetch('/today-kjv-verse.json', { cache: 'no-store' })
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (row) {
+        if (row && row.ref && row.text) {
+          paintOfficialDaily(String(row.ref), String(row.text));
+          return;
+        }
+        var ref = null;
+        var text = '';
+        var getRef = window.getDailyVerseRef || (typeof getDailyVerseRef === 'function' ? getDailyVerseRef : null);
+        var getText = window.getBibleVerseText || (typeof getBibleVerseText === 'function' ? getBibleVerseText : null);
+        var b = window.bible || (typeof bible !== 'undefined' ? bible : {});
+        if (getRef) ref = getRef();
+        if (ref && b[ref]) text = b[ref];
+        else if (getText && ref) text = getText(ref);
+        if (!ref || !text) {
+          ref = 'Psalm 96:2';
+          text = 'Sing unto the Lord, bless his name; shew forth his salvation from day to day.';
+        }
+        paintOfficialDaily(ref, text);
+      })
+      .catch(function () {
+        paintOfficialDaily(
+          'Psalm 96:2',
+          'Sing unto the Lord, bless his name; shew forth his salvation from day to day.'
+        );
+      });
   }
 
   function loadReflections(groupId) {

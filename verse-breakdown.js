@@ -244,6 +244,9 @@
     if (/psalm\s+118:24/.test(r) || /this is the day which the lord hath made/.test(lower)) {
       return 'The Lord made this day. Rejoice and be glad in it — even when the hours feel ordinary.';
     }
+    if (/psalm\s+96:2/.test(r) || /bless his name.*salvation from day to day/.test(lower)) {
+      return 'Bless the Lord’s name and show His salvation today, then again tomorrow — not a one-day song.';
+    }
     if (/begat|son of|daughter of|the generations of/i.test(body) && body.length < 180) {
       return 'This verse records real family lines in God’s story — names and people matter to Him.';
     }

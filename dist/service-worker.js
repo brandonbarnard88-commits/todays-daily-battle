@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260817-skysolar';
+const CACHE_NAME = 'tdb-cache-v20260817-skylife';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -151,10 +151,10 @@ const CORE_ASSETS = [
   '/kids/parent.html',
   '/kids/kids-battle.css',
   '/kids/kids-page-sky.css',
-  '/kids/kids-page-sky.css?v=20260326playful',
+  '/kids/kids-page-sky.css?v=20260817-skylife',
   '/kids/kids-page-sky.js',
   '/kids/kids-page-sky.js?v=20260326playful',
-  '/kids/kids-page-sky.js?v=20260817-skysolar',
+  '/kids/kids-page-sky.js?v=20260817-skylife',
   '/kids/kids-battle.js',
   '/kids/kids-verses-365.js',
   '/kids/kids-parent.js',

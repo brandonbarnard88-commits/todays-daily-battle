@@ -2069,7 +2069,7 @@
   {
     "ref": "1 Peter 1:3",
     "text": "Blessed be the God and Father of our Lord Jesus Christ, which according to his abundant mercy hath begotten us again unto a lively hope by the resurrection of Jesus Christ from the dead.",
-    "plain": "Blessed be the God and Father of our Lord Jesus Christ, which according to his abundant mercy.",
+    "plain": "God’s mercy has given us a living hope — not a mood, but new life because Jesus rose from the dead.",
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
     "about": "Peter",
     "to": "believers in suffering and hope",
@@ -2078,7 +2078,7 @@
   {
     "ref": "Psalm 97:11",
     "text": "Light is sown for the righteous, and gladness for the upright in heart.",
-    "plain": "Light is shining on the lovers of righteousness, and for the upright in heart there is joy.",
+    "plain": "For those who walk upright, God plants light and gladness — joy that grows, not a flash.",
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "All lands called to joyful worship",
@@ -2087,7 +2087,7 @@
   {
     "ref": "Psalm 98:1",
     "text": "O sing unto the Lord a new song; for he hath done marvellous things.",
-    "plain": "- A Psalm. - O make a new song to the Lord, because he has done works of wonder; with his right hand, and with his holy arm, he has overcome.",
+    "plain": "Sing a new song because the Lord has done wonders — praise that answers what He has already done.",
     "step": "Say the verse once out loud, then name the one weight it meets.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
@@ -2096,7 +2096,7 @@
   {
     "ref": "Hebrews 12:2",
     "text": "Looking unto Jesus the author and finisher of our faith.",
-    "plain": "Having our eyes fixed on Jesus, the guide and end of our faith, who went through the pains of the cross, not caring for the shame, because of the joy which was before him, and who has now taken his…",
+    "plain": "Keep your eyes on Jesus. He started this faith and He will finish it — even through the cross.",
     "step": "Take one small action today that matches what this verse asks.",
     "about": "The writer of Hebrews",
     "to": "Believers running with patience",
@@ -2105,7 +2105,7 @@
   {
     "ref": "Psalm 99:2",
     "text": "The Lord is great in Zion; and he is high above all the people.",
-    "plain": "The Lord is great in Zion; and he is high above all the people.",
+    "plain": "The Lord is great in Zion, high above every people — worship that knows who is actually King.",
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
@@ -2114,7 +2114,7 @@
   {
     "ref": "Isaiah 26:4",
     "text": "Trust ye in the Lord for ever: for in the Lord Jehovah is everlasting strength.",
-    "plain": "Let your hope be in the Lord for ever: for the Lord Jah is an unchanging Rock.",
+    "plain": "Trust the Lord for good, not for a moment. His strength does not run out.",
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "Isaiah",
     "to": "A people under threat who need God to reign",
@@ -2123,7 +2123,7 @@
   {
     "ref": "Psalm 100:1",
     "text": "Make a joyful noise unto the Lord, all ye lands.",
-    "plain": "- A Psalm of Praise. - Make a glad sound to the Lord, all the earth.",
+    "plain": "The whole earth is called to make a glad noise to the Lord — not a private whisper only.",
     "step": "When comparison rises, answer it with one truth from this verse.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
@@ -2132,7 +2132,7 @@
   {
     "ref": "Psalm 100:2",
     "text": "Serve the Lord with gladness: come before his presence with singing.",
-    "plain": "Give worship to the Lord with joy; come before him with a song.",
+    "plain": "Serve the Lord with gladness. Come into His presence with a song, not a dragged foot.",
     "step": "End the day by reading this verse again, without rushing.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
@@ -2150,7 +2150,7 @@
   {
     "ref": "Psalm 100:3",
     "text": "Know ye that the Lord he is God: it is he that hath made us, and not we ourselves.",
-    "plain": "Be certain that the Lord is God; it is he who has made us, and we are his; we are his people, and the sheep to whom he gives food.",
+    "plain": "Know this: the Lord is God. He made us. We are His people, not our own project.",
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
@@ -2159,7 +2159,7 @@
   {
     "ref": "Psalm 100:4",
     "text": "Enter into his gates with thanksgiving, and into his courts with praise.",
-    "plain": "Come into his doors with joy, and into his house with praise; give him honour, blessing his name.",
+    "plain": "Come in with thanks and praise. Bless His name as you enter — not after you feel ready.",
     "step": "Ask God what one step of obedience looks like before noon.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
@@ -2168,7 +2168,7 @@
   {
     "ref": "Luke 12:32",
     "text": "Fear not, little flock; for it is your Father's good pleasure to give you the kingdom.",
-    "plain": "You do not have to carry fear alone — bring it to God and let Him steady you — \"Do not be afraid, little flock\".",
+    "plain": "Do not be afraid, little flock. It is your Father’s pleasure to give you the kingdom — not a leftover scrap.",
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Jesus (through Luke)",
     "to": "Sinners and seekers (and you today)",
@@ -2177,7 +2177,7 @@
   {
     "ref": "Psalm 33:1",
     "text": "Rejoice in the Lord, O ye righteous: for praise is comely for the upright.",
-    "plain": "Be glad in the Lord, O doers of righteousness; for praise is beautiful for the upright.",
+    "plain": "Rejoice in the Lord. For the upright, praise is fitting — not extra, but right.",
     "step": "Leave one worry with God for ten minutes—set a timer if you need to.",
     "about": "David",
     "to": "The pressured and the repentant",
@@ -2186,7 +2186,7 @@
   {
     "ref": "Psalm 102:17",
     "text": "He will regard the prayer of the destitute, and not despise their prayer.",
-    "plain": "When he has given ear to the prayer of the poor, and has not put his request on one side.",
+    "plain": "He hears the prayer of the destitute. He does not despise the cry of the one who has nothing to bargain with.",
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
@@ -2195,7 +2195,7 @@
   {
     "ref": "Matthew 7:7",
     "text": "Ask, and it shall be given you; seek, and ye shall find.",
-    "plain": "Make a request, and it will be answered; what you are searching for you will get; give the sign, and the door will be open to you:.",
+    "plain": "Ask, seek, knock. The Father is not hiding from an honest request.",
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
@@ -2204,7 +2204,7 @@
   {
     "ref": "Psalm 103:1",
     "text": "Bless the Lord, O my soul: and all that is within me, bless his holy name.",
-    "plain": "- Of David. - Give praise to the Lord, O my soul; let everything in me give praise to his holy name.",
+    "plain": "Tell your own soul to bless the Lord — all that is in you, not only the polite part.",
     "step": "Take one small action today that matches what this verse asks.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
@@ -2213,7 +2213,7 @@
   {
     "ref": "Psalm 103:3",
     "text": "Who forgiveth all thine iniquities; who healeth all thy diseases.",
-    "plain": "He has forgiveness for all your sins; he takes away all your diseases;.",
+    "plain": "He forgives your sins and heals your diseases — mercy that deals with the real wound.",
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
@@ -2222,7 +2222,7 @@
   {
     "ref": "Philippians 2:13",
     "text": "For it is God which worketh in you both to will and to do of his good pleasure.",
-    "plain": "For it is God who is the cause of your desires and of your acts, for his good pleasure.",
+    "plain": "God is at work in you — both the wanting and the doing — for His good pleasure, not your grind.",
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
@@ -2231,7 +2231,7 @@
   {
     "ref": "Psalm 103:5",
     "text": "Who satisfieth thy mouth with good things; so that thy youth is renewed like the eagle's.",
-    "plain": "He makes your mouth full of good things, so that your strength is made new again like the eagle's.",
+    "plain": "He fills you with good things and renews your strength like the eagle — life given, not squeezed out.",
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
@@ -2240,7 +2240,7 @@
   {
     "ref": "Psalm 103:8",
     "text": "The Lord is merciful and gracious, slow to anger, and plenteous in mercy.",
-    "plain": "The Lord is kind and full of pity, not quickly made angry, but ever ready to have mercy.",
+    "plain": "The Lord is merciful and gracious, slow to anger, full of mercy — He is not quick to finish you.",
     "step": "End the day by reading this verse again, without rushing.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
@@ -2249,7 +2249,7 @@
   {
     "ref": "Proverbs 2:6",
     "text": "The Lord giveth wisdom: out of his mouth cometh knowledge.",
-    "plain": "For the Lord gives wisdom; out of his mouth come knowledge and reason:.",
+    "plain": "Wisdom is a gift from the Lord’s mouth — knowledge and understanding, not a private cleverness.",
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Solomon giving wisdom",
     "to": "Everyone seeking guidance",
@@ -2258,7 +2258,7 @@
   {
     "ref": "Psalm 103:11",
     "text": "For as the heaven is high above the earth, so great is his mercy toward them that fear him.",
-    "plain": "You do not have to carry fear alone — bring it to God and let Him steady you — \"For as the heaven is high above the earth, so great is\".",
+    "plain": "His mercy toward those who fear Him is as high as the heavens over the earth — not a thin layer.",
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
@@ -2267,7 +2267,7 @@
   {
     "ref": "Psalm 103:12",
     "text": "As far as the east is from the west, so far hath he removed our transgressions from us.",
-    "plain": "As far as the east is from the west, so far has he removed our transgressions from us.",
+    "plain": "He has moved our sins as far as east is from west — gone, not stored next door.",
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
@@ -2276,7 +2276,7 @@
   {
     "ref": "Romans 8:31",
     "text": "If God be for us, who can be against us?",
-    "plain": "What may we say about these things? If God is for us, who is against us?",
+    "plain": "If God is for us, who can stand against us? The last word is His, not the accuser’s.",
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
@@ -2285,7 +2285,7 @@
   {
     "ref": "Psalm 103:17",
     "text": "But the mercy of the Lord is from everlasting to everlasting upon them that fear him.",
-    "plain": "But the mercy of the Lord is eternal for his worshippers, and their children's children will see his righteousness;.",
+    "plain": "The Lord’s mercy lasts from everlasting to everlasting for those who fear Him — and it reaches their children.",
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
@@ -2294,7 +2294,7 @@
   {
     "ref": "Psalm 104:1",
     "text": "Bless the Lord, O my soul. O Lord my God, thou art very great.",
-    "plain": "Give praise to the Lord, O my soul. O Lord my God, you are very great; you are robed with honour and power.",
+    "plain": "Bless the Lord, O my soul. He is very great — honor and majesty are His, not ours.",
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
@@ -2312,7 +2312,7 @@
   {
     "ref": "Psalm 104:33",
     "text": "I will sing unto the Lord as long as I live: I will sing praise to my God while I have my being.",
-    "plain": "I will make songs to the Lord all my life; I will make melody to my God while I have my being.",
+    "plain": "I will sing to the Lord as long as I live — praise for the whole stretch of my days.",
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
@@ -2321,7 +2321,7 @@
   {
     "ref": "Psalm 105:1",
     "text": "O give thanks unto the Lord; call upon his name: make known his deeds among the people.",
-    "plain": "O give praise to the Lord; give honour to his name, talking of his doings among the peoples.",
+    "plain": "Give thanks, call on His name, and tell what He has done — so other people hear His deeds, not only you.",
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",

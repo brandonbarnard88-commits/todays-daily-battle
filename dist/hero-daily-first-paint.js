@@ -354,6 +354,9 @@
     if (/hope|trust|believe|faith|pray|cast|burden/.test(lower)) {
       return 'Hand the real weight to God. Trust that He hears and holds you.';
     }
+    if (/sing unto|worship|praise|joyful noise|give thanks|thanksgiving|glorify/.test(lower)) {
+      return 'Give God your attention and thanks — He is worthy of it.';
+    }
     if (/love|shepherd|save|salvation|rejoice|glad|joy|bless/.test(lower)) {
       return "God's care is for you today — something solid to hold when the day feels thin.";
     }

@@ -286,11 +286,11 @@
     if (/\bhope|trust|believe|faith|pray|prayer|cast.*care|burden\b/.test(lower)) {
       return framed('Hand the real weight to God. Trust that He hears and holds you.', modernShort);
     }
+    if (/\bworship|praise|sing unto|joyful noise|glorify|hallelujah|give thanks|thanksgiving\b/.test(lower)) {
+      return framed('Give God your attention and thanks — He is worthy of it.', modernShort);
+    }
     if (/\blove|charity|shepherd|save|salvation|rejoice|glad|joy|bless\b/.test(lower)) {
       return framed("God's care is for you today — something solid when the day feels thin.", modernShort);
-    }
-    if (/\bworship|praise|sing unto|glorify|hallelujah|give thanks|thanksgiving\b/.test(lower)) {
-      return framed('Give God your attention and thanks — He is worthy of it.', modernShort);
     }
     if (/\bwisdom|wise|understand|understanding|knowledge|instruction|proverb\b/.test(lower)) {
       return framed('Real wisdom starts with taking God seriously and walking in His way.', modernShort);

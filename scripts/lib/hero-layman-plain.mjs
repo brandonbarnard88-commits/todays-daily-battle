@@ -475,14 +475,14 @@ export function buildThemeLaymanPlain(ref, text) {
   if (/\bhope|trust|believe|faith|pray|prayer|cast.*care|burden\b/.test(lower)) {
     return withFrag('Hand the real weight to God. Trust that He hears and holds you.');
   }
+  if (/\bworship|praise|sing unto|joyful noise|glorify|hallelujah|give thanks|thanksgiving\b/.test(lower)) {
+    return withFrag('Give God your attention and thanks — He is worthy of it.');
+  }
   if (/\blove|charity|shepherd|save|salvation|rejoice|glad|joy|bless\b/.test(lower)) {
     return withFrag('God’s care is for you today — hold that truth when the day feels thin.');
   }
   if (/\brepent|turn ye|turn to the lord|return unto me\b/.test(lower)) {
     return withFrag('Turn back to God. He welcomes the one who comes home.');
-  }
-  if (/\bworship|praise|sing unto|glorify|hallelujah|give thanks|thanksgiving\b/.test(lower)) {
-    return withFrag('Give God your attention and thanks — He is worthy of it.');
   }
   if (/\bwisdom|wise|understand|understanding|knowledge|instruction\b/.test(lower)) {
     return withFrag('Real wisdom starts with taking God seriously and walking in His way.');

@@ -12,7 +12,8 @@
     "step": "Name the thing that feels too big. Then say: Christ strengthens me — and take only the next small step.",
     "about": "Paul",
     "to": "Friends in Philippi hearing a man in prison — and you when the next thing feels too big",
-    "setting": "Paul writes from a Roman prison to friends in Philippi. This line is not a boast about every goal — he can face whatever state he is in because Christ strengthens him."
+    "setting": "Paul writes from a Roman prison to friends in Philippi. This line is not a boast about every goal — he can face whatever state he is in because Christ strengthens him.",
+    "prayer": "Lord Jesus, the next thing feels too big. Strengthen me for this hour only. Amen."
   },
   {
     "ref": "Psalm 23:1",
@@ -21,7 +22,8 @@
     "step": "Say once: “The Lord is my shepherd.” Then hand Him one want you have been carrying.",
     "about": "David",
     "to": "Anyone who needs a Shepherd — and you when want is loud",
-    "setting": "David is singing of the Lord as his own shepherd — this first line says he shall not want, because the Shepherd Himself tends him."
+    "setting": "David is singing of the Lord as his own shepherd — this first line says he shall not want, because the Shepherd Himself tends him.",
+    "prayer": "Lord, You are my Shepherd. I bring You the want I have been carrying — tend me today. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:105",
@@ -30,7 +32,8 @@
     "step": "Write “a lamp unto my feet” where you will see the next doorway you walk through.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "A pilgrim who needs a lamp for the next step — and you when the rest of the road is dark",
-    "setting": "In the long acrostic love-song to God’s Word, this verse names the Word as a lamp for the feet — light for the next step, not always the whole road."
+    "setting": "In the long acrostic love-song to God’s Word, this verse names the Word as a lamp for the feet — light for the next step, not always the whole road.",
+    "prayer": "Lord, let Your word be a lamp for my next step — I do not need the whole road, only enough light to walk. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Chronicles 16:34",
@@ -39,7 +42,8 @@
     "step": "Give thanks out loud once: He is good; His mercy endures forever.",
     "about": "The chronicler (with David’s story)",
     "to": "The first hearers of “O give thanks unto the Lord” — and you when you have failed and still need to come",
-    "setting": "The ark has come to Jerusalem; David’s appointed singers give thanks. This verse is the refrain: give thanks, for He is good; His mercy endures forever."
+    "setting": "The ark has come to Jerusalem; David’s appointed singers give thanks. This verse is the refrain: give thanks, for He is good; His mercy endures forever.",
+    "prayer": "Lord, I give thanks: You are good, and Your mercy endures forever. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 46:10",
@@ -48,7 +52,8 @@
     "step": "Phone face down. Be still for sixty seconds. Say: I know that You are God.",
     "about": "The sons of Korah",
     "to": "A people in an earthquake of nations — and you when striving will not save the day",
-    "setting": "When the earth shakes and nations rage, this psalm says God is a present refuge — then this line stops the striving: be still, and know that He is God."
+    "setting": "When the earth shakes and nations rage, this psalm says God is a present refuge — then this line stops the striving: be still, and know that He is God.",
+    "prayer": "Lord, I stop striving. Be still my heart, and let me know that You are God. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 56:3",
@@ -57,7 +62,8 @@
     "step": "The next time fear shows up, do not wait: say, “What time I am afraid, I will trust in You.”",
     "about": "David",
     "to": "Worshipers who needed to hear “What time I am afraid, I will trust” — and you when fear is loud",
-    "setting": "David is hunted and afraid. This verse is the turn he makes in that hour: when I am afraid, I will trust in You — not later, now."
+    "setting": "David is hunted and afraid. This verse is the turn he makes in that hour: when I am afraid, I will trust in You — not later, now.",
+    "prayer": "Lord, what time I am afraid, I will trust in You — not later, now. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 16:13",
@@ -66,7 +72,8 @@
     "step": "Stop once today and return to these words: “Watch, stand fast in the faith, be strong.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Watch, stand fast in the faith, be” — and you when you need to hear “Watch, stand fast in the faith, be”",
-    "setting": "Paul is closing the Corinth letter after the resurrection chapter. This verse is the watch: stand fast in the faith; be strong."
+    "setting": "Paul is closing the Corinth letter after the resurrection chapter. This verse is the watch: stand fast in the faith; be strong.",
+    "prayer": "Lord, give me strength for this hour: “Watch you, stand fast in the faith, be strong”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 139:14",
@@ -75,7 +82,8 @@
     "step": "Look in the mirror once and say: I am fearfully and wonderfully made — not an accident.",
     "about": "David",
     "to": "Worshipers who needed to hear “I am fearfully and wonderfully made” — and you when fear is loud",
-    "setting": "David marvels that God searches him and formed him in the womb. This line is the wonder: he is fearfully and wonderfully made — not an accident."
+    "setting": "David marvels that God searches him and formed him in the womb. This line is the wonder: he is fearfully and wonderfully made — not an accident.",
+    "prayer": "Lord, I am fearfully and wonderfully made. Teach me to receive that as true today. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 34:8",
@@ -84,7 +92,8 @@
     "step": "Taste one concrete kindness of the Lord today — then say out loud that He is good.",
     "about": "David",
     "to": "Worshipers who needed to hear “O taste and see that the Lord is good” — and you when you need to hear “O taste and see that the Lord is good”",
-    "setting": "David, after escaping Abimelech, teaches the gathered: taste and see that the Lord is good — this is invitation, not a report from far off."
+    "setting": "David, after escaping Abimelech, teaches the gathered: taste and see that the Lord is good — this is invitation, not a report from far off.",
+    "prayer": "Lord, I taste and see that You are good. Let that be more than a sentence today. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 4:19",
@@ -93,7 +102,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “We love him, because he first loved us.”",
     "about": "John",
     "to": "The first hearers of “We love him, because he first loved us” — and you when love feels like a mood you cannot make",
-    "setting": "John is teaching the church why love is possible at all: we love Him because He first loved us — love starts with God, not with our effort."
+    "setting": "John is teaching the church why love is possible at all: we love Him because He first loved us — love starts with God, not with our effort.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “We love him, because he first loved us”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 100:5",
@@ -102,7 +112,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “The Lord is good.”",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "Worshipers who needed to hear “The Lord is good” — and you when you have failed and still need to come",
-    "setting": "Israel is being called through the gates with thanksgiving. This verse is why: the Lord is good, His mercy everlasting, His truth to all generations."
+    "setting": "Israel is being called through the gates with thanksgiving. This verse is why: the Lord is good, His mercy everlasting, His truth to all generations.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “The Lord is good”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 37:4",
@@ -111,7 +122,8 @@
     "step": "Stop once today and return to these words: “Delight thyself also in the Lord.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Delight thyself also in the Lord” — and you when you only have light for the next step",
-    "setting": "David is teaching people not to fret when the wicked prosper. This verse is the delight: delight yourself also in the Lord, and He will give you the desires of your heart."
+    "setting": "David is teaching people not to fret when the wicked prosper. This verse is the delight: delight yourself also in the Lord, and He will give you the desires of your heart.",
+    "prayer": "Lord, light the next step: “Delight thyself also in the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 5:7",
@@ -120,7 +132,8 @@
     "step": "Cast one real care on Him out loud — then leave it there, because He cares for you.",
     "about": "Peter",
     "to": "Elect exiles under a heavy hand — and you when the care is too much to carry",
-    "setting": "Peter is writing to elect exiles under pressure. This verse is the casting: cast all your care on Him, for He cares for you."
+    "setting": "Peter is writing to elect exiles under pressure. This verse is the casting: cast all your care on Him, for He cares for you.",
+    "prayer": "Lord, I cast this care on You, because You care for me. I leave it here. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 121:1-2",
@@ -129,7 +142,8 @@
     "step": "Keep this clause until the next meal: “I will lift up mine eyes unto the hills.”",
     "about": "A song of ascents writer",
     "to": "Worshipers who needed to hear “I will lift up mine eyes unto the hills” — and you when you need to hear “I will lift up mine eyes unto the hills”",
-    "setting": "A pilgrim song on the road up to Jerusalem. This verse lifts the eyes to the hills, then answers: help comes from the Lord, who made heaven and earth."
+    "setting": "A pilgrim song on the road up to Jerusalem. This verse lifts the eyes to the hills, then answers: help comes from the Lord, who made heaven and earth.",
+    "prayer": "Lord, let this word be true in me today: “I will lift up mine eyes unto the hills”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 18:2",
@@ -138,7 +152,8 @@
     "step": "Put your weight on this line for the next hour: “The Lord is my rock, and my fortress.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The Lord is my rock, and my fortress” — and you when you need somewhere that will hold",
-    "setting": "David’s great victory song after deliverance from Saul. This verse names the Lord as rock, fortress, and deliverer — the one he runs to."
+    "setting": "David’s great victory song after deliverance from Saul. This verse names the Lord as rock, fortress, and deliverer — the one he runs to.",
+    "prayer": "Lord, i put my weight on You: “The Lord is my rock, and my fortress”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Samuel 17:47",
@@ -147,7 +162,8 @@
     "step": "Name the giant in front of you. Then say: the battle is the Lord’s — and take only the step that is yours.",
     "about": "David (and the narrator)",
     "to": "Israel facing Goliath — and anyone facing a giant fear",
-    "setting": "David stands before Goliath and Saul’s frozen army. This line is the point of the fight: the battle is the Lord’s, not Israel’s to finish alone."
+    "setting": "David stands before Goliath and Saul’s frozen army. This line is the point of the fight: the battle is the Lord’s, not Israel’s to finish alone.",
+    "prayer": "Lord, this battle is Yours. I take only the step that is mine. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 16:11",
@@ -156,7 +172,8 @@
     "step": "Walk to the next doorway holding: “you wilt show me the path of life.”",
     "about": "David",
     "to": "Worshipers who needed to hear “you wilt show me the path of life” — and you when you only have light for the next step",
-    "setting": "David is trusting God with his portion and his cup. This verse is the path: You will show me the path of life; in Your presence is fullness of joy."
+    "setting": "David is trusting God with his portion and his cup. This verse is the path: You will show me the path of life; in Your presence is fullness of joy.",
+    "prayer": "Lord, light the next step: “you wilt shew me the path of life”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 118:24",
@@ -165,7 +182,8 @@
     "step": "Say out loud: this is the day the Lord has made. Then choose one glad act in it.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “This is the day which the Lord has made” — and you when gladness feels like a command you cannot feel",
-    "setting": "Israel is in the Hallel, thanking the Lord after being rescued. This verse is the day itself: this is the day the Lord has made; we will rejoice and be glad in it."
+    "setting": "Israel is in the Hallel, thanking the Lord after being rescued. This verse is the day itself: this is the day the Lord has made; we will rejoice and be glad in it.",
+    "prayer": "Lord, this is the day You have made. Teach me to rejoice and be glad in it. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Thessalonians 5:11",
@@ -174,7 +192,8 @@
     "step": "Keep this clause until the next meal: “Comfort yourselves together, and edify one.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Comfort yourselves together, and edify”",
-    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the line: Comfort yourselves together, and edify one another."
+    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the line: Comfort yourselves together, and edify one another.",
+    "prayer": "Lord, let this word be true in me today: “Comfort yourselves together, and edify one another”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 46:1",
@@ -183,7 +202,8 @@
     "step": "When the next alarm hits, say: God is my refuge and strength — a very present help.",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “God is our refuge and strength, a very” — and you when you need somewhere that will hold",
-    "setting": "The sons of Korah sing while the earth shakes: God is our refuge and strength, a very present help in trouble — not a distant one."
+    "setting": "The sons of Korah sing while the earth shakes: God is our refuge and strength, a very present help in trouble — not a distant one.",
+    "prayer": "Lord, i put my weight on You: “God is our refuge and strength, a very present help”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 27:1",
@@ -192,7 +212,8 @@
     "step": "When the next scare comes, say: the Lord is my light and my salvation; whom shall I fear?",
     "about": "David",
     "to": "Worshipers who needed to hear “The Lord is my light and my salvation” — and you when fear is loud",
-    "setting": "David is seeking the Lord’s face under pressure. This opening line is the light: the Lord is my light and my salvation; whom shall I fear?"
+    "setting": "David is seeking the Lord’s face under pressure. This opening line is the light: the Lord is my light and my salvation; whom shall I fear?",
+    "prayer": "Lord, You are my light and my salvation. Whom shall I fear today? In Jesus’ name, Amen."
   },
   {
     "ref": "1 Timothy 4:12",
@@ -201,7 +222,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Let no man despise your youth.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Let no man despise your youth” — and you when you need to hear “Let no man despise your youth”",
-    "setting": "Paul is coaching Timothy how to lead in Ephesus. This verse is the charge: let no one despise your youth; be an example in word, love, and faith."
+    "setting": "Paul is coaching Timothy how to lead in Ephesus. This verse is the charge: let no one despise your youth; be an example in word, love, and faith.",
+    "prayer": "Lord, let this word be true in me today: “Let no man despise your youth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 36:7",
@@ -210,7 +232,8 @@
     "step": "Do one concrete kindness today because of this: “How excellent is your lovingkindness, O God.”",
     "about": "David",
     "to": "Worshipers who needed to hear “How excellent is your lovingkindness, O” — and you when you need somewhere that will hold",
-    "setting": "David is contrasting the wicked with God’s mercy. This verse is the refuge: how excellent is Your lovingkindness; the children of men put their trust under Your wings."
+    "setting": "David is contrasting the wicked with God’s mercy. This verse is the refuge: how excellent is Your lovingkindness; the children of men put their trust under Your wings.",
+    "prayer": "Lord, i put my weight on You: “How excellent is your lovingkindness, O God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 4:7",
@@ -219,7 +242,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “you hast put gladness in my heart, more than.”",
     "about": "David",
     "to": "Worshipers who needed to hear “you hast put gladness in my heart, more” — and you when gladness feels like a command you cannot feel",
-    "setting": "David is crying out at night while opposed. This verse is the gift: You have put gladness in my heart, more than in the time their grain and wine increased."
+    "setting": "David is crying out at night while opposed. This verse is the gift: You have put gladness in my heart, more than in the time their grain and wine increased.",
+    "prayer": "Lord, let this word be true in me today: “you hast put gladness in my heart, more than”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 9:8",
@@ -228,7 +252,8 @@
     "step": "Keep this clause until the next meal: “And God is able to make all grace abound toward.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “And God is able to make all grace abound”",
-    "setting": "Paul is urging Corinth to give generously for the poor saints. This verse is the supply: God is able to make all grace abound, so you have enough for every good work."
+    "setting": "Paul is urging Corinth to give generously for the poor saints. This verse is the supply: God is able to make all grace abound, so you have enough for every good work.",
+    "prayer": "Lord, let this word be true in me today: “And God is able to make all grace abound toward you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 121:7",
@@ -237,7 +262,8 @@
     "step": "As you go out, say: the Lord shall preserve me from all evil — He keeps my soul.",
     "about": "A song of ascents writer",
     "to": "Worshipers who needed to hear “The Lord shall preserve you from all” — and you when you need to hear “The Lord shall preserve you from all”",
-    "setting": "A pilgrim song of ascent on the road up to Jerusalem. This verse is the keeping: the Lord shall preserve you from all evil — He keeps the soul."
+    "setting": "A pilgrim song of ascent on the road up to Jerusalem. This verse is the keeping: the Lord shall preserve you from all evil — He keeps the soul.",
+    "prayer": "Lord, let this word be true in me today: “The Lord shall preserve you from all evil”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Thessalonians 3:3",
@@ -246,7 +272,8 @@
     "step": "Keep this clause until the next meal: “The Lord is faithful, who shall stablish you.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “The Lord is faithful, who shall stablish” — and you when you need someone else to hold you steady",
-    "setting": "Paul steadies a shaken church about the day of the Lord and idle living. This verse is the line: The Lord is faithful, who shall stablish you, and keep you from evil."
+    "setting": "Paul steadies a shaken church about the day of the Lord and idle living. This verse is the line: The Lord is faithful, who shall stablish you, and keep you from evil.",
+    "prayer": "Lord, let this word be true in me today: “The Lord is faithful, who shall stablish you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 91:11",
@@ -255,7 +282,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “He shall give his angels charge over you.”",
     "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
     "to": "Worshipers who needed to hear “He shall give his angels charge over you” — and you when you need to hear “He shall give his angels charge over you”",
-    "setting": "This is the refuge psalm — dwelling in the secret place of the Most High. This verse says He gives His angels charge over you, to keep you in His ways."
+    "setting": "This is the refuge psalm — dwelling in the secret place of the Most High. This verse says He gives His angels charge over you, to keep you in His ways.",
+    "prayer": "Lord, let this word be true in me today: “He shall give his angels charge over you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 34:18",
@@ -264,7 +292,8 @@
     "step": "Stop once today and return to these words: “The Lord is nigh unto them that are of a broken.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The Lord is nigh unto them that are” — and you when the heart is still broken",
-    "setting": "David, after escaping Abimelech, teaches the gathered. This verse is the nearness: the Lord is near to the brokenhearted and saves those of a crushed spirit."
+    "setting": "David, after escaping Abimelech, teaches the gathered. This verse is the nearness: the Lord is near to the brokenhearted and saves those of a crushed spirit.",
+    "prayer": "Lord, let this word be true in me today: “The Lord is nigh unto them that are of a broken”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Timothy 1:7",
@@ -273,7 +302,8 @@
     "step": "When timidity rises, name it, then say: God has not given me the spirit of fear.",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “God has not given us the spirit of fear” — and you when fear is loud",
-    "setting": "Paul writes from prison to timid Timothy. This verse names the gift: God has not given a spirit of fear, but of power, love, and a sound mind."
+    "setting": "Paul writes from prison to timid Timothy. This verse names the gift: God has not given a spirit of fear, but of power, love, and a sound mind.",
+    "prayer": "Lord, You have not given me a spirit of fear. Give me power, love, and a sound mind today. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 27:14",
@@ -282,7 +312,8 @@
     "step": "Wait ten minutes before you force the next thing. Hold this: “Wait on the Lord: be of good courage.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Wait on the Lord: be of good courage” — and you when you are tired of forcing the next thing",
-    "setting": "David has been seeking the Lord’s face under pressure. This verse is the charge he gives his own soul: wait on the Lord; be of good courage."
+    "setting": "David has been seeking the Lord’s face under pressure. This verse is the charge he gives his own soul: wait on the Lord; be of good courage.",
+    "prayer": "Lord, teach me to wait. I hold “Wait on the Lord: be of good courage”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 32:8",
@@ -291,7 +322,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “I will instruct you and teach you in the way.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I will instruct you and teach you” — and you when you need to hear “I will instruct you and teach you”",
-    "setting": "David has confessed and been forgiven. This verse is the Lord’s answer: I will instruct you and teach you in the way you should go."
+    "setting": "David has confessed and been forgiven. This verse is the Lord’s answer: I will instruct you and teach you in the way you should go.",
+    "prayer": "Lord, let this word be true in me today: “I will instruct you and teach you in the way”. In Jesus’ name, Amen."
   },
   {
     "ref": "Colossians 3:23",
@@ -300,7 +332,8 @@
     "step": "Do the next ordinary task heartily, as to the Lord — not as a show for the person watching.",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Whatsoever you do, do it heartily, as”",
-    "setting": "Paul is teaching Colosse to set their minds above and put on love. This verse is the work: whatever you do, do it heartily, as to the Lord."
+    "setting": "Paul is teaching Colosse to set their minds above and put on love. This verse is the work: whatever you do, do it heartily, as to the Lord.",
+    "prayer": "Lord, I will do the next task heartily, as unto You — not as a show. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 37:5",
@@ -309,7 +342,8 @@
     "step": "Put your weight on this line for the next hour: “Commit your way unto the Lord.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Commit your way unto the Lord” — and you when you need somewhere that will hold",
-    "setting": "David is teaching people not to fret when the wicked prosper. This verse is the commit: commit your way unto the Lord; trust also in Him, and He shall bring it to pass."
+    "setting": "David is teaching people not to fret when the wicked prosper. This verse is the commit: commit your way unto the Lord; trust also in Him, and He shall bring it to pass.",
+    "prayer": "Lord, i put my weight on You: “Commit your way unto the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 145:9",
@@ -318,7 +352,8 @@
     "step": "Keep this clause until the next meal: “The Lord is good to all: and his tender mercies.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The Lord is good to all: and his tender” — and you when the next person will get your sharp edge",
-    "setting": "David is praising a forever kingdom. This verse is the wideness: the Lord is good to all, and His tender mercies are over all His works."
+    "setting": "David is praising a forever kingdom. This verse is the wideness: the Lord is good to all, and His tender mercies are over all His works.",
+    "prayer": "Lord, let this word be true in me today: “The Lord is good to all: and his tender mercies are”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 6:10",
@@ -327,7 +362,8 @@
     "step": "Ask God for strength for the next hour, using this line: “Be strong in the Lord, and in the power.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Be strong in the Lord, and in the power”",
-    "setting": "Paul — Walk worthy: unity, purity, marriage, and the armor of God against spiritual war. This verse is the charge: Be strong in the Lord, and in the power of his might."
+    "setting": "Paul — Walk worthy: unity, purity, marriage, and the armor of God against spiritual war. This verse is the charge: Be strong in the Lord, and in the power of his might.",
+    "prayer": "Lord, give me strength for this hour: “Be strong in the Lord, and in the power”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 103:13",
@@ -336,7 +372,8 @@
     "step": "When fear returns, speak this once: “Like as a father pitieth his children, so.” Then take the next small step.",
     "about": "David",
     "to": "Worshipers who needed to hear “Like as a father pitieth his children, so” — and you when fear is loud",
-    "setting": "David is blessing the Lord who forgives and crowns with mercy. This verse is the father-heart: as a father pities his children, so the Lord pities those who fear Him."
+    "setting": "David is blessing the Lord who forgives and crowns with mercy. This verse is the father-heart: as a father pities his children, so the Lord pities those who fear Him.",
+    "prayer": "Lord, when fear rises, hold me with “Like as a father pitieth his children, so the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 9:1",
@@ -345,7 +382,8 @@
     "step": "Say this praise out loud once: “I will praise you, O Lord, with my whole heart.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I will praise you, O Lord, with my whole” — and you when praise has to last past the morning",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the song: I will praise you, O Lord, with my whole heart."
+    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the song: I will praise you, O Lord, with my whole heart.",
+    "prayer": "Lord, i bless Your name with these words: “I will praise you, O Lord, with my whole heart”. In Jesus’ name, Amen."
   },
   {
     "ref": "Galatians 5:22",
@@ -354,7 +392,8 @@
     "step": "Ask the Spirit to grow one fruit today — love, joy, or peace — in one real conversation.",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “The fruit of the Spirit is love, joy” — and you when love feels like a mood you cannot make",
-    "setting": "Paul is teaching Galatia freedom in the Spirit, not a return to the law. This verse names the fruit: love, joy, peace, and the rest that the Spirit grows."
+    "setting": "Paul is teaching Galatia freedom in the Spirit, not a return to the law. This verse names the fruit: love, joy, peace, and the rest that the Spirit grows.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “The fruit of the Spirit is love, joy, peace”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 19:14",
@@ -363,7 +402,8 @@
     "step": "Write this where you will see it: “Let the words of my mouth be acceptable.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Let the words of my mouth be acceptable” — and you when you need a path, not a feeling",
-    "setting": "David has just praised God in the sky and in the law. This last line is the prayer: let the words of my mouth and the meditation of my heart be acceptable."
+    "setting": "David has just praised God in the sky and in the law. This last line is the prayer: let the words of my mouth and the meditation of my heart be acceptable.",
+    "prayer": "Lord, write this on my path today: “Let the words of my mouth be acceptable”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 28:7",
@@ -372,7 +412,8 @@
     "step": "Ask God for strength for the next hour, using this line: “The Lord is my strength and my shield.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The Lord is my strength and my shield” — and you when you have no more push left",
-    "setting": "David is crying for help against the wicked. This verse is the turn: the Lord is his strength and shield; his heart trusted, and he is helped."
+    "setting": "David is crying for help against the wicked. This verse is the turn: the Lord is his strength and shield; his heart trusted, and he is helped.",
+    "prayer": "Lord, i put my weight on You: “The Lord is my strength and my shield”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 13:6",
@@ -381,7 +422,8 @@
     "step": "When fear returns, speak this once: “The Lord is my helper, and I will not fear.” Then take the next small step.",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “The Lord is my helper, and I will not” — and you when fear is loud",
-    "setting": "The writer of Hebrews is telling a pressured church how to live. This verse is the bold line: the Lord is my helper, and I will not fear what man can do."
+    "setting": "The writer of Hebrews is telling a pressured church how to live. This verse is the bold line: the Lord is my helper, and I will not fear what man can do.",
+    "prayer": "Lord, when fear rises, hold me with “The Lord is my helper, and I will not fear”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 31:24",
@@ -390,7 +432,8 @@
     "step": "Ask God for strength for the next hour, using this line: “Be of good courage, and he shall strengthen.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Be of good courage, and he shall” — and you when you have no more push left",
-    "setting": "David commits his spirit to God under pressure. This verse is the charge: Be of good courage, and he shall strengthen your heart."
+    "setting": "David commits his spirit to God under pressure. This verse is the charge: Be of good courage, and he shall strengthen your heart.",
+    "prayer": "Lord, give me strength for this hour: “Be of good courage, and he shall strengthen”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 33:4",
@@ -399,7 +442,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The word of the Lord is right.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The word of the Lord is right” — and you when you need a path, not a feeling",
-    "setting": "David is calling for a new song of praise. This verse is why: the word of the Lord is right, and all His works are done in truth."
+    "setting": "David is calling for a new song of praise. This verse is why: the word of the Lord is right, and all His works are done in truth.",
+    "prayer": "Lord, write this on my path today: “The word of the Lord is right”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 41:10",
@@ -408,7 +452,8 @@
     "step": "When fear speaks, answer: fear not, for I am with you. Then take the next step with that hold.",
     "about": "Isaiah (the Lord speaking)",
     "to": "The first people who had to hear “Fear you not; for I am with you” — and you when fear is loud",
-    "setting": "Isaiah speaks for the Lord to fearful exiles. This line is the hold: fear not, for I am with you — I will strengthen you and uphold you."
+    "setting": "Isaiah speaks for the Lord to fearful exiles. This line is the hold: fear not, for I am with you — I will strengthen you and uphold you.",
+    "prayer": "Lord, I will not fear. You are with me — strengthen me and uphold me. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 40:1",
@@ -417,7 +462,8 @@
     "step": "Stop once today and return to these words: “I waited patiently for the Lord.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I waited patiently for the Lord” — and you when you are tired of forcing the next thing",
-    "setting": "David has been in the pit and waited. This verse is the waiting: I waited patiently for the Lord, and He inclined unto me and heard my cry."
+    "setting": "David has been in the pit and waited. This verse is the waiting: I waited patiently for the Lord, and He inclined unto me and heard my cry.",
+    "prayer": "Lord, teach me to wait. I hold “I waited patiently for the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 42:11",
@@ -426,7 +472,8 @@
     "step": "Say this praise out loud once: “Hope you in God: for I shall yet praise him.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “Hope you in God: for I shall yet praise” — and you when praise has to last past the morning",
-    "setting": "The sons of Korah are talking a downcast soul back toward hope. This verse is the self-talk: hope in God, for I shall yet praise Him."
+    "setting": "The sons of Korah are talking a downcast soul back toward hope. This verse is the self-talk: hope in God, for I shall yet praise Him.",
+    "prayer": "Lord, i bless Your name with these words: “Hope you in God: for I shall yet praise him”. In Jesus’ name, Amen."
   },
   {
     "ref": "James 1:5",
@@ -435,7 +482,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “If any of you lack wisdom, let him ask of God.”",
     "about": "James",
     "to": "The first hearers of “If any of you lack wisdom, let him ask” — and you when the Father feels hidden",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the ask: If any of you lack wisdom, let him ask of God, that giveth to all men."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the ask: If any of you lack wisdom, let him ask of God, that giveth to all men.",
+    "prayer": "Lord, hear this as my whole request: “If any of you lack wisdom, let him ask of God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 55:22",
@@ -444,7 +492,8 @@
     "step": "Stop once today and return to these words: “Cast your burden upon the Lord, and he shall.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Cast your burden upon the Lord, and he” — and you when you need to hear “Cast your burden upon the Lord, and he”",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the line: Cast your burden upon the Lord, and he shall sustain you."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the line: Cast your burden upon the Lord, and he shall sustain you.",
+    "prayer": "Lord, let this word be true in me today: “Cast your burden upon the Lord, and he shall sustain”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 59:16",
@@ -453,7 +502,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “I will sing of your power.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I will sing of your power” — and you when you have failed and still need to come",
-    "setting": "David is under Saul’s pursuit. This verse is the morning song: I will sing of Your power; yes, I will sing aloud of Your mercy in the morning."
+    "setting": "David is under Saul’s pursuit. This verse is the morning song: I will sing of Your power; yes, I will sing aloud of Your mercy in the morning.",
+    "prayer": "Lord, i bless Your name with these words: “I will sing of your power”. In Jesus’ name, Amen."
   },
   {
     "ref": "Jeremiah 29:11",
@@ -462,7 +512,8 @@
     "step": "Tell God you will not demand tomorrow. Then thank Him that His thoughts toward you are peace, and a future.",
     "about": "Jeremiah (the word of the Lord)",
     "to": "Exiles in Babylon, not going home tomorrow — and you when the future feels cancelled",
-    "setting": "Jeremiah writes to exiles in Babylon, not to a people going home tomorrow. This verse is God’s thought toward them: plans of peace, and a future."
+    "setting": "Jeremiah writes to exiles in Babylon, not to a people going home tomorrow. This verse is God’s thought toward them: plans of peace, and a future.",
+    "prayer": "Lord, I will not demand tomorrow. Hold me in Your thoughts of peace and a future. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 63:5",
@@ -471,7 +522,8 @@
     "step": "Say this praise out loud once: “My soul shall be satisfied as with marrow.”",
     "about": "David",
     "to": "Worshipers who needed to hear “My soul shall be satisfied as with marrow” — and you when praise has to last past the morning",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: My soul shall be satisfied as with marrow and fatness."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: My soul shall be satisfied as with marrow and fatness.",
+    "prayer": "Lord, i bless Your name with these words: “My soul shall be satisfied as with marrow”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 14:27",
@@ -480,7 +532,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “Peace I leave with you, my peace I give unto.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Peace I leave with you, my peace I give” — and you when your mind will not sit down",
-    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “Peace I leave with you, my peace I give unto you.”."
+    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “Peace I leave with you, my peace I give unto you.”.",
+    "prayer": "Lord, still my heart with “Peace I leave with you, my peace I give unto you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 62:5",
@@ -489,7 +542,8 @@
     "step": "Wait ten minutes before you force the next thing. Hold this: “My soul, wait you only upon God.”",
     "about": "David",
     "to": "Worshipers who needed to hear “My soul, wait you only upon God” — and you when you are tired of forcing the next thing",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the wait: My soul, wait you only upon God."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the wait: My soul, wait you only upon God.",
+    "prayer": "Lord, teach me to wait. I hold “My soul, wait you only upon God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 66:20",
@@ -498,7 +552,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed be God, which has not turned away.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Blessed be God, which has not turned” — and you when praise has to last past the morning",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: Blessed be God, which has not turned away my prayer."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: Blessed be God, which has not turned away my prayer.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed be God, which has not turned away”. In Jesus’ name, Amen."
   },
   {
     "ref": "Joshua 1:9",
@@ -507,7 +562,8 @@
     "step": "Before the hard room, say: be strong and of a good courage; the Lord is with me wherever I go.",
     "about": "The Lord",
     "to": "Joshua at the edge of a land without Moses — and you when the new season is too big",
-    "setting": "Joshua has just taken command after Moses’ death. This verse is the charge: be strong and of a good courage; the Lord your God is with you wherever you go."
+    "setting": "Joshua has just taken command after Moses’ death. This verse is the charge: be strong and of a good courage; the Lord your God is with you wherever you go.",
+    "prayer": "Lord, make me strong and of good courage. You are with me wherever I go. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 68:19",
@@ -516,7 +572,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed be the Lord, who daily loadeth us.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Blessed be the Lord, who daily loadeth us” — and you when praise has to last past the morning",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: Blessed be the Lord, who daily loadeth us with benefits."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: Blessed be the Lord, who daily loadeth us with benefits.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed be the Lord, who daily loadeth us”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 71:14",
@@ -525,7 +582,8 @@
     "step": "Say this praise out loud once: “I will hope continually, and will yet praise.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I will hope continually, and will yet” — and you when praise has to last past the morning",
-    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the song: I will hope continually, and will yet praise you more and more."
+    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the song: I will hope continually, and will yet praise you more and more.",
+    "prayer": "Lord, i bless Your name with these words: “I will hope continually, and will yet praise you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 11:28",
@@ -534,7 +592,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed are they that hear the word of God.”",
     "about": "Jesus (through Luke)",
     "to": "The people in front of Jesus when He said “Blessed are they that hear the word” — and you when praise has to last past the morning",
-    "setting": "A woman has just blessed Jesus’ mother. He answers with this verse: blessed are they that hear the word of God and keep it."
+    "setting": "A woman has just blessed Jesus’ mother. He answers with this verse: blessed are they that hear the word of God and keep it.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed are they that hear the word of God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 73:26",
@@ -543,7 +602,8 @@
     "step": "Stop once today and return to these words: “God is the strength of my heart, and my portion.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “God is the strength of my heart” — and you when you have no more push left",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the charge: God is the strength of my heart, and my portion for ever."
+    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the charge: God is the strength of my heart, and my portion for ever.",
+    "prayer": "Lord, give me strength for this hour: “God is the strength of my heart, and my portion”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 86:5",
@@ -552,7 +612,8 @@
     "step": "Do one concrete kindness today because of this: “For you, Lord, art good, and ready to forgive.”",
     "about": "David",
     "to": "Worshipers who needed to hear “For you, Lord, art good, and ready” — and you when you have failed and still need to come",
-    "setting": "David — God is good and ready to forgive. This verse is the mercy: For you, Lord, art good, and ready to forgive."
+    "setting": "David — God is good and ready to forgive. This verse is the mercy: For you, Lord, art good, and ready to forgive.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “For you, Lord, art good, and ready to forgive”. In Jesus’ name, Amen."
   },
   {
     "ref": "Mark 9:23",
@@ -561,7 +622,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “All things are possible to him that believeth.”",
     "about": "Jesus (through Mark)",
     "to": "The people in front of Jesus when He said “All things are possible to him” — and you when you need to hear “All things are possible to him”",
-    "setting": "Jesus is in this moment — teaching on greatness and the cross. He says, “All things are possible to him that believeth.”."
+    "setting": "Jesus is in this moment — teaching on greatness and the cross. He says, “All things are possible to him that believeth.”.",
+    "prayer": "Lord, let this word be true in me today: “All things are possible to him that believeth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 90:17",
@@ -570,7 +632,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “And let the beauty of the Lord our God be upon.”",
     "about": "Moses — a prayer of the man of God",
     "to": "Worshipers who needed to hear “And let the beauty of the Lord our God be” — and you when you need someone else to hold you steady",
-    "setting": "Moses numbers our short days and asks God to establish the work of our hands. This verse is the line: And let the beauty of the Lord our God be upon us: and establish you."
+    "setting": "Moses numbers our short days and asks God to establish the work of our hands. This verse is the line: And let the beauty of the Lord our God be upon us: and establish you.",
+    "prayer": "Lord, let this word be true in me today: “And let the beauty of the Lord our God be upon us”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 94:19",
@@ -579,7 +642,8 @@
     "step": "Stop once today and return to these words: “In the multitude of my thoughts within me.”",
     "about": "An unnamed psalm of Israel — a cry against unjust thrones, then mercy when the foot slips",
     "to": "Worshipers who needed to hear “In the multitude of my thoughts within me” — and you when you only have light for the next step",
-    "setting": "An unnamed psalm of Israel — A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot. This verse is the light: In the multitude of my thoughts within me your comforts delight."
+    "setting": "An unnamed psalm of Israel — A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot. This verse is the light: In the multitude of my thoughts within me your comforts delight.",
+    "prayer": "Lord, light the next step: “In the multitude of my thoughts within me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 19:14",
@@ -588,7 +652,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Suffer little children to come unto me.”",
     "about": "Jesus (through Matthew)",
     "to": "Disciples on the road to the cross",
-    "setting": "Jesus is on the road, blessing children the disciples wanted sent away. This verse is His word: let the little children come; do not forbid them."
+    "setting": "Jesus is on the road, blessing children the disciples wanted sent away. This verse is His word: let the little children come; do not forbid them.",
+    "prayer": "Lord, let this word be true in me today: “Suffer little children to come unto me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 103:2",
@@ -597,7 +662,8 @@
     "step": "Name one benefit you almost forgot. Then bless the Lord, O my soul — do not forget it.",
     "about": "David",
     "to": "Worshipers who needed to hear “Bless the Lord, O my soul, and forget not” — and you when praise has to last past the morning",
-    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse is the song: Bless the Lord, O my soul, and forget not all his benefits."
+    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse is the song: Bless the Lord, O my soul, and forget not all his benefits.",
+    "prayer": "Lord, i bless Your name with these words: “Bless the Lord, O my soul, and forget not all”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 103:4",
@@ -606,7 +672,8 @@
     "step": "Do one concrete kindness today because of this: “Who redeemeth your life from destruction.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Who redeemeth your life from destruction” — and you when the next person will get your sharp edge",
-    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse is the rescue: Who redeemeth your life from destruction."
+    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse is the rescue: Who redeemeth your life from destruction.",
+    "prayer": "Lord, show me Your salvation again today: “Who redeemeth your life from destruction”. In Jesus’ name, Amen."
   },
   {
     "ref": "Nahum 1:7",
@@ -615,7 +682,8 @@
     "step": "When the day is trouble, run to Him as a strong hold. Say: the Lord is good, and He knows them that trust Him.",
     "about": "Nahum",
     "to": "The first people who had to hear “The Lord is good, a strong hold” — and you when you need to hear “The Lord is good, a strong hold”",
-    "setting": "Nahum is announcing judgment on Nineveh’s cruelty. In the same breath this verse says the Lord is good, a strong hold in the day of trouble for those who trust Him."
+    "setting": "Nahum is announcing judgment on Nineveh’s cruelty. In the same breath this verse says the Lord is good, a strong hold in the day of trouble for those who trust Him.",
+    "prayer": "Lord, give me strength for this hour: “The Lord is good, a strong hold in the day”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 107:1",
@@ -624,7 +692,8 @@
     "step": "Say this praise out loud once: “O give thanks unto the Lord, for he is good.”",
     "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
     "to": "Worshipers who needed to hear “O give thanks unto the Lord, for he is” — and you when praise has to last past the morning",
-    "setting": "The redeemed of the Lord — Book V opens: the redeemed from trouble give thanks. This verse is the song: O give thanks unto the Lord, for he is good."
+    "setting": "The redeemed of the Lord — Book V opens: the redeemed from trouble give thanks. This verse is the song: O give thanks unto the Lord, for he is good.",
+    "prayer": "Lord, i bless Your name with these words: “O give thanks unto the Lord, for he is good”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 118:6",
@@ -633,7 +702,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The Lord is on my side.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “The Lord is on my side” — and you when fear is loud",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: The Lord is on my side."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: The Lord is on my side.",
+    "prayer": "Lord, when fear rises, hold me with “The Lord is on my side”. In Jesus’ name, Amen."
   },
   {
     "ref": "Nehemiah 8:10",
@@ -642,7 +712,8 @@
     "step": "If the Word has made you weep, eat something, then say: the joy of the Lord is my strength.",
     "about": "Ezra and Nehemiah",
     "to": "A people hearing God’s Word again",
-    "setting": "Ezra has read the law; the people are weeping. Nehemiah tells them this day is holy — the joy of the Lord is their strength, not their tears alone."
+    "setting": "Ezra has read the law; the people are weeping. Nehemiah tells them this day is holy — the joy of the Lord is their strength, not their tears alone.",
+    "prayer": "Lord, if Your Word has made me weep, let Your joy be my strength. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 118:14",
@@ -651,7 +722,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The Lord is my strength and song.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “The Lord is my strength and song” — and you when you have no more push left",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the charge: The Lord is my strength and song."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the charge: The Lord is my strength and song.",
+    "prayer": "Lord, give me strength for this hour: “The Lord is my strength and song”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:24",
@@ -660,7 +732,8 @@
     "step": "Carry this clause in your mouth until noon: “your testimonies also are my delight.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “your testimonies also are my delight” — and you when you only have light for the next step",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: your testimonies also are my delight and my counsellors."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: your testimonies also are my delight and my counsellors.",
+    "prayer": "Lord, write this on my path today: “your testimonies also are my delight”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 3:5",
@@ -669,7 +742,8 @@
     "step": "Name one plan you have been leaning on. Hand it to the Lord, and do not lean on your own understanding for the next hour.",
     "about": "Solomon giving wisdom",
     "to": "A son learning not to lean on his own mind — and you when the plan looks smarter than trust",
-    "setting": "Solomon is teaching his son the fear of the Lord. This verse is the trust: trust in the Lord with all your heart, and do not lean on your own understanding."
+    "setting": "Solomon is teaching his son the fear of the Lord. This verse is the trust: trust in the Lord with all your heart, and do not lean on your own understanding.",
+    "prayer": "Lord, I stop leaning on my own understanding. I trust You with this plan. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:50",
@@ -678,7 +752,8 @@
     "step": "Write this where you will see it: “This is my comfort in my affliction:.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “This is my comfort in my affliction:” — and you when you need a path, not a feeling",
-    "setting": "Still in the long love-song to God’s Word, this verse is the comfort: this is my comfort in my affliction, for Your word has given me life."
+    "setting": "Still in the long love-song to God’s Word, this verse is the comfort: this is my comfort in my affliction, for Your word has given me life.",
+    "prayer": "Lord, write this on my path today: “This is my comfort in my affliction: for your word”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:76",
@@ -687,7 +762,8 @@
     "step": "Pray this line as your whole request: “Let, I pray you, your merciful kindness be.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “Let, I pray you, your merciful kindness” — and you when the request is still in your chest",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the ask: Let, I pray you, your merciful kindness be for my comfort."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the ask: Let, I pray you, your merciful kindness be for my comfort.",
+    "prayer": "Lord, hear this as my whole request: “Let, I pray you, your merciful kindness be”. In Jesus’ name, Amen."
   },
   {
     "ref": "Revelation 3:20",
@@ -696,7 +772,8 @@
     "step": "Open the door in prayer: tell Him He may come in. Then sit still as if He did.",
     "about": "John (from Jesus Christ)",
     "to": "Laodicea at the door — and you when He is knocking and the latch is still yours",
-    "setting": "John on Patmos writes the risen Christ’s letter to Laodicea. This verse is the knock: He stands at the door and knocks; if anyone opens, He will come in."
+    "setting": "John on Patmos writes the risen Christ’s letter to Laodicea. This verse is the knock: He stands at the door and knocks; if anyone opens, He will come in.",
+    "prayer": "Lord Jesus, You are at the door. I open. Come in. Amen."
   },
   {
     "ref": "Psalm 119:165",
@@ -705,7 +782,8 @@
     "step": "Do one concrete kindness today because of this: “Great peace have they which love your law.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “Great peace have they which love your law” — and you when love feels like a mood you cannot make",
-    "setting": "In the acrostic love-song to God’s Word, this verse is the peace: great peace have they which love Your law, and nothing shall offend them."
+    "setting": "In the acrostic love-song to God’s Word, this verse is the peace: great peace have they which love Your law, and nothing shall offend them.",
+    "prayer": "Lord, write this on my path today: “Great peace have they which love your law”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 8:28",
@@ -714,7 +792,8 @@
     "step": "Name one hard thing. Then say: God is working this together for good to them that love Him.",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “All things work together for good to them” — and you when love feels like a mood you cannot make",
-    "setting": "Paul is teaching Rome about life in the Spirit and a groaning creation. This verse is the working: all things work together for good to them that love God."
+    "setting": "Paul is teaching Rome about life in the Spirit and a groaning creation. This verse is the working: all things work together for good to them that love God.",
+    "prayer": "Lord, work this hard thing together for good. I love You — help me trust the working. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 121:3",
@@ -723,7 +802,8 @@
     "step": "Keep this clause until the next meal: “He will not suffer your foot to be moved.”",
     "about": "A song of ascents writer",
     "to": "Worshipers who needed to hear “He will not suffer your foot to be moved” — and you when you need to hear “He will not suffer your foot to be moved”",
-    "setting": "A song of ascents writer — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: He will not suffer your foot to be moved."
+    "setting": "A song of ascents writer — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: He will not suffer your foot to be moved.",
+    "prayer": "Lord, let this word be true in me today: “He will not suffer your foot to be moved”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 121:8",
@@ -732,7 +812,8 @@
     "step": "Stop once today and return to these words: “The Lord shall preserve your going out.”",
     "about": "A song of ascents writer",
     "to": "Worshipers who needed to hear “The Lord shall preserve your going out” — and you when you need to hear “The Lord shall preserve your going out”",
-    "setting": "Still on the ascent road: the Lord shall preserve your going out and your coming in, from this time forth and even forevermore."
+    "setting": "Still on the ascent road: the Lord shall preserve your going out and your coming in, from this time forth and even forevermore.",
+    "prayer": "Lord, let this word be true in me today: “The Lord shall preserve your going out”. In Jesus’ name, Amen."
   },
   {
     "ref": "Zephaniah 3:17",
@@ -741,7 +822,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The Lord your God in the midst of you is mighty.”",
     "about": "Zephaniah",
     "to": "Judah in the day of the Lord",
-    "setting": "Zephaniah has warned of the day of the Lord. This verse is the remnant’s rest: the Lord in the midst of you is mighty; He will save and rejoice over you."
+    "setting": "Zephaniah has warned of the day of the Lord. This verse is the remnant’s rest: the Lord in the midst of you is mighty; He will save and rejoice over you.",
+    "prayer": "Lord, give me strength for this hour: “The Lord your God in the midst of you is mighty”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 138:3",
@@ -750,7 +832,8 @@
     "step": "Stop once today and return to these words: “In the day when I cried you answeredst me.”",
     "about": "David",
     "to": "Worshipers who needed to hear “In the day when I cried you answeredst” — and you when you have no more push left",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the charge: In the day when I cried you answeredst me, and strengthenedst me."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the charge: In the day when I cried you answeredst me, and strengthenedst me.",
+    "prayer": "Lord, give me strength for this hour: “In the day when I cried you answeredst me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 143:8",
@@ -759,7 +842,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “Cause me to hear your lovingkindness.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Cause me to hear your lovingkindness” — and you when the day has not started clean",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Cause me to hear your lovingkindness in the morning."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Cause me to hear your lovingkindness in the morning.",
+    "prayer": "Lord, let this word be true in me today: “Cause me to hear your lovingkindness in the morning”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 13:4",
@@ -768,7 +852,8 @@
     "step": "Do one concrete kindness today because of this: “Charity suffereth long, and is kind.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Charity suffereth long, and is kind” — and you when the next person will get your sharp edge",
-    "setting": "Paul — The Lord’s Supper and spiritual gifts. This verse is the call: Charity suffereth long, and is kind."
+    "setting": "Paul — The Lord’s Supper and spiritual gifts. This verse is the call: Charity suffereth long, and is kind.",
+    "prayer": "Lord, let this word be true in me today: “Charity suffereth long, and is kind”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 145:18",
@@ -777,7 +862,8 @@
     "step": "Keep this clause until the next meal: “The Lord is nigh unto all them that call upon.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The Lord is nigh unto all them that call” — and you when you need to hear “The Lord is nigh unto all them that call”",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: The Lord is nigh unto all them that call upon him."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: The Lord is nigh unto all them that call upon him.",
+    "prayer": "Lord, let this word be true in me today: “The Lord is nigh unto all them that call upon him”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 147:3",
@@ -786,7 +872,8 @@
     "step": "Keep this clause until the next meal: “He healeth the broken in heart, and bindeth up.”",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "Worshipers who needed to hear “He healeth the broken in heart” — and you when the heart is still broken",
-    "setting": "Israel’s closing Hallelujah — Final Hallelujah chorus: trust not in princes. This verse is the line: He healeth the broken in heart, and bindeth up their wounds."
+    "setting": "Israel’s closing Hallelujah — Final Hallelujah chorus: trust not in princes. This verse is the line: He healeth the broken in heart, and bindeth up their wounds.",
+    "prayer": "Lord, let this word be true in me today: “He healeth the broken in heart, and bindeth up”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 5:11",
@@ -795,7 +882,8 @@
     "step": "Keep this clause until the next meal: “And this is the record, that God has given.”",
     "about": "John",
     "to": "The first hearers of “And this is the record, that God has” — and you when you need to hear “And this is the record, that God has”",
-    "setting": "John is writing that eternal life is in the Son. This verse is the record: God has given us eternal life, and this life is in His Son."
+    "setting": "John is writing that eternal life is in the Son. This verse is the record: God has given us eternal life, and this life is in His Son.",
+    "prayer": "Lord, let this word be true in me today: “And this is the record, that God has given to us”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 150:6",
@@ -804,7 +892,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Let every thing that has breath praise.”",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "Worshipers who needed to hear “Let every thing that has breath praise” — and you when praise has to last past the morning",
-    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the song: Let every thing that has breath praise the Lord."
+    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the song: Let every thing that has breath praise the Lord.",
+    "prayer": "Lord, i bless Your name with these words: “Let every thing that has breath praise the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 145:16",
@@ -813,7 +902,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “you openest your hand, and satisfiest.”",
     "about": "David",
     "to": "Worshipers who needed to hear “you openest your hand, and satisfiest” — and you when you need to hear “you openest your hand, and satisfiest”",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: you openest your hand, and satisfiest the desire of every living."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: you openest your hand, and satisfiest the desire of every living.",
+    "prayer": "Lord, let this word be true in me today: “you openest your hand, and satisfiest the desire”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 1:8",
@@ -822,7 +912,8 @@
     "step": "Do one concrete kindness today because of this: “Whom having not seen, you love.”",
     "about": "Peter",
     "to": "The first hearers of “Whom having not seen, you love” — and you when love feels like a mood you cannot make",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the call: Whom having not seen, you love."
+    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the call: Whom having not seen, you love.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Whom having not seen, you love”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 84:12",
@@ -831,7 +922,8 @@
     "step": "Before the next task, bless His name with these words: “O Lord of hosts, blessed is the man.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “O Lord of hosts, blessed is the man” — and you when you need somewhere that will hold",
-    "setting": "The sons of Korah — the Lord is sun and shield. This verse is the song: O Lord of hosts, blessed is the man that trusteth in you."
+    "setting": "The sons of Korah — the Lord is sun and shield. This verse is the song: O Lord of hosts, blessed is the man that trusteth in you.",
+    "prayer": "Lord, i bless Your name with these words: “O Lord of hosts, blessed is the man that trusteth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 4:8",
@@ -840,7 +932,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “I will both lay me down in peace, and sleep:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I will both lay me down in peace” — and you when your mind will not sit down",
-    "setting": "David cries out while hunted or opposed. This verse is the rest: I will both lay me down in peace, and sleep: for you, Lord, only."
+    "setting": "David cries out while hunted or opposed. This verse is the rest: I will both lay me down in peace, and sleep: for you, Lord, only.",
+    "prayer": "Lord, still my heart with “I will both lay me down in peace, and sleep”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Thessalonians 5:16",
@@ -849,7 +942,8 @@
     "step": "Stop once today and return to these words: “Rejoice evermore.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Rejoice evermore” — and you when gladness feels like a command you cannot feel",
-    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the gladness: Rejoice evermore."
+    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the gladness: Rejoice evermore.",
+    "prayer": "Lord, let this word be true in me today: “Rejoice evermore”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 5:3",
@@ -858,7 +952,8 @@
     "step": "Keep this clause until the next meal: “My voice shall you hear in the morning, O Lord.”",
     "about": "David",
     "to": "Worshipers who needed to hear “My voice shall you hear in the morning” — and you when the day has not started clean",
-    "setting": "David cries out while hunted or opposed. This verse is the line: My voice shall you hear in the morning, O Lord."
+    "setting": "David cries out while hunted or opposed. This verse is the line: My voice shall you hear in the morning, O Lord.",
+    "prayer": "Lord, let this word be true in me today: “My voice shalt you hear in the morning, O Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 6:9",
@@ -867,7 +962,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The Lord has heard my supplication.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The Lord has heard my supplication” — and you when the request is still in your chest",
-    "setting": "David is crying out in trouble and tears. This verse is the turn: the Lord has heard my supplication; the Lord will receive my prayer."
+    "setting": "David is crying out in trouble and tears. This verse is the turn: the Lord has heard my supplication; the Lord will receive my prayer.",
+    "prayer": "Lord, hear this as my whole request: “The Lord has heard my supplication”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 5:7",
@@ -876,7 +972,8 @@
     "step": "Stop once today and return to these words: “We walk by faith, not by sight.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “We walk by faith, not by sight” — and you when you need to hear “We walk by faith, not by sight”",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: We walk by faith, not by sight."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: We walk by faith, not by sight.",
+    "prayer": "Lord, let this word be true in me today: “We walk by faith, not by sight”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 7:10",
@@ -885,7 +982,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “My defence is of God, which saveth the upright.”",
     "about": "David",
     "to": "Worshipers who needed to hear “My defence is of God, which saveth” — and you when you need rescue that is still good today",
-    "setting": "David cries out while hunted or opposed. This verse is the rescue: My defence is of God, which saveth the upright in heart."
+    "setting": "David cries out while hunted or opposed. This verse is the rescue: My defence is of God, which saveth the upright in heart.",
+    "prayer": "Lord, show me Your salvation again today: “My defence is of God, which saveth the upright”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 8:2",
@@ -894,7 +992,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Out of the mouth of babes and sucklings hast.”",
     "about": "David",
     "to": "Anyone who feels small under the heavens",
-    "setting": "David is looking at the night sky and human smallness. This verse says strength is ordained out of the mouth of babes — praise that stills the enemy."
+    "setting": "David is looking at the night sky and human smallness. This verse says strength is ordained out of the mouth of babes — praise that stills the enemy.",
+    "prayer": "Lord, give me strength for this hour: “Out of the mouth of babes and sucklings hast you”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Timothy 2:15",
@@ -903,7 +1002,8 @@
     "step": "Keep this clause until the next meal: “Study to show thyself approved unto God.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Study to show thyself approved unto God”",
-    "setting": "Paul’s last letter from prison: fan the gift. This verse is the line: Study to show thyself approved unto God, a workman that needeth not."
+    "setting": "Paul’s last letter from prison: fan the gift. This verse is the line: Study to show thyself approved unto God, a workman that needeth not.",
+    "prayer": "Lord, let this word be true in me today: “Study to shew thyself approved unto God, a workman”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 10:17",
@@ -912,7 +1012,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Lord, you hast heard the desire of the humble:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Lord, you hast heard the desire” — and you when you need to hear “Lord, you hast heard the desire”",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the line: Lord, you hast heard the desire of the humble: you wilt prepare."
+    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the line: Lord, you hast heard the desire of the humble: you wilt prepare.",
+    "prayer": "Lord, let this word be true in me today: “Lord, you hast heard the desire of the humble”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 11:7",
@@ -921,7 +1022,8 @@
     "step": "Keep this clause until the next meal: “The righteous Lord loveth righteousness.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The righteous Lord loveth righteousness” — and you when you need to hear “The righteous Lord loveth righteousness”",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the line: The righteous Lord loveth righteousness."
+    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the line: The righteous Lord loveth righteousness.",
+    "prayer": "Lord, let this word be true in me today: “The righteous Lord loveth righteousness”. In Jesus’ name, Amen."
   },
   {
     "ref": "Colossians 3:12",
@@ -930,7 +1032,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Put on therefore, as the elect of God, bowels.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Put on therefore, as the elect of God” — and you when the next person will get your sharp edge",
-    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the line: Put on therefore, as the elect of God, bowels of mercies, kindness,."
+    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the line: Put on therefore, as the elect of God, bowels of mercies, kindness,.",
+    "prayer": "Lord, let this word be true in me today: “Put on therefore, as the elect of God, bowels”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 12:6",
@@ -939,7 +1042,8 @@
     "step": "Carry this clause in your mouth until noon: “The words of the Lord are pure words.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The words of the Lord are pure words” — and you when you need a path, not a feeling",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the path: The words of the Lord are pure words."
+    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the path: The words of the Lord are pure words.",
+    "prayer": "Lord, write this on my path today: “The words of the Lord are pure words”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 2:10",
@@ -948,7 +1052,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “We are his workmanship, created in Christ Jesus.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “We are his workmanship, created in Christ”",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the line: We are his workmanship, created in Christ Jesus unto good works."
+    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the line: We are his workmanship, created in Christ Jesus unto good works.",
+    "prayer": "Lord, let this word be true in me today: “We are his workmanship, created in Christ Jesus”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 13:5",
@@ -957,7 +1062,8 @@
     "step": "Put your weight on this line for the next hour: “I have trusted in your mercy.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I have trusted in your mercy” — and you when you need somewhere that will hold",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the hold: I have trusted in your mercy."
+    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the hold: I have trusted in your mercy.",
+    "prayer": "Lord, i put my weight on You: “I have trusted in your mercy”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 14:5",
@@ -966,7 +1072,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “God is in the generation of the righteous.”",
     "about": "David",
     "to": "Worshipers who needed to hear “God is in the generation of the righteous” — and you when you need to hear “God is in the generation of the righteous”",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the line: God is in the generation of the righteous."
+    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the line: God is in the generation of the righteous.",
+    "prayer": "Lord, let this word be true in me today: “God is in the generation of the righteous”. In Jesus’ name, Amen."
   },
   {
     "ref": "Galatians 6:9",
@@ -975,7 +1082,8 @@
     "step": "Keep this clause until the next meal: “Let us not be weary in well doing: for in due.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Let us not be weary in well doing” — and you when you need to hear “Let us not be weary in well doing”",
-    "setting": "Paul — bearing one another’s burdens. This verse is the line: Let us not be weary in well doing: for in due season we shall reap."
+    "setting": "Paul — bearing one another’s burdens. This verse is the line: Let us not be weary in well doing: for in due season we shall reap.",
+    "prayer": "Lord, let this word be true in me today: “Let us not be weary in well doing: for in due”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 17:6",
@@ -984,7 +1092,8 @@
     "step": "Stop once today and return to these words: “I have called upon you, for you wilt hear me.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I have called upon you, for you wilt” — and you when you need to hear “I have called upon you, for you wilt”",
-    "setting": "David — Who may dwell with God. This verse is the line: I have called upon you, for you wilt hear me, O God."
+    "setting": "David — Who may dwell with God. This verse is the line: I have called upon you, for you wilt hear me, O God.",
+    "prayer": "Lord, let this word be true in me today: “I have called upon you, for you wilt hear me, O”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 20:4",
@@ -993,7 +1102,8 @@
     "step": "Keep this clause until the next meal: “Grant you according to your own heart.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Grant you according to your own heart” — and you when you need to hear “Grant you according to your own heart”",
-    "setting": "David — Royal prayers for the king’s victory and thanksgiving for God’s strength. This verse is the line: Grant you according to your own heart, and fulfil all your counsel."
+    "setting": "David — Royal prayers for the king’s victory and thanksgiving for God’s strength. This verse is the line: Grant you according to your own heart, and fulfil all your counsel.",
+    "prayer": "Lord, let this word be true in me today: “Grant you according to your own heart, and fulfil”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 11:1",
@@ -1002,7 +1112,8 @@
     "step": "Stop once today and return to these words: “Faith is the substance of things hoped.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “Faith is the substance of things hoped” — and you when hope has worn thin",
-    "setting": "The writer of Hebrews — practical holiness and praise. This verse is the hope: Faith is the substance of things hoped."
+    "setting": "The writer of Hebrews — practical holiness and praise. This verse is the hope: Faith is the substance of things hoped.",
+    "prayer": "Lord, let this word be true in me today: “Faith is the substance of things hoped”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 22:4",
@@ -1011,7 +1122,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Our fathers trusted in you: they trusted.”",
     "about": "David",
     "to": "The suffering righteous (and all who look to Christ)",
-    "setting": "A sufferer’s cry of forsakenness that turns to praise — later fulfilled at the cross."
+    "setting": "A sufferer’s cry of forsakenness that turns to praise — later fulfilled at the cross.",
+    "prayer": "Lord, i put my weight on You: “Our fathers trusted in you: they trusted, and you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 25:4",
@@ -1020,7 +1132,8 @@
     "step": "Stop once today and return to these words: “show me your ways, O Lord.”",
     "about": "David",
     "to": "Worshipers who needed to hear “show me your ways, O Lord” — and you when you need to hear “show me your ways, O Lord”",
-    "setting": "David — the Lord is his light and strength. This verse is the line: show me your ways, O Lord."
+    "setting": "David — the Lord is his light and strength. This verse is the line: show me your ways, O Lord.",
+    "prayer": "Lord, light the next step: “Shew me your ways, O Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 40:31",
@@ -1029,7 +1142,8 @@
     "step": "Wait five minutes before you force the next thing. Say: they that wait upon the Lord shall renew their strength.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary exiles who thought God had fainted — and you when strength has run out",
-    "setting": "Isaiah is comforting weary exiles that God does not faint. This verse is the renewal: they that wait upon the Lord shall renew their strength."
+    "setting": "Isaiah is comforting weary exiles that God does not faint. This verse is the renewal: they that wait upon the Lord shall renew their strength.",
+    "prayer": "Lord, I wait on You. Renew my strength — I have no more push left. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 25:5",
@@ -1038,7 +1152,8 @@
     "step": "Name one place His salvation is still good, then say: “Lead me in your truth, and teach me: for you.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Lead me in your truth, and teach me:” — and you when you need rescue that is still good today",
-    "setting": "David seeks guidance, forgiveness, and help against false friends. This verse is the rescue: Lead me in your truth, and teach me: for you art the God."
+    "setting": "David seeks guidance, forgiveness, and help against false friends. This verse is the rescue: Lead me in your truth, and teach me: for you art the God.",
+    "prayer": "Lord, show me Your salvation again today: “Lead me in your truth, and teach me: for you art”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 26:1",
@@ -1047,7 +1162,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “I have trusted also in the Lord.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I have trusted also in the Lord” — and you when you need somewhere that will hold",
-    "setting": "David — the Lord is his light and strength. This verse is the hold: I have trusted also in the Lord."
+    "setting": "David — the Lord is his light and strength. This verse is the hold: I have trusted also in the Lord.",
+    "prayer": "Lord, i put my weight on You: “I have trusted also in the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "James 1:17",
@@ -1056,7 +1172,8 @@
     "step": "Stop once today and return to these words: “Every good gift and every perfect gift is.”",
     "about": "James",
     "to": "The first hearers of “Every good gift and every perfect gift is” — and you when you need to hear “Every good gift and every perfect gift is”",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the line: Every good gift and every perfect gift is from above."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the line: Every good gift and every perfect gift is from above.",
+    "prayer": "Lord, let this word be true in me today: “Every good gift and every perfect gift is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 29:11",
@@ -1065,7 +1182,8 @@
     "step": "Say this praise out loud once: “The Lord will give strength unto his people.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The Lord will give strength unto” — and you when your mind will not sit down",
-    "setting": "David — The voice of the Lord over the waters. This verse is the song: The Lord will give strength unto his people."
+    "setting": "David — The voice of the Lord over the waters. This verse is the song: The Lord will give strength unto his people.",
+    "prayer": "Lord, i bless Your name with these words: “The Lord will give strength unto his people”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 30:5",
@@ -1074,7 +1192,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Weeping may endure for a night, but joy comes.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Weeping may endure for a night, but joy” — and you when gladness feels like a command you cannot feel",
-    "setting": "David — The voice of the Lord over the waters. This verse is the gladness: Weeping may endure for a night, but joy comes in the morning."
+    "setting": "David — The voice of the Lord over the waters. This verse is the gladness: Weeping may endure for a night, but joy comes in the morning.",
+    "prayer": "Lord, let this word be true in me today: “Weeping may endure for a night, but joy cometh”. In Jesus’ name, Amen."
   },
   {
     "ref": "Jeremiah 17:7",
@@ -1083,7 +1202,8 @@
     "step": "Say this praise out loud once: “Blessed is the man that trusteth in the Lord.”",
     "about": "Jeremiah",
     "to": "The first people who had to hear “Blessed is the man that trusteth” — and you when you need somewhere that will hold",
-    "setting": "Jeremiah faces plots, loneliness, and the cost of speaking God’s word. This verse is the song: Blessed is the man that trusteth in the Lord."
+    "setting": "Jeremiah faces plots, loneliness, and the cost of speaking God’s word. This verse is the song: Blessed is the man that trusteth in the Lord.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed is the man that trusteth in the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 31:3",
@@ -1092,7 +1212,8 @@
     "step": "When you want another rescue, return to: “For you art my rock and my fortress.”",
     "about": "David",
     "to": "Worshipers who needed to hear “For you art my rock and my fortress” — and you when you need somewhere that will hold",
-    "setting": "David is committing himself to God under pressure. This verse is the rock: You are my rock and my fortress; therefore for Your name’s sake lead me and guide me."
+    "setting": "David is committing himself to God under pressure. This verse is the rock: You are my rock and my fortress; therefore for Your name’s sake lead me and guide me.",
+    "prayer": "Lord, i put my weight on You: “For you art my rock and my fortress”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 33:18",
@@ -1101,7 +1222,8 @@
     "step": "Name the fear, then answer it with: “Behold, the eye of the Lord is upon them.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Behold, the eye of the Lord is upon them” — and you when fear is loud",
-    "setting": "David commits his spirit to God under pressure. This verse is the hold: Behold, the eye of the Lord is upon them that fear him."
+    "setting": "David commits his spirit to God under pressure. This verse is the hold: Behold, the eye of the Lord is upon them that fear him.",
+    "prayer": "Lord, when fear rises, hold me with “Behold, the eye of the Lord is upon them that fear”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 3:16",
@@ -1110,7 +1232,8 @@
     "step": "Thank God out loud that He gave His Son. Then name one person you want to believe that too.",
     "about": "Jesus",
     "to": "Nicodemus in the night — and you when you need to know God actually loved the world",
-    "setting": "Jesus is talking with Nicodemus at night about new birth. This verse is the heart of it: God so loved the world that He gave His only Son."
+    "setting": "Jesus is talking with Nicodemus at night about new birth. This verse is the heart of it: God so loved the world that He gave His only Son.",
+    "prayer": "Father, thank You for giving Your Son. Help me believe that love is for me today. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 34:4",
@@ -1119,7 +1242,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “I sought the Lord, and he heard me.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I sought the Lord, and he heard me” — and you when fear is loud",
-    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the hold: I sought the Lord, and he heard me, and delivered me from all."
+    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the hold: I sought the Lord, and he heard me, and delivered me from all.",
+    "prayer": "Lord, when fear rises, hold me with “I sought the Lord, and he heard me, and delivered”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 34:7",
@@ -1128,7 +1252,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The angel of the Lord encampeth round about.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The angel of the Lord encampeth round” — and you when fear is loud",
-    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the hold: The angel of the Lord encampeth round about them that fear him,."
+    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the hold: The angel of the Lord encampeth round about them that fear him,.",
+    "prayer": "Lord, when fear rises, hold me with “The angel of the Lord encampeth round about them”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 1:37",
@@ -1137,7 +1262,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “With God nothing shall be impossible.”",
     "about": "Gabriel (and ultimately God)",
     "to": "The people in front of Jesus when He said “With God nothing shall be impossible” — and you when you need to hear “With God nothing shall be impossible”",
-    "setting": "Gabriel — the child grows in favor with God and man. This verse is the line: With God nothing shall be impossible."
+    "setting": "Gabriel — the child grows in favor with God and man. This verse is the line: With God nothing shall be impossible.",
+    "prayer": "Lord, let this word be true in me today: “With God nothing shall be impossible”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 34:9",
@@ -1146,7 +1272,8 @@
     "step": "Name the fear, then answer it with: “O fear the Lord, you his saints: for there is no.”",
     "about": "David",
     "to": "Worshipers who needed to hear “O fear the Lord, you his saints: for there” — and you when fear is loud",
-    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the hold: O fear the Lord, you his saints: for there is no want to them."
+    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the hold: O fear the Lord, you his saints: for there is no want to them.",
+    "prayer": "Lord, when fear rises, hold me with “O fear the Lord, you his saints: for there is no”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 35:9",
@@ -1155,7 +1282,8 @@
     "step": "Stop once today and return to these words: “And my soul shall be joyful in the Lord.”",
     "about": "David",
     "to": "Worshipers who needed to hear “And my soul shall be joyful in the Lord” — and you when gladness feels like a command you cannot feel",
-    "setting": "David — delight in the Lord. This verse is the gladness: And my soul shall be joyful in the Lord."
+    "setting": "David — delight in the Lord. This verse is the gladness: And my soul shall be joyful in the Lord.",
+    "prayer": "Lord, let this word be true in me today: “And my soul shall be joyful in the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Mark 10:27",
@@ -1164,7 +1292,8 @@
     "step": "Stop once today and return to these words: “With God all things are possible.”",
     "about": "Jesus (through Mark)",
     "to": "The people in front of Jesus when He said “With God all things are possible” — and you when you need to hear “With God all things are possible”",
-    "setting": "Jesus — teaching on greatness and the cross. This verse is the line: With God all things are possible."
+    "setting": "Jesus — teaching on greatness and the cross. This verse is the line: With God all things are possible.",
+    "prayer": "Lord, let this word be true in me today: “With God all things are possible”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 36:5",
@@ -1173,7 +1302,8 @@
     "step": "Do one concrete kindness today because of this: “your mercy, O Lord, is in the heavens.”",
     "about": "David",
     "to": "Worshipers who needed to hear “your mercy, O Lord, is in the heavens” — and you when you have failed and still need to come",
-    "setting": "David — delight in the Lord. This verse is the mercy: your mercy, O Lord, is in the heavens."
+    "setting": "David — delight in the Lord. This verse is the mercy: your mercy, O Lord, is in the heavens.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “your mercy, O Lord, is in the heavens”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 6:26",
@@ -1182,7 +1312,8 @@
     "step": "Stop once today and return to these words: “Behold the fowls of the air: your heavenly.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Behold the fowls of the air” — and you when you need to hear “Behold the fowls of the air”",
-    "setting": "Jesus is on the mount teaching people not to worry. This verse points at the birds: your heavenly Father feeds them — you are worth more than they."
+    "setting": "Jesus is on the mount teaching people not to worry. This verse points at the birds: your heavenly Father feeds them — you are worth more than they.",
+    "prayer": "Lord, let this word be true in me today: “Behold the fowls of the air: your heavenly Father”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 37:3",
@@ -1191,7 +1322,8 @@
     "step": "When you want another rescue, return to: “Trust in the Lord, and do good.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Trust in the Lord, and do good” — and you when you need somewhere that will hold",
-    "setting": "David — delight in the Lord. This verse is the hold: Trust in the Lord, and do good."
+    "setting": "David — delight in the Lord. This verse is the hold: Trust in the Lord, and do good.",
+    "prayer": "Lord, i put my weight on You: “Trust in the Lord, and do good”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 37:7",
@@ -1200,7 +1332,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Rest in the Lord, and wait patiently for him.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Rest in the Lord, and wait patiently” — and you when you are tired of forcing the next thing",
-    "setting": "David — delight in the Lord. This verse is the wait: Rest in the Lord, and wait patiently for him."
+    "setting": "David — delight in the Lord. This verse is the wait: Rest in the Lord, and wait patiently for him.",
+    "prayer": "Lord, teach me to wait. I hold “Rest in the Lord, and wait patiently for him”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 4:6",
@@ -1209,7 +1342,8 @@
     "step": "Tell God one request out loud, then thank Him for one thing before you pick the worry back up.",
     "about": "Paul",
     "to": "A church told not to be anxious — and you when the request is still in your chest",
-    "setting": "Paul writes from prison: do not be anxious — in everything, by prayer and thanksgiving, let your requests be made known to God."
+    "setting": "Paul writes from prison: do not be anxious — in everything, by prayer and thanksgiving, let your requests be made known to God.",
+    "prayer": "Father, here is my request. I thank You before I pick the worry back up. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 37:23",
@@ -1218,7 +1352,8 @@
     "step": "Keep this clause until the next meal: “The steps of a good man are ordered by the Lord.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The steps of a good man are ordered” — and you when you need to hear “The steps of a good man are ordered”",
-    "setting": "David — delight in the Lord. This verse is the line: The steps of a good man are ordered by the Lord."
+    "setting": "David — delight in the Lord. This verse is the line: The steps of a good man are ordered by the Lord.",
+    "prayer": "Lord, let this word be true in me today: “The steps of a good man are ordered by the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 37:25",
@@ -1227,7 +1362,8 @@
     "step": "Stop once today and return to these words: “I have been young, and now am old.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I have been young, and now am old” — and you when you need to hear “I have been young, and now am old”",
-    "setting": "David prays against unjust attackers. This verse is the line: I have been young, and now am old."
+    "setting": "David prays against unjust attackers. This verse is the line: I have been young, and now am old.",
+    "prayer": "Lord, let this word be true in me today: “I have been young, and now am old”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 17:22",
@@ -1236,7 +1372,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “A merry heart doeth good like a medicine.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “A merry heart doeth good like a medicine” — and you when you need to hear “A merry heart doeth good like a medicine”",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: A merry heart doeth good like a medicine."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: A merry heart doeth good like a medicine.",
+    "prayer": "Lord, let this word be true in me today: “A merry heart doeth good like a medicine”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 37:39",
@@ -1245,7 +1382,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The salvation of the righteous is of the Lord:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The salvation of the righteous is” — and you when you have no more push left",
-    "setting": "David — delight in the Lord. This verse is the charge: The salvation of the righteous is of the Lord: he is their strength."
+    "setting": "David — delight in the Lord. This verse is the charge: The salvation of the righteous is of the Lord: he is their strength.",
+    "prayer": "Lord, give me strength for this hour: “The salvation of the righteous is of the Lord: he”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 40:3",
@@ -1254,7 +1392,8 @@
     "step": "Before the next task, bless His name with these words: “And he has put a new song in my mouth, even.”",
     "about": "David",
     "to": "Worshipers who needed to hear “And he has put a new song in my mouth” — and you when praise has to last past the morning",
-    "setting": "David in sickness, sin-awareness, and waiting. This verse is the song: And he has put a new song in my mouth, even praise unto our God."
+    "setting": "David in sickness, sin-awareness, and waiting. This verse is the song: And he has put a new song in my mouth, even praise unto our God.",
+    "prayer": "Lord, i bless Your name with these words: “And he has put a new song in my mouth, even praise”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 15:13",
@@ -1263,7 +1402,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The God of hope fill you with all joy and peace.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “The God of hope fill you with all joy” — and you when your mind will not sit down",
-    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the gladness: The God of hope fill you with all joy and peace."
+    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the gladness: The God of hope fill you with all joy and peace.",
+    "prayer": "Lord, still my heart with “The God of hope fill you with all joy and peace”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 40:4",
@@ -1272,7 +1412,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed is that man that maketh the Lord.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Blessed is that man that maketh the Lord” — and you when you need somewhere that will hold",
-    "setting": "David in sickness, sin-awareness, and waiting. This verse is the song: Blessed is that man that maketh the Lord his trust."
+    "setting": "David in sickness, sin-awareness, and waiting. This verse is the song: Blessed is that man that maketh the Lord his trust.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed is that man that maketh the Lord his trust”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 41:1",
@@ -1281,7 +1422,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed is he that considereth the poor:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Blessed is he that considereth the poor:” — and you when praise has to last past the morning",
-    "setting": "David — Book I closes with the blessedness of the one who considers the poor. This verse is the song: Blessed is he that considereth the poor: the Lord will deliver him."
+    "setting": "David — Book I closes with the blessedness of the one who considers the poor. This verse is the song: Blessed is he that considereth the poor: the Lord will deliver him.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed is he that considereth the poor: the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 13:13",
@@ -1290,7 +1432,8 @@
     "step": "Keep this clause until the next meal: “And now abideth faith, hope, charity, these.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “And now abideth faith, hope, charity” — and you when hope has worn thin",
-    "setting": "Paul — The Lord’s Supper and spiritual gifts. This verse is the call: And now abideth faith, hope, charity, these three."
+    "setting": "Paul — The Lord’s Supper and spiritual gifts. This verse is the call: And now abideth faith, hope, charity, these three.",
+    "prayer": "Lord, let this word be true in me today: “And now abideth faith, hope, charity, these three”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 43:3",
@@ -1299,7 +1442,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “O send out your light and your truth: let them.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “O send out your light and your truth: let” — and you when you only have light for the next step",
-    "setting": "The sons of Korah — Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope. This verse is the light: O send out your light and your truth: let them lead me."
+    "setting": "The sons of Korah — Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope. This verse is the light: O send out your light and your truth: let them lead me.",
+    "prayer": "Lord, light the next step: “O send out your light and your truth: let them lead”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 43:4",
@@ -1308,7 +1452,8 @@
     "step": "Keep this clause until the next meal: “Then will I go unto the altar of God, unto God.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “Then will I go unto the altar of God” — and you when gladness feels like a command you cannot feel",
-    "setting": "The sons of Korah — Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope. This verse is the gladness: Then will I go unto the altar of God, unto God my exceeding joy."
+    "setting": "The sons of Korah — Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope. This verse is the gladness: Then will I go unto the altar of God, unto God my exceeding joy.",
+    "prayer": "Lord, let this word be true in me today: “Then will I go unto the altar of God, unto God”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 3:1",
@@ -1317,7 +1462,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “Behold, what manner of love the Father has.”",
     "about": "John",
     "to": "The first hearers of “Behold, what manner of love the Father” — and you when love feels like a mood you cannot make",
-    "setting": "John marvels that the Father calls us children of God, and says real love must show in deed and. This verse is the call: Behold, what manner of love the Father has bestowed upon us."
+    "setting": "John marvels that the Father calls us children of God, and says real love must show in deed and. This verse is the call: Behold, what manner of love the Father has bestowed upon us.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Behold, what manner of love the Father has”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 44:8",
@@ -1326,7 +1472,8 @@
     "step": "Say this praise out loud once: “In God we boast all the day long, and praise.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “In God we boast all the day long” — and you when praise has to last past the morning",
-    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the song: In God we boast all the day long, and praise your name for ever."
+    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the song: In God we boast all the day long, and praise your name for ever.",
+    "prayer": "Lord, i bless Your name with these words: “In God we boast all the day long, and praise”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 46:7",
@@ -1335,7 +1482,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The Lord of hosts is with us.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “The Lord of hosts is with us” — and you when you need somewhere that will hold",
-    "setting": "The sons of Korah sing while nations rage. This verse is the refrain: the Lord of hosts is with us; the God of Jacob is our refuge."
+    "setting": "The sons of Korah sing while nations rage. This verse is the refrain: the Lord of hosts is with us; the God of Jacob is our refuge.",
+    "prayer": "Lord, i put my weight on You: “The Lord of hosts is with us”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 2:9",
@@ -1344,7 +1492,8 @@
     "step": "Stop once today and return to these words: “Ye are a chosen generation, a royal priesthood.”",
     "about": "Peter",
     "to": "The first hearers of “Ye are a chosen generation, a royal” — and you when you have forgotten who you are",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the line: Ye are a chosen generation, a royal priesthood, an holy nation."
+    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the line: Ye are a chosen generation, a royal priesthood, an holy nation.",
+    "prayer": "Lord, let this word be true in me today: “Ye are a chosen generation, a royal priesthood, an”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 47:1",
@@ -1353,7 +1502,8 @@
     "step": "Keep this clause until the next meal: “O clap your hands, all you people.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “O clap your hands, all you people” — and you when you need to hear “O clap your hands, all you people”",
-    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the line: O clap your hands, all you people."
+    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the line: O clap your hands, all you people.",
+    "prayer": "Lord, let this word be true in me today: “O clap your hands, all you people”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 48:14",
@@ -1362,7 +1512,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For this God is our God for ever and ever: he.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “For this God is our God for ever” — and you when you need to hear “For this God is our God for ever”",
-    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the line: For this God is our God for ever and ever: he will be our guide even."
+    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the line: For this God is our God for ever and ever: he will be our guide even.",
+    "prayer": "Lord, let this word be true in me today: “For this God is our God for ever and ever: he will”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Thessalonians 5:17",
@@ -1371,7 +1522,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Pray without ceasing.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Pray without ceasing” — and you when praise has to last past the morning",
-    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the song: Pray without ceasing."
+    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the song: Pray without ceasing.",
+    "prayer": "Lord, i bless Your name with these words: “Pray without ceasing”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 50:15",
@@ -1380,7 +1532,8 @@
     "step": "Stop once today and return to these words: “Call upon me in the day of trouble: I will.”",
     "about": "Asaph and David",
     "to": "Worshipers who needed to hear “Call upon me in the day of trouble: I” — and you when you need to hear “Call upon me in the day of trouble: I”",
-    "setting": "God summons His people to true worship; David confesses after Nathan confronts him about Bathsheba."
+    "setting": "God summons His people to true worship; David confesses after Nathan confronts him about Bathsheba.",
+    "prayer": "Lord, let this word be true in me today: “Call upon me in the day of trouble: I will deliver”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 51:10",
@@ -1389,7 +1542,8 @@
     "step": "Keep this clause until the next meal: “Create in me a clean heart, O God.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Create in me a clean heart, O God” — and you when you need to hear “Create in me a clean heart, O God”",
-    "setting": "David — God summons His people to true worship. This verse is the line: Create in me a clean heart, O God."
+    "setting": "David — God summons His people to true worship. This verse is the line: Create in me a clean heart, O God.",
+    "prayer": "Lord, let this word be true in me today: “Create in me a clean heart, O God”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 12:9",
@@ -1398,7 +1552,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “My grace is sufficient for you:.”",
     "about": "Paul",
     "to": "Believers learning strength in weakness",
-    "setting": "Paul — strength made perfect in weakness. This verse is the charge: My grace is sufficient for you: for my strength is made perfect."
+    "setting": "Paul — strength made perfect in weakness. This verse is the charge: My grace is sufficient for you: for my strength is made perfect.",
+    "prayer": "Lord, give me strength for this hour: “My grace is sufficient for you: for my strength is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 52:8",
@@ -1407,7 +1562,8 @@
     "step": "Put your weight on this line for the next hour: “I am like a green olive tree in the house.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I am like a green olive tree in the house” — and you when you need somewhere that will hold",
-    "setting": "David is answering Doeg’s betrayal. This verse is the contrast: I am like a green olive tree in the house of God; I trust in His mercy forever."
+    "setting": "David is answering Doeg’s betrayal. This verse is the contrast: I am like a green olive tree in the house of God; I trust in His mercy forever.",
+    "prayer": "Lord, i put my weight on You: “I am like a green olive tree in the house of God: I”. In Jesus’ name, Amen."
   },
   {
     "ref": "Colossians 3:20",
@@ -1416,7 +1572,8 @@
     "step": "Say this praise out loud once: “Children, obey your parents in all things:.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Children, obey your parents in all” — and you when praise has to last past the morning",
-    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the song: Children, obey your parents in all things: for this is well pleasing."
+    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the song: Children, obey your parents in all things: for this is well pleasing.",
+    "prayer": "Lord, i bless Your name with these words: “Children, obey your parents in all things: for this”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 54:4",
@@ -1425,7 +1582,8 @@
     "step": "Keep this clause until the next meal: “Behold, God is mine helper: the Lord is.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Behold, God is mine helper: the Lord is” — and you when you need to hear “Behold, God is mine helper: the Lord is”",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the line: Behold, God is mine helper: the Lord is with them that uphold my soul."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the line: Behold, God is mine helper: the Lord is with them that uphold my soul.",
+    "prayer": "Lord, let this word be true in me today: “Behold, God is mine helper: the Lord is with them”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 55:16",
@@ -1434,7 +1592,8 @@
     "step": "Stop once today and return to these words: “As for me, I will call upon God.”",
     "about": "David",
     "to": "Worshipers who needed to hear “As for me, I will call upon God” — and you when you need rescue that is still good today",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the rescue: As for me, I will call upon God."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the rescue: As for me, I will call upon God.",
+    "prayer": "Lord, show me Your salvation again today: “As for me, I will call upon God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 4:32",
@@ -1443,7 +1602,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Be you kind one to another, tenderhearted.”",
     "about": "Paul",
     "to": "Believers learning kindness after the old life",
-    "setting": "Paul urges the church to put off bitterness and be kind and forgiving to one another, as God in Christ forgave them."
+    "setting": "Paul urges the church to put off bitterness and be kind and forgiving to one another, as God in Christ forgave them.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Be you kind one to another, tenderhearted, forgiving”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 56:4",
@@ -1452,7 +1612,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “In God I will praise his word, in God I have.”",
     "about": "David",
     "to": "Worshipers who needed to hear “In God I will praise his word, in God I” — and you when fear is loud",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the hold: In God I will praise his word, in God I have put my trust."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the hold: In God I will praise his word, in God I have put my trust.",
+    "prayer": "Lord, i bless Your name with these words: “In God I will praise his word, in God I have put”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 57:2",
@@ -1461,7 +1622,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “I will cry unto God most high.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I will cry unto God most high” — and you when you need to hear “I will cry unto God most high”",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the line: I will cry unto God most high."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the line: I will cry unto God most high.",
+    "prayer": "Lord, let this word be true in me today: “I will cry unto God most high”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 4:16",
@@ -1470,7 +1632,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Let us therefore come boldly unto the throne.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “Let us therefore come boldly unto” — and you when you need to hear “Let us therefore come boldly unto”",
-    "setting": "The writer of Hebrews — A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old. This verse is the line: Let us therefore come boldly unto the throne of grace."
+    "setting": "The writer of Hebrews — A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old. This verse is the line: Let us therefore come boldly unto the throne of grace.",
+    "prayer": "Lord, let this word be true in me today: “Let us therefore come boldly unto the throne”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 59:9",
@@ -1479,7 +1642,8 @@
     "step": "Ask God for strength for the next hour, using this line: “Because of his strength will I wait upon you:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Because of his strength will I wait upon” — and you when you are tired of forcing the next thing",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the wait: Because of his strength will I wait upon you: for God is my defence."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the wait: Because of his strength will I wait upon you: for God is my defence.",
+    "prayer": "Lord, teach me to wait. I hold “Because of his strength will I wait upon you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 59:17",
@@ -1488,7 +1652,8 @@
     "step": "Say this praise out loud once: “Unto you, O my strength, will I sing: for God.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Unto you, O my strength, will I sing:” — and you when you have no more push left",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the song: Unto you, O my strength, will I sing: for God is my defence."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the song: Unto you, O my strength, will I sing: for God is my defence.",
+    "prayer": "Lord, i bless Your name with these words: “Unto you, O my strength, will I sing: for God is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 26:3",
@@ -1497,7 +1662,8 @@
     "step": "Stop once today and return to these words: “you wilt keep him in perfect peace, whose mind.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “you wilt keep him in perfect peace” — and you when your mind will not sit down",
-    "setting": "Isaiah — Judgment and joy. This verse is the rest: you wilt keep him in perfect peace, whose mind is stayed on you."
+    "setting": "Isaiah — Judgment and joy. This verse is the rest: you wilt keep him in perfect peace, whose mind is stayed on you.",
+    "prayer": "Lord, still my heart with “you wilt keep him in perfect peace, whose mind is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 61:3",
@@ -1506,7 +1672,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For you hast been a shelter for me.”",
     "about": "David",
     "to": "Worshipers who needed to hear “For you hast been a shelter for me” — and you when you need to hear “For you hast been a shelter for me”",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the charge: For you hast been a shelter for me, and a strong tower."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the charge: For you hast been a shelter for me, and a strong tower.",
+    "prayer": "Lord, give me strength for this hour: “For you hast been a shelter for me, and a strong”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 62:1",
@@ -1515,7 +1682,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Truly my soul waiteth upon God: from him comes.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Truly my soul waiteth upon God: from him” — and you when you are tired of forcing the next thing",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the wait: Truly my soul waiteth upon God: from him comes my salvation."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the wait: Truly my soul waiteth upon God: from him comes my salvation.",
+    "prayer": "Lord, teach me to wait. I hold “Truly my soul waiteth upon God: from him cometh”. In Jesus’ name, Amen."
   },
   {
     "ref": "James 4:8",
@@ -1524,7 +1692,8 @@
     "step": "Keep this clause until the next meal: “Draw nigh to God, and he will draw nigh to you.”",
     "about": "James",
     "to": "The first hearers of “Draw nigh to God, and he will draw nigh” — and you when you need to hear “Draw nigh to God, and he will draw nigh”",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the line: Draw nigh to God, and he will draw nigh to you."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the line: Draw nigh to God, and he will draw nigh to you.",
+    "prayer": "Lord, let this word be true in me today: “Draw nigh to God, and he will draw nigh to you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 62:6",
@@ -1533,7 +1702,8 @@
     "step": "When you want another rescue, return to: “He only is my rock and my salvation: he is.”",
     "about": "David",
     "to": "Worshipers who needed to hear “He only is my rock and my salvation: he” — and you when you need somewhere that will hold",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the hold: He only is my rock and my salvation: he is my defence."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the hold: He only is my rock and my salvation: he is my defence.",
+    "prayer": "Lord, i put my weight on You: “He only is my rock and my salvation: he is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 63:1",
@@ -1542,7 +1712,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “O God, you art my God.”",
     "about": "David",
     "to": "Worshipers who needed to hear “O God, you art my God” — and you when the Father feels hidden",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the ask: O God, you art my God."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the ask: O God, you art my God.",
+    "prayer": "Lord, hear this as my whole request: “O God, you art my God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Jeremiah 31:3",
@@ -1551,7 +1722,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “I have loved you with an everlasting love.”",
     "about": "Jeremiah",
     "to": "The first people who had to hear “I have loved you with an everlasting” — and you when love feels like a mood you cannot make",
-    "setting": "Jeremiah — Promises of a new covenant written on the heart. This verse is the call: I have loved you with an everlasting love."
+    "setting": "Jeremiah — Promises of a new covenant written on the heart. This verse is the call: I have loved you with an everlasting love.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “I have loved you with an everlasting love”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 63:3",
@@ -1560,7 +1732,8 @@
     "step": "Before the next task, bless His name with these words: “Because your lovingkindness is better than life.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Because your lovingkindness is better than” — and you when praise has to last past the morning",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: Because your lovingkindness is better than life, my lips shall praise."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: Because your lovingkindness is better than life, my lips shall praise.",
+    "prayer": "Lord, i bless Your name with these words: “Because your lovingkindness is better than life”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 64:10",
@@ -1569,7 +1742,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The righteous shall be glad in the Lord.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The righteous shall be glad in the Lord” — and you when you need somewhere that will hold",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the hold: The righteous shall be glad in the Lord, and shall trust in him."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the hold: The righteous shall be glad in the Lord, and shall trust in him.",
+    "prayer": "Lord, i put my weight on You: “The righteous shall be glad in the Lord, and shall”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 1:12",
@@ -1578,7 +1752,8 @@
     "step": "Keep this clause until the next meal: “As many as received him, to them gave he power.”",
     "about": "John the apostle",
     "to": "The people in front of Jesus when He said “As many as received him, to them gave he” — and you when you need to hear “As many as received him, to them gave he”",
-    "setting": "John the apostle — The Word becomes flesh. This verse is the line: As many as received him, to them gave he power to become the sons."
+    "setting": "John the apostle — The Word becomes flesh. This verse is the line: As many as received him, to them gave he power to become the sons.",
+    "prayer": "Lord, let this word be true in me today: “As many as received him, to them gave he power”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 65:4",
@@ -1587,7 +1762,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed is the man whom you choosest.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Blessed is the man whom you choosest” — and you when praise has to last past the morning",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: Blessed is the man whom you choosest, and causest to approach unto."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: Blessed is the man whom you choosest, and causest to approach unto.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed is the man whom you choosest, and causest”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 66:8",
@@ -1596,7 +1772,8 @@
     "step": "Say this praise out loud once: “O bless our God, you people, and make the voice.”",
     "about": "David",
     "to": "Worshipers who needed to hear “O bless our God, you people, and make” — and you when praise has to last past the morning",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: O bless our God, you people, and make the voice of his praise to be."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: O bless our God, you people, and make the voice of his praise to be.",
+    "prayer": "Lord, i bless Your name with these words: “O bless our God, you people, and make the voice”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 6:31",
@@ -1605,7 +1782,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “As you would that men should do to you, do you.”",
     "about": "Jesus (through Luke)",
     "to": "Disciples hearing this from His mouth — and you when you need to hear “As you would that men should do to you, do”",
-    "setting": "Jesus is in this moment — the turn toward Jerusalem. He says, “As ye would that men should do to you, do ye also to them likewise.”."
+    "setting": "Jesus is in this moment — the turn toward Jerusalem. He says, “As ye would that men should do to you, do ye also to them likewise.”.",
+    "prayer": "Lord, let this word be true in me today: “As you would that men should do to you, do you also”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 67:1",
@@ -1614,7 +1792,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “God be merciful unto us, and bless us.”",
     "about": "David",
     "to": "Worshipers who needed to hear “God be merciful unto us, and bless us” — and you when praise has to last past the morning",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: God be merciful unto us, and bless us."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: God be merciful unto us, and bless us.",
+    "prayer": "Lord, i bless Your name with these words: “God be merciful unto us, and bless us”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 69:32",
@@ -1623,7 +1802,8 @@
     "step": "Ask once more with these words before you try to fix it: “The humble shall see this, and be glad:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The humble shall see this, and be glad:” — and you when the Father feels hidden",
-    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the ask: The humble shall see this, and be glad: and your heart shall live."
+    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the ask: The humble shall see this, and be glad: and your heart shall live.",
+    "prayer": "Lord, hear this as my whole request: “The humble shall see this, and be glad”. In Jesus’ name, Amen."
   },
   {
     "ref": "Mark 11:24",
@@ -1632,7 +1812,8 @@
     "step": "Ask once more with these words before you try to fix it: “What things soever you desire, when you pray.”",
     "about": "Jesus",
     "to": "His disciples learning faith and prayer",
-    "setting": "Jesus — Entry into Jerusalem. This verse is the ask: What things soever you desire, when you pray, believe that you receive."
+    "setting": "Jesus — Entry into Jerusalem. This verse is the ask: What things soever you desire, when you pray, believe that you receive.",
+    "prayer": "Lord, hear this as my whole request: “What things soever you desire, when you pray, believe”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 70:4",
@@ -1641,7 +1822,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Let all those that seek you rejoice and be.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Let all those that seek you rejoice” — and you when the Father feels hidden",
-    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the ask: Let all those that seek you rejoice and be glad in you."
+    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the ask: Let all those that seek you rejoice and be glad in you.",
+    "prayer": "Lord, hear this as my whole request: “Let all those that seek you rejoice and be glad”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 5:16",
@@ -1650,7 +1832,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Let your light so shine before men.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Let your light so shine before men” — and you when you only have light for the next step",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the light: Let your light so shine before men."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the light: Let your light so shine before men.",
+    "prayer": "Lord, light the next step: “Let your light so shine before men”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 71:5",
@@ -1659,7 +1842,8 @@
     "step": "Put your weight on this line for the next hour: “For you art my hope, O Lord God: you art.”",
     "about": "David",
     "to": "Worshipers who needed to hear “For you art my hope, O Lord God: you” — and you when you need somewhere that will hold",
-    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the hold: For you art my hope, O Lord God: you art my trust from my youth."
+    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the hold: For you art my hope, O Lord God: you art my trust from my youth.",
+    "prayer": "Lord, i put my weight on You: “For you art my hope, O Lord God: you art my trust”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 71:8",
@@ -1668,7 +1852,8 @@
     "step": "Say this praise out loud once: “Let my mouth be filled with your praise.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Let my mouth be filled with your praise” — and you when praise has to last past the morning",
-    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the song: Let my mouth be filled with your praise and with your honour all."
+    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the song: Let my mouth be filled with your praise and with your honour all.",
+    "prayer": "Lord, i bless Your name with these words: “Let my mouth be filled with your praise”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 4:7",
@@ -1677,7 +1862,8 @@
     "step": "After one honest prayer, sit still and let His peace keep your mind for the next hour.",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “The peace of God shall keep your hearts” — and you when your mind will not sit down",
-    "setting": "Still in the prison letter to Philippi: after prayer, the peace of God will keep hearts and minds — a guard, not a mood."
+    "setting": "Still in the prison letter to Philippi: after prayer, the peace of God will keep hearts and minds — a guard, not a mood.",
+    "prayer": "Lord, still my heart with “The peace of God shall keep your hearts and minds”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 72:18",
@@ -1686,7 +1872,8 @@
     "step": "Before the next task, bless His name with these words: “Blessed be the Lord God, the God of Israel.”",
     "about": "Solomon (or a prayer for Solomon)",
     "to": "Those praying for a just king",
-    "setting": "Book II closes with a royal prayer for the king’s justice and blessing — “Amen, and Amen.”"
+    "setting": "Book II closes with a royal prayer for the king’s justice and blessing — “Amen, and Amen.”",
+    "prayer": "Lord, i bless Your name with these words: “Blessed be the Lord God, the God of Israel”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 74:12",
@@ -1695,7 +1882,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For God is my King of old, working salvation.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “For God is my King of old, working” — and you when you need rescue that is still good today",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the rescue: For God is my King of old, working salvation in the midst."
+    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the rescue: For God is my King of old, working salvation in the midst.",
+    "prayer": "Lord, show me Your salvation again today: “For God is my King of old, working salvation”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 22:6",
@@ -1704,7 +1892,8 @@
     "step": "Stop once today and return to these words: “Train up a child in the way he should go.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “Train up a child in the way he should go” — and you when you need to hear “Train up a child in the way he should go”",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: Train up a child in the way he should go."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: Train up a child in the way he should go.",
+    "prayer": "Lord, let this word be true in me today: “Train up a child in the way he should go”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 75:1",
@@ -1713,7 +1902,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Unto you, O God, do we give thanks, unto you.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “Unto you, O God, do we give thanks, unto” — and you when praise has to last past the morning",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the song: Unto you, O God, do we give thanks, unto you do we give thanks."
+    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the song: Unto you, O God, do we give thanks, unto you do we give thanks.",
+    "prayer": "Lord, i bless Your name with these words: “Unto you, O God, do we give thanks, unto you do”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 76:4",
@@ -1722,7 +1912,8 @@
     "step": "Keep this clause until the next meal: “you art more glorious and excellent than.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “you art more glorious and excellent than” — and you when you need to hear “you art more glorious and excellent than”",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the line: you art more glorious and excellent than the mountains of prey."
+    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the line: you art more glorious and excellent than the mountains of prey.",
+    "prayer": "Lord, let this word be true in me today: “you art more glorious and excellent than”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 8:38-39",
@@ -1731,7 +1922,8 @@
     "step": "Do one concrete kindness today because of this: “For I am persuaded, that neither death, nor.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For I am persuaded, that neither death” — and you when love feels like a mood you cannot make",
-    "setting": "Paul — no condemnation for those in Christ. This verse is the call: For I am persuaded, that neither death, nor life, nor angels, nor."
+    "setting": "Paul — no condemnation for those in Christ. This verse is the call: For I am persuaded, that neither death, nor life, nor angels, nor.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “For I am persuaded, that neither death, nor life”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 77:14",
@@ -1740,7 +1932,8 @@
     "step": "Ask God for strength for the next hour, using this line: “you art the God that doest wonders: you hast.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “you art the God that doest wonders: you” — and you when you have no more push left",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the charge: you art the God that doest wonders: you hast declared your strength."
+    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the charge: you art the God that doest wonders: you hast declared your strength.",
+    "prayer": "Lord, give me strength for this hour: “you art the God that doest wonders: you hast”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 78:4",
@@ -1749,7 +1942,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “We will not hide them from their children.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “We will not hide them” — and you when praise has to last past the morning",
-    "setting": "Asaph — Israel’s history retold as warning. This verse is the song: We will not hide them from their children, shewing to the generation."
+    "setting": "Asaph — Israel’s history retold as warning. This verse is the song: We will not hide them from their children, shewing to the generation.",
+    "prayer": "Lord, i bless Your name with these words: “We will not hide them from their children, shewing”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 4:4",
@@ -1758,7 +1952,8 @@
     "step": "Stop once today and return to these words: “Greater is he that is in you, than he that is.”",
     "about": "John",
     "to": "Beloved children learning to test the spirits",
-    "setting": "John tells beloved children to test the spirits: not every spirit is of God, but greater is He that is in you than he that is in the world."
+    "setting": "John tells beloved children to test the spirits: not every spirit is of God, but greater is He that is in you than he that is in the world.",
+    "prayer": "Lord, let this word be true in me today: “Greater is he that is in you, than he that is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 79:13",
@@ -1767,7 +1962,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “So we your people and sheep of your pasture will.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “So we your people and sheep of your pasture” — and you when praise has to last past the morning",
-    "setting": "Asaph — Israel’s history retold as warning. This verse is the song: So we your people and sheep of your pasture will give you thanks."
+    "setting": "Asaph — Israel’s history retold as warning. This verse is the song: So we your people and sheep of your pasture will give you thanks.",
+    "prayer": "Lord, i bless Your name with these words: “So we your people and sheep of your pasture will give”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 80:3",
@@ -1776,7 +1972,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Turn us again, O God, and cause your face.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “Turn us again, O God, and cause your face” — and you when you need rescue that is still good today",
-    "setting": "Asaph — Israel’s history retold as warning. This verse is the rescue: Turn us again, O God, and cause your face to shine."
+    "setting": "Asaph — Israel’s history retold as warning. This verse is the rescue: Turn us again, O God, and cause your face to shine.",
+    "prayer": "Lord, show me Your salvation again today: “Turn us again, O God, and cause your face to shine”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 3:15",
@@ -1785,7 +1982,8 @@
     "step": "Keep this clause until the next meal: “Sanctify the Lord God in your hearts: and be.”",
     "about": "Peter",
     "to": "The first hearers of “Sanctify the Lord God in your hearts” — and you when you need to hear “Sanctify the Lord God in your hearts”",
-    "setting": "Peter — Household life, suffering for righteousness, casting care on God, resisting the devil. This verse is the line: Sanctify the Lord God in your hearts: and be ready always to give an."
+    "setting": "Peter — Household life, suffering for righteousness, casting care on God, resisting the devil. This verse is the line: Sanctify the Lord God in your hearts: and be ready always to give an.",
+    "prayer": "Lord, let this word be true in me today: “Sanctify the Lord God in your hearts: and be ready”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 81:10",
@@ -1794,7 +1992,8 @@
     "step": "Keep this clause until the next meal: “I am the Lord your God, which brought you out.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “I am the Lord your God, which brought you” — and you when you need to hear “I am the Lord your God, which brought you”",
-    "setting": "Asaph — Israel’s history retold as warning. This verse is the line: I am the Lord your God, which brought you out of the land of Egypt:."
+    "setting": "Asaph — Israel’s history retold as warning. This verse is the line: I am the Lord your God, which brought you out of the land of Egypt:.",
+    "prayer": "Lord, let this word be true in me today: “I am the Lord your God, which brought you out”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 82:3",
@@ -1803,7 +2002,8 @@
     "step": "Stop once today and return to these words: “Defend the poor and fatherless: do justice.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “Defend the poor and fatherless: do” — and you when you need to hear “Defend the poor and fatherless: do”",
-    "setting": "Asaph — Israel’s history retold as warning. This verse is the line: Defend the poor and fatherless: do justice to the afflicted and needy."
+    "setting": "Asaph — Israel’s history retold as warning. This verse is the line: Defend the poor and fatherless: do justice to the afflicted and needy.",
+    "prayer": "Lord, let this word be true in me today: “Defend the poor and fatherless: do justice”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 3:20",
@@ -1812,7 +2012,8 @@
     "step": "Ask God for more than you have dared. Then thank Him that He can do exceeding abundantly above it.",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Now unto him that is able to do exceeding” — and you when the Father feels hidden",
-    "setting": "Paul writes from prison about the riches of Christ in the church. This verse is the overflow: He is able to do exceeding abundantly above all we ask or think."
+    "setting": "Paul writes from prison about the riches of Christ in the church. This verse is the overflow: He is able to do exceeding abundantly above all we ask or think.",
+    "prayer": "Lord, do exceeding abundantly above what I have asked. I open my hands. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 84:11",
@@ -1821,7 +2022,8 @@
     "step": "Put your weight on this line for the next hour: “For the Lord God is a sun and shield: the Lord.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “For the Lord God is a sun and shield” — and you when you need to hear “For the Lord God is a sun and shield”",
-    "setting": "The sons of Korah — the Lord is sun and shield. This verse is the hold: For the Lord God is a sun and shield: the Lord will give grace."
+    "setting": "The sons of Korah — the Lord is sun and shield. This verse is the hold: For the Lord God is a sun and shield: the Lord will give grace.",
+    "prayer": "Lord, i put my weight on You: “For the Lord God is a sun and shield: the Lord will”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 85:6",
@@ -1830,7 +2032,8 @@
     "step": "Stop once today and return to these words: “Wilt you not revive us again: that your people.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “Wilt you not revive us again:” — and you when gladness feels like a command you cannot feel",
-    "setting": "The sons of Korah — Longing for God’s courts. This verse is the gladness: Wilt you not revive us again: that your people may rejoice in you."
+    "setting": "The sons of Korah — Longing for God’s courts. This verse is the gladness: Wilt you not revive us again: that your people may rejoice in you.",
+    "prayer": "Lord, let this word be true in me today: “Wilt you not revive us again: that your people may”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 10:23",
@@ -1839,7 +2042,8 @@
     "step": "Keep this clause until the next meal: “Let us hold fast the profession of our faith.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “Let us hold fast the profession” — and you when you need to hear “Let us hold fast the profession”",
-    "setting": "The writer of Hebrews — Jesus the high priest after Melchizedek. This verse is the line: Let us hold fast the profession of our faith without wavering."
+    "setting": "The writer of Hebrews — Jesus the high priest after Melchizedek. This verse is the line: Let us hold fast the profession of our faith without wavering.",
+    "prayer": "Lord, let this word be true in me today: “Let us hold fast the profession of our faith”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 86:15",
@@ -1848,7 +2052,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “But you, O Lord, art a God full of compassion.”",
     "about": "David",
     "to": "Worshipers who needed to hear “But you, O Lord, art a God full” — and you when you have failed and still need to come",
-    "setting": "David is poor and needy, asking for mercy. This verse names who God is: a God full of compassion, gracious, longsuffering, and plenteous in mercy and truth."
+    "setting": "David is poor and needy, asking for mercy. This verse names who God is: a God full of compassion, gracious, longsuffering, and plenteous in mercy and truth.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “But you, O Lord, art a God full of compassion”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 87:3",
@@ -1857,7 +2062,8 @@
     "step": "Stop once today and return to these words: “Glorious things are spoken of you, O city.”",
     "about": "The sons of Korah",
     "to": "Worshipers of Zion — and the nations gathered in",
-    "setting": "Zion is the city God loves; people from the nations are counted as born there."
+    "setting": "Zion is the city God loves; people from the nations are counted as born there.",
+    "prayer": "Lord, let this word be true in me today: “Glorious things are spoken of you, O city of God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 43:2",
@@ -1866,7 +2072,8 @@
     "step": "Stop once today and return to these words: “When you passest through the waters, I will be.”",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “When you passest through the waters, I” — and you when you need to hear “When you passest through the waters, I”",
-    "setting": "Isaiah — a servant will bring justice. This verse is the line: When you passest through the waters, I will be with you."
+    "setting": "Isaiah — a servant will bring justice. This verse is the line: When you passest through the waters, I will be with you.",
+    "prayer": "Lord, let this word be true in me today: “When you passest through the waters, I will be”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 88:13",
@@ -1875,7 +2082,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “But unto you have I cried, O Lord.”",
     "about": "Heman the Ezrahite",
     "to": "Anyone whose prayer feels like night with no morning yet",
-    "setting": "Heman cries from the edge of the grave; darkness is his closest companion, yet he still prays."
+    "setting": "Heman cries from the edge of the grave; darkness is his closest companion, yet he still prays.",
+    "prayer": "Lord, hear this as my whole request: “But unto you have I cried, O Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 6:35",
@@ -1884,7 +2092,8 @@
     "step": "Keep this clause until the next meal: “I am the bread of life: he that comes to me.”",
     "about": "Jesus (through John)",
     "to": "The people in front of Jesus when He said “I am the bread of life: he that comes” — and you when you need to hear “I am the bread of life: he that comes”",
-    "setting": "Jesus — Bread of Life discourse. This verse is the line: I am the bread of life: he that comes to me shall never hunger."
+    "setting": "Jesus — Bread of Life discourse. This verse is the line: I am the bread of life: he that comes to me shall never hunger.",
+    "prayer": "Lord, let this word be true in me today: “I am the bread of life: he that cometh to me shall”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 89:1",
@@ -1893,7 +2102,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “I will sing of the mercies of the Lord for ever.”",
     "about": "Ethan the Ezrahite",
     "to": "Worshipers who needed to hear “I will sing of the mercies of the Lord” — and you when praise has to last past the morning",
-    "setting": "Ethan the Ezrahite — Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy. This verse is the song: I will sing of the mercies of the Lord for ever."
+    "setting": "Ethan the Ezrahite — Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy. This verse is the song: I will sing of the mercies of the Lord for ever.",
+    "prayer": "Lord, i bless Your name with these words: “I will sing of the mercies of the Lord for ever”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 89:15",
@@ -1902,7 +2112,8 @@
     "step": "Before the next task, bless His name with these words: “Blessed is the people that know the joyful.”",
     "about": "Ethan the Ezrahite",
     "to": "Worshipers who needed to hear “Blessed is the people that know” — and you when you only have light for the next step",
-    "setting": "Ethan the Ezrahite — Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy. This verse is the song: Blessed is the people that know the joyful sound: they shall walk, O."
+    "setting": "Ethan the Ezrahite — Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy. This verse is the song: Blessed is the people that know the joyful sound: they shall walk, O.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed is the people that know the joyful sound”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 6:38",
@@ -1911,7 +2122,8 @@
     "step": "Stop once today and return to these words: “Give, and it shall be given unto you.”",
     "about": "Jesus (through Luke)",
     "to": "The people in front of Jesus when He said “Give, and it shall be given unto you” — and you when you need to hear “Give, and it shall be given unto you”",
-    "setting": "Jesus — the turn toward Jerusalem. This verse is the line: Give, and it shall be given unto you."
+    "setting": "Jesus — the turn toward Jerusalem. This verse is the line: Give, and it shall be given unto you.",
+    "prayer": "Lord, let this word be true in me today: “Give, and it shall be given unto you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 90:2",
@@ -1920,7 +2132,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Before the mountains were brought forth.”",
     "about": "Moses — a prayer of the man of God",
     "to": "Worshipers who needed to hear “Before the mountains were brought forth” — and you when you need to hear “Before the mountains were brought forth”",
-    "setting": "Moses numbers our short days and asks God to establish the work of our hands. This verse is the line: Before the mountains were brought forth, or ever you hadst formed."
+    "setting": "Moses numbers our short days and asks God to establish the work of our hands. This verse is the line: Before the mountains were brought forth, or ever you hadst formed.",
+    "prayer": "Lord, let this word be true in me today: “Before the mountains were brought forth, or ever”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 90:14",
@@ -1929,7 +2142,8 @@
     "step": "Before you open messages, pray once: “Satisfy me early with Your mercy.” Then name one thing you can be glad for today.",
     "about": "Moses — a prayer of the man of God",
     "to": "Worshipers who needed to hear “O satisfy us early with your mercy” — and you when you have failed and still need to come",
-    "setting": "Moses numbers our short days and asks God to establish the work of our hands. This verse is the mercy: O satisfy us early with your mercy."
+    "setting": "Moses numbers our short days and asks God to establish the work of our hands. This verse is the mercy: O satisfy us early with your mercy.",
+    "prayer": "Lord, satisfy me early with Your mercy, so I can be glad in You all day long. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 11:28",
@@ -1938,7 +2152,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Come unto me, all you that labour, and I will.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Come unto me, all you that labour, and I” — and you when you need to hear “Come unto me, all you that labour, and I”",
-    "setting": "Jesus invites the weary to rest. This verse is the rest: Come unto me, all you that labour, and I will give you rest."
+    "setting": "Jesus invites the weary to rest. This verse is the rest: Come unto me, all you that labour, and I will give you rest.",
+    "prayer": "Lord, still my heart with “Come unto me, all you that labour, and I will give”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 91:1",
@@ -1947,7 +2162,8 @@
     "step": "Sit still and picture the secret place. Then say: I will dwell under the shadow of the Almighty.",
     "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
     "to": "Worshipers who needed to hear “He that dwells in the secret place” — and you when you need to hear “He that dwells in the secret place”",
-    "setting": "This is the refuge hymn — dwelling in the secret place of the Most High. This verse says the one who lives there stays under the shadow of the Almighty."
+    "setting": "This is the refuge hymn — dwelling in the secret place of the Most High. This verse says the one who lives there stays under the shadow of the Almighty.",
+    "prayer": "Lord, I want to dwell in Your secret place and rest under the shadow of the Almighty. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 91:2",
@@ -1956,7 +2172,8 @@
     "step": "Put your weight on this line for the next hour: “I will say of the Lord, He is my refuge.”",
     "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
     "to": "Worshipers who needed to hear “I will say of the Lord, He is my refuge” — and you when you need somewhere that will hold",
-    "setting": "Israel’s refuge hymn — A hymn of refuge under the shadow of the Almighty. This verse is the hold: I will say of the Lord, He is my refuge and my fortress: my God."
+    "setting": "Israel’s refuge hymn — A hymn of refuge under the shadow of the Almighty. This verse is the hold: I will say of the Lord, He is my refuge and my fortress: my God.",
+    "prayer": "Lord, i put my weight on You: “I will say of the Lord, He is my refuge”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 1:6",
@@ -1965,7 +2182,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “He which has begun a good work in you will.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “He which has begun a good work in you”",
-    "setting": "Paul — Christ is preached. This verse is the line: He which has begun a good work in you will perform it until the day."
+    "setting": "Paul — Christ is preached. This verse is the line: He which has begun a good work in you will perform it until the day.",
+    "prayer": "Lord, let this word be true in me today: “He which has begun a good work in you will perform”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 92:1",
@@ -1974,7 +2192,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “It is a good thing to give thanks unto.”",
     "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
     "to": "Worshipers who needed to hear “It is a good thing to give thanks unto” — and you when praise has to last past the morning",
-    "setting": "A Sabbath song of thanksgiving: the psalmist praises the Lord because His works make the heart glad. Here the song is this: It is a good thing to give thanks unto the Lord, and to sing praises."
+    "setting": "A Sabbath song of thanksgiving: the psalmist praises the Lord because His works make the heart glad. Here the song is this: It is a good thing to give thanks unto the Lord, and to sing praises.",
+    "prayer": "Lord, i bless Your name with these words: “It is a good thing to give thanks unto the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 92:4",
@@ -1983,7 +2202,8 @@
     "step": "Name one work of God you can see this week — then thank Him for it out loud.",
     "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
     "to": "Worshipers who needed to hear “For you, Lord, hast made me glad” — and you when gladness feels like a command you cannot feel",
-    "setting": "A Sabbath song in Israel’s worship — A Sabbath song of thanksgiving: the psalmist praises the Lord because His works make the heart glad. This verse is the gladness: For you, Lord, hast made me glad through your work."
+    "setting": "A Sabbath song in Israel’s worship — A Sabbath song of thanksgiving: the psalmist praises the Lord because His works make the heart glad. This verse is the gladness: For you, Lord, hast made me glad through your work.",
+    "prayer": "Lord, let this word be true in me today: “For you, Lord, hast made me glad through your work”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 16:3",
@@ -1992,7 +2212,8 @@
     "step": "Name one task or decision on your plate — hand it to God in one sentence, then take the next honest step.",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “Commit your works unto the Lord” — and you when you need someone else to hold you steady",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: Commit your works unto the Lord, and your thoughts shall be established."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: Commit your works unto the Lord, and your thoughts shall be established.",
+    "prayer": "Lord, let this word be true in me today: “Commit your works unto the Lord, and your thoughts”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 93:4",
@@ -2001,7 +2222,8 @@
     "step": "Stop once today and return to these words: “The Lord on high is mightier than the noise.”",
     "about": "Israel’s congregation — a song that the Lord is King over the flood",
     "to": "Anyone who needs to know God still reigns",
-    "setting": "The Lord reigns: floods and noise cannot unseat Him; He is robed in majesty forever."
+    "setting": "The Lord reigns: floods and noise cannot unseat Him; He is robed in majesty forever.",
+    "prayer": "Lord, give me strength for this hour: “The Lord on high is mightier than the noise of many”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 94:18",
@@ -2010,7 +2232,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “When I said, My foot slippeth.”",
     "about": "An unnamed psalm of Israel — a cry against unjust thrones, then mercy when the foot slips",
     "to": "Worshipers who needed to hear “When I said, My foot slippeth” — and you when you have failed and still need to come",
-    "setting": "An unnamed psalm of Israel — A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot. This verse is the mercy: When I said, My foot slippeth."
+    "setting": "An unnamed psalm of Israel — A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot. This verse is the mercy: When I said, My foot slippeth.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “When I said, My foot slippeth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 5:5",
@@ -2019,7 +2242,8 @@
     "step": "Do one concrete kindness today because of this: “The love of God is shed abroad in our hearts.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “The love of God is shed abroad” — and you when love feels like a mood you cannot make",
-    "setting": "Paul — peace with God comes through Christ, not law-keeping. This verse is the call: The love of God is shed abroad in our hearts by the Holy Ghost."
+    "setting": "Paul — peace with God comes through Christ, not law-keeping. This verse is the call: The love of God is shed abroad in our hearts by the Holy Ghost.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “The love of God is shed abroad in our hearts”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 95:1",
@@ -2028,7 +2252,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “O come, let us sing unto the Lord: let us make.”",
     "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
     "to": "Worshipers who needed to hear “O come, let us sing unto the Lord: let us” — and you when you need somewhere that will hold",
-    "setting": "David — Come, sing to the Lord as King: do not harden your heart as Israel did in the wilderness. This verse is the song: O come, let us sing unto the Lord: let us make a joyful noise."
+    "setting": "David — Come, sing to the Lord as King: do not harden your heart as Israel did in the wilderness. This verse is the song: O come, let us sing unto the Lord: let us make a joyful noise.",
+    "prayer": "Lord, i bless Your name with these words: “O come, let us sing unto the Lord: let us make”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 95:7",
@@ -2037,7 +2262,8 @@
     "step": "Stop once today and return to these words: “For he is our God.”",
     "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
     "to": "Worshipers who needed to hear “For he is our God” — and you when you need to hear “For he is our God”",
-    "setting": "David — Come, sing to the Lord as King: do not harden your heart as Israel did in the wilderness. This verse is the care: For he is our God."
+    "setting": "David — Come, sing to the Lord as King: do not harden your heart as Israel did in the wilderness. This verse is the care: For he is our God.",
+    "prayer": "Lord, shepherd me. I bring You this want: “For he is our God”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 4:7",
@@ -2046,7 +2272,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “Beloved, let us love one another: for love is.”",
     "about": "John",
     "to": "The first hearers of “Beloved, let us love one another:” — and you when love feels like a mood you cannot make",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and. This verse is the call: Beloved, let us love one another: for love is of God."
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and. This verse is the call: Beloved, let us love one another: for love is of God.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Beloved, let us love one another: for love is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 96:1",
@@ -2055,7 +2282,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “O sing unto the Lord a new song: sing unto.”",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "Worshipers who needed to hear “O sing unto the Lord a new song: sing” — and you when praise has to last past the morning",
-    "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. This verse is the song: O sing unto the Lord a new song: sing unto the Lord, all the earth."
+    "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. This verse is the song: O sing unto the Lord a new song: sing unto the Lord, all the earth.",
+    "prayer": "Lord, i bless Your name with these words: “O sing unto the Lord a new song: sing unto”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 96:2",
@@ -2064,7 +2292,8 @@
     "step": "Bless His name out loud once. Then name one place His salvation is still good today.",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "Every land called to show His salvation today — and you when praise has to last past the morning",
-    "setting": "Israel is calling every land to sing a new song to the Lord as King. This verse is the daily work of that song: bless His name and show His salvation today, then again tomorrow."
+    "setting": "Israel is calling every land to sing a new song to the Lord as King. This verse is the daily work of that song: bless His name and show His salvation today, then again tomorrow.",
+    "prayer": "Lord, I bless Your name today. Help me show Your salvation again tomorrow — not a one-day song. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 1:3",
@@ -2073,7 +2302,8 @@
     "step": "Before the next task, bless His name with these words: “Blessed be the God and Father of our Lord Jesus.”",
     "about": "Peter",
     "to": "The first hearers of “Blessed be the God and Father of our Lord” — and you when you have failed and still need to come",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the song: Blessed be the God and Father of our Lord Jesus Christ,."
+    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the song: Blessed be the God and Father of our Lord Jesus Christ,.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed be the God and Father of our Lord Jesus”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 97:11",
@@ -2082,7 +2312,8 @@
     "step": "Walk to the next doorway holding: “Light is sown for the righteous, and gladness.”",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "Worshipers who needed to hear “Light is sown for the righteous” — and you when you only have light for the next step",
-    "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. This verse is the gladness: Light is sown for the righteous, and gladness for the upright."
+    "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. This verse is the gladness: Light is sown for the righteous, and gladness for the upright.",
+    "prayer": "Lord, light the next step: “Light is sown for the righteous, and gladness”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 98:1",
@@ -2091,7 +2322,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “O sing unto the Lord a new song.”",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "Worshipers who needed to hear “O sing unto the Lord a new song” — and you when praise has to last past the morning",
-    "setting": "Israel’s congregation — A new song for all the earth. This verse is the song: O sing unto the Lord a new song."
+    "setting": "Israel’s congregation — A new song for all the earth. This verse is the song: O sing unto the Lord a new song.",
+    "prayer": "Lord, i bless Your name with these words: “O sing unto the Lord a new song”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 12:2",
@@ -2100,7 +2332,8 @@
     "step": "Look away from the scroll of the day. Say: I am looking unto Jesus, the author and finisher of my faith.",
     "about": "The writer of Hebrews",
     "to": "A pressured church told to keep running — and you when your eyes have left Jesus",
-    "setting": "The writer of Hebrews tells a pressured church to run with patience. This verse is the look: looking unto Jesus, the author and finisher of our faith."
+    "setting": "The writer of Hebrews tells a pressured church to run with patience. This verse is the look: looking unto Jesus, the author and finisher of our faith.",
+    "prayer": "Lord Jesus, I look to You — author and finisher. Keep my eyes on You through this stretch. Amen."
   },
   {
     "ref": "Psalm 99:2",
@@ -2109,7 +2342,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The Lord is great in Zion.”",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "Worshipers who needed to hear “The Lord is great in Zion” — and you when you need to hear “The Lord is great in Zion”",
-    "setting": "Israel’s congregation — enter His gates with thanksgiving. This verse is the line: The Lord is great in Zion."
+    "setting": "Israel’s congregation — enter His gates with thanksgiving. This verse is the line: The Lord is great in Zion.",
+    "prayer": "Lord, let this word be true in me today: “The Lord is great in Zion”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 26:4",
@@ -2118,7 +2352,8 @@
     "step": "Put your weight on this line for the next hour: “Trust you in the Lord for ever: for in the Lord.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “Trust you in the Lord for ever:” — and you when you need somewhere that will hold",
-    "setting": "Isaiah — Judgment and joy. This verse is the hold: Trust you in the Lord for ever: for in the Lord Jehovah is everlasting."
+    "setting": "Isaiah — Judgment and joy. This verse is the hold: Trust you in the Lord for ever: for in the Lord Jehovah is everlasting.",
+    "prayer": "Lord, i put my weight on You: “Trust you in the Lord for ever: for in the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 100:1",
@@ -2127,7 +2362,8 @@
     "step": "Say this praise out loud once: “Make a joyful noise unto the Lord, all you lands.”",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "Worshipers who needed to hear “Make a joyful noise unto the Lord, all you” — and you when gladness feels like a command you cannot feel",
-    "setting": "Israel’s congregation — enter His gates with thanksgiving. This verse is the song: Make a joyful noise unto the Lord, all you lands."
+    "setting": "Israel’s congregation — enter His gates with thanksgiving. This verse is the song: Make a joyful noise unto the Lord, all you lands.",
+    "prayer": "Lord, i bless Your name with these words: “Make a joyful noise unto the Lord, all you lands”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 100:2",
@@ -2136,7 +2372,8 @@
     "step": "Before the next task, bless His name with these words: “Serve the Lord with gladness: come before.”",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "Worshipers who needed to hear “Serve the Lord with gladness: come before” — and you when praise has to last past the morning",
-    "setting": "Israel’s congregation — enter His gates with thanksgiving. This verse is the song: Serve the Lord with gladness: come before his presence with singing."
+    "setting": "Israel’s congregation — enter His gates with thanksgiving. This verse is the song: Serve the Lord with gladness: come before his presence with singing.",
+    "prayer": "Lord, i bless Your name with these words: “Serve the Lord with gladness: come before”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 8:12",
@@ -2145,7 +2382,8 @@
     "step": "Stop once today and return to these words: “I am the light of the world: he that followeth.”",
     "about": "Jesus (through John)",
     "to": "The people in front of Jesus when He said “I am the light of the world: he” — and you when you only have light for the next step",
-    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the light: I am the light of the world: he that followeth me shall not walk."
+    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the light: I am the light of the world: he that followeth me shall not walk.",
+    "prayer": "Lord, light the next step: “I am the light of the world: he that followeth me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 100:3",
@@ -2154,7 +2392,8 @@
     "step": "Keep this clause until the next meal: “Know you that the Lord he is God: it is he.”",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "Worshipers who needed to hear “Know you that the Lord he is God: it is he” — and you when you need to hear “Know you that the Lord he is God: it is he”",
-    "setting": "Israel’s congregation — enter His gates with thanksgiving. This verse is the line: Know you that the Lord he is God: it is he that has made us, and not."
+    "setting": "Israel’s congregation — enter His gates with thanksgiving. This verse is the line: Know you that the Lord he is God: it is he that has made us, and not.",
+    "prayer": "Lord, let this word be true in me today: “Know you that the Lord he is God: it is he that has”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 100:4",
@@ -2163,7 +2402,8 @@
     "step": "Before you enter the next doorway, thank Him out loud, then bless His name as you go in.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "Worshipers who needed to hear “Enter into his gates with thanksgiving” — and you when praise has to last past the morning",
-    "setting": "Israel is being called to enter the Lord’s gates. This verse is how: with thanksgiving and praise — bless His name as you come in."
+    "setting": "Israel is being called to enter the Lord’s gates. This verse is how: with thanksgiving and praise — bless His name as you come in.",
+    "prayer": "Lord, I enter with thanksgiving. I bless Your name as I come in. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 12:32",
@@ -2172,7 +2412,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Fear not, little flock.”",
     "about": "Jesus (through Luke)",
     "to": "The people in front of Jesus when He said “Fear not, little flock” — and you when fear is loud",
-    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the hold: Fear not, little flock."
+    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the hold: Fear not, little flock.",
+    "prayer": "Lord, when fear rises, hold me with “Fear not, little flock”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 33:1",
@@ -2181,7 +2422,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Rejoice in the Lord, O you righteous: for praise.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Rejoice in the Lord, O you righteous:” — and you when praise has to last past the morning",
-    "setting": "David — a new song of praise. This verse is the song: Rejoice in the Lord, O you righteous: for praise is comely."
+    "setting": "David — a new song of praise. This verse is the song: Rejoice in the Lord, O you righteous: for praise is comely.",
+    "prayer": "Lord, i bless Your name with these words: “Rejoice in the Lord, O you righteous: for praise is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 102:17",
@@ -2190,7 +2432,8 @@
     "step": "Ask once more with these words before you try to fix it: “He will regard the prayer of the destitute.”",
     "about": "David",
     "to": "Worshipers who needed to hear “He will regard the prayer” — and you when the request is still in your chest",
-    "setting": "David — A king’s vow of integrity. This verse is the ask: He will regard the prayer of the destitute, and not despise."
+    "setting": "David — A king’s vow of integrity. This verse is the ask: He will regard the prayer of the destitute, and not despise.",
+    "prayer": "Lord, hear this as my whole request: “He will regard the prayer of the destitute, and not”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 7:7",
@@ -2199,7 +2442,8 @@
     "step": "Ask the Father one honest thing. Then seek once more in prayer before you try to fix it yourself.",
     "about": "Jesus",
     "to": "Disciples on the mount learning to ask — and you when the Father feels hidden",
-    "setting": "Jesus is on the mount teaching how to live before the Father. This line is the open door: ask, seek, knock — the Father is not hiding."
+    "setting": "Jesus is on the mount teaching how to live before the Father. This line is the open door: ask, seek, knock — the Father is not hiding.",
+    "prayer": "Father, I ask. I seek. I knock. Do not let me treat You as hidden. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 103:1",
@@ -2208,7 +2452,8 @@
     "step": "Say this praise out loud once: “Bless the Lord, O my soul: and all that is.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Bless the Lord, O my soul: and all” — and you when praise has to last past the morning",
-    "setting": "David — an afflicted cry that becomes hope. This verse is the song: Bless the Lord, O my soul: and all that is within me, bless his holy."
+    "setting": "David — an afflicted cry that becomes hope. This verse is the song: Bless the Lord, O my soul: and all that is within me, bless his holy.",
+    "prayer": "Lord, i bless Your name with these words: “Bless the Lord, O my soul: and all that is within”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 103:3",
@@ -2217,7 +2462,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Who forgiveth all your iniquities.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Who forgiveth all your iniquities” — and you when you have failed and still need to come",
-    "setting": "David — A king’s vow of integrity. This verse is the mercy: Who forgiveth all your iniquities."
+    "setting": "David — A king’s vow of integrity. This verse is the mercy: Who forgiveth all your iniquities.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Who forgiveth all your iniquities”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 2:13",
@@ -2226,7 +2472,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For it is God which worketh in you both to will.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “For it is God which worketh in you both”",
-    "setting": "Paul writes from prison with joy. This verse is the line: For it is God which worketh in you both to will and to do of his good."
+    "setting": "Paul writes from prison with joy. This verse is the line: For it is God which worketh in you both to will and to do of his good.",
+    "prayer": "Lord, let this word be true in me today: “For it is God which worketh in you both to will”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 103:5",
@@ -2235,7 +2482,8 @@
     "step": "Stop once today and return to these words: “Who satisfieth your mouth with good things.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Who satisfieth your mouth with good things” — and you when you need to hear “Who satisfieth your mouth with good things”",
-    "setting": "David — an afflicted cry that becomes hope. This verse is the line: Who satisfieth your mouth with good things."
+    "setting": "David — an afflicted cry that becomes hope. This verse is the line: Who satisfieth your mouth with good things.",
+    "prayer": "Lord, let this word be true in me today: “Who satisfieth your mouth with good things”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 103:8",
@@ -2244,7 +2492,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “The Lord is merciful and gracious, slow.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The Lord is merciful and gracious, slow” — and you when you have failed and still need to come",
-    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse is the mercy: The Lord is merciful and gracious, slow to anger, and plenteous."
+    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse is the mercy: The Lord is merciful and gracious, slow to anger, and plenteous.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “The Lord is merciful and gracious, slow to anger”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 2:6",
@@ -2253,7 +2502,8 @@
     "step": "Keep this clause until the next meal: “The Lord giveth wisdom: out of his mouth comes.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “The Lord giveth wisdom: out of his mouth” — and you when your own mind looks smarter than trust",
-    "setting": "Solomon giving wisdom — Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse is the line: The Lord giveth wisdom: out of his mouth comes knowledge."
+    "setting": "Solomon giving wisdom — Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse is the line: The Lord giveth wisdom: out of his mouth comes knowledge.",
+    "prayer": "Lord, let this word be true in me today: “The Lord giveth wisdom: out of his mouth cometh”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 103:11",
@@ -2262,7 +2512,8 @@
     "step": "Name the fear, then answer it with: “For as the heaven is high above the earth, so.”",
     "about": "David",
     "to": "Worshipers who needed to hear “For as the heaven is high above” — and you when fear is loud",
-    "setting": "David — an afflicted cry that becomes hope. This verse is the hold: For as the heaven is high above the earth, so great is his mercy."
+    "setting": "David — an afflicted cry that becomes hope. This verse is the hold: For as the heaven is high above the earth, so great is his mercy.",
+    "prayer": "Lord, when fear rises, hold me with “For as the heaven is high above the earth, so great”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 103:12",
@@ -2271,7 +2522,8 @@
     "step": "Keep this clause until the next meal: “As far as the east is from the west, so far.”",
     "about": "David",
     "to": "Worshipers who needed to hear “As far as the east is from the west, so” — and you when you need to hear “As far as the east is from the west, so”",
-    "setting": "David — A king’s vow of integrity. This verse is the line: As far as the east is from the west, so far has he removed."
+    "setting": "David — A king’s vow of integrity. This verse is the line: As far as the east is from the west, so far has he removed.",
+    "prayer": "Lord, let this word be true in me today: “As far as the east is from the west, so far has he”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 8:31",
@@ -2280,7 +2532,8 @@
     "step": "When the accuser speaks, answer once: if God be for us, who can be against us?",
     "about": "Paul",
     "to": "Believers in Rome under accusation — and you when you need to know God is for you",
-    "setting": "Paul is teaching Rome there is no condemnation in Christ. This verse is the challenge: if God be for us, who can be against us?"
+    "setting": "Paul is teaching Rome there is no condemnation in Christ. This verse is the challenge: if God be for us, who can be against us?",
+    "prayer": "Lord, when the accuser speaks, remind me: if You are for me, who can be against me? In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 103:17",
@@ -2289,7 +2542,8 @@
     "step": "Name the fear, then answer it with: “But the mercy of the Lord is from everlasting.”",
     "about": "David",
     "to": "Worshipers who needed to hear “But the mercy of the Lord is” — and you when fear is loud",
-    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse is the hold: But the mercy of the Lord is from everlasting to everlasting upon."
+    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse is the hold: But the mercy of the Lord is from everlasting to everlasting upon.",
+    "prayer": "Lord, when fear rises, hold me with “But the mercy of the Lord is from everlasting”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 104:1",
@@ -2298,7 +2552,8 @@
     "step": "Say this praise out loud once: “Bless the Lord, O my soul.”",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "Worshipers who needed to hear “Bless the Lord, O my soul” — and you when praise has to last past the morning",
-    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the song: Bless the Lord, O my soul. O Lord my God, you art very great."
+    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the song: Bless the Lord, O my soul. O Lord my God, you art very great.",
+    "prayer": "Lord, i bless Your name with these words: “Bless the Lord, O my soul”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 4:18",
@@ -2307,7 +2562,8 @@
     "step": "Name the fear that is sitting in your chest. Then say: perfect love casts out fear.",
     "about": "John",
     "to": "Beloved children learning perfect love — and you when fear is still sitting in the room",
-    "setting": "John is teaching the church about perfect love. This verse is the result: there is no fear in love; perfect love casts out fear."
+    "setting": "John is teaching the church about perfect love. This verse is the result: there is no fear in love; perfect love casts out fear.",
+    "prayer": "Lord, perfect love casts out fear. Drive this fear out of my chest today. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 104:33",
@@ -2316,7 +2572,8 @@
     "step": "Say this praise out loud once: “I will sing unto the Lord as long as I live: I.”",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "Worshipers who needed to hear “I will sing unto the Lord as long as I” — and you when praise has to last past the morning",
-    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the song: I will sing unto the Lord as long as I live: I will sing praise."
+    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the song: I will sing unto the Lord as long as I live: I will sing praise.",
+    "prayer": "Lord, i bless Your name with these words: “I will sing unto the Lord as long as I live: I will”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 105:1",
@@ -2325,7 +2582,8 @@
     "step": "Say this praise out loud once: “O give thanks unto the Lord.”",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "Worshipers who needed to hear “O give thanks unto the Lord” — and you when praise has to last past the morning",
-    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the song: O give thanks unto the Lord."
+    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the song: O give thanks unto the Lord.",
+    "prayer": "Lord, i bless Your name with these words: “O give thanks unto the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 33:2",
@@ -2334,7 +2592,8 @@
     "step": "Name one place His salvation is still good, then say: “O LORD, be gracious unto us.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “O LORD, be gracious unto us” — and you when you are tired of forcing the next thing",
-    "setting": "Isaiah — Judgment and joy. This verse is the wait: O LORD, be gracious unto us."
+    "setting": "Isaiah — Judgment and joy. This verse is the wait: O LORD, be gracious unto us.",
+    "prayer": "Lord, teach me to wait. I hold “O LORD, be gracious unto us”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 106:1",
@@ -2343,7 +2602,8 @@
     "step": "Say this praise out loud once: “Praise you the Lord. O give thanks unto the Lord.”",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "Worshipers who needed to hear “Praise you the Lord” — and you when praise has to last past the morning",
-    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the song: Praise you the Lord. O give thanks unto the Lord."
+    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the song: Praise you the Lord. O give thanks unto the Lord.",
+    "prayer": "Lord, i bless Your name with these words: “Praise you the Lord. O give thanks unto the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 10:11",
@@ -2352,7 +2612,8 @@
     "step": "Hand Him one want, then rest on: “I am the good shepherd: the good shepherd.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “I am the good shepherd: the good shepherd” — and you when you need to be tended, not driven",
-    "setting": "Jesus is in this moment — the Good Shepherd. He says, “I am the good shepherd: the good shepherd giveth his life for the sheep.”."
+    "setting": "Jesus is in this moment — the Good Shepherd. He says, “I am the good shepherd: the good shepherd giveth his life for the sheep.”.",
+    "prayer": "Lord, shepherd me. I bring You this want: “I am the good shepherd: the good shepherd giveth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 107:8",
@@ -2361,7 +2622,8 @@
     "step": "Before the next task, bless His name with these words: “Oh that men would praise the Lord.”",
     "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
     "to": "Worshipers who needed to hear “Oh that men would praise the Lord” — and you when praise has to last past the morning",
-    "setting": "Book V opens with the redeemed giving thanks after desert, prison, sickness, and storm. This verse is the refrain: oh that men would praise the Lord for His goodness."
+    "setting": "Book V opens with the redeemed giving thanks after desert, prison, sickness, and storm. This verse is the refrain: oh that men would praise the Lord for His goodness.",
+    "prayer": "Lord, i bless Your name with these words: “Oh that men would praise the Lord for his goodness”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 107:9",
@@ -2370,7 +2632,8 @@
     "step": "Keep this clause until the next meal: “For he satisfieth the longing soul, and filleth.”",
     "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
     "to": "Worshipers who needed to hear “For he satisfieth the longing soul” — and you when you need to hear “For he satisfieth the longing soul”",
-    "setting": "The redeemed of the Lord — Book V opens: the redeemed from trouble give thanks. This verse is the line: For he satisfieth the longing soul, and filleth the hungry soul."
+    "setting": "The redeemed of the Lord — Book V opens: the redeemed from trouble give thanks. This verse is the line: For he satisfieth the longing soul, and filleth the hungry soul.",
+    "prayer": "Lord, let this word be true in me today: “For he satisfieth the longing soul, and filleth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 5:14",
@@ -2379,7 +2642,8 @@
     "step": "Stop once today and return to these words: “Ye are the light of the world.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Ye are the light of the world” — and you when you only have light for the next step",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the light: Ye are the light of the world."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the light: Ye are the light of the world.",
+    "prayer": "Lord, light the next step: “Ye are the light of the world”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 108:1",
@@ -2388,7 +2652,8 @@
     "step": "Say this praise out loud once: “O God, my heart is fixed.”",
     "about": "David",
     "to": "Worshipers who needed to hear “O God, my heart is fixed” — and you when praise has to last past the morning",
-    "setting": "David’s confidence in battle. This verse is the song: O God, my heart is fixed."
+    "setting": "David’s confidence in battle. This verse is the song: O God, my heart is fixed.",
+    "prayer": "Lord, i bless Your name with these words: “O God, my heart is fixed”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 108:4",
@@ -2397,7 +2662,8 @@
     "step": "Do one concrete kindness today because of this: “For your mercy is great above the heavens:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “For your mercy is great above the heavens:” — and you when you have failed and still need to come",
-    "setting": "David’s confidence in battle. This verse is the mercy: For your mercy is great above the heavens: and your truth reacheth unto."
+    "setting": "David’s confidence in battle. This verse is the mercy: For your mercy is great above the heavens: and your truth reacheth unto.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “For your mercy is great above the heavens”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 4:4",
@@ -2406,7 +2672,8 @@
     "step": "Stop once today and return to these words: “Rejoice in the Lord alway: and again I say.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Rejoice in the Lord alway: and again I” — and you when gladness feels like a command you cannot feel",
-    "setting": "From prison Paul tells Philippi to rejoice in the Lord always — then says it again, because joy here is a command, not a feeling."
+    "setting": "From prison Paul tells Philippi to rejoice in the Lord always — then says it again, because joy here is a command, not a feeling.",
+    "prayer": "Lord, let this word be true in me today: “Rejoice in the Lord alway: and again I say, Rejoice”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 109:30",
@@ -2415,7 +2682,8 @@
     "step": "Say this praise out loud once: “I will greatly praise the Lord with my mouth.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I will greatly praise the Lord” — and you when praise has to last past the morning",
-    "setting": "David — the Lord says to my Lord, “Sit at my right hand.”. This verse is the song: I will greatly praise the Lord with my mouth."
+    "setting": "David — the Lord says to my Lord, “Sit at my right hand.”. This verse is the song: I will greatly praise the Lord with my mouth.",
+    "prayer": "Lord, i bless Your name with these words: “I will greatly praise the Lord with my mouth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 111:1",
@@ -2424,7 +2692,8 @@
     "step": "Say this praise out loud once: “Praise you the Lord.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “Praise you the Lord” — and you when praise has to last past the morning — “Praise you the Lord.”",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: Praise you the Lord. I will praise the Lord with my whole heart."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: Praise you the Lord. I will praise the Lord with my whole heart.",
+    "prayer": "Lord, i bless Your name with these words: “Praise you the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 4:23",
@@ -2433,7 +2702,8 @@
     "step": "Stop once today and return to these words: “Keep your heart with all diligence.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “Keep your heart with all diligence” — and you when you need to hear “Keep your heart with all diligence”",
-    "setting": "Solomon giving wisdom — Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse is the line: Keep your heart with all diligence."
+    "setting": "Solomon giving wisdom — Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse is the line: Keep your heart with all diligence.",
+    "prayer": "Lord, let this word be true in me today: “Keep your heart with all diligence”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 111:4",
@@ -2442,7 +2712,8 @@
     "step": "Do one concrete kindness today because of this: “He has made his wonderful works to be.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “He has made his wonderful works to be” — and you when you need to hear “He has made his wonderful works to be”",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the mercy: He has made his wonderful works to be remembered: the Lord is."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the mercy: He has made his wonderful works to be remembered: the Lord is.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “He has made his wonderful works to be remembered”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 112:1",
@@ -2451,7 +2722,8 @@
     "step": "Say this praise out loud once: “Praise you the Lord.” — “Praise you the Lord.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “Praise you the Lord” — and you when fear is loud",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: Praise you the Lord. Blessed is the man that feareth the Lord."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: Praise you the Lord. Blessed is the man that feareth the Lord.",
+    "prayer": "Lord, i bless Your name with these words: “Praise you the Lord”. — “Praise you the Lord.” In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 8:37",
@@ -2460,7 +2732,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Nay, in all these things we are more than.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Nay, in all these things we are more than”",
-    "setting": "Paul — Dead to sin, alive to God. This verse is the line: Nay, in all these things we are more than conquerors through him."
+    "setting": "Paul — Dead to sin, alive to God. This verse is the line: Nay, in all these things we are more than conquerors through him.",
+    "prayer": "Lord, let this word be true in me today: “Nay, in all these things we are more than”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 112:4",
@@ -2469,7 +2742,8 @@
     "step": "Do one concrete kindness today because of this: “Unto the upright there ariseth light.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “Unto the upright there ariseth light” — and you when you only have light for the next step",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the mercy: Unto the upright there ariseth light in the darkness: he is gracious,."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the mercy: Unto the upright there ariseth light in the darkness: he is gracious,.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Unto the upright there ariseth light”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 113:2",
@@ -2478,7 +2752,8 @@
     "step": "Before the next task, bless His name with these words: “Blessed be the name of the Lord from this time.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “Blessed be the name of the Lord from this” — and you when praise has to last past the morning",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: Blessed be the name of the Lord from this time forth and for evermore."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: Blessed be the name of the Lord from this time forth and for evermore.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed be the name of the Lord from this time”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 5:14",
@@ -2487,7 +2762,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “This is the confidence that we have in him.”",
     "about": "John",
     "to": "The first hearers of “This is the confidence that we have” — and you when the Father feels hidden",
-    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given. This verse is the ask: This is the confidence that we have in him, that, if we ask any thing."
+    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given. This verse is the ask: This is the confidence that we have in him, that, if we ask any thing.",
+    "prayer": "Lord, hear this as my whole request: “This is the confidence that we have in him”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 113:3",
@@ -2496,7 +2772,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “From the rising of the sun unto the going down.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “From the rising of the sun unto the going” — and you when praise has to last past the morning",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: From the rising of the sun unto the going down of the same the Lord's."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: From the rising of the sun unto the going down of the same the Lord's.",
+    "prayer": "Lord, i bless Your name with these words: “From the rising of the sun unto the going down”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 136:4",
@@ -2505,7 +2782,8 @@
     "step": "Do one concrete kindness today because of this: “To him who alone doeth great wonders:.”",
     "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
     "to": "Worshipers who needed to hear “To him who alone doeth great wonders:” — and you when you have failed and still need to come",
-    "setting": "Israel in exile and return — Praise for the living God versus idols. This verse is the mercy: To him who alone doeth great wonders: for his mercy endureth for ever."
+    "setting": "Israel in exile and return — Praise for the living God versus idols. This verse is the mercy: To him who alone doeth great wonders: for his mercy endureth for ever.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “To him who alone doeth great wonders: for his mercy”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 40:29",
@@ -2514,7 +2792,8 @@
     "step": "Ask God for strength for the next hour, using this line: “He giveth power to the faint.”",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “He giveth power to the faint” — and you when you have no more push left",
-    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the charge: He giveth power to the faint."
+    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the charge: He giveth power to the faint.",
+    "prayer": "Lord, give me strength for this hour: “He giveth power to the faint”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 115:12",
@@ -2523,7 +2802,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “The Lord has been mindful of us: he will bless.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “The Lord has been mindful of us: he will” — and you when praise has to last past the morning",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: The Lord has been mindful of us: he will bless us."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: The Lord has been mindful of us: he will bless us.",
+    "prayer": "Lord, i bless Your name with these words: “The Lord has been mindful of us: he will bless us”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 116:1",
@@ -2532,7 +2812,8 @@
     "step": "Pray this line as your whole request: “I love the Lord, because he has heard my voice.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “I love the Lord, because he has heard” — and you when love feels like a mood you cannot make",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the ask: I love the Lord, because he has heard my voice and my supplications."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the ask: I love the Lord, because he has heard my voice and my supplications.",
+    "prayer": "Lord, hear this as my whole request: “I love the Lord, because he has heard my voice”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 10:28",
@@ -2541,7 +2822,8 @@
     "step": "Stop once today and return to these words: “I give unto them eternal life.”",
     "about": "Jesus (through John)",
     "to": "The people in front of Jesus when He said “I give unto them eternal life” — and you when you need to hear “I give unto them eternal life”",
-    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the line: I give unto them eternal life."
+    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the line: I give unto them eternal life.",
+    "prayer": "Lord, let this word be true in me today: “I give unto them eternal life”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 116:2",
@@ -2550,7 +2832,8 @@
     "step": "Stop once today and return to these words: “Because he has inclined his ear unto me.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “Because he has inclined his ear unto me” — and you when you need to hear “Because he has inclined his ear unto me”",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: Because he has inclined his ear unto me, therefore will I call upon."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: Because he has inclined his ear unto me, therefore will I call upon.",
+    "prayer": "Lord, let this word be true in me today: “Because he has inclined his ear unto me, therefore”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 116:5",
@@ -2559,7 +2842,8 @@
     "step": "Stop once today and return to these words: “Gracious is the Lord, and righteous.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “Gracious is the Lord, and righteous” — and you when you need to hear “Gracious is the Lord, and righteous”",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: Gracious is the Lord, and righteous."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: Gracious is the Lord, and righteous.",
+    "prayer": "Lord, let this word be true in me today: “Gracious is the Lord, and righteous”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 5:9",
@@ -2568,7 +2852,8 @@
     "step": "Before the next task, bless His name with these words: “Blessed are the peacemakers: for they shall be.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Blessed are the peacemakers: for they” — and you when your mind will not sit down",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: Blessed are the peacemakers: for they shall be called the children."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: Blessed are the peacemakers: for they shall be called the children.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed are the peacemakers: for they shall be”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 116:7",
@@ -2577,7 +2862,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “Return unto your rest, O my soul.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “Return unto your rest, O my soul” — and you when you need to hear “Return unto your rest, O my soul”",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the rest: Return unto your rest, O my soul."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the rest: Return unto your rest, O my soul.",
+    "prayer": "Lord, still my heart with “Return unto your rest, O my soul”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 4:8",
@@ -2586,7 +2872,8 @@
     "step": "Keep this clause until the next meal: “Whatsoever things are true, honest, just, pure.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Whatsoever things are true, honest, just”",
-    "setting": "Paul is teaching a prison-letter church what to put in the mind: whatever is true, honest, just, pure, lovely — think on these."
+    "setting": "Paul is teaching a prison-letter church what to put in the mind: whatever is true, honest, just, pure, lovely — think on these.",
+    "prayer": "Lord, let this word be true in me today: “Whatsoever things are true, honest, just, pure”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 117:1",
@@ -2595,7 +2882,8 @@
     "step": "Say this praise out loud once: “O praise the Lord, all you nations: praise him.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “O praise the Lord, all you nations: praise” — and you when praise has to last past the morning",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: O praise the Lord, all you nations: praise him, all you people."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: O praise the Lord, all you nations: praise him, all you people.",
+    "prayer": "Lord, i bless Your name with these words: “O praise the Lord, all you nations: praise him, all”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 117:2",
@@ -2604,7 +2892,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “For his merciful kindness is great toward us:.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “For his merciful kindness is great toward” — and you when the next person will get your sharp edge",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: For his merciful kindness is great toward us: and the truth."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: For his merciful kindness is great toward us: and the truth.",
+    "prayer": "Lord, let this word be true in me today: “For his merciful kindness is great toward us”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 12:25",
@@ -2613,7 +2902,8 @@
     "step": "Write this where you will see it: “Heaviness in the heart of man maketh it stoop:.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “Heaviness in the heart of man maketh it” — and you when you need a path, not a feeling",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the path: Heaviness in the heart of man maketh it stoop: but a good word maketh."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the path: Heaviness in the heart of man maketh it stoop: but a good word maketh.",
+    "prayer": "Lord, write this on my path today: “Heaviness in the heart of man maketh it stoop: but”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 118:1",
@@ -2622,7 +2912,8 @@
     "step": "Open this Hallel with thanks out loud: “O give thanks unto the Lord, for He is good.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Israel opening the Hallel after rescue — and you when thanks has to be the first word",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: O give thanks unto the Lord."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: O give thanks unto the Lord.",
+    "prayer": "Lord, i bless Your name with these words: “O give thanks unto the Lord”. — “O give thanks unto the Lord.” In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 118:5",
@@ -2631,7 +2922,8 @@
     "step": "Stop once today and return to these words: “I called upon the Lord in distress: the Lord.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “I called upon the Lord in distress” — and you when you need to hear “I called upon the Lord in distress”",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: I called upon the Lord in distress: the Lord answered me, and set me."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: I called upon the Lord in distress: the Lord answered me, and set me.",
+    "prayer": "Lord, let this word be true in me today: “I called upon the Lord in distress: the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 12:12",
@@ -2640,7 +2932,8 @@
     "step": "Pray this line as your whole request: “Rejoicing in hope.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Rejoicing in hope” — and you when hope has worn thin",
-    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the wait: Rejoicing in hope."
+    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the wait: Rejoicing in hope.",
+    "prayer": "Lord, hear this as my whole request: “Rejoicing in hope”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 118:8",
@@ -2649,7 +2942,8 @@
     "step": "When you want another rescue, return to: “It is better to trust in the Lord than to put.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “It is better to trust in the Lord than” — and you when you need somewhere that will hold",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: It is better to trust in the Lord than to put confidence in man."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: It is better to trust in the Lord than to put confidence in man.",
+    "prayer": "Lord, i put my weight on You: “It is better to trust in the Lord than to put”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 118:17",
@@ -2658,7 +2952,8 @@
     "step": "Stop once today and return to these words: “I shall not die, but live, and declare.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “I shall not die, but live, and declare” — and you when you need to hear “I shall not die, but live, and declare”",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: I shall not die, but live, and declare the works of the Lord."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: I shall not die, but live, and declare the works of the Lord.",
+    "prayer": "Lord, let this word be true in me today: “I shall not die, but live, and declare the works”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 43:4",
@@ -2667,7 +2962,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Since you wast precious in my sight, you hast.”",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “Since you wast precious in my sight” — and you when you need to hear “Since you wast precious in my sight”",
-    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the line: Since you wast precious in my sight, you hast been honourable."
+    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the line: Since you wast precious in my sight, you hast been honourable.",
+    "prayer": "Lord, let this word be true in me today: “Since you wast precious in my sight, you hast”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 118:21",
@@ -2676,7 +2972,8 @@
     "step": "Before the next task, bless His name with these words: “I will praise you: for you hast heard me.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “I will praise you: for you hast heard” — and you when praise has to last past the morning",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: I will praise you: for you hast heard me, and art become."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: I will praise you: for you hast heard me, and art become.",
+    "prayer": "Lord, i bless Your name with these words: “I will praise you: for you hast heard me, and art”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 118:23",
@@ -2685,7 +2982,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “This is the Lord's doing.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “This is the Lord's doing” — and you when you need to hear “This is the Lord's doing”",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: This is the Lord's doing."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: This is the Lord's doing.",
+    "prayer": "Lord, let this word be true in me today: “This is the Lord's doing”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 11:25",
@@ -2694,7 +2992,8 @@
     "step": "Stop once today and return to these words: “I am the resurrection, and the life.”",
     "about": "Jesus",
     "to": "Martha, Mary, and those at Lazarus’ tomb",
-    "setting": "Jesus — the triumphal entry approaches the cross. This verse is the line: I am the resurrection, and the life."
+    "setting": "Jesus — the triumphal entry approaches the cross. This verse is the line: I am the resurrection, and the life.",
+    "prayer": "Lord, let this word be true in me today: “I am the resurrection, and the life”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 118:28",
@@ -2703,7 +3002,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “you art my God, and I will praise you: you.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “you art my God, and I will praise you:” — and you when praise has to last past the morning",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: you art my God, and I will praise you: you art my God, I will."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the song: you art my God, and I will praise you: you art my God, I will.",
+    "prayer": "Lord, i bless Your name with these words: “you art my God, and I will praise you: you art”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 118:29",
@@ -2712,7 +3012,8 @@
     "step": "Say this praise out loud once: “O give thanks unto the Lord.” (O give thanks unto the Lord)",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “O give thanks unto the Lord” — and you when you have failed and still need to come — “O give thanks unto the Lord.”",
-    "setting": "This Hallelujah psalm is Israel’s thanks after rescue. This last line is the refrain: give thanks unto the Lord, for He is good; His mercy endures forever."
+    "setting": "This Hallelujah psalm is Israel’s thanks after rescue. This last line is the refrain: give thanks unto the Lord, for He is good; His mercy endures forever.",
+    "prayer": "Lord, i bless Your name with these words: “O give thanks unto the Lord”. Keep me in “O give thanks unto the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 6:33",
@@ -2721,7 +3022,8 @@
     "step": "Put the kingdom first in the next decision — food and clothes after, not first.",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Seek you first the kingdom of God” — and you when the Father feels hidden",
-    "setting": "Jesus is on the mount, teaching people not to worry about food and clothes. This verse is the first thing: seek the kingdom of God and His righteousness."
+    "setting": "Jesus is on the mount, teaching people not to worry about food and clothes. This verse is the first thing: seek the kingdom of God and His righteousness.",
+    "prayer": "Lord, I seek Your kingdom first in the next decision. Food and clothes after, not first. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:9",
@@ -2730,7 +3032,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Wherewithal shall a young man cleanse his way.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “Wherewithal shall a young man cleanse” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: Wherewithal shall a young man cleanse his way."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: Wherewithal shall a young man cleanse his way.",
+    "prayer": "Lord, write this on my path today: “Wherewithal shall a young man cleanse his way”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:18",
@@ -2739,7 +3042,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Open you mine eyes, that I may behold wondrous.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “Open you mine eyes, that I may behold” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: Open you mine eyes, that I may behold wondrous things out of your law."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: Open you mine eyes, that I may behold wondrous things out of your law.",
+    "prayer": "Lord, write this on my path today: “Open you mine eyes, that I may behold wondrous”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 4:19",
@@ -2748,7 +3052,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “My God shall supply all your need according.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “My God shall supply all your need” — and you when you need to hear “My God shall supply all your need”",
-    "setting": "Paul has just spoken of contentment and their gift. This line is the promise: God will supply all their need according to His riches in glory by Christ."
+    "setting": "Paul has just spoken of contentment and their gift. This line is the promise: God will supply all their need according to His riches in glory by Christ.",
+    "prayer": "Lord, let this word be true in me today: “My God shall supply all your need according”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:27",
@@ -2757,7 +3062,8 @@
     "step": "Carry this clause in your mouth until noon: “Make me to understand the way of your precepts:.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “Make me to understand the way” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — law, precepts, and path for life. This verse is the path: Make me to understand the way of your precepts: so shall I talk."
+    "setting": "A worshiper in love with God’s Word — law, precepts, and path for life. This verse is the path: Make me to understand the way of your precepts: so shall I talk.",
+    "prayer": "Lord, write this on my path today: “Make me to understand the way of your precepts: so”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:174",
@@ -2766,7 +3072,8 @@
     "step": "Carry this clause in your mouth until noon: “I have longed for your salvation, O Lord.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “I have longed for your salvation, O Lord” — and you when you only have light for the next step",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: I have longed for your salvation, O Lord."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: I have longed for your salvation, O Lord.",
+    "prayer": "Lord, write this on my path today: “I have longed for your salvation, O Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 14:30",
@@ -2775,7 +3082,8 @@
     "step": "Stop once today and return to these words: “A sound heart is the life of the flesh: but.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “A sound heart is the life of the flesh” — and you when you need to hear “A sound heart is the life of the flesh”",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: A sound heart is the life of the flesh: but envy the rottenness."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: A sound heart is the life of the flesh: but envy the rottenness.",
+    "prayer": "Lord, let this word be true in me today: “A sound heart is the life of the flesh: but envy”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:32",
@@ -2784,7 +3092,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “I will run the way of your commandments, when.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “I will run the way of your commandments” — and you when you need to hear “I will run the way of your commandments”",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: I will run the way of your commandments, when you shall enlarge."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: I will run the way of your commandments, when you shall enlarge.",
+    "prayer": "Lord, let this word be true in me today: “I will run the way of your commandments, when you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:45",
@@ -2793,7 +3102,8 @@
     "step": "Write this where you will see it: “And I will walk at liberty: for I seek.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “And I will walk at liberty: for I seek” — and you when the Father feels hidden",
-    "setting": "A worshiper in love with God’s Word — law, precepts, and path for life. This verse is the ask: And I will walk at liberty: for I seek your precepts."
+    "setting": "A worshiper in love with God’s Word — law, precepts, and path for life. This verse is the ask: And I will walk at liberty: for I seek your precepts.",
+    "prayer": "Lord, hear this as my whole request: “And I will walk at liberty: for I seek your precepts”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 8:32",
@@ -2802,7 +3112,8 @@
     "step": "Stop once today and return to these words: “He that spared not his own Son, but delivered.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “He that spared not his own Son, but” — and you when you need to hear “He that spared not his own Son, but”",
-    "setting": "Paul — Dead to sin, alive to God. This verse is the line: He that spared not his own Son, but delivered him up for us all, how."
+    "setting": "Paul — Dead to sin, alive to God. This verse is the line: He that spared not his own Son, but delivered him up for us all, how.",
+    "prayer": "Lord, let this word be true in me today: “He that spared not his own Son, but delivered him”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:65",
@@ -2811,7 +3122,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “you hast dealt well with your servant, O Lord.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “you hast dealt well with your servant, O” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: you hast dealt well with your servant, O Lord, according unto."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: you hast dealt well with your servant, O Lord, according unto.",
+    "prayer": "Lord, write this on my path today: “you hast dealt well with your servant, O Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 49:16",
@@ -2820,7 +3132,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Behold, I have graven you upon the palms.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “Behold, I have graven you upon the palms” — and you when you need to hear “Behold, I have graven you upon the palms”",
-    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: Behold, I have graven you upon the palms of my hands."
+    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: Behold, I have graven you upon the palms of my hands.",
+    "prayer": "Lord, let this word be true in me today: “Behold, I have graven you upon the palms”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:111",
@@ -2829,7 +3142,8 @@
     "step": "Carry this clause in your mouth until noon: “your testimonies have I taken as an heritage.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “your testimonies have I taken as an” — and you when you need to hear “your testimonies have I taken as an”",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: your testimonies have I taken as an heritage for ever: for they are."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: your testimonies have I taken as an heritage for ever: for they are.",
+    "prayer": "Lord, write this on my path today: “your testimonies have I taken as an heritage”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:68",
@@ -2838,7 +3152,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “you art good, and doest good.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “you art good, and doest good” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: you art good, and doest good."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: you art good, and doest good.",
+    "prayer": "Lord, write this on my path today: “you art good, and doest good”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 13:34",
@@ -2847,7 +3162,8 @@
     "step": "Write this where you will see it: “A new commandment I give unto you, That you love.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “A new commandment I give unto you” — and you when love feels like a mood you cannot make",
-    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “A new commandment I give unto you, That you love one another.”."
+    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “A new commandment I give unto you, That you love one another.”.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “A new commandment I give unto you, That you love one”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:73",
@@ -2856,7 +3172,8 @@
     "step": "Write this where you will see it: “your hands have made me and fashioned me: give.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “your hands have made me and fashioned me:” — and you when your own mind looks smarter than trust",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: your hands have made me and fashioned me: give me understanding,."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: your hands have made me and fashioned me: give me understanding,.",
+    "prayer": "Lord, let this word be true in me today: “your hands have made me and fashioned me: give me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:89",
@@ -2865,7 +3182,8 @@
     "step": "Write this where you will see it: “For ever, O Lord, your word is settled in heaven.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “For ever, O Lord, your word is settled” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: For ever, O Lord, your word is settled in heaven."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: For ever, O Lord, your word is settled in heaven.",
+    "prayer": "Lord, write this on my path today: “For ever, O Lord, your word is settled in heaven”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 7:12",
@@ -2874,7 +3192,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “All things whatsoever you would that men should.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “All things whatsoever you would that men” — and you when you need to hear “All things whatsoever you would that men”",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the line: All things whatsoever you would that men should do to you, do you even."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the line: All things whatsoever you would that men should do to you, do you even.",
+    "prayer": "Lord, let this word be true in me today: “All things whatsoever you would that men should do”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:93",
@@ -2883,7 +3202,8 @@
     "step": "Write this where you will see it: “I will never forget your precepts: for with them.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “I will never forget your precepts:” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — law, precepts, and path for life. This verse is the path: I will never forget your precepts: for with them you hast quickened."
+    "setting": "A worshiper in love with God’s Word — law, precepts, and path for life. This verse is the path: I will never forget your precepts: for with them you hast quickened.",
+    "prayer": "Lord, write this on my path today: “I will never forget your precepts: for with them”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:97",
@@ -2892,7 +3212,8 @@
     "step": "Carry this clause in your mouth until noon: “O how love I your law.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “O how love I your law” — and you when love feels like a mood you cannot make",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the call: O how love I your law! it is my meditation all the day."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the call: O how love I your law! it is my meditation all the day.",
+    "prayer": "Lord, write this on my path today: “O how love I your law”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 15:1",
@@ -2901,7 +3222,8 @@
     "step": "Keep this clause until the next meal: “A soft answer turneth away wrath.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “A soft answer turneth away wrath” — and you when you need to hear “A soft answer turneth away wrath”",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: A soft answer turneth away wrath."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: A soft answer turneth away wrath.",
+    "prayer": "Lord, let this word be true in me today: “A soft answer turneth away wrath”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:103",
@@ -2910,7 +3232,8 @@
     "step": "Write this where you will see it: “How sweet are your words unto my taste.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “How sweet are your words unto my taste” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: How sweet are your words unto my taste."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: How sweet are your words unto my taste.",
+    "prayer": "Lord, write this on my path today: “How sweet are your words unto my taste”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:114",
@@ -2919,7 +3242,8 @@
     "step": "When you want another rescue, return to: “you art my hiding place and my shield: I hope.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “you art my hiding place and my shield: I” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the hold: you art my hiding place and my shield: I hope in your word."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the hold: you art my hiding place and my shield: I hope in your word.",
+    "prayer": "Lord, i put my weight on You: “you art my hiding place and my shield: I hope”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 54:10",
@@ -2928,7 +3252,8 @@
     "step": "Do one concrete kindness today because of this: “My kindness shall not depart from you.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “My kindness shall not depart from you” — and you when the next person will get your sharp edge",
-    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: My kindness shall not depart from you."
+    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: My kindness shall not depart from you.",
+    "prayer": "Lord, let this word be true in me today: “My kindness shall not depart from you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:116",
@@ -2937,7 +3262,8 @@
     "step": "Write this where you will see it: “Uphold me according unto your word, that I may.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “Uphold me according unto your word, that I” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: Uphold me according unto your word, that I may live: and let me not be."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: Uphold me according unto your word, that I may live: and let me not be.",
+    "prayer": "Lord, write this on my path today: “Uphold me according unto your word, that I may live”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:130",
@@ -2946,7 +3272,8 @@
     "step": "Write this where you will see it: “The entrance of your words giveth light.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “The entrance of your words giveth light” — and you when you only have light for the next step",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: The entrance of your words giveth light."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: The entrance of your words giveth light.",
+    "prayer": "Lord, write this on my path today: “The entrance of your words giveth light”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 14:1",
@@ -2955,7 +3282,8 @@
     "step": "Stop once today and return to these words: “Let not your heart be troubled: you believe.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Let not your heart be troubled: you” — and you when you need to hear “Let not your heart be troubled: you”",
-    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the line: Let not your heart be troubled: you believe in God, believe also in me."
+    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the line: Let not your heart be troubled: you believe in God, believe also in me.",
+    "prayer": "Lord, let this word be true in me today: “Let not your heart be troubled: you believe in God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:151",
@@ -2964,7 +3292,8 @@
     "step": "Carry this clause in your mouth until noon: “you art near, O Lord.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “you art near, O Lord” — and you when you need to hear “you art near, O Lord”",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: you art near, O Lord."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: you art near, O Lord.",
+    "prayer": "Lord, let this word be true in me today: “you art near, O Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:140",
@@ -2973,7 +3302,8 @@
     "step": "Write this where you will see it: “your word is very pure: therefore your servant.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “your word is very pure: therefore” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: your word is very pure: therefore your servant loveth it."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: your word is very pure: therefore your servant loveth it.",
+    "prayer": "Lord, write this on my path today: “your word is very pure: therefore your servant loveth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 18:20",
@@ -2982,7 +3312,8 @@
     "step": "Keep this clause until the next meal: “Where two or three are gathered together.”",
     "about": "Jesus",
     "to": "His disciples — and all who guard the vulnerable and practice forgiveness",
-    "setting": "Jesus teaches about little ones, humility, seeking the lost sheep, and forgiving brothers seventy times seven."
+    "setting": "Jesus teaches about little ones, humility, seeking the lost sheep, and forgiving brothers seventy times seven.",
+    "prayer": "Lord, let this word be true in me today: “Where two or three are gathered together”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:160",
@@ -2991,7 +3322,8 @@
     "step": "Write this where you will see it: “your word is true from the beginning: and every.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “your word is true from the beginning:” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: your word is true from the beginning: and every one of your righteous."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: your word is true from the beginning: and every one of your righteous.",
+    "prayer": "Lord, write this on my path today: “your word is true from the beginning: and every one”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:162",
@@ -3000,7 +3332,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “I rejoice at your word, as one that findeth.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “I rejoice at your word, as one” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: I rejoice at your word, as one that findeth great spoil."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: I rejoice at your word, as one that findeth great spoil.",
+    "prayer": "Lord, write this on my path today: “I rejoice at your word, as one that findeth great”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 15:3",
@@ -3009,7 +3342,8 @@
     "step": "Stop once today and return to these words: “The eyes of the Lord are in every place.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “The eyes of the Lord are in every place” — and you when you need to hear “The eyes of the Lord are in every place”",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: The eyes of the Lord are in every place."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: The eyes of the Lord are in every place.",
+    "prayer": "Lord, let this word be true in me today: “The eyes of the Lord are in every place”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:175",
@@ -3018,7 +3352,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Let my soul live, and it shall praise you.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “Let my soul live, and it shall praise you” — and you when praise has to last past the morning",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the song: Let my soul live, and it shall praise you."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the song: Let my soul live, and it shall praise you.",
+    "prayer": "Lord, i bless Your name with these words: “Let my soul live, and it shall praise you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 121:4",
@@ -3027,7 +3362,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Behold, he that keepeth Israel shall neither.”",
     "about": "A song of ascents writer",
     "to": "Worshipers who needed to hear “Behold, he that keepeth Israel shall” — and you when you need to hear “Behold, he that keepeth Israel shall”",
-    "setting": "A song of ascents writer — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: Behold, he that keepeth Israel shall neither slumber nor sleep."
+    "setting": "A song of ascents writer — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: Behold, he that keepeth Israel shall neither slumber nor sleep.",
+    "prayer": "Lord, let this word be true in me today: “Behold, he that keepeth Israel shall neither”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 55:6",
@@ -3036,7 +3372,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Seek you the Lord while he may be found, call you.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “Seek you the Lord while he may be found” — and you when the Father feels hidden",
-    "setting": "Isaiah — The Servant suffers for sins. This verse is the ask: Seek you the Lord while he may be found, call you upon him while he is."
+    "setting": "Isaiah — The Servant suffers for sins. This verse is the ask: Seek you the Lord while he may be found, call you upon him while he is.",
+    "prayer": "Lord, hear this as my whole request: “Seek you the Lord while he may be found, call you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 121:5",
@@ -3045,7 +3382,8 @@
     "step": "Stop once today and return to these words: “The Lord is your keeper: the Lord is your shade.”",
     "about": "A song of ascents writer",
     "to": "Worshipers who needed to hear “The Lord is your keeper: the Lord is” — and you when you need to hear “The Lord is your keeper: the Lord is”",
-    "setting": "A song of ascents writer — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: The Lord is your keeper: the Lord is your shade upon your right hand."
+    "setting": "A song of ascents writer — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: The Lord is your keeper: the Lord is your shade upon your right hand.",
+    "prayer": "Lord, let this word be true in me today: “The Lord is your keeper: the Lord is your shade upon”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 14:6",
@@ -3054,7 +3392,8 @@
     "step": "When you want another way, say: Jesus is the way, the truth, and the life — then take the next step toward Him.",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “I am the way, the truth, and the life” — and you when you need to hear “I am the way, the truth, and the life”",
-    "setting": "Jesus is in the upper room the night before the cross, comforting troubled disciples. This verse is the way: I am the way, the truth, and the life."
+    "setting": "Jesus is in the upper room the night before the cross, comforting troubled disciples. This verse is the way: I am the way, the truth, and the life.",
+    "prayer": "Lord Jesus, You are the way, the truth, and the life. I take the next step toward You. Amen."
   },
   {
     "ref": "Psalm 121:6",
@@ -3063,7 +3402,8 @@
     "step": "Keep this clause until the next meal: “The sun shall not smite you by day, nor.”",
     "about": "A song of ascents writer",
     "to": "Worshipers who needed to hear “The sun shall not smite you by day, nor” — and you when you need to hear “The sun shall not smite you by day, nor”",
-    "setting": "A song of ascents writer — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: The sun shall not smite you by day, nor the moon by night."
+    "setting": "A song of ascents writer — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: The sun shall not smite you by day, nor the moon by night.",
+    "prayer": "Lord, let this word be true in me today: “The sun shall not smite you by day, nor the moon”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 124:8",
@@ -3072,7 +3412,8 @@
     "step": "Stop once today and return to these words: “Our help is in the name of the Lord, who made.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “Our help is in the name of the Lord” — and you when you need to hear “Our help is in the name of the Lord”",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: Our help is in the name of the Lord, who made heaven and earth."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: Our help is in the name of the Lord, who made heaven and earth.",
+    "prayer": "Lord, let this word be true in me today: “Our help is in the name of the Lord, who made”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 21:22",
@@ -3081,7 +3422,8 @@
     "step": "Ask once more with these words before you try to fix it: “All things, whatsoever you shall ask in prayer.”",
     "about": "Jesus (through Matthew)",
     "to": "The people in front of Jesus when He said “All things, whatsoever you shall ask” — and you when the Father feels hidden",
-    "setting": "Jesus — debates with leaders in Jerusalem. This verse is the ask: All things, whatsoever you shall ask in prayer, believing, you shall."
+    "setting": "Jesus — debates with leaders in Jerusalem. This verse is the ask: All things, whatsoever you shall ask in prayer, believing, you shall.",
+    "prayer": "Lord, hear this as my whole request: “All things, whatsoever you shall ask in prayer”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 125:1",
@@ -3090,7 +3432,8 @@
     "step": "Put your weight on this line for the next hour: “They that trust in the Lord shall be as mount.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “They that trust in the Lord shall be as” — and you when you need somewhere that will hold",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the hold: They that trust in the Lord shall be as mount Zion, which cannot be."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the hold: They that trust in the Lord shall be as mount Zion, which cannot be.",
+    "prayer": "Lord, i put my weight on You: “They that trust in the Lord shall be as mount Zion”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 126:2",
@@ -3099,7 +3442,8 @@
     "step": "Before the next task, bless His name with these words: “Then was our mouth filled with laughter.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “Then was our mouth filled with laughter” — and you when praise has to last past the morning",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the song: Then was our mouth filled with laughter, and our tongue with singing."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the song: Then was our mouth filled with laughter, and our tongue with singing.",
+    "prayer": "Lord, i bless Your name with these words: “Then was our mouth filled with laughter”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 16:9",
@@ -3108,7 +3452,8 @@
     "step": "Stop once today and return to these words: “A man's heart deviseth his way: but the Lord.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “A man's heart deviseth his way: but” — and you when you need to hear “A man's heart deviseth his way: but”",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: A man's heart deviseth his way: but the Lord directeth his steps."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: A man's heart deviseth his way: but the Lord directeth his steps.",
+    "prayer": "Lord, let this word be true in me today: “A man's heart deviseth his way: but the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 126:3",
@@ -3117,7 +3462,8 @@
     "step": "Keep this clause until the next meal: “The Lord has done great things for us.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “The Lord has done great things for us” — and you when gladness feels like a command you cannot feel",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the gladness: The Lord has done great things for us."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the gladness: The Lord has done great things for us.",
+    "prayer": "Lord, let this word be true in me today: “The Lord has done great things for us”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 127:2",
@@ -3126,7 +3472,8 @@
     "step": "Stop once today and return to these words: “It is vain for you to rise up early, to sit up.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “It is vain for you to rise up early” — and you when you need to hear “It is vain for you to rise up early”",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the call: It is vain for you to rise up early, to sit up late: for so he giveth."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the call: It is vain for you to rise up early, to sit up late: for so he giveth.",
+    "prayer": "Lord, let this word be true in me today: “It is vain for you to rise up early, to sit up”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 58:11",
@@ -3135,7 +3482,8 @@
     "step": "Stop once today and return to these words: “The Lord shall guide you continually.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “The Lord shall guide you continually” — and you when you need to hear “The Lord shall guide you continually”",
-    "setting": "Isaiah — Promises of a new heavens and new earth. This verse is the line: The Lord shall guide you continually, and satisfy your soul."
+    "setting": "Isaiah — Promises of a new heavens and new earth. This verse is the line: The Lord shall guide you continually, and satisfy your soul.",
+    "prayer": "Lord, let this word be true in me today: “The Lord shall guide you continually, and satisfy”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 128:1",
@@ -3144,7 +3492,8 @@
     "step": "Say this praise out loud once: “Blessed is every one that feareth the Lord.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “Blessed is every one that feareth the Lord” — and you when fear is loud",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the hold: Blessed is every one that feareth the Lord."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the hold: Blessed is every one that feareth the Lord.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed is every one that feareth the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 130:5",
@@ -3153,7 +3502,8 @@
     "step": "Carry this clause in your mouth until noon: “I wait for the Lord, my soul doth wait.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “I wait for the Lord, my soul doth wait” — and you when you are tired of forcing the next thing",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the wait: I wait for the Lord, my soul doth wait, and in his word do I hope."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the wait: I wait for the Lord, my soul doth wait, and in his word do I hope.",
+    "prayer": "Lord, write this on my path today: “I wait for the Lord, my soul doth wait”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 15:12",
@@ -3162,7 +3512,8 @@
     "step": "Carry this clause in your mouth until noon: “This is my commandment, That you love one.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “This is my commandment, That you love one” — and you when love feels like a mood you cannot make",
-    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the call: This is my commandment, That you love one another, as I have loved you."
+    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the call: This is my commandment, That you love one another, as I have loved you.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “This is my commandment, That you love one another”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 130:7",
@@ -3171,7 +3522,8 @@
     "step": "Do one concrete kindness today because of this: “Let Israel hope in the Lord: for with the Lord.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “Let Israel hope in the Lord:” — and you when you have failed and still need to come",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the mercy: Let Israel hope in the Lord: for with the Lord there is mercy."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the mercy: Let Israel hope in the Lord: for with the Lord there is mercy.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Let Israel hope in the Lord: for with the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 131:3",
@@ -3180,7 +3532,8 @@
     "step": "Keep this clause until the next meal: “Let Israel hope in the Lord from henceforth.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “Let Israel hope in the Lord” — and you when hope has worn thin",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the hope: Let Israel hope in the Lord from henceforth and for ever."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the hope: Let Israel hope in the Lord from henceforth and for ever.",
+    "prayer": "Lord, let this word be true in me today: “Let Israel hope in the Lord from henceforth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 18:10",
@@ -3189,7 +3542,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The name of the Lord is a strong tower.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “The name of the Lord is a strong tower” — and you when you need to hear “The name of the Lord is a strong tower”",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the charge: The name of the Lord is a strong tower."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the charge: The name of the Lord is a strong tower.",
+    "prayer": "Lord, give me strength for this hour: “The name of the Lord is a strong tower”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 133:1",
@@ -3198,7 +3552,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Behold, how good and how pleasant it is.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “Behold, how good and how pleasant it is” — and you when you need to hear “Behold, how good and how pleasant it is”",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: Behold, how good and how pleasant it is for brethren to dwell."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: Behold, how good and how pleasant it is for brethren to dwell.",
+    "prayer": "Lord, let this word be true in me today: “Behold, how good and how pleasant it is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 134:2",
@@ -3207,7 +3562,8 @@
     "step": "Before the next task, bless His name with these words: “Lift up your hands in the sanctuary, and bless.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “Lift up your hands in the sanctuary” — and you when praise has to last past the morning",
-    "setting": "This is a short song of ascent for night servants in the temple. This verse is the blessing: lift up your hands in the sanctuary, and bless the Lord."
+    "setting": "This is a short song of ascent for night servants in the temple. This verse is the blessing: lift up your hands in the sanctuary, and bless the Lord.",
+    "prayer": "Lord, i bless Your name with these words: “Lift up your hands in the sanctuary, and bless”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 40:1",
@@ -3216,7 +3572,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Comfort you, comfort you my people, says.”",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “Comfort you, comfort you my people, says” — and you when you need to hear “Comfort you, comfort you my people, says”",
-    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the line: Comfort you, comfort you my people, says your God."
+    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the line: Comfort you, comfort you my people, says your God.",
+    "prayer": "Lord, let this word be true in me today: “Comfort you, comfort you my people, saith your God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 135:3",
@@ -3225,7 +3582,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Praise the Lord; for the Lord is good: sing.”",
     "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
     "to": "Worshipers who needed to hear “Praise the Lord; for the Lord is good:” — and you when praise has to last past the morning",
-    "setting": "Israel in exile and return — Praise for the living God versus idols. This verse is the song: Praise the Lord; for the Lord is good: sing praises unto his name;."
+    "setting": "Israel in exile and return — Praise for the living God versus idols. This verse is the song: Praise the Lord; for the Lord is good: sing praises unto his name;.",
+    "prayer": "Lord, i bless Your name with these words: “Praise the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 136:1",
@@ -3234,7 +3592,8 @@
     "step": "Begin the long mercy refrain: give thanks — then say the next clause as the point: His mercy endures forever.",
     "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
     "to": "The congregation walking the long mercy refrain — and you when you need the line that does not run out",
-    "setting": "Israel in exile and return — Praise for the living God versus idols. This verse is the song: O give thanks unto the Lord."
+    "setting": "Israel in exile and return — Praise for the living God versus idols. This verse is the song: O give thanks unto the Lord.",
+    "prayer": "Lord, keep me in “O give thanks unto the Lord” today. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 20:7",
@@ -3243,7 +3602,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “The just man walketh in his integrity:.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “The just man walketh in his integrity:” — and you when praise has to last past the morning",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the song: The just man walketh in his integrity: his children are blessed after."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the song: The just man walketh in his integrity: his children are blessed after.",
+    "prayer": "Lord, i bless Your name with these words: “The just man walketh in his integrity: his children”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 138:7",
@@ -3252,7 +3612,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Though I walk in the midst of trouble, you.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Though I walk in the midst of trouble” — and you when you need to hear “Though I walk in the midst of trouble”",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Though I walk in the midst of trouble, you wilt revive me."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Though I walk in the midst of trouble, you wilt revive me.",
+    "prayer": "Lord, let this word be true in me today: “Though I walk in the midst of trouble, you wilt”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 139:17",
@@ -3261,7 +3622,8 @@
     "step": "Stop once today and return to these words: “How precious also are your thoughts unto me, O.”",
     "about": "David",
     "to": "Worshipers who needed to hear “How precious also are your thoughts unto” — and you when you need to hear “How precious also are your thoughts unto”",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: How precious also are your thoughts unto me, O God."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: How precious also are your thoughts unto me, O God.",
+    "prayer": "Lord, let this word be true in me today: “How precious also are your thoughts unto me, O God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 22:1",
@@ -3270,7 +3632,8 @@
     "step": "Keep this clause until the next meal: “A good name is rather to be chosen than great.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “A good name is rather to be chosen than” — and you when you have forgotten who you are",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: A good name is rather to be chosen than great riches."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: A good name is rather to be chosen than great riches.",
+    "prayer": "Lord, let this word be true in me today: “A good name is rather to be chosen than great”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 145:14",
@@ -3279,7 +3642,8 @@
     "step": "Stop once today and return to these words: “The Lord upholdeth all that fall, and raiseth.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The Lord upholdeth all that fall” — and you when you need to hear “The Lord upholdeth all that fall”",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: The Lord upholdeth all that fall, and raiseth up all those that be."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: The Lord upholdeth all that fall, and raiseth up all those that be.",
+    "prayer": "Lord, let this word be true in me today: “The Lord upholdeth all that fall, and raiseth up”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 28:26",
@@ -3288,7 +3652,8 @@
     "step": "When you want another rescue, return to: “He that trusteth in his own heart is a fool:.”",
     "about": "Solomon (copied for Judah)",
     "to": "Leaders and people needing wisdom",
-    "setting": "More of Solomon’s proverbs, copied later by Hezekiah’s men."
+    "setting": "More of Solomon’s proverbs, copied later by Hezekiah’s men.",
+    "prayer": "Lord, i put my weight on You: “He that trusteth in his own heart is a fool: but”. In Jesus’ name, Amen."
   },
   {
     "ref": "Genesis 15:1",
@@ -3297,7 +3662,8 @@
     "step": "When fear returns, speak this once: “After these things the word of the LORD came.” Then take the next small step.",
     "about": "The Lord and Abraham",
     "to": "Abraham — and all who wait on God’s promise",
-    "setting": "God cuts covenant with Abram, renames him Abraham, and promises a son."
+    "setting": "God cuts covenant with Abram, renames him Abraham, and promises a son.",
+    "prayer": "Lord, when fear rises, hold me with “After these things the word of the LORD came unto”. In Jesus’ name, Amen."
   },
   {
     "ref": "Genesis 28:15",
@@ -3306,7 +3672,8 @@
     "step": "Keep this clause until the next meal: “And, behold, I am with you, and will keep you.”",
     "about": "Isaac, Rebekah, Jacob, and Esau (through Moses)",
     "to": "A broken family — and all who need God to meet them on the run",
-    "setting": "Jacob steals Esau’s blessing and flees; God meets him at Bethel."
+    "setting": "Jacob steals Esau’s blessing and flees; God meets him at Bethel.",
+    "prayer": "Lord, let this word be true in me today: “And, behold, I am with you, and will keep you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Genesis 50:20",
@@ -3315,7 +3682,8 @@
     "step": "Name one place His salvation is still good, then say: “But as for you, you thought evil against me.”",
     "about": "Joseph (through Moses)",
     "to": "His brothers — and all who need forgiveness after harm",
-    "setting": "Jacob’s family settles in Egypt; Jacob dies; Joseph forgives his brothers."
+    "setting": "Jacob’s family settles in Egypt; Jacob dies; Joseph forgives his brothers.",
+    "prayer": "Lord, show me Your salvation again today: “But as for you, you thought evil against me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Exodus 14:14",
@@ -3324,7 +3692,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “The LORD shall fight for you, and you shall hold.”",
     "about": "The Lord (through Moses)",
     "to": "The first hearers of “The LORD shall fight for you, and you” — and you when your mind will not sit down",
-    "setting": "Israel is trapped at the sea; God parts the waters and overthrows Egypt’s army."
+    "setting": "Israel is trapped at the sea; God parts the waters and overthrows Egypt’s army.",
+    "prayer": "Lord, still my heart with “The LORD shall fight for you, and you shall hold”. In Jesus’ name, Amen."
   },
   {
     "ref": "Exodus 15:2",
@@ -3333,7 +3702,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The LORD is my strength and song, and he is.”",
     "about": "Moses (recording the Lord’s deliverance)",
     "to": "Israel at the sea — and all who need a way through",
-    "setting": "Israel is trapped at the sea; God parts the waters and Egypt is overthrown; Israel sings."
+    "setting": "Israel is trapped at the sea; God parts the waters and Egypt is overthrown; Israel sings.",
+    "prayer": "Lord, give me strength for this hour: “The LORD is my strength and song, and he is become”. In Jesus’ name, Amen."
   },
   {
     "ref": "Exodus 33:14",
@@ -3342,7 +3712,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “And he said, My presence shall go with you.”",
     "about": "Moses, Israel, and the Lord",
     "to": "A people who broke faith — and all who need mercy after failure",
-    "setting": "Israel makes the golden calf; Moses intercedes; God renews the covenant."
+    "setting": "Israel makes the golden calf; Moses intercedes; God renews the covenant.",
+    "prayer": "Lord, still my heart with “And he said, My presence shall go with you, and I”. In Jesus’ name, Amen."
   },
   {
     "ref": "Numbers 6:24",
@@ -3351,7 +3722,8 @@
     "step": "Say this praise out loud once: “The LORD bless you, and keep you:.”",
     "about": "Moses (recording the Lord’s command)",
     "to": "The first hearers of “The LORD bless you, and keep you:” — and you when praise has to last past the morning",
-    "setting": "Moses — Israel is counted and ordered around the tabernacle for the march from Sinai. This verse is the song: The LORD bless you, and keep you:."
+    "setting": "Moses — Israel is counted and ordered around the tabernacle for the march from Sinai. This verse is the song: The LORD bless you, and keep you:.",
+    "prayer": "Lord, i bless Your name with these words: “The LORD bless you, and keep you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Numbers 6:25",
@@ -3360,7 +3732,8 @@
     "step": "Stop once today and return to these words: “The LORD make his face shine upon you, and be.”",
     "about": "Moses (recording the Lord’s command)",
     "to": "The first hearers of “The LORD make his face shine upon you” — and you when you need to hear “The LORD make his face shine upon you”",
-    "setting": "Moses — Israel is counted and ordered around the tabernacle for the march from Sinai. This verse is the line: The LORD make his face shine upon you, and be gracious unto you:."
+    "setting": "Moses — Israel is counted and ordered around the tabernacle for the march from Sinai. This verse is the line: The LORD make his face shine upon you, and be gracious unto you:.",
+    "prayer": "Lord, let this word be true in me today: “The LORD make his face shine upon you, and be”. In Jesus’ name, Amen."
   },
   {
     "ref": "Numbers 6:26",
@@ -3369,7 +3742,8 @@
     "step": "Stop once today and return to these words: “The LORD lift up his countenance upon you.”",
     "about": "Moses (recording the Lord’s command)",
     "to": "The first hearers of “The LORD lift up his countenance upon” — and you when your mind will not sit down",
-    "setting": "Moses — Israel is counted and ordered around the tabernacle for the march from Sinai. This verse is the rest: The LORD lift up his countenance upon you, and give you peace."
+    "setting": "Moses — Israel is counted and ordered around the tabernacle for the march from Sinai. This verse is the rest: The LORD lift up his countenance upon you, and give you peace.",
+    "prayer": "Lord, still my heart with “The LORD lift up his countenance upon you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Deuteronomy 6:5",
@@ -3378,7 +3752,8 @@
     "step": "Do one concrete kindness today because of this: “And you shall love the LORD your God with all.”",
     "about": "Moses",
     "to": "Israel about to enter the land",
-    "setting": "Moses repeats the Ten Commandments and presses love for the Lord with the whole heart."
+    "setting": "Moses repeats the Ten Commandments and presses love for the Lord with the whole heart.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And you shalt love the LORD your God with all”. In Jesus’ name, Amen."
   },
   {
     "ref": "Deuteronomy 31:6",
@@ -3387,7 +3762,8 @@
     "step": "Ask God for strength for the next hour, using this line: “Be strong and of a good courage, fear not, nor.”",
     "about": "Moses (and the narrator)",
     "to": "The first hearers of “Be strong and of a good courage, fear” — and you when fear is loud",
-    "setting": "Moses — Joshua is commissioned. This verse is the hold: Be strong and of a good courage, fear not, nor be afraid of them:."
+    "setting": "Moses — Joshua is commissioned. This verse is the hold: Be strong and of a good courage, fear not, nor be afraid of them:.",
+    "prayer": "Lord, when fear rises, hold me with “Be strong and of a good courage, fear not, nor be”. In Jesus’ name, Amen."
   },
   {
     "ref": "Deuteronomy 31:8",
@@ -3396,7 +3772,8 @@
     "step": "Name the fear, then answer it with: “And the LORD, he it is that doth go before you.”",
     "about": "Moses (and the narrator)",
     "to": "The first hearers of “And the LORD, he it is that doth go” — and you when fear is loud",
-    "setting": "Moses — Joshua is commissioned. This verse is the hold: And the LORD, he it is that doth go before you."
+    "setting": "Moses — Joshua is commissioned. This verse is the hold: And the LORD, he it is that doth go before you.",
+    "prayer": "Lord, when fear rises, hold me with “And the LORD, he it is that doth go before you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Deuteronomy 33:27",
@@ -3405,7 +3782,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The eternal God is your refuge, and underneath.”",
     "about": "Moses (and the narrator)",
     "to": "The first hearers of “The eternal God is your refuge” — and you when you need somewhere that will hold",
-    "setting": "Moses — Joshua is commissioned. This verse is the hold: The eternal God is your refuge, and underneath are the everlasting."
+    "setting": "Moses — Joshua is commissioned. This verse is the hold: The eternal God is your refuge, and underneath are the everlasting.",
+    "prayer": "Lord, i put my weight on You: “The eternal God is your refuge, and underneath are”. In Jesus’ name, Amen."
   },
   {
     "ref": "Joshua 1:8",
@@ -3414,7 +3792,8 @@
     "step": "Carry this clause in your mouth until noon: “This book of the law shall not depart out.”",
     "about": "The Lord",
     "to": "The first hearers of “This book of the law shall not depart out” — and you when you need a path, not a feeling",
-    "setting": "Joshua has just taken command. This verse is the book in his mouth: this law shall not depart; meditate in it day and night, so you may do it."
+    "setting": "Joshua has just taken command. This verse is the book in his mouth: this law shall not depart; meditate in it day and night, so you may do it.",
+    "prayer": "Lord, write this on my path today: “This book of the law shall not depart out”. In Jesus’ name, Amen."
   },
   {
     "ref": "Joshua 24:15",
@@ -3423,7 +3802,8 @@
     "step": "Stop once today and return to these words: “And if it seem evil unto you to serve the LORD.”",
     "about": "Joshua",
     "to": "Israel after the conquest",
-    "setting": "Joshua’s farewell: choose whom you will serve; Israel renews the covenant at Shechem."
+    "setting": "Joshua’s farewell: choose whom you will serve; Israel renews the covenant at Shechem.",
+    "prayer": "Lord, let this word be true in me today: “And if it seem evil unto you to serve the LORD”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ruth 1:16",
@@ -3432,7 +3812,8 @@
     "step": "Keep this clause until the next meal: “And Ruth said, Intreat me not to leave you.”",
     "about": "The narrator of Ruth",
     "to": "Israel remembering kindness and redemption",
-    "setting": "The narrator of Ruth — Ruth clings to her and to Israel’s God. This verse is the line: And Ruth said, Intreat me not to leave you, or to return."
+    "setting": "The narrator of Ruth — Ruth clings to her and to Israel’s God. This verse is the line: And Ruth said, Intreat me not to leave you, or to return.",
+    "prayer": "Lord, let this word be true in me today: “And Ruth said, Intreat me not to leave you”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Samuel 2:2",
@@ -3441,7 +3822,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “There is none holy as the LORD: for there is.”",
     "about": "The narrator of Samuel (with Hannah, Eli, and Samuel)",
     "to": "Israel under corrupt priests — and the barren who pray",
-    "setting": "Hannah prays for a son; Samuel is born and serves under Eli; God calls the boy by name."
+    "setting": "Hannah prays for a son; Samuel is born and serves under Eli; God calls the boy by name.",
+    "prayer": "Lord, i put my weight on You: “There is none holy as the LORD: for there is none”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Samuel 12:24",
@@ -3450,7 +3832,8 @@
     "step": "Name the fear, then answer it with: “Only fear the LORD, and serve him in truth.”",
     "about": "Samuel, Saul, and the Lord",
     "to": "The first hearers of “Only fear the LORD, and serve him” — and you when fear is loud",
-    "setting": "Israel demands a king; Saul is anointed, confirmed in battle, and warned to obey."
+    "setting": "Israel demands a king; Saul is anointed, confirmed in battle, and warned to obey.",
+    "prayer": "Lord, when fear rises, hold me with “Only fear the LORD, and serve him in truth with all”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Samuel 16:7",
@@ -3459,7 +3842,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “But the LORD said unto Samuel, Look not on.”",
     "about": "The narrator of Samuel (with David and Goliath)",
     "to": "Israel facing a giant — and anyone facing what feels too big",
-    "setting": "David is anointed; he fights Goliath while Saul’s army freezes in fear."
+    "setting": "David is anointed; he fights Goliath while Saul’s army freezes in fear.",
+    "prayer": "Lord, let this word be true in me today: “But the LORD said unto Samuel, Look not on”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Samuel 22:31",
@@ -3468,7 +3852,8 @@
     "step": "Put your weight on this line for the next hour: “As for God, his way is perfect.”",
     "about": "David (through the narrator)",
     "to": "Israel at the close of David’s wars",
-    "setting": "David returns to rule; further trouble and a census bring plague; David buys a threshing floor for an altar."
+    "setting": "David returns to rule; further trouble and a census bring plague; David buys a threshing floor for an altar.",
+    "prayer": "Lord, i put my weight on You: “As for God, his way is perfect”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Chronicles 16:11",
@@ -3477,7 +3862,8 @@
     "step": "Ask once more with these words before you try to fix it: “Seek the LORD and his strength, seek his face.”",
     "about": "The chronicler (with David’s story)",
     "to": "The first hearers of “Seek the LORD and his strength, seek” — and you when the Father feels hidden",
-    "setting": "The ark is in the city; David’s psalm of thanks is being sung. This verse is the search: seek the Lord and His strength; seek His face always."
+    "setting": "The ark is in the city; David’s psalm of thanks is being sung. This verse is the search: seek the Lord and His strength; seek His face always.",
+    "prayer": "Lord, hear this as my whole request: “Seek the LORD and his strength, seek his face”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Chronicles 29:11",
@@ -3486,7 +3872,8 @@
     "step": "Stop once today and return to these words: “your, O LORD, is the greatness, and the power.”",
     "about": "David (through the chronicler)",
     "to": "Exiles learning generous worship",
-    "setting": "Levites and priests are organized; David charges Solomon and the people give willingly."
+    "setting": "Levites and priests are organized; David charges Solomon and the people give willingly.",
+    "prayer": "Lord, let this word be true in me today: “your, O LORD, is the greatness, and the power”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Chronicles 7:14",
@@ -3495,7 +3882,8 @@
     "step": "Ask once more with these words before you try to fix it: “If my people, which are called by my name.”",
     "about": "Solomon (through the chronicler)",
     "to": "Exiles remembering the temple’s beginning",
-    "setting": "Solomon asks for wisdom; the temple is built and filled with glory."
+    "setting": "Solomon asks for wisdom; the temple is built and filled with glory.",
+    "prayer": "Lord, hear this as my whole request: “If my people, which are called by my name, shall”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Chronicles 16:9",
@@ -3504,7 +3892,8 @@
     "step": "Ask God for strength for the next hour, using this line: “For the eyes of the LORD run to and fro.”",
     "about": "The chronicler",
     "to": "The first hearers of “For the eyes of the LORD run to and fro” — and you when you need to hear “For the eyes of the LORD run to and fro”",
-    "setting": "The chronicler — some kings seek the Lord, others fall. This verse is the charge: For the eyes of the LORD run to and fro throughout the whole earth,."
+    "setting": "The chronicler — some kings seek the Lord, others fall. This verse is the charge: For the eyes of the LORD run to and fro throughout the whole earth,.",
+    "prayer": "Lord, give me strength for this hour: “For the eyes of the LORD run to and fro throughout”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Chronicles 20:15",
@@ -3513,7 +3902,8 @@
     "step": "Name the fear, then answer it with: “And he said, Hearken you, all Judah, and you.”",
     "about": "The chronicler",
     "to": "The first hearers of “And he said, Hearken you, all Judah” — and you when fear is loud",
-    "setting": "The chronicler — some kings seek the Lord, others fall. This verse is the hold: And he said, Hearken you, all Judah, and you inhabitants of Jerusalem,."
+    "setting": "The chronicler — some kings seek the Lord, others fall. This verse is the hold: And he said, Hearken you, all Judah, and you inhabitants of Jerusalem,.",
+    "prayer": "Lord, when fear rises, hold me with “And he said, Hearken you, all Judah, and you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Nehemiah 1:5",
@@ -3522,7 +3912,8 @@
     "step": "Write this where you will see it: “And said, I beseech you, O LORD God of heaven.”",
     "about": "Nehemiah",
     "to": "Returned exiles rebuilding walls and faith",
-    "setting": "Nehemiah weeps for Jerusalem’s walls; he rides to the city and rebuilds under mockery and threat."
+    "setting": "Nehemiah weeps for Jerusalem’s walls; he rides to the city and rebuilds under mockery and threat.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And said, I beseech you, O LORD God of heaven”. In Jesus’ name, Amen."
   },
   {
     "ref": "Job 19:25",
@@ -3531,7 +3922,8 @@
     "step": "Stop once today and return to these words: “For I know that my redeemer liveth, and that he.”",
     "about": "Job and his friends",
     "to": "Sufferers and would-be counselors",
-    "setting": "Job and his friends debate why the righteous suffer; answers grow harsh and thin."
+    "setting": "Job and his friends debate why the righteous suffer; answers grow harsh and thin.",
+    "prayer": "Lord, show me Your salvation again today: “For I know that my redeemer liveth, and that he”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 1:1",
@@ -3540,7 +3932,8 @@
     "step": "Say this praise out loud once: “Blessed is the man that walketh not.”",
     "about": "A psalm writer",
     "to": "Worshipers who needed to hear “Blessed is the man that walketh not” — and you when praise has to last past the morning",
-    "setting": "A psalm writer — Opening of the Psalter: two ways. This verse is the song: Blessed is the man that walketh not in the counsel of the ungodly,."
+    "setting": "A psalm writer — Opening of the Psalter: two ways. This verse is the song: Blessed is the man that walketh not in the counsel of the ungodly,.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed is the man that walketh not in the counsel”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 1:2",
@@ -3549,7 +3942,8 @@
     "step": "Carry this clause in your mouth until noon: “But his delight is in the law of the LORD.”",
     "about": "A psalm writer",
     "to": "Worshipers who needed to hear “But his delight is in the law of the LORD” — and you when you only have light for the next step",
-    "setting": "A psalm writer — Opening of the Psalter: two ways. This verse is the path: But his delight is in the law of the LORD."
+    "setting": "A psalm writer — Opening of the Psalter: two ways. This verse is the path: But his delight is in the law of the LORD.",
+    "prayer": "Lord, write this on my path today: “But his delight is in the law of the LORD”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 1:3",
@@ -3558,7 +3952,8 @@
     "step": "Keep this clause until the next meal: “And he shall be like a tree planted.”",
     "about": "A psalm writer",
     "to": "Worshipers who needed to hear “And he shall be like a tree planted” — and you when you need to hear “And he shall be like a tree planted”",
-    "setting": "A psalm writer — the righteous rooted like a tree, the wicked like chaff. This verse is the line: And he shall be like a tree planted by the rivers of water,."
+    "setting": "A psalm writer — the righteous rooted like a tree, the wicked like chaff. This verse is the line: And he shall be like a tree planted by the rivers of water,.",
+    "prayer": "Lord, let this word be true in me today: “And he shall be like a tree planted by the rivers”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 3:3",
@@ -3567,7 +3962,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “But you, O LORD, art a shield for me.”",
     "about": "David",
     "to": "Worshipers who needed to hear “But you, O LORD, art a shield for me” — and you when you need to hear “But you, O LORD, art a shield for me”",
-    "setting": "David cries out while hunted or opposed. This verse is the hold: But you, O LORD, art a shield for me."
+    "setting": "David cries out while hunted or opposed. This verse is the hold: But you, O LORD, art a shield for me.",
+    "prayer": "Lord, i put my weight on You: “But you, O LORD, art a shield for me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 3:5",
@@ -3576,7 +3972,8 @@
     "step": "Stop once today and return to these words: “I laid me down and slept.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I laid me down and slept” — and you when you need to hear “I laid me down and slept”",
-    "setting": "David cries out while hunted or opposed. This verse is the line: I laid me down and slept."
+    "setting": "David cries out while hunted or opposed. This verse is the line: I laid me down and slept.",
+    "prayer": "Lord, let this word be true in me today: “I laid me down and slept”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 9:9",
@@ -3585,7 +3982,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The LORD also will be a refuge.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The LORD also will be a refuge” — and you when you need somewhere that will hold",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the hold: The LORD also will be a refuge for the oppressed, a refuge in times."
+    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse is the hold: The LORD also will be a refuge for the oppressed, a refuge in times.",
+    "prayer": "Lord, i put my weight on You: “The LORD also will be a refuge for the oppressed”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 16:8",
@@ -3594,7 +3992,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “I have set the LORD always before me: because.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I have set the LORD always before me” — and you when you need to hear “I have set the LORD always before me”",
-    "setting": "David — Who may dwell with God. This verse is the line: I have set the LORD always before me: because he is at my right hand,."
+    "setting": "David — Who may dwell with God. This verse is the line: I have set the LORD always before me: because he is at my right hand,.",
+    "prayer": "Lord, let this word be true in me today: “I have set the LORD always before me: because he is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 19:1",
@@ -3603,7 +4002,8 @@
     "step": "Keep this clause until the next meal: “The heavens declare the glory of God.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The heavens declare the glory of God” — and you when you need to hear “The heavens declare the glory of God”",
-    "setting": "David — Creation declares God’s glory. This verse is the line: The heavens declare the glory of God."
+    "setting": "David — Creation declares God’s glory. This verse is the line: The heavens declare the glory of God.",
+    "prayer": "Lord, let this word be true in me today: “The heavens declare the glory of God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 19:7",
@@ -3612,7 +4012,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The law of the LORD is perfect, converting.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The law of the LORD is perfect” — and you when you need a path, not a feeling",
-    "setting": "David — His law revives the soul. This verse is the path: The law of the LORD is perfect, converting the soul: the testimony."
+    "setting": "David — His law revives the soul. This verse is the path: The law of the LORD is perfect, converting the soul: the testimony.",
+    "prayer": "Lord, write this on my path today: “The law of the LORD is perfect, converting”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 23:2",
@@ -3621,7 +4022,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “He maketh me to lie down in green pastures: he.”",
     "about": "David",
     "to": "Worshipers who needed to hear “He maketh me to lie down in green” — and you when your mind will not sit down",
-    "setting": "Still in the shepherd psalm: David pictures green pastures and still waters — the Lord making him lie down, not driving him."
+    "setting": "Still in the shepherd psalm: David pictures green pastures and still waters — the Lord making him lie down, not driving him.",
+    "prayer": "Lord, still my heart with “He maketh me to lie down in green pastures: he”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 23:3",
@@ -3630,7 +4032,8 @@
     "step": "Walk to the next doorway holding: “He restoreth my soul: he leadeth me.”",
     "about": "David",
     "to": "Worshipers who needed to hear “He restoreth my soul: he leadeth me” — and you when you need to hear “He restoreth my soul: he leadeth me”",
-    "setting": "David is still under the Shepherd’s care: this line is the restoring — He brings the soul back and leads in right paths for His name."
+    "setting": "David is still under the Shepherd’s care: this line is the restoring — He brings the soul back and leads in right paths for His name.",
+    "prayer": "Lord, still my heart with “He restoreth my soul: he leadeth me in the paths”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 23:4",
@@ -3639,7 +4042,8 @@
     "step": "Name the valley you are walking. Then say: I will not fear, for You are with me.",
     "about": "David",
     "to": "Anyone walking a dark valley — and you when you need Him beside you, not only ahead",
-    "setting": "The shepherd psalm goes into the valley of the shadow of death. David says he will not fear there, because the Lord is with him."
+    "setting": "The shepherd psalm goes into the valley of the shadow of death. David says he will not fear there, because the Lord is with him.",
+    "prayer": "Lord, I am in a valley. Walk with me and take the fear, because You are with me. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 23:5",
@@ -3648,7 +4052,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “you preparest a table before me.”",
     "about": "David",
     "to": "Worshipers who needed to hear “you preparest a table before me” — and you when you need to hear “you preparest a table before me”",
-    "setting": "David is still the sheep of the Lord — now at a table set in front of enemies, head anointed, cup running over."
+    "setting": "David is still the sheep of the Lord — now at a table set in front of enemies, head anointed, cup running over.",
+    "prayer": "Lord, still my heart with “you preparest a table before me in the presence”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 23:6",
@@ -3657,7 +4062,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “Surely goodness and mercy shall follow me all.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Surely goodness and mercy shall follow me” — and you when you have failed and still need to come",
-    "setting": "The shepherd psalm closes: goodness and mercy follow him all his days, and he will dwell in the Lord’s house forever."
+    "setting": "The shepherd psalm closes: goodness and mercy follow him all his days, and he will dwell in the Lord’s house forever.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Surely goodness and mercy shall follow me all”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 24:1",
@@ -3666,7 +4072,8 @@
     "step": "Keep this clause until the next meal: “The earth is the LORD’s, and the fulness thereof.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The earth is the LORD’s, and the fulness” — and you when you need to hear “The earth is the LORD’s, and the fulness”",
-    "setting": "The Lord as shepherd and host; the King of glory enters; trust in green pastures and still waters."
+    "setting": "The Lord as shepherd and host; the King of glory enters; trust in green pastures and still waters.",
+    "prayer": "Lord, let this word be true in me today: “The earth is the LORD’s, and the fulness thereof”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 25:9",
@@ -3675,7 +4082,8 @@
     "step": "Stop once today and return to these words: “The meek will he guide in judgment:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The meek will he guide in judgment” — and you when you need to hear “The meek will he guide in judgment”",
-    "setting": "David seeks guidance, forgiveness, and help against false friends. This verse is the line: The meek will he guide in judgment: and the meek will he teach."
+    "setting": "David seeks guidance, forgiveness, and help against false friends. This verse is the line: The meek will he guide in judgment: and the meek will he teach.",
+    "prayer": "Lord, let this word be true in me today: “The meek will he guide in judgment: and the meek”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 27:4",
@@ -3684,7 +4092,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “One thing have I desired of the LORD, that will.”",
     "about": "David",
     "to": "Worshipers who needed to hear “One thing have I desired of the LORD” — and you when the Father feels hidden",
-    "setting": "David — the Lord is his light and strength. This verse is the ask: One thing have I desired of the LORD, that will I seek after."
+    "setting": "David — the Lord is his light and strength. This verse is the ask: One thing have I desired of the LORD, that will I seek after.",
+    "prayer": "Lord, hear this as my whole request: “One thing have I desired of the LORD, that will I”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 27:13",
@@ -3693,7 +4102,8 @@
     "step": "Keep this clause until the next meal: “I had fainted, unless I had believed to see.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I had fainted, unless I had believed” — and you when you need to hear “I had fainted, unless I had believed”",
-    "setting": "David — the Lord is his light and strength. This verse is the line: I had fainted, unless I had believed to see the goodness of the LORD."
+    "setting": "David — the Lord is his light and strength. This verse is the line: I had fainted, unless I had believed to see the goodness of the LORD.",
+    "prayer": "Lord, let this word be true in me today: “I had fainted, unless I had believed to see”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 30:11",
@@ -3702,7 +4112,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “you hast turned for me my mourning into.”",
     "about": "David",
     "to": "Worshipers who needed to hear “you hast turned for me my mourning into” — and you when gladness feels like a command you cannot feel",
-    "setting": "David — The voice of the Lord over the waters. This verse is the gladness: you hast turned for me my mourning into dancing: you hast put off."
+    "setting": "David — The voice of the Lord over the waters. This verse is the gladness: you hast turned for me my mourning into dancing: you hast put off.",
+    "prayer": "Lord, let this word be true in me today: “you hast turned for me my mourning into dancing”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 32:7",
@@ -3711,7 +4122,8 @@
     "step": "Keep this clause until the next meal: “you art my hiding place.”",
     "about": "David",
     "to": "Worshipers who needed to hear “you art my hiding place” — and you when you need to hear “you art my hiding place”",
-    "setting": "David has confessed and been forgiven. This verse is the hiding place: You are my hiding place; You shall preserve me from trouble."
+    "setting": "David has confessed and been forgiven. This verse is the hiding place: You are my hiding place; You shall preserve me from trouble.",
+    "prayer": "Lord, let this word be true in me today: “you art my hiding place”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 34:1",
@@ -3720,7 +4132,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “I will bless the LORD at all times: his praise.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I will bless the LORD at all times:” — and you when praise has to last past the morning",
-    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the song: I will bless the LORD at all times: his praise shall continually be."
+    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the song: I will bless the LORD at all times: his praise shall continually be.",
+    "prayer": "Lord, i bless Your name with these words: “I will bless the LORD at all times: his praise”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 34:15",
@@ -3729,7 +4142,8 @@
     "step": "Stop once today and return to these words: “The eyes of the LORD are upon the righteous.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The eyes of the LORD are upon” — and you when you need to hear “The eyes of the LORD are upon”",
-    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the line: The eyes of the LORD are upon the righteous, and his ears are open."
+    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the line: The eyes of the LORD are upon the righteous, and his ears are open.",
+    "prayer": "Lord, let this word be true in me today: “The eyes of the LORD are upon the righteous”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 37:31",
@@ -3738,7 +4152,8 @@
     "step": "Write this where you will see it: “The law of his God is in his heart.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The law of his God is in his heart” — and you when you need a path, not a feeling",
-    "setting": "David prays against unjust attackers. This verse is the path: The law of his God is in his heart."
+    "setting": "David prays against unjust attackers. This verse is the path: The law of his God is in his heart.",
+    "prayer": "Lord, write this on my path today: “The law of his God is in his heart”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 39:7",
@@ -3747,7 +4162,8 @@
     "step": "Stop once today and return to these words: “And now, Lord, what wait I.”",
     "about": "David",
     "to": "Worshipers who needed to hear “And now, Lord, what wait I” — and you when you are tired of forcing the next thing",
-    "setting": "David in sickness, sin-awareness, and waiting. This verse is the wait: And now, Lord, what wait I for? my hope is in you."
+    "setting": "David in sickness, sin-awareness, and waiting. This verse is the wait: And now, Lord, what wait I for? my hope is in you.",
+    "prayer": "Lord, teach me to wait. I hold “And now, Lord, what wait I for? my hope is in you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 42:5",
@@ -3756,7 +4172,8 @@
     "step": "Say this praise out loud once: “Why art you cast down, O my soul.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “Why art you cast down, O my soul” — and you when praise has to last past the morning",
-    "setting": "The sons of Korah — Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope. This verse is the song: Why art you cast down, O my soul."
+    "setting": "The sons of Korah — Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope. This verse is the song: Why art you cast down, O my soul.",
+    "prayer": "Lord, i bless Your name with these words: “Why art you cast down, O my soul”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 46:2",
@@ -3765,7 +4182,8 @@
     "step": "When fear returns, speak this once: “Therefore will not we fear, though the earth be.” Then take the next small step.",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “Therefore will not we fear, though” — and you when fear is loud",
-    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the hold: Therefore will not we fear, though the earth be removed, and though."
+    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the hold: Therefore will not we fear, though the earth be removed, and though.",
+    "prayer": "Lord, when fear rises, hold me with “Therefore will not we fear, though the earth be”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 51:12",
@@ -3774,7 +4192,8 @@
     "step": "Name one place His salvation is still good, then say: “Restore unto me the joy of your salvation.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Restore unto me the joy of your salvation” — and you when you need rescue that is still good today",
-    "setting": "David — God summons His people to true worship. This verse is the gladness: Restore unto me the joy of your salvation."
+    "setting": "David — God summons His people to true worship. This verse is the gladness: Restore unto me the joy of your salvation.",
+    "prayer": "Lord, still my heart with “Restore unto me the joy of your salvation”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 57:1",
@@ -3783,7 +4202,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Be merciful unto me, O God, be merciful unto.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Be merciful unto me, O God, be merciful” — and you when you need somewhere that will hold",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the hold: Be merciful unto me, O God, be merciful unto me: for my soul trusteth."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the hold: Be merciful unto me, O God, be merciful unto me: for my soul trusteth.",
+    "prayer": "Lord, i put my weight on You: “Be merciful unto me, O God, be merciful unto me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 61:2",
@@ -3792,7 +4212,8 @@
     "step": "Put your weight on this line for the next hour: “From the end of the earth will I cry unto you.”",
     "about": "David",
     "to": "Worshipers who needed to hear “From the end of the earth will I cry unto” — and you when you need somewhere that will hold",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the hold: From the end of the earth will I cry unto you, when my heart is."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the hold: From the end of the earth will I cry unto you, when my heart is.",
+    "prayer": "Lord, i put my weight on You: “From the end of the earth will I cry unto you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 73:28",
@@ -3801,7 +4222,8 @@
     "step": "When you want another rescue, return to: “But it is good for me to draw near to God: I.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “But it is good for me to draw near” — and you when you need somewhere that will hold",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the hold: But it is good for me to draw near to God: I have put my trust."
+    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the hold: But it is good for me to draw near to God: I have put my trust.",
+    "prayer": "Lord, i put my weight on You: “But it is good for me to draw near to God: I have”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 84:1",
@@ -3810,7 +4232,8 @@
     "step": "Keep this clause until the next meal: “How amiable are your tabernacles, O LORD.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “How amiable are your tabernacles, O LORD” — and you when you need to hear “How amiable are your tabernacles, O LORD”",
-    "setting": "The sons of Korah — the Lord is sun and shield. This verse is the line: How amiable are your tabernacles, O LORD of hosts."
+    "setting": "The sons of Korah — the Lord is sun and shield. This verse is the line: How amiable are your tabernacles, O LORD of hosts.",
+    "prayer": "Lord, let this word be true in me today: “How amiable are your tabernacles, O LORD of hosts”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 85:10",
@@ -3819,7 +4242,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “Mercy and truth are met together.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “Mercy and truth are met together” — and you when you have failed and still need to come",
-    "setting": "The sons of Korah — mercy and truth meet. This verse is the mercy: Mercy and truth are met together."
+    "setting": "The sons of Korah — mercy and truth meet. This verse is the mercy: Mercy and truth are met together.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Mercy and truth are met together”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 91:4",
@@ -3828,7 +4252,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “He shall cover you with his feathers.”",
     "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
     "to": "Worshipers who needed to hear “He shall cover you with his feathers” — and you when you need somewhere that will hold",
-    "setting": "This is the refuge hymn under the shadow of the Almighty. This verse is the covering: He shall cover you with His feathers, and under His wings you trust."
+    "setting": "This is the refuge hymn under the shadow of the Almighty. This verse is the covering: He shall cover you with His feathers, and under His wings you trust.",
+    "prayer": "Lord, i put my weight on You: “He shall cover you with his feathers”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 94:22",
@@ -3837,7 +4262,8 @@
     "step": "When you want another rescue, return to: “But the LORD is my defence.”",
     "about": "An unnamed psalm of Israel — a cry against unjust thrones, then mercy when the foot slips",
     "to": "Worshipers who needed to hear “But the LORD is my defence” — and you when you need somewhere that will hold",
-    "setting": "An unnamed psalm of Israel — A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot. This verse is the hold: But the LORD is my defence."
+    "setting": "An unnamed psalm of Israel — A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot. This verse is the hold: But the LORD is my defence.",
+    "prayer": "Lord, i put my weight on You: “But the LORD is my defence”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 103:19",
@@ -3846,7 +4272,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The LORD has prepared his throne in the heavens.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The LORD has prepared his throne” — and you when you need to hear “The LORD has prepared his throne”",
-    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse is the line: The LORD has prepared his throne in the heavens."
+    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse is the line: The LORD has prepared his throne in the heavens.",
+    "prayer": "Lord, let this word be true in me today: “The LORD has prepared his throne in the heavens”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:11",
@@ -3855,7 +4282,8 @@
     "step": "Hide this line in your mouth before the day gets loud: “Your word have I hid in my heart.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone hiding the Word so they will not sin — and you when temptation is close",
-    "setting": "In the long acrostic love-song to God’s Word, this verse is the hiding: Your word have I hid in my heart, that I might not sin against You."
+    "setting": "In the long acrostic love-song to God’s Word, this verse is the hiding: Your word have I hid in my heart, that I might not sin against You.",
+    "prayer": "Lord, write this on my path today: “your word have I hid in mine heart, that I might not”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 127:1",
@@ -3864,7 +4292,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Except the LORD build the house, they labour.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “Except the LORD build the house, they” — and you when you need to hear “Except the LORD build the house, they”",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: Except the LORD build the house, they labour in vain that build it:."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the line: Except the LORD build the house, they labour in vain that build it:.",
+    "prayer": "Lord, let this word be true in me today: “Except the LORD build the house, they labour”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 139:23",
@@ -3873,7 +4302,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Search me, O God, and know my heart: try me.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Search me, O God, and know my heart: try” — and you when you need to hear “Search me, O God, and know my heart: try”",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Search me, O God, and know my heart: try me, and know my thoughts:."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Search me, O God, and know my heart: try me, and know my thoughts:.",
+    "prayer": "Lord, let this word be true in me today: “Search me, O God, and know my heart: try me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 141:3",
@@ -3882,7 +4312,8 @@
     "step": "Keep this clause until the next meal: “Set a watch, O LORD, before my mouth.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Set a watch, O LORD, before my mouth” — and you when you need to hear “Set a watch, O LORD, before my mouth”",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Set a watch, O LORD, before my mouth."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Set a watch, O LORD, before my mouth.",
+    "prayer": "Lord, let this word be true in me today: “Set a watch, O LORD, before my mouth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 146:5",
@@ -3891,7 +4322,8 @@
     "step": "Stop once today and return to these words: “Happy is he that has the God of Jacob.”",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "Worshipers who needed to hear “Happy is he that has the God of Jacob” — and you when hope has worn thin",
-    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the hope: Happy is he that has the God of Jacob for his help, whose hope is."
+    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the hope: Happy is he that has the God of Jacob for his help, whose hope is.",
+    "prayer": "Lord, let this word be true in me today: “Happy is he that has the God of Jacob”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 2:12",
@@ -3900,7 +4332,8 @@
     "step": "Say this praise out loud once: “Kiss the Son, lest he be angry, and you perish.”",
     "about": "David — Acts names him as the voice of this psalm (Acts 4:25)",
     "to": "The nations — and all who take refuge in the Son",
-    "setting": "The nations rage against the Lord’s anointed; God sets His King on Zion."
+    "setting": "The nations rage against the Lord’s anointed; God sets His King on Zion.",
+    "prayer": "Lord, i bless Your name with these words: “Kiss the Son, lest he be angry, and you perish”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 15:1",
@@ -3909,7 +4342,8 @@
     "step": "Keep this clause until the next meal: “Lord, who shall abide in your tabernacle.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Lord, who shall abide in your tabernacle” — and you when you need to hear “Lord, who shall abide in your tabernacle”",
-    "setting": "David — Who may dwell with God. This verse is the line: Lord, who shall abide in your tabernacle."
+    "setting": "David — Who may dwell with God. This verse is the line: Lord, who shall abide in your tabernacle.",
+    "prayer": "Lord, let this word be true in me today: “Lord, who shall abide in your tabernacle”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 18:1",
@@ -3918,7 +4352,8 @@
     "step": "Ask God for strength for the next hour, using this line: “I will love you, O LORD, my strength.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I will love you, O LORD, my strength” — and you when love feels like a mood you cannot make",
-    "setting": "David’s great victory song after the Lord delivered him from Saul and all enemies. This verse is the call: I will love you, O LORD, my strength."
+    "setting": "David’s great victory song after the Lord delivered him from Saul and all enemies. This verse is the call: I will love you, O LORD, my strength.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “I will love you, O LORD, my strength”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 20:7",
@@ -3927,7 +4362,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Some trust in chariots, and some in horses: but.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Some trust in chariots, and some” — and you when you need somewhere that will hold",
-    "setting": "David — Royal prayers for the king’s victory and thanksgiving for God’s strength. This verse is the hold: Some trust in chariots, and some in horses: but we will remember."
+    "setting": "David — Royal prayers for the king’s victory and thanksgiving for God’s strength. This verse is the hold: Some trust in chariots, and some in horses: but we will remember.",
+    "prayer": "Lord, i put my weight on You: “Some trust in chariots, and some in horses: but we”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 21:13",
@@ -3936,7 +4372,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Be you exalted, LORD, in your own strength:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Be you exalted, LORD, in your own” — and you when you have no more push left",
-    "setting": "David — Royal prayers for the king’s victory and thanksgiving for God’s strength. This verse is the song: Be you exalted, LORD, in your own strength: so will we sing."
+    "setting": "David — Royal prayers for the king’s victory and thanksgiving for God’s strength. This verse is the song: Be you exalted, LORD, in your own strength: so will we sing.",
+    "prayer": "Lord, i bless Your name with these words: “Be you exalted, LORD, in your own strength: so”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 25:14",
@@ -3945,7 +4382,8 @@
     "step": "When fear returns, speak this once: “The secret of the LORD is with them that fear.” Then take the next small step.",
     "about": "David",
     "to": "Worshipers who needed to hear “The secret of the LORD is with them” — and you when fear is loud",
-    "setting": "David — the Lord is his light and strength. This verse is the hold: The secret of the LORD is with them that fear him."
+    "setting": "David — the Lord is his light and strength. This verse is the hold: The secret of the LORD is with them that fear him.",
+    "prayer": "Lord, when fear rises, hold me with “The secret of the LORD is with them that fear him”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 27:5",
@@ -3954,7 +4392,8 @@
     "step": "Put your weight on this line for the next hour: “For in the time of trouble he shall hide me.”",
     "about": "David",
     "to": "Worshipers who needed to hear “For in the time of trouble he shall hide” — and you when you need somewhere that will hold",
-    "setting": "David seeks guidance, forgiveness, and help against false friends. This verse is the hold: For in the time of trouble he shall hide me in his pavilion:."
+    "setting": "David seeks guidance, forgiveness, and help against false friends. This verse is the hold: For in the time of trouble he shall hide me in his pavilion:.",
+    "prayer": "Lord, i put my weight on You: “For in the time of trouble he shall hide me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 32:1",
@@ -3963,7 +4402,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed is he whose transgression is forgiven.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Blessed is he whose transgression is” — and you when you have failed and still need to come",
-    "setting": "David commits his spirit to God under pressure. This verse is the song: Blessed is he whose transgression is forgiven, whose sin is covered."
+    "setting": "David commits his spirit to God under pressure. This verse is the song: Blessed is he whose transgression is forgiven, whose sin is covered.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed is he whose transgression is forgiven”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 33:20",
@@ -3972,7 +4412,8 @@
     "step": "Wait ten minutes before you force the next thing. Hold this: “Our soul waiteth for the LORD: he is our help.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Our soul waiteth for the LORD: he is” — and you when you are tired of forcing the next thing",
-    "setting": "David commits his spirit to God under pressure. This verse is the wait: Our soul waiteth for the LORD: he is our help and our shield."
+    "setting": "David commits his spirit to God under pressure. This verse is the wait: Our soul waiteth for the LORD: he is our help and our shield.",
+    "prayer": "Lord, i put my weight on You: “Our soul waiteth for the LORD: he is our help”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 34:10",
@@ -3981,7 +4422,8 @@
     "step": "Hand Him one want, then rest on: “The young lions do lack, and suffer hunger: but.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The young lions do lack, and suffer” — and you when you need to be tended, not driven",
-    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the ask: The young lions do lack, and suffer hunger: but they that seek."
+    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. This verse is the ask: The young lions do lack, and suffer hunger: but they that seek.",
+    "prayer": "Lord, hear this as my whole request: “The young lions do lack, and suffer hunger: but”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 37:11",
@@ -3990,7 +4432,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “But the meek shall inherit the earth.”",
     "about": "David",
     "to": "Worshipers who needed to hear “But the meek shall inherit the earth” — and you when you only have light for the next step",
-    "setting": "David — delight in the Lord. This verse is the rest: But the meek shall inherit the earth."
+    "setting": "David — delight in the Lord. This verse is the rest: But the meek shall inherit the earth.",
+    "prayer": "Lord, still my heart with “But the meek shall inherit the earth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 40:8",
@@ -3999,7 +4442,8 @@
     "step": "Write this where you will see it: “I delight to do your will, O my God: yea.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I delight to do your will, O my God: yea” — and you when you only have light for the next step",
-    "setting": "David in sickness, sin-awareness, and waiting. This verse is the path: I delight to do your will, O my God: yea, your law is within my heart."
+    "setting": "David in sickness, sin-awareness, and waiting. This verse is the path: I delight to do your will, O my God: yea, your law is within my heart.",
+    "prayer": "Lord, write this on my path today: “I delight to do your will, O my God: yea, your law is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 46:5",
@@ -4008,7 +4452,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “God is in the midst of her.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “God is in the midst of her” — and you when you need to hear “God is in the midst of her”",
-    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the line: God is in the midst of her."
+    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the line: God is in the midst of her.",
+    "prayer": "Lord, let this word be true in me today: “God is in the midst of her”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 51:17",
@@ -4017,7 +4462,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The sacrifices of God are a broken spirit:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The sacrifices of God are a broken” — and you when the heart is still broken",
-    "setting": "David — God summons His people to true worship. This verse is the line: The sacrifices of God are a broken spirit: a broken and a contrite."
+    "setting": "David — God summons His people to true worship. This verse is the line: The sacrifices of God are a broken spirit: a broken and a contrite.",
+    "prayer": "Lord, let this word be true in me today: “The sacrifices of God are a broken spirit: a broken”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 56:11",
@@ -4026,7 +4472,8 @@
     "step": "When fear returns, speak this once: “In God have I put my trust: I will not be.” Then take the next small step.",
     "about": "David",
     "to": "Worshipers who needed to hear “In God have I put my trust: I will not be” — and you when fear is loud",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the hold: In God have I put my trust: I will not be afraid what man can do unto."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the hold: In God have I put my trust: I will not be afraid what man can do unto.",
+    "prayer": "Lord, when fear rises, hold me with “In God have I put my trust: I will not be afraid”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 60:12",
@@ -4035,7 +4482,8 @@
     "step": "Stop once today and return to these words: “Through God we shall do valiantly: for he it is.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Through God we shall do valiantly: for he” — and you when you need to hear “Through God we shall do valiantly: for he”",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the line: Through God we shall do valiantly: for he it is that shall tread down."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the line: Through God we shall do valiantly: for he it is that shall tread down.",
+    "prayer": "Lord, let this word be true in me today: “Through God we shall do valiantly: for he it is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 67:5",
@@ -4044,7 +4492,8 @@
     "step": "Say this praise out loud once: “Let the people praise you, O God.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Let the people praise you, O God” — and you when praise has to last past the morning",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: Let the people praise you, O God."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the song: Let the people praise you, O God.",
+    "prayer": "Lord, i bless Your name with these words: “Let the people praise you, O God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 73:24",
@@ -4053,7 +4502,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “you shall guide me with your counsel.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “you shall guide me with your counsel” — and you when you need to hear “you shall guide me with your counsel”",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the line: you shall guide me with your counsel, and afterward receive me."
+    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the line: you shall guide me with your counsel, and afterward receive me.",
+    "prayer": "Lord, let this word be true in me today: “you shalt guide me with your counsel, and afterward”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 84:4",
@@ -4062,7 +4512,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed are they that dwell in your house: they.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “Blessed are they that dwell in your house:” — and you when your mind will not sit down",
-    "setting": "The sons of Korah — Longing for God’s courts. This verse is the song: Blessed are they that dwell in your house: they will be still praising."
+    "setting": "The sons of Korah — Longing for God’s courts. This verse is the song: Blessed are they that dwell in your house: they will be still praising.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed are they that dwell in your house: they will”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 89:8",
@@ -4071,7 +4522,8 @@
     "step": "Ask God for strength for the next hour, using this line: “O LORD God of hosts, who is a strong LORD like.”",
     "about": "Ethan the Ezrahite",
     "to": "Worshipers who needed to hear “O LORD God of hosts, who is a strong LORD” — and you when you need someone else to hold you steady",
-    "setting": "Ethan the Ezrahite — Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy. This verse is the charge: O LORD God of hosts, who is a strong LORD like unto you."
+    "setting": "Ethan the Ezrahite — Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy. This verse is the charge: O LORD God of hosts, who is a strong LORD like unto you.",
+    "prayer": "Lord, give me strength for this hour: “O LORD God of hosts, who is a strong LORD like unto”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 97:1",
@@ -4080,7 +4532,8 @@
     "step": "Keep this clause until the next meal: “The LORD reigneth.”",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "Worshipers who needed to hear “The LORD reigneth” — and you when gladness feels like a command you cannot feel",
-    "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. This verse is the gladness: The LORD reigneth."
+    "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. This verse is the gladness: The LORD reigneth.",
+    "prayer": "Lord, let this word be true in me today: “The LORD reigneth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 98:4",
@@ -4089,7 +4542,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Make a joyful noise unto the LORD, all.”",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "Worshipers who needed to hear “Make a joyful noise unto the LORD, all” — and you when praise has to last past the morning",
-    "setting": "Israel’s congregation — A new song for all the earth. This verse is the song: Make a joyful noise unto the LORD, all the earth: make a loud noise,."
+    "setting": "Israel’s congregation — A new song for all the earth. This verse is the song: Make a joyful noise unto the LORD, all the earth: make a loud noise,.",
+    "prayer": "Lord, i bless Your name with these words: “Make a joyful noise unto the LORD, all the earth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 99:9",
@@ -4098,7 +4552,8 @@
     "step": "Stop once today and return to these words: “Exalt the LORD our God, and worship at his holy.”",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "Worshipers who needed to hear “Exalt the LORD our God, and worship at” — and you when you need to hear “Exalt the LORD our God, and worship at”",
-    "setting": "Israel’s congregation — enter His gates with thanksgiving. This verse is the line: Exalt the LORD our God, and worship at his holy hill."
+    "setting": "Israel’s congregation — enter His gates with thanksgiving. This verse is the line: Exalt the LORD our God, and worship at his holy hill.",
+    "prayer": "Lord, let this word be true in me today: “Exalt the LORD our God, and worship at his holy hill”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 104:24",
@@ -4107,7 +4562,8 @@
     "step": "Stop once today and return to these words: “O LORD, how manifold are your works.”",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "Worshipers who needed to hear “O LORD, how manifold are your works” — and you when your own mind looks smarter than trust",
-    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the line: O LORD, how manifold are your works."
+    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the line: O LORD, how manifold are your works.",
+    "prayer": "Lord, let this word be true in me today: “O LORD, how manifold are your works”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 105:4",
@@ -4116,7 +4572,8 @@
     "step": "Pray this line as your whole request: “Seek the LORD, and his strength: seek his face.”",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "Worshipers who needed to hear “Seek the LORD, and his strength: seek” — and you when the Father feels hidden",
-    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the ask: Seek the LORD, and his strength: seek his face evermore."
+    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the ask: Seek the LORD, and his strength: seek his face evermore.",
+    "prayer": "Lord, hear this as my whole request: “Seek the LORD, and his strength: seek his face”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 111:10",
@@ -4125,7 +4582,8 @@
     "step": "Say this praise out loud once: “The fear of the LORD is the beginning.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “The fear of the LORD is the beginning” — and you when fear is loud",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: The fear of the LORD is the beginning of wisdom: a good understanding."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: The fear of the LORD is the beginning of wisdom: a good understanding.",
+    "prayer": "Lord, i bless Your name with these words: “The fear of the LORD is the beginning of wisdom”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 112:7",
@@ -4134,7 +4592,8 @@
     "step": "When fear returns, speak this once: “He shall not be afraid of evil tidings:.” Then take the next small step.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “He shall not be afraid of evil tidings:” — and you when fear is loud",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: He shall not be afraid of evil tidings: his heart is fixed, trusting."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: He shall not be afraid of evil tidings: his heart is fixed, trusting.",
+    "prayer": "Lord, when fear rises, hold me with “He shall not be afraid of evil tidings: his heart”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:2",
@@ -4143,7 +4602,8 @@
     "step": "Before the next task, bless His name with these words: “Blessed are they that keep his testimonies.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “Blessed are they that keep” — and you when the Father feels hidden",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the song: Blessed are they that keep his testimonies, and that seek him."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the song: Blessed are they that keep his testimonies, and that seek him.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed are they that keep his testimonies”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 126:5",
@@ -4152,7 +4612,8 @@
     "step": "Stop once today and return to these words: “They that sow in tears shall reap in joy.”",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Worshipers who needed to hear “They that sow in tears shall reap in joy” — and you when gladness feels like a command you cannot feel",
-    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the gladness: They that sow in tears shall reap in joy."
+    "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. This verse is the gladness: They that sow in tears shall reap in joy.",
+    "prayer": "Lord, let this word be true in me today: “They that sow in tears shall reap in joy”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 139:10",
@@ -4161,7 +4622,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Even there shall your hand lead me.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Even there shall your hand lead me” — and you when you need to hear “Even there shall your hand lead me”",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Even there shall your hand lead me, and your right hand shall hold me."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Even there shall your hand lead me, and your right hand shall hold me.",
+    "prayer": "Lord, let this word be true in me today: “Even there shall your hand lead me, and your right”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 145:3",
@@ -4170,7 +4632,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Great is the LORD, and greatly to be praised.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Great is the LORD, and greatly to be” — and you when praise has to last past the morning",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the song: Great is the LORD, and greatly to be praised."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the song: Great is the LORD, and greatly to be praised.",
+    "prayer": "Lord, i bless Your name with these words: “Great is the LORD, and greatly to be praised”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 146:8",
@@ -4179,7 +4642,8 @@
     "step": "Stop once today and return to these words: “The LORD openeth the eyes of the blind:.”",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "Worshipers who needed to hear “The LORD openeth the eyes of the blind” — and you when you need to hear “The LORD openeth the eyes of the blind”",
-    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the line: The LORD openeth the eyes of the blind: the LORD raiseth them."
+    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the line: The LORD openeth the eyes of the blind: the LORD raiseth them.",
+    "prayer": "Lord, let this word be true in me today: “The LORD openeth the eyes of the blind: the LORD”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 147:5",
@@ -4188,7 +4652,8 @@
     "step": "Stop once today and return to these words: “Great is our Lord, and of great power:.”",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "Worshipers who needed to hear “Great is our Lord, and of great power:” — and you when your own mind looks smarter than trust",
-    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the line: Great is our Lord, and of great power: his understanding is infinite."
+    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the line: Great is our Lord, and of great power: his understanding is infinite.",
+    "prayer": "Lord, let this word be true in me today: “Great is our Lord, and of great power”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 148:13",
@@ -4197,7 +4662,8 @@
     "step": "Say this praise out loud once: “Let them praise the name of the LORD:.”",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "Worshipers who needed to hear “Let them praise the name of the LORD:” — and you when praise has to last past the morning",
-    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the song: Let them praise the name of the LORD: for his name alone is excellent."
+    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the song: Let them praise the name of the LORD: for his name alone is excellent.",
+    "prayer": "Lord, i bless Your name with these words: “Let them praise the name of the LORD: for his name”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 3:6",
@@ -4206,7 +4672,8 @@
     "step": "Stop once today and return to these words: “In all your ways acknowledge him, and he shall.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “In all your ways acknowledge him, and he” — and you when you need to hear “In all your ways acknowledge him, and he”",
-    "setting": "Solomon giving wisdom — Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse is the line: In all your ways acknowledge him, and he shall direct your paths."
+    "setting": "Solomon giving wisdom — Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse is the line: In all your ways acknowledge him, and he shall direct your paths.",
+    "prayer": "Lord, light the next step: “In all your ways acknowledge him, and he shall”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 4:18",
@@ -4215,7 +4682,8 @@
     "step": "Walk to the next doorway holding: “But the path of the just is as the shining.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “But the path of the just is as” — and you when you only have light for the next step",
-    "setting": "Solomon giving wisdom — Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse is the light: But the path of the just is as the shining light, that shineth more."
+    "setting": "Solomon giving wisdom — Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse is the light: But the path of the just is as the shining light, that shineth more.",
+    "prayer": "Lord, light the next step: “But the path of the just is as the shining light”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 8:17",
@@ -4224,7 +4692,8 @@
     "step": "Do one concrete kindness today because of this: “I love them that love me.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “I love them that love me” — and you when the Father feels hidden",
-    "setting": "Solomon giving wisdom — Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse is the ask: I love them that love me."
+    "setting": "Solomon giving wisdom — Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse is the ask: I love them that love me.",
+    "prayer": "Lord, hear this as my whole request: “I love them that love me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 10:12",
@@ -4233,7 +4702,8 @@
     "step": "Do one concrete kindness today because of this: “Hatred stirreth up strifes: but love covereth.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “Hatred stirreth up strifes: but love” — and you when love feels like a mood you cannot make",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the call: Hatred stirreth up strifes: but love covereth all sins."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the call: Hatred stirreth up strifes: but love covereth all sins.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Hatred stirreth up strifes: but love covereth all”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 11:25",
@@ -4242,7 +4712,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The liberal soul shall be made fat: and he.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “The liberal soul shall be made fat” — and you when you need to hear “The liberal soul shall be made fat”",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: The liberal soul shall be made fat: and he that watereth shall be."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: The liberal soul shall be made fat: and he that watereth shall be.",
+    "prayer": "Lord, let this word be true in me today: “The liberal soul shall be made fat: and he”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 16:24",
@@ -4251,7 +4722,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Pleasant words are as an honeycomb, sweet.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “Pleasant words are as an honeycomb, sweet” — and you when you need a path, not a feeling",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the path: Pleasant words are as an honeycomb, sweet to the soul, and health."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the path: Pleasant words are as an honeycomb, sweet to the soul, and health.",
+    "prayer": "Lord, write this on my path today: “Pleasant words are as an honeycomb, sweet”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 18:21",
@@ -4260,7 +4732,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Death and life are in the power of the tongue:.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “Death and life are in the power” — and you when love feels like a mood you cannot make",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the call: Death and life are in the power of the tongue: and they that love it."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the call: Death and life are in the power of the tongue: and they that love it.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Death and life are in the power of the tongue”. In Jesus’ name, Amen."
   },
   {
     "ref": "Proverbs 19:21",
@@ -4269,7 +4742,8 @@
     "step": "Keep this clause until the next meal: “There are many devices in a man’s heart.”",
     "about": "Solomon giving wisdom",
     "to": "A son learning wisdom, starting with “There are many devices in a man’s heart” — and you when you need to hear “There are many devices in a man’s heart”",
-    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: There are many devices in a man’s heart."
+    "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse is the line: There are many devices in a man’s heart.",
+    "prayer": "Lord, let this word be true in me today: “There are many devices in a man’s heart”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ecclesiastes 3:1",
@@ -4278,7 +4752,8 @@
     "step": "Stop once today and return to these words: “To every thing there is a season, and a time.”",
     "about": "Solomon (the Preacher)",
     "to": "The first hearers of “To every thing there is a season” — and you when you need to hear “To every thing there is a season”",
-    "setting": "Solomon — The Preacher tests pleasure, work, and wisdom “under the sun” and finds vanity without God. This verse is the line: To every thing there is a season, and a time to every purpose."
+    "setting": "Solomon — The Preacher tests pleasure, work, and wisdom “under the sun” and finds vanity without God. This verse is the line: To every thing there is a season, and a time to every purpose.",
+    "prayer": "Lord, let this word be true in me today: “To every thing there is a season, and a time”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ecclesiastes 3:11",
@@ -4287,7 +4762,8 @@
     "step": "Keep this clause until the next meal: “He has made every thing beautiful in his time:.”",
     "about": "Solomon (the Preacher)",
     "to": "The first hearers of “He has made every thing beautiful” — and you when you need to hear “He has made every thing beautiful”",
-    "setting": "Solomon — The Preacher tests pleasure, work, and wisdom “under the sun” and finds vanity without God. This verse is the line: He has made every thing beautiful in his time: also he has set."
+    "setting": "Solomon — The Preacher tests pleasure, work, and wisdom “under the sun” and finds vanity without God. This verse is the line: He has made every thing beautiful in his time: also he has set.",
+    "prayer": "Lord, let this word be true in me today: “He has made every thing beautiful in his time”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 9:6",
@@ -4296,7 +4772,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For unto us a child is born, unto us a son is.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “For unto us a child is born, unto us” — and you when your mind will not sit down",
-    "setting": "Isaiah confronts Judah’s sin and offers hope of a holy remnant and a coming king. This verse is the rest: For unto us a child is born, unto us a son is given:."
+    "setting": "Isaiah confronts Judah’s sin and offers hope of a holy remnant and a coming king. This verse is the rest: For unto us a child is born, unto us a son is given:.",
+    "prayer": "Lord, give me strength for this hour: “For unto us a child is born, unto us a son is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 12:2",
@@ -4305,7 +4782,8 @@
     "step": "Name the fear, then answer it with: “Behold, God is my salvation.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “Behold, God is my salvation” — and you when fear is loud",
-    "setting": "Isaiah confronts Judah’s sin and offers hope of a holy remnant and a coming king. This verse is the hold: Behold, God is my salvation."
+    "setting": "Isaiah confronts Judah’s sin and offers hope of a holy remnant and a coming king. This verse is the hold: Behold, God is my salvation.",
+    "prayer": "Lord, when fear rises, hold me with “Behold, God is my salvation”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 25:8",
@@ -4314,7 +4792,8 @@
     "step": "Stop once today and return to these words: “He will swallow up death in victory.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “He will swallow up death in victory” — and you when the tears are still here",
-    "setting": "Isaiah — Judgment and joy. This verse is the line: He will swallow up death in victory."
+    "setting": "Isaiah — Judgment and joy. This verse is the line: He will swallow up death in victory.",
+    "prayer": "Lord, let this word be true in me today: “He will swallow up death in victory”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 30:15",
@@ -4323,7 +4802,8 @@
     "step": "Name one place His salvation is still good, then say: “For thus says the Lord GOD, the Holy One.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “For thus says the Lord GOD, the Holy One” — and you when you have no more push left",
-    "setting": "Isaiah — Judgment and joy. This verse is the rest: For thus says the Lord GOD, the Holy One of Israel."
+    "setting": "Isaiah — Judgment and joy. This verse is the rest: For thus says the Lord GOD, the Holy One of Israel.",
+    "prayer": "Lord, give me strength for this hour: “For thus saith the Lord GOD, the Holy One of Israel”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 32:17",
@@ -4332,7 +4812,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “And the work of righteousness shall be peace.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “And the work of righteousness shall be” — and you when your mind will not sit down",
-    "setting": "Isaiah — Judgment and joy. This verse is the rest: And the work of righteousness shall be peace."
+    "setting": "Isaiah — Judgment and joy. This verse is the rest: And the work of righteousness shall be peace.",
+    "prayer": "Lord, still my heart with “And the work of righteousness shall be peace”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 35:4",
@@ -4341,7 +4822,8 @@
     "step": "When fear returns, speak this once: “Say to them that are of a fearful heart, Be.” Then take the next small step.",
     "about": "Isaiah",
     "to": "The first people who had to hear “Say to them that are of a fearful heart” — and you when fear is loud",
-    "setting": "Isaiah — Judgment and joy. This verse is the hold: Say to them that are of a fearful heart, Be strong, fear not: behold,."
+    "setting": "Isaiah — Judgment and joy. This verse is the hold: Say to them that are of a fearful heart, Be strong, fear not: behold,.",
+    "prayer": "Lord, when fear rises, hold me with “Say to them that are of a fearful heart, Be strong”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 40:8",
@@ -4350,7 +4832,8 @@
     "step": "Carry this clause in your mouth until noon: “The grass withereth, the flower fadeth: but.”",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “The grass withereth, the flower fadeth:” — and you when you need a path, not a feeling",
-    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the path: The grass withereth, the flower fadeth: but the word of our God shall."
+    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the path: The grass withereth, the flower fadeth: but the word of our God shall.",
+    "prayer": "Lord, write this on my path today: “The grass withereth, the flower fadeth: but”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 40:11",
@@ -4359,7 +4842,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “He shall feed his flock like a shepherd: he.”",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “He shall feed his flock like a shepherd:” — and you when you need to be tended, not driven",
-    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the care: He shall feed his flock like a shepherd: he shall gather the lambs."
+    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the care: He shall feed his flock like a shepherd: he shall gather the lambs.",
+    "prayer": "Lord, shepherd me. I bring You this want: “He shall feed his flock like a shepherd: he shall”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 41:13",
@@ -4368,7 +4852,8 @@
     "step": "When fear returns, speak this once: “For I the LORD your God will hold your right.” Then take the next small step.",
     "about": "Isaiah (the Lord speaking)",
     "to": "The first people who had to hear “For I the LORD your God will hold” — and you when fear is loud",
-    "setting": "Isaiah — a servant will bring justice. This verse is the hold: For I the LORD your God will hold your right hand, saying unto you,."
+    "setting": "Isaiah — a servant will bring justice. This verse is the hold: For I the LORD your God will hold your right hand, saying unto you,.",
+    "prayer": "Lord, when fear rises, hold me with “For I the LORD your God will hold your right hand”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 43:1",
@@ -4377,7 +4862,8 @@
     "step": "When fear returns, speak this once: “But now thus says the LORD that created you.” Then take the next small step.",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “But now thus says the LORD that created” — and you when fear is loud",
-    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the hold: But now thus says the LORD that created you, O Jacob, and he."
+    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the hold: But now thus says the LORD that created you, O Jacob, and he.",
+    "prayer": "Lord, when fear rises, hold me with “But now thus saith the LORD that created you, O”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 43:19",
@@ -4386,7 +4872,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Behold, I will do a new thing.”",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “Behold, I will do a new thing” — and you when you need to hear “Behold, I will do a new thing”",
-    "setting": "Isaiah — a servant will bring justice. This verse is the line: Behold, I will do a new thing."
+    "setting": "Isaiah — a servant will bring justice. This verse is the line: Behold, I will do a new thing.",
+    "prayer": "Lord, let this word be true in me today: “Behold, I will do a new thing”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 44:22",
@@ -4395,7 +4882,8 @@
     "step": "Stop once today and return to these words: “I have blotted out, as a thick cloud.”",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “I have blotted out, as a thick cloud” — and you when you need to hear “I have blotted out, as a thick cloud”",
-    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the rescue: I have blotted out, as a thick cloud, your transgressions, and, as."
+    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the rescue: I have blotted out, as a thick cloud, your transgressions, and, as.",
+    "prayer": "Lord, show me Your salvation again today: “I have blotted out, as a thick cloud”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 45:22",
@@ -4404,7 +4892,8 @@
     "step": "Stop once today and return to these words: “Look unto me, and be you saved, all the ends.”",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “Look unto me, and be you saved, all” — and you when you need rescue that is still good today",
-    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the rescue: Look unto me, and be you saved, all the ends of the earth: for I am."
+    "setting": "Isaiah — Comfort for exiles: God is incomparable. This verse is the rescue: Look unto me, and be you saved, all the ends of the earth: for I am.",
+    "prayer": "Lord, show me Your salvation again today: “Look unto me, and be you saved, all the ends”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 46:4",
@@ -4413,7 +4902,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “And even to your old age I am he.”",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “And even to your old age I am he” — and you when you need to hear “And even to your old age I am he”",
-    "setting": "Isaiah — a servant will bring justice. This verse is the line: And even to your old age I am he."
+    "setting": "Isaiah — a servant will bring justice. This verse is the line: And even to your old age I am he.",
+    "prayer": "Lord, let this word be true in me today: “And even to your old age I am he”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 53:5",
@@ -4422,7 +4912,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “But he was wounded for our transgressions, he.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “But he was wounded” — and you when your mind will not sit down",
-    "setting": "Isaiah — The Servant suffers for sins. This verse is the rest: But he was wounded for our transgressions, he was bruised."
+    "setting": "Isaiah — The Servant suffers for sins. This verse is the rest: But he was wounded for our transgressions, he was bruised.",
+    "prayer": "Lord, still my heart with “But he was wounded for our transgressions, he was”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 55:1",
@@ -4431,7 +4922,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Ho, every one that thirsteth, come you.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “Ho, every one that thirsteth, come you” — and you when you need to hear “Ho, every one that thirsteth, come you”",
-    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: Ho, every one that thirsteth, come you to the waters, and he that has."
+    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: Ho, every one that thirsteth, come you to the waters, and he that has.",
+    "prayer": "Lord, let this word be true in me today: “Ho, every one that thirsteth, come you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 55:8",
@@ -4440,7 +4932,8 @@
     "step": "Stop once today and return to these words: “For my thoughts are not your thoughts, neither.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “For my thoughts are not your thoughts” — and you when you need to hear “For my thoughts are not your thoughts”",
-    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: For my thoughts are not your thoughts, neither are your ways my ways,."
+    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: For my thoughts are not your thoughts, neither are your ways my ways,.",
+    "prayer": "Lord, let this word be true in me today: “For my thoughts are not your thoughts, neither are”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 55:9",
@@ -4449,7 +4942,8 @@
     "step": "Keep this clause until the next meal: “For as the heavens are higher than the earth.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “For as the heavens are higher than” — and you when you need to hear “For as the heavens are higher than”",
-    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: For as the heavens are higher than the earth, so are my ways higher."
+    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: For as the heavens are higher than the earth, so are my ways higher.",
+    "prayer": "Lord, let this word be true in me today: “For as the heavens are higher than the earth, so”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 61:1",
@@ -4458,7 +4952,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The Spirit of the Lord GOD is upon me.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “The Spirit of the Lord GOD is upon me” — and you when the heart is still broken",
-    "setting": "Isaiah — Promises of a new heavens and new earth. This verse is the line: The Spirit of the Lord GOD is upon me."
+    "setting": "Isaiah — Promises of a new heavens and new earth. This verse is the line: The Spirit of the Lord GOD is upon me.",
+    "prayer": "Lord, let this word be true in me today: “The Spirit of the Lord GOD is upon me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 61:3",
@@ -4467,7 +4962,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “To appoint unto them that mourn in Zion.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “To appoint unto them that mourn in Zion” — and you when praise has to last past the morning",
-    "setting": "Isaiah — Promises of a new heavens and new earth. This verse is the song: To appoint unto them that mourn in Zion, to give unto them beauty."
+    "setting": "Isaiah — Promises of a new heavens and new earth. This verse is the song: To appoint unto them that mourn in Zion, to give unto them beauty.",
+    "prayer": "Lord, i bless Your name with these words: “To appoint unto them that mourn in Zion, to give”. In Jesus’ name, Amen."
   },
   {
     "ref": "Jeremiah 1:5",
@@ -4476,7 +4972,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Before I formed you in the belly I knew you.”",
     "about": "Jeremiah",
     "to": "The first people who had to hear “Before I formed you in the belly I knew” — and you when you need to hear “Before I formed you in the belly I knew”",
-    "setting": "Jeremiah is a youth being called to warn Judah. This verse is the call: before I formed you in the belly I knew you; I ordained you a prophet."
+    "setting": "Jeremiah is a youth being called to warn Judah. This verse is the call: before I formed you in the belly I knew you; I ordained you a prophet.",
+    "prayer": "Lord, let this word be true in me today: “Before I formed you in the belly I knew you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Jeremiah 29:13",
@@ -4485,7 +4982,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “And you shall seek me, and find me, when you.”",
     "about": "Jeremiah (the word of the Lord)",
     "to": "The first people who had to hear “And you shall seek me, and find me, when” — and you when the Father feels hidden",
-    "setting": "Jeremiah — false prophets promise peace. This verse is the ask: And you shall seek me, and find me, when you shall search for me."
+    "setting": "Jeremiah — false prophets promise peace. This verse is the ask: And you shall seek me, and find me, when you shall search for me.",
+    "prayer": "Lord, hear this as my whole request: “And you shall seek me, and find me, when you shall”. In Jesus’ name, Amen."
   },
   {
     "ref": "Jeremiah 32:17",
@@ -4494,7 +4992,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Ah Lord GOD.”",
     "about": "Jeremiah",
     "to": "The first people who had to hear “Ah Lord GOD” — and you when you need to hear “Ah Lord GOD”",
-    "setting": "Jeremiah — Promises of a new covenant written on the heart. This verse is the line: Ah Lord GOD."
+    "setting": "Jeremiah — Promises of a new covenant written on the heart. This verse is the line: Ah Lord GOD.",
+    "prayer": "Lord, let this word be true in me today: “Ah Lord GOD”. In Jesus’ name, Amen."
   },
   {
     "ref": "Jeremiah 33:3",
@@ -4503,7 +5002,8 @@
     "step": "Stop once today and return to these words: “Call unto me, and I will answer you, and show.”",
     "about": "Jeremiah",
     "to": "The first people who had to hear “Call unto me, and I will answer you” — and you when you need to hear “Call unto me, and I will answer you”",
-    "setting": "Jeremiah — Promises of a new covenant written on the heart. This verse is the charge: Call unto me, and I will answer you, and show you great and mighty."
+    "setting": "Jeremiah — Promises of a new covenant written on the heart. This verse is the charge: Call unto me, and I will answer you, and show you great and mighty.",
+    "prayer": "Lord, give me strength for this hour: “Call unto me, and I will answer you, and shew you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Lamentations 3:22",
@@ -4512,7 +5012,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “It is of the LORD’s mercies that we are not.”",
     "about": "Jeremiah",
     "to": "The first people who had to hear “It is of the LORD’s mercies that we are” — and you when you need to hear “It is of the LORD’s mercies that we are”",
-    "setting": "Jeremiah — the poet weeps, yet hopes in mercies new every morning. This verse is the mercy: It is of the LORD’s mercies that we are not consumed, because."
+    "setting": "Jeremiah — the poet weeps, yet hopes in mercies new every morning. This verse is the mercy: It is of the LORD’s mercies that we are not consumed, because.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “It is of the LORD’s mercies that we are not”. In Jesus’ name, Amen."
   },
   {
     "ref": "Lamentations 3:23",
@@ -4521,7 +5022,8 @@
     "step": "Keep this clause until the next meal: “They are new every morning: great is.”",
     "about": "Jeremiah",
     "to": "The first people who had to hear “They are new every morning: great is” — and you when the day has not started clean",
-    "setting": "Jeremiah — the poet weeps, yet hopes in mercies new every morning. This verse is the line: They are new every morning: great is your faithfulness."
+    "setting": "Jeremiah — the poet weeps, yet hopes in mercies new every morning. This verse is the line: They are new every morning: great is your faithfulness.",
+    "prayer": "Lord, let this word be true in me today: “They are new every morning: great is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ezekiel 36:26",
@@ -4530,7 +5032,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “A new heart also will I give you, and a new.”",
     "about": "Ezekiel",
     "to": "Exiles needing hope after the city fell",
-    "setting": "After Jerusalem falls, God promises a new heart, a shepherd, and dry bones raised."
+    "setting": "After Jerusalem falls, God promises a new heart, a shepherd, and dry bones raised.",
+    "prayer": "Lord, let this word be true in me today: “A new heart also will I give you, and a new spirit”. In Jesus’ name, Amen."
   },
   {
     "ref": "Daniel 2:20",
@@ -4539,7 +5042,8 @@
     "step": "Before the next task, bless His name with these words: “Daniel answered and said, Blessed be the name.”",
     "about": "Daniel",
     "to": "A pagan court — and all who need wisdom from God",
-    "setting": "Daniel interprets Nebuchadnezzar’s dream of kingdoms; God alone reveals secrets."
+    "setting": "Daniel interprets Nebuchadnezzar’s dream of kingdoms; God alone reveals secrets.",
+    "prayer": "Lord, i bless Your name with these words: “Daniel answered and said, Blessed be the name”. In Jesus’ name, Amen."
   },
   {
     "ref": "Daniel 6:26",
@@ -4548,7 +5052,8 @@
     "step": "Name the fear, then answer it with: “I make a decree, That in every dominion.”",
     "about": "The narrator of Daniel",
     "to": "Readers watching prayer under pressure",
-    "setting": "The narrator of Daniel — Daniel is cast into the lions’ den for praying. This verse is the hold: I make a decree, That in every dominion of my kingdom men tremble."
+    "setting": "The narrator of Daniel — Daniel is cast into the lions’ den for praying. This verse is the hold: I make a decree, That in every dominion of my kingdom men tremble.",
+    "prayer": "Lord, when fear rises, hold me with “I make a decree, That in every dominion”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hosea 6:3",
@@ -4557,7 +5062,8 @@
     "step": "Stop once today and return to these words: “Then shall we know, if we follow on to know.”",
     "about": "Hosea",
     "to": "The first people who had to hear “Then shall we know, if we follow on” — and you when the day has not started clean",
-    "setting": "Hosea — a final plea to return to the Lord. This verse is the line: Then shall we know, if we follow on to know the LORD: his going forth."
+    "setting": "Hosea — a final plea to return to the Lord. This verse is the line: Then shall we know, if we follow on to know the LORD: his going forth.",
+    "prayer": "Lord, let this word be true in me today: “Then shall we know, if we follow on to know”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hosea 14:4",
@@ -4566,7 +5072,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “I will heal their backsliding, I will love them.”",
     "about": "Hosea",
     "to": "The first people who had to hear “I will heal their backsliding, I will” — and you when love feels like a mood you cannot make",
-    "setting": "Hosea — Charges against Israel’s idolatry. This verse is the call: I will heal their backsliding, I will love them freely: for mine."
+    "setting": "Hosea — Charges against Israel’s idolatry. This verse is the call: I will heal their backsliding, I will love them freely: for mine.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “I will heal their backsliding, I will love them”. In Jesus’ name, Amen."
   },
   {
     "ref": "Joel 2:13",
@@ -4575,7 +5082,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “And rend your heart, and not your garments.”",
     "about": "Joel",
     "to": "The first people who had to hear “And rend your heart, and not” — and you when the next person will get your sharp edge",
-    "setting": "Joel — A locust plague and drought become a call to repent before the day of the Lord. This verse is the line: And rend your heart, and not your garments, and turn unto the LORD."
+    "setting": "Joel — A locust plague and drought become a call to repent before the day of the Lord. This verse is the line: And rend your heart, and not your garments, and turn unto the LORD.",
+    "prayer": "Lord, let this word be true in me today: “And rend your heart, and not your garments”. In Jesus’ name, Amen."
   },
   {
     "ref": "Joel 2:25",
@@ -4584,7 +5092,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “And I will restore to you the years.”",
     "about": "Joel",
     "to": "The first people who had to hear “And I will restore to you the years” — and you when you need to hear “And I will restore to you the years”",
-    "setting": "Joel has called the people to repent after locust and drought. This verse is the restore: I will restore to you the years that the locust has eaten."
+    "setting": "Joel has called the people to repent after locust and drought. This verse is the restore: I will restore to you the years that the locust has eaten.",
+    "prayer": "Lord, still my heart with “And I will restore to you the years that the locust”. In Jesus’ name, Amen."
   },
   {
     "ref": "Amos 5:4",
@@ -4593,7 +5102,8 @@
     "step": "Ask once more with these words before you try to fix it: “For thus says the LORD unto the house.”",
     "about": "Amos",
     "to": "Israel under God’s justice",
-    "setting": "A shepherd from Tekoa denounces Israel’s injustice and empty worship."
+    "setting": "A shepherd from Tekoa denounces Israel’s injustice and empty worship.",
+    "prayer": "Lord, hear this as my whole request: “For thus saith the LORD unto the house of Israel”. In Jesus’ name, Amen."
   },
   {
     "ref": "Micah 6:8",
@@ -4602,7 +5112,8 @@
     "step": "Do one just thing, one merciful thing, and one humble walk today — because that is what He requires.",
     "about": "Micah",
     "to": "The first people who had to hear “He has shewed you, O man, what is good” — and you when love feels like a mood you cannot make",
-    "setting": "Micah is telling a people who want the right offering what God actually wants. This verse is the requirement: do justly, love mercy, and walk humbly with your God."
+    "setting": "Micah is telling a people who want the right offering what God actually wants. This verse is the requirement: do justly, love mercy, and walk humbly with your God.",
+    "prayer": "Lord, help me do justly, love mercy, and walk humbly with You today. In Jesus’ name, Amen."
   },
   {
     "ref": "Micah 7:8",
@@ -4611,7 +5122,8 @@
     "step": "Stop once today and return to these words: “Rejoice not against me, O mine enemy: when I.”",
     "about": "Micah",
     "to": "The first people who had to hear “Rejoice not against me, O mine enemy:” — and you when you only have light for the next step",
-    "setting": "Micah — he asks what the Lord requires: justice, mercy, humility. This verse is the gladness: Rejoice not against me, O mine enemy: when I fall, I shall arise."
+    "setting": "Micah — he asks what the Lord requires: justice, mercy, humility. This verse is the gladness: Rejoice not against me, O mine enemy: when I fall, I shall arise.",
+    "prayer": "Lord, light the next step: “Rejoice not against me, O mine enemy: when I fall”. In Jesus’ name, Amen."
   },
   {
     "ref": "Micah 7:18",
@@ -4620,7 +5132,8 @@
     "step": "Do one concrete kindness today because of this: “Who is a God like unto you, that pardoneth.”",
     "about": "Micah",
     "to": "The first people who had to hear “Who is a God like unto you” — and you when you only have light for the next step",
-    "setting": "Micah — he asks what the Lord requires: justice, mercy, humility. This verse is the mercy: Who is a God like unto you, that pardoneth iniquity, and passeth."
+    "setting": "Micah — he asks what the Lord requires: justice, mercy, humility. This verse is the mercy: Who is a God like unto you, that pardoneth iniquity, and passeth.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Who is a God like unto you, that pardoneth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Habakkuk 3:19",
@@ -4629,7 +5142,8 @@
     "step": "Say this praise out loud once: “The LORD God is my strength, and he will make.”",
     "about": "Habakkuk",
     "to": "Judah waiting for God’s answer",
-    "setting": "Habakkuk complains about violence; God will use Babylon; the righteous live by faith."
+    "setting": "Habakkuk complains about violence; God will use Babylon; the righteous live by faith.",
+    "prayer": "Lord, i bless Your name with these words: “The LORD God is my strength, and he will make”. In Jesus’ name, Amen."
   },
   {
     "ref": "Zechariah 4:6",
@@ -4638,7 +5152,8 @@
     "step": "Ask God for strength for the next hour, using this line: “Then he answered and spake unto me, saying.”",
     "about": "Zechariah",
     "to": "Returned exiles needing hope",
-    "setting": "Night visions encourage the temple builders; Joshua the high priest is cleansed."
+    "setting": "Night visions encourage the temple builders; Joshua the high priest is cleansed.",
+    "prayer": "Lord, write this on my path today: “Then he answered and spake unto me, saying, This is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Zechariah 9:9",
@@ -4647,7 +5162,8 @@
     "step": "Stop once today and return to these words: “Rejoice greatly, O daughter of Zion.”",
     "about": "Zechariah",
     "to": "A people waiting for Messiah and full cleansing",
-    "setting": "A humble king comes on a donkey; a fountain opens for sin; the Lord will be king over all the earth."
+    "setting": "A humble king comes on a donkey; a fountain opens for sin; the Lord will be king over all the earth.",
+    "prayer": "Lord, show me Your salvation again today: “Rejoice greatly, O daughter of Zion”. In Jesus’ name, Amen."
   },
   {
     "ref": "Malachi 3:6",
@@ -4656,7 +5172,8 @@
     "step": "Keep this clause until the next meal: “For I am the LORD, I change not.”",
     "about": "Malachi",
     "to": "The first people who had to hear “For I am the LORD, I change not” — and you when you need to hear “For I am the LORD, I change not”",
-    "setting": "Malachi — After the return, priests and people grow careless. This verse is the line: For I am the LORD, I change not."
+    "setting": "Malachi — After the return, priests and people grow careless. This verse is the line: For I am the LORD, I change not.",
+    "prayer": "Lord, let this word be true in me today: “For I am the LORD, I change not”. In Jesus’ name, Amen."
   },
   {
     "ref": "Malachi 4:2",
@@ -4665,7 +5182,8 @@
     "step": "Name the fear, then answer it with: “But unto you that fear my name shall the Sun.”",
     "about": "Malachi",
     "to": "The first people who had to hear “But unto you that fear my name shall” — and you when fear is loud",
-    "setting": "Malachi — After the return, priests and people grow careless. This verse is the hold: But unto you that fear my name shall the Sun of righteousness arise."
+    "setting": "Malachi — After the return, priests and people grow careless. This verse is the hold: But unto you that fear my name shall the Sun of righteousness arise.",
+    "prayer": "Lord, when fear rises, hold me with “But unto you that fear my name shall the Sun”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 5:3",
@@ -4674,7 +5192,8 @@
     "step": "Admit one place you are poor in spirit. Then thank Him that the kingdom is for that poverty, not for your act.",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Blessed are the poor in spirit:” — and you when praise has to last past the morning",
-    "setting": "Jesus opens the Sermon on the Mount with blessings that turn the world upside down. This first one is for the poor in spirit — the kingdom is theirs."
+    "setting": "Jesus opens the Sermon on the Mount with blessings that turn the world upside down. This first one is for the poor in spirit — the kingdom is theirs.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed are the poor in spirit: for theirs is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 5:4",
@@ -4683,7 +5202,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed are they that mourn: for they shall be.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Blessed are they that mourn: for they” — and you when praise has to last past the morning",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: Blessed are they that mourn: for they shall be comforted."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: Blessed are they that mourn: for they shall be comforted.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed are they that mourn: for they shall be”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 5:6",
@@ -4692,7 +5212,8 @@
     "step": "Before the next task, bless His name with these words: “Blessed are they which do hunger and thirst.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Blessed are they which do hunger” — and you when praise has to last past the morning",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: Blessed are they which do hunger and thirst after righteousness:."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: Blessed are they which do hunger and thirst after righteousness:.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed are they which do hunger and thirst after”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 5:7",
@@ -4701,7 +5222,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed are the merciful: for they shall obtain.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Blessed are the merciful: for they shall” — and you when you have failed and still need to come",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: Blessed are the merciful: for they shall obtain mercy."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: Blessed are the merciful: for they shall obtain mercy.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed are the merciful: for they shall obtain”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 5:8",
@@ -4710,7 +5232,8 @@
     "step": "Say this praise out loud once: “Blessed are the pure in heart: for they shall.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Blessed are the pure in heart: for they” — and you when praise has to last past the morning",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: Blessed are the pure in heart: for they shall see God."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: Blessed are the pure in heart: for they shall see God.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed are the pure in heart: for they shall see”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 6:14",
@@ -4719,7 +5242,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For if you forgive men their trespasses.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “For if you forgive men their trespasses” — and you when you have failed and still need to come",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the mercy: For if you forgive men their trespasses, your heavenly Father will."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the mercy: For if you forgive men their trespasses, your heavenly Father will.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “For if you forgive men their trespasses”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 6:34",
@@ -4728,7 +5252,8 @@
     "step": "Keep this clause until the next meal: “Take therefore no thought for the morrow:.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Take therefore no thought for the morrow” — and you when you need to hear “Take therefore no thought for the morrow”",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the line: Take therefore no thought for the morrow: for the morrow shall take."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the line: Take therefore no thought for the morrow: for the morrow shall take.",
+    "prayer": "Lord, let this word be true in me today: “Take therefore no thought for the morrow”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 7:8",
@@ -4737,7 +5262,8 @@
     "step": "Pray this line as your whole request: “For every one that asketh receiveth.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “For every one that asketh receiveth” — and you when the Father feels hidden",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the ask: For every one that asketh receiveth."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the ask: For every one that asketh receiveth.",
+    "prayer": "Lord, hear this as my whole request: “For every one that asketh receiveth”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 11:29",
@@ -4746,7 +5272,8 @@
     "step": "Stop once today and return to these words: “Take my yoke upon you, and learn of me.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “Take my yoke upon you, and learn of me” — and you when you need to hear “Take my yoke upon you, and learn of me”",
-    "setting": "Jesus invites the weary to rest. This verse is the rest: Take my yoke upon you, and learn of me."
+    "setting": "Jesus invites the weary to rest. This verse is the rest: Take my yoke upon you, and learn of me.",
+    "prayer": "Lord, still my heart with “Take my yoke upon you, and learn of me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 18:3",
@@ -4755,7 +5282,8 @@
     "step": "Stop once today and return to these words: “And said, Verily I say unto you, Except you be.”",
     "about": "Jesus",
     "to": "His disciples — and all who guard the vulnerable",
-    "setting": "In Capernaum Jesus teaches humility with a child in their midst and warns against despising little ones whose angels behold the Father’s face."
+    "setting": "In Capernaum Jesus teaches humility with a child in their midst and warns against despising little ones whose angels behold the Father’s face.",
+    "prayer": "Lord, let this word be true in me today: “And said, Verily I say unto you, Except you be”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 22:37",
@@ -4764,7 +5292,8 @@
     "step": "Do one concrete kindness today because of this: “Jesus said unto him, you shall love the Lord.”",
     "about": "Jesus (through Matthew)",
     "to": "The people in front of Jesus when He said “Jesus said unto him, you shall love” — and you when love feels like a mood you cannot make",
-    "setting": "Jesus is in this moment — debates with leaders in Jerusalem. He says, “Jesus said unto him, you shall love the Lord your God with all.”."
+    "setting": "Jesus is in this moment — debates with leaders in Jerusalem. He says, “Jesus said unto him, you shall love the Lord your God with all.”.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Jesus said unto him, you shalt love the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 22:39",
@@ -4773,7 +5302,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “And the second is like unto it, you shall love.”",
     "about": "Jesus (through Matthew)",
     "to": "The people in front of Jesus when He said “And the second is like unto it, you” — and you when love feels like a mood you cannot make",
-    "setting": "Jesus — debates with leaders in Jerusalem. This verse is the call: And the second is like unto it, you shall love your neighbour as."
+    "setting": "Jesus — debates with leaders in Jerusalem. This verse is the call: And the second is like unto it, you shall love your neighbour as.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And the second is like unto it, you shalt love”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 28:20",
@@ -4782,7 +5312,8 @@
     "step": "Keep this clause until the next meal: “Teaching them to observe all things whatsoever.”",
     "about": "The risen Jesus (through Matthew)",
     "to": "The disciples — and all nations",
-    "setting": "The risen Jesus (through Matthew) said this to the disciples — and all nations: Last Supper, Gethsemane, trial, cross, and resurrection."
+    "setting": "The risen Jesus (through Matthew) said this to the disciples — and all nations: Last Supper, Gethsemane, trial, cross, and resurrection.",
+    "prayer": "Lord, let this word be true in me today: “Teaching them to observe all things whatsoever I”. In Jesus’ name, Amen."
   },
   {
     "ref": "Mark 5:36",
@@ -4791,7 +5322,8 @@
     "step": "When fear returns, speak this once: “As soon as Jesus heard the word that was.” Then take the next small step.",
     "about": "Jesus (through Mark)",
     "to": "Disciples in the storm (and you today)",
-    "setting": "Parables by the sea; a storm stilled; a demoniac, a bleeding woman, and Jairus’s daughter."
+    "setting": "Parables by the sea; a storm stilled; a demoniac, a bleeding woman, and Jairus’s daughter.",
+    "prayer": "Lord, when fear rises, hold me with “As soon as Jesus heard the word that was spoken, he”. In Jesus’ name, Amen."
   },
   {
     "ref": "Mark 12:30",
@@ -4800,7 +5332,8 @@
     "step": "Write this where you will see it: “And you shall love the Lord your God with all.”",
     "about": "Jesus (through Mark)",
     "to": "The people in front of Jesus when He said “And you shall love the Lord your God” — and you when love feels like a mood you cannot make",
-    "setting": "Jesus is in this moment — entry into Jerusalem. He says, “And you shall love the Lord your God with all your heart, and with all.”."
+    "setting": "Jesus is in this moment — entry into Jerusalem. He says, “And you shall love the Lord your God with all your heart, and with all.”.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And you shalt love the Lord your God with all”. — “And you shalt love the Lord.” In Jesus’ name, Amen."
   },
   {
     "ref": "Mark 12:31",
@@ -4809,7 +5342,8 @@
     "step": "Carry this clause in your mouth until noon: “And the second is like, namely this, you shall.”",
     "about": "Jesus (through Mark)",
     "to": "The people in front of Jesus when He said “And the second is like, namely this, you” — and you when love feels like a mood you cannot make",
-    "setting": "Jesus — Entry into Jerusalem. This verse is the call: And the second is like, namely this, you shall love your neighbour as."
+    "setting": "Jesus — Entry into Jerusalem. This verse is the call: And the second is like, namely this, you shall love your neighbour as.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And the second is like, namely this, you shalt”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 2:10",
@@ -4818,7 +5352,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “And the angel said unto them, Fear not.”",
     "about": "Luke (and the angels’ word)",
     "to": "The people in front of Jesus when He said “And the angel said unto them, Fear not:” — and you when fear is loud",
-    "setting": "Luke — shepherds hear good news. This verse is the hold: And the angel said unto them, Fear not: for, behold, I bring you good."
+    "setting": "Luke — shepherds hear good news. This verse is the hold: And the angel said unto them, Fear not: for, behold, I bring you good.",
+    "prayer": "Lord, when fear rises, hold me with “And the angel said unto them, Fear not”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 2:14",
@@ -4827,7 +5362,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “Glory to God in the highest, and on earth.”",
     "about": "Luke (and the angels’ word)",
     "to": "The people in front of Jesus when He said “Glory to God in the highest, and on earth” — and you when your mind will not sit down",
-    "setting": "Luke — shepherds hear good news. This verse is the rest: Glory to God in the highest, and on earth peace, good will toward men."
+    "setting": "Luke — shepherds hear good news. This verse is the rest: Glory to God in the highest, and on earth peace, good will toward men.",
+    "prayer": "Lord, still my heart with “Glory to God in the highest, and on earth peace”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 10:27",
@@ -4836,7 +5372,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “And he answering said, you shall love the Lord.”",
     "about": "Jesus",
     "to": "A lawyer testing Him — and every neighbor-watcher",
-    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the call: And he answering said, you shall love the Lord your God with all."
+    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the call: And he answering said, you shall love the Lord your God with all.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And he answering said, you shalt love the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 12:7",
@@ -4845,7 +5382,8 @@
     "step": "When fear returns, speak this once: “But even the very hairs of your head are all.” Then take the next small step.",
     "about": "Jesus (through Luke)",
     "to": "The people in front of Jesus when He said “But even the very hairs of your head are” — and you when fear is loud",
-    "setting": "Jesus is in this moment — on the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. He says, “But even the very hairs of your head are all numbered.”."
+    "setting": "Jesus is in this moment — on the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. He says, “But even the very hairs of your head are all numbered.”.",
+    "prayer": "Lord, when fear rises, hold me with “But even the very hairs of your head are all”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 15:7",
@@ -4854,7 +5392,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “I say unto you, that likewise joy shall be.”",
     "about": "Jesus",
     "to": "Sinners drawing near — and Pharisees listening",
-    "setting": "Jesus is in this moment — on the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. He says, “I say unto you, that likewise joy shall be in heaven over one.”."
+    "setting": "Jesus is in this moment — on the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. He says, “I say unto you, that likewise joy shall be in heaven over one.”.",
+    "prayer": "Lord, let this word be true in me today: “I say unto you, that likewise joy shall be”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 19:10",
@@ -4863,7 +5402,8 @@
     "step": "Pray this line as your whole request: “For the Son of man is come to seek and to save.”",
     "about": "Jesus (through Luke)",
     "to": "The people in front of Jesus when He said “For the Son of man is come to seek” — and you when the Father feels hidden",
-    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the ask: For the Son of man is come to seek and to save that which was lost."
+    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the ask: For the Son of man is come to seek and to save that which was lost.",
+    "prayer": "Lord, hear this as my whole request: “For the Son of man is come to seek and to save”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 24:6",
@@ -4872,7 +5412,8 @@
     "step": "Keep this clause until the next meal: “He is not here, but is risen: remember how he.”",
     "about": "Jesus (through Luke)",
     "to": "Disciples — and all who need opened Scriptures and a risen Lord",
-    "setting": "Last Supper, arrest, cross, Emmaus road, and resurrection appearances."
+    "setting": "Last Supper, arrest, cross, Emmaus road, and resurrection appearances.",
+    "prayer": "Lord, let this word be true in me today: “He is not here, but is risen: remember how he spake”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 1:4",
@@ -4881,7 +5422,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “In him was life; and the life was the light.”",
     "about": "John the apostle",
     "to": "The people in front of Jesus when He said “In him was life; and the life was” — and you when you only have light for the next step",
-    "setting": "John the apostle — The Word becomes flesh. This verse is the light: In him was life; and the life was the light of men."
+    "setting": "John the apostle — The Word becomes flesh. This verse is the light: In him was life; and the life was the light of men.",
+    "prayer": "Lord, light the next step: “In him was life”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 1:5",
@@ -4890,7 +5432,8 @@
     "step": "Stop once today and return to these words: “And the light shineth in darkness.”",
     "about": "John the apostle",
     "to": "The people in front of Jesus when He said “And the light shineth in darkness” — and you when you only have light for the next step",
-    "setting": "John the apostle — The Word becomes flesh. This verse is the light: And the light shineth in darkness."
+    "setting": "John the apostle — The Word becomes flesh. This verse is the light: And the light shineth in darkness.",
+    "prayer": "Lord, light the next step: “And the light shineth in darkness”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 3:17",
@@ -4899,7 +5442,8 @@
     "step": "Name one place His salvation is still good, then say: “For God sent not his Son into the world.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “For God sent not his Son into the world” — and you when you need rescue that is still good today",
-    "setting": "Jesus teaches Nicodemus about new birth. This verse is the charge: For God sent not his Son into the world to condemn the world."
+    "setting": "Jesus teaches Nicodemus about new birth. This verse is the charge: For God sent not his Son into the world to condemn the world.",
+    "prayer": "Lord, give me strength for this hour: “For God sent not his Son into the world to condemn”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 8:31",
@@ -4908,7 +5452,8 @@
     "step": "Carry this clause in your mouth until noon: “Then said Jesus to those Jews which believed on.”",
     "about": "Jesus (through John)",
     "to": "The people in front of Jesus when He said “Then said Jesus to those Jews” — and you when you need a path, not a feeling",
-    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the path: Then said Jesus to those Jews which believed on him, If you continue."
+    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the path: Then said Jesus to those Jews which believed on him, If you continue.",
+    "prayer": "Lord, write this on my path today: “Then said Jesus to those Jews which believed on”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 8:32",
@@ -4917,7 +5462,8 @@
     "step": "Keep this clause until the next meal: “And you shall know the truth, and the truth.”",
     "about": "Jesus (through John)",
     "to": "The people in front of Jesus when He said “And you shall know the truth” — and you when you need to hear “And you shall know the truth”",
-    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the line: And you shall know the truth, and the truth shall make you free."
+    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the line: And you shall know the truth, and the truth shall make you free.",
+    "prayer": "Lord, let this word be true in me today: “And you shall know the truth, and the truth shall”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 10:10",
@@ -4926,7 +5472,8 @@
     "step": "Stop once today and return to these words: “The thief comes not, but for to steal.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “The thief comes not, but for to steal” — and you when you need to hear “The thief comes not, but for to steal”",
-    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the charge: The thief comes not, but for to steal, and to kill, and to destroy:."
+    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the charge: The thief comes not, but for to steal, and to kill, and to destroy:.",
+    "prayer": "Lord, give me strength for this hour: “The thief cometh not, but for to steal”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 14:2",
@@ -4935,7 +5482,8 @@
     "step": "Keep this clause until the next meal: “In my Father’s house are many mansions: if it.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “In my Father’s house are many mansions” — and you when you need to hear “In my Father’s house are many mansions”",
-    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the line: In my Father’s house are many mansions: if it were not so, I would."
+    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the line: In my Father’s house are many mansions: if it were not so, I would.",
+    "prayer": "Lord, let this word be true in me today: “In my Father’s house are many mansions: if it were”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 14:18",
@@ -4944,7 +5492,8 @@
     "step": "Stop once today and return to these words: “I will not leave you comfortless: I will come.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “I will not leave you comfortless: I will” — and you when you need to hear “I will not leave you comfortless: I will”",
-    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the line: I will not leave you comfortless: I will come to you."
+    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the line: I will not leave you comfortless: I will come to you.",
+    "prayer": "Lord, let this word be true in me today: “I will not leave you comfortless: I will come”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 15:5",
@@ -4953,7 +5502,8 @@
     "step": "Keep this clause until the next meal: “I am the vine, you are the branches: He.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “I am the vine, you are the branches: He” — and you when you need to hear “I am the vine, you are the branches: He”",
-    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the line: I am the vine, you are the branches: He that abideth in me, and I."
+    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the line: I am the vine, you are the branches: He that abideth in me, and I.",
+    "prayer": "Lord, let this word be true in me today: “I am the vine, you are the branches: He that abideth”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 15:9",
@@ -4962,7 +5512,8 @@
     "step": "Do one concrete kindness today because of this: “As the Father has loved me, so have I loved.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “As the Father has loved me, so have I” — and you when love feels like a mood you cannot make",
-    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “As the Father has loved me, so have I loved you: continue you in my love.”."
+    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “As the Father has loved me, so have I loved you: continue you in my love.”.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “As the Father has loved me, so have I loved you”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 16:33",
@@ -4971,7 +5522,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “These things I have spoken unto you, that in me.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “These things I have spoken unto you” — and you when your mind will not sit down",
-    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the rest: These things I have spoken unto you, that in me you might have peace."
+    "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. This verse is the rest: These things I have spoken unto you, that in me you might have peace.",
+    "prayer": "Lord, give me strength for this hour: “These things I have spoken unto you, that in me you”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 20:29",
@@ -4980,7 +5532,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Jesus says unto him, Thomas, because you hast.”",
     "about": "The risen Jesus (through John)",
     "to": "Mary, the disciples, and Thomas — and you who believe",
-    "setting": "The risen Jesus — Empty tomb; Thomas believes; Peter is restored by the sea. This verse is the song: Jesus says unto him, Thomas, because you hast seen me, you hast."
+    "setting": "The risen Jesus — Empty tomb; Thomas believes; Peter is restored by the sea. This verse is the song: Jesus says unto him, Thomas, because you hast seen me, you hast.",
+    "prayer": "Lord, i bless Your name with these words: “Jesus saith unto him, Thomas, because you hast”. In Jesus’ name, Amen."
   },
   {
     "ref": "Acts 2:21",
@@ -4989,7 +5542,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “And it shall come to pass, that whosoever shall.”",
     "about": "Peter (and Luke’s account)",
     "to": "The people in front of Jesus when He said “And it shall come to pass, that whosoever” — and you when you need rescue that is still good today",
-    "setting": "Jesus ascends; the Spirit falls at Pentecost; the church is born in Jerusalem."
+    "setting": "Jesus ascends; the Spirit falls at Pentecost; the church is born in Jerusalem.",
+    "prayer": "Lord, show me Your salvation again today: “And it shall come to pass, that whosoever shall”. In Jesus’ name, Amen."
   },
   {
     "ref": "Acts 16:31",
@@ -4998,7 +5552,8 @@
     "step": "Stop once today and return to these words: “And they said, Believe on the Lord Jesus.”",
     "about": "Luke (with Paul and Silas)",
     "to": "Readers watching faith in prison",
-    "setting": "Luke — Paul’s journeys through Macedonia and Greece. This verse is the rescue: And they said, Believe on the Lord Jesus Christ, and you shall be."
+    "setting": "Luke — Paul’s journeys through Macedonia and Greece. This verse is the rescue: And they said, Believe on the Lord Jesus Christ, and you shall be.",
+    "prayer": "Lord, show me Your salvation again today: “And they said, Believe on the Lord Jesus Christ”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 5:1",
@@ -5007,7 +5562,8 @@
     "step": "Stop once today and return to these words: “Therefore being justified by faith, we have.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Therefore being justified by faith, we” — and you when your mind will not sit down",
-    "setting": "Paul is teaching Rome that Abraham believed God. This verse is the result: being justified by faith, we have peace with God through our Lord Jesus Christ."
+    "setting": "Paul is teaching Rome that Abraham believed God. This verse is the result: being justified by faith, we have peace with God through our Lord Jesus Christ.",
+    "prayer": "Lord, still my heart with “Therefore being justified by faith, we have peace”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 5:8",
@@ -5016,7 +5572,8 @@
     "step": "Do one concrete kindness today because of this: “But God commendeth his love toward us.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “But God commendeth his love toward us” — and you when love feels like a mood you cannot make",
-    "setting": "Paul — peace with God comes through Christ, not law-keeping. This verse is the call: But God commendeth his love toward us, in that, while we were yet."
+    "setting": "Paul — peace with God comes through Christ, not law-keeping. This verse is the call: But God commendeth his love toward us, in that, while we were yet.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “But God commendeth his love toward us”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 6:23",
@@ -5025,7 +5582,8 @@
     "step": "Keep this clause until the next meal: “For the wages of sin is death.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For the wages of sin is death” — and you when you need to hear “For the wages of sin is death”",
-    "setting": "Paul — no condemnation for those in Christ. This verse is the line: For the wages of sin is death."
+    "setting": "Paul — no condemnation for those in Christ. This verse is the line: For the wages of sin is death.",
+    "prayer": "Lord, let this word be true in me today: “For the wages of sin is death”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 10:9",
@@ -5034,7 +5592,8 @@
     "step": "Stop once today and return to these words: “That if you shall confess with your mouth.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “That if you shall confess with your mouth” — and you when you need rescue that is still good today",
-    "setting": "Paul wrestles with Israel’s unbelief and God’s mercy to Jew and Gentile. This verse is the rescue: That if you shall confess with your mouth the Lord Jesus, and shall."
+    "setting": "Paul wrestles with Israel’s unbelief and God’s mercy to Jew and Gentile. This verse is the rescue: That if you shall confess with your mouth the Lord Jesus, and shall.",
+    "prayer": "Lord, show me Your salvation again today: “That if you shalt confess with your mouth the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 10:13",
@@ -5043,7 +5602,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For whosoever shall call upon the name.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For whosoever shall call upon the name” — and you when you need rescue that is still good today",
-    "setting": "Paul wrestles with Israel’s unbelief and God’s mercy to Jew and Gentile. This verse is the rescue: For whosoever shall call upon the name of the Lord shall be saved."
+    "setting": "Paul wrestles with Israel’s unbelief and God’s mercy to Jew and Gentile. This verse is the rescue: For whosoever shall call upon the name of the Lord shall be saved.",
+    "prayer": "Lord, show me Your salvation again today: “For whosoever shall call upon the name of the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 12:2",
@@ -5052,7 +5612,8 @@
     "step": "Stop once today and return to these words: “And be not conformed to this world: but be you.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “And be not conformed to this world: but”",
-    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the line: And be not conformed to this world: but be you transformed."
+    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the line: And be not conformed to this world: but be you transformed.",
+    "prayer": "Lord, let this word be true in me today: “And be not conformed to this world: but be you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 12:21",
@@ -5061,7 +5622,8 @@
     "step": "Keep this clause until the next meal: “Be not overcome of evil, but overcome evil.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Be not overcome of evil, but overcome”",
-    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the line: Be not overcome of evil, but overcome evil with good."
+    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the line: Be not overcome of evil, but overcome evil with good.",
+    "prayer": "Lord, let this word be true in me today: “Be not overcome of evil, but overcome evil”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 15:4",
@@ -5070,7 +5632,8 @@
     "step": "Ask God for strength for the next hour, using this line: “For whatsoever things were written aforetime.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For whatsoever things were written” — and you when hope has worn thin",
-    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the charge: For whatsoever things were written aforetime were written."
+    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the charge: For whatsoever things were written aforetime were written.",
+    "prayer": "Lord, give me strength for this hour: “For whatsoever things were written aforetime were”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 1:9",
@@ -5079,7 +5642,8 @@
     "step": "Stop once today and return to these words: “God is faithful, by whom you were called unto.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “God is faithful, by whom you were called” — and you when you need someone else to hold you steady",
-    "setting": "Paul writes a gifted but divided church in Corinth about the cross and true wisdom. This verse is the line: God is faithful, by whom you were called unto the fellowship."
+    "setting": "Paul writes a gifted but divided church in Corinth about the cross and true wisdom. This verse is the line: God is faithful, by whom you were called unto the fellowship.",
+    "prayer": "Lord, let this word be true in me today: “God is faithful, by whom you were called unto”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 2:9",
@@ -5088,7 +5652,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “But as it is written, Eye has not seen, nor.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “But as it is written, Eye has not seen” — and you when love feels like a mood you cannot make",
-    "setting": "Paul writes a gifted but divided church in Corinth about the cross and true wisdom. This verse is the call: But as it is written, Eye has not seen, nor ear heard, neither have."
+    "setting": "Paul writes a gifted but divided church in Corinth about the cross and true wisdom. This verse is the call: But as it is written, Eye has not seen, nor ear heard, neither have.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “But as it is written, Eye has not seen, nor ear”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 10:13",
@@ -5097,7 +5662,8 @@
     "step": "Keep this clause until the next meal: “There has no temptation taken you but such as.”",
     "about": "Paul",
     "to": "the church at Corinth facing temptation (and you today)",
-    "setting": "Paul warns Corinth from Israel’s wilderness failures and promises God is faithful in temptation."
+    "setting": "Paul warns Corinth from Israel’s wilderness failures and promises God is faithful in temptation.",
+    "prayer": "Lord, let this word be true in me today: “There has no temptation taken you but such as is”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 13:7",
@@ -5106,7 +5672,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Beareth all things, believeth all things.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Beareth all things, believeth all things” — and you when hope has worn thin",
-    "setting": "Paul — The Lord’s Supper and spiritual gifts. This verse is the hope: Beareth all things, believeth all things, hopeth all things, endureth."
+    "setting": "Paul — The Lord’s Supper and spiritual gifts. This verse is the hope: Beareth all things, believeth all things, hopeth all things, endureth.",
+    "prayer": "Lord, let this word be true in me today: “Beareth all things, believeth all things, hopeth”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 15:57",
@@ -5115,7 +5682,8 @@
     "step": "Say this praise out loud once: “But thanks be to God, which giveth us.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “But thanks be to God, which giveth us” — and you when praise has to last past the morning",
-    "setting": "Paul — The resurrection of Christ and of the dead. This verse is the song: But thanks be to God, which giveth us the victory through our Lord."
+    "setting": "Paul — The resurrection of Christ and of the dead. This verse is the song: But thanks be to God, which giveth us the victory through our Lord.",
+    "prayer": "Lord, i bless Your name with these words: “But thanks be to God, which giveth us the victory”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 15:58",
@@ -5124,7 +5692,8 @@
     "step": "Stop once today and return to these words: “Therefore, my beloved brethren, be you stedfast.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Therefore, my beloved brethren, be you”",
-    "setting": "Paul — The resurrection of Christ and of the dead. This verse is the call: Therefore, my beloved brethren, be you stedfast, unmoveable, always."
+    "setting": "Paul — The resurrection of Christ and of the dead. This verse is the call: Therefore, my beloved brethren, be you stedfast, unmoveable, always.",
+    "prayer": "Lord, let this word be true in me today: “Therefore, my beloved brethren, be you stedfast”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 1:3",
@@ -5133,7 +5702,8 @@
     "step": "Say this praise out loud once: “Blessed be God, even the Father of our Lord.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Blessed be God, even the Father” — and you when praise has to last past the morning",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the song: Blessed be God, even the Father of our Lord Jesus Christ, the Father."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the song: Blessed be God, even the Father of our Lord Jesus Christ, the Father.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed be God, even the Father of our Lord Jesus”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 1:4",
@@ -5142,7 +5712,8 @@
     "step": "Stop once today and return to these words: “Who comforteth us in all our tribulation.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Who comforteth us in all our tribulation”",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: Who comforteth us in all our tribulation, that we may be able."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: Who comforteth us in all our tribulation, that we may be able.",
+    "prayer": "Lord, let this word be true in me today: “Who comforteth us in all our tribulation, that we”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 4:16",
@@ -5151,7 +5722,8 @@
     "step": "Stop once today and return to these words: “For which cause we faint not.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For which cause we faint not” — and you when you need to hear “For which cause we faint not”",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: For which cause we faint not."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: For which cause we faint not.",
+    "prayer": "Lord, let this word be true in me today: “For which cause we faint not”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 4:18",
@@ -5160,7 +5732,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “While we look not at the things which are seen.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “While we look not at the things which are”",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: While we look not at the things which are seen, but at the things."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: While we look not at the things which are seen, but at the things.",
+    "prayer": "Lord, let this word be true in me today: “While we look not at the things which are seen, but”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 5:17",
@@ -5169,7 +5742,8 @@
     "step": "Keep this clause until the next meal: “Therefore if any man be in Christ, he is a new.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Therefore if any man be in Christ, he is”",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: Therefore if any man be in Christ, he is a new creature: old things."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: Therefore if any man be in Christ, he is a new creature: old things.",
+    "prayer": "Lord, let this word be true in me today: “Therefore if any man be in Christ, he is a new”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 9:7",
@@ -5178,7 +5752,8 @@
     "step": "Stop once today and return to these words: “Every man according as he purposeth.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Every man according as he purposeth” — and you when you need to hear “Every man according as he purposeth”",
-    "setting": "Paul urges generous giving for the poor saints. This verse is the line: Every man according as he purposeth in his heart, so let him give."
+    "setting": "Paul urges generous giving for the poor saints. This verse is the line: Every man according as he purposeth in his heart, so let him give.",
+    "prayer": "Lord, let this word be true in me today: “Every man according as he purposeth in his heart”. In Jesus’ name, Amen."
   },
   {
     "ref": "Galatians 2:20",
@@ -5187,7 +5762,8 @@
     "step": "Keep this clause until the next meal: “I am crucified with Christ: nevertheless I live.”",
     "about": "Paul",
     "to": "the churches of Galatia (and you today)",
-    "setting": "Paul confronts churches turning to another gospel of law-keeping for status with God."
+    "setting": "Paul confronts churches turning to another gospel of law-keeping for status with God.",
+    "prayer": "Lord, let this word be true in me today: “I am crucified with Christ: nevertheless I live”. In Jesus’ name, Amen."
   },
   {
     "ref": "Galatians 5:1",
@@ -5196,7 +5772,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Stand fast therefore in the liberty wherewith.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Stand fast therefore in the liberty” — and you when you need to hear “Stand fast therefore in the liberty”",
-    "setting": "Paul — bearing one another’s burdens. This verse is the line: Stand fast therefore in the liberty wherewith Christ has made us."
+    "setting": "Paul — bearing one another’s burdens. This verse is the line: Stand fast therefore in the liberty wherewith Christ has made us.",
+    "prayer": "Lord, let this word be true in me today: “Stand fast therefore in the liberty wherewith”. In Jesus’ name, Amen."
   },
   {
     "ref": "Galatians 5:13",
@@ -5205,7 +5782,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For, brethren, you have been called unto liberty.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For, brethren, you have been called unto” — and you when love feels like a mood you cannot make",
-    "setting": "Paul — bearing one another’s burdens. This verse is the call: For, brethren, you have been called unto liberty."
+    "setting": "Paul — bearing one another’s burdens. This verse is the call: For, brethren, you have been called unto liberty.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “For, brethren, you have been called unto liberty”. In Jesus’ name, Amen."
   },
   {
     "ref": "Galatians 6:2",
@@ -5214,7 +5792,8 @@
     "step": "Carry this clause in your mouth until noon: “Bear you one another’s burdens, and so fulfil.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Bear you one another’s burdens, and so” — and you when you need a path, not a feeling",
-    "setting": "Paul — bearing one another’s burdens. This verse is the path: Bear you one another’s burdens, and so fulfil the law of Christ."
+    "setting": "Paul — bearing one another’s burdens. This verse is the path: Bear you one another’s burdens, and so fulfil the law of Christ.",
+    "prayer": "Lord, write this on my path today: “Bear you one another’s burdens, and so fulfil”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 1:7",
@@ -5223,7 +5802,8 @@
     "step": "Do one concrete kindness today because of this: “In whom we have redemption through his blood.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “In whom we have redemption” — and you when you have failed and still need to come",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the mercy: In whom we have redemption through his blood, the forgiveness."
+    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the mercy: In whom we have redemption through his blood, the forgiveness.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “In whom we have redemption through his blood”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 2:8",
@@ -5232,7 +5812,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For by grace are you saved through faith.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For by grace are you saved through faith” — and you when you need rescue that is still good today",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the rescue: For by grace are you saved through faith."
+    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the rescue: For by grace are you saved through faith.",
+    "prayer": "Lord, show me Your salvation again today: “For by grace are you saved through faith”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 3:16",
@@ -5241,7 +5822,8 @@
     "step": "Ask God for strength for the next hour, using this line: “That he would grant you, according.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “That he would grant you, according” — and you when you have no more push left",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the charge: That he would grant you, according to the riches of his glory, to be."
+    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the charge: That he would grant you, according to the riches of his glory, to be.",
+    "prayer": "Lord, give me strength for this hour: “That he would grant you, according to the riches”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 3:17",
@@ -5250,7 +5832,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “That Christ may dwell in your hearts by faith.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “That Christ may dwell in your hearts” — and you when love feels like a mood you cannot make",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the call: That Christ may dwell in your hearts by faith."
+    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the call: That Christ may dwell in your hearts by faith.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “That Christ may dwell in your hearts by faith”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 4:2",
@@ -5259,7 +5842,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “With all lowliness and meekness.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “With all lowliness and meekness” — and you when love feels like a mood you cannot make",
-    "setting": "Paul — Walk worthy: unity, purity, marriage, and the armor of God against spiritual war. This verse is the call: With all lowliness and meekness, with longsuffering, forbearing one."
+    "setting": "Paul — Walk worthy: unity, purity, marriage, and the armor of God against spiritual war. This verse is the call: With all lowliness and meekness, with longsuffering, forbearing one.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “With all lowliness and meekness”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 5:2",
@@ -5268,7 +5852,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “And walk in love, as Christ also has loved us.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “And walk in love, as Christ also has” — and you when love feels like a mood you cannot make",
-    "setting": "Paul — Walk worthy: unity, purity, marriage, and the armor of God against spiritual war. This verse is the call: And walk in love, as Christ also has loved us, and has given."
+    "setting": "Paul — Walk worthy: unity, purity, marriage, and the armor of God against spiritual war. This verse is the call: And walk in love, as Christ also has loved us, and has given.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And walk in love, as Christ also has loved us”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 6:11",
@@ -5277,7 +5862,8 @@
     "step": "Stop once today and return to these words: “Put on the whole armour of God, that you may be.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Put on the whole armour of God, that you”",
-    "setting": "Paul — Walk worthy: unity, purity, marriage, and the armor of God against spiritual war. This verse is the line: Put on the whole armour of God, that you may be able to stand against."
+    "setting": "Paul — Walk worthy: unity, purity, marriage, and the armor of God against spiritual war. This verse is the line: Put on the whole armour of God, that you may be able to stand against.",
+    "prayer": "Lord, let this word be true in me today: “Put on the whole armour of God, that you may be able”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 1:21",
@@ -5286,7 +5872,8 @@
     "step": "Stop once today and return to these words: “For to me to live is Christ, and to die is gain.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “For to me to live is Christ, and to die”",
-    "setting": "Paul — Christ is preached. This verse is the line: For to me to live is Christ, and to die is gain."
+    "setting": "Paul — Christ is preached. This verse is the line: For to me to live is Christ, and to die is gain.",
+    "prayer": "Lord, let this word be true in me today: “For to me to live is Christ, and to die is gain”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 2:3",
@@ -5295,7 +5882,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Let nothing be done through strife or vainglory.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Let nothing be done through strife” — and you when you need to hear “Let nothing be done through strife”",
-    "setting": "Paul — the mind of Christ is humility. This verse is the line: Let nothing be done through strife or vainglory."
+    "setting": "Paul — the mind of Christ is humility. This verse is the line: Let nothing be done through strife or vainglory.",
+    "prayer": "Lord, let this word be true in me today: “Let nothing be done through strife or vainglory”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 3:13",
@@ -5304,7 +5892,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Brethren, I count not myself to have.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Brethren, I count not myself to have” — and you when you need to hear “Brethren, I count not myself to have”",
-    "setting": "Paul counts status as loss for Christ. This verse is the line: Brethren, I count not myself to have apprehended: but this one thing."
+    "setting": "Paul counts status as loss for Christ. This verse is the line: Brethren, I count not myself to have apprehended: but this one thing.",
+    "prayer": "Lord, let this word be true in me today: “Brethren, I count not myself to have apprehended”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 3:14",
@@ -5313,7 +5902,8 @@
     "step": "Stop once today and return to these words: “I press toward the mark for the prize.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “I press toward the mark for the prize”",
-    "setting": "Paul — he presses toward the prize. This verse is the line: I press toward the mark for the prize of the high calling of God."
+    "setting": "Paul — he presses toward the prize. This verse is the line: I press toward the mark for the prize of the high calling of God.",
+    "prayer": "Lord, let this word be true in me today: “I press toward the mark for the prize of the high”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 4:11",
@@ -5322,7 +5912,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Not that I speak in respect of want: for I have.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Not that I speak in respect of want” — and you when you need to hear “Not that I speak in respect of want”",
-    "setting": "Paul writes from prison about contentment: he has learned, in whatever state he is, to be content — not because the cell is easy."
+    "setting": "Paul writes from prison about contentment: he has learned, in whatever state he is, to be content — not because the cell is easy.",
+    "prayer": "Lord, shepherd me. I bring You this want: “Not that I speak in respect of want: for I have”. In Jesus’ name, Amen."
   },
   {
     "ref": "Colossians 1:13",
@@ -5331,7 +5922,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Who has delivered us from the power.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Who has delivered us from the power” — and you when you need to hear “Who has delivered us from the power”",
-    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse. This verse is the line: Who has delivered us from the power of darkness, and has translated."
+    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse. This verse is the line: Who has delivered us from the power of darkness, and has translated.",
+    "prayer": "Lord, let this word be true in me today: “Who has delivered us from the power of darkness”. In Jesus’ name, Amen."
   },
   {
     "ref": "Colossians 1:17",
@@ -5340,7 +5932,8 @@
     "step": "Stop once today and return to these words: “And he is before all things, and by him all.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “And he is before all things, and by him”",
-    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse. This verse is the line: And he is before all things, and by him all things consist."
+    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse. This verse is the line: And he is before all things, and by him all things consist.",
+    "prayer": "Lord, let this word be true in me today: “And he is before all things, and by him all things”. In Jesus’ name, Amen."
   },
   {
     "ref": "Colossians 2:6",
@@ -5349,7 +5942,8 @@
     "step": "Keep this clause until the next meal: “As you have therefore received Christ Jesus.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “As you have therefore received Christ”",
-    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse. This verse is the line: As you have therefore received Christ Jesus the Lord, so walk you."
+    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse. This verse is the line: As you have therefore received Christ Jesus the Lord, so walk you.",
+    "prayer": "Lord, let this word be true in me today: “As you have therefore received Christ Jesus”. In Jesus’ name, Amen."
   },
   {
     "ref": "Colossians 3:2",
@@ -5358,7 +5952,8 @@
     "step": "Stop once today and return to these words: “Set your affection on things above, not on.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Set your affection on things above, not”",
-    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the line: Set your affection on things above, not on things on the earth."
+    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the line: Set your affection on things above, not on things on the earth.",
+    "prayer": "Lord, let this word be true in me today: “Set your affection on things above, not on things”. In Jesus’ name, Amen."
   },
   {
     "ref": "Colossians 3:15",
@@ -5367,7 +5962,8 @@
     "step": "Stop once today and return to these words: “And let the peace of God rule in your hearts.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “And let the peace of God rule” — and you when your mind will not sit down",
-    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the rest: And let the peace of God rule in your hearts, to the which also you."
+    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the rest: And let the peace of God rule in your hearts, to the which also you.",
+    "prayer": "Lord, still my heart with “And let the peace of God rule in your hearts”. In Jesus’ name, Amen."
   },
   {
     "ref": "Colossians 3:16",
@@ -5376,7 +5972,8 @@
     "step": "Say this praise out loud once: “Let the word of Christ dwell in you richly.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Let the word of Christ dwell in you” — and you when praise has to last past the morning",
-    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the song: Let the word of Christ dwell in you richly in all wisdom."
+    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the song: Let the word of Christ dwell in you richly in all wisdom.",
+    "prayer": "Lord, i bless Your name with these words: “Let the word of Christ dwell in you richly in all”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Thessalonians 4:14",
@@ -5385,7 +5982,8 @@
     "step": "Keep this clause until the next meal: “For if we believe that Jesus died and rose.”",
     "about": "Paul",
     "to": "Believers grieving with hope",
-    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the line: For if we believe that Jesus died and rose again, even so them also."
+    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the line: For if we believe that Jesus died and rose again, even so them also.",
+    "prayer": "Lord, let this word be true in me today: “For if we believe that Jesus died and rose again”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Thessalonians 5:18",
@@ -5394,7 +5992,8 @@
     "step": "Say this praise out loud once: “In every thing give thanks: for this is.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “In every thing give thanks: for this is” — and you when praise has to last past the morning",
-    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the song: In every thing give thanks: for this is the will of God in Christ."
+    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the song: In every thing give thanks: for this is the will of God in Christ.",
+    "prayer": "Lord, i bless Your name with these words: “In every thing give thanks: for this is the will”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Thessalonians 5:23",
@@ -5403,7 +6002,8 @@
     "step": "Ask once more with these words before you try to fix it: “And the very God of peace sanctify you wholly.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “And the very God of peace sanctify you” — and you when your mind will not sit down",
-    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the ask: And the very God of peace sanctify you wholly."
+    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the ask: And the very God of peace sanctify you wholly.",
+    "prayer": "Lord, hear this as my whole request: “And the very God of peace sanctify you wholly”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Thessalonians 5:24",
@@ -5412,7 +6012,8 @@
     "step": "Keep this clause until the next meal: “Faithful is he that calleth you, who also will.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Faithful is he that calleth you, who also” — and you when you need someone else to hold you steady",
-    "setting": "Paul is comforting Thessalonica about the day of the Lord and holy living. This verse is the hold: faithful is He that calls you, who also will do it."
+    "setting": "Paul is comforting Thessalonica about the day of the Lord and holy living. This verse is the hold: faithful is He that calls you, who also will do it.",
+    "prayer": "Lord, let this word be true in me today: “Faithful is he that calleth you, who also will do”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Thessalonians 2:16",
@@ -5421,7 +6022,8 @@
     "step": "Keep this clause until the next meal: “Now our Lord Jesus Christ himself, and God.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Now our Lord Jesus Christ himself” — and you when hope has worn thin",
-    "setting": "Paul steadies a shaken church about the day of the Lord and idle living. This verse is the hope: Now our Lord Jesus Christ himself, and God, even our Father,."
+    "setting": "Paul steadies a shaken church about the day of the Lord and idle living. This verse is the hope: Now our Lord Jesus Christ himself, and God, even our Father,.",
+    "prayer": "Lord, let this word be true in me today: “Now our Lord Jesus Christ himself, and God, even”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Timothy 1:15",
@@ -5430,7 +6032,8 @@
     "step": "Name one place His salvation is still good, then say: “This is a faithful saying, and worthy of all.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “This is a faithful saying, and worthy” — and you when you need rescue that is still good today",
-    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus. This verse is the rescue: This is a faithful saying, and worthy of all acceptation, that Christ."
+    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus. This verse is the rescue: This is a faithful saying, and worthy of all acceptation, that Christ.",
+    "prayer": "Lord, show me Your salvation again today: “This is a faithful saying, and worthy of all”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Timothy 6:6",
@@ -5439,7 +6042,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “But godliness with contentment is great gain.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “But godliness with contentment is great”",
-    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus. This verse is the line: But godliness with contentment is great gain."
+    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus. This verse is the line: But godliness with contentment is great gain.",
+    "prayer": "Lord, let this word be true in me today: “But godliness with contentment is great gain”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Timothy 6:12",
@@ -5448,7 +6052,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Fight the good fight of faith, lay hold on.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Fight the good fight of faith, lay hold”",
-    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus. This verse is the line: Fight the good fight of faith, lay hold on eternal life, whereunto."
+    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus. This verse is the line: Fight the good fight of faith, lay hold on eternal life, whereunto.",
+    "prayer": "Lord, let this word be true in me today: “Fight the good fight of faith, lay hold on eternal”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Timothy 2:1",
@@ -5457,7 +6062,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “you therefore, my son, be strong in the grace.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “you therefore, my son, be strong” — and you when you need to hear “you therefore, my son, be strong”",
-    "setting": "Paul’s last letter from prison: fan the gift. This verse is the charge: you therefore, my son, be strong in the grace that is in Christ."
+    "setting": "Paul’s last letter from prison: fan the gift. This verse is the charge: you therefore, my son, be strong in the grace that is in Christ.",
+    "prayer": "Lord, give me strength for this hour: “you therefore, my son, be strong in the grace”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Timothy 3:16",
@@ -5466,7 +6072,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “All scripture is given by inspiration of God.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “All scripture is given by inspiration”",
-    "setting": "Paul’s last letter from prison: fan the gift. This verse is the line: All scripture is given by inspiration of God, and is profitable."
+    "setting": "Paul’s last letter from prison: fan the gift. This verse is the line: All scripture is given by inspiration of God, and is profitable.",
+    "prayer": "Lord, let this word be true in me today: “All scripture is given by inspiration of God”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Timothy 4:7",
@@ -5475,7 +6082,8 @@
     "step": "Stop once today and return to these words: “I have fought a good fight, I have finished.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “I have fought a good fight, I have” — and you when you need to hear “I have fought a good fight, I have”",
-    "setting": "Paul’s last letter from prison: fan the gift. This verse is the line: I have fought a good fight, I have finished my course, I have kept."
+    "setting": "Paul’s last letter from prison: fan the gift. This verse is the line: I have fought a good fight, I have finished my course, I have kept.",
+    "prayer": "Lord, let this word be true in me today: “I have fought a good fight, I have finished”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Timothy 4:17",
@@ -5484,7 +6092,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Notwithstanding the Lord stood with me.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Notwithstanding the Lord stood with me” — and you when you have no more push left",
-    "setting": "Paul’s last letter from prison: fan the gift. This verse is the charge: Notwithstanding the Lord stood with me, and strengthened me."
+    "setting": "Paul’s last letter from prison: fan the gift. This verse is the charge: Notwithstanding the Lord stood with me, and strengthened me.",
+    "prayer": "Lord, give me strength for this hour: “Notwithstanding the Lord stood with me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Titus 3:5",
@@ -5493,7 +6102,8 @@
     "step": "Name one place His salvation is still good, then say: “Not by works of righteousness which we have.”",
     "about": "Paul",
     "to": "Titus (and church leaders)",
-    "setting": "Paul instructs Titus to appoint elders and teach sound living on Crete."
+    "setting": "Paul instructs Titus to appoint elders and teach sound living on Crete.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Not by works of righteousness which we have done”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 4:12",
@@ -5502,7 +6112,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For the word of God is quick, and powerful.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “For the word of God is quick” — and you when you need a path, not a feeling",
-    "setting": "The writer of Hebrews — A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old. This verse is the path: For the word of God is quick, and powerful, and sharper than any."
+    "setting": "The writer of Hebrews — A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old. This verse is the path: For the word of God is quick, and powerful, and sharper than any.",
+    "prayer": "Lord, write this on my path today: “For the word of God is quick, and powerful”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 6:19",
@@ -5511,7 +6122,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Which hope we have as an anchor of the soul.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “Which hope we have as an anchor” — and you when hope has worn thin",
-    "setting": "The writer of Hebrews is telling pressured believers to hold the promise. This verse is the anchor: which hope we have as an anchor of the soul, sure and steadfast."
+    "setting": "The writer of Hebrews is telling pressured believers to hold the promise. This verse is the anchor: which hope we have as an anchor of the soul, sure and steadfast.",
+    "prayer": "Lord, let this word be true in me today: “Which hope we have as an anchor of the soul, both”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 11:6",
@@ -5520,7 +6132,8 @@
     "step": "Pray this line as your whole request: “But without faith it is impossible to please.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “But without faith it is impossible” — and you when the Father feels hidden",
-    "setting": "The writer of Hebrews — practical holiness and praise. This verse is the ask: But without faith it is impossible to please him: for he that comes."
+    "setting": "The writer of Hebrews — practical holiness and praise. This verse is the ask: But without faith it is impossible to please him: for he that comes.",
+    "prayer": "Lord, hear this as my whole request: “But without faith it is impossible to please him”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 12:1",
@@ -5529,7 +6142,8 @@
     "step": "Stop once today and return to these words: “Wherefore seeing we also are compassed about.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “Wherefore seeing we also are compassed” — and you when you need to hear “Wherefore seeing we also are compassed”",
-    "setting": "The writer of Hebrews — run with patience. This verse is the line: Wherefore seeing we also are compassed about with so great a cloud."
+    "setting": "The writer of Hebrews — run with patience. This verse is the line: Wherefore seeing we also are compassed about with so great a cloud.",
+    "prayer": "Lord, let this word be true in me today: “Wherefore seeing we also are compassed about”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 13:5",
@@ -5538,7 +6152,8 @@
     "step": "Keep this clause until the next meal: “Let your conversation be without covetousness.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “Let your conversation be without” — and you when you need to hear “Let your conversation be without”",
-    "setting": "The writer of Hebrews — run with patience. This verse is the line: Let your conversation be without covetousness."
+    "setting": "The writer of Hebrews — run with patience. This verse is the line: Let your conversation be without covetousness.",
+    "prayer": "Lord, let this word be true in me today: “Let your conversation be without covetousness”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 13:8",
@@ -5547,7 +6162,8 @@
     "step": "Keep this clause until the next meal: “Jesus Christ the same yesterday, and to day.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “Jesus Christ the same yesterday” — and you when you need to hear “Jesus Christ the same yesterday”",
-    "setting": "The writer of Hebrews — practical holiness and praise. This verse is the line: Jesus Christ the same yesterday, and to day, and for ever."
+    "setting": "The writer of Hebrews — practical holiness and praise. This verse is the line: Jesus Christ the same yesterday, and to day, and for ever.",
+    "prayer": "Lord, let this word be true in me today: “Jesus Christ the same yesterday, and to day”. In Jesus’ name, Amen."
   },
   {
     "ref": "James 1:2",
@@ -5556,7 +6172,8 @@
     "step": "Keep this clause until the next meal: “My brethren, count it all joy when you fall into.”",
     "about": "James",
     "to": "The first hearers of “My brethren, count it all joy when you” — and you when gladness feels like a command you cannot feel",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the gladness: My brethren, count it all joy when you fall into divers temptations."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the gladness: My brethren, count it all joy when you fall into divers temptations.",
+    "prayer": "Lord, let this word be true in me today: “My brethren, count it all joy when you fall into”. In Jesus’ name, Amen."
   },
   {
     "ref": "James 1:12",
@@ -5565,7 +6182,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed is the man that endureth temptation:.”",
     "about": "James",
     "to": "The first hearers of “Blessed is the man that endureth” — and you when love feels like a mood you cannot make",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the song: Blessed is the man that endureth temptation: for when he is tried, he."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the song: Blessed is the man that endureth temptation: for when he is tried, he.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed is the man that endureth temptation”. In Jesus’ name, Amen."
   },
   {
     "ref": "James 1:22",
@@ -5574,7 +6192,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “But be you doers of the word, and not hearers.”",
     "about": "James",
     "to": "The first hearers of “But be you doers of the word, and not” — and you when you need a path, not a feeling",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the path: But be you doers of the word, and not hearers only, deceiving your own."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the path: But be you doers of the word, and not hearers only, deceiving your own.",
+    "prayer": "Lord, write this on my path today: “But be you doers of the word, and not hearers only”. In Jesus’ name, Amen."
   },
   {
     "ref": "James 4:7",
@@ -5583,7 +6202,8 @@
     "step": "Stop once today and return to these words: “Submit yourselves therefore to God.”",
     "about": "James",
     "to": "The first hearers of “Submit yourselves therefore to God” — and you when you need to hear “Submit yourselves therefore to God”",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the line: Submit yourselves therefore to God."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the line: Submit yourselves therefore to God.",
+    "prayer": "Lord, let this word be true in me today: “Submit yourselves therefore to God”. In Jesus’ name, Amen."
   },
   {
     "ref": "James 5:16",
@@ -5592,7 +6212,8 @@
     "step": "Pray this line as your whole request: “Confess your faults one to another, and pray.”",
     "about": "James",
     "to": "The first hearers of “Confess your faults one to another” — and you when the request is still in your chest",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the ask: Confess your faults one to another, and pray one for another, that you."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the ask: Confess your faults one to another, and pray one for another, that you.",
+    "prayer": "Lord, hear this as my whole request: “Confess your faults one to another, and pray one”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 1:16",
@@ -5601,7 +6222,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Because it is written, Be you holy.”",
     "about": "Peter",
     "to": "The first hearers of “Because it is written, Be you holy” — and you when you need to hear “Because it is written, Be you holy”",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the line: Because it is written, Be you holy."
+    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the line: Because it is written, Be you holy.",
+    "prayer": "Lord, let this word be true in me today: “Because it is written, Be you holy”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 2:24",
@@ -5610,7 +6232,8 @@
     "step": "Stop once today and return to these words: “Who his own self bare our sins in his own body.”",
     "about": "Peter",
     "to": "The first hearers of “Who his own self bare our sins in his own” — and you when the heart is still broken",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the line: Who his own self bare our sins in his own body on the tree, that we,."
+    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the line: Who his own self bare our sins in his own body on the tree, that we,.",
+    "prayer": "Lord, let this word be true in me today: “Who his own self bare our sins in his own body on”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 4:8",
@@ -5619,7 +6242,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “And above all things have fervent charity among.”",
     "about": "Peter",
     "to": "The first hearers of “And above all things have fervent charity” — and you when you need to hear “And above all things have fervent charity”",
-    "setting": "Peter — Household life, suffering for righteousness, casting care on God, resisting the devil. This verse is the call: And above all things have fervent charity among yourselves:."
+    "setting": "Peter — Household life, suffering for righteousness, casting care on God, resisting the devil. This verse is the call: And above all things have fervent charity among yourselves:.",
+    "prayer": "Lord, let this word be true in me today: “And above all things have fervent charity among”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 5:6",
@@ -5628,7 +6252,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Humble yourselves therefore under the mighty.”",
     "about": "Peter",
     "to": "The first hearers of “Humble yourselves therefore under” — and you when you need to hear “Humble yourselves therefore under”",
-    "setting": "Peter — Household life, suffering for righteousness, casting care on God, resisting the devil. This verse is the charge: Humble yourselves therefore under the mighty hand of God, that he may."
+    "setting": "Peter — Household life, suffering for righteousness, casting care on God, resisting the devil. This verse is the charge: Humble yourselves therefore under the mighty hand of God, that he may.",
+    "prayer": "Lord, give me strength for this hour: “Humble yourselves therefore under the mighty hand”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 5:10",
@@ -5637,7 +6262,8 @@
     "step": "Ask God for strength for the next hour, using this line: “But the God of all grace, who has called us.”",
     "about": "Peter",
     "to": "The first hearers of “But the God of all grace, who has called” — and you when you have no more push left",
-    "setting": "Peter — Household life, suffering for righteousness, casting care on God, resisting the devil. This verse is the charge: But the God of all grace, who has called us unto his eternal glory."
+    "setting": "Peter — Household life, suffering for righteousness, casting care on God, resisting the devil. This verse is the charge: But the God of all grace, who has called us unto his eternal glory.",
+    "prayer": "Lord, give me strength for this hour: “But the God of all grace, who has called us unto”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Peter 1:3",
@@ -5646,7 +6272,8 @@
     "step": "Stop once today and return to these words: “According as his divine power has given unto.”",
     "about": "Peter",
     "to": "The first hearers of “According as his divine power has given” — and you when you need to hear “According as his divine power has given”",
-    "setting": "Peter warns against false teachers and points to the Lord’s coming and sure word. This verse is the line: According as his divine power has given unto us all things."
+    "setting": "Peter warns against false teachers and points to the Lord’s coming and sure word. This verse is the line: According as his divine power has given unto us all things.",
+    "prayer": "Lord, let this word be true in me today: “According as his divine power has given unto us”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Peter 3:9",
@@ -5655,7 +6282,8 @@
     "step": "Stop once today and return to these words: “The Lord is not slack concerning his promise.”",
     "about": "Peter",
     "to": "The first hearers of “The Lord is not slack concerning” — and you when you need to hear “The Lord is not slack concerning”",
-    "setting": "Peter warns against false teachers and points to the Lord’s coming and sure word. This verse is the line: The Lord is not slack concerning his promise, as some men count."
+    "setting": "Peter warns against false teachers and points to the Lord’s coming and sure word. This verse is the line: The Lord is not slack concerning his promise, as some men count.",
+    "prayer": "Lord, let this word be true in me today: “The Lord is not slack concerning his promise, as”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 1:7",
@@ -5664,7 +6292,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “But if we walk in the light, as he is.”",
     "about": "John",
     "to": "The first hearers of “But if we walk in the light, as he is” — and you when you only have light for the next step",
-    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. This verse is the light: But if we walk in the light, as he is in the light, we have."
+    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. This verse is the light: But if we walk in the light, as he is in the light, we have.",
+    "prayer": "Lord, light the next step: “But if we walk in the light, as he is in the light”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 1:9",
@@ -5673,7 +6302,8 @@
     "step": "Do one concrete kindness today because of this: “If we confess our sins, he is faithful and just.”",
     "about": "John",
     "to": "The first hearers of “If we confess our sins, he is faithful” — and you when you have failed and still need to come",
-    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. This verse is the mercy: If we confess our sins, he is faithful and just to forgive us."
+    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. This verse is the mercy: If we confess our sins, he is faithful and just to forgive us.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “If we confess our sins, he is faithful and just”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 2:1",
@@ -5682,7 +6312,8 @@
     "step": "Stop once today and return to these words: “My little children, these things write I unto.”",
     "about": "John",
     "to": "The first hearers of “My little children, these things write I” — and you when you need to hear “My little children, these things write I”",
-    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. This verse is the line: My little children, these things write I unto you, that you sin not."
+    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. This verse is the line: My little children, these things write I unto you, that you sin not.",
+    "prayer": "Lord, let this word be true in me today: “My little children, these things write I unto you”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 3:16",
@@ -5691,7 +6322,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “Hereby perceive we the love of God, because he.”",
     "about": "John",
     "to": "The first hearers of “Hereby perceive we the love of God” — and you when love feels like a mood you cannot make",
-    "setting": "John marvels that the Father calls us children of God, and says real love must show in deed and. This verse is the call: Hereby perceive we the love of God, because he laid down his life."
+    "setting": "John marvels that the Father calls us children of God, and says real love must show in deed and. This verse is the call: Hereby perceive we the love of God, because he laid down his life.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Hereby perceive we the love of God, because he laid”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 4:8",
@@ -5700,7 +6332,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “He that loveth not knoweth not God.”",
     "about": "John",
     "to": "The first hearers of “He that loveth not knoweth not God” — and you when love feels like a mood you cannot make",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and. This verse is the call: He that loveth not knoweth not God."
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and. This verse is the call: He that loveth not knoweth not God.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “He that loveth not knoweth not God”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 4:9",
@@ -5709,7 +6342,8 @@
     "step": "Do one concrete kindness today because of this: “In this was manifested the love of God toward.”",
     "about": "John",
     "to": "The first hearers of “In this was manifested the love of God” — and you when love feels like a mood you cannot make",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and. This verse is the call: In this was manifested the love of God toward us, because that God."
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and. This verse is the call: In this was manifested the love of God toward us, because that God.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “In this was manifested the love of God toward us”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 4:11",
@@ -5718,7 +6352,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Beloved, if God so loved us, we ought also.”",
     "about": "John",
     "to": "The first hearers of “Beloved, if God so loved us, we ought” — and you when love feels like a mood you cannot make",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and. This verse is the call: Beloved, if God so loved us, we ought also to love one another."
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and. This verse is the call: Beloved, if God so loved us, we ought also to love one another.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Beloved, if God so loved us, we ought also to love”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 4:16",
@@ -5727,7 +6362,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “And we have known and believed the love.”",
     "about": "John",
     "to": "The first hearers of “And we have known and believed the love” — and you when love feels like a mood you cannot make",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and. This verse is the call: And we have known and believed the love that God has to us."
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and. This verse is the call: And we have known and believed the love that God has to us.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And we have known and believed the love that God”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 5:4",
@@ -5736,7 +6372,8 @@
     "step": "Stop once today and return to these words: “For whatsoever is born of God overcometh.”",
     "about": "John",
     "to": "The first hearers of “For whatsoever is born of God overcometh” — and you when you need to hear “For whatsoever is born of God overcometh”",
-    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given. This verse is the line: For whatsoever is born of God overcometh the world: and this is."
+    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given. This verse is the line: For whatsoever is born of God overcometh the world: and this is.",
+    "prayer": "Lord, let this word be true in me today: “For whatsoever is born of God overcometh the world”. In Jesus’ name, Amen."
   },
   {
     "ref": "Jude 1:21",
@@ -5745,7 +6382,8 @@
     "step": "Do one concrete kindness today because of this: “Keep yourselves in the love of God, looking.”",
     "about": "Jude",
     "to": "believers called to contend for the faith",
-    "setting": "Jude urges believers to contend for the faith against ungodly infiltrators."
+    "setting": "Jude urges believers to contend for the faith against ungodly infiltrators.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Keep yourselves in the love of God, looking”. In Jesus’ name, Amen."
   },
   {
     "ref": "Revelation 1:17",
@@ -5754,7 +6392,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “And when I saw him, I fell at his feet as dead.”",
     "about": "John (from Jesus Christ)",
     "to": "John on his face before the risen Christ — and you when His glory knocks you down and His right hand lifts you",
-    "setting": "John on Patmos sees the risen Christ. This verse is the hold: And when I saw him, I fell at his feet as dead."
+    "setting": "John on Patmos sees the risen Christ. This verse is the hold: And when I saw him, I fell at his feet as dead.",
+    "prayer": "Lord, when fear rises, hold me with “And when I saw him, I fell at his feet as dead”. In Jesus’ name, Amen."
   },
   {
     "ref": "Revelation 7:17",
@@ -5763,7 +6402,8 @@
     "step": "Keep this clause until the next meal: “For the Lamb which is in the midst.”",
     "about": "John (from God)",
     "to": "The church needing endurance under pressure",
-    "setting": "Throne room worship; seals and trumpets unfold judgment and mercy."
+    "setting": "Throne room worship; seals and trumpets unfold judgment and mercy.",
+    "prayer": "Lord, let this word be true in me today: “For the Lamb which is in the midst of the throne”. In Jesus’ name, Amen."
   },
   {
     "ref": "Revelation 21:4",
@@ -5772,7 +6412,8 @@
     "step": "Keep this clause until the next meal: “And God shall wipe away all tears.”",
     "about": "John (from God)",
     "to": "The first hearers of “And God shall wipe away all tears” — and you when the tears are still here",
-    "setting": "John — new heaven and new earth. This verse is the line: And God shall wipe away all tears from their eyes."
+    "setting": "John — new heaven and new earth. This verse is the line: And God shall wipe away all tears from their eyes.",
+    "prayer": "Lord, let this word be true in me today: “And God shall wipe away all tears from their eyes”. In Jesus’ name, Amen."
   },
   {
     "ref": "Revelation 21:5",
@@ -5781,7 +6422,8 @@
     "step": "Write this where you will see it: “And he that sat upon the throne said, Behold, I.”",
     "about": "John (from God)",
     "to": "The first hearers of “And he that sat upon the throne said” — and you when you need a path, not a feeling",
-    "setting": "John — new heaven and new earth. This verse is the path: And he that sat upon the throne said, Behold, I make all things new."
+    "setting": "John — new heaven and new earth. This verse is the path: And he that sat upon the throne said, Behold, I make all things new.",
+    "prayer": "Lord, write this on my path today: “And he that sat upon the throne said, Behold, I”. In Jesus’ name, Amen."
   },
   {
     "ref": "Revelation 22:17",
@@ -5790,7 +6432,8 @@
     "step": "Keep this clause until the next meal: “And the Spirit and the bride say, Come.”",
     "about": "John (from God)",
     "to": "The first hearers of “And the Spirit and the bride say, Come” — and you when you need to hear “And the Spirit and the bride say, Come”",
-    "setting": "Christ returns; new heaven and new earth; the river of life; “Even so, come, Lord Jesus.”"
+    "setting": "Christ returns; new heaven and new earth; the river of life; “Even so, come, Lord Jesus.”",
+    "prayer": "Lord, let this word be true in me today: “And the Spirit and the bride say, Come”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 18:28",
@@ -5799,7 +6442,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For you wilt light my candle: the LORD my God.”",
     "about": "David",
     "to": "Worshipers who needed to hear “For you wilt light my candle: the LORD” — and you when you only have light for the next step",
-    "setting": "David’s great victory song after the Lord delivered him from Saul and all enemies. This verse is the light: For you wilt light my candle: the LORD my God will enlighten."
+    "setting": "David’s great victory song after the Lord delivered him from Saul and all enemies. This verse is the light: For you wilt light my candle: the LORD my God will enlighten.",
+    "prayer": "Lord, light the next step: “For you wilt light my candle: the LORD my God will”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 25:8",
@@ -5808,7 +6452,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Good and upright is the LORD: therefore will he.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Good and upright is the LORD: therefore” — and you when you need to hear “Good and upright is the LORD: therefore”",
-    "setting": "David — the Lord is his light and strength. This verse is the line: Good and upright is the LORD: therefore will he teach sinners."
+    "setting": "David — the Lord is his light and strength. This verse is the line: Good and upright is the LORD: therefore will he teach sinners.",
+    "prayer": "Lord, let this word be true in me today: “Good and upright is the LORD: therefore will he”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 27:8",
@@ -5817,7 +6462,8 @@
     "step": "Pray this line as your whole request: “When you saidst, Seek you my face.”",
     "about": "David",
     "to": "Worshipers who needed to hear “When you saidst, Seek you my face” — and you when the Father feels hidden",
-    "setting": "David — the Lord is his light and strength. This verse is the ask: When you saidst, Seek you my face."
+    "setting": "David — the Lord is his light and strength. This verse is the ask: When you saidst, Seek you my face.",
+    "prayer": "Lord, hear this as my whole request: “When you saidst, Seek you my face”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 31:19",
@@ -5826,7 +6472,8 @@
     "step": "Put your weight on this line for the next hour: “Oh how great is your goodness, which you hast.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Oh how great is your goodness, which you” — and you when fear is loud",
-    "setting": "David commits his spirit to God under pressure. This verse is the hold: Oh how great is your goodness, which you hast laid up for them."
+    "setting": "David commits his spirit to God under pressure. This verse is the hold: Oh how great is your goodness, which you hast laid up for them.",
+    "prayer": "Lord, when fear rises, hold me with “Oh how great is your goodness, which you hast laid”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 33:5",
@@ -5835,7 +6482,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “He loveth righteousness and judgment: the earth.”",
     "about": "David",
     "to": "Worshipers who needed to hear “He loveth righteousness and judgment” — and you when you need to hear “He loveth righteousness and judgment”",
-    "setting": "David commits his spirit to God under pressure. This verse is the line: He loveth righteousness and judgment: the earth is full."
+    "setting": "David commits his spirit to God under pressure. This verse is the line: He loveth righteousness and judgment: the earth is full.",
+    "prayer": "Lord, let this word be true in me today: “He loveth righteousness and judgment: the earth is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 36:9",
@@ -5844,7 +6492,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For with you is the fountain of life:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “For with you is the fountain of life:” — and you when you only have light for the next step",
-    "setting": "David prays against unjust attackers. This verse is the light: For with you is the fountain of life: in your light shall we see."
+    "setting": "David prays against unjust attackers. This verse is the light: For with you is the fountain of life: in your light shall we see.",
+    "prayer": "Lord, light the next step: “For with you is the fountain of life: in your light”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 37:6",
@@ -5853,7 +6502,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “And he shall bring forth your righteousness as.”",
     "about": "David",
     "to": "Worshipers who needed to hear “And he shall bring forth” — and you when you only have light for the next step",
-    "setting": "David prays against unjust attackers. This verse is the light: And he shall bring forth your righteousness as the light,."
+    "setting": "David prays against unjust attackers. This verse is the light: And he shall bring forth your righteousness as the light,.",
+    "prayer": "Lord, light the next step: “And he shall bring forth your righteousness as”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 41:12",
@@ -5862,7 +6512,8 @@
     "step": "Stop once today and return to these words: “And as for me, you upholdest me in mine.”",
     "about": "David",
     "to": "Worshipers who needed to hear “And as for me, you upholdest me in mine” — and you when you need to hear “And as for me, you upholdest me in mine”",
-    "setting": "David in sickness, sin-awareness, and waiting. This verse is the line: And as for me, you upholdest me in mine integrity, and settest me."
+    "setting": "David in sickness, sin-awareness, and waiting. This verse is the line: And as for me, you upholdest me in mine integrity, and settest me.",
+    "prayer": "Lord, let this word be true in me today: “And as for me, you upholdest me in mine integrity”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 48:1",
@@ -5871,7 +6522,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Great is the LORD, and greatly to be praised.” — “Great is the LORD, and greatly.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “Great is the LORD, and greatly to be” — and you when praise has to last past the morning — “Great is the LORD, and greatly.”",
-    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the song: Great is the LORD, and greatly to be praised in the city of our God,."
+    "setting": "The sons of Korah — National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse is the song: Great is the LORD, and greatly to be praised in the city of our God,.",
+    "prayer": "Lord, i bless Your name with these words: “Great is the LORD, and greatly to be praised”. — “Great is the LORD, and greatly.” In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 52:9",
@@ -5880,7 +6532,8 @@
     "step": "Before the next task, bless His name with these words: “I will praise you for ever, because you hast.”",
     "about": "David",
     "to": "Worshipers who needed to hear “I will praise you for ever, because you” — and you when you are tired of forcing the next thing",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the song: I will praise you for ever, because you hast done it: and I will."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the song: I will praise you for ever, because you hast done it: and I will.",
+    "prayer": "Lord, i bless Your name with these words: “I will praise you for ever, because you hast done”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 57:7",
@@ -5889,7 +6542,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “My heart is fixed, O God, my heart is fixed: I.”",
     "about": "David",
     "to": "Worshipers who needed to hear “My heart is fixed, O God, my heart is” — and you when praise has to last past the morning",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the song: My heart is fixed, O God, my heart is fixed: I will sing and give."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse is the song: My heart is fixed, O God, my heart is fixed: I will sing and give.",
+    "prayer": "Lord, i bless Your name with these words: “My heart is fixed, O God, my heart is fixed: I will”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 62:8",
@@ -5898,7 +6552,8 @@
     "step": "Put your weight on this line for the next hour: “Trust in him at all times.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Trust in him at all times” — and you when you need somewhere that will hold",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the hold: Trust in him at all times."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse is the hold: Trust in him at all times.",
+    "prayer": "Lord, i put my weight on You: “Trust in him at all times”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 66:1",
@@ -5907,7 +6562,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Make a joyful noise unto God, all you lands:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Make a joyful noise unto God, all you” — and you when gladness feels like a command you cannot feel",
-    "setting": "David is leading a joyful procession of praise. This opening line is for every land: make a joyful noise unto God, all ye lands."
+    "setting": "David is leading a joyful procession of praise. This opening line is for every land: make a joyful noise unto God, all ye lands.",
+    "prayer": "Lord, i bless Your name with these words: “Make a joyful noise unto God, all you lands”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 71:3",
@@ -5916,7 +6572,8 @@
     "step": "When you want another rescue, return to: “Be you my strong habitation, whereunto I may.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Be you my strong habitation, whereunto I” — and you when you need somewhere that will hold",
-    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the hold: Be you my strong habitation, whereunto I may continually resort:."
+    "setting": "David — Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse is the hold: Be you my strong habitation, whereunto I may continually resort:.",
+    "prayer": "Lord, i put my weight on You: “Be you my strong habitation, whereunto I may”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 73:23",
@@ -5925,7 +6582,8 @@
     "step": "Keep this clause until the next meal: “Nevertheless I am continually with you: you.”",
     "about": "Asaph",
     "to": "Worshipers who needed to hear “Nevertheless I am continually with you” — and you when you need to hear “Nevertheless I am continually with you”",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the line: Nevertheless I am continually with you: you hast holden me."
+    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse is the line: Nevertheless I am continually with you: you hast holden me.",
+    "prayer": "Lord, let this word be true in me today: “Nevertheless I am continually with you: you hast”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 84:2",
@@ -5934,7 +6592,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “My soul longeth, yea, even fainteth.”",
     "about": "The sons of Korah",
     "to": "Worshipers who needed to hear “My soul longeth, yea, even fainteth” — and you when you need to hear “My soul longeth, yea, even fainteth”",
-    "setting": "The sons of Korah — Longing for God’s courts. This verse is the line: My soul longeth, yea, even fainteth for the courts of the LORD:."
+    "setting": "The sons of Korah — Longing for God’s courts. This verse is the line: My soul longeth, yea, even fainteth for the courts of the LORD:.",
+    "prayer": "Lord, let this word be true in me today: “My soul longeth, yea, even fainteth for the courts”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 89:14",
@@ -5943,7 +6602,8 @@
     "step": "Do one concrete kindness today because of this: “Justice and judgment are the habitation.”",
     "about": "Ethan the Ezrahite",
     "to": "Worshipers who needed to hear “Justice and judgment are the habitation” — and you when you have failed and still need to come",
-    "setting": "Ethan the Ezrahite — Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy. This verse is the mercy: Justice and judgment are the habitation of your throne: mercy."
+    "setting": "Ethan the Ezrahite — Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy. This verse is the mercy: Justice and judgment are the habitation of your throne: mercy.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Justice and judgment are the habitation”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 92:5",
@@ -5952,7 +6612,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “O LORD, how great are your works.”",
     "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
     "to": "Worshipers who needed to hear “O LORD, how great are your works” — and you when you need to hear “O LORD, how great are your works”",
-    "setting": "A Sabbath song of thanksgiving: the psalmist praises the Lord because His works make the heart glad. Here the line is this: O LORD, how great are your works! and your thoughts are very deep."
+    "setting": "A Sabbath song of thanksgiving: the psalmist praises the Lord because His works make the heart glad. Here the line is this: O LORD, how great are your works! and your thoughts are very deep.",
+    "prayer": "Lord, let this word be true in me today: “O LORD, how great are your works”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 96:9",
@@ -5961,7 +6622,8 @@
     "step": "Name the fear, then answer it with: “O worship the LORD in the beauty of holiness:.”",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "Worshipers who needed to hear “O worship the LORD in the beauty” — and you when fear is loud",
-    "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. This verse is the hold: O worship the LORD in the beauty of holiness: fear before him, all."
+    "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. This verse is the hold: O worship the LORD in the beauty of holiness: fear before him, all.",
+    "prayer": "Lord, when fear rises, hold me with “O worship the LORD in the beauty of holiness: fear”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 97:12",
@@ -5970,7 +6632,8 @@
     "step": "Before the next task, bless His name with these words: “Rejoice in the LORD, you righteous.”",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "Worshipers who needed to hear “Rejoice in the LORD, you righteous” — and you when praise has to last past the morning",
-    "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. This verse is the song: Rejoice in the LORD, you righteous."
+    "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. This verse is the song: Rejoice in the LORD, you righteous.",
+    "prayer": "Lord, i bless Your name with these words: “Rejoice in the LORD, you righteous”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 104:34",
@@ -5979,7 +6642,8 @@
     "step": "Stop once today and return to these words: “My meditation of him shall be sweet: I will be.”",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "Worshipers who needed to hear “My meditation of him shall be sweet: I” — and you when gladness feels like a command you cannot feel",
-    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the gladness: My meditation of him shall be sweet: I will be glad in the LORD."
+    "setting": "Israel remembering — retelling of God’s faithfulness and Israel’s failures. This verse is the gladness: My meditation of him shall be sweet: I will be glad in the LORD.",
+    "prayer": "Lord, let this word be true in me today: “My meditation of him shall be sweet: I will be glad”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 107:13",
@@ -5988,7 +6652,8 @@
     "step": "Name one place His salvation is still good, then say: “Then they cried unto the LORD in their trouble.”",
     "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
     "to": "Worshipers who needed to hear “Then they cried unto the LORD” — and you when you need rescue that is still good today",
-    "setting": "The redeemed of the Lord — Book V opens: the redeemed from trouble give thanks. This verse is the rescue: Then they cried unto the LORD in their trouble, and he saved them out."
+    "setting": "The redeemed of the Lord — Book V opens: the redeemed from trouble give thanks. This verse is the rescue: Then they cried unto the LORD in their trouble, and he saved them out.",
+    "prayer": "Lord, show me Your salvation again today: “Then they cried unto the LORD in their trouble”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 111:5",
@@ -5997,7 +6662,8 @@
     "step": "Name the fear, then answer it with: “He has given meat unto them that fear him: he.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “He has given meat unto them that fear” — and you when fear is loud",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: He has given meat unto them that fear him: he will ever be mindful."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the hold: He has given meat unto them that fear him: he will ever be mindful.",
+    "prayer": "Lord, when fear rises, hold me with “He has given meat unto them that fear him: he will”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 115:1",
@@ -6006,7 +6672,8 @@
     "step": "Do one concrete kindness today because of this: “Not unto us, O LORD, not unto us, but unto.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “Not unto us, O LORD, not unto us, but” — and you when you have failed and still need to come",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the mercy: Not unto us, O LORD, not unto us, but unto your name give glory,."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the mercy: Not unto us, O LORD, not unto us, but unto your name give glory,.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Not unto us, O LORD, not unto us, but unto your name”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 116:12",
@@ -6015,7 +6682,8 @@
     "step": "Keep this clause until the next meal: “What shall I render unto the LORD for all.”",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "Worshipers who needed to hear “What shall I render unto the LORD for all” — and you when you need to hear “What shall I render unto the LORD for all”",
-    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: What shall I render unto the LORD for all his benefits toward me."
+    "setting": "Israel’s Hallel — Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures. This verse is the line: What shall I render unto the LORD for all his benefits toward me.",
+    "prayer": "Lord, let this word be true in me today: “What shall I render unto the LORD for all”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:28",
@@ -6024,7 +6692,8 @@
     "step": "Ask God for strength for the next hour, using this line: “My soul melteth for heaviness: strengthen you.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “My soul melteth for heaviness: strengthen” — and you when you have no more push left",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: My soul melteth for heaviness: strengthen you me according unto."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: My soul melteth for heaviness: strengthen you me according unto.",
+    "prayer": "Lord, write this on my path today: “My soul melteth for heaviness: strengthen you me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:49",
@@ -6033,7 +6702,8 @@
     "step": "Write this where you will see it: “Remember the word unto your servant, upon.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “Remember the word unto your servant, upon” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: Remember the word unto your servant, upon which you hast caused me."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: Remember the word unto your servant, upon which you hast caused me.",
+    "prayer": "Lord, write this on my path today: “Remember the word unto your servant, upon which you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:64",
@@ -6042,7 +6712,8 @@
     "step": "Carry this clause in your mouth until noon: “The earth, O LORD, is full of your mercy: teach.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “The earth, O LORD, is full of your mercy:” — and you when you have failed and still need to come",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the mercy: The earth, O LORD, is full of your mercy: teach me your statutes."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the mercy: The earth, O LORD, is full of your mercy: teach me your statutes.",
+    "prayer": "Lord, write this on my path today: “The earth, O LORD, is full of your mercy: teach me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:72",
@@ -6051,7 +6722,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “The law of your mouth is better unto me than.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “The law of your mouth is better unto me” — and you when you need a path, not a feeling",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: The law of your mouth is better unto me than thousands of gold."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: The law of your mouth is better unto me than thousands of gold.",
+    "prayer": "Lord, write this on my path today: “The law of your mouth is better unto me than”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 119:92",
@@ -6060,7 +6732,8 @@
     "step": "Walk to the next doorway holding: “Unless your law had been my delights, I should.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Worshipers who needed to hear “Unless your law had been my delights, I” — and you when you only have light for the next step",
-    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: Unless your law had been my delights, I should then have perished."
+    "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. This verse is the path: Unless your law had been my delights, I should then have perished.",
+    "prayer": "Lord, write this on my path today: “Unless your law had been my delights, I should then”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 138:8",
@@ -6069,7 +6742,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “The LORD will perfect that which concerneth me:.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The LORD will perfect” — and you when you have failed and still need to come",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the mercy: The LORD will perfect that which concerneth me: your mercy, O LORD,."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the mercy: The LORD will perfect that which concerneth me: your mercy, O LORD,.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “The LORD will perfect that which concerneth me”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 139:5",
@@ -6078,7 +6752,8 @@
     "step": "Stop once today and return to these words: “you hast beset me behind and before, and laid.”",
     "about": "David",
     "to": "Worshipers who needed to hear “you hast beset me behind and before” — and you when you need to hear “you hast beset me behind and before”",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: you hast beset me behind and before, and laid your hand upon me."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: you hast beset me behind and before, and laid your hand upon me.",
+    "prayer": "Lord, let this word be true in me today: “you hast beset me behind and before, and laid”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 143:10",
@@ -6087,7 +6762,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Teach me to do your will.”",
     "about": "David",
     "to": "Worshipers who needed to hear “Teach me to do your will” — and you when you need to hear “Teach me to do your will”",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Teach me to do your will."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the line: Teach me to do your will.",
+    "prayer": "Lord, let this word be true in me today: “Teach me to do your will”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 145:8",
@@ -6096,7 +6772,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “The LORD is gracious, and full of compassion.”",
     "about": "David",
     "to": "Worshipers who needed to hear “The LORD is gracious, and full” — and you when you have failed and still need to come",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the mercy: The LORD is gracious, and full of compassion."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever. This verse is the mercy: The LORD is gracious, and full of compassion.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “The LORD is gracious, and full of compassion”. In Jesus’ name, Amen."
   },
   {
     "ref": "Psalm 146:1",
@@ -6105,7 +6782,8 @@
     "step": "Say this praise out loud once: “Praise you the LORD. Praise the LORD, O my soul.”",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "Worshipers who needed to hear “Praise you the LORD” — and you when praise has to last past the morning (Praise you the LORD)",
-    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the song: Praise you the LORD. Praise the LORD, O my soul."
+    "setting": "Israel’s closing Hallelujah — everything that has breath praise the Lord. This verse is the song: Praise you the LORD. Praise the LORD, O my soul.",
+    "prayer": "Lord, i bless Your name with these words: “Praise you the LORD. Praise the LORD, O my soul”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 12:3",
@@ -6114,7 +6792,8 @@
     "step": "Stop once today and return to these words: “Therefore with joy shall you draw water out.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “Therefore with joy shall you draw water” — and you when you need rescue that is still good today",
-    "setting": "Isaiah confronts Judah’s sin and offers hope of a holy remnant and a coming king. This verse is the gladness: Therefore with joy shall you draw water out of the wells of salvation."
+    "setting": "Isaiah confronts Judah’s sin and offers hope of a holy remnant and a coming king. This verse is the gladness: Therefore with joy shall you draw water out of the wells of salvation.",
+    "prayer": "Lord, show me Your salvation again today: “Therefore with joy shall you draw water out”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 26:12",
@@ -6123,7 +6802,8 @@
     "step": "Stop once today and return to these words: “LORD, you wilt ordain peace for us: for you.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “LORD, you wilt ordain peace for us:” — and you when your mind will not sit down",
-    "setting": "Isaiah — Judgment and joy. This verse is the rest: LORD, you wilt ordain peace for us: for you also hast wrought all."
+    "setting": "Isaiah — Judgment and joy. This verse is the rest: LORD, you wilt ordain peace for us: for you also hast wrought all.",
+    "prayer": "Lord, still my heart with “LORD, you wilt ordain peace for us: for you also”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 41:17",
@@ -6132,7 +6812,8 @@
     "step": "Ask once more with these words before you try to fix it: “When the poor and needy seek water, and there.”",
     "about": "Isaiah (the Lord speaking)",
     "to": "The first people who had to hear “When the poor and needy seek water” — and you when the Father feels hidden",
-    "setting": "Isaiah — a servant will bring justice. This verse is the ask: When the poor and needy seek water, and there is none,."
+    "setting": "Isaiah — a servant will bring justice. This verse is the ask: When the poor and needy seek water, and there is none,.",
+    "prayer": "Lord, hear this as my whole request: “When the poor and needy seek water, and there is”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 42:16",
@@ -6141,7 +6822,8 @@
     "step": "Walk to the next doorway holding: “And I will bring the blind by a way that they.”",
     "about": "Isaiah (comfort from God)",
     "to": "The first people who had to hear “And I will bring the blind by a way” — and you when you only have light for the next step",
-    "setting": "Isaiah — a servant will bring justice. This verse is the light: And I will bring the blind by a way that they knew not."
+    "setting": "Isaiah — a servant will bring justice. This verse is the light: And I will bring the blind by a way that they knew not.",
+    "prayer": "Lord, light the next step: “And I will bring the blind by a way that they knew”. In Jesus’ name, Amen."
   },
   {
     "ref": "Isaiah 54:17",
@@ -6150,7 +6832,8 @@
     "step": "Stop once today and return to these words: “No weapon that is formed against you shall.”",
     "about": "Isaiah",
     "to": "The first people who had to hear “No weapon that is formed against you” — and you when you need to hear “No weapon that is formed against you”",
-    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: No weapon that is formed against you shall prosper."
+    "setting": "Isaiah — The Servant suffers for sins. This verse is the line: No weapon that is formed against you shall prosper.",
+    "prayer": "Lord, let this word be true in me today: “No weapon that is formed against you shall prosper”. In Jesus’ name, Amen."
   },
   {
     "ref": "Jeremiah 6:16",
@@ -6159,7 +6842,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “Thus says the LORD, Stand you in the ways.”",
     "about": "Jeremiah",
     "to": "The first people who had to hear “Thus says the LORD, Stand you” — and you when the Father feels hidden",
-    "setting": "Jeremiah is called as a youth to warn Judah before Babylon comes. This verse is the ask: Thus says the LORD, Stand you in the ways, and see, and ask."
+    "setting": "Jeremiah is called as a youth to warn Judah before Babylon comes. This verse is the ask: Thus says the LORD, Stand you in the ways, and see, and ask.",
+    "prayer": "Lord, hear this as my whole request: “Thus saith the LORD, Stand you in the ways, and see”. In Jesus’ name, Amen."
   },
   {
     "ref": "Jeremiah 15:16",
@@ -6168,7 +6852,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “your words were found, and I did eat them.”",
     "about": "Jeremiah",
     "to": "The first people who had to hear “your words were found, and I did eat them” — and you when you need a path, not a feeling",
-    "setting": "Jeremiah faces plots, loneliness, and the cost of speaking God’s word. This verse is the path: your words were found, and I did eat them."
+    "setting": "Jeremiah faces plots, loneliness, and the cost of speaking God’s word. This verse is the path: your words were found, and I did eat them.",
+    "prayer": "Lord, write this on my path today: “your words were found, and I did eat them”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 4:14",
@@ -6177,7 +6862,8 @@
     "step": "Stop once today and return to these words: “But whosoever drinketh of the water that I.”",
     "about": "Jesus",
     "to": "The woman at the well — and her town",
-    "setting": "Jesus — speaks with a Samaritan woman at the well. This verse is the line: But whosoever drinketh of the water that I shall give him shall never."
+    "setting": "Jesus — speaks with a Samaritan woman at the well. This verse is the line: But whosoever drinketh of the water that I shall give him shall never.",
+    "prayer": "Lord, let this word be true in me today: “But whosoever drinketh of the water that I shall”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 5:24",
@@ -6186,7 +6872,8 @@
     "step": "Carry this clause in your mouth until noon: “Verily, verily, I say unto you, He that heareth.”",
     "about": "Jesus (through John)",
     "to": "The people in front of Jesus when He said “Verily, verily, I say unto you, He” — and you when you need a path, not a feeling",
-    "setting": "Jesus — Bread of Life discourse. This verse is the path: Verily, verily, I say unto you, He that heareth my word,."
+    "setting": "Jesus — Bread of Life discourse. This verse is the path: Verily, verily, I say unto you, He that heareth my word,.",
+    "prayer": "Lord, write this on my path today: “Verily, verily, I say unto you, He that heareth”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 6:37",
@@ -6195,7 +6882,8 @@
     "step": "Stop once today and return to these words: “All that the Father giveth me shall come to me.”",
     "about": "Jesus (through John)",
     "to": "The people in front of Jesus when He said “All that the Father giveth me shall come” — and you when you need to hear “All that the Father giveth me shall come”",
-    "setting": "Jesus — feeding the five thousand. This verse is the line: All that the Father giveth me shall come to me."
+    "setting": "Jesus — feeding the five thousand. This verse is the line: All that the Father giveth me shall come to me.",
+    "prayer": "Lord, let this word be true in me today: “All that the Father giveth me shall come to me”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 7:37",
@@ -6204,7 +6892,8 @@
     "step": "Stop once today and return to these words: “In the last day, that great day of the feast.”",
     "about": "Jesus (through John)",
     "to": "The people in front of Jesus when He said “In the last day, that great day” — and you when you need to hear “In the last day, that great day”",
-    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the line: In the last day, that great day of the feast, Jesus stood and cried,."
+    "setting": "Jesus — Conflict at feasts in Jerusalem. This verse is the line: In the last day, that great day of the feast, Jesus stood and cried,.",
+    "prayer": "Lord, let this word be true in me today: “In the last day, that great day of the feast, Jesus”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 12:46",
@@ -6213,7 +6902,8 @@
     "step": "Stop once today and return to these words: “I am come a light into the world.”",
     "about": "Jesus (through John)",
     "to": "Friends of Jesus facing death and glory",
-    "setting": "Lazarus is raised; Mary anoints Jesus; the triumphal entry approaches the cross."
+    "setting": "Lazarus is raised; Mary anoints Jesus; the triumphal entry approaches the cross.",
+    "prayer": "Lord, light the next step: “I am come a light into the world, that whosoever”. In Jesus’ name, Amen."
   },
   {
     "ref": "John 15:11",
@@ -6222,7 +6912,8 @@
     "step": "Ask God for strength for the next hour, using this line: “These things have I spoken unto you.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “These things have I spoken unto you” — and you when gladness feels like a command you cannot feel",
-    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “These things have I spoken unto you, that my joy might remain in.”."
+    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “These things have I spoken unto you, that my joy might remain in.”.",
+    "prayer": "Lord, give me strength for this hour: “These things have I spoken unto you, that my joy”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 5:44",
@@ -6231,7 +6922,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “But I say unto you, Love your enemies, bless.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “But I say unto you, Love your enemies” — and you when love feels like a mood you cannot make",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: But I say unto you, Love your enemies, bless them that curse you, do."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the song: But I say unto you, Love your enemies, bless them that curse you, do.",
+    "prayer": "Lord, i bless Your name with these words: “But I say unto you, Love your enemies, bless them”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 6:6",
@@ -6240,7 +6932,8 @@
     "step": "Ask once more with these words before you try to fix it: “But you, when you prayest, enter into.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “But you, when you prayest, enter into” — and you when the request is still in your chest",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the ask: But you, when you prayest, enter into your closet, and when you."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. This verse is the ask: But you, when you prayest, enter into your closet, and when you.",
+    "prayer": "Lord, hear this as my whole request: “But you, when you prayest, enter into your closet”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 9:22",
@@ -6249,7 +6942,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “But Jesus turned him about, and when he saw.”",
     "about": "Jesus (through Matthew)",
     "to": "The people in front of Jesus when He said “But Jesus turned him about, and when he” — and you when you need to hear “But Jesus turned him about, and when he”",
-    "setting": "Jesus is in this moment — miracles of healing and authority. He says, “But Jesus turned him about, and when he saw her, he said, Daughter, be.”."
+    "setting": "Jesus is in this moment — miracles of healing and authority. He says, “But Jesus turned him about, and when he saw her, he said, Daughter, be.”.",
+    "prayer": "Lord, let this word be true in me today: “But Jesus turned him about, and when he saw her, he”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 10:29",
@@ -6258,7 +6952,8 @@
     "step": "Keep this clause until the next meal: “Are not two sparrows sold for a farthing.”",
     "about": "Jesus (through Matthew)",
     "to": "The people in front of Jesus when He said “Are not two sparrows sold for a farthing” — and you when you need to hear “Are not two sparrows sold for a farthing”",
-    "setting": "Jesus — Miracles of healing and authority. This verse is the line: Are not two sparrows sold for a farthing."
+    "setting": "Jesus — Miracles of healing and authority. This verse is the line: Are not two sparrows sold for a farthing.",
+    "prayer": "Lord, let this word be true in me today: “Are not two sparrows sold for a farthing”. In Jesus’ name, Amen."
   },
   {
     "ref": "Matthew 11:30",
@@ -6267,7 +6962,8 @@
     "step": "Stop once today and return to these words: “For my yoke is easy, and my burden is light.”",
     "about": "Jesus",
     "to": "The people in front of Jesus when He said “For my yoke is easy, and my burden is” — and you when you only have light for the next step",
-    "setting": "Jesus invites the weary to rest. This verse is the light: For my yoke is easy, and my burden is light."
+    "setting": "Jesus invites the weary to rest. This verse is the light: For my yoke is easy, and my burden is light.",
+    "prayer": "Lord, light the next step: “For my yoke is easy, and my burden is light”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 11:9",
@@ -6276,7 +6972,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “And I say unto you, Ask, and it shall be given.”",
     "about": "Jesus (through Luke)",
     "to": "The people in front of Jesus when He said “And I say unto you, Ask, and it shall be” — and you when the Father feels hidden",
-    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the ask: And I say unto you, Ask, and it shall be given you."
+    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the ask: And I say unto you, Ask, and it shall be given you.",
+    "prayer": "Lord, hear this as my whole request: “And I say unto you, Ask, and it shall be given you”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 12:31",
@@ -6285,7 +6982,8 @@
     "step": "Ask once more with these words before you try to fix it: “But rather seek you the kingdom of God.”",
     "about": "Jesus (through Luke)",
     "to": "The people in front of Jesus when He said “But rather seek you the kingdom of God” — and you when the Father feels hidden",
-    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the ask: But rather seek you the kingdom of God."
+    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the ask: But rather seek you the kingdom of God.",
+    "prayer": "Lord, hear this as my whole request: “But rather seek you the kingdom of God”. In Jesus’ name, Amen."
   },
   {
     "ref": "Luke 18:27",
@@ -6294,7 +6992,8 @@
     "step": "Stop once today and return to these words: “And he said, The things which are impossible.”",
     "about": "Jesus (through Luke)",
     "to": "The people in front of Jesus when He said “And he said, The things which are” — and you when you need to hear “And he said, The things which are”",
-    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the line: And he said, The things which are impossible with men are possible."
+    "setting": "Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. This verse is the line: And he said, The things which are impossible with men are possible.",
+    "prayer": "Lord, let this word be true in me today: “And he said, The things which are impossible”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 1:16",
@@ -6303,7 +7002,8 @@
     "step": "Stop once today and return to these words: “For I am not ashamed of the gospel of Christ:.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For I am not ashamed of the gospel” — and you when you need rescue that is still good today",
-    "setting": "Paul writes to Rome: all have sinned. This verse is the rescue: For I am not ashamed of the gospel of Christ: for it is the power."
+    "setting": "Paul writes to Rome: all have sinned. This verse is the rescue: For I am not ashamed of the gospel of Christ: for it is the power.",
+    "prayer": "Lord, show me Your salvation again today: “For I am not ashamed of the gospel of Christ”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 8:1",
@@ -6312,7 +7012,8 @@
     "step": "Keep this clause until the next meal: “There is therefore now no condemnation to them.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “There is therefore now no condemnation”",
-    "setting": "Paul — no condemnation for those in Christ. This verse is the line: There is therefore now no condemnation to them which are in Christ."
+    "setting": "Paul — no condemnation for those in Christ. This verse is the line: There is therefore now no condemnation to them which are in Christ.",
+    "prayer": "Lord, let this word be true in me today: “There is therefore now no condemnation to them”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 8:14",
@@ -6321,7 +7022,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “For as many as are led by the Spirit of God.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For as many as are led by the Spirit” — and you when you need to hear “For as many as are led by the Spirit”",
-    "setting": "Paul — struggle and Spirit. This verse is the line: For as many as are led by the Spirit of God, they are the sons of God."
+    "setting": "Paul — struggle and Spirit. This verse is the line: For as many as are led by the Spirit of God, they are the sons of God.",
+    "prayer": "Lord, let this word be true in me today: “For as many as are led by the Spirit of God, they”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 8:15",
@@ -6330,7 +7032,8 @@
     "step": "Name the fear, then answer it with: “For you have not received the spirit of bondage.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For you have not received the spirit” — and you when fear is loud",
-    "setting": "Paul — struggle and Spirit. This verse is the hold: For you have not received the spirit of bondage again to fear."
+    "setting": "Paul — struggle and Spirit. This verse is the hold: For you have not received the spirit of bondage again to fear.",
+    "prayer": "Lord, when fear rises, hold me with “For you have not received the spirit of bondage”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 8:16",
@@ -6339,7 +7042,8 @@
     "step": "Keep this clause until the next meal: “The Spirit itself beareth witness.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “The Spirit itself beareth witness” — and you when you need to hear “The Spirit itself beareth witness”",
-    "setting": "Paul — struggle and Spirit. This verse is the line: The Spirit itself beareth witness with our spirit, that we are."
+    "setting": "Paul — struggle and Spirit. This verse is the line: The Spirit itself beareth witness with our spirit, that we are.",
+    "prayer": "Lord, let this word be true in me today: “The Spirit itself beareth witness with our spirit”. In Jesus’ name, Amen."
   },
   {
     "ref": "Romans 14:8",
@@ -6348,7 +7052,8 @@
     "step": "Stop once today and return to these words: “For whether we live, we live unto the Lord.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “For whether we live, we live unto the Lord”",
-    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the line: For whether we live, we live unto the Lord."
+    "setting": "Paul — Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse is the line: For whether we live, we live unto the Lord.",
+    "prayer": "Lord, let this word be true in me today: “For whether we live, we live unto the Lord”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 6:19",
@@ -6357,7 +7062,8 @@
     "step": "Keep this clause until the next meal: “What.”",
     "about": "Paul",
     "to": "Corinth learning holiness in a corrupt culture",
-    "setting": "Moral failures, lawsuits, and marriage questions in a pagan city."
+    "setting": "Moral failures, lawsuits, and marriage questions in a pagan city.",
+    "prayer": "Lord, let this word be true in me today: “What”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 13:8",
@@ -6366,7 +7072,8 @@
     "step": "Stop once today and return to these words: “Charity never faileth: but whether there be.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Charity never faileth: but whether there”",
-    "setting": "Paul — The Lord’s Supper and spiritual gifts. This verse is the call: Charity never faileth: but whether there be prophecies, they shall."
+    "setting": "Paul — The Lord’s Supper and spiritual gifts. This verse is the call: Charity never faileth: but whether there be prophecies, they shall.",
+    "prayer": "Lord, let this word be true in me today: “Charity never faileth: but whether there be”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Corinthians 16:14",
@@ -6375,7 +7082,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Let all your things be done with charity.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Let all your things be done with charity”",
-    "setting": "Paul — The resurrection of Christ and of the dead. This verse is the call: Let all your things be done with charity."
+    "setting": "Paul — The resurrection of Christ and of the dead. This verse is the call: Let all your things be done with charity.",
+    "prayer": "Lord, let this word be true in me today: “Let all your things be done with charity”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 3:17",
@@ -6384,7 +7092,8 @@
     "step": "Keep this clause until the next meal: “Now the Lord is that Spirit: and where.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Now the Lord is that Spirit: and where”",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: Now the Lord is that Spirit: and where the Spirit of the Lord is,."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the line: Now the Lord is that Spirit: and where the Spirit of the Lord is,.",
+    "prayer": "Lord, let this word be true in me today: “Now the Lord is that Spirit: and where the Spirit”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 4:6",
@@ -6393,7 +7102,8 @@
     "step": "Walk to the next doorway holding: “For God, who commanded the light to shine out.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For God, who commanded the light to shine” — and you when you only have light for the next step",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the light: For God, who commanded the light to shine out of darkness, has."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the light: For God, who commanded the light to shine out of darkness, has.",
+    "prayer": "Lord, light the next step: “For God, who commanded the light to shine out”. In Jesus’ name, Amen."
   },
   {
     "ref": "2 Corinthians 5:21",
@@ -6402,7 +7112,8 @@
     "step": "Stop once today and return to these words: “For he has made him to be sin for us, who knew.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “For he has made him to be sin for us” — and you when you need to hear “For he has made him to be sin for us”",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the charge: For he has made him to be sin for us, who knew no sin."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse is the charge: For he has made him to be sin for us, who knew no sin.",
+    "prayer": "Lord, give me strength for this hour: “For he has made him to be sin for us, who knew no”. In Jesus’ name, Amen."
   },
   {
     "ref": "Galatians 5:16",
@@ -6411,7 +7122,8 @@
     "step": "Keep this clause until the next meal: “This I say then, Walk in the Spirit, and you.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “This I say then, Walk in the Spirit” — and you when you need to hear “This I say then, Walk in the Spirit”",
-    "setting": "Paul — Freedom in the Spirit. This verse is the line: This I say then, Walk in the Spirit, and you shall not fulfil the lust."
+    "setting": "Paul — Freedom in the Spirit. This verse is the line: This I say then, Walk in the Spirit, and you shall not fulfil the lust.",
+    "prayer": "Lord, let this word be true in me today: “This I say then, Walk in the Spirit, and you shall”. In Jesus’ name, Amen."
   },
   {
     "ref": "Galatians 6:14",
@@ -6420,7 +7132,8 @@
     "step": "Name one place His salvation is still good, then say: “But God forbid that I should glory, save.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “But God forbid that I should glory, save” — and you when you need rescue that is still good today",
-    "setting": "Paul — bearing one another’s burdens. This verse is the rescue: But God forbid that I should glory, save in the cross of our Lord."
+    "setting": "Paul — bearing one another’s burdens. This verse is the rescue: But God forbid that I should glory, save in the cross of our Lord.",
+    "prayer": "Lord, show me Your salvation again today: “But God forbid that I should glory, save”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 1:3",
@@ -6429,7 +7142,8 @@
     "step": "Thank Him out loud using this line, then start the next honest work: “Blessed be the God and Father of our Lord Jesus.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Blessed be the God and Father of our Lord” — and you when praise has to last past the morning",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the song: Blessed be the God and Father of our Lord Jesus Christ, who has."
+    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the song: Blessed be the God and Father of our Lord Jesus Christ, who has.",
+    "prayer": "Lord, i bless Your name with these words: “Blessed be the God and Father of our Lord Jesus”. — “Blessed be the God and Father.” In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 2:4",
@@ -6438,7 +7152,8 @@
     "step": "Do one concrete kindness today because of this: “But God, who is rich in mercy, for his great.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “But God, who is rich in mercy” — and you when love feels like a mood you cannot make",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the call: But God, who is rich in mercy, for his great love wherewith he loved."
+    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew. This verse is the call: But God, who is rich in mercy, for his great love wherewith he loved.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “But God, who is rich in mercy, for his great love”. In Jesus’ name, Amen."
   },
   {
     "ref": "Ephesians 4:15",
@@ -6447,7 +7162,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “But speaking the truth in love, may grow up.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “But speaking the truth in love, may grow” — and you when love feels like a mood you cannot make",
-    "setting": "Paul — Walk worthy: unity, purity, marriage, and the armor of God against spiritual war. This verse is the call: But speaking the truth in love, may grow up into him in all things,."
+    "setting": "Paul — Walk worthy: unity, purity, marriage, and the armor of God against spiritual war. This verse is the call: But speaking the truth in love, may grow up into him in all things,.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “But speaking the truth in love, may grow up into”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 2:5",
@@ -6456,7 +7172,8 @@
     "step": "Keep this clause until the next meal: “Let this mind be in you, which was also.”",
     "about": "Paul",
     "to": "The first hearers of this line — and you when you need to hear “Let this mind be in you, which was also”",
-    "setting": "Paul — the mind of Christ is humility. This verse is the line: Let this mind be in you, which was also in Christ Jesus:."
+    "setting": "Paul — the mind of Christ is humility. This verse is the line: Let this mind be in you, which was also in Christ Jesus:.",
+    "prayer": "Lord, let this word be true in me today: “Let this mind be in you, which was also in Christ”. In Jesus’ name, Amen."
   },
   {
     "ref": "Philippians 4:9",
@@ -6465,7 +7182,8 @@
     "step": "Sit still sixty seconds and let this be the only sentence: “Those things, which you have both learned.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Those things, which you have both learned” — and you when your mind will not sit down",
-    "setting": "Paul closes the prison letter’s teaching: what they have learned and seen in him, they are to do — and the God of peace will be with them."
+    "setting": "Paul closes the prison letter’s teaching: what they have learned and seen in him, they are to do — and the God of peace will be with them.",
+    "prayer": "Lord, still my heart with “Those things, which you have both learned”. In Jesus’ name, Amen."
   },
   {
     "ref": "Colossians 1:27",
@@ -6474,7 +7192,8 @@
     "step": "Stop once today and return to these words: “To whom God would make known what is the riches.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “To whom God would make known what is” — and you when hope has worn thin",
-    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse. This verse is the hope: To whom God would make known what is the riches of the glory of this."
+    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse. This verse is the hope: To whom God would make known what is the riches of the glory of this.",
+    "prayer": "Lord, let this word be true in me today: “To whom God would make known what is the riches”. In Jesus’ name, Amen."
   },
   {
     "ref": "Colossians 4:2",
@@ -6483,7 +7202,8 @@
     "step": "Before the next task, bless His name with these words: “Continue in prayer, and watch in the same.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Continue in prayer, and watch in the same” — and you when praise has to last past the morning",
-    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the song: Continue in prayer, and watch in the same with thanksgiving."
+    "setting": "Paul — Set minds above; put on love; household codes; prayer and gracious speech. This verse is the song: Continue in prayer, and watch in the same with thanksgiving.",
+    "prayer": "Lord, i bless Your name with these words: “Continue in prayer, and watch in the same”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Thessalonians 5:21",
@@ -6492,7 +7212,8 @@
     "step": "Keep this clause until the next meal: “Prove all things.”",
     "about": "Paul",
     "to": "The first church that opened this letter — hearing “Prove all things” — and you when you need to hear “Prove all things”",
-    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the line: Prove all things."
+    "setting": "Paul — Comfort about those who sleep in Christ. This verse is the line: Prove all things.",
+    "prayer": "Lord, let this word be true in me today: “Prove all things”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 3:15",
@@ -6501,7 +7222,8 @@
     "step": "Keep this clause until the next meal: “While it is said, To day if you will hear.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “While it is said, To day if you will hear” — and you when you need to hear “While it is said, To day if you will hear”",
-    "setting": "The writer of Hebrews — A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old. This verse is the line: While it is said, To day if you will hear his voice, harden not."
+    "setting": "The writer of Hebrews — A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old. This verse is the line: While it is said, To day if you will hear his voice, harden not.",
+    "prayer": "Lord, let this word be true in me today: “While it is said, To day if you will hear his voice”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 7:25",
@@ -6510,7 +7232,8 @@
     "step": "Stop once today and return to these words: “Wherefore he is able also to save them.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “Wherefore he is able also to save them” — and you when you need rescue that is still good today",
-    "setting": "The writer of Hebrews — Jesus the high priest after Melchizedek. This verse is the rescue: Wherefore he is able also to save them to the uttermost that come."
+    "setting": "The writer of Hebrews — Jesus the high priest after Melchizedek. This verse is the rescue: Wherefore he is able also to save them to the uttermost that come.",
+    "prayer": "Lord, show me Your salvation again today: “Wherefore he is able also to save them”. In Jesus’ name, Amen."
   },
   {
     "ref": "Hebrews 10:24",
@@ -6519,7 +7242,8 @@
     "step": "Do one concrete kindness today because of this: “And let us consider one another to provoke unto.”",
     "about": "The writer of Hebrews",
     "to": "The first hearers of “And let us consider one another” — and you when love feels like a mood you cannot make",
-    "setting": "The writer of Hebrews — Jesus the high priest after Melchizedek. This verse is the call: And let us consider one another to provoke unto love and to good."
+    "setting": "The writer of Hebrews — Jesus the high priest after Melchizedek. This verse is the call: And let us consider one another to provoke unto love and to good.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And let us consider one another to provoke unto”. In Jesus’ name, Amen."
   },
   {
     "ref": "James 3:17",
@@ -6528,7 +7252,8 @@
     "step": "Ask mercy with this line, then give one person a share of it: “But the wisdom that is from above is first.”",
     "about": "James",
     "to": "The first hearers of “But the wisdom that is from above is” — and you when you have failed and still need to come",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the mercy: But the wisdom that is from above is first pure, then peaceable,."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. This verse is the mercy: But the wisdom that is from above is first pure, then peaceable,.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “But the wisdom that is from above is first pure”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 1:13",
@@ -6537,7 +7262,8 @@
     "step": "Read this once out loud, then do the next honest thing it names: “Wherefore gird up the loins of your mind, be.”",
     "about": "Peter",
     "to": "The first hearers of “Wherefore gird up the loins of your mind” — and you when hope has worn thin",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the hope: Wherefore gird up the loins of your mind, be sober, and hope."
+    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the hope: Wherefore gird up the loins of your mind, be sober, and hope.",
+    "prayer": "Lord, let this word be true in me today: “Wherefore gird up the loins of your mind, be sober”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 Peter 2:2",
@@ -6546,7 +7272,8 @@
     "step": "Write this where you will see it: “As newborn babes, desire the sincere milk.”",
     "about": "Peter",
     "to": "The first hearers of “As newborn babes, desire the sincere milk” — and you when you need a path, not a feeling",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the path: As newborn babes, desire the sincere milk of the word, that you may."
+    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the path: As newborn babes, desire the sincere milk of the word, that you may.",
+    "prayer": "Lord, write this on my path today: “As newborn babes, desire the sincere milk”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 2:17",
@@ -6555,7 +7282,8 @@
     "step": "Keep this clause until the next meal: “And the world passeth away, and the lust.”",
     "about": "John",
     "to": "The first hearers of “And the world passeth away, and the lust” — and you when you need to hear “And the world passeth away, and the lust”",
-    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. This verse is the line: And the world passeth away, and the lust thereof: but he that doeth."
+    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. This verse is the line: And the world passeth away, and the lust thereof: but he that doeth.",
+    "prayer": "Lord, let this word be true in me today: “And the world passeth away, and the lust thereof”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 3:18",
@@ -6564,7 +7292,8 @@
     "step": "Write this where you will see it: “My little children, let us not love in word.”",
     "about": "John",
     "to": "The first hearers of “My little children, let us not love” — and you when love feels like a mood you cannot make",
-    "setting": "John marvels that the Father calls us children of God, and says real love must show in deed and. This verse is the call: My little children, let us not love in word, neither in tongue."
+    "setting": "John marvels that the Father calls us children of God, and says real love must show in deed and. This verse is the call: My little children, let us not love in word, neither in tongue.",
+    "prayer": "Lord, write this on my path today: “My little children, let us not love in word”. In Jesus’ name, Amen."
   },
   {
     "ref": "1 John 5:21",
@@ -6573,7 +7302,8 @@
     "step": "Keep this clause until the next meal: “Little children, keep yourselves from idols.”",
     "about": "John",
     "to": "The first hearers of “Little children, keep yourselves” — and you when you need to hear “Little children, keep yourselves”",
-    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given. This verse is the line: Little children, keep yourselves from idols. Amen."
+    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given. This verse is the line: Little children, keep yourselves from idols. Amen.",
+    "prayer": "Lord, let this word be true in me today: “Little children, keep yourselves from idols. Amen”. In Jesus’ name, Amen."
   }
 ];
   global.TDB_GET_HERO_DAY_EXPLANATION = function (dayIndex) {

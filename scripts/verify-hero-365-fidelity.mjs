@@ -123,6 +123,7 @@ function main() {
   const settingToRefs = new Map();
   const stepToRefs = new Map();
   const toToRefs = new Map();
+  const prayerToRefs = new Map();
   let checked = 0;
 
   for (let i = 0; i < list.length; i++) {
@@ -198,6 +199,16 @@ function main() {
       toToRefs.get(toKey).push(ref);
     }
 
+    const prayer = String(row.prayer || '').trim();
+    const prayerKey = prayer.toLowerCase().replace(/\s+/g, ' ').trim();
+    if (prayerKey.length >= 24) {
+      if (!prayerToRefs.has(prayerKey)) prayerToRefs.set(prayerKey, []);
+      prayerToRefs.get(prayerKey).push(ref);
+    }
+    if (prayer && /sink .+ into my heart/i.test(prayer)) {
+      failures.push(`${label}: stamp prayer: "${prayer.slice(0, 80)}"`);
+    }
+
     const verseBody = text || kjvText(kjv, ref);
     if (!verseBody) {
       failures.push(`${label}: no KJV text available for overlap check`);
@@ -264,6 +275,15 @@ function main() {
     }
   }
 
+  for (const [prayer, refs] of prayerToRefs) {
+    const unique = [...new Set(refs)];
+    if (unique.length >= 2) {
+      failures.push(
+        `Prayer copy-paste under ${unique.length} refs: ${unique.slice(0, 4).join(' | ')} — "${prayer.slice(0, 70)}"`
+      );
+    }
+  }
+
   if (checked < 360) {
     failures.push(`Expected a full hero year (365) or two-year queue (730), only checked ${checked}`);
   }
@@ -283,7 +303,7 @@ function main() {
   console.log(
     'Hero 365 fidelity PASS:',
     checked,
-    'days — speaker/book, wrong-cluster bans, unique setting/plain/step/audience checks OK.' +
+    'days — speaker/book, wrong-cluster bans, unique setting/plain/step/audience/prayer checks OK.' +
       (warnings.length ? ` (${warnings.length} soft paraphrase notes; set HERO_FIDELITY_VERBOSE=1)` : '')
   );
 }

@@ -212,20 +212,25 @@ function buildInjectedHeroLesson(refPlain, textPlain, plainMap, explMap, resolve
     refPlain +
     ' into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.';
 
+  if (expl && expl.prayer) {
+    prayer = String(expl.prayer).replace(/\s+/g, ' ').trim();
+  }
   if (/^psalm\s+96\s*:\s*2$/i.test(ref) || /bless his name.*salvation from day to day/i.test(lower)) {
     meaningOnly =
       'Bless the Lord’s name and show His salvation today, then again tomorrow — not a one-day song.';
     step =
       'Bless His name out loud once. Then name one place His salvation is still good today.';
     prayer =
-      'Lord, sink Psalm 96:2 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.';
+      (expl && expl.prayer) ||
+      'Lord, I bless Your name today. Help me show Your salvation again tomorrow — not a one-day song. In Jesus’ name, Amen.';
   } else if (/^psalm\s+90\s*:\s*14$/i.test(ref) || /satisfy us early with thy mercy/i.test(lower)) {
     meaningOnly =
       'God, fill us early with Your kindness, so we can rejoice and be glad all day long.';
     step =
       'Before you open messages, pray once: “Satisfy me early with Your mercy.” Then name one thing you can be glad for today.';
     prayer =
-      'Lord, sink Psalm 90:14 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.';
+      (expl && expl.prayer) ||
+      'Lord, satisfy me early with Your mercy, so I can be glad in You all day long. In Jesus’ name, Amen.';
   } else if (/^1\s+john\s+4:7$/i.test(ref) || /beloved, let us love one another/i.test(lower)) {
     meaningOnly =
       'Love is not something you manufacture — it comes from God. When you love others, you are showing you belong to Him.';

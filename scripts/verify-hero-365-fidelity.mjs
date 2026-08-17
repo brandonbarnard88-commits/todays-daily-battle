@@ -11,6 +11,7 @@
  *  6. Plain has zero content overlap with KJV *and* looks like reusable pastoral paste
  *  7. Same plain text reused under two different refs (copy-paste contamination)
  *  8. Same setting reused under two different refs (chapter-band leftover)
+ *  9. Same step or audience reused under two different refs
  *
  * Soft notes (warn only): low but non-zero plain↔KJV overlap on long verses.
  *
@@ -120,6 +121,8 @@ function main() {
   const warnings = [];
   const plainToRefs = new Map();
   const settingToRefs = new Map();
+  const stepToRefs = new Map();
+  const toToRefs = new Map();
   let checked = 0;
 
   for (let i = 0; i < list.length; i++) {
@@ -183,6 +186,18 @@ function main() {
       settingToRefs.get(settingKey).push(ref);
     }
 
+    const step = String(row.step || '').trim();
+    const stepKey = step.toLowerCase().replace(/\s+/g, ' ').trim();
+    if (stepKey.length >= 20) {
+      if (!stepToRefs.has(stepKey)) stepToRefs.set(stepKey, []);
+      stepToRefs.get(stepKey).push(ref);
+    }
+    const toKey = to.toLowerCase().replace(/\s+/g, ' ').trim();
+    if (toKey.length >= 20) {
+      if (!toToRefs.has(toKey)) toToRefs.set(toKey, []);
+      toToRefs.get(toKey).push(ref);
+    }
+
     const verseBody = text || kjvText(kjv, ref);
     if (!verseBody) {
       failures.push(`${label}: no KJV text available for overlap check`);
@@ -231,6 +246,24 @@ function main() {
     }
   }
 
+  for (const [step, refs] of stepToRefs) {
+    const unique = [...new Set(refs)];
+    if (unique.length >= 2) {
+      failures.push(
+        `Step copy-paste under ${unique.length} refs: ${unique.slice(0, 4).join(' | ')} — "${step.slice(0, 70)}"`
+      );
+    }
+  }
+
+  for (const [aud, refs] of toToRefs) {
+    const unique = [...new Set(refs)];
+    if (unique.length >= 2) {
+      failures.push(
+        `Audience copy-paste under ${unique.length} refs: ${unique.slice(0, 4).join(' | ')} — "${aud.slice(0, 70)}"`
+      );
+    }
+  }
+
   if (checked < 360) {
     failures.push(`Expected a full hero year (365) or two-year queue (730), only checked ${checked}`);
   }
@@ -250,7 +283,7 @@ function main() {
   console.log(
     'Hero 365 fidelity PASS:',
     checked,
-    'days — speaker/book, wrong-cluster bans, unique setting/plain checks OK.' +
+    'days — speaker/book, wrong-cluster bans, unique setting/plain/step/audience checks OK.' +
       (warnings.length ? ` (${warnings.length} soft paraphrase notes; set HERO_FIDELITY_VERBOSE=1)` : '')
   );
 }

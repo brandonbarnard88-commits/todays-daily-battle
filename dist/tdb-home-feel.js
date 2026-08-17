@@ -4785,104 +4785,117 @@ function paintSkyDecorations(layer, r, skyClass) {
   /* Night sky — first-class on mobile: denser/larger stars + shooters (unless hard perf mode). */
   if (isNightSky) {
     var starCount = isMobile ? 95 : 120;
+    var bandCount = Math.floor(starCount * 0.38);
     for (var i = 0; i < starCount; i++) {
       var st = document.createElement('div');
-      st.className = 'sky-star' + (r() > 0.72 ? ' glow' : '');
-      /* Mobile: larger dots so stars read on retina LCDs */
-      var sz = (isMobile ? 1.6 : 0.9) + r() * (isMobile ? 2.8 : 1.9);
-      var lo = r() * 0.2 + 0.35, hi = Math.min(0.98, lo + r() * 0.45 + 0.25);
-      var scale = (1.08 + r() * 0.18).toFixed(2);
-      var baseOp = (0.7 + r() * 0.3).toFixed(2);
-      /* Always set opacity — mobile CSS may force animation:none */
-      var anim = (reduced || isMobile)
+      var kind = r();
+      st.className = 'sky-star' + (kind > 0.78 ? ' glow' : '') + (kind > 0.94 ? ' planet' : '');
+      var sz = (isMobile ? 1.5 : 0.8) + r() * (isMobile ? 2.6 : 1.8);
+      if (kind > 0.94) sz += 1.1;
+      var lo = r() * 0.18 + 0.28, hi = Math.min(0.98, lo + r() * 0.4 + 0.22);
+      var scale = (1.04 + r() * 0.14).toFixed(2);
+      var baseOp = (0.62 + r() * 0.35).toFixed(2);
+      var x = r() * 98;
+      var y = r() * 70;
+      if (i < bandCount) {
+        x = r() * 100;
+        y = 16 + x * 0.26 + (r() - 0.5) * 14;
+      }
+      var twinkle = (kind > 0.94 || reduced)
         ? 'animation:none;opacity:' + baseOp + ';'
-        : 'animation-duration:' + (r() * 3 + 2) + 's;animation-delay:-' + (r() * 5) + 's;opacity:' + baseOp + ';';
+        : 'animation-duration:' + (4.2 + r() * 6.5).toFixed(2) + 's;animation-delay:-' + (r() * 9).toFixed(1) + 's;opacity:' + baseOp + ';';
       st.style.cssText =
-        'left:' + (r() * 98) + '%;' +
-        'top:'  + (r() * 72) + '%;' +
+        'left:' + x.toFixed(2) + '%;' +
+        'top:'  + Math.max(2, Math.min(74, y)).toFixed(2) + '%;' +
         'width:' + sz.toFixed(2) + 'px;height:' + sz.toFixed(2) + 'px;' +
         '--so-lo:' + lo.toFixed(2) + ';--so-hi:' + hi.toFixed(2) + ';' +
         '--so-scale:' + scale + ';' +
-        anim;
+        twinkle;
       var cv = r();
-      st.style.background = cv > 0.65 ? 'rgba(220,228,255,1)' : cv > 0.3 ? 'rgba(255,248,230,1)' : '#fff';
+      st.style.background = cv > 0.7 ? 'rgba(210,222,255,1)' : cv > 0.38 ? 'rgba(255,246,220,1)' : '#fff';
       plane.appendChild(st);
     }
-    /* Shooters on phone + desktop. Skip only when user opted into hard perf mode. */
     if (!perfHard && !reduced) {
-      var shooterCount = isMobile ? 2 : 2;
+      var shooterCount = isMobile ? 1 : 2;
       for (var si = 0; si < shooterCount; si++) {
         (function scheduleShooter(delay) {
           setTimeout(function fire() {
             if (!document.body.classList.contains('sky-night')) return;
             var sh = document.createElement('div');
-            sh.className = 'sky-shooter';
-            var angle = 10 + r() * 22;
-            var dur   = (isMobile ? 1.5 : 1.8) + r() * 1.1;
+            var fireball = r() > 0.82;
+            sh.className = 'sky-shooter' + (fireball ? ' is-fireball' : '');
+            var angle = 12 + r() * 28;
+            var dur   = (isMobile ? 0.85 : 1.05) + r() * 0.7;
             sh.style.cssText =
-              'top:' + (6 + r() * 34) + '%;' +
-              'left:0;' +
-              'width:' + ((isMobile ? 70 : 90) + r() * 80) + 'px;' +
+              'top:' + (4 + r() * 32) + '%;' +
+              'left:' + (6 + r() * 48) + '%;' +
+              'width:' + ((isMobile ? 56 : 72) + r() * (fireball ? 90 : 60)) + 'px;' +
               '--shoot-angle:' + angle.toFixed(1) + 'deg;' +
+              '--shoot-x:' + (48 + r() * 36).toFixed(1) + 'vw;' +
+              '--shoot-y:' + (10 + r() * 18).toFixed(1) + 'vh;' +
               'animation-duration:' + dur.toFixed(2) + 's;' +
-              'animation-name:shoot;animation-timing-function:linear;animation-fill-mode:forwards;';
+              'animation-name:shoot;animation-timing-function:cubic-bezier(0.22,0.08,0.4,1);animation-fill-mode:forwards;';
             plane.appendChild(sh);
-            setTimeout(function() { if (sh.parentNode) sh.parentNode.removeChild(sh); }, (dur + 0.5) * 1000);
-            /* First return sooner on mobile so a shooting star is noticeable within ~15s */
-            setTimeout(fire, (isMobile ? 10000 : 9000) + r() * 10000);
+            setTimeout(function() { if (sh.parentNode) sh.parentNode.removeChild(sh); }, (dur + 0.4) * 1000);
+            setTimeout(fire, (isMobile ? 16000 : 18000) + r() * 28000);
           }, delay);
-        })(isMobile ? (si * 3500 + 900 + r() * 2000) : (si * 6000 + r() * 4000));
+        })(isMobile ? (2200 + r() * 4000) : (si * 9000 + 2500 + r() * 6000));
       }
     }
   }
 
   if (showDayDecor && !reduced) {
     var cloudDefs = [
-      { w:180, h:55, top: 12, op: 0.68, dur: 130 },
-      { w:140, h:45, top: 24, op: 0.55, dur: 95  },
-      { w:220, h:65, top: 9,  op: 0.45, dur: 160 }
+      { w:200, h:52, top: 11, op: 0.58, dur: 150, bob: -7 },
+      { w:148, h:44, top: 23, op: 0.5, dur: 108, bob: -10 },
+      { w:236, h:62, top: 8,  op: 0.4, dur: 176, bob: -5 }
     ];
     if (!isMobile) cloudDefs.push(
-      { w:110, h:40, top: 33, op: 0.60, dur: 75  },
-      { w:160, h:50, top: 18, op: 0.40, dur: 110 }
+      { w:118, h:38, top: 32, op: 0.56, dur: 86, bob: -12 },
+      { w:168, h:48, top: 17, op: 0.36, dur: 128, bob: -6 }
     );
-    var timings = ['ease-in-out', 'ease-in', 'ease-out', 'linear', 'ease-in-out'];
+    var timings = ['ease-in-out', 'linear', 'ease-out', 'ease-in-out', 'linear'];
     var warmTint = isDusk || isDawn;
     cloudDefs.forEach(function(cd, idx) {
       var cl = document.createElement('div');
       cl.className = 'sky-cloud';
-      var startX = -(cd.w + r() * 60);
-      var delay = -(r() * cd.dur * 0.8);
-      var base = warmTint ? 'rgba(255,' + Math.round(190 - r()*60) + ',' + Math.round(130 - r()*80) + ',' : 'rgba(255,255,255,';
+      var startX = -(cd.w + r() * 80);
+      var delay = -(r() * cd.dur * 0.85);
+      var peach = Math.round(188 - r() * 50);
+      var base = warmTint ? 'rgba(255,' + peach + ',' + Math.round(peach - 40) + ',' : 'rgba(255,255,255,';
       cl.style.cssText =
         'width:' + cd.w + 'px;height:' + cd.h + 'px;' +
         'top:' + cd.top + '%;' +
         'left:' + startX + 'px;' +
         'opacity:' + cd.op + ';' +
-        'border-radius:' + Math.round(cd.h * 0.5) + 'px;' +
-        'background:radial-gradient(ellipse 65% 55% at 40% 45%,' + base + '0.88) 0%,' + base + '0) 100%);' +
-        'filter:blur(' + (r()*1.5) + 'px);' +
-        '--drift:' + (window.innerWidth + cd.w + 80) + 'px;' +
+        'border-radius:' + Math.round(cd.h * 0.55) + 'px;' +
+        'background:radial-gradient(ellipse 70% 58% at 42% 48%,' + base + '0.9) 0%,' + base + '0) 100%);' +
+        '--cloud-blur:' + (0.6 + r() * 1.6).toFixed(2) + 'px;' +
+        '--drift:' + (window.innerWidth + cd.w + 100) + 'px;' +
+        '--bob:' + cd.bob + 'px;' +
+        '--cloud-ease:' + timings[idx % timings.length] + ';' +
         'animation-duration:' + cd.dur + 's;' +
-        'animation-delay:' + delay.toFixed(1) + 's;' +
-        'animation-timing-function:' + timings[idx % timings.length] + ';';
+        'animation-delay:' + delay.toFixed(1) + 's;';
       plane.appendChild(cl);
     });
-    var birdCount = isMobile ? 4 : 7 + Math.floor(r() * 4);
+    var birdCount = isMobile ? 3 : 6 + Math.floor(r() * 3);
+    var flockTop = 16 + r() * 10;
     for (var bi = 0; bi < birdCount; bi++) {
       var bd = document.createElement('div');
       bd.className = 'sky-bird';
-      var bsize = 8 + r() * 10;
-      var bdur  = 28 + r() * 45;
-      var btop  = 12 + r() * 35;
-      var bdelay = -(r() * bdur);
-      var ftdur = 0.35 + r() * 0.4;
+      var inFlock = bi < 3;
+      var bsize = (inFlock ? 9 : 8) + r() * 8;
+      var bdur  = 32 + r() * 38;
+      var btop  = inFlock ? (flockTop + bi * 2.4 + r()) : (12 + r() * 34);
+      var bdelay = inFlock ? -(bi * 1.6 + r() * 2) : -(r() * bdur);
+      var ftdur = 0.32 + r() * 0.28;
       bd.style.cssText =
         'top:' + btop + '%;' +
         '--ws:' + Math.round(bsize) + 'px;' +
         '--ft:' + ftdur.toFixed(2) + 's;' +
-        '--bx0:-' + (10 + r() * 5) + 'vw;' +
-        '--bx1:' + (108 + r() * 5) + 'vw;' +
+        '--bx0:-' + (8 + r() * 8) + 'vw;' +
+        '--bx1:' + (106 + r() * 8) + 'vw;' +
+        '--by:' + (-6 - r() * 10).toFixed(1) + 'px;' +
         'animation-duration:' + bdur + 's;' +
         'animation-delay:' + bdelay.toFixed(1) + 's;';
       plane.appendChild(bd);

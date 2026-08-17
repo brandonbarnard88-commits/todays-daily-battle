@@ -272,23 +272,34 @@ body.sky-eclipse .sky-sun::before {
   100% { transform: translateX(180%); opacity: 0; }
 }
 
-/* Clouds — CSS animated, JS places them */
 .sky-cloud {
   position: absolute;
   border-radius: 50%;
   will-change: transform;
-  animation: cloud-drift ease-in-out infinite;
+  filter: blur(var(--cloud-blur, 1.1px));
+  animation: cloud-drift var(--cloud-ease, ease-in-out) infinite;
 }
+.sky-cloud::before,
+.sky-cloud::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: inherit;
+  pointer-events: none;
+}
+.sky-cloud::before { width: 64%; height: 80%; left: 16%; top: -30%; opacity: 0.9; }
+.sky-cloud::after { width: 50%; height: 72%; right: 6%; top: -14%; opacity: 0.82; }
 @keyframes cloud-drift {
-  from { transform: translateX(0); }
-  to   { transform: translateX(calc(var(--drift, 120vw))); }
+  0%   { transform: translateX(0) translateY(0); }
+  42%  { transform: translateX(calc(var(--drift, 120vw) * 0.42)) translateY(var(--bob, -8px)); }
+  100% { transform: translateX(var(--drift, 120vw)) translateY(0); }
 }
 body.sky-night .sky-cloud { display: none; }
 
-/* Birds — CSS animated, JS places them */
 .sky-bird {
   position: absolute;
-  width: 0; height: 0;
+  width: var(--ws, 12px);
+  height: var(--ws, 12px);
   animation: bird-fly linear infinite;
   will-change: transform;
 }
@@ -296,21 +307,42 @@ body.sky-night .sky-cloud { display: none; }
 .sky-bird::after {
   content: '';
   position: absolute;
-  width: var(--ws, 12px); height: 2px;
-  background: rgba(15,10,8,0.55);
-  border-radius: 2px;
-  top: 0; left: 0;
-  transform-origin: right center;
+  width: var(--ws, 12px);
+  height: 2.2px;
+  background: rgba(18, 14, 12, 0.62);
+  top: 50%;
+  margin-top: -1px;
   will-change: transform;
-  animation: bird-flap var(--ft, 0.5s) ease-in-out infinite alternate;
+}
+.sky-bird::before {
+  left: 0;
+  border-radius: 2px 8px 8px 2px;
+  transform-origin: right center;
+  animation: bird-flap var(--ft, 0.42s) ease-in-out infinite;
 }
 .sky-bird::after {
+  left: calc(var(--ws, 12px) - 2px);
+  border-radius: 8px 2px 2px 8px;
   transform-origin: left center;
-  left: auto; right: 0;
-  animation-direction: alternate-reverse;
+  animation: bird-flap-r var(--ft, 0.42s) ease-in-out infinite;
 }
-@keyframes bird-fly  { from { transform: translateX(var(--bx0, -10vw)); } to { transform: translateX(var(--bx1, 110vw)); } }
-@keyframes bird-flap { from { transform: rotate(-12deg); } to { transform: rotate(14deg); } }
+@keyframes bird-fly {
+  0%   { transform: translateX(var(--bx0, -10vw)) translateY(0); }
+  28%  { transform: translateX(calc(var(--bx0, -10vw) + (var(--bx1, 110vw) - var(--bx0, -10vw)) * 0.28)) translateY(var(--by, -11px)); }
+  52%  { transform: translateX(calc(var(--bx0, -10vw) + (var(--bx1, 110vw) - var(--bx0, -10vw)) * 0.52)) translateY(0); }
+  78%  { transform: translateX(calc(var(--bx0, -10vw) + (var(--bx1, 110vw) - var(--bx0, -10vw)) * 0.78)) translateY(calc(var(--by, -11px) * -0.65)); }
+  100% { transform: translateX(var(--bx1, 110vw)) translateY(0); }
+}
+@keyframes bird-flap {
+  0%   { transform: rotate(-30deg); }
+  38%  { transform: rotate(24deg); }
+  100% { transform: rotate(-16deg); }
+}
+@keyframes bird-flap-r {
+  0%   { transform: rotate(30deg); }
+  38%  { transform: rotate(-24deg); }
+  100% { transform: rotate(16deg); }
+}
 body.sky-night .sky-bird { display: none; }
 
 /* Performance mode: localStorage tdb_perf_mode=1 or prefers-reduced-motion — static sky, no decorative motion */
@@ -335,13 +367,14 @@ html.tdb-perf-mode .sky-moon-svg { animation: none !important; }
   html:not(.tdb-perf-mode) .sky-aurora::before,
   html:not(.tdb-perf-mode) .sky-aurora::after { animation: none !important; }
   html:not(.tdb-perf-mode) .sky-star { animation: none !important; }
+  html:not(.tdb-perf-mode) body.sky-night .sky-star.glow { animation: star-twinkle 8.5s ease-in-out infinite !important; }
   html:not(.tdb-perf-mode) body:not(.sky-night) .sky-sun { animation: none !important; }
   html:not(.tdb-perf-mode) .sky-sun::after { animation: none !important; }
-  html:not(.tdb-perf-mode) body.sky-night #sky-moon { animation: none !important; }
-  html:not(.tdb-perf-mode) .sky-cloud { animation: none !important; }
-  html:not(.tdb-perf-mode) .sky-bird { animation: none !important; }
-  html:not(.tdb-perf-mode) .sky-bird::before,
-  html:not(.tdb-perf-mode) .sky-bird::after { animation: none !important; transform: rotate(-5deg); }
+  html:not(.tdb-perf-mode) body.sky-night #sky-moon { animation: moon-drift 140s ease-in-out infinite; }
+  html:not(.tdb-perf-mode) .sky-cloud { animation: cloud-drift 190s linear infinite !important; }
+  html:not(.tdb-perf-mode) .sky-bird { animation: bird-fly linear infinite !important; }
+  html:not(.tdb-perf-mode) .sky-bird::before { animation: bird-flap 0.55s ease-in-out infinite !important; }
+  html:not(.tdb-perf-mode) .sky-bird::after { animation: bird-flap-r 0.55s ease-in-out infinite !important; }
 }
 
 /* Stars — CSS animated, JS places them */
@@ -354,34 +387,56 @@ html.tdb-perf-mode .sky-moon-svg { animation: none !important; }
   will-change: opacity, transform;
 }
 @keyframes star-twinkle {
-  0%,100% { opacity: var(--so-lo, 0.3); transform: scale(1); }
-  50%      { opacity: var(--so-hi, 1);  transform: scale(var(--so-scale, 1.15)); }
+  0%, 100% { opacity: var(--so-lo, 0.3); transform: scale(1); }
+  16%      { opacity: var(--so-hi, 1); transform: scale(var(--so-scale, 1.08)); }
+  40%      { opacity: calc(var(--so-lo, 0.3) + 0.1); transform: scale(1); }
+  73%      { opacity: calc(var(--so-hi, 1) * 0.7); transform: scale(calc(var(--so-scale, 1.08) * 0.97)); }
 }
 body:not(.sky-night) .sky-star { display: none; }
-/* Bokeh glow on larger stars */
+.sky-star.planet {
+  animation: none;
+  opacity: 0.94;
+  box-shadow: 0 0 5px 1px rgba(255, 236, 200, 0.5);
+}
 .sky-star.glow::after {
   content: ''; position: absolute; inset: -200%;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(200,215,255,0.4) 0%, rgba(120,150,220,0) 70%);
 }
 
-/* Shooting stars */
 .sky-shooter {
   position: absolute;
   z-index: 3;
-  height: 2px;
+  height: 1.6px;
   width: 120px;
-  background: linear-gradient(90deg, transparent, rgba(220,235,255,0.9), #fff);
+  background: linear-gradient(90deg, transparent 0%, rgba(220,235,255,0.12) 18%, rgba(255,255,255,0.95) 78%, #fff 100%);
   border-radius: 1px;
   opacity: 0;
   animation: shoot linear forwards;
   will-change: transform, opacity;
+  filter: drop-shadow(0 0 4px rgba(220,235,255,0.65));
+}
+.sky-shooter::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px 2px rgba(255,255,255,0.85);
+}
+.sky-shooter.is-fireball {
+  height: 2.4px;
+  filter: drop-shadow(0 0 8px rgba(255, 214, 170, 0.85));
 }
 @keyframes shoot {
-  0%   { transform: translateX(-15vw) translateY(0) rotate(var(--shoot-angle, 18deg)); opacity: 0; box-shadow: none; }
-  8%   { opacity: 0.9; box-shadow: 0 0 12px 3px rgba(220,235,255,0.55), 0 0 20px 6px rgba(180,210,255,0.25); }
-  88%  { opacity: 0.9; box-shadow: 0 0 12px 3px rgba(220,235,255,0.55), 0 0 20px 6px rgba(180,210,255,0.25); }
-  100% { transform: translateX(110vw) translateY(40px) rotate(var(--shoot-angle, 18deg)); opacity: 0; box-shadow: none; }
+  0%   { transform: translate3d(0, 0, 0) rotate(var(--shoot-angle, 18deg)); opacity: 0; }
+  7%   { opacity: 1; }
+  58%  { opacity: 0.82; }
+  100% { transform: translate3d(var(--shoot-x, 68vw), var(--shoot-y, 16vh), 0) rotate(var(--shoot-angle, 18deg)); opacity: 0; }
 }
 body:not(.sky-night) .sky-shooter { display: none; }
 
@@ -402,21 +457,21 @@ body:not(.sky-night) .sky-shooter { display: none; }
   will-change: transform, opacity;
 }
 body.sky-night #sky-moon {
-  opacity: 0.94;
-  animation: moon-drift 90s ease-in-out infinite;
+  opacity: 0.96;
+  animation: moon-drift 140s ease-in-out infinite;
 }
 @keyframes moon-drift {
-  0%   { transform: translate(-50%, -50%) translateY(0px); }
-  50%  { transform: translate(-50%, -50%) translateY(-5px); }
-  100% { transform: translate(-50%, -50%) translateY(0px); }
+  0%   { transform: translate(-50%, -50%) translate3d(0, 0, 0); }
+  50%  { transform: translate(-50%, -50%) translate3d(5px, -8px, 0); }
+  100% { transform: translate(-50%, -50%) translate3d(0, 0, 0); }
 }
 .sky-moon-svg {
   width: 88px;
   height: 88px;
   filter:
-    drop-shadow(0 0 8px rgba(220,235,255,0.45))
-    drop-shadow(0 0 20px rgba(180,205,255,0.22))
-    drop-shadow(0 0 42px rgba(140,170,230,0.14));
+    drop-shadow(0 0 10px rgba(230,236,255,0.42))
+    drop-shadow(0 0 28px rgba(190,210,255,0.22))
+    drop-shadow(0 0 56px rgba(150,175,230,0.12));
 }
 @media (max-width: 600px) {
   #sky-moon { left: 70%; top: 17%; }

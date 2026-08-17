@@ -427,11 +427,12 @@
       app: appText,
       speaker: sanitizeText(data.speaker || ctx.about || (offline && offline.speaker) || (gen && gen.speaker) || ''),
       about: sanitizeText(data.about || ctx.about || ''),
-      to: sanitizeText(data.to || ctx.to || ''),
-      setting: sanitizeText(data.setting || ctx.setting || ''),
+      to: sanitizeText((dayEx && dayEx.to) || data.to || ctx.to || ''),
+      setting: sanitizeText((dayEx && dayEx.setting) || data.setting || ctx.setting || ''),
       plain: sanitizeText(data.plain || curatedPlain || (offline && offline.plain) || (mood && mood.lines && mood.lines[0]) || (gen && gen.plain) || (lines[0] || '')),
       today: sanitizeText(data.today || (offline && offline.today) || (mood && mood.lines && mood.lines[1]) || (gen && gen.today) || (lines[1] || '')),
-      action: sanitizeText(data.action || (curatedStep ? ('So do this: ' + curatedStep) : '') || (offline && offline.action) || (mood && mood.app) || (gen && gen.action) || appText)
+      action: sanitizeText(data.action || (curatedStep ? ('So do this: ' + curatedStep) : '') || (offline && offline.action) || (mood && mood.app) || (gen && gen.action) || appText),
+      prayer: sanitizeText((dayEx && dayEx.prayer) || data.prayer || '')
     };
   }
 
@@ -960,8 +961,8 @@
       groupApplication: v.today || '',
       modernApplication: '',
       practicalStep: v.action || v.app || '',
-      about: liveAbout || v.about || v.speaker || (snapOk ? snap.who : '') || '',
-      to: liveTo || v.to || (snapOk ? snap.audience : '') || '',
+      about: v.about || v.speaker || liveAbout || (snapOk ? snap.who : '') || '',
+      to: v.to || liveTo || (snapOk ? snap.audience : '') || '',
       setting: bestSit || v.setting || '',
       situation: bestSit || v.setting || '',
       preserveDomSnapshot: snapOk ? snap : null
@@ -1146,7 +1147,7 @@
         who = 'The Holy Spirit speaking through Scripture (KJV).';
       }
     }
-    var audience = audienceShared || sanitizeText(v.to) || ctx.to;
+    var audience = sanitizeText(v.to) || audienceShared || ctx.to;
     if (snapAud && sanitizeText(snapAud).length > sanitizeText(audience).length + 4) {
       audience = snapAud;
     }
@@ -1199,8 +1200,18 @@
           ? stdFb.nextStepFallback()
           : 'Read it slowly one more time—then thank God aloud for one true thing inside it before you move.';
     }
-    var prayer = sanitizeText(sh.heroPrayer || sh.simplePrayer);
-    if (!prayer) prayer = buildHeroVotdPrayer(v.ref);
+    var prayer = sanitizeText(v.prayer || sh.heroPrayer || sh.simplePrayer);
+    if (!prayer || /sink .+ into my heart/i.test(prayer)) {
+      var dayPray = '';
+      try {
+        if (typeof window.TDB_GET_HERO_EXPLANATION_BY_REF === 'function') {
+          var prayRow = window.TDB_GET_HERO_EXPLANATION_BY_REF(v.ref);
+          dayPray = sanitizeText(prayRow && prayRow.prayer);
+        }
+      } catch (ePray) { dayPray = ''; }
+      if (dayPray) prayer = dayPray;
+    }
+    if (!prayer || /sink .+ into my heart/i.test(prayer)) prayer = buildHeroVotdPrayer(v.ref);
     /* Runtime fail-safe: never return Solomon/wrong-cluster copy for this ref. */
     var safe = sanitizeDigDeeperFieldsForRef(v.ref, {
       who: who,

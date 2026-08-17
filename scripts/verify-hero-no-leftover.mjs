@@ -39,6 +39,9 @@ function auditSourceContracts() {
   if (!fp.includes('sitForThisRef')) {
     fail('hero-daily-first-paint.js must drop situation lines that fail the book/speaker lock');
   }
+  if (/to:\s*liveTo\s*\|\|\s*v\.to/.test(fp)) {
+    fail('hero-daily-first-paint.js must prefer this day’s audience over live chapter-band context');
+  }
   const inject = fs.readFileSync(path.join(root, 'scripts/inject-home-hero.mjs'), 'utf8');
   if (!inject.includes('data-tdb-bound-ref')) {
     fail('inject-home-hero.mjs must stamp data-tdb-bound-ref on first-paint teaching');

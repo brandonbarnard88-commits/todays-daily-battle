@@ -68,6 +68,7 @@ async function main() {
       to
     };
     if (setting) out.setting = setting;
+    if (row.prayer) out.prayer = String(row.prayer).trim();
     return out;
   });
   const header = `/**

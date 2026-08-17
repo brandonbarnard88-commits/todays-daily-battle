@@ -1883,6 +1883,9 @@
     } else {
       pt.parent.appendChild(details);
     }
+    if (host.id === 'church-daily-verse-card') {
+      details.classList.add('tdb-vb-inline--host-has-kjv');
+    }
     setInlineBreakdownOpen(details, true);
     try {
       requestAnimationFrame(function () {
@@ -1922,6 +1925,9 @@
     if (el.closest('.home-search-detail-panel')) return true;
     if (el.classList && el.classList.contains('tdb-verse-breakdown-inline')) return true;
     if (el.closest('.tdb-verse-breakdown-inline')) return true;
+    /* Parent shells (e.g. .church-verse-card) must not get a second copy after the inner card. */
+    if (el.querySelector && el.querySelector('.tdb-verse-breakdown-inline')) return true;
+    if (el.classList && el.classList.contains('church-verse-card') && el.querySelector('#church-daily-verse-card')) return true;
     return false;
   }
 

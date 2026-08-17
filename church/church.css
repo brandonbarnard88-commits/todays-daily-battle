@@ -177,6 +177,46 @@
   color: var(--church-blue);
 }
 
+/* The card already shows the KJV — do not print it again inside the breakdown. */
+#church-daily-verse-card .tdb-vb-inline--host-has-kjv .tdb-vb-inline-ref,
+#church-daily-verse-card .tdb-vb-inline--host-has-kjv .tdb-vb-inline-verse-text {
+  display: none !important;
+}
+#church-daily-verse-card .tdb-verse-breakdown-inline + .tdb-verse-breakdown-inline {
+  display: none !important;
+}
+
+#church-daily-verse-card .tdb-bbe-simple,
+#church-daily-verse-card .tdb-bbe-simple--inline {
+  background: color-mix(in srgb, var(--card, #1b212d) 82%, #000 18%);
+  border-radius: 10px;
+  padding: 0.45rem 0.7rem;
+}
+#church-daily-verse-card .tdb-bbe-simple__text,
+#church-daily-verse-card .tdb-bbe-simple__heading,
+#church-daily-verse-card .tdb-bbe-simple__summary {
+  color: #eaf2ff !important;
+}
+html[data-theme="light"] #church-daily-verse-card .tdb-bbe-simple,
+html[data-theme="daylight"] #church-daily-verse-card .tdb-bbe-simple,
+html[data-theme="sepia"] #church-daily-verse-card .tdb-bbe-simple,
+html[data-theme="parchment"] #church-daily-verse-card .tdb-bbe-simple,
+body.light #church-daily-verse-card .tdb-bbe-simple {
+  background: #efe4c4;
+}
+html[data-theme="light"] #church-daily-verse-card .tdb-bbe-simple__text,
+html[data-theme="daylight"] #church-daily-verse-card .tdb-bbe-simple__text,
+html[data-theme="sepia"] #church-daily-verse-card .tdb-bbe-simple__text,
+html[data-theme="parchment"] #church-daily-verse-card .tdb-bbe-simple__text,
+body.light #church-daily-verse-card .tdb-bbe-simple__text,
+html[data-theme="light"] #church-daily-verse-card .tdb-bbe-simple__heading,
+html[data-theme="daylight"] #church-daily-verse-card .tdb-bbe-simple__heading,
+html[data-theme="sepia"] #church-daily-verse-card .tdb-bbe-simple__heading,
+html[data-theme="parchment"] #church-daily-verse-card .tdb-bbe-simple__heading,
+body.light #church-daily-verse-card .tdb-bbe-simple__heading {
+  color: #172230 !important;
+}
+
 .church-reflection-section {
   background: var(--church-card);
   border: 1px solid var(--church-blue-dim);

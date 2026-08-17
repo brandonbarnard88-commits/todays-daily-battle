@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260816-brightgold"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
@@ -13,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Church Starter Pack for Small Churches &amp; Weary Pastors (KJV Tools)</title>
   <meta name="description" content="Weekly operating system for small churches: Sermon Builder, pastor reset tools, family printables, announcement templates, and thin-week guides. Calm &amp; ready-to-use.">
-  <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="index, follow">
   <meta name="referrer" content="no-referrer">
   <link rel="canonical" href="https://todaysdailybattle.com/church-starter-pack.html">
   <meta property="og:title" content="Church Starter Pack for Small Churches &amp; Weary Pastors (KJV Tools)">
@@ -30,9 +26,6 @@
   <link rel="preload" href="/today-kjv-verse.json" as="fetch" type="application/json" crossorigin>
   <link rel="preload" href="styles.css?v=20260816-brightgold" as="style" fetchpriority="high">
   <link rel="stylesheet" href="styles.css?v=20260816-brightgold" fetchpriority="high">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script nonce="tdb2025s" type="application/ld+json">
@@ -868,14 +861,6 @@ With love,
         </section>
       </div>
     </main>
-    <nav class="tdb-bottom-dock" aria-label="Main navigation">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/#feel-section" aria-label="Ask the Word">Ask</a>
-      <a href="/plans.html" aria-label="Reading plans">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
-      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
-    </nav>
-
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -1003,7 +988,7 @@ With love,
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">August 16, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -1185,9 +1170,7 @@ With love,
         var doc = popup.document;
         doc.title = 'Weekly Church Packet';
         doc.open();
-        doc.write('<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Weekly Church Packet</title><style>body{font-family:Georgia,serif;margin:0;color:#101828;background:#fff}main{max-width:900px;margin:0 auto;padding:26px 24px}h1{margin:0 0 8px;font-size:1.9rem}h2{margin:22px 0 8px;font-size:1.2rem}p,li{font-size:1rem;line-height:1.6}ul,ol{margin:0;padding-left:21px}.card{border:1px solid #d0d7de;border-radius:12px;padding:12px 14px;margin:10px 0 0}.meta{font-size:0.9rem;color:#475467;margin-top:4px}.small{font-size:0.92rem;color:#344054}@media print{main{padding:10mm}.noprint{display:none}}</style></head><body>
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
-</body></html>');
+        doc.write('<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Weekly Church Packet</title><style>body{font-family:Georgia,serif;margin:0;color:#101828;background:#fff}main{max-width:900px;margin:0 auto;padding:26px 24px}h1{margin:0 0 8px;font-size:1.9rem}h2{margin:22px 0 8px;font-size:1.2rem}p,li{font-size:1rem;line-height:1.6}ul,ol{margin:0;padding-left:21px}.card{border:1px solid #d0d7de;border-radius:12px;padding:12px 14px;margin:10px 0 0}.meta{font-size:0.9rem;color:#475467;margin-top:4px}.small{font-size:0.92rem;color:#344054}@media print{main{padding:10mm}.noprint{display:none}}</style></head><body></body></html>');
         var body = doc.body;
         var main = doc.createElement('main');
         var h1 = doc.createElement('h1');

@@ -1,30 +1,44 @@
-# Outreach checklist for Today's Daily Battle
+# Outreach — churches and ministries
 
-Use this list to get the word out to pastors, churches, and Christian audiences.
+Hand people the homepage. That is what is ready.
 
-## Pastors and churches
+**Site:** https://todaysdailybattle.com  
+**Pastor / outreach door:** https://todaysdailybattle.com/for-pastors.html  
+**Copy-paste kit:** https://todaysdailybattle.com/church-sharing-kit.html  
+**Email:** support@todaysdailybattle.com
 
-- [ ] **Newsletter feature** — Reach out to pastors or ministry leaders who send a weekly email. Offer a short blurb (2–3 sentences) and link: "One verse, one moment, every day. Search by topic, build a streak, and get tools for sermons and lessons. [Link to todaysdailybattle.com]"
-- [ ] **Sermon / service mention** — Suggest they mention the site when preaching on anxiety, hope, or daily habits: "If you want one verse in your pocket every day, try Today's Daily Battle—search by topic and build a streak."
-- [ ] **Small group / Sunday school** — Share the 7-day reading plan or topic pages (e.g. anxiety, grief) as a handout or link for the group.
-- [ ] **Church app or link hub** — Ask if they can add "Daily Bible / devotionals" with a link to todaysdailybattle.com.
+## What you can honestly say
 
-## Christian app and site directories
+Today’s Daily Battle is a free KJV porch. One official verse a day, with teaching that belongs to that verse. No ads. No login wall. Saves stay on the device.
 
-- [ ] Submit to **Christian app lists** (e.g. app stores with "Christian" or "Bible" categories, ministry directories).
-- [ ] **Ministry/congregation tools** — List under "Bible study" or "devotionals" on sites that curate resources for churches.
+## What not to promise
 
-## Social and hashtags
+- Not a church directory
+- Not member tracking or a campus app
+- Not sermon hosting
+- Not a public prayer board
+- Not streaks, coins, or leaderboards
 
-- [ ] Use **#30DayBattle** (and any site hashtag) when posting verse cards or streak updates.
-- [ ] Tag pastors or ministries (with permission) when sharing testimonials or "How Scripture helps" content.
+## Who to ask, and how
 
-## Content and SEO
+Ask a pastor or missionary you already know to **look at the homepage** and say whether they would send it to someone having a hard week. Do not ask a board to “adopt the platform.”
 
-- [ ] **Resources** — The [How Scripture Helps](https://todaysdailybattle.com/resources.html#how-scripture-helps) section on the resources page links to topic pages; share those links in posts or emails.
-- [ ] **Topic pages** — Link to specific topics (e.g. grief, anxiety) when relevant in blog posts or social content.
+### Short blurb (bulletin / email)
 
-## Contact
+> One KJV verse a day, in plain words, free. No account. todaysdailybattle.com
 
-- **Site:** [todaysdailybattle.com](https://todaysdailybattle.com)
-- **Email:** support@todaysdailybattle.com (for partnership or feature requests)
+### Text / SMS
+
+> If you want one verse tonight: todaysdailybattle.com
+
+### After someone is hurting
+
+> When it’s hard: todaysdailybattle.com/calm.html
+
+### Families
+
+> Kids stories and coloring: todaysdailybattle.com/kids/
+
+## After they look
+
+Listen. If they want a group verse, a roster, or a branded app, that is not built. Do not invent it to close the ask.

@@ -26293,14 +26293,24 @@ html[data-theme="sepia"] .tdb-kiss-verse__label {
 }
 html[data-theme="light"] .tdb-kiss-verse__kjv,
 html[data-theme="sepia"] .tdb-kiss-verse__kjv,
+html[data-theme="daylight"] .tdb-kiss-verse__kjv,
+html[data-theme="parchment"] .tdb-kiss-verse__kjv,
 html[data-theme="light"] .tdb-kiss-verse__bbe,
 html[data-theme="sepia"] .tdb-kiss-verse__bbe,
+html[data-theme="daylight"] .tdb-kiss-verse__bbe,
+html[data-theme="parchment"] .tdb-kiss-verse__bbe,
 html[data-theme="light"] .tdb-kiss-verse .tdb-bbe-simple__text,
 html[data-theme="sepia"] .tdb-kiss-verse .tdb-bbe-simple__text,
+html[data-theme="daylight"] .tdb-kiss-verse .tdb-bbe-simple__text,
+html[data-theme="parchment"] .tdb-kiss-verse .tdb-bbe-simple__text,
 html[data-theme="light"] .tdb-kiss-verse__sit,
 html[data-theme="sepia"] .tdb-kiss-verse__sit,
+html[data-theme="daylight"] .tdb-kiss-verse__sit,
+html[data-theme="parchment"] .tdb-kiss-verse__sit,
 html[data-theme="light"] .tdb-kiss-verse__mean,
-html[data-theme="sepia"] .tdb-kiss-verse__mean {
+html[data-theme="sepia"] .tdb-kiss-verse__mean,
+html[data-theme="daylight"] .tdb-kiss-verse__mean,
+html[data-theme="parchment"] .tdb-kiss-verse__mean {
   color: #1f2937 !important;
 }
 .tdb-kiss-verse__bbe,

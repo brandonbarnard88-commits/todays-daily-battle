@@ -4,6 +4,7 @@ Hand people the homepage. That is what is ready.
 
 **Site:** https://todaysdailybattle.com  
 **Pastor / outreach door:** https://todaysdailybattle.com/for-pastors.html  
+**Start a group:** https://todaysdailybattle.com/church/#create  
 **Copy-paste kit:** https://todaysdailybattle.com/church-sharing-kit.html  
 **Email:** support@todaysdailybattle.com
 
@@ -21,7 +22,7 @@ Today’s Daily Battle is a free KJV porch. One official verse a day, with teach
 
 ## Who to ask, and how
 
-Ask a pastor or missionary you already know to **look at the homepage** and say whether they would send it to someone having a hard week. Do not ask a board to “adopt the platform.”
+Ask a pastor or missionary you already know to **look at the homepage**, then **start a group** if they want one invite link. Do not promise a campus app, roster, or sermon host.
 
 ### Short blurb (bulletin / email)
 

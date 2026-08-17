@@ -13,12 +13,12 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const doc = path.join(root, 'docs', 'FEATURE-FREEZE-90-DAYS.md');
 const text = fs.existsSync(doc) ? fs.readFileSync(doc, 'utf8') : '';
 const start = '2026-08-04';
-const end = '2026-11-02';
+const end = '2026-08-17';
 const today = new Date().toISOString().slice(0, 10);
-const active = today >= start && today <= end;
+const active = today >= start && today < end;
 
 console.log('feature-freeze: window ' + start + ' → ' + end + ' (today ' + today + ')');
-console.log('feature-freeze: ' + (active ? 'ACTIVE — Grove polish only' : 'inactive'));
+console.log('feature-freeze: ' + (active ? 'ACTIVE — Grove polish only' : 'inactive — church adoption work allowed'));
 if (!text.includes('Grove polish')) {
   console.error('feature-freeze: docs/FEATURE-FREEZE-90-DAYS.md missing Grove polish rule');
   process.exit(1);

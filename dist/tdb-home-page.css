@@ -13123,6 +13123,69 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
   display: none;
 }
 
+/*
+  In simpler words: a real bubble with ink that matches the card.
+  Light family themes paint the verse wrap cream; body color stays night-white
+  unless we set color here (custom --text on #verseCard does not rewrite inherited color).
+*/
+#verseCard #heroBbeSimple,
+#heroBbeSimple.tdb-bbe-simple {
+  margin: 0.55rem 0 0.45rem;
+  padding: 0.55rem 0.85rem 0.65rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 32%, transparent);
+  background: color-mix(in srgb, var(--card, #1b212d) 82%, #000 18%);
+}
+#verseCard #heroBbeSimple .tdb-bbe-simple__text,
+#heroBbeSimple .tdb-bbe-simple__text {
+  color: #eaf2ff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+:root[data-theme="light"] #verseCard #heroBbeSimple,
+:root[data-theme="daylight"] #verseCard #heroBbeSimple,
+:root[data-theme="sepia"] #verseCard #heroBbeSimple,
+:root[data-theme="parchment"] #verseCard #heroBbeSimple,
+html[data-theme="light"] #heroBbeSimple,
+html[data-theme="daylight"] #heroBbeSimple,
+html[data-theme="sepia"] #heroBbeSimple,
+html[data-theme="parchment"] #heroBbeSimple {
+  background: #efe4c4;
+  border-color: rgba(92, 72, 24, 0.28);
+}
+:root[data-theme="light"] #verseCard #heroBbeSimple .tdb-bbe-simple__text,
+:root[data-theme="daylight"] #verseCard #heroBbeSimple .tdb-bbe-simple__text,
+:root[data-theme="sepia"] #verseCard #heroBbeSimple .tdb-bbe-simple__text,
+:root[data-theme="parchment"] #verseCard #heroBbeSimple .tdb-bbe-simple__text,
+html[data-theme="light"] #heroBbeSimple .tdb-bbe-simple__text,
+html[data-theme="daylight"] #heroBbeSimple .tdb-bbe-simple__text,
+html[data-theme="sepia"] #heroBbeSimple .tdb-bbe-simple__text,
+html[data-theme="parchment"] #heroBbeSimple .tdb-bbe-simple__text,
+body.light #heroBbeSimple .tdb-bbe-simple__text {
+  color: #172230 !important;
+  text-shadow: none !important;
+}
+:root[data-theme="light"] #verseCard #heroBbeSimple .tdb-bbe-simple__heading,
+:root[data-theme="daylight"] #verseCard #heroBbeSimple .tdb-bbe-simple__heading,
+:root[data-theme="sepia"] #verseCard #heroBbeSimple .tdb-bbe-simple__heading,
+:root[data-theme="parchment"] #verseCard #heroBbeSimple .tdb-bbe-simple__heading,
+html[data-theme="daylight"] #verseCard #heroBbeSimple .tdb-bbe-simple__heading,
+html[data-theme="parchment"] #verseCard #heroBbeSimple .tdb-bbe-simple__heading {
+  color: #5c4818 !important;
+  text-shadow: none !important;
+}
+
+/* Same light-family ink for the KJV line on the cream card */
+:root[data-theme="light"] #verseCard #heroVerse,
+:root[data-theme="daylight"] #verseCard #heroVerse,
+:root[data-theme="sepia"] #verseCard #heroVerse,
+:root[data-theme="parchment"] #verseCard #heroVerse,
+html[data-theme="light"] #heroVerse.hero-verse,
+html[data-theme="daylight"] #heroVerse.hero-verse,
+html[data-theme="sepia"] #heroVerse.hero-verse,
+html[data-theme="parchment"] #heroVerse.hero-verse {
+  color: #172230 !important;
+}
+
 /* SOS is one bubble in the dock — keep the row from growing into a second gold bar */
 nav.tdb-bottom-dock:has(.sos-btn) {
   width: min(100%, 560px);

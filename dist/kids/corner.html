@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260816-brightgold"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
@@ -43,9 +42,6 @@
   <link rel="stylesheet" href="story-library-fonts.css?v=1">
   <link rel="preload" href="../styles.css?v=20260816-brightgold" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260816-brightgold">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
   <link rel="preload" href="kids-battle.css?v=20260811firstpaint" as="style">
   <link rel="stylesheet" href="kids-battle.css?v=20260811firstpaint">
   <link rel="preload" href="kids-hub-play.css?v=20260810ls" as="style">
@@ -1016,7 +1012,7 @@
               <option value="Protection">Protection</option>
             </select>
           </div>
-          <p id="kids-library-story-master" class="kids-library-story-master hidden">🏆 Story Master — you finished 7 stories!</p>
+          <p id="kids-library-story-master" class="kids-library-story-master hidden"></p>
         </section>
 
         <section class="kids-comic-panels glass tdb-porch-paper-glass" role="region" aria-labelledby="kids-library-grid-heading">
@@ -1176,7 +1172,7 @@
                 <div id="kids-star-row" class="kids-star-row" role="img" aria-label="Story path stars"></div>
                 <p class="sr-only kids-progress-pct-line"><span id="kids-play-progress-pct">0%</span> <span class="kids-play-tier-pill hidden" id="kids-play-tier-pill" aria-hidden="true"></span></p>
                 <div class="sr-only">
-                  <label>Path <progress id="kids-play-progress-bar" max="365" value="0">0 / 365</progress></label>
+                  <label>Path <progress id="kids-play-progress-bar" max="1" value="0">Stories opened</progress></label>
                 </div>
               </div>
             </div>
@@ -2503,7 +2499,7 @@
       <div id="kids-corner-story-master-footer" class="kids-corner-story-master-footer" role="region" aria-label="Story progress">
         <span class="kids-corner-story-master-label">Stories:</span>
         <span id="corner-tier-badge" class="kids-tier-badge"></span>
-        <progress id="corner-story-progress" max="365" value="0" aria-label="Stories opened on this device"></progress>
+        <progress id="corner-story-progress" max="1" value="0" aria-label="Stories opened on this device"></progress>
         <span id="corner-story-percent" class="kids-story-percent">0%</span>
       </div>
       <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
@@ -2646,7 +2642,7 @@
   <script src="kids-read-quiz-loop-posters.js"></script>
   <script src="kids-verses-365.js?v=20260802-calendar-mix" defer></script>
   <script src="kids-shared.js?v=20260413efficiency" defer></script>
-  <script src="kids-battle.js?v=20260812goliathv2" defer></script>
+  <script src="kids-battle.js?v=20260817-honestpath" defer></script>
   <script src="/kids/kids-gentle-journey.js?v=20260524readquiz" defer></script>
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt" crossorigin="anonymous" defer></script>
@@ -2686,8 +2682,8 @@
   </script>
   <script src="loop-library-coloring.js?v=20260524readquiz" defer></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
-  <script src="kids-corner.js?v=20260815-humanvoice" defer></script>
-  <script src="kids-hub-play.js?v=20260811firstpaint" defer></script>
+  <script src="kids-corner.js?v=20260817-honestpath" defer></script>
+  <script src="kids-hub-play.js?v=20260817-honestpath" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260811audio2" defer></script>
   <script type="module" src="../kids-data-loader.js" data-cfasync="false" defer></script>
   <script src="../tdb-offline-strip.js?v=20260421pwa1"></script>
@@ -2897,14 +2893,5 @@
   </style>
   <script src="../sky-ip-geo.js?v=20260817-skysolar" defer></script>
   <script src="kids-page-sky.js?v=20260817-shootvar" defer></script>
-
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
-    <nav class="tdb-bottom-dock" aria-label="Main navigation">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/#feel-section" aria-label="Ask the Word">Ask</a>
-      <a href="/plans.html" aria-label="Reading plans">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
-      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
-    </nav>
 </body>
 </html>

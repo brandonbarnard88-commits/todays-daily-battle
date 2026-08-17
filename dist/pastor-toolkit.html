@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260816-brightgold"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
@@ -29,9 +25,6 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
   <link rel="stylesheet" href="styles.css?v=20260816-brightgold">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -122,7 +115,7 @@
         <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
         <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
         <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
-        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="/church/" data-section="church-center" data-icon="CC">Church group</a>
         <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
         <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
         <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
@@ -209,11 +202,11 @@
 
         <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Church & congregation</h2>
-          <p class="section-note">Lead your church with verse, prayer, and assignments.</p>
+          <p class="section-note">Share today&rsquo;s verse. This is not a campus platform.</p>
           <div class="list">
-            <div class="list-item"><div><strong><a href="church.html">Church Center</a></strong><p>Set your church verse of the day, shared prayer list, assign reading to groups. Add weekly sermons. Find your church.</p></div></div>
+            <div class="list-item"><div><strong><a href="/church/">Church group</a></strong><p>Create or join a group code so people see the same official KJV verse. Not a church directory, not a sermon host, and not member tracking.</p></div></div>
             <div class="list-item"><div><strong><a href="/prayer-wall.html?tab=with-others">Prayer</a></strong><p>Post encouragement, share verses, or point people to a calm place for community prayer.</p></div></div>
-            <div class="list-item"><div><strong>Church-branded verse cards</strong><p>On Church plan: create shareable verse images with your church name. Use from <a href="/">home</a> or <a href="study.html">Study Workspace</a>.</p></div></div>
+            <div class="list-item"><div><strong>Verse cards</strong><p>From <a href="/">home</a> or <a href="study.html">Study Workspace</a>, make a shareable verse image. There is no paid church plan and no branded campus add-on.</p></div></div>
           </div>
         </section>
 
@@ -222,7 +215,7 @@
           <p class="section-note">Emails, graphics, and shareable content.</p>
           <div class="list">
             <div class="list-item"><div><strong><a href="weekly-email-template.html">Weekly email template</a></strong><p>Copy-paste template for a short weekly encouragement to your list.</p></div></div>
-            <div class="list-item"><div><strong>Verse cards & share image</strong><p>From the <a href="/">daily battle</a> or <a href="study.html">Study Workspace</a>: create a shareable verse image (with optional church name on Church plan).</p></div></div>
+            <div class="list-item"><div><strong>Verse cards & share image</strong><p>From the <a href="/">daily battle</a> or <a href="study.html">Study Workspace</a>: create a shareable verse image. There is no paid Church plan.</p></div></div>
             <div class="list-item"><div><strong>Bulk export to PDF</strong><p>In <a href="study.html">Study Workspace</a>: export all saved verses and notes to one PDF for handouts or personal use.</p></div></div>
           </div>
         </section>
@@ -261,14 +254,6 @@
         </section>
       </div>
     </main>
-    <nav class="tdb-bottom-dock" aria-label="Main navigation">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/#feel-section" aria-label="Ask the Word">Ask</a>
-      <a href="/plans.html" aria-label="Reading plans">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
-      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
-    </nav>
-
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -396,7 +381,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">August 16, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -408,7 +393,5 @@
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260816-brightgold" data-cfasync="false"></script>
-
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

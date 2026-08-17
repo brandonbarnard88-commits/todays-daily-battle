@@ -52,7 +52,7 @@ PAGES = [
     ("/search.html", "Site search", ["Search the site", "id=\"tdb-site-search-input\"", "site-search-index.json", "id=\"nav-site-search\"", "Where would you like to go?"]),
     ("/mystudy.html", "My Study", ["My Study", "mystudy-onpage-nav", "mystudy-onpage-toc-label", "On this page", "id=\"mystudy-overview\"", "id=\"mystudySyncHonesty\"", "Saved privately on this device only", "Nothing is sent to our servers", "id=\"mystudySavedSyncHonesty\"", "id=\"mystudy-whats-new-note\"", "honest doubt", "morning reset", "href=\"#panel-note-library\"", "id=\"mystudyMobileJump\"", "id=\"mystudy-export-json\"", "Download JSON backup", "What stays on this device", "id=\"mystudyPorchDiscoverFoot\"", "explore.html#explore-porch-map", "bible-study-companion.js", "mystudy-activity-calendar", "mystudy-backup-nudge", "Search site"]),
     ("/reader.html", "Chapter Reader", ["Reader", "Chapter", "reader-xrefs-sheet-desc", "reader-wordstudy-sheet-desc", "bible/tools.html#book-intros", "href=\"/bible/tools.html\"", "Study workshop", "hero-banner--soar-dawn", "chapter-reader-hero--soar-dawn", "id=\"chapter-reader-hero-heading\"", "id=\"reader-book-quick\"", "styles.css?v=20260412launch", "hreflang=\"pt\" href=\"https://todaysdailybattle.com/pt/leitor.html\""]),
-    ("/church.html", "Church Center", ["Church"]),
+    ("/church.html", "Church group", ["Church group", "Join or start a group", "/church/"]),
     ("/church-starter-pack.html", "Church Starter Pack", ["Church Starter Pack", "For pastors", "First hour workflow", "Preaching Through Exhaustion", "Small Church Encouragement", "Sermon Builder + One-Tap Export", "Family printable packs"]),
     ("/sermon.html", "Sermon Builder", ["Sermon"]),
     ("/pastor-toolkit.html", "Pastor Toolkit", ["Pastor"]),

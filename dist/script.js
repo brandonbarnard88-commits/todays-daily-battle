@@ -26707,8 +26707,7 @@ function renderDashboard() {
   const cards = [];
   if (tier === 'church_team' || isMasterUser) {
     cards.push(
-      { title: 'Sermon Builder', text: 'Create outlines and share with your congregation.', action: () => { setView('search'); document.getElementById('sermon-builder')?.scrollIntoView({ behavior: 'smooth' }); } },
-      { title: 'Church Sermons', text: 'Add weekly sermons for your church.', action: () => document.getElementById('church-center')?.scrollIntoView({ behavior: 'smooth' }) }
+      { title: 'Sermon Builder', text: 'Create outlines and share with your congregation.', action: () => { setView('search'); document.getElementById('sermon-builder')?.scrollIntoView({ behavior: 'smooth' }); } }
     );
   }
   if (tier === 'supporter' || tier === 'pro') {
@@ -26721,10 +26720,6 @@ function renderDashboard() {
     { title: 'Daily Battle', text: 'Get guidance and verses for today.', action: () => { setView('search'); document.getElementById('daily-btn')?.click(); } },
     { title: 'Saved Verses & Notes', text: 'Review your saved verses and notes.', action: () => { setView('search'); document.getElementById('study-tools')?.scrollIntoView({ behavior: 'smooth' }); } }
   );
-  cards.push(
-    { title: 'Find Your Church', text: 'Search churches and view sermons.', action: () => document.getElementById('church-center')?.scrollIntoView({ behavior: 'smooth' }) }
-  );
-
   cards.forEach(card => {
     const box = document.createElement('div');
     box.className = 'dashboard-card';
@@ -37262,7 +37257,7 @@ async function tdbInitImpl() {
       'message.html': 'Prayer',
       'prayer-wall.html': 'Prayer',
       '/church/': 'Church group join',
-      'church.html': 'Church Center',
+      'church.html': 'Church group',
       'sermon.html': 'Sermon Builder'
     };
     var scopedSelectors = [

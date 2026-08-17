@@ -12572,10 +12572,8 @@
   function tdbComputeStoryMasterState() {
     var stories = window.TDB_BIBLE_STORIES || {};
     var keyCount = (window.TDB_BIBLE_STORY_KEYS && window.TDB_BIBLE_STORY_KEYS.length) || Object.keys(stories).length;
-    var goal = (window.TDB_GENTLE_JOURNEY && window.TDB_GENTLE_JOURNEY.CANONICAL_DISTINCT_STORY_GOAL) || 365;
-    /* North-star goal is distinct calm stories (365), not alias/order length. */
-    var total = Math.max(goal, 1);
-    if (!keyCount) total = Math.max(1, total);
+    /* Meter is the stories that actually ship, not a leftover 365-day goal. */
+    var total = Math.max(keyCount, 1);
     var list = tdbStoryMasterReadListMerged();
     var bonus = tdbStoryMasterBonusRead();
     var effective = Math.min(total, list.length + bonus);
@@ -12611,7 +12609,7 @@
       tierLabel: labels[tier] || tier,
       pct: pct,
       gentleStart: gentleStart,
-      summaryLine: 'Story Master: ' + labels[tier] + ' • ' + pct + '% (' + effective + '/' + total + ' toward distinct calm stories).' + next
+      summaryLine: labels[tier] + ' • ' + pct + '% (' + effective + '/' + total + ' stories opened).' + next
     };
   }
 

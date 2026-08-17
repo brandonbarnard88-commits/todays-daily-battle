@@ -2353,16 +2353,7 @@
     .site-top-links .header-auth-welcome { color: #b4c0d0; margin-right: 0.25rem; display: inline-flex; align-items: center; gap: 0.35rem; }
     .site-top-links .header-auth-sep { color: rgba(180, 192, 208, 0.75); margin: 0 0.25rem; }
     .site-top-links .auth-avatar { background: rgba(234, 179, 8, 0.35); color: rgba(255,255,255,0.95); border-radius: 50%; width: 26px; height: 26px; line-height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; vertical-align: middle; margin-right: 0.5rem; }
-    /*
-      Phones: pill dock can wrap — keep SOS above dock + safe area (floating first-tour chip removed).
-    */
-    @media (max-width: 768px) {
-      body:has(.tdb-bottom-dock) .sos-btn {
-        z-index: 280;
-        right: max(0.65rem, env(safe-area-inset-right));
-        bottom: max(7.75rem, calc(env(safe-area-inset-bottom) + 6.75rem));
-      }
-    }
+    /* SOS lives in the dock as its own bubble — do not pin it over the verse or the dock row. */
     .tdb-home-chain-of-hope {
       margin: clamp(1.45rem, 4.6vw, 2.55rem) auto clamp(1.35rem, 3.8vw, 2.05rem);
       padding: 1.1rem 1.1rem 1.15rem;
@@ -6527,7 +6518,7 @@
     }
 
     .tdb-bottom-dock a,
-    .tdb-bottom-dock button.tdb-bottom-dock-more {
+    .tdb-bottom-dock button.tdb-bottom-dock-more:not(.sos-btn) {
       color: var(--muted);
       text-decoration: none;
       font-size: 0.78rem;
@@ -8372,46 +8363,55 @@
     }
     #dismiss-extend:hover { color: var(--text); border-color: var(--gold); }
 
-    /* ── SOS Button ── */
+    /* ── SOS Button: one dock bubble, never a full-row overlay ── */
+    .tdb-bottom-dock .sos-btn,
     .sos-btn {
-      position: fixed;
-      bottom: 90px;
-      right: 18px;
-      width: 58px;
-      height: 58px;
+      position: static;
+      inset: auto;
+      flex: 0 0 2.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      min-width: 2.5rem;
+      max-width: 2.5rem;
+      min-height: 2.5rem;
+      max-height: 2.5rem;
+      margin: 0;
+      padding: 0;
+      border: none;
       border-radius: 50%;
       background: var(--gold);
       color: #1a1226;
       font-weight: 800;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-      border: none;
+      font-size: 0.62rem;
+      letter-spacing: 0.03em;
+      line-height: 1;
       cursor: pointer;
-      box-shadow: 0 4px 18px rgba(227,188,103,0.45);
-      z-index: 280;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      display: flex;
+      box-shadow: 0 2px 8px rgba(227,188,103,0.35);
+      z-index: auto;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      animation: breathe 4s ease-in-out infinite;
+      align-self: center;
+      box-sizing: border-box;
+      overflow: hidden;
+      transform: none;
+      animation: none;
+      pointer-events: auto;
+      transition: box-shadow 0.15s ease, filter 0.15s ease;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .sos-btn { animation: none !important; }
+    .tdb-bottom-dock .sos-btn:hover,
+    .tdb-bottom-dock .sos-btn:focus-visible,
+    .sos-btn:hover,
+    .sos-btn:focus-visible {
+      transform: none;
+      animation: none;
+      filter: brightness(1.06);
+      box-shadow: 0 0 0 3px rgba(227,188,103,0.28), 0 2px 10px rgba(227,188,103,0.4);
     }
-    .sos-btn:hover, .sos-btn:focus-visible {
-      transform: scale(1.1);
-      box-shadow: 0 0 0 6px rgba(227,188,103,0.22), 0 4px 20px rgba(227,188,103,0.5);
-      animation: sos-pulse 1.2s ease infinite;
-    }
-    @keyframes sos-pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(227,188,103,0.55), 0 4px 20px rgba(227,188,103,0.4); }
-      50%       { box-shadow: 0 0 0 10px rgba(227,188,103,0), 0 4px 20px rgba(227,188,103,0.4); }
-    }
-    @keyframes breathe {
-      0%   { transform: scale(1); }
-      40%  { transform: scale(1.04); }
-      70%  { transform: scale(1.02); }
-      100% { transform: scale(1); }
+    .tdb-bottom-dock .sos-btn:focus-visible,
+    .sos-btn:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--gold) 70%, #fff 30%);
+      outline-offset: 2px;
     }
 
     /* ── Morning Skip Button ── */
@@ -13121,4 +13121,33 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
 }
 #tdbHomeSecondaryStack > #tdbCampusOptionalRest {
   display: none;
+}
+
+/* SOS is one bubble in the dock — keep the row from growing into a second gold bar */
+nav.tdb-bottom-dock:has(.sos-btn) {
+  width: min(100%, 560px);
+  justify-content: flex-start;
+  gap: 0.12rem;
+  padding: 5px 6px;
+}
+@media (min-width: 360px) {
+  nav.tdb-bottom-dock:has(.sos-btn) {
+    flex-wrap: nowrap;
+  }
+}
+@media (max-width: 430px) {
+  nav.tdb-bottom-dock:has(.sos-btn) a {
+    padding-left: 0.28rem;
+    padding-right: 0.28rem;
+  }
+  nav.tdb-bottom-dock:has(.sos-btn) .sos-btn {
+    flex: 0 0 2.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    min-width: 2.25rem;
+    max-width: 2.25rem;
+    min-height: 2.25rem;
+    max-height: 2.25rem;
+    font-size: 0.58rem;
+  }
 }

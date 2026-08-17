@@ -292,6 +292,7 @@
         })
           .then(function (res) {
             var data = res && res.data;
+            var rpcErr = res && res.error;
             if (data && data.ok) {
               var made = String(data.code || code || '').trim();
               setChurchJoined(made, data.group_id, name || made, getPastorAnonId());
@@ -335,8 +336,12 @@
                 createResult.classList.add('success');
               }
             } else {
-              var reason = (data && data.reason) || 'Failed.';
+              var reason = (data && data.reason) || '';
               if (reason === 'code_taken') reason = 'That code is already taken. Try another.';
+              else if (reason === 'invalid_code') reason = 'Use at least 3 letters or numbers for the code.';
+              else if (reason === 'invalid_pastor') reason = 'This browser could not start a group. Refresh and try again.';
+              else if (rpcErr) reason = 'Group creation did not go through. Try again in a moment.';
+              else reason = 'Group creation did not go through. Try another code, or try again in a moment.';
               if (createResult) { createResult.textContent = reason; createResult.classList.remove('hidden'); createResult.classList.add('error'); }
             }
           })

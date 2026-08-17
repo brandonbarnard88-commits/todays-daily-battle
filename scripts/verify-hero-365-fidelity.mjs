@@ -10,6 +10,7 @@
  *  5. Plain is a weak generic stamp
  *  6. Plain has zero content overlap with KJV *and* looks like reusable pastoral paste
  *  7. Same plain text reused under two different refs (copy-paste contamination)
+ *  8. Same setting reused under two different refs (chapter-band leftover)
  *
  * Soft notes (warn only): low but non-zero plain↔KJV overlap on long verses.
  *
@@ -118,6 +119,7 @@ function main() {
   const failures = [];
   const warnings = [];
   const plainToRefs = new Map();
+  const settingToRefs = new Map();
   let checked = 0;
 
   for (let i = 0; i < list.length; i++) {
@@ -175,6 +177,12 @@ function main() {
       plainToRefs.get(plainKey).push(ref);
     }
 
+    const settingKey = setting.toLowerCase().replace(/\s+/g, ' ').trim();
+    if (settingKey.length >= 24) {
+      if (!settingToRefs.has(settingKey)) settingToRefs.set(settingKey, []);
+      settingToRefs.get(settingKey).push(ref);
+    }
+
     const verseBody = text || kjvText(kjv, ref);
     if (!verseBody) {
       failures.push(`${label}: no KJV text available for overlap check`);
@@ -213,6 +221,16 @@ function main() {
     }
   }
 
+  /* Same setting under 2+ different refs = chapter-band leftover */
+  for (const [setting, refs] of settingToRefs) {
+    const unique = [...new Set(refs)];
+    if (unique.length >= 2) {
+      failures.push(
+        `Setting copy-paste under ${unique.length} refs: ${unique.slice(0, 4).join(' | ')} — "${setting.slice(0, 70)}"`
+      );
+    }
+  }
+
   if (checked < 360) {
     failures.push(`Expected a full hero year (365) or two-year queue (730), only checked ${checked}`);
   }
@@ -232,7 +250,7 @@ function main() {
   console.log(
     'Hero 365 fidelity PASS:',
     checked,
-    'days — speaker/book, wrong-cluster bans, plain paste checks OK.' +
+    'days — speaker/book, wrong-cluster bans, unique setting/plain checks OK.' +
       (warnings.length ? ` (${warnings.length} soft paraphrase notes; set HERO_FIDELITY_VERBOSE=1)` : '')
   );
 }

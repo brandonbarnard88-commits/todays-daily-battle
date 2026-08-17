@@ -377,12 +377,12 @@
         }
       } catch (eCtx) { /* non-fatal */ }
     }
-    /* Prefer live situation always (avoids stale dig-deeper from yesterday’s inject). */
+    /* Prefer this day's curated setting (verse-true). Live context is fallback. */
     if (dayEx && dayEx.about && dayEx.to) {
       return {
         about: sanitizeText(dayEx.about) || liveAbout,
         to: sanitizeText(dayEx.to) || liveTo,
-        setting: liveSit || sanitizeText(dayEx.setting || '')
+        setting: sanitizeText(dayEx.setting || '') || liveSit
       };
     }
     if (liveAbout && liveTo) {
@@ -946,10 +946,13 @@
         liveTo = sanitizeText(hit.to || '');
       }
     } catch (eLive) { /* non-fatal */ }
-    var bestSit = pickBestText(
-      [liveSit, v.setting, snapOk ? snap.situation : ''],
-      scoreSituationLine
-    );
+    var bestSit = sanitizeText(v.setting || '');
+    if (!bestSit) {
+      bestSit = pickBestText(
+        [liveSit, snapOk ? snap.situation : ''],
+        scoreSituationLine
+      );
+    }
     var bestPlain = pickBestText([v.plain, snapOk ? snap.meaning : ''], scoreMeaningLine);
     /* Prefer day-explanation plain/step when integrity re-runs after context loads. */
     applyHeroVotdFromInputs(v, {
@@ -1074,16 +1077,18 @@
       if (situationLooksWrongForRefRuntime(t, v.ref)) return '';
       return t;
     }
-    var situation = pickBestText(
-      [
-        sitForThisRef(ctx.setting || ''),
-        sitForThisRef(sh.situation || ''),
-        sitForThisRef(sh.setting || ''),
-        sitForThisRef(v.setting || ''),
-        sitForThisRef(snapSit)
-      ],
-      scoreSituationLine
-    );
+    var situation = sitForThisRef(v.setting || '');
+    if (!situation) {
+      situation = pickBestText(
+        [
+          sitForThisRef(ctx.setting || ''),
+          sitForThisRef(sh.situation || ''),
+          sitForThisRef(sh.setting || ''),
+          sitForThisRef(snapSit)
+        ],
+        scoreSituationLine
+      );
+    }
     /* Last resort only: speaker-line when nothing longer exists. */
     if (!situation && ctx.about && ctx.to) {
       situation = sanitizeText(ctx.about) + ' speaking to ' + sanitizeText(ctx.to) + '.';

@@ -12,7 +12,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "Paul writes from prison to Philippi: rejoice, do not be anxious, the peace of God guards hearts; contentment in every state through Christ."
+    "setting": "Paul writes from a Roman prison to friends in Philippi. This line is not a boast about every goal — he can face whatever state he is in because Christ strengthens him."
   },
   {
     "ref": "Psalm 23:1",
@@ -21,7 +21,7 @@
     "step": "Leave one worry with God for ten minutes—set a timer if you need to.",
     "about": "David",
     "to": "Anyone who needs a Shepherd",
-    "setting": "David sings of the Lord as his shepherd who leads, restores, protects through the valley, and prepares a table — goodness and mercy all his days."
+    "setting": "David is singing of the Lord as his own shepherd — this first line says he shall not want, because the Shepherd Himself tends him."
   },
   {
     "ref": "Psalm 119:105",
@@ -30,7 +30,7 @@
     "step": "On a walk or dish-wash, turn the verse over in your mind once more.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In the long acrostic love-song to God’s Word, this verse names the Word as a lamp for the feet — light for the next step, not always the whole road."
   },
   {
     "ref": "1 Chronicles 16:34",
@@ -39,7 +39,7 @@
     "step": "Name the fear in one sentence to God, then reread this verse slowly.",
     "about": "The chronicler (with David’s story)",
     "to": "Exiles remembering true worship under David",
-    "setting": "Saul dies; David becomes king; the ark is brought up with worship and thanksgiving."
+    "setting": "The ark has come to Jerusalem; David’s appointed singers give thanks. This verse is the refrain: give thanks, for He is good; His mercy endures forever."
   },
   {
     "ref": "Psalm 46:10",
@@ -48,7 +48,7 @@
     "step": "Sit still for sixty seconds with this verse—phone face down.",
     "about": "The sons of Korah",
     "to": "Anyone in trouble who needs a refuge",
-    "setting": "When the earth shakes and nations rage, this psalm declares God is a present refuge and strength — “be still, and know that I am God.”"
+    "setting": "When the earth shakes and nations rage, this psalm says God is a present refuge — then this line stops the striving: be still, and know that He is God."
   },
   {
     "ref": "Psalm 56:3",
@@ -57,7 +57,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "David is hunted and afraid. This verse is the turn he makes in that hour: when I am afraid, I will trust in You — not later, now."
   },
   {
     "ref": "1 Corinthians 16:13",
@@ -66,7 +66,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "Paul",
     "to": "Corinth needing certainty that Christ is risen",
-    "setting": "The resurrection of Christ and of the dead; final instructions and greetings."
+    "setting": "Paul is closing the Corinth letter after the resurrection chapter. This verse is the watch: stand fast in the faith; be strong."
   },
   {
     "ref": "Psalm 139:14",
@@ -75,7 +75,7 @@
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "David",
     "to": "Anyone who needs to know they are fully known by God",
-    "setting": "David marvels that God searches him, knows him fully, formed him in the womb, and leads him in the everlasting way."
+    "setting": "David marvels that God searches him and formed him in the womb. This line is the wonder: he is fearfully and wonderfully made — not an accident."
   },
   {
     "ref": "Psalm 34:8",
@@ -84,7 +84,7 @@
     "step": "Sit still for one minute and breathe; let this verse be the only noise.",
     "about": "David",
     "to": "Anyone tasting that the Lord is good — and the brokenhearted",
-    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
+    "setting": "David, after escaping Abimelech, teaches the gathered: taste and see that the Lord is good — this is invitation, not a report from far off."
   },
   {
     "ref": "1 John 4:19",
@@ -93,7 +93,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "John",
     "to": "Beloved children learning God’s love",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love."
+    "setting": "John is teaching the church why love is possible at all: we love Him because He first loved us — love starts with God, not with our effort."
   },
   {
     "ref": "Psalm 100:5",
@@ -102,7 +102,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
-    "setting": "A call for all lands to enter the Lord’s gates with thanksgiving and His courts with praise."
+    "setting": "Israel is being called through the gates with thanksgiving. This verse is why: the Lord is good, His mercy everlasting, His truth to all generations."
   },
   {
     "ref": "Psalm 37:4",
@@ -111,7 +111,7 @@
     "step": "Kneel or sit—body still—and ask God to make this word yours today.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "David is teaching people not to fret when the wicked prosper. This verse is the delight: delight yourself also in the Lord, and He will give you the desires of your heart."
   },
   {
     "ref": "1 Peter 5:7",
@@ -120,7 +120,7 @@
     "step": "If you feel empty, ask God to fill the next small task with His help.",
     "about": "Peter",
     "to": "Believers casting care on God under pressure",
-    "setting": "Peter closes his letter: humble yourselves under God’s hand, cast all your care on Him, for He cares for you, and resist the devil."
+    "setting": "Peter is writing to elect exiles under pressure. This verse is the casting: cast all your care on Him, for He cares for you."
   },
   {
     "ref": "Psalm 121:1-2",
@@ -129,7 +129,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "A song of ascents writer",
     "to": "Travelers and anyone needing help from the Lord",
-    "setting": "A song of ascents for travelers: help comes from the Lord who made heaven and earth and never sleeps."
+    "setting": "A pilgrim song on the road up to Jerusalem. This verse lifts the eyes to the hills, then answers: help comes from the Lord, who made heaven and earth."
   },
   {
     "ref": "Psalm 18:2",
@@ -138,7 +138,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David",
     "to": "Anyone delivered after a long fight",
-    "setting": "David’s great victory song after the Lord delivered him from Saul and all enemies."
+    "setting": "David’s great victory song after deliverance from Saul. This verse names the Lord as rock, fortress, and deliverer — the one he runs to."
   },
   {
     "ref": "1 Samuel 17:47",
@@ -147,7 +147,7 @@
     "step": "Replace one anxious loop with this verse for the next five minutes.",
     "about": "David (and the narrator)",
     "to": "Israel facing Goliath — and anyone facing a giant fear",
-    "setting": "David (and the narrator) said this to Israel facing Goliath — and anyone facing a giant fear: David and Goliath."
+    "setting": "David stands before Goliath and Saul’s frozen army. This line is the point of the fight: the battle is the Lord’s, not Israel’s to finish alone."
   },
   {
     "ref": "Psalm 16:11",
@@ -156,7 +156,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "David",
     "to": "Anyone seeking integrity and refuge",
-    "setting": "Who may dwell with God; trust when the world shakes; a plea for protection from the violent."
+    "setting": "David is trusting God with his portion and his cup. This verse is the path: You will show me the path of life; in Your presence is fullness of joy."
   },
   {
     "ref": "Psalm 118:24",
@@ -165,7 +165,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Israel is in the Hallel, thanking the Lord after being rescued. This verse is the day itself: this is the day the Lord has made; we will rejoice and be glad in it."
   },
   {
     "ref": "1 Thessalonians 5:11",
@@ -174,7 +174,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "Thessalonians grieving with hope",
-    "setting": "Comfort about those who sleep in Christ; the day of the Lord; encourage one another."
+    "setting": "Comfort about those who sleep in Christ. This verse says, “Comfort yourselves together, and edify one another.”."
   },
   {
     "ref": "Psalm 46:1",
@@ -183,7 +183,7 @@
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
     "about": "The sons of Korah",
     "to": "Anyone in trouble who needs a refuge",
-    "setting": "When the earth shakes and nations rage, this psalm declares God is a present refuge and strength — “be still, and know that I am God.”"
+    "setting": "The sons of Korah sing while the earth shakes: God is our refuge and strength, a very present help in trouble — not a distant one."
   },
   {
     "ref": "Psalm 27:1",
@@ -192,7 +192,7 @@
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David faces fear of enemies and waits on the Lord as his light and salvation."
+    "setting": "David is seeking the Lord’s face under pressure. This opening line is the light: the Lord is my light and my salvation; whom shall I fear?"
   },
   {
     "ref": "1 Timothy 4:12",
@@ -201,7 +201,7 @@
     "step": "Say the verse once out loud, then name the one weight it meets.",
     "about": "Paul",
     "to": "Timothy (and every young believer)",
-    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus."
+    "setting": "Paul is coaching Timothy how to lead in Ephesus. This verse is the charge: let no one despise your youth; be an example in word, love, and faith."
   },
   {
     "ref": "Psalm 36:7",
@@ -210,7 +210,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "David is contrasting the wicked with God’s mercy. This verse is the refuge: how excellent is Your lovingkindness; the children of men put their trust under Your wings."
   },
   {
     "ref": "Psalm 4:7",
@@ -219,7 +219,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "David",
     "to": "Anyone under attack who still prays",
-    "setting": "David cries out while hunted or opposed; he flees enemies and asks God to rise and judge."
+    "setting": "David is crying out at night while opposed. This verse is the gift: You have put gladness in my heart, more than in the time their grain and wine increased."
   },
   {
     "ref": "2 Corinthians 9:8",
@@ -228,7 +228,7 @@
     "step": "Write a one-line prayer that answers this verse in your own words.",
     "about": "Paul",
     "to": "Corinth learning cheerful generosity",
-    "setting": "Paul urges generous giving for the poor saints."
+    "setting": "Paul is urging Corinth to give generously for the poor saints. This verse is the supply: God is able to make all grace abound, so you have enough for every good work."
   },
   {
     "ref": "Psalm 121:7",
@@ -237,7 +237,7 @@
     "step": "When comparison rises, answer it with one truth from this verse.",
     "about": "A song of ascents writer",
     "to": "Travelers and anyone needing help from the Lord",
-    "setting": "A song of ascents for travelers: help comes from the Lord who made heaven and earth and never sleeps."
+    "setting": "A pilgrim song of ascent on the road up to Jerusalem. This verse is the keeping: the Lord shall preserve you from all evil — He keeps the soul."
   },
   {
     "ref": "2 Thessalonians 3:3",
@@ -246,7 +246,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "Paul",
     "to": "believers in Thessalonica (and you today)",
-    "setting": "Paul steadies a shaken church about the day of the Lord and idle living."
+    "setting": "Paul steadies a shaken church about the day of the Lord and idle living. This verse says, “The Lord is faithful, who shall stablish you, and keep you from.”."
   },
   {
     "ref": "Psalm 91:11",
@@ -255,7 +255,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
     "to": "Those who dwell in the secret place of the Most High",
-    "setting": "A hymn of refuge under the shadow of the Almighty — protection for those who dwell in the secret place of the Most High."
+    "setting": "This is the refuge psalm — dwelling in the secret place of the Most High. This verse says He gives His angels charge over you, to keep you in His ways."
   },
   {
     "ref": "Psalm 34:18",
@@ -264,7 +264,7 @@
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "David",
     "to": "Anyone tasting that the Lord is good — and the brokenhearted",
-    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
+    "setting": "David, after escaping Abimelech, teaches the gathered. This verse is the nearness: the Lord is near to the brokenhearted and saves those of a crushed spirit."
   },
   {
     "ref": "2 Timothy 1:7",
@@ -273,7 +273,7 @@
     "step": "Ask God what one step of obedience looks like before noon.",
     "about": "Paul",
     "to": "Timothy (and every timid heart)",
-    "setting": "Paul said this to Timothy (and every timid heart): Spirit of power and love."
+    "setting": "Paul writes from prison to timid Timothy. This verse names the gift: God has not given a spirit of fear, but of power, love, and a sound mind."
   },
   {
     "ref": "Psalm 27:14",
@@ -282,7 +282,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David faces fear of enemies and waits on the Lord as his light and salvation."
+    "setting": "David has been seeking the Lord’s face under pressure. This verse is the charge he gives his own soul: wait on the Lord; be of good courage."
   },
   {
     "ref": "Psalm 32:8",
@@ -291,7 +291,7 @@
     "step": "Leave one worry with God for ten minutes—set a timer if you need to.",
     "about": "David",
     "to": "The pressured and the repentant",
-    "setting": "David commits his spirit to God under pressure; confession and instruction; a new song of praise."
+    "setting": "David has confessed and been forgiven. This verse is the Lord’s answer: I will instruct you and teach you in the way you should go."
   },
   {
     "ref": "Colossians 3:23",
@@ -300,7 +300,7 @@
     "step": "Sit still for one minute and breathe; let this verse be the only noise.",
     "about": "Paul",
     "to": "Believers setting minds above (and you today)",
-    "setting": "Set minds above; put on love; household codes; prayer and gracious speech."
+    "setting": "Paul is teaching Colosse to set their minds above and put on love. This verse is the work: whatever you do, do it heartily, as to the Lord."
   },
   {
     "ref": "Psalm 37:5",
@@ -309,7 +309,7 @@
     "step": "Name the fear in one sentence to God, then reread this verse slowly.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "David is teaching people not to fret when the wicked prosper. This verse is the commit: commit your way unto the Lord; trust also in Him, and He shall bring it to pass."
   },
   {
     "ref": "Psalm 145:9",
@@ -318,7 +318,7 @@
     "step": "Sit still for sixty seconds with this verse—phone face down.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "David is praising a forever kingdom. This verse is the wideness: the Lord is good to all, and His tender mercies are over all His works."
   },
   {
     "ref": "Ephesians 6:10",
@@ -327,7 +327,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Paul",
     "to": "Believers putting on God’s armor",
-    "setting": "Walk worthy: unity, purity, marriage, and the armor of God against spiritual war."
+    "setting": "Paul — walk worthy: unity, purity, marriage, and the armor of God against spiritual war. This verse says, “Be strong in the Lord, and in the power of his might.”."
   },
   {
     "ref": "Psalm 103:13",
@@ -336,7 +336,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "David is blessing the Lord who forgives and crowns with mercy. This verse is the father-heart: as a father pities his children, so the Lord pities those who fear Him."
   },
   {
     "ref": "Psalm 9:1",
@@ -345,7 +345,7 @@
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "David",
     "to": "The oppressed and those tempted to forget God",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God."
+    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse says, “I will praise you, O Lord, with my whole heart.”."
   },
   {
     "ref": "Galatians 5:22",
@@ -354,7 +354,7 @@
     "step": "End the day by thanking God for one way this verse proved true.",
     "about": "Paul",
     "to": "The churches of Galatia",
-    "setting": "Paul said this to the churches of Galatia: Freedom in Christ."
+    "setting": "Paul is teaching Galatia freedom in the Spirit, not a return to the law. This verse names the fruit: love, joy, peace, and the rest that the Spirit grows."
   },
   {
     "ref": "Psalm 19:14",
@@ -363,7 +363,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "David",
     "to": "Anyone hearing God in sky and Scripture",
-    "setting": "Creation declares God’s glory; His law revives the soul; David prays to be kept from secret faults."
+    "setting": "David has just praised God in the sky and in the law. This last line is the prayer: let the words of my mouth and the meditation of my heart be acceptable."
   },
   {
     "ref": "Psalm 28:7",
@@ -372,7 +372,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David seeks guidance, forgiveness, and help against false friends; the Lord is his light and strength."
+    "setting": "David is crying for help against the wicked. This verse is the turn: the Lord is his strength and shield; his heart trusted, and he is helped."
   },
   {
     "ref": "Hebrews 13:6",
@@ -381,7 +381,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "The writer of Hebrews",
     "to": "Hebrew believers holding faith",
-    "setting": "Hall of faith; run with patience; practical holiness and praise."
+    "setting": "The writer of Hebrews is telling a pressured church how to live. This verse is the bold line: the Lord is my helper, and I will not fear what man can do."
   },
   {
     "ref": "Psalm 31:24",
@@ -390,7 +390,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "David",
     "to": "The pressured and the repentant",
-    "setting": "David commits his spirit to God under pressure; confession and instruction; a new song of praise."
+    "setting": "David commits his spirit to God under pressure. This verse says, “Be of good courage, and he shall strengthen your heart.”."
   },
   {
     "ref": "Psalm 33:4",
@@ -399,7 +399,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "David",
     "to": "The pressured and the repentant",
-    "setting": "David commits his spirit to God under pressure; confession and instruction; a new song of praise."
+    "setting": "David is calling for a new song of praise. This verse is why: the word of the Lord is right, and all His works are done in truth."
   },
   {
     "ref": "Isaiah 41:10",
@@ -408,7 +408,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "Isaiah (the Lord speaking)",
     "to": "Fearful people — and you when fear is loud",
-    "setting": "The Lord comforts fearful Israel in exile: “Fear thou not; for I am with thee” — strength and help from His right hand."
+    "setting": "Isaiah speaks for the Lord to fearful exiles. This line is the hold: fear not, for I am with you — I will strengthen you and uphold you."
   },
   {
     "ref": "Psalm 40:1",
@@ -417,7 +417,7 @@
     "step": "Replace one anxious loop with this verse for the next five minutes.",
     "about": "David",
     "to": "The sick, the guilty, and the waiting",
-    "setting": "David in sickness, sin-awareness, and waiting; Book I closes with the blessedness of the one who considers the poor."
+    "setting": "David has been in the pit and waited. This verse is the waiting: I waited patiently for the Lord, and He inclined unto me and heard my cry."
   },
   {
     "ref": "Psalm 42:11",
@@ -426,7 +426,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "The sons of Korah",
     "to": "Anyone whose soul is downcast",
-    "setting": "Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope."
+    "setting": "The sons of Korah are talking a downcast soul back toward hope. This verse is the self-talk: hope in God, for I shall yet praise Him."
   },
   {
     "ref": "James 1:5",
@@ -435,7 +435,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "James",
     "to": "Scattered believers under trial",
-    "setting": "James said this to Scattered believers under trial: Faith under pressure."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience. This verse says, “If any of you lack wisdom, let him ask of God, that giveth to all.”."
   },
   {
     "ref": "Psalm 55:22",
@@ -444,7 +444,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "In this psalm — david under Saul’s pursuit and Doeg’s betrayal — the line is, “Cast your burden upon the Lord, and he shall sustain you.”."
   },
   {
     "ref": "Psalm 59:16",
@@ -453,7 +453,7 @@
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "David is under Saul’s pursuit. This verse is the morning song: I will sing of Your power; yes, I will sing aloud of Your mercy in the morning."
   },
   {
     "ref": "Jeremiah 29:11",
@@ -462,7 +462,7 @@
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
     "about": "Jeremiah (the word of the Lord)",
     "to": "The exiles in Babylon",
-    "setting": "Kings reject the word; false prophets promise peace; Jeremiah sends a letter to the first exiles."
+    "setting": "Jeremiah writes to exiles in Babylon, not to a people going home tomorrow. This verse is God’s thought toward them: plans of peace, and a future."
   },
   {
     "ref": "Psalm 63:5",
@@ -471,7 +471,7 @@
     "step": "Say the verse once out loud, then name the one weight it meets.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse says, “My soul shall be satisfied as with marrow and fatness; and my mouth.”."
   },
   {
     "ref": "John 14:27",
@@ -480,7 +480,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Jesus",
     "to": "His disciples the night before the cross",
-    "setting": "Jesus said this to His disciples the night before the cross: Upper room comfort."
+    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “Peace I leave with you, my peace I give unto you.”."
   },
   {
     "ref": "Psalm 62:5",
@@ -489,7 +489,7 @@
     "step": "Sit still for sixty seconds with this verse—phone face down.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse says, “My soul, wait you only upon God; for my expectation is from him.”."
   },
   {
     "ref": "Psalm 66:20",
@@ -498,7 +498,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David in that moment. The words are, “Blessed be God, which has not turned away my prayer.”."
   },
   {
     "ref": "Joshua 1:9",
@@ -507,7 +507,7 @@
     "step": "Share one line of this verse with someone who needs steady words.",
     "about": "The Lord",
     "to": "Joshua",
-    "setting": "The Lord said this to Joshua: Charge to Joshua."
+    "setting": "Joshua has just taken command after Moses’ death. This verse is the charge: be strong and of a good courage; the Lord your God is with you wherever you go."
   },
   {
     "ref": "Psalm 68:19",
@@ -516,7 +516,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David in that moment. The words are, “Blessed be the Lord, who daily loadeth us with benefits.”."
   },
   {
     "ref": "Psalm 71:14",
@@ -525,7 +525,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "David",
     "to": "The reproached and the aging who still hope",
-    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord."
+    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse says, “I will hope continually, and will yet praise you more and more.”."
   },
   {
     "ref": "Luke 11:28",
@@ -534,7 +534,7 @@
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "Jesus (through Luke)",
     "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "setting": "A woman has just blessed Jesus’ mother. He answers with this verse: blessed are they that hear the word of God and keep it."
   },
   {
     "ref": "Psalm 73:26",
@@ -543,7 +543,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Asaph",
     "to": "The faithful confused by injustice",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds."
+    "setting": "Asaph in that moment. The words are, “God is the strength of my heart, and my portion for ever.”."
   },
   {
     "ref": "Psalm 86:5",
@@ -552,7 +552,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "David",
     "to": "Anyone poor in spirit who still calls on God",
-    "setting": "David prays for mercy when he is poor and needy; God is good and ready to forgive."
+    "setting": "God is good and ready to forgive. This verse says, “For you, Lord, art good, and ready to forgive.”."
   },
   {
     "ref": "Mark 9:23",
@@ -561,7 +561,7 @@
     "step": "Sit still for sixty seconds with this verse—phone face down.",
     "about": "Jesus (through Mark)",
     "to": "Disciples learning the way of the cross",
-    "setting": "Transfiguration; teaching on greatness and the cross; Jesus heads toward Jerusalem."
+    "setting": "Jesus is in this moment — teaching on greatness and the cross. He says, “All things are possible to him that believeth.”."
   },
   {
     "ref": "Psalm 90:17",
@@ -570,7 +570,7 @@
     "step": "On a walk or dish-wash, turn the verse over in your mind once more.",
     "about": "Moses — a prayer of the man of God",
     "to": "A people numbering their days",
-    "setting": "Moses numbers our short days and asks God to establish the work of our hands."
+    "setting": "Moses numbers our short days and asks God to establish the work of our hands. This verse says, “And let the beauty of the Lord our God be upon us: and establish.”."
   },
   {
     "ref": "Psalm 94:19",
@@ -579,7 +579,7 @@
     "step": "Name the fear in one sentence to God, then reread this verse slowly.",
     "about": "An unnamed psalm of Israel — a cry against unjust thrones, then mercy when the foot slips",
     "to": "Anyone whose footing feels uncertain under pressure",
-    "setting": "A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the Lord’s mercy held him up."
+    "setting": "An unnamed psalm of Israel in that moment. The words are, “In the multitude of my thoughts within me your comforts delight my soul.”."
   },
   {
     "ref": "Matthew 19:14",
@@ -588,7 +588,7 @@
     "step": "Sit still for sixty seconds with this verse—phone face down.",
     "about": "Jesus (through Matthew)",
     "to": "Disciples on the road to the cross",
-    "setting": "Teaching on marriage, riches, and greatness; Jesus sets His face toward Jerusalem."
+    "setting": "Jesus is on the road, blessing children the disciples wanted sent away. This verse is His word: let the little children come; do not forbid them."
   },
   {
     "ref": "Psalm 103:2",
@@ -597,7 +597,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "In this psalm — david blesses the Lord who forgives and crowns with mercy — the line is, “Bless the Lord, O my soul, and forget not all his benefits.”."
   },
   {
     "ref": "Psalm 103:4",
@@ -606,7 +606,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse says, “Who redeemeth your life from destruction.”."
   },
   {
     "ref": "Nahum 1:7",
@@ -615,7 +615,7 @@
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "Nahum",
     "to": "Nineveh under judgment",
-    "setting": "Nineveh’s cruelty will be answered; the Lord is slow to anger and great in power."
+    "setting": "Nahum is announcing judgment on Nineveh’s cruelty. In the same breath this verse says the Lord is good, a strong hold in the day of trouble for those who trust Him."
   },
   {
     "ref": "Psalm 107:1",
@@ -624,7 +624,7 @@
     "step": "End the day by thanking God for one way this verse proved true.",
     "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
     "to": "The redeemed telling what God has done",
-    "setting": "Book V opens: the redeemed from trouble give thanks — desert, prison, sickness, and storm."
+    "setting": "Book V opens: the redeemed from trouble give thanks. This verse says, “O give thanks unto the Lord, for he is good.”."
   },
   {
     "ref": "Psalm 118:6",
@@ -633,7 +633,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Israel’s Hallel in that moment. The words are, “The Lord is on my side; I will not fear.”."
   },
   {
     "ref": "Nehemiah 8:10",
@@ -642,7 +642,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "Ezra and Nehemiah",
     "to": "A people hearing God’s Word again",
-    "setting": "Ezra reads the law; the people weep, then rejoice; they renew the covenant."
+    "setting": "Ezra has read the law; the people are weeping. Nehemiah tells them this day is holy — the joy of the Lord is their strength, not their tears alone."
   },
   {
     "ref": "Psalm 118:14",
@@ -651,7 +651,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "In this psalm — hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.” — the line is, “The Lord is my strength and song.”."
   },
   {
     "ref": "Psalm 119:24",
@@ -660,7 +660,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In this psalm — the great acrostic love-song to God’s Word — the line is, “your testimonies also are my delight and my counsellors.”."
   },
   {
     "ref": "Proverbs 3:5",
@@ -669,7 +669,7 @@
     "step": "Ask forgiveness for one sharp word or thought, then receive mercy.",
     "about": "Solomon giving wisdom",
     "to": "A son (and every reader seeking guidance)",
-    "setting": "Solomon giving wisdom said this to A son (and every reader seeking guidance): Trust in the Lord."
+    "setting": "Solomon is teaching his son the fear of the Lord. This verse is the trust: trust in the Lord with all your heart, and do not lean on your own understanding."
   },
   {
     "ref": "Psalm 119:50",
@@ -678,7 +678,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "Still in the long love-song to God’s Word, this verse is the comfort: this is my comfort in my affliction, for Your word has given me life."
   },
   {
     "ref": "Psalm 119:76",
@@ -687,7 +687,7 @@
     "step": "Replace one anxious loop with this verse for the next five minutes.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "The great acrostic love-song to God’s Word. This verse says, “Let, I pray you, your merciful kindness be for my comfort.”."
   },
   {
     "ref": "Revelation 3:20",
@@ -696,7 +696,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "John (from Jesus Christ)",
     "to": "the seven churches — and every reader",
-    "setting": "John on Patmos sees the risen Christ; letters to seven churches in Asia."
+    "setting": "John on Patmos writes the risen Christ’s letter to Laodicea. This verse is the knock: He stands at the door and knocks; if anyone opens, He will come in."
   },
   {
     "ref": "Psalm 119:165",
@@ -705,7 +705,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In the acrostic love-song to God’s Word, this verse is the peace: great peace have they which love Your law, and nothing shall offend them."
   },
   {
     "ref": "Romans 8:28",
@@ -714,7 +714,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
-    "setting": "Paul teaches believers in Rome about life in the Spirit: no condemnation, adoption, and God working all things for good for those who love Him."
+    "setting": "Paul is teaching Rome about life in the Spirit and a groaning creation. This verse is the working: all things work together for good to them that love God."
   },
   {
     "ref": "Psalm 121:3",
@@ -723,7 +723,7 @@
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "A song of ascents writer",
     "to": "Travelers and anyone needing help from the Lord",
-    "setting": "A song of ascents for travelers: help comes from the Lord who made heaven and earth and never sleeps."
+    "setting": "A song of ascents writer in that moment. The words are, “He will not suffer your foot to be moved.”."
   },
   {
     "ref": "Psalm 121:8",
@@ -732,7 +732,7 @@
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
     "about": "A song of ascents writer",
     "to": "Travelers and anyone needing help from the Lord",
-    "setting": "A song of ascents for travelers: help comes from the Lord who made heaven and earth and never sleeps."
+    "setting": "Still on the ascent road: the Lord shall preserve your going out and your coming in, from this time forth and even forevermore."
   },
   {
     "ref": "Zephaniah 3:17",
@@ -741,7 +741,7 @@
     "step": "Say the verse once out loud, then name the one weight it meets.",
     "about": "Zephaniah",
     "to": "Judah in the day of the Lord",
-    "setting": "The day of the Lord is near; a humble remnant will trust the Lord and rejoice."
+    "setting": "Zephaniah has warned of the day of the Lord. This verse is the remnant’s rest: the Lord in the midst of you is mighty; He will save and rejoice over you."
   },
   {
     "ref": "Psalm 138:3",
@@ -750,7 +750,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "David in that moment. The words are, “In the day when I cried you answeredst me, and strengthenedst me.”."
   },
   {
     "ref": "Psalm 143:8",
@@ -759,7 +759,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "In this psalm — david’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom — the line is, “Cause me to hear your lovingkindness in the morning.”."
   },
   {
     "ref": "1 Corinthians 13:4",
@@ -768,7 +768,7 @@
     "step": "Write a one-line prayer that answers this verse in your own words.",
     "about": "Paul",
     "to": "The church at Corinth learning real love",
-    "setting": "Paul said this to the church at Corinth learning real love: Love chapter."
+    "setting": "Paul — The Lord’s Supper and spiritual gifts. This verse says, “Charity suffereth long, and is kind.”."
   },
   {
     "ref": "Psalm 145:18",
@@ -777,7 +777,7 @@
     "step": "When comparison rises, answer it with one truth from this verse.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "David in that moment. The words are, “The Lord is nigh unto all them that call upon him.”."
   },
   {
     "ref": "Psalm 147:3",
@@ -786,7 +786,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "setting": "Israel’s closing Hallelujah in that moment. The words are, “He healeth the broken in heart, and bindeth up their wounds.”."
   },
   {
     "ref": "1 John 5:11",
@@ -795,7 +795,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "John",
     "to": "Believers holding the record that life is in the Son",
-    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given eternal life in His Son."
+    "setting": "John is writing that eternal life is in the Son. This verse is the record: God has given us eternal life, and this life is in His Son."
   },
   {
     "ref": "Psalm 150:6",
@@ -804,7 +804,7 @@
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "setting": "Israel’s closing Hallelujah in that moment. The words are, “Let every thing that has breath praise the Lord.”."
   },
   {
     "ref": "Psalm 145:16",
@@ -813,7 +813,7 @@
     "step": "End the day by thanking God for one way this verse proved true.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom. This verse says, “you openest your hand, and satisfiest the desire of every living.”."
   },
   {
     "ref": "1 Peter 1:8",
@@ -822,7 +822,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "Peter",
     "to": "believers in suffering and hope",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone."
+    "setting": "Peter — peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse says, “Whom having not seen, you love.”."
   },
   {
     "ref": "Psalm 84:12",
@@ -831,7 +831,7 @@
     "step": "Sit still for sixty seconds with this verse—phone face down.",
     "about": "The sons of Korah",
     "to": "Pilgrims longing for God’s house",
-    "setting": "Longing for God’s courts; mercy and truth meet; the Lord is sun and shield."
+    "setting": "In this psalm — the Lord is sun and shield — the line is, “O Lord of hosts, blessed is the man that trusteth in you.”."
   },
   {
     "ref": "Psalm 4:8",
@@ -840,7 +840,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "David",
     "to": "Anyone under attack who still prays",
-    "setting": "David cries out while hunted or opposed; he flees enemies and asks God to rise and judge."
+    "setting": "In this psalm — david cries out while hunted or opposed — the line is, “I will both lay me down in peace, and sleep: for you, Lord, only.”."
   },
   {
     "ref": "1 Thessalonians 5:16",
@@ -849,7 +849,7 @@
     "step": "Name the fear in one sentence to God, then reread this verse slowly.",
     "about": "Paul",
     "to": "Thessalonians grieving with hope",
-    "setting": "Comfort about those who sleep in Christ; the day of the Lord; encourage one another."
+    "setting": "Paul in that setting. The line is, “Rejoice evermore.”."
   },
   {
     "ref": "Psalm 5:3",
@@ -858,7 +858,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "David",
     "to": "Anyone under attack who still prays",
-    "setting": "David cries out while hunted or opposed; he flees enemies and asks God to rise and judge."
+    "setting": "David in that moment. The words are, “My voice shall you hear in the morning, O Lord.”."
   },
   {
     "ref": "Psalm 6:9",
@@ -867,7 +867,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "David",
     "to": "Anyone under attack who still prays",
-    "setting": "David cries out while hunted or opposed; he flees enemies and asks God to rise and judge."
+    "setting": "David is crying out in trouble and tears. This verse is the turn: the Lord has heard my supplication; the Lord will receive my prayer."
   },
   {
     "ref": "2 Corinthians 5:7",
@@ -876,7 +876,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "Paul",
     "to": "the church at Corinth (and you today)",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth."
+    "setting": "Paul in that setting. The line is, “We walk by faith, not by sight.”."
   },
   {
     "ref": "Psalm 7:10",
@@ -885,7 +885,7 @@
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "David",
     "to": "Anyone under attack who still prays",
-    "setting": "David cries out while hunted or opposed; he flees enemies and asks God to rise and judge."
+    "setting": "In this psalm — david cries out while hunted or opposed — the line is, “My defence is of God, which saveth the upright in heart.”."
   },
   {
     "ref": "Psalm 8:2",
@@ -894,7 +894,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "David",
     "to": "Anyone who feels small under the heavens",
-    "setting": "A night-sky hymn: human frailty set beside God’s majesty and care for people."
+    "setting": "David is looking at the night sky and human smallness. This verse says strength is ordained out of the mouth of babes — praise that stills the enemy."
   },
   {
     "ref": "2 Timothy 2:15",
@@ -903,7 +903,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Paul",
     "to": "Timothy (and every timid heart)",
-    "setting": "Paul’s last letter from prison: fan the gift; endure hardship; preach the word."
+    "setting": "Paul’s last letter from prison: fan the gift. This verse says, “Study to show thyself approved unto God, a workman that needeth not.”."
   },
   {
     "ref": "Psalm 10:17",
@@ -912,7 +912,7 @@
     "step": "Leave one worry with God for ten minutes—set a timer if you need to.",
     "about": "David",
     "to": "The oppressed and those tempted to forget God",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God."
+    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse says, “Lord, you hast heard the desire of the humble: you wilt prepare.”."
   },
   {
     "ref": "Psalm 11:7",
@@ -921,7 +921,7 @@
     "step": "Kneel or sit—body still—and ask God to make this word yours today.",
     "about": "David",
     "to": "The oppressed and those tempted to forget God",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God."
+    "setting": "David in that moment. The words are, “The righteous Lord loveth righteousness.”."
   },
   {
     "ref": "Colossians 3:12",
@@ -930,7 +930,7 @@
     "step": "If you feel empty, ask God to fill the next small task with His help.",
     "about": "Paul",
     "to": "Believers putting on love as God’s chosen ones",
-    "setting": "Paul tells the Colossians to put on mercy and forbear one another, forgiving as Christ forgave them."
+    "setting": "Set minds above; put on love; household codes; prayer and gracious speech. The line on the page is “Put on therefore, as the elect of God, bowels.”."
   },
   {
     "ref": "Psalm 12:6",
@@ -939,7 +939,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "David",
     "to": "The oppressed and those tempted to forget God",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God."
+    "setting": "In this psalm — david sings of God’s justice against oppressors and of the fool who says there is no God — the line is, “The words of the Lord are pure words.”."
   },
   {
     "ref": "Ephesians 2:10",
@@ -948,7 +948,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Paul",
     "to": "Believers saved by grace (and you today)",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and Gentile."
+    "setting": "Paul — paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and. This verse says, “We are his workmanship, created in Christ Jesus unto good works.”."
   },
   {
     "ref": "Psalm 13:5",
@@ -957,7 +957,7 @@
     "step": "Replace one anxious loop with this verse for the next five minutes.",
     "about": "David",
     "to": "The oppressed and those tempted to forget God",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God."
+    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse says, “I have trusted in your mercy.”."
   },
   {
     "ref": "Psalm 14:5",
@@ -966,7 +966,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "David",
     "to": "The oppressed and those tempted to forget God",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God."
+    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. This verse says, “God is in the generation of the righteous.”."
   },
   {
     "ref": "Galatians 6:9",
@@ -975,7 +975,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Paul",
     "to": "Churches learning freedom in the Spirit (and you today)",
-    "setting": "Freedom in the Spirit; fruit of the Spirit; bearing one another’s burdens."
+    "setting": "bearing one another’s burdens. This verse says, “Let us not be weary in well doing: for in due season we shall reap.”."
   },
   {
     "ref": "Psalm 17:6",
@@ -984,7 +984,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "David",
     "to": "Anyone seeking integrity and refuge",
-    "setting": "Who may dwell with God; trust when the world shakes; a plea for protection from the violent."
+    "setting": "In this psalm — who may dwell with God — the line is, “I have called upon you, for you wilt hear me, O God.”."
   },
   {
     "ref": "Psalm 20:4",
@@ -993,7 +993,7 @@
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
     "about": "David",
     "to": "God’s people praying for their leader",
-    "setting": "Royal prayers for the king’s victory and thanksgiving for God’s strength."
+    "setting": "David in that moment. The words are, “Grant you according to your own heart, and fulfil all your counsel.”."
   },
   {
     "ref": "Hebrews 11:1",
@@ -1002,7 +1002,7 @@
     "step": "Kneel or sit—body still—and ask God to make this word yours today.",
     "about": "The writer of Hebrews",
     "to": "Hebrew believers holding faith",
-    "setting": "Hall of faith; run with patience; practical holiness and praise."
+    "setting": "The writer of Hebrews in that setting. The line is, “Faith is the substance of things hoped.”."
   },
   {
     "ref": "Psalm 22:4",
@@ -1020,7 +1020,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David seeks guidance, forgiveness, and help against false friends; the Lord is his light and strength."
+    "setting": "David in that moment. The words are, “show me your ways, O Lord; teach me your paths.”."
   },
   {
     "ref": "Isaiah 40:31",
@@ -1029,7 +1029,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Isaiah (comfort from God) said this to Weary Judah — and anyone waiting on the Lord: Comfort and renewed strength."
+    "setting": "Isaiah is comforting weary exiles that God does not faint. This verse is the renewal: they that wait upon the Lord shall renew their strength."
   },
   {
     "ref": "Psalm 25:5",
@@ -1038,7 +1038,7 @@
     "step": "Write a one-line prayer that answers this verse in your own words.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David seeks guidance, forgiveness, and help against false friends; the Lord is his light and strength."
+    "setting": "David seeks guidance, forgiveness, and help against false friends. This verse says, “Lead me in your truth, and teach me: for you art the God of my salvation.”."
   },
   {
     "ref": "Psalm 26:1",
@@ -1047,7 +1047,7 @@
     "step": "When comparison rises, answer it with one truth from this verse.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David seeks guidance, forgiveness, and help against false friends; the Lord is his light and strength."
+    "setting": "David in that moment. The words are, “I have trusted also in the Lord; therefore I shall not slide.”."
   },
   {
     "ref": "James 1:17",
@@ -1056,7 +1056,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "James",
     "to": "Scattered believers under trial",
-    "setting": "James said this to Scattered believers under trial: Faith under pressure."
+    "setting": "James in that setting. The line is, “Every good gift and every perfect gift is from above.”."
   },
   {
     "ref": "Psalm 29:11",
@@ -1065,7 +1065,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "David",
     "to": "Worshipers hearing God’s power and mercy",
-    "setting": "The voice of the Lord over the waters; David thanks God for lifting him from the pit."
+    "setting": "The voice of the Lord over the waters. This verse says, “The Lord will give strength unto his people; the Lord will bless.”."
   },
   {
     "ref": "Psalm 30:5",
@@ -1074,7 +1074,7 @@
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "David",
     "to": "Worshipers hearing God’s power and mercy",
-    "setting": "The voice of the Lord over the waters; David thanks God for lifting him from the pit."
+    "setting": "The voice of the Lord over the waters. This verse says, “Weeping may endure for a night, but joy comes in the morning.”."
   },
   {
     "ref": "Jeremiah 17:7",
@@ -1083,7 +1083,7 @@
     "step": "End the day by thanking God for one way this verse proved true.",
     "about": "Jeremiah",
     "to": "A prophet under pressure",
-    "setting": "Jeremiah faces plots, loneliness, and the cost of speaking God’s word."
+    "setting": "Jeremiah — jeremiah faces plots, loneliness, and the cost of speaking God’s word. This verse says, “Blessed is the man that trusteth in the Lord.”."
   },
   {
     "ref": "Psalm 31:3",
@@ -1092,7 +1092,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "David",
     "to": "The pressured and the repentant",
-    "setting": "David commits his spirit to God under pressure; confession and instruction; a new song of praise."
+    "setting": "David is committing himself to God under pressure. This verse is the rock: You are my rock and my fortress; therefore for Your name’s sake lead me and guide me."
   },
   {
     "ref": "Psalm 33:18",
@@ -1101,7 +1101,7 @@
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
     "about": "David",
     "to": "The pressured and the repentant",
-    "setting": "David commits his spirit to God under pressure; confession and instruction; a new song of praise."
+    "setting": "In this psalm — david commits his spirit to God under pressure — the line is, “Behold, the eye of the Lord is upon them that fear him.”."
   },
   {
     "ref": "John 3:16",
@@ -1110,7 +1110,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "Jesus",
     "to": "Nicodemus (and every seeker of new birth)",
-    "setting": "At night in Jerusalem, Jesus teaches Nicodemus that new birth by the Spirit and faith in the lifted-up Son bring eternal life."
+    "setting": "Jesus is talking with Nicodemus at night about new birth. This verse is the heart of it: God so loved the world that He gave His only Son."
   },
   {
     "ref": "Psalm 34:4",
@@ -1119,7 +1119,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "David",
     "to": "Anyone tasting that the Lord is good — and the brokenhearted",
-    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
+    "setting": "David in that moment. The words are, “I sought the Lord, and he heard me, and delivered me from all my fears.”."
   },
   {
     "ref": "Psalm 34:7",
@@ -1128,7 +1128,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "David",
     "to": "Anyone tasting that the Lord is good — and the brokenhearted",
-    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
+    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good. The line on the page is “The angel of the Lord encampeth round about.”."
   },
   {
     "ref": "Luke 1:37",
@@ -1137,7 +1137,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "Gabriel (and ultimately God)",
     "to": "Mary",
-    "setting": "Gabriel (and ultimately God) said this to Mary: Annunciation."
+    "setting": "On that day — births of John and Jesus; — He says with God nothing shall be impossible."
   },
   {
     "ref": "Psalm 34:9",
@@ -1146,7 +1146,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "David",
     "to": "Anyone tasting that the Lord is good — and the brokenhearted",
-    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
+    "setting": "In this psalm — david, after escaping Abimelech, teaches: taste and see that the Lord is good — the line is, “O fear the Lord, ye his saints: for there is no want to them that.”."
   },
   {
     "ref": "Psalm 35:9",
@@ -1155,7 +1155,7 @@
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "In this psalm — delight in the Lord — the line is, “And my soul shall be joyful in the Lord.”."
   },
   {
     "ref": "Mark 10:27",
@@ -1164,7 +1164,7 @@
     "step": "End the day by thanking God for one way this verse proved true.",
     "about": "Jesus (through Mark)",
     "to": "Disciples learning the way of the cross",
-    "setting": "Transfiguration; teaching on greatness and the cross; Jesus heads toward Jerusalem."
+    "setting": "teaching on greatness and the cross This verse says, “With God all things are possible.”."
   },
   {
     "ref": "Psalm 36:5",
@@ -1173,7 +1173,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "delight in the Lord. This verse says, “your mercy, O Lord, is in the heavens.”."
   },
   {
     "ref": "Matthew 6:26",
@@ -1182,7 +1182,7 @@
     "step": "Leave one worry with God for ten minutes—set a timer if you need to.",
     "about": "Jesus",
     "to": "His disciples who worry about tomorrow",
-    "setting": "Jesus said this to His disciples who worry about tomorrow: Do not be anxious."
+    "setting": "Jesus is on the mount teaching people not to worry. This verse points at the birds: your heavenly Father feeds them — you are worth more than they."
   },
   {
     "ref": "Psalm 37:3",
@@ -1191,7 +1191,7 @@
     "step": "Name the fear in one sentence to God, then reread this verse slowly.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "In this psalm — delight in the Lord — the line is, “Trust in the Lord, and do good; so shall you dwell in the land.”."
   },
   {
     "ref": "Psalm 37:7",
@@ -1200,7 +1200,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "David in that moment. The words are, “Rest in the Lord, and wait patiently for him.”."
   },
   {
     "ref": "Philippians 4:6",
@@ -1209,7 +1209,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Paul",
     "to": "Believers learning prayer instead of worry",
-    "setting": "Paul writes from prison to Philippi: rejoice, do not be anxious, the peace of God guards hearts; contentment in every state through Christ."
+    "setting": "Paul writes from prison: do not be anxious — in everything, by prayer and thanksgiving, let your requests be made known to God."
   },
   {
     "ref": "Psalm 37:23",
@@ -1218,7 +1218,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "David in that moment. The words are, “The steps of a good man are ordered by the Lord.”."
   },
   {
     "ref": "Psalm 37:25",
@@ -1227,7 +1227,7 @@
     "step": "Replace one anxious loop with this verse for the next five minutes.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "In this psalm — david prays against unjust attackers — the line is, “I have been young, and now am old.”."
   },
   {
     "ref": "Proverbs 17:22",
@@ -1236,7 +1236,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Solomon giving wisdom — short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse says, “A merry heart doeth good like a medicine.”."
   },
   {
     "ref": "Psalm 37:39",
@@ -1245,7 +1245,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "David in that moment. The words are, “The salvation of the righteous is of the Lord: he is their strength.”."
   },
   {
     "ref": "Psalm 40:3",
@@ -1254,7 +1254,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "David",
     "to": "The sick, the guilty, and the waiting",
-    "setting": "David in sickness, sin-awareness, and waiting; Book I closes with the blessedness of the one who considers the poor."
+    "setting": "In this psalm — david in sickness, sin-awareness, and waiting — the line is, “And he has put a new song in my mouth, even praise unto our God.”."
   },
   {
     "ref": "Romans 15:13",
@@ -1263,7 +1263,7 @@
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Paul in that setting. The line is, “The God of hope fill you with all joy and peace.”."
   },
   {
     "ref": "Psalm 40:4",
@@ -1272,7 +1272,7 @@
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
     "about": "David",
     "to": "The sick, the guilty, and the waiting",
-    "setting": "David in sickness, sin-awareness, and waiting; Book I closes with the blessedness of the one who considers the poor."
+    "setting": "David in that moment. The words are, “Blessed is that man that maketh the Lord his trust.”."
   },
   {
     "ref": "Psalm 41:1",
@@ -1281,7 +1281,7 @@
     "step": "Say the verse once out loud, then name the one weight it meets.",
     "about": "David",
     "to": "The sick, the guilty, and the waiting",
-    "setting": "David in sickness, sin-awareness, and waiting; Book I closes with the blessedness of the one who considers the poor."
+    "setting": "David in that moment. The words are, “Blessed is he that considereth the poor: the Lord will deliver him.”."
   },
   {
     "ref": "1 Corinthians 13:13",
@@ -1290,7 +1290,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "Paul",
     "to": "The church at Corinth learning real love",
-    "setting": "Paul said this to the church at Corinth learning real love: Love chapter."
+    "setting": "The Lord’s Supper and spiritual gifts. This verse says, “And now abideth faith, hope, charity, these three; but the greatest.”."
   },
   {
     "ref": "Psalm 43:3",
@@ -1299,7 +1299,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "The sons of Korah",
     "to": "Anyone whose soul is cast down",
-    "setting": "Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope."
+    "setting": "In this psalm — sons of Korah: a downcast soul thirsts for God and talks itself back toward hope — the line is, “O send out your light and your truth: let them lead me.”."
   },
   {
     "ref": "Psalm 43:4",
@@ -1308,7 +1308,7 @@
     "step": "Write a one-line prayer that answers this verse in your own words.",
     "about": "The sons of Korah",
     "to": "Anyone whose soul is cast down",
-    "setting": "Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope."
+    "setting": "The sons of Korah in that moment. The words are, “Then will I go unto the altar of God, unto God my exceeding joy.”."
   },
   {
     "ref": "1 John 3:1",
@@ -1317,7 +1317,7 @@
     "step": "When comparison rises, answer it with one truth from this verse.",
     "about": "John",
     "to": "Beloved children learning they are God’s sons",
-    "setting": "John marvels that the Father calls us children of God, and says real love must show in deed and truth—not in word only."
+    "setting": "John in that setting. The line is, “Behold, what manner of love the Father has bestowed upon us.”."
   },
   {
     "ref": "Psalm 44:8",
@@ -1326,7 +1326,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "The sons of Korah",
     "to": "Worshipers in joy and national distress",
-    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
+    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse says, “In God we boast all the day long, and praise your name for ever.”."
   },
   {
     "ref": "Psalm 46:7",
@@ -1335,7 +1335,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "The sons of Korah",
     "to": "Anyone in trouble who needs a refuge",
-    "setting": "When the earth shakes and nations rage, this psalm declares God is a present refuge and strength — “be still, and know that I am God.”"
+    "setting": "The sons of Korah sing while nations rage. This verse is the refrain: the Lord of hosts is with us; the God of Jacob is our refuge."
   },
   {
     "ref": "1 Peter 2:9",
@@ -1344,7 +1344,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Peter",
     "to": "believers in suffering and hope",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone."
+    "setting": "Peter in that setting. The line is, “Ye are a chosen generation, a royal priesthood, an holy nation.”."
   },
   {
     "ref": "Psalm 47:1",
@@ -1353,7 +1353,7 @@
     "step": "End the day by thanking God for one way this verse proved true.",
     "about": "The sons of Korah",
     "to": "Worshipers in joy and national distress",
-    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
+    "setting": "The sons of Korah in that moment. The words are, “O clap your hands, all ye people; shout unto God with the voice of.”."
   },
   {
     "ref": "Psalm 48:14",
@@ -1362,7 +1362,7 @@
     "step": "Say the verse once out loud, then name the one weight it meets.",
     "about": "The sons of Korah",
     "to": "Worshipers in joy and national distress",
-    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
+    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse says, “For this God is our God for ever and ever: he will be our guide.”."
   },
   {
     "ref": "1 Thessalonians 5:17",
@@ -1371,7 +1371,7 @@
     "step": "Ask forgiveness for one sharp word or thought, then receive mercy.",
     "about": "Paul",
     "to": "Thessalonians grieving with hope",
-    "setting": "Comfort about those who sleep in Christ; the day of the Lord; encourage one another."
+    "setting": "Comfort about those who sleep in Christ. This verse says, “Pray without ceasing.”."
   },
   {
     "ref": "Psalm 50:15",
@@ -1389,7 +1389,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "David",
     "to": "God — and any heart needing mercy after failure",
-    "setting": "After Nathan confronts David about Bathsheba, David pleads for mercy, a clean heart, and restored joy."
+    "setting": "David in that moment. The words are, “Create in me a clean heart, O God; and renew a right spirit within.”."
   },
   {
     "ref": "2 Corinthians 12:9",
@@ -1398,7 +1398,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "Paul",
     "to": "Believers learning strength in weakness",
-    "setting": "Paul said this to Believers learning strength in weakness: Thorn and grace."
+    "setting": "Paul in that setting. The line is, “My grace is sufficient for you: for my strength is made perfect in.”."
   },
   {
     "ref": "Psalm 52:8",
@@ -1407,7 +1407,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "David is answering Doeg’s betrayal. This verse is the contrast: I am like a green olive tree in the house of God; I trust in His mercy forever."
   },
   {
     "ref": "Colossians 3:20",
@@ -1416,7 +1416,7 @@
     "step": "Ask forgiveness for one sharp word or thought, then receive mercy.",
     "about": "Paul",
     "to": "Believers setting minds above (and you today)",
-    "setting": "Set minds above; put on love; household codes; prayer and gracious speech."
+    "setting": "Paul — set minds above; put on love; household codes; prayer and gracious speech. This verse says, “Children, obey your parents in all things: for this is well pleasing.”."
   },
   {
     "ref": "Psalm 54:4",
@@ -1425,7 +1425,7 @@
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "David in that moment. The words are, “Behold, God is mine helper: the Lord is with them that uphold my soul.”."
   },
   {
     "ref": "Psalm 55:16",
@@ -1434,7 +1434,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "David in that moment. The words are, “As for me, I will call upon God; and the Lord shall save me.”."
   },
   {
     "ref": "Ephesians 4:32",
@@ -1452,7 +1452,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "David in that moment. The words are, “In God I will praise his word, in God I have put my trust; I will.”."
   },
   {
     "ref": "Psalm 57:2",
@@ -1461,7 +1461,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse says, “I will cry unto God most high; unto God that performeth all things.”."
   },
   {
     "ref": "Hebrews 4:16",
@@ -1470,7 +1470,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "The writer of Hebrews",
     "to": "Hebrew believers holding fast to Christ",
-    "setting": "A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old priesthood."
+    "setting": "The writer of Hebrews — a sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old priesthood. This verse says, “Let us therefore come boldly unto the throne of grace.”."
   },
   {
     "ref": "Psalm 59:9",
@@ -1479,7 +1479,7 @@
     "step": "Share one line of this verse with someone who needs steady words.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "In this psalm — david under Saul’s pursuit and Doeg’s betrayal — the line is, “Because of his strength will I wait upon you: for God is my defence.”."
   },
   {
     "ref": "Psalm 59:17",
@@ -1488,7 +1488,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse says, “Unto you, O my strength, will I sing: for God is my defence.”."
   },
   {
     "ref": "Isaiah 26:3",
@@ -1497,7 +1497,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "Isaiah",
     "to": "A people under threat who need God to reign",
-    "setting": "Judgment and joy; a highway of holiness; God defends Zion."
+    "setting": "God defends Zion. This verse says, “you wilt keep him in perfect peace, whose mind is stayed on you.”."
   },
   {
     "ref": "Psalm 61:3",
@@ -1506,7 +1506,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "In this psalm — david seeks higher rock, waits on God alone, and leads joyful processions of praise — the line is, “For you hast been a shelter for me, and a strong tower from the enemy.”."
   },
   {
     "ref": "Psalm 62:1",
@@ -1515,7 +1515,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David in that moment. The words are, “Truly my soul waiteth upon God: from him comes my salvation.”."
   },
   {
     "ref": "James 4:8",
@@ -1524,7 +1524,7 @@
     "step": "Replace one anxious loop with this verse for the next five minutes.",
     "about": "James",
     "to": "scattered believers under trial",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience. This verse says, “Draw nigh to God, and he will draw nigh to you.”."
   },
   {
     "ref": "Psalm 62:6",
@@ -1533,7 +1533,7 @@
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "In this psalm — david seeks higher rock, waits on God alone, and leads joyful processions of praise — the line is, “He only is my rock and my salvation: he is my defence.”."
   },
   {
     "ref": "Psalm 63:1",
@@ -1542,7 +1542,7 @@
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David in that moment. The words are, “O God, you art my God; early will I seek you.”."
   },
   {
     "ref": "Jeremiah 31:3",
@@ -1551,7 +1551,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "Jeremiah",
     "to": "Broken people promised restoration",
-    "setting": "Promises of a new covenant written on the heart."
+    "setting": "Promises of a new covenant written on the heart. This verse says, “I have loved you with an everlasting love.”."
   },
   {
     "ref": "Psalm 63:3",
@@ -1560,7 +1560,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "In this psalm — david seeks higher rock, waits on God alone, and leads joyful processions of praise — the line is, “Because your lovingkindness is better than life, my lips shall.”."
   },
   {
     "ref": "Psalm 64:10",
@@ -1569,7 +1569,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David in that moment. The words are, “The righteous shall be glad in the Lord, and shall trust in him.”."
   },
   {
     "ref": "John 1:12",
@@ -1578,7 +1578,7 @@
     "step": "Write a one-line prayer that answers this verse in your own words.",
     "about": "John the apostle",
     "to": "Readers meeting the Word made flesh",
-    "setting": "John the apostle said this to Readers meeting the Word made flesh: Prologue."
+    "setting": "On that day — water becomes wine at Cana — the words are, “As many as received him, to them gave he power to become the sons.”."
   },
   {
     "ref": "Psalm 65:4",
@@ -1587,7 +1587,7 @@
     "step": "When comparison rises, answer it with one truth from this verse.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David in that moment. The words are, “Blessed is the man whom you choosest, and causest to approach unto.”."
   },
   {
     "ref": "Psalm 66:8",
@@ -1596,7 +1596,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse says, “O bless our God, ye people, and make the voice of his praise to be.”."
   },
   {
     "ref": "Luke 6:31",
@@ -1605,7 +1605,7 @@
     "step": "If you feel empty, ask God to fill the next small task with His help.",
     "about": "Jesus (through Luke)",
     "to": "Disciples learning to follow",
-    "setting": "Calling disciples; healings; the Twelve sent; the Transfiguration; the turn toward Jerusalem."
+    "setting": "Jesus is in this moment — the turn toward Jerusalem. He says, “As ye would that men should do to you, do ye also to them likewise.”."
   },
   {
     "ref": "Psalm 67:1",
@@ -1614,7 +1614,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David in that moment. The words are, “God be merciful unto us, and bless us; and cause his face to shine.”."
   },
   {
     "ref": "Psalm 69:32",
@@ -1623,7 +1623,7 @@
     "step": "Ask God what one step of obedience looks like before noon.",
     "about": "David",
     "to": "The reproached and the aging who still hope",
-    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord."
+    "setting": "In this psalm — deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord — the line is, “The humble shall see this, and be glad: and your heart shall live.”."
   },
   {
     "ref": "Mark 11:24",
@@ -1632,7 +1632,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "Jesus",
     "to": "His disciples learning faith and prayer",
-    "setting": "Jesus said this to His disciples learning faith and prayer: Faith and prayer."
+    "setting": "Olivet discourse This verse says, “What things soever ye desire, when ye pray, believe that ye receive.”."
   },
   {
     "ref": "Psalm 70:4",
@@ -1641,7 +1641,7 @@
     "step": "Leave one worry with God for ten minutes—set a timer if you need to.",
     "about": "David",
     "to": "The reproached and the aging who still hope",
-    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord."
+    "setting": "David in that moment. The words are, “Let all those that seek you rejoice and be glad in you.”."
   },
   {
     "ref": "Matthew 5:16",
@@ -1650,7 +1650,7 @@
     "step": "On a walk or dish-wash, turn the verse over in your mind once more.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The line on the page is “Let your light so shine before men.”."
   },
   {
     "ref": "Psalm 71:5",
@@ -1659,7 +1659,7 @@
     "step": "Name the fear in one sentence to God, then reread this verse slowly.",
     "about": "David",
     "to": "The reproached and the aging who still hope",
-    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord."
+    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse says, “For you art my hope, O Lord God: you art my trust from my youth.”."
   },
   {
     "ref": "Psalm 71:8",
@@ -1668,7 +1668,7 @@
     "step": "Sit still for sixty seconds with this verse—phone face down.",
     "about": "David",
     "to": "The reproached and the aging who still hope",
-    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord."
+    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord. This verse says, “Let my mouth be filled with your praise and with your honour all the day.”."
   },
   {
     "ref": "Philippians 4:7",
@@ -1677,7 +1677,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "Paul",
     "to": "Believers learning prayer instead of worry",
-    "setting": "Paul writes from prison to Philippi: rejoice, do not be anxious, the peace of God guards hearts; contentment in every state through Christ."
+    "setting": "Still in the prison letter to Philippi: after prayer, the peace of God will keep hearts and minds — a guard, not a mood."
   },
   {
     "ref": "Psalm 72:18",
@@ -1695,7 +1695,7 @@
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "Asaph",
     "to": "The faithful confused by injustice",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds."
+    "setting": "In this psalm — asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds — the line is, “For God is my King of old, working salvation in the midst of the earth.”."
   },
   {
     "ref": "Proverbs 22:6",
@@ -1704,7 +1704,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Solomon giving wisdom in that setting. The line is, “Train up a child in the way he should go.”."
   },
   {
     "ref": "Psalm 75:1",
@@ -1713,7 +1713,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "Asaph",
     "to": "The faithful confused by injustice",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds."
+    "setting": "Asaph in that moment. The words are, “Unto you, O God, do we give thanks, unto you do we give thanks.”."
   },
   {
     "ref": "Psalm 76:4",
@@ -1722,7 +1722,7 @@
     "step": "Ask forgiveness for one sharp word or thought, then receive mercy.",
     "about": "Asaph",
     "to": "The faithful confused by injustice",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds."
+    "setting": "Asaph in that moment. The words are, “you art more glorious and excellent than the mountains of prey.”."
   },
   {
     "ref": "Romans 8:38-39",
@@ -1731,7 +1731,7 @@
     "step": "Kneel or sit—body still—and ask God to make this word yours today.",
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
-    "setting": "Paul teaches believers in Rome about life in the Spirit: no condemnation, adoption, and God working all things for good for those who love Him."
+    "setting": "Paul — no condemnation for those in Christ. This verse says, “For I am persuaded, that neither death, nor life, nor angels, nor.”."
   },
   {
     "ref": "Psalm 77:14",
@@ -1740,7 +1740,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Asaph",
     "to": "The faithful confused by injustice",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds."
+    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse says, “you art the God that doest wonders: you hast declared your strength.”."
   },
   {
     "ref": "Psalm 78:4",
@@ -1749,7 +1749,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Asaph",
     "to": "A people needing to remember and return",
-    "setting": "Israel’s history retold as warning; Jerusalem under threat; a cry for God to act against enemies."
+    "setting": "Asaph in that moment. The words are, “We will not hide them from their children, shewing to the generation.”."
   },
   {
     "ref": "1 John 4:4",
@@ -1767,7 +1767,7 @@
     "step": "Replace one anxious loop with this verse for the next five minutes.",
     "about": "Asaph",
     "to": "A people needing to remember and return",
-    "setting": "Israel’s history retold as warning; Jerusalem under threat; a cry for God to act against enemies."
+    "setting": "Asaph in that moment. The words are, “So we your people and sheep of your pasture will give you thanks for ever.”."
   },
   {
     "ref": "Psalm 80:3",
@@ -1776,7 +1776,7 @@
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
     "about": "Asaph",
     "to": "A people needing to remember and return",
-    "setting": "Israel’s history retold as warning; Jerusalem under threat; a cry for God to act against enemies."
+    "setting": "In this psalm — israel’s history retold as warning — the line is, “Turn us again, O God, and cause your face to shine; and we shall be.”."
   },
   {
     "ref": "1 Peter 3:15",
@@ -1785,7 +1785,7 @@
     "step": "On a walk or dish-wash, turn the verse over in your mind once more.",
     "about": "Peter",
     "to": "Believers casting care on God",
-    "setting": "Household life, suffering for righteousness, casting care on God, resisting the devil."
+    "setting": "Household life, suffering for righteousness, casting care on God, resisting the devil. This verse says, “Sanctify the Lord God in your hearts: and be ready always to give.”."
   },
   {
     "ref": "Psalm 81:10",
@@ -1794,7 +1794,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Asaph",
     "to": "A people needing to remember and return",
-    "setting": "Israel’s history retold as warning; Jerusalem under threat; a cry for God to act against enemies."
+    "setting": "Asaph in that moment. The words are, “I am the Lord your God, which brought you out of the land of Egypt:.”."
   },
   {
     "ref": "Psalm 82:3",
@@ -1803,7 +1803,7 @@
     "step": "Share one line of this verse with someone who needs steady words.",
     "about": "Asaph",
     "to": "A people needing to remember and return",
-    "setting": "Israel’s history retold as warning; Jerusalem under threat; a cry for God to act against enemies."
+    "setting": "In this psalm — israel’s history retold as warning — the line is, “Defend the poor and fatherless: do justice to the afflicted and needy.”."
   },
   {
     "ref": "Ephesians 3:20",
@@ -1812,7 +1812,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "Paul",
     "to": "believers in Ephesus (and you today)",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and Gentile."
+    "setting": "Paul writes from prison about the riches of Christ in the church. This verse is the overflow: He is able to do exceeding abundantly above all we ask or think."
   },
   {
     "ref": "Psalm 84:11",
@@ -1821,7 +1821,7 @@
     "step": "Say the verse once out loud, then name the one weight it meets.",
     "about": "The sons of Korah",
     "to": "Pilgrims longing for God’s house",
-    "setting": "Longing for God’s courts; mercy and truth meet; the Lord is sun and shield."
+    "setting": "the Lord is sun and shield. This verse says, “For the Lord God is a sun and shield: the Lord will give grace and glory.”."
   },
   {
     "ref": "Psalm 85:6",
@@ -1830,7 +1830,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "The sons of Korah",
     "to": "Pilgrims longing for God’s house",
-    "setting": "Longing for God’s courts; mercy and truth meet; the Lord is sun and shield."
+    "setting": "In this psalm — the Lord is sun and shield — the line is, “Wilt you not revive us again: that your people may rejoice in you.”."
   },
   {
     "ref": "Hebrews 10:23",
@@ -1839,7 +1839,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "The writer of Hebrews",
     "to": "Believers tempted to shrink back",
-    "setting": "Jesus the high priest after Melchizedek; a better covenant; draw near with boldness."
+    "setting": "The writer of Hebrews — Jesus the high priest after Melchizedek. This verse says, “Let us hold fast the profession of our faith without wavering.”."
   },
   {
     "ref": "Psalm 86:15",
@@ -1848,7 +1848,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "David",
     "to": "Anyone poor in spirit who still calls on God",
-    "setting": "David prays for mercy when he is poor and needy; God is good and ready to forgive."
+    "setting": "David is poor and needy, asking for mercy. This verse names who God is: a God full of compassion, gracious, longsuffering, and plenteous in mercy and truth."
   },
   {
     "ref": "Psalm 87:3",
@@ -1866,7 +1866,7 @@
     "step": "Text one line of this verse to someone who needs steady words.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "Isaiah in that setting. The line is, “When you passest through the waters, I will be with you.”."
   },
   {
     "ref": "Psalm 88:13",
@@ -1884,7 +1884,7 @@
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "Jesus (through John)",
     "to": "Crowds seeking signs — and disciples needing real food",
-    "setting": "Healing at Bethesda; feeding the five thousand; Bread of Life discourse."
+    "setting": "On that day — bread of Life discourse — the words are, “I am the bread of life: he that comes to me shall never hunger.”."
   },
   {
     "ref": "Psalm 89:1",
@@ -1893,7 +1893,7 @@
     "step": "Ask God what one step of obedience looks like before noon.",
     "about": "Ethan the Ezrahite",
     "to": "Those clinging to God’s promise when it looks broken",
-    "setting": "Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy."
+    "setting": "Ethan the Ezrahite in that moment. The words are, “I will sing of the mercies of the Lord for ever.”."
   },
   {
     "ref": "Psalm 89:15",
@@ -1902,7 +1902,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "Ethan the Ezrahite",
     "to": "Those clinging to God’s promise when it looks broken",
-    "setting": "Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy."
+    "setting": "In this psalm — ethan wrestles with the seeming failure of David’s line while still singing God’s mercy — the line is, “Blessed is the people that know the joyful sound: they shall walk, O.”."
   },
   {
     "ref": "Luke 6:38",
@@ -1911,7 +1911,7 @@
     "step": "Leave one worry with God for ten minutes—set a timer if you need to.",
     "about": "Jesus (through Luke)",
     "to": "Disciples learning to follow",
-    "setting": "Calling disciples; healings; the Twelve sent; the Transfiguration; the turn toward Jerusalem."
+    "setting": "the turn toward Jerusalem This verse says, “Give, and it shall be given unto you; good measure, pressed down.”."
   },
   {
     "ref": "Psalm 90:2",
@@ -1920,7 +1920,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "Moses — a prayer of the man of God",
     "to": "A people numbering their days",
-    "setting": "Moses numbers our short days and asks God to establish the work of our hands."
+    "setting": "Moses numbers our short days and asks God to establish the work of our hands. This verse says, “Before the mountains were brought forth, or ever you hadst formed.”."
   },
   {
     "ref": "Psalm 90:14",
@@ -1929,7 +1929,7 @@
     "step": "Name the fear in one sentence to God, then reread this verse slowly.",
     "about": "Moses — a prayer of the man of God",
     "to": "A people numbering their days",
-    "setting": "Moses numbers our short days and asks God to establish the work of our hands."
+    "setting": "Moses numbers our short days and asks God to establish the work of our hands. This verse says, “O satisfy us early with your mercy; that we may rejoice and be glad.”."
   },
   {
     "ref": "Matthew 11:28",
@@ -1938,7 +1938,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "Jesus",
     "to": "The weary and heavy laden",
-    "setting": "Jesus said this to the weary and heavy laden: Come unto Me."
+    "setting": "Jesus invites the weary to rest This verse says, “Come unto me, all ye that labour, and I will give you rest.”."
   },
   {
     "ref": "Psalm 91:1",
@@ -1947,7 +1947,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
     "to": "Those who dwell in the secret place of the Most High",
-    "setting": "A hymn of refuge under the shadow of the Almighty — protection for those who dwell in the secret place of the Most High."
+    "setting": "This is the refuge hymn — dwelling in the secret place of the Most High. This verse says the one who lives there stays under the shadow of the Almighty."
   },
   {
     "ref": "Psalm 91:2",
@@ -1956,7 +1956,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
     "to": "Those who dwell in the secret place of the Most High",
-    "setting": "A hymn of refuge under the shadow of the Almighty — protection for those who dwell in the secret place of the Most High."
+    "setting": "A hymn of refuge under the shadow of the Almighty. This verse says, “I will say of the Lord, He is my refuge and my fortress: my God; in.”."
   },
   {
     "ref": "Philippians 1:6",
@@ -1965,7 +1965,7 @@
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "Paul said this to the church at Philippi (and you today): Letter from prison."
+    "setting": "Paul — Christ is preached. This verse says, “He which has begun a good work in you will perform it until the day.”."
   },
   {
     "ref": "Psalm 92:1",
@@ -1974,7 +1974,7 @@
     "step": "End the day by thanking God for one way this verse proved true.",
     "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
     "to": "Worshipers giving thanks for God’s works",
-    "setting": "A Sabbath song of thanksgiving in Israel’s worship: the psalmist praises the Lord because His works make the heart glad, the wicked will not last, and the righteous still flourish in old age."
+    "setting": "A Sabbath song in Israel’s worship in that moment. The words are, “It is a good thing to give thanks unto the Lord, and to sing.”."
   },
   {
     "ref": "Psalm 92:4",
@@ -1983,7 +1983,7 @@
     "step": "Name one work of God you can see this week — then thank Him for it out loud.",
     "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
     "to": "Worshipers giving thanks for God’s works",
-    "setting": "A Sabbath song of thanksgiving in Israel’s worship: the psalmist praises the Lord because His works make the heart glad, the wicked will not last, and the righteous still flourish in old age."
+    "setting": "A Sabbath song in Israel’s worship in that moment. The words are, “For you, Lord, hast made me glad through your work.”."
   },
   {
     "ref": "Proverbs 16:3",
@@ -1992,7 +1992,7 @@
     "step": "Name one task or decision on your plate — hand it to God in one sentence, then take the next honest step.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path for work and plans",
-    "setting": "Solomon’s proverbs on plans and work: commit your works to the Lord so your thoughts rest on Him, not only on your own scheming."
+    "setting": "Solomon giving wisdom in that setting. The line is, “Commit your works unto the Lord, and your thoughts shall be.”."
   },
   {
     "ref": "Psalm 93:4",
@@ -2010,7 +2010,7 @@
     "step": "If you feel empty, ask God to fill the next small task with His help.",
     "about": "An unnamed psalm of Israel — a cry against unjust thrones, then mercy when the foot slips",
     "to": "Anyone whose footing feels uncertain under pressure",
-    "setting": "A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the Lord’s mercy held him up."
+    "setting": "In this psalm — a cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the — the line is, “When I said, My foot slippeth; your mercy, O Lord, held me up.”."
   },
   {
     "ref": "Romans 5:5",
@@ -2019,7 +2019,7 @@
     "step": "Share one line of this verse with someone who needs steady words.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Paul — peace with God comes through Christ, not law-keeping. This verse says, “The love of God is shed abroad in our hearts by the Holy Ghost.”."
   },
   {
     "ref": "Psalm 95:1",
@@ -2028,7 +2028,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
     "to": "Israel gathered to worship — and anyone whose heart is growing hard",
-    "setting": "Come, sing to the Lord as King: do not harden your heart as Israel did in the wilderness."
+    "setting": "David in that moment. The words are, “O come, let us sing unto the Lord: let us make a joyful noise.”."
   },
   {
     "ref": "Psalm 95:7",
@@ -2037,7 +2037,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "David — Hebrews names him as the voice of this psalm (Hebrews 4:7)",
     "to": "Israel gathered to worship — and anyone whose heart is growing hard",
-    "setting": "Come, sing to the Lord as King: do not harden your heart as Israel did in the wilderness."
+    "setting": "David in that moment. The words are, “For he is our God; and we are the people of his pasture, and the sheep.”."
   },
   {
     "ref": "1 John 4:7",
@@ -2046,7 +2046,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "John",
     "to": "Beloved children learning God’s love",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love."
+    "setting": "John in that setting. The line is, “Beloved, let us love one another: for love is of God.”."
   },
   {
     "ref": "Psalm 96:1",
@@ -2055,7 +2055,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "All lands called to joyful worship",
-    "setting": "Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright."
+    "setting": "Israel’s congregation in that moment. The words are, “O sing unto the Lord a new song: sing unto the Lord, all the earth.”."
   },
   {
     "ref": "Psalm 96:2",
@@ -2064,7 +2064,7 @@
     "step": "Bless His name out loud once. Then name one place His salvation is still good today.",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "All lands called to joyful worship",
-    "setting": "Israel calls every land to bless the Lord’s name and tell His salvation from day to day — worship that does not stop after one morning."
+    "setting": "Israel is calling every land to sing a new song to the Lord as King. This verse is the daily work of that song: bless His name and show His salvation today, then again tomorrow."
   },
   {
     "ref": "1 Peter 1:3",
@@ -2073,7 +2073,7 @@
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
     "about": "Peter",
     "to": "believers in suffering and hope",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone."
+    "setting": "Peter in that setting. The line is, “Blessed be the God and Father of our Lord Jesus Christ, which.”."
   },
   {
     "ref": "Psalm 97:11",
@@ -2082,7 +2082,7 @@
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "All lands called to joyful worship",
-    "setting": "Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright."
+    "setting": "Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. This verse says, “Light is sown for the righteous, and gladness for the upright in heart.”."
   },
   {
     "ref": "Psalm 98:1",
@@ -2091,7 +2091,7 @@
     "step": "Say the verse once out loud, then name the one weight it meets.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
-    "setting": "A new song for all the earth; holy worship; enter His gates with thanksgiving."
+    "setting": "Israel’s congregation in that moment. The words are, “O sing unto the Lord a new song; for he has done marvellous things.”."
   },
   {
     "ref": "Hebrews 12:2",
@@ -2100,7 +2100,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "The writer of Hebrews",
     "to": "Believers running with patience",
-    "setting": "The writer of Hebrews said this to Believers running with patience: Cloud of witnesses."
+    "setting": "The writer of Hebrews tells a pressured church to run with patience. This verse is the look: looking unto Jesus, the author and finisher of our faith."
   },
   {
     "ref": "Psalm 99:2",
@@ -2109,7 +2109,7 @@
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
-    "setting": "A new song for all the earth; holy worship; enter His gates with thanksgiving."
+    "setting": "enter His gates with thanksgiving. This verse says, “The Lord is great in Zion; and he is high above all the people.”."
   },
   {
     "ref": "Isaiah 26:4",
@@ -2118,7 +2118,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "Isaiah",
     "to": "A people under threat who need God to reign",
-    "setting": "Judgment and joy; a highway of holiness; God defends Zion."
+    "setting": "Isaiah — judgment and joy. This verse says, “Trust you in the Lord for ever: for in the Lord Jehovah is everlasting strength.”."
   },
   {
     "ref": "Psalm 100:1",
@@ -2127,7 +2127,7 @@
     "step": "When comparison rises, answer it with one truth from this verse.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
-    "setting": "A call for all lands to enter the Lord’s gates with thanksgiving and His courts with praise."
+    "setting": "enter His gates with thanksgiving. This verse says, “Make a joyful noise unto the Lord, all you lands.”."
   },
   {
     "ref": "Psalm 100:2",
@@ -2136,7 +2136,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
-    "setting": "A call for all lands to enter the Lord’s gates with thanksgiving and His courts with praise."
+    "setting": "In this psalm — enter His gates with thanksgiving — the line is, “Serve the Lord with gladness: come before his presence with singing.”."
   },
   {
     "ref": "John 8:12",
@@ -2145,7 +2145,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "Jesus (through John)",
     "to": "Jerusalem under debate about who Jesus is",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "setting": "On that day — conflict at feasts in Jerusalem — the words are, “I am the light of the world: he that followeth me shall not walk in.”."
   },
   {
     "ref": "Psalm 100:3",
@@ -2154,7 +2154,7 @@
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
-    "setting": "A call for all lands to enter the Lord’s gates with thanksgiving and His courts with praise."
+    "setting": "Israel’s congregation in that moment. The words are, “Know you that the Lord he is God: it is he that has made us, and not we.”."
   },
   {
     "ref": "Psalm 100:4",
@@ -2163,7 +2163,7 @@
     "step": "Ask God what one step of obedience looks like before noon.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
-    "setting": "A call for all lands to enter the Lord’s gates with thanksgiving and His courts with praise."
+    "setting": "Israel is being called to enter the Lord’s gates. This verse is how: with thanksgiving and praise — bless His name as you come in."
   },
   {
     "ref": "Luke 12:32",
@@ -2172,7 +2172,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Jesus (through Luke)",
     "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "setting": "On that day — on the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus — the words are, “Fear not, little flock.”."
   },
   {
     "ref": "Psalm 33:1",
@@ -2181,7 +2181,7 @@
     "step": "Leave one worry with God for ten minutes—set a timer if you need to.",
     "about": "David",
     "to": "The pressured and the repentant",
-    "setting": "David commits his spirit to God under pressure; confession and instruction; a new song of praise."
+    "setting": "David in that moment. The words are, “Rejoice in the Lord, O you righteous: for praise is comely for the upright.”."
   },
   {
     "ref": "Psalm 102:17",
@@ -2190,7 +2190,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "In this psalm — a king’s vow of integrity — the line is, “He will regard the prayer of the destitute, and not despise their prayer.”."
   },
   {
     "ref": "Matthew 7:7",
@@ -2199,7 +2199,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus is on the mount teaching how to live before the Father. This line is the open door: ask, seek, knock — the Father is not hiding."
   },
   {
     "ref": "Psalm 103:1",
@@ -2208,7 +2208,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "an afflicted cry that becomes hope. This verse says, “Bless the Lord, O my soul: and all that is within me, bless his holy name.”."
   },
   {
     "ref": "Psalm 103:3",
@@ -2217,7 +2217,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "David in that moment. The words are, “Who forgiveth all your iniquities; who healeth all your diseases.”."
   },
   {
     "ref": "Philippians 2:13",
@@ -2226,7 +2226,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "Paul said this to the church at Philippi (and you today): Letter from prison."
+    "setting": "Paul — paul writes from prison with joy. This verse says, “For it is God which worketh in you both to will and to do of his good pleasure.”."
   },
   {
     "ref": "Psalm 103:5",
@@ -2235,7 +2235,7 @@
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "In this psalm — an afflicted cry that becomes hope — the line is, “Who satisfieth your mouth with good things; so that your youth is.”."
   },
   {
     "ref": "Psalm 103:8",
@@ -2244,7 +2244,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "In this psalm — david blesses the Lord who forgives and crowns with mercy — the line is, “The Lord is merciful and gracious, slow to anger, and plenteous in.”."
   },
   {
     "ref": "Proverbs 2:6",
@@ -2253,7 +2253,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Solomon giving wisdom",
     "to": "Everyone seeking guidance",
-    "setting": "Solomon (and the wise) urge a son to choose wisdom over the path of fools."
+    "setting": "Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse says, “The Lord giveth wisdom: out of his mouth comes knowledge.”."
   },
   {
     "ref": "Psalm 103:11",
@@ -2262,7 +2262,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "In this psalm — an afflicted cry that becomes hope — the line is, “For as the heaven is high above the earth, so great is his mercy toward.”."
   },
   {
     "ref": "Psalm 103:12",
@@ -2271,7 +2271,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "David in that moment. The words are, “As far as the east is from the west, so far has he removed.”."
   },
   {
     "ref": "Romans 8:31",
@@ -2280,7 +2280,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
-    "setting": "Paul teaches believers in Rome about life in the Spirit: no condemnation, adoption, and God working all things for good for those who love Him."
+    "setting": "Paul is teaching Rome there is no condemnation in Christ. This verse is the challenge: if God be for us, who can be against us?"
   },
   {
     "ref": "Psalm 103:17",
@@ -2289,7 +2289,7 @@
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "In this psalm — david blesses the Lord who forgives and crowns with mercy — the line is, “But the mercy of the Lord is from everlasting to everlasting upon.”."
   },
   {
     "ref": "Psalm 104:1",
@@ -2298,7 +2298,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
-    "setting": "Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”"
+    "setting": "retelling of God’s faithfulness and Israel’s failures. This verse says, “Bless the Lord, O my soul. O Lord my God, you art very great.”."
   },
   {
     "ref": "1 John 4:18",
@@ -2307,7 +2307,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "John",
     "to": "Beloved children learning God’s love",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love."
+    "setting": "John is teaching the church about perfect love. This verse is the result: there is no fear in love; perfect love casts out fear."
   },
   {
     "ref": "Psalm 104:33",
@@ -2316,7 +2316,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
-    "setting": "Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”"
+    "setting": "retelling of God’s faithfulness and Israel’s failures. This verse says, “I will sing unto the Lord as long as I live: I will sing praise.”."
   },
   {
     "ref": "Psalm 105:1",
@@ -2325,7 +2325,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
-    "setting": "Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”"
+    "setting": "retelling of God’s faithfulness and Israel’s failures. This verse says, “O give thanks unto the Lord.”."
   },
   {
     "ref": "Isaiah 33:2",
@@ -2334,7 +2334,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Isaiah",
     "to": "A people under threat who need God to reign",
-    "setting": "Judgment and joy; a highway of holiness; God defends Zion."
+    "setting": "Isaiah in that setting. The line is, “O LORD, be gracious unto us.”."
   },
   {
     "ref": "Psalm 106:1",
@@ -2343,7 +2343,7 @@
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
-    "setting": "Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”"
+    "setting": "retelling of God’s faithfulness and Israel’s failures. This verse says, “Praise ye the Lord.”."
   },
   {
     "ref": "John 10:11",
@@ -2352,7 +2352,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "Jesus",
     "to": "His hearers — sheep who know His voice",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "setting": "Jesus is in this moment — the Good Shepherd. He says, “I am the good shepherd: the good shepherd giveth his life for the sheep.”."
   },
   {
     "ref": "Psalm 107:8",
@@ -2361,7 +2361,7 @@
     "step": "Say the verse once out loud, then name the one weight it meets.",
     "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
     "to": "The redeemed telling what God has done",
-    "setting": "Book V opens: the redeemed from trouble give thanks — desert, prison, sickness, and storm."
+    "setting": "Book V opens with the redeemed giving thanks after desert, prison, sickness, and storm. This verse is the refrain: oh that men would praise the Lord for His goodness."
   },
   {
     "ref": "Psalm 107:9",
@@ -2370,7 +2370,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
     "to": "The redeemed telling what God has done",
-    "setting": "Book V opens: the redeemed from trouble give thanks — desert, prison, sickness, and storm."
+    "setting": "The redeemed of the Lord in that moment. The words are, “For he satisfieth the longing soul, and filleth the hungry soul.”."
   },
   {
     "ref": "Matthew 5:14",
@@ -2379,7 +2379,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The line on the page is “Ye are the light of the world.”."
   },
   {
     "ref": "Psalm 108:1",
@@ -2388,7 +2388,7 @@
     "step": "Write a one-line prayer that answers this verse in your own words.",
     "about": "David",
     "to": "God’s people under the Messiah’s reign",
-    "setting": "David’s confidence in battle; curses on the wicked; the Lord says to my Lord, “Sit at my right hand.”"
+    "setting": "David’s confidence in battle. This verse says, “O God, my heart is fixed.”."
   },
   {
     "ref": "Psalm 108:4",
@@ -2397,7 +2397,7 @@
     "step": "When comparison rises, answer it with one truth from this verse.",
     "about": "David",
     "to": "God’s people under the Messiah’s reign",
-    "setting": "David’s confidence in battle; curses on the wicked; the Lord says to my Lord, “Sit at my right hand.”"
+    "setting": "David’s confidence in battle. This verse says, “For your mercy is great above the heavens: and your truth reacheth.”."
   },
   {
     "ref": "Philippians 4:4",
@@ -2406,7 +2406,7 @@
     "step": "Ask God what one step of obedience looks like before noon.",
     "about": "Paul",
     "to": "Believers learning prayer instead of worry",
-    "setting": "Paul writes from prison to Philippi: rejoice, do not be anxious, the peace of God guards hearts; contentment in every state through Christ."
+    "setting": "From prison Paul tells Philippi to rejoice in the Lord always — then says it again, because joy here is a command, not a feeling."
   },
   {
     "ref": "Psalm 109:30",
@@ -2415,7 +2415,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "David",
     "to": "God’s people under the Messiah’s reign",
-    "setting": "David’s confidence in battle; curses on the wicked; the Lord says to my Lord, “Sit at my right hand.”"
+    "setting": "the Lord says to my Lord, “Sit at my right hand.”. This verse says, “I will greatly praise the Lord with my mouth; yea, I will praise.”."
   },
   {
     "ref": "Psalm 111:1",
@@ -2424,7 +2424,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. This verse says, “Praise ye the Lord.”."
   },
   {
     "ref": "Proverbs 4:23",
@@ -2433,7 +2433,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "Solomon giving wisdom",
     "to": "Everyone seeking guidance",
-    "setting": "Solomon (and the wise) urge a son to choose wisdom over the path of fools."
+    "setting": "Solomon giving wisdom in that setting. The line is, “Keep your heart with all diligence; for out of it are the issues of.”."
   },
   {
     "ref": "Psalm 111:4",
@@ -2442,7 +2442,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. This verse says, “He has made his wonderful works to be remembered: the Lord is.”."
   },
   {
     "ref": "Psalm 112:1",
@@ -2451,7 +2451,7 @@
     "step": "Share one line of this verse with someone who needs steady words.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. This verse says, “Praise ye the Lord.” The words are: “Praise ye the Lord.”."
   },
   {
     "ref": "Romans 8:37",
@@ -2460,7 +2460,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
-    "setting": "Paul teaches believers in Rome about life in the Spirit: no condemnation, adoption, and God working all things for good for those who love Him."
+    "setting": "Paul — no condemnation for those in Christ. This verse says, “Nay, in all these things we are more than conquerors through him.”."
   },
   {
     "ref": "Psalm 112:4",
@@ -2469,7 +2469,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. This verse says, “Unto the upright there ariseth light in the darkness: he is.”."
   },
   {
     "ref": "Psalm 113:2",
@@ -2478,7 +2478,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "In this psalm — hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.” — the line is, “Blessed be the name of the Lord from this time forth and for evermore.”."
   },
   {
     "ref": "1 John 5:14",
@@ -2487,7 +2487,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "John",
     "to": "Believers holding the record that life is in the Son",
-    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given eternal life in His Son."
+    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given eternal. This verse says, “This is the confidence that we have in him, that, if we ask any.”."
   },
   {
     "ref": "Psalm 113:3",
@@ -2496,7 +2496,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Israel’s Hallel in that moment. The words are, “From the rising of the sun unto the going down of the same the Lord's.”."
   },
   {
     "ref": "Psalm 136:4",
@@ -2505,7 +2505,7 @@
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
     "to": "Exiles and all who refuse false gods",
-    "setting": "Praise for the living God versus idols; by the rivers of Babylon, exiles weep for Zion."
+    "setting": "Praise for the living God versus idols. This verse says, “To him who alone doeth great wonders: for his mercy endureth for ever.”."
   },
   {
     "ref": "Isaiah 40:29",
@@ -2514,7 +2514,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Isaiah (comfort from God) said this to Weary Judah — and anyone waiting on the Lord: Comfort and renewed strength."
+    "setting": "Isaiah — comfort for exiles: God is incomparable. This verse says, “He giveth power to the faint; and to them that have no might he.”."
   },
   {
     "ref": "Psalm 115:12",
@@ -2523,7 +2523,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Israel’s Hallel in that moment. The words are, “The Lord has been mindful of us: he will bless us.”."
   },
   {
     "ref": "Psalm 116:1",
@@ -2532,7 +2532,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. This verse says, “I love the Lord, because he has heard my voice and my supplications.”."
   },
   {
     "ref": "John 10:28",
@@ -2541,7 +2541,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "Jesus (through John)",
     "to": "Jerusalem under debate about who Jesus is",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "setting": "Conflict at feasts in Jerusalem This verse says, “I give unto them eternal life; and they shall never perish.”."
   },
   {
     "ref": "Psalm 116:2",
@@ -2550,7 +2550,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "In this psalm — hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.” — the line is, “Because he has inclined his ear unto me, therefore will I call upon.”."
   },
   {
     "ref": "Psalm 116:5",
@@ -2559,7 +2559,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "In this psalm — hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.” — the line is, “Gracious is the Lord, and righteous; yea, our God is merciful.”."
   },
   {
     "ref": "Matthew 5:9",
@@ -2568,7 +2568,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The line on the page is “Blessed are the peacemakers: for they shall be.”."
   },
   {
     "ref": "Psalm 116:7",
@@ -2577,7 +2577,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. This verse says, “Return unto your rest, O my soul; for the Lord has dealt.”."
   },
   {
     "ref": "Philippians 4:8",
@@ -2586,7 +2586,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "Paul",
     "to": "Believers learning prayer instead of worry",
-    "setting": "Paul writes from prison to Philippi: rejoice, do not be anxious, the peace of God guards hearts; contentment in every state through Christ."
+    "setting": "Paul is teaching a prison-letter church what to put in the mind: whatever is true, honest, just, pure, lovely — think on these."
   },
   {
     "ref": "Psalm 117:1",
@@ -2595,7 +2595,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. This verse says, “O praise the Lord, all you nations: praise him, all you people.”."
   },
   {
     "ref": "Psalm 117:2",
@@ -2604,7 +2604,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "In this psalm — hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.” — the line is, “For his merciful kindness is great toward us: and the truth of the Lord.”."
   },
   {
     "ref": "Proverbs 12:25",
@@ -2613,7 +2613,7 @@
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Solomon giving wisdom — short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse says, “Heaviness in the heart of man maketh it stoop: but a good word.”."
   },
   {
     "ref": "Psalm 118:1",
@@ -2622,7 +2622,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. This verse says, “O give thanks unto the Lord; for he is good: because his mercy.”."
   },
   {
     "ref": "Psalm 118:5",
@@ -2631,7 +2631,7 @@
     "step": "Write a one-line prayer that answers this verse in your own words.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "In this psalm — hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.” — the line is, “I called upon the Lord in distress: the Lord answered me, and set.”."
   },
   {
     "ref": "Romans 12:12",
@@ -2640,7 +2640,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Paul — living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse says, “Rejoicing in hope; patient in tribulation; continuing instant in.”."
   },
   {
     "ref": "Psalm 118:8",
@@ -2649,7 +2649,7 @@
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "In this psalm — hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.” — the line is, “It is better to trust in the Lord than to put confidence in man.”."
   },
   {
     "ref": "Psalm 118:17",
@@ -2658,7 +2658,7 @@
     "step": "Write a one-line prayer that answers this verse in your own words.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "In this psalm — hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.” — the line is, “I shall not die, but live, and declare the works of the Lord.”."
   },
   {
     "ref": "Isaiah 43:4",
@@ -2667,7 +2667,7 @@
     "step": "Ask forgiveness for one sharp word or thought, then receive mercy.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "Isaiah — comfort for exiles: God is incomparable. This verse says, “Since you wast precious in my sight, you hast been honourable.”."
   },
   {
     "ref": "Psalm 118:21",
@@ -2676,7 +2676,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "In this psalm — hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.” — the line is, “I will praise you: for you hast heard me, and art become my salvation.”."
   },
   {
     "ref": "Psalm 118:23",
@@ -2685,7 +2685,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. This verse says, “This is the Lord's doing; it is marvellous in our eyes.”."
   },
   {
     "ref": "John 11:25",
@@ -2694,7 +2694,7 @@
     "step": "Share the reference only with someone who is carrying a heavy week.",
     "about": "Jesus",
     "to": "Martha, Mary, and those at Lazarus’ tomb",
-    "setting": "Jesus said this to Martha, Mary, and those at Lazarus’ tomb: Lazarus raised."
+    "setting": "On that day — lazarus is raised; — He says I am the resurrection, and the life."
   },
   {
     "ref": "Psalm 118:28",
@@ -2703,7 +2703,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Israel’s Hallel in that moment. The words are, “you art my God, and I will praise you: you art my God, I will.”."
   },
   {
     "ref": "Psalm 118:29",
@@ -2712,7 +2712,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "This Hallelujah psalm is Israel’s thanks after rescue. This last line is the refrain: give thanks unto the Lord, for He is good; His mercy endures forever."
   },
   {
     "ref": "Matthew 6:33",
@@ -2721,7 +2721,7 @@
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
     "about": "Jesus",
     "to": "His disciples who worry about tomorrow",
-    "setting": "Jesus said this to His disciples who worry about tomorrow: Do not be anxious."
+    "setting": "Jesus is on the mount, teaching people not to worry about food and clothes. This verse is the first thing: seek the kingdom of God and His righteousness."
   },
   {
     "ref": "Psalm 119:9",
@@ -2730,7 +2730,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "A worshiper in love with God’s Word in that moment. The words are, “Wherewithal shall a young man cleanse his way.”."
   },
   {
     "ref": "Psalm 119:18",
@@ -2739,7 +2739,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "A worshiper in love with God’s Word in that moment. The words are, “Open you mine eyes, that I may behold wondrous things out of your law.”."
   },
   {
     "ref": "Philippians 4:19",
@@ -2748,7 +2748,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "Paul said this to the church at Philippi (and you today): Letter from prison."
+    "setting": "Paul has just spoken of contentment and their gift. This line is the promise: God will supply all their need according to His riches in glory by Christ."
   },
   {
     "ref": "Psalm 119:27",
@@ -2757,7 +2757,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In this psalm — law, precepts, and path for life — the line is, “Make me to understand the way of your precepts: so shall I talk of.”."
   },
   {
     "ref": "Psalm 119:174",
@@ -2766,7 +2766,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In this psalm — the great acrostic love-song to God’s Word — the line is, “I have longed for your salvation, O Lord; and your law is my delight.”."
   },
   {
     "ref": "Proverbs 14:30",
@@ -2775,7 +2775,7 @@
     "step": "Share one line of this verse with someone who needs steady words.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Solomon giving wisdom in that setting. The line is, “A sound heart is the life of the flesh: but envy the rottenness of the bones.”."
   },
   {
     "ref": "Psalm 119:32",
@@ -2784,7 +2784,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "A worshiper in love with God’s Word in that moment. The words are, “I will run the way of your commandments, when you shall enlarge my heart.”."
   },
   {
     "ref": "Psalm 119:45",
@@ -2793,7 +2793,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "A worshiper in love with God’s Word in that moment. The words are, “And I will walk at liberty: for I seek your precepts.”."
   },
   {
     "ref": "Romans 8:32",
@@ -2802,7 +2802,7 @@
     "step": "Leave one worry with God for ten minutes—set a timer if you need to.",
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
-    "setting": "Paul teaches believers in Rome about life in the Spirit: no condemnation, adoption, and God working all things for good for those who love Him."
+    "setting": "Paul in that setting. The line is, “He that spared not his own Son, but delivered him up for us all, how.”."
   },
   {
     "ref": "Psalm 119:65",
@@ -2811,7 +2811,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "A worshiper in love with God’s Word in that moment. The words are, “you hast dealt well with your servant, O Lord, according unto your word.”."
   },
   {
     "ref": "Isaiah 49:16",
@@ -2820,7 +2820,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Isaiah",
     "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "setting": "Isaiah — the Servant suffers for sins. This verse says, “Behold, I have graven you upon the palms of my hands.”."
   },
   {
     "ref": "Psalm 119:111",
@@ -2829,7 +2829,7 @@
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In this psalm — the great acrostic love-song to God’s Word — the line is, “your testimonies have I taken as an heritage for ever: for they are.”."
   },
   {
     "ref": "Psalm 119:68",
@@ -2838,7 +2838,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "A worshiper in love with God’s Word in that moment. The words are, “you art good, and doest good; teach me your statutes.”."
   },
   {
     "ref": "John 13:34",
@@ -2847,7 +2847,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "Jesus",
     "to": "His disciples the night before the cross",
-    "setting": "Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross."
+    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “A new commandment I give unto you, That you love one another.”."
   },
   {
     "ref": "Psalm 119:73",
@@ -2856,7 +2856,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "The great acrostic love-song to God’s Word. This verse says, “your hands have made me and fashioned me: give me understanding, that I.”."
   },
   {
     "ref": "Psalm 119:89",
@@ -2865,7 +2865,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "The great acrostic love-song to God’s Word. This verse says, “For ever, O Lord, your word is settled in heaven.”."
   },
   {
     "ref": "Matthew 7:12",
@@ -2874,7 +2874,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The line on the page is “All things whatsoever ye would that men should.”."
   },
   {
     "ref": "Psalm 119:93",
@@ -2883,7 +2883,7 @@
     "step": "Share one line of this verse with someone who needs steady words.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "law, precepts, and path for life. This verse says, “I will never forget your precepts: for with them you hast quickened.”."
   },
   {
     "ref": "Psalm 119:97",
@@ -2892,7 +2892,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In this psalm — the great acrostic love-song to God’s Word — the line is, “O how love I your law.”."
   },
   {
     "ref": "Proverbs 15:1",
@@ -2901,7 +2901,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse says, “A soft answer turneth away wrath.”."
   },
   {
     "ref": "Psalm 119:103",
@@ -2910,7 +2910,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "The great acrostic love-song to God’s Word. This verse says, “How sweet are your words unto my taste.”."
   },
   {
     "ref": "Psalm 119:114",
@@ -2919,7 +2919,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In this psalm — the great acrostic love-song to God’s Word — the line is, “you art my hiding place and my shield: I hope in your word.”."
   },
   {
     "ref": "Isaiah 54:10",
@@ -2928,7 +2928,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Isaiah",
     "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "setting": "Isaiah — the Servant suffers for sins. This verse says, “My kindness shall not depart from you.”."
   },
   {
     "ref": "Psalm 119:116",
@@ -2937,7 +2937,7 @@
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "The great acrostic love-song to God’s Word. This verse says, “Uphold me according unto your word, that I may live: and let me not.”."
   },
   {
     "ref": "Psalm 119:130",
@@ -2946,7 +2946,7 @@
     "step": "Read the verse slowly three times; stop on the phrase that lands.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "The great acrostic love-song to God’s Word. This verse says, “The entrance of your words giveth light; it giveth understanding.”."
   },
   {
     "ref": "John 14:1",
@@ -2955,7 +2955,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Jesus",
     "to": "His disciples the night before the cross",
-    "setting": "Jesus said this to His disciples the night before the cross: Upper room comfort."
+    "setting": "Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross This verse says, “Let not your heart be troubled: you believe in God, believe also in me.”."
   },
   {
     "ref": "Psalm 119:151",
@@ -2964,7 +2964,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In this psalm — the great acrostic love-song to God’s Word — the line is, “you art near, O Lord; and all your commandments are truth.”."
   },
   {
     "ref": "Psalm 119:140",
@@ -2973,7 +2973,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "The great acrostic love-song to God’s Word. This verse says, “your word is very pure: therefore your servant loveth it.”."
   },
   {
     "ref": "Matthew 18:20",
@@ -2991,7 +2991,7 @@
     "step": "Share one line of this verse with someone who needs steady words.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "The great acrostic love-song to God’s Word. This verse says, “your word is true from the beginning: and every one of your righteous.”."
   },
   {
     "ref": "Psalm 119:162",
@@ -3000,7 +3000,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "A worshiper in love with God’s Word in that moment. The words are, “I rejoice at your word, as one that findeth great spoil.”."
   },
   {
     "ref": "Proverbs 15:3",
@@ -3009,7 +3009,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Solomon giving wisdom in that setting. The line is, “The eyes of the Lord are in every place.”."
   },
   {
     "ref": "Psalm 119:175",
@@ -3018,7 +3018,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "A worshiper in love with God’s Word in that moment. The words are, “Let my soul live, and it shall praise you; and let your judgments.”."
   },
   {
     "ref": "Psalm 121:4",
@@ -3027,7 +3027,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "A song of ascents writer",
     "to": "Travelers and anyone needing help from the Lord",
-    "setting": "A song of ascents for travelers: help comes from the Lord who made heaven and earth and never sleeps."
+    "setting": "A song of ascents writer in that moment. The words are, “Behold, he that keepeth Israel shall neither slumber nor sleep.”."
   },
   {
     "ref": "Isaiah 55:6",
@@ -3036,7 +3036,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Isaiah",
     "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "setting": "The Servant suffers for sins. This verse says, “Seek you the Lord while he may be found, call you upon him while he is near.”."
   },
   {
     "ref": "Psalm 121:5",
@@ -3045,7 +3045,7 @@
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
     "about": "A song of ascents writer",
     "to": "Travelers and anyone needing help from the Lord",
-    "setting": "A song of ascents for travelers: help comes from the Lord who made heaven and earth and never sleeps."
+    "setting": "A song of ascents writer in that moment. The words are, “The Lord is your keeper: the Lord is your shade upon your right hand.”."
   },
   {
     "ref": "John 14:6",
@@ -3054,7 +3054,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Jesus",
     "to": "His disciples the night before the cross",
-    "setting": "Jesus said this to His disciples the night before the cross: Upper room comfort."
+    "setting": "Jesus is in the upper room the night before the cross, comforting troubled disciples. This verse is the way: I am the way, the truth, and the life."
   },
   {
     "ref": "Psalm 121:6",
@@ -3063,7 +3063,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "A song of ascents writer",
     "to": "Travelers and anyone needing help from the Lord",
-    "setting": "A song of ascents for travelers: help comes from the Lord who made heaven and earth and never sleeps."
+    "setting": "A song of ascents writer in that moment. The words are, “The sun shall not smite you by day, nor the moon by night.”."
   },
   {
     "ref": "Psalm 124:8",
@@ -3072,7 +3072,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “Our help is in the name of the Lord, who made heaven and earth.”."
   },
   {
     "ref": "Matthew 21:22",
@@ -3081,7 +3081,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "Jesus (through Matthew)",
     "to": "Jerusalem in Passion Week",
-    "setting": "Triumphal entry; cleansing the temple; debates with leaders in Jerusalem."
+    "setting": "debates with leaders in Jerusalem This verse says, “All things, whatsoever ye shall ask in prayer, believing, ye shall.”."
   },
   {
     "ref": "Psalm 125:1",
@@ -3090,7 +3090,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “They that trust in the Lord shall be as mount Zion, which cannot be removed.”."
   },
   {
     "ref": "Psalm 126:2",
@@ -3099,7 +3099,7 @@
     "step": "Ask forgiveness for one sharp word or thought, then receive mercy.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “Then was our mouth filled with laughter, and our tongue with singing.”."
   },
   {
     "ref": "Proverbs 16:9",
@@ -3108,7 +3108,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path for work and plans",
-    "setting": "Solomon’s proverbs on plans and work: commit your works to the Lord so your thoughts rest on Him, not only on your own scheming."
+    "setting": "Solomon giving wisdom in that setting. The line is, “A man's heart deviseth his way: but the Lord directeth his steps.”."
   },
   {
     "ref": "Psalm 126:3",
@@ -3117,7 +3117,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “The Lord has done great things for us; whereof we are glad.”."
   },
   {
     "ref": "Psalm 127:2",
@@ -3126,7 +3126,7 @@
     "step": "Choose one person to treat gently because of this verse.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “It is vain for you to rise up early, to sit up late: for so he giveth.”."
   },
   {
     "ref": "Isaiah 58:11",
@@ -3135,7 +3135,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Isaiah",
     "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "setting": "Isaiah in that setting. The line is, “The Lord shall guide you continually, and satisfy your soul in.”."
   },
   {
     "ref": "Psalm 128:1",
@@ -3144,7 +3144,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “Blessed is every one that feareth the Lord.”."
   },
   {
     "ref": "Psalm 130:5",
@@ -3153,7 +3153,7 @@
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “I wait for the Lord, my soul doth wait, and in his word do I hope.”."
   },
   {
     "ref": "John 15:12",
@@ -3162,7 +3162,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "Jesus",
     "to": "His disciples abiding in Him",
-    "setting": "Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross."
+    "setting": "On that day — upper room: — He says this is my commandment, That you love one another, as I have loved you."
   },
   {
     "ref": "Psalm 130:7",
@@ -3171,7 +3171,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “Let Israel hope in the Lord: for with the Lord there is mercy.”."
   },
   {
     "ref": "Psalm 131:3",
@@ -3180,7 +3180,7 @@
     "step": "Take one small action today that matches what this verse asks.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “Let Israel hope in the Lord from henceforth and for ever.”."
   },
   {
     "ref": "Proverbs 18:10",
@@ -3189,7 +3189,7 @@
     "step": "Sit still for sixty seconds with this verse — phone face down.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Solomon giving wisdom in that setting. The line is, “The name of the Lord is a strong tower.”."
   },
   {
     "ref": "Psalm 133:1",
@@ -3198,7 +3198,7 @@
     "step": "When fear returns, repeat one short clause of this verse once more.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “Behold, how good and how pleasant it is for brethren to dwell together in unity.”."
   },
   {
     "ref": "Psalm 134:2",
@@ -3207,7 +3207,7 @@
     "step": "Share one line of this verse with someone who needs steady words.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "This is a short song of ascent for night servants in the temple. This verse is the blessing: lift up your hands in the sanctuary, and bless the Lord."
   },
   {
     "ref": "Isaiah 40:1",
@@ -3216,7 +3216,7 @@
     "step": "End the day by reading this verse again, without rushing.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Isaiah (comfort from God) said this to Weary Judah — and anyone waiting on the Lord: Comfort and renewed strength."
+    "setting": "Isaiah — comfort for exiles: God is incomparable. This verse says, “Comfort ye, comfort ye my people, says your God.”."
   },
   {
     "ref": "Psalm 135:3",
@@ -3225,7 +3225,7 @@
     "step": "Ask God for strength for the next hour only — then take the next step.",
     "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
     "to": "Exiles and all who refuse false gods",
-    "setting": "Praise for the living God versus idols; by the rivers of Babylon, exiles weep for Zion."
+    "setting": "Praise for the living God versus idols. The line on the page is “Praise the Lord; for the Lord is good: sing.”."
   },
   {
     "ref": "Psalm 136:1",
@@ -3234,7 +3234,7 @@
     "step": "List one mercy you can thank God for that fits this verse.",
     "about": "Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers",
     "to": "Exiles and all who refuse false gods",
-    "setting": "Praise for the living God versus idols; by the rivers of Babylon, exiles weep for Zion."
+    "setting": "Praise for the living God versus idols. This verse says, “O give thanks unto the Lord; for he is good: for his mercy endureth.”."
   },
   {
     "ref": "Proverbs 20:7",
@@ -3243,7 +3243,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse says, “The just man walketh in his integrity: his children are blessed.”."
   },
   {
     "ref": "Psalm 138:7",
@@ -3252,7 +3252,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom. This verse says, “Though I walk in the midst of trouble, you wilt revive me.”."
   },
   {
     "ref": "Psalm 139:17",
@@ -3261,7 +3261,7 @@
     "step": "Sit still for sixty seconds with this verse—phone face down.",
     "about": "David",
     "to": "Anyone who needs to know they are fully known by God",
-    "setting": "David marvels that God searches him, knows him fully, formed him in the womb, and leads him in the everlasting way."
+    "setting": "In this psalm — david’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom — the line is, “How precious also are your thoughts unto me, O God.”."
   },
   {
     "ref": "Proverbs 22:1",
@@ -3270,7 +3270,7 @@
     "step": "Write one short phrase from this verse where you will see it tonight.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse says, “A good name is rather to be chosen than great riches.”."
   },
   {
     "ref": "Psalm 145:14",
@@ -3279,7 +3279,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "In this psalm — david’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom — the line is, “The Lord upholdeth all that fall, and raiseth up all those that be.”."
   },
   {
     "ref": "Proverbs 28:26",
@@ -3351,7 +3351,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Moses (recording the Lord’s command)",
     "to": "Israel preparing to move as God’s camp",
-    "setting": "Israel is counted and ordered around the tabernacle for the march from Sinai."
+    "setting": "Moses — israel is counted and ordered around the tabernacle for the march from Sinai. This verse says, “The LORD bless you, and keep you:.”."
   },
   {
     "ref": "Numbers 6:25",
@@ -3360,7 +3360,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Moses (recording the Lord’s command)",
     "to": "Israel preparing to move as God’s camp",
-    "setting": "Israel is counted and ordered around the tabernacle for the march from Sinai."
+    "setting": "Moses in that setting. The line is, “The LORD make his face shine upon you, and be gracious unto you:.”."
   },
   {
     "ref": "Numbers 6:26",
@@ -3369,7 +3369,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Moses (recording the Lord’s command)",
     "to": "Israel preparing to move as God’s camp",
-    "setting": "Israel is counted and ordered around the tabernacle for the march from Sinai."
+    "setting": "Israel is counted and ordered around the tabernacle for the march from Sinai. This verse says, “The LORD lift up his countenance upon you, and give you peace.”."
   },
   {
     "ref": "Deuteronomy 6:5",
@@ -3387,7 +3387,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Moses (and the narrator)",
     "to": "Israel at the death of their leader",
-    "setting": "Joshua is commissioned; Moses sings, blesses the tribes, and dies on Mount Nebo."
+    "setting": "Moses sings, blesses the tribes, and dies on Mount Nebo. This verse says, “Be strong and of a good courage, fear not, nor be afraid of them:.”."
   },
   {
     "ref": "Deuteronomy 31:8",
@@ -3396,7 +3396,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Moses (and the narrator)",
     "to": "Israel at the death of their leader",
-    "setting": "Joshua is commissioned; Moses sings, blesses the tribes, and dies on Mount Nebo."
+    "setting": "Moses in that setting. The line is, “And the LORD, he it is that doth go before you.”."
   },
   {
     "ref": "Deuteronomy 33:27",
@@ -3405,7 +3405,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Moses (and the narrator)",
     "to": "Israel at the death of their leader",
-    "setting": "Joshua is commissioned; Moses sings, blesses the tribes, and dies on Mount Nebo."
+    "setting": "Moses sings, blesses the tribes, and dies on Mount Nebo. This verse says, “The eternal God is your refuge, and underneath are the everlasting.”."
   },
   {
     "ref": "Joshua 1:8",
@@ -3414,7 +3414,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "The Lord",
     "to": "Joshua",
-    "setting": "The Lord said this to Joshua: Charge to Joshua."
+    "setting": "Joshua has just taken command. This verse is the book in his mouth: this law shall not depart; meditate in it day and night, so you may do it."
   },
   {
     "ref": "Joshua 24:15",
@@ -3432,7 +3432,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "The narrator of Ruth",
     "to": "Israel remembering kindness and redemption",
-    "setting": "The narrator of Ruth said this to Israel remembering kindness and redemption: Ruth and Boaz."
+    "setting": "Ruth clings to her and to Israel’s God. This verse says, “And Ruth said, Intreat me not to leave you, or to return.”."
   },
   {
     "ref": "1 Samuel 2:2",
@@ -3477,7 +3477,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "The chronicler (with David’s story)",
     "to": "Exiles remembering true worship under David",
-    "setting": "Saul dies; David becomes king; the ark is brought up with worship and thanksgiving."
+    "setting": "The ark is in the city; David’s psalm of thanks is being sung. This verse is the search: seek the Lord and His strength; seek His face always."
   },
   {
     "ref": "1 Chronicles 29:11",
@@ -3504,7 +3504,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "The chronicler",
     "to": "Judah under the kings",
-    "setting": "The kingdom divides; some kings seek the Lord, others fall; God still sends help."
+    "setting": "some kings seek the Lord, others fall. The line on the page is “For the eyes of the LORD run to and fro.”."
   },
   {
     "ref": "2 Chronicles 20:15",
@@ -3513,7 +3513,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "The chronicler",
     "to": "Judah under the kings",
-    "setting": "The kingdom divides; some kings seek the Lord, others fall; God still sends help."
+    "setting": "The chronicler in that setting. The line is, “And he said, Hearken ye, all Judah, and ye inhabitants of.”."
   },
   {
     "ref": "Nehemiah 1:5",
@@ -3540,7 +3540,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "A psalm writer",
     "to": "Anyone choosing a path for life",
-    "setting": "Opening of the Psalter: two ways — the righteous rooted like a tree, the wicked like chaff."
+    "setting": "Opening of the Psalter: two ways. This verse says, “Blessed is the man that walketh not in the counsel of the ungodly, nor.”."
   },
   {
     "ref": "Psalm 1:2",
@@ -3549,7 +3549,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "A psalm writer",
     "to": "Anyone choosing a path for life",
-    "setting": "Opening of the Psalter: two ways — the righteous rooted like a tree, the wicked like chaff."
+    "setting": "In this psalm — opening of the Psalter: two ways — the line is, “But his delight is in the law of the LORD; and in his law doth he.”."
   },
   {
     "ref": "Psalm 1:3",
@@ -3558,7 +3558,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "A psalm writer",
     "to": "Anyone choosing a path for life",
-    "setting": "Opening of the Psalter: two ways — the righteous rooted like a tree, the wicked like chaff."
+    "setting": "A psalm writer in that moment. The words are, “And he shall be like a tree planted by the rivers of water, that.”."
   },
   {
     "ref": "Psalm 3:3",
@@ -3567,7 +3567,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "David",
     "to": "Anyone under attack who still prays",
-    "setting": "David cries out while hunted or opposed; he flees enemies and asks God to rise and judge."
+    "setting": "David in that moment. The words are, “But you, O LORD, art a shield for me; my glory, and the lifter up.”."
   },
   {
     "ref": "Psalm 3:5",
@@ -3576,7 +3576,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "David",
     "to": "Anyone under attack who still prays",
-    "setting": "David cries out while hunted or opposed; he flees enemies and asks God to rise and judge."
+    "setting": "In this psalm — david cries out while hunted or opposed — the line is, “I laid me down and slept; I awaked; for the LORD sustained me.”."
   },
   {
     "ref": "Psalm 9:9",
@@ -3585,7 +3585,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "David",
     "to": "The oppressed and those tempted to forget God",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God."
+    "setting": "David in that moment. The words are, “The LORD also will be a refuge for the oppressed, a refuge in times.”."
   },
   {
     "ref": "Psalm 16:8",
@@ -3594,7 +3594,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "David",
     "to": "Anyone seeking integrity and refuge",
-    "setting": "Who may dwell with God; trust when the world shakes; a plea for protection from the violent."
+    "setting": "a plea for protection from the violent. This verse says, “I have set the LORD always before me: because he is at my right.”."
   },
   {
     "ref": "Psalm 19:1",
@@ -3603,7 +3603,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "David",
     "to": "Anyone hearing God in sky and Scripture",
-    "setting": "Creation declares God’s glory; His law revives the soul; David prays to be kept from secret faults."
+    "setting": "David in that moment. The words are, “The heavens declare the glory of God.”."
   },
   {
     "ref": "Psalm 19:7",
@@ -3612,7 +3612,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "David",
     "to": "Anyone hearing God in sky and Scripture",
-    "setting": "Creation declares God’s glory; His law revives the soul; David prays to be kept from secret faults."
+    "setting": "David in that moment. The words are, “The law of the LORD is perfect, converting the soul: the testimony.”."
   },
   {
     "ref": "Psalm 23:2",
@@ -3621,7 +3621,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David",
     "to": "Anyone who needs a Shepherd",
-    "setting": "David sings of the Lord as his shepherd who leads, restores, protects through the valley, and prepares a table — goodness and mercy all his days."
+    "setting": "Still in the shepherd psalm: David pictures green pastures and still waters — the Lord making him lie down, not driving him."
   },
   {
     "ref": "Psalm 23:3",
@@ -3630,7 +3630,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "David",
     "to": "Anyone who needs a Shepherd",
-    "setting": "David sings of the Lord as his shepherd who leads, restores, protects through the valley, and prepares a table — goodness and mercy all his days."
+    "setting": "David is still under the Shepherd’s care: this line is the restoring — He brings the soul back and leads in right paths for His name."
   },
   {
     "ref": "Psalm 23:4",
@@ -3639,7 +3639,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "David",
     "to": "Anyone who needs a Shepherd",
-    "setting": "David sings of the Lord as his shepherd who leads, restores, protects through the valley, and prepares a table — goodness and mercy all his days."
+    "setting": "The shepherd psalm goes into the valley of the shadow of death. David says he will not fear there, because the Lord is with him."
   },
   {
     "ref": "Psalm 23:5",
@@ -3648,7 +3648,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "David",
     "to": "Anyone who needs a Shepherd",
-    "setting": "David sings of the Lord as his shepherd who leads, restores, protects through the valley, and prepares a table — goodness and mercy all his days."
+    "setting": "David is still the sheep of the Lord — now at a table set in front of enemies, head anointed, cup running over."
   },
   {
     "ref": "Psalm 23:6",
@@ -3657,7 +3657,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "David",
     "to": "Anyone who needs a Shepherd",
-    "setting": "David sings of the Lord as his shepherd who leads, restores, protects through the valley, and prepares a table — goodness and mercy all his days."
+    "setting": "The shepherd psalm closes: goodness and mercy follow him all his days, and he will dwell in the Lord’s house forever."
   },
   {
     "ref": "Psalm 24:1",
@@ -3675,7 +3675,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David seeks guidance, forgiveness, and help against false friends; the Lord is his light and strength."
+    "setting": "In this psalm — david seeks guidance, forgiveness, and help against false friends — the line is, “The meek will he guide in judgment: and the meek will he teach his way.”."
   },
   {
     "ref": "Psalm 27:4",
@@ -3684,7 +3684,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David faces fear of enemies and waits on the Lord as his light and salvation."
+    "setting": "David in that moment. The words are, “One thing have I desired of the LORD, that will I seek after; that.”."
   },
   {
     "ref": "Psalm 27:13",
@@ -3693,7 +3693,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David faces fear of enemies and waits on the Lord as his light and salvation."
+    "setting": "David in that moment. The words are, “I had fainted, unless I had believed to see the goodness of the LORD.”."
   },
   {
     "ref": "Psalm 30:11",
@@ -3702,7 +3702,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "David",
     "to": "Worshipers hearing God’s power and mercy",
-    "setting": "The voice of the Lord over the waters; David thanks God for lifting him from the pit."
+    "setting": "The voice of the Lord over the waters. This verse says, “you hast turned for me my mourning into dancing: you hast put off.”."
   },
   {
     "ref": "Psalm 32:7",
@@ -3711,7 +3711,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "David",
     "to": "The pressured and the repentant",
-    "setting": "David commits his spirit to God under pressure; confession and instruction; a new song of praise."
+    "setting": "David has confessed and been forgiven. This verse is the hiding place: You are my hiding place; You shall preserve me from trouble."
   },
   {
     "ref": "Psalm 34:1",
@@ -3720,7 +3720,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "David",
     "to": "Anyone tasting that the Lord is good — and the brokenhearted",
-    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
+    "setting": "David in that moment. The words are, “I will bless the LORD at all times: his praise shall continually be.”."
   },
   {
     "ref": "Psalm 34:15",
@@ -3729,7 +3729,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "David",
     "to": "Anyone tasting that the Lord is good — and the brokenhearted",
-    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
+    "setting": "In this psalm — david, after escaping Abimelech, teaches: taste and see that the Lord is good — the line is, “The eyes of the LORD are upon the righteous, and his ears are open.”."
   },
   {
     "ref": "Psalm 37:31",
@@ -3738,7 +3738,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "David prays against unjust attackers. This verse says, “The law of his God is in his heart; none of his steps shall slide.”."
   },
   {
     "ref": "Psalm 39:7",
@@ -3747,7 +3747,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "David",
     "to": "The sick, the guilty, and the waiting",
-    "setting": "David in sickness, sin-awareness, and waiting; Book I closes with the blessedness of the one who considers the poor."
+    "setting": "David in that moment. The words are, “And now, Lord, what wait I for? my hope is in you.”."
   },
   {
     "ref": "Psalm 42:5",
@@ -3756,7 +3756,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "The sons of Korah",
     "to": "Anyone whose soul is downcast",
-    "setting": "Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope."
+    "setting": "Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope. This verse says, “Why art you cast down, O my soul.”."
   },
   {
     "ref": "Psalm 46:2",
@@ -3765,7 +3765,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "The sons of Korah",
     "to": "Anyone in trouble who needs a refuge",
-    "setting": "When the earth shakes and nations rage, this psalm declares God is a present refuge and strength — “be still, and know that I am God.”"
+    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse says, “Therefore will not we fear, though the earth be removed, and though.”."
   },
   {
     "ref": "Psalm 51:12",
@@ -3774,7 +3774,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "David",
     "to": "God — and any heart needing mercy after failure",
-    "setting": "After Nathan confronts David about Bathsheba, David pleads for mercy, a clean heart, and restored joy."
+    "setting": "In this psalm — God summons His people to true worship — the line is, “Restore unto me the joy of your salvation.”."
   },
   {
     "ref": "Psalm 57:1",
@@ -3783,7 +3783,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "David in that moment. The words are, “Be merciful unto me, O God, be merciful unto me: for my soul.”."
   },
   {
     "ref": "Psalm 61:2",
@@ -3792,7 +3792,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse says, “From the end of the earth will I cry unto you, when my heart is.”."
   },
   {
     "ref": "Psalm 73:28",
@@ -3801,7 +3801,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Asaph",
     "to": "The faithful confused by injustice",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds."
+    "setting": "In this psalm — asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds — the line is, “But it is good for me to draw near to God: I have put my trust in.”."
   },
   {
     "ref": "Psalm 84:1",
@@ -3810,7 +3810,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "The sons of Korah",
     "to": "Pilgrims longing for God’s house",
-    "setting": "Longing for God’s courts; mercy and truth meet; the Lord is sun and shield."
+    "setting": "The sons of Korah in that moment. The words are, “How amiable are your tabernacles, O LORD of hosts.”."
   },
   {
     "ref": "Psalm 85:10",
@@ -3819,7 +3819,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "The sons of Korah",
     "to": "Pilgrims longing for God’s house",
-    "setting": "Longing for God’s courts; mercy and truth meet; the Lord is sun and shield."
+    "setting": "The sons of Korah in that moment. The words are, “Mercy and truth are met together; righteousness and peace have.”."
   },
   {
     "ref": "Psalm 91:4",
@@ -3828,7 +3828,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Israel’s refuge hymn — sung for those who dwell in the secret place of the Most High",
     "to": "Those who dwell in the secret place of the Most High",
-    "setting": "A hymn of refuge under the shadow of the Almighty — protection for those who dwell in the secret place of the Most High."
+    "setting": "This is the refuge hymn under the shadow of the Almighty. This verse is the covering: He shall cover you with His feathers, and under His wings you trust."
   },
   {
     "ref": "Psalm 94:22",
@@ -3837,7 +3837,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "An unnamed psalm of Israel — a cry against unjust thrones, then mercy when the foot slips",
     "to": "Anyone whose footing feels uncertain under pressure",
-    "setting": "A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the Lord’s mercy held him up."
+    "setting": "In this psalm — a cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the — the line is, “But the LORD is my defence; and my God is the rock of my refuge.”."
   },
   {
     "ref": "Psalm 103:19",
@@ -3846,7 +3846,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "David",
     "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "setting": "David blesses the Lord who forgives and crowns with mercy. This verse says, “The LORD has prepared his throne in the heavens; and his kingdom.”."
   },
   {
     "ref": "Psalm 119:11",
@@ -3855,7 +3855,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In the long acrostic love-song to God’s Word, this verse is the hiding: Your word have I hid in my heart, that I might not sin against You."
   },
   {
     "ref": "Psalm 127:1",
@@ -3864,7 +3864,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “Except the LORD build the house, they labour in vain that build it:.”."
   },
   {
     "ref": "Psalm 139:23",
@@ -3873,7 +3873,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "David",
     "to": "Anyone who needs to know they are fully known by God",
-    "setting": "David marvels that God searches him, knows him fully, formed him in the womb, and leads him in the everlasting way."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom. This verse says, “Search me, O God, and know my heart: try me, and know my thoughts:.”."
   },
   {
     "ref": "Psalm 141:3",
@@ -3882,7 +3882,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "David in that moment. The words are, “Set a watch, O LORD, before my mouth; keep the door of my lips.”."
   },
   {
     "ref": "Psalm 146:5",
@@ -3891,7 +3891,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "setting": "In this psalm — everything that has breath praise the Lord — the line is, “Happy is he that has the God of Jacob for his help, whose hope is.”."
   },
   {
     "ref": "Psalm 2:12",
@@ -3909,7 +3909,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David",
     "to": "Anyone seeking integrity and refuge",
-    "setting": "Who may dwell with God; trust when the world shakes; a plea for protection from the violent."
+    "setting": "David in that moment. The words are, “Lord, who shall abide in your tabernacle.”."
   },
   {
     "ref": "Psalm 18:1",
@@ -3918,7 +3918,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "David",
     "to": "Anyone delivered after a long fight",
-    "setting": "David’s great victory song after the Lord delivered him from Saul and all enemies."
+    "setting": "David in that moment. The words are, “I will love you, O LORD, my strength.”."
   },
   {
     "ref": "Psalm 20:7",
@@ -3927,7 +3927,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "David",
     "to": "God’s people praying for their leader",
-    "setting": "Royal prayers for the king’s victory and thanksgiving for God’s strength."
+    "setting": "David in that moment. The words are, “Some trust in chariots, and some in horses: but we will remember.”."
   },
   {
     "ref": "Psalm 21:13",
@@ -3936,7 +3936,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "David",
     "to": "God’s people praying for their leader",
-    "setting": "Royal prayers for the king’s victory and thanksgiving for God’s strength."
+    "setting": "David in that moment. The words are, “Be you exalted, LORD, in your own strength: so will we sing.”."
   },
   {
     "ref": "Psalm 25:14",
@@ -3945,7 +3945,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David seeks guidance, forgiveness, and help against false friends; the Lord is his light and strength."
+    "setting": "the Lord is his light and strength. This verse says, “The secret of the LORD is with them that fear him; and he will show.”."
   },
   {
     "ref": "Psalm 27:5",
@@ -3954,7 +3954,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David faces fear of enemies and waits on the Lord as his light and salvation."
+    "setting": "David seeks guidance, forgiveness, and help against false friends. This verse says, “For in the time of trouble he shall hide me in his pavilion:.”."
   },
   {
     "ref": "Psalm 32:1",
@@ -3963,7 +3963,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "David",
     "to": "The pressured and the repentant",
-    "setting": "David commits his spirit to God under pressure; confession and instruction; a new song of praise."
+    "setting": "David in that moment. The words are, “Blessed is he whose transgression is forgiven, whose sin is covered.”."
   },
   {
     "ref": "Psalm 33:20",
@@ -3972,7 +3972,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "David",
     "to": "The pressured and the repentant",
-    "setting": "David commits his spirit to God under pressure; confession and instruction; a new song of praise."
+    "setting": "David in that moment. The words are, “Our soul waiteth for the LORD: he is our help and our shield.”."
   },
   {
     "ref": "Psalm 34:10",
@@ -3981,7 +3981,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David",
     "to": "Anyone tasting that the Lord is good — and the brokenhearted",
-    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit."
+    "setting": "David in that moment. The words are, “The young lions do lack, and suffer hunger: but they that seek the LORD.”."
   },
   {
     "ref": "Psalm 37:11",
@@ -3990,7 +3990,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "delight in the Lord. This verse says, “But the meek shall inherit the earth; and shall delight themselves.”."
   },
   {
     "ref": "Psalm 40:8",
@@ -3999,7 +3999,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "David",
     "to": "The sick, the guilty, and the waiting",
-    "setting": "David in sickness, sin-awareness, and waiting; Book I closes with the blessedness of the one who considers the poor."
+    "setting": "David in sickness, sin-awareness, and waiting. This verse says, “I delight to do your will, O my God: yea, your law is within my heart.”."
   },
   {
     "ref": "Psalm 46:5",
@@ -4008,7 +4008,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "The sons of Korah",
     "to": "Anyone in trouble who needs a refuge",
-    "setting": "When the earth shakes and nations rage, this psalm declares God is a present refuge and strength — “be still, and know that I am God.”"
+    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. This verse says, “God is in the midst of her; she shall not be moved: God shall help.”."
   },
   {
     "ref": "Psalm 51:17",
@@ -4017,7 +4017,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "David",
     "to": "God — and any heart needing mercy after failure",
-    "setting": "After Nathan confronts David about Bathsheba, David pleads for mercy, a clean heart, and restored joy."
+    "setting": "God summons His people to true worship. This verse says, “The sacrifices of God are a broken spirit: a broken and a contrite.”."
   },
   {
     "ref": "Psalm 56:11",
@@ -4026,7 +4026,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "David under Saul’s pursuit and Doeg’s betrayal. This verse says, “In God have I put my trust: I will not be afraid what man can do.”."
   },
   {
     "ref": "Psalm 60:12",
@@ -4035,7 +4035,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "In this psalm — david under Saul’s pursuit and Doeg’s betrayal — the line is, “Through God we shall do valiantly: for he it is that shall tread.”."
   },
   {
     "ref": "Psalm 67:5",
@@ -4044,7 +4044,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse says, “Let the people praise you, O God; let all the people praise you.”."
   },
   {
     "ref": "Psalm 73:24",
@@ -4053,7 +4053,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Asaph",
     "to": "The faithful confused by injustice",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds."
+    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds. This verse says, “you shall guide me with your counsel, and afterward receive me to glory.”."
   },
   {
     "ref": "Psalm 84:4",
@@ -4062,7 +4062,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "The sons of Korah",
     "to": "Pilgrims longing for God’s house",
-    "setting": "Longing for God’s courts; mercy and truth meet; the Lord is sun and shield."
+    "setting": "The sons of Korah in that moment. The words are, “Blessed are they that dwell in your house: they will be still.”."
   },
   {
     "ref": "Psalm 89:8",
@@ -4071,7 +4071,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Ethan the Ezrahite",
     "to": "Those clinging to God’s promise when it looks broken",
-    "setting": "Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy."
+    "setting": "Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy. This verse says, “O LORD God of hosts, who is a strong LORD like unto you.”."
   },
   {
     "ref": "Psalm 97:1",
@@ -4080,7 +4080,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "All lands called to joyful worship",
-    "setting": "Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright."
+    "setting": "Israel’s congregation in that moment. The words are, “The LORD reigneth; let the earth rejoice; let the multitude of.”."
   },
   {
     "ref": "Psalm 98:4",
@@ -4089,7 +4089,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
-    "setting": "A new song for all the earth; holy worship; enter His gates with thanksgiving."
+    "setting": "Israel’s congregation in that moment. The words are, “Make a joyful noise unto the LORD, all the earth: make a loud.”."
   },
   {
     "ref": "Psalm 99:9",
@@ -4098,7 +4098,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Israel’s congregation — calling all lands to enter His gates with thanksgiving",
     "to": "All lands called to joyful worship",
-    "setting": "A new song for all the earth; holy worship; enter His gates with thanksgiving."
+    "setting": "In this psalm — enter His gates with thanksgiving — the line is, “Exalt the LORD our God, and worship at his holy hill; for the LORD.”."
   },
   {
     "ref": "Psalm 104:24",
@@ -4107,7 +4107,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
-    "setting": "Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”"
+    "setting": "In this psalm — retelling of God’s faithfulness and Israel’s failures — the line is, “O LORD, how manifold are your works.”."
   },
   {
     "ref": "Psalm 105:4",
@@ -4116,7 +4116,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
-    "setting": "Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”"
+    "setting": "retelling of God’s faithfulness and Israel’s failures. This verse says, “Seek the LORD, and his strength: seek his face evermore.”."
   },
   {
     "ref": "Psalm 111:10",
@@ -4125,7 +4125,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. This verse says, “The fear of the LORD is the beginning of wisdom: a good.”."
   },
   {
     "ref": "Psalm 112:7",
@@ -4134,7 +4134,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. This verse says, “He shall not be afraid of evil tidings: his heart is fixed, trusting.”."
   },
   {
     "ref": "Psalm 119:2",
@@ -4143,7 +4143,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In this psalm — the great acrostic love-song to God’s Word — the line is, “Blessed are they that keep his testimonies, and that seek him.”."
   },
   {
     "ref": "Psalm 126:5",
@@ -4152,7 +4152,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
     "to": "Travelers and worshipers going up to God’s house",
-    "setting": "Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing."
+    "setting": "Pilgrim songs of ascent in that moment. The words are, “They that sow in tears shall reap in joy.”."
   },
   {
     "ref": "Psalm 139:10",
@@ -4161,7 +4161,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "David",
     "to": "Anyone who needs to know they are fully known by God",
-    "setting": "David marvels that God searches him, knows him fully, formed him in the womb, and leads him in the everlasting way."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom. This verse says, “Even there shall your hand lead me, and your right hand shall hold me.”."
   },
   {
     "ref": "Psalm 145:3",
@@ -4170,7 +4170,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "David in that moment. The words are, “Great is the LORD, and greatly to be praised; and his greatness is.”."
   },
   {
     "ref": "Psalm 146:8",
@@ -4179,7 +4179,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "setting": "In this psalm — everything that has breath praise the Lord — the line is, “The LORD openeth the eyes of the blind: the LORD raiseth them that.”."
   },
   {
     "ref": "Psalm 147:5",
@@ -4188,7 +4188,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "setting": "In this psalm — everything that has breath praise the Lord — the line is, “Great is our Lord, and of great power: his understanding is.”."
   },
   {
     "ref": "Psalm 148:13",
@@ -4197,7 +4197,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "setting": "everything that has breath praise the Lord. This verse says, “Let them praise the name of the LORD: for his name alone is.”."
   },
   {
     "ref": "Proverbs 3:6",
@@ -4206,7 +4206,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Solomon giving wisdom",
     "to": "A son (and every reader seeking guidance)",
-    "setting": "Solomon giving wisdom said this to A son (and every reader seeking guidance): Trust in the Lord."
+    "setting": "Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse says, “In all your ways acknowledge him, and he shall direct your paths.”."
   },
   {
     "ref": "Proverbs 4:18",
@@ -4215,7 +4215,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Solomon giving wisdom",
     "to": "Everyone seeking guidance",
-    "setting": "Solomon (and the wise) urge a son to choose wisdom over the path of fools."
+    "setting": "Solomon giving wisdom — solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse says, “But the path of the just is as the shining light, that shineth more.”."
   },
   {
     "ref": "Proverbs 8:17",
@@ -4224,7 +4224,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Solomon giving wisdom",
     "to": "Everyone seeking guidance",
-    "setting": "Solomon (and the wise) urge a son to choose wisdom over the path of fools."
+    "setting": "Solomon (and the wise) urge a son to choose wisdom over the path of fools. This verse says, “I love them that love me; and those that seek me early shall find.”."
   },
   {
     "ref": "Proverbs 10:12",
@@ -4233,7 +4233,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Solomon giving wisdom — short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse says, “Hatred stirreth up strifes: but love covereth all sins.”."
   },
   {
     "ref": "Proverbs 11:25",
@@ -4242,7 +4242,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Solomon giving wisdom — short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse says, “The liberal soul shall be made fat: and he that watereth shall be.”."
   },
   {
     "ref": "Proverbs 16:24",
@@ -4251,7 +4251,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse says, “Pleasant words are as an honeycomb, sweet to the soul, and health.”."
   },
   {
     "ref": "Proverbs 18:21",
@@ -4260,7 +4260,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse says, “Death and life are in the power of the tongue: and they that love it.”."
   },
   {
     "ref": "Proverbs 19:21",
@@ -4269,7 +4269,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Solomon giving wisdom",
     "to": "Anyone learning a straight path",
-    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord."
+    "setting": "Short proverbs for daily life: work, words, friends, and the fear of the Lord. This verse says, “There are many devices in a man’s heart; nevertheless the counsel.”."
   },
   {
     "ref": "Ecclesiastes 3:1",
@@ -4278,7 +4278,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Solomon (the Preacher)",
     "to": "Anyone asking what lasts under the sun",
-    "setting": "The Preacher tests pleasure, work, and wisdom “under the sun” and finds vanity without God."
+    "setting": "Solomon in that setting. The line is, “To every thing there is a season, and a time to every purpose under.”."
   },
   {
     "ref": "Ecclesiastes 3:11",
@@ -4287,7 +4287,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Solomon (the Preacher)",
     "to": "Anyone asking what lasts under the sun",
-    "setting": "The Preacher tests pleasure, work, and wisdom “under the sun” and finds vanity without God."
+    "setting": "The Preacher tests pleasure, work, and wisdom “under the sun” and finds vanity without God. This verse says, “He has made every thing beautiful in his time: also he has set.”."
   },
   {
     "ref": "Isaiah 9:6",
@@ -4296,7 +4296,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Isaiah",
     "to": "Judah — and all who need comfort and warning",
-    "setting": "Isaiah confronts Judah’s sin and offers hope of a holy remnant and a coming king."
+    "setting": "Isaiah confronts Judah’s sin and offers hope of a holy remnant and a coming king. This verse says, “For unto us a child is born, unto us a son is given: and the government.”."
   },
   {
     "ref": "Isaiah 12:2",
@@ -4305,7 +4305,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Isaiah",
     "to": "Judah — and all who need comfort and warning",
-    "setting": "Isaiah confronts Judah’s sin and offers hope of a holy remnant and a coming king."
+    "setting": "Isaiah in that setting. The line is, “Behold, God is my salvation.”."
   },
   {
     "ref": "Isaiah 25:8",
@@ -4314,7 +4314,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Isaiah",
     "to": "A people under threat who need God to reign",
-    "setting": "Judgment and joy; a highway of holiness; God defends Zion."
+    "setting": "Isaiah in that setting. The line is, “He will swallow up death in victory; and the Lord GOD will wipe.”."
   },
   {
     "ref": "Isaiah 30:15",
@@ -4323,7 +4323,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Isaiah",
     "to": "A people under threat who need God to reign",
-    "setting": "Judgment and joy; a highway of holiness; God defends Zion."
+    "setting": "God defends Zion. This verse says, “For thus says the Lord GOD, the Holy One of Israel; In returning.”."
   },
   {
     "ref": "Isaiah 32:17",
@@ -4332,7 +4332,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Isaiah",
     "to": "A people under threat who need God to reign",
-    "setting": "Judgment and joy; a highway of holiness; God defends Zion."
+    "setting": "Isaiah in that setting. The line is, “And the work of righteousness shall be peace; and the effect of.”."
   },
   {
     "ref": "Isaiah 35:4",
@@ -4341,7 +4341,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Isaiah",
     "to": "A people under threat who need God to reign",
-    "setting": "Judgment and joy; a highway of holiness; God defends Zion."
+    "setting": "Judgment and joy. The line on the page is “Say to them that are of a fearful heart, Be.”."
   },
   {
     "ref": "Isaiah 40:8",
@@ -4350,7 +4350,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Isaiah (comfort from God) said this to Weary Judah — and anyone waiting on the Lord: Comfort and renewed strength."
+    "setting": "Isaiah in that setting. The line is, “The grass withereth, the flower fadeth: but the word of our God shall.”."
   },
   {
     "ref": "Isaiah 40:11",
@@ -4359,7 +4359,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Isaiah (comfort from God) said this to Weary Judah — and anyone waiting on the Lord: Comfort and renewed strength."
+    "setting": "Isaiah in that setting. The line is, “He shall feed his flock like a shepherd: he shall gather the lambs.”."
   },
   {
     "ref": "Isaiah 41:13",
@@ -4368,7 +4368,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Isaiah (the Lord speaking)",
     "to": "Fearful people — and you when fear is loud",
-    "setting": "The Lord comforts fearful Israel in exile: “Fear thou not; for I am with thee” — strength and help from His right hand."
+    "setting": "Isaiah — a servant will bring justice. This verse says, “For I the LORD your God will hold your right hand, saying unto you, Fear not.”."
   },
   {
     "ref": "Isaiah 43:1",
@@ -4377,7 +4377,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "Isaiah — comfort for exiles: God is incomparable. This verse says, “But now thus says the LORD that created you, O Jacob, and he.”."
   },
   {
     "ref": "Isaiah 43:19",
@@ -4386,7 +4386,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "Isaiah — a servant will bring justice. This verse says, “Behold, I will do a new thing; now it shall spring forth; shall ye.”."
   },
   {
     "ref": "Isaiah 44:22",
@@ -4395,7 +4395,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "Comfort for exiles: God is incomparable. This verse says, “I have blotted out, as a thick cloud, your transgressions, and, as.”."
   },
   {
     "ref": "Isaiah 45:22",
@@ -4404,7 +4404,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "Comfort for exiles: God is incomparable. This verse says, “Look unto me, and be ye saved, all the ends of the earth: for I am.”."
   },
   {
     "ref": "Isaiah 46:4",
@@ -4413,7 +4413,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "Isaiah — a servant will bring justice. This verse says, “And even to your old age I am he; and even to hoar hairs will I.”."
   },
   {
     "ref": "Isaiah 53:5",
@@ -4422,7 +4422,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Isaiah",
     "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "Isaiah said this to Israel — and all who look to the Suffering Servant: Suffering Servant."
+    "setting": "Isaiah in that setting. The line is, “But he was wounded for our transgressions, he was bruised.”."
   },
   {
     "ref": "Isaiah 55:1",
@@ -4431,7 +4431,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Isaiah",
     "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "setting": "Isaiah — the Servant suffers for sins. This verse says, “Ho, every one that thirsteth, Come to the waters, and he that.”."
   },
   {
     "ref": "Isaiah 55:8",
@@ -4440,7 +4440,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Isaiah",
     "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "setting": "The Servant suffers for sins. The line on the page is “For my thoughts are not your thoughts, neither.”."
   },
   {
     "ref": "Isaiah 55:9",
@@ -4449,7 +4449,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Isaiah",
     "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "setting": "The Servant suffers for sins. This verse says, “For as the heavens are higher than the earth, so are my ways higher.”."
   },
   {
     "ref": "Isaiah 61:1",
@@ -4458,7 +4458,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Isaiah",
     "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "setting": "Isaiah — promises of a new heavens and new earth. This verse says, “The Spirit of the Lord GOD is upon me; because the LORD has.”."
   },
   {
     "ref": "Isaiah 61:3",
@@ -4467,7 +4467,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Isaiah",
     "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "setting": "Promises of a new heavens and new earth. This verse says, “To appoint unto them that mourn in Zion, to give unto them beauty.”."
   },
   {
     "ref": "Jeremiah 1:5",
@@ -4476,7 +4476,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Jeremiah",
     "to": "Judah and the exiles",
-    "setting": "Jeremiah is called as a youth to warn Judah before Babylon comes."
+    "setting": "Jeremiah is a youth being called to warn Judah. This verse is the call: before I formed you in the belly I knew you; I ordained you a prophet."
   },
   {
     "ref": "Jeremiah 29:13",
@@ -4485,7 +4485,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Jeremiah (the word of the Lord)",
     "to": "The exiles in Babylon",
-    "setting": "Kings reject the word; false prophets promise peace; Jeremiah sends a letter to the first exiles."
+    "setting": "false prophets promise peace. This verse says, “And you shall seek me, and find me, when you shall search for me with all.”."
   },
   {
     "ref": "Jeremiah 32:17",
@@ -4494,7 +4494,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Jeremiah",
     "to": "Broken people promised restoration",
-    "setting": "Promises of a new covenant written on the heart."
+    "setting": "Jeremiah — promises of a new covenant written on the heart. This verse says, “Ah Lord GOD.”."
   },
   {
     "ref": "Jeremiah 33:3",
@@ -4503,7 +4503,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Jeremiah",
     "to": "Broken people promised restoration",
-    "setting": "Promises of a new covenant written on the heart."
+    "setting": "Promises of a new covenant written on the heart. This verse says, “Call unto me, and I will answer you, and show you great and mighty.”."
   },
   {
     "ref": "Lamentations 3:22",
@@ -4512,7 +4512,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Jeremiah",
     "to": "Exiles in grief — and anyone whose mercies need renewing",
-    "setting": "Jerusalem has fallen; the poet weeps, yet hopes in mercies new every morning."
+    "setting": "Jeremiah in that setting. The line is, “It is of the LORD’s mercies that we are not consumed, because.”."
   },
   {
     "ref": "Lamentations 3:23",
@@ -4521,7 +4521,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Jeremiah",
     "to": "Exiles in grief — and anyone whose mercies need renewing",
-    "setting": "Jerusalem has fallen; the poet weeps, yet hopes in mercies new every morning."
+    "setting": "the poet weeps, yet hopes in mercies new every morning. This verse says, “They are new every morning: great is your faithfulness.”."
   },
   {
     "ref": "Ezekiel 36:26",
@@ -4548,7 +4548,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "The narrator of Daniel",
     "to": "Readers watching prayer under pressure",
-    "setting": "The narrator of Daniel said this to Readers watching prayer under pressure: Daniel in the lions’ den."
+    "setting": "The narrator of Daniel in that setting. The line is, “I make a decree, That in every dominion of my kingdom men tremble.”."
   },
   {
     "ref": "Hosea 6:3",
@@ -4557,7 +4557,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Hosea",
     "to": "The northern kingdom near collapse",
-    "setting": "Charges against Israel’s idolatry; a final plea to return to the Lord."
+    "setting": "Hosea in that setting. The line is, “Then shall we know, if we follow on to know the LORD: his going.”."
   },
   {
     "ref": "Hosea 14:4",
@@ -4566,7 +4566,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Hosea",
     "to": "The northern kingdom near collapse",
-    "setting": "Charges against Israel’s idolatry; a final plea to return to the Lord."
+    "setting": "Hosea in that setting. The line is, “I will heal their backsliding, I will love them freely: for mine.”."
   },
   {
     "ref": "Joel 2:13",
@@ -4575,7 +4575,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Joel",
     "to": "Judah facing the day of the Lord",
-    "setting": "A locust plague and drought become a call to repent before the day of the Lord."
+    "setting": "Joel in that setting. The line is, “And rend your heart, and not your garments, and turn unto the LORD.”."
   },
   {
     "ref": "Joel 2:25",
@@ -4584,7 +4584,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Joel",
     "to": "Judah facing the day of the Lord",
-    "setting": "A locust plague and drought become a call to repent before the day of the Lord."
+    "setting": "Joel has called the people to repent after locust and drought. This verse is the restore: I will restore to you the years that the locust has eaten."
   },
   {
     "ref": "Amos 5:4",
@@ -4602,7 +4602,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Micah",
     "to": "Judah hearing what the Lord requires",
-    "setting": "Micah warns Samaria and Jerusalem; he asks what the Lord requires: justice, mercy, humility."
+    "setting": "Micah is telling a people who want the right offering what God actually wants. This verse is the requirement: do justly, love mercy, and walk humbly with your God."
   },
   {
     "ref": "Micah 7:8",
@@ -4611,7 +4611,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Micah",
     "to": "Judah hearing what the Lord requires",
-    "setting": "Micah warns Samaria and Jerusalem; he asks what the Lord requires: justice, mercy, humility."
+    "setting": "he asks what the Lord requires: justice, mercy, humility. The line on the page is “Rejoice not against me, O mine enemy: when I.”."
   },
   {
     "ref": "Micah 7:18",
@@ -4620,7 +4620,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Micah",
     "to": "Judah hearing what the Lord requires",
-    "setting": "Micah warns Samaria and Jerusalem; he asks what the Lord requires: justice, mercy, humility."
+    "setting": "Micah — he asks what the Lord requires: justice, mercy, humility. This verse says, “Who is a God like unto you, that pardoneth iniquity, and passeth.”."
   },
   {
     "ref": "Habakkuk 3:19",
@@ -4656,7 +4656,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Malachi",
     "to": "Israel called to return to the Lord",
-    "setting": "After the return, priests and people grow careless; God calls them to return and promises a messenger."
+    "setting": "After the return, priests and people grow careless. This verse says, “For I am the LORD, I change not; therefore ye sons of Jacob are not.”."
   },
   {
     "ref": "Malachi 4:2",
@@ -4665,7 +4665,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Malachi",
     "to": "Israel called to return to the Lord",
-    "setting": "After the return, priests and people grow careless; God calls them to return and promises a messenger."
+    "setting": "Malachi in that setting. The line is, “But unto you that fear my name shall the Sun of righteousness arise.”."
   },
   {
     "ref": "Matthew 5:3",
@@ -4674,7 +4674,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus opens the Sermon on the Mount with blessings that turn the world upside down. This first one is for the poor in spirit — the kingdom is theirs."
   },
   {
     "ref": "Matthew 5:4",
@@ -4683,7 +4683,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The line on the page is “Blessed are they that mourn: for they shall be.”."
   },
   {
     "ref": "Matthew 5:6",
@@ -4692,7 +4692,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The line on the page is “Blessed are they which do hunger and thirst.”."
   },
   {
     "ref": "Matthew 5:7",
@@ -4701,7 +4701,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The line on the page is “Blessed are the merciful: for they shall obtain.”."
   },
   {
     "ref": "Matthew 5:8",
@@ -4710,7 +4710,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The line on the page is “Blessed are the pure in heart: for they shall.”."
   },
   {
     "ref": "Matthew 6:14",
@@ -4719,7 +4719,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "On that day — Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way — the words are, “For if you forgive men their trespasses, your heavenly Father will also.”."
   },
   {
     "ref": "Matthew 6:34",
@@ -4728,7 +4728,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Jesus",
     "to": "His disciples who worry about tomorrow",
-    "setting": "Jesus said this to His disciples who worry about tomorrow: Do not be anxious."
+    "setting": "On that day — Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way — the words are, “Take therefore no thought for the morrow: for the morrow shall take.”."
   },
   {
     "ref": "Matthew 7:8",
@@ -4737,7 +4737,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The line on the page is “For every one that asketh receiveth; and he.”."
   },
   {
     "ref": "Matthew 11:29",
@@ -4746,7 +4746,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Jesus",
     "to": "The weary and heavy laden",
-    "setting": "Jesus said this to the weary and heavy laden: Come unto Me."
+    "setting": "On that day — Jesus invites the weary to rest — the words are, “Take my yoke upon you, and learn of me; for I am meek and lowly in.”."
   },
   {
     "ref": "Matthew 18:3",
@@ -4764,7 +4764,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Jesus (through Matthew)",
     "to": "Jerusalem in Passion Week",
-    "setting": "Triumphal entry; cleansing the temple; debates with leaders in Jerusalem."
+    "setting": "Jesus is in this moment — debates with leaders in Jerusalem. He says, “Jesus said unto him, you shall love the Lord your God with all.”."
   },
   {
     "ref": "Matthew 22:39",
@@ -4773,7 +4773,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Jesus (through Matthew)",
     "to": "Jerusalem in Passion Week",
-    "setting": "Triumphal entry; cleansing the temple; debates with leaders in Jerusalem."
+    "setting": "On that day — debates with leaders in Jerusalem — the words are, “And the second is like unto it, you shall love your neighbour as.”."
   },
   {
     "ref": "Matthew 28:20",
@@ -4800,7 +4800,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Jesus (through Mark)",
     "to": "Jerusalem in the final week",
-    "setting": "Entry into Jerusalem; temple cleansing; Olivet discourse."
+    "setting": "Jesus is in this moment — entry into Jerusalem. He says, “And you shall love the Lord your God with all your heart, and with all.”."
   },
   {
     "ref": "Mark 12:31",
@@ -4809,7 +4809,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Jesus (through Mark)",
     "to": "Jerusalem in the final week",
-    "setting": "Entry into Jerusalem; temple cleansing; Olivet discourse."
+    "setting": "Olivet discourse This verse says, “And the second is like, namely this, you shall love your neighbour.”."
   },
   {
     "ref": "Luke 2:10",
@@ -4818,7 +4818,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Luke (and the angels’ word)",
     "to": "Shepherds — and all who hear of Jesus’ birth",
-    "setting": "Luke (and the angels’ word) said this to Shepherds — and all who hear of Jesus’ birth: Nativity."
+    "setting": "On that day — births of John and Jesus; — He says and the angel said to them, Do not be afraid:."
   },
   {
     "ref": "Luke 2:14",
@@ -4827,7 +4827,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Luke (and the angels’ word)",
     "to": "Shepherds — and all who hear of Jesus’ birth",
-    "setting": "Luke (and the angels’ word) said this to Shepherds — and all who hear of Jesus’ birth: Nativity."
+    "setting": "On that day — births of John and Jesus; — He says glory to God in the highest, and on earth peace, good will toward men."
   },
   {
     "ref": "Luke 10:27",
@@ -4836,7 +4836,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Jesus",
     "to": "A lawyer testing Him — and every neighbor-watcher",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus This verse says, “And he answering said, you shall love the Lord your God with all.”."
   },
   {
     "ref": "Luke 12:7",
@@ -4845,7 +4845,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Jesus (through Luke)",
     "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "setting": "Jesus is in this moment — on the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. He says, “But even the very hairs of your head are all numbered.”."
   },
   {
     "ref": "Luke 15:7",
@@ -4854,7 +4854,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Jesus",
     "to": "Sinners drawing near — and Pharisees listening",
-    "setting": "Jesus said this to Sinners drawing near — and Pharisees listening: Lost sheep, coin, and son."
+    "setting": "Jesus is in this moment — on the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. He says, “I say unto you, that likewise joy shall be in heaven over one.”."
   },
   {
     "ref": "Luke 19:10",
@@ -4863,7 +4863,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Jesus (through Luke)",
     "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "setting": "On that day — on the road to Jerusalem: — He says for the Son of man is come to seek and to save that which was lost."
   },
   {
     "ref": "Luke 24:6",
@@ -4881,7 +4881,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "John the apostle",
     "to": "Readers meeting the Word made flesh",
-    "setting": "John the apostle said this to Readers meeting the Word made flesh: Prologue."
+    "setting": "water becomes wine at Cana This verse says, “In him was life; and the life was the light of men.”."
   },
   {
     "ref": "John 1:5",
@@ -4890,7 +4890,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "John the apostle",
     "to": "Readers meeting the Word made flesh",
-    "setting": "John the apostle said this to Readers meeting the Word made flesh: Prologue."
+    "setting": "On that day — water becomes wine at Cana — the words are, “And the light shineth in darkness; and the darkness comprehended it.”."
   },
   {
     "ref": "John 3:17",
@@ -4899,7 +4899,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Jesus",
     "to": "Nicodemus (and every seeker of new birth)",
-    "setting": "At night in Jerusalem, Jesus teaches Nicodemus that new birth by the Spirit and faith in the lifted-up Son bring eternal life."
+    "setting": "Jesus teaches Nicodemus about new birth This verse says, “For God sent not his Son into the world to condemn the world; but.”."
   },
   {
     "ref": "John 8:31",
@@ -4908,7 +4908,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Jesus (through John)",
     "to": "Jerusalem under debate about who Jesus is",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "setting": "Conflict at feasts in Jerusalem This verse says, “Then said Jesus to those Jews which believed on him, If ye continue.”."
   },
   {
     "ref": "John 8:32",
@@ -4917,7 +4917,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Jesus (through John)",
     "to": "Jerusalem under debate about who Jesus is",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "setting": "On that day — conflict at feasts in Jerusalem; — He says and you shall know the truth, and the truth shall make you free."
   },
   {
     "ref": "John 10:10",
@@ -4926,7 +4926,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Jesus",
     "to": "His hearers — sheep who know His voice",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "setting": "On that day — conflict at feasts in Jerusalem — the words are, “The thief comes not, but for to steal, and to kill, and to destroy: I.”."
   },
   {
     "ref": "John 14:2",
@@ -4935,7 +4935,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Jesus",
     "to": "His disciples the night before the cross",
-    "setting": "Jesus said this to His disciples the night before the cross: Upper room comfort."
+    "setting": "On that day — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross — the words are, “In my Father’s house are many mansions: if it were not so, I would have.”."
   },
   {
     "ref": "John 14:18",
@@ -4944,7 +4944,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Jesus",
     "to": "His disciples the night before the cross",
-    "setting": "Jesus said this to His disciples the night before the cross: Upper room comfort."
+    "setting": "Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross This verse says, “I will not leave you comfortless: I will come to you.”."
   },
   {
     "ref": "John 15:5",
@@ -4953,7 +4953,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Jesus",
     "to": "His disciples abiding in Him",
-    "setting": "Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross."
+    "setting": "On that day — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross — the words are, “I am the vine, you are the branches: He that abideth in me, and I.”."
   },
   {
     "ref": "John 15:9",
@@ -4962,7 +4962,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Jesus",
     "to": "His disciples abiding in Him",
-    "setting": "Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross."
+    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “As the Father has loved me, so have I loved you: continue you in my love.”."
   },
   {
     "ref": "John 16:33",
@@ -4971,7 +4971,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Jesus",
     "to": "His disciples the night before the cross",
-    "setting": "Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross."
+    "setting": "On that day — upper room: — He says these things I have spoken to you, that in me you might have peace."
   },
   {
     "ref": "John 20:29",
@@ -4980,7 +4980,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "The risen Jesus (through John)",
     "to": "Mary, the disciples, and Thomas — and you who believe",
-    "setting": "The risen Jesus (through John) said this to Mary, the disciples, and Thomas — and you who believe: Resurrection appearances."
+    "setting": "On that day — empty tomb; — He says Jesus says to him, Thomas, because you have seen me, you have believed:."
   },
   {
     "ref": "Acts 2:21",
@@ -4998,7 +4998,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Luke (with Paul and Silas)",
     "to": "Readers watching faith in prison",
-    "setting": "Luke (with Paul and Silas) said this to Readers watching faith in prison: Philippi jail."
+    "setting": "On that day — paul’s journeys through Macedonia and Greece — the words are, “And they said, Believe on the Lord Jesus Christ, and you shall be.”."
   },
   {
     "ref": "Romans 5:1",
@@ -5007,7 +5007,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Paul is teaching Rome that Abraham believed God. This verse is the result: being justified by faith, we have peace with God through our Lord Jesus Christ."
   },
   {
     "ref": "Romans 5:8",
@@ -5016,7 +5016,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Paul — peace with God comes through Christ, not law-keeping. This verse says, “But God commendeth his love toward us, in that, while we were yet.”."
   },
   {
     "ref": "Romans 6:23",
@@ -5025,7 +5025,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "no condemnation for those in Christ. This verse says, “For the wages of sin is death; but the gift of God is eternal life.”."
   },
   {
     "ref": "Romans 10:9",
@@ -5034,7 +5034,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Paul wrestles with Israel’s unbelief and God’s mercy to Jew and Gentile. This verse says, “That if you shall confess with your mouth the Lord Jesus, and shall.”."
   },
   {
     "ref": "Romans 10:13",
@@ -5043,7 +5043,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Paul in that setting. The line is, “For whosoever shall call upon the name of the Lord shall be saved.”."
   },
   {
     "ref": "Romans 12:2",
@@ -5052,7 +5052,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Paul in that setting. The line is, “And be not conformed to this world: but be you transformed.”."
   },
   {
     "ref": "Romans 12:21",
@@ -5061,7 +5061,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse says, “Be not overcome of evil, but overcome evil with good.”."
   },
   {
     "ref": "Romans 15:4",
@@ -5070,7 +5070,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Paul — living sacrifices: renewed minds, love, and unity in the Roman house churches. This verse says, “For whatsoever things were written aforetime were written.”."
   },
   {
     "ref": "1 Corinthians 1:9",
@@ -5079,7 +5079,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Paul",
     "to": "the church at Corinth (and you today)",
-    "setting": "Paul writes a gifted but divided church in Corinth about the cross and true wisdom."
+    "setting": "Paul in that setting. The line is, “God is faithful, by whom you were called unto the fellowship of his Son.”."
   },
   {
     "ref": "1 Corinthians 2:9",
@@ -5088,7 +5088,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Paul",
     "to": "the church at Corinth (and you today)",
-    "setting": "Paul writes a gifted but divided church in Corinth about the cross and true wisdom."
+    "setting": "Paul in that setting. The line is, “But as it is written, Eye has not seen, nor ear heard, neither.”."
   },
   {
     "ref": "1 Corinthians 10:13",
@@ -5106,7 +5106,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Paul",
     "to": "The church at Corinth learning real love",
-    "setting": "Paul said this to the church at Corinth learning real love: Love chapter."
+    "setting": "Paul — The Lord’s Supper and spiritual gifts. This verse says, “Beareth all things, believeth all things, hopeth all things, endureth.”."
   },
   {
     "ref": "1 Corinthians 15:57",
@@ -5115,7 +5115,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Paul",
     "to": "Believers holding the resurrection",
-    "setting": "The resurrection of Christ and of the dead; final instructions and greetings."
+    "setting": "Paul — the resurrection of Christ and of the dead. This verse says, “But thanks be to God, which giveth us the victory through our Lord.”."
   },
   {
     "ref": "1 Corinthians 15:58",
@@ -5124,7 +5124,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "Believers holding the resurrection",
-    "setting": "The resurrection of Christ and of the dead; final instructions and greetings."
+    "setting": "Paul in that setting. The line is, “Therefore, my beloved brethren, be ye stedfast, unmoveable, always.”."
   },
   {
     "ref": "2 Corinthians 1:3",
@@ -5133,7 +5133,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Paul",
     "to": "The church at Corinth in affliction",
-    "setting": "Paul said this to the church at Corinth in affliction: God of all comfort."
+    "setting": "Paul — paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse says, “Blessed be God, even the Father of our Lord Jesus Christ, the Father.”."
   },
   {
     "ref": "2 Corinthians 1:4",
@@ -5142,7 +5142,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Paul",
     "to": "The church at Corinth in affliction",
-    "setting": "Paul said this to the church at Corinth in affliction: God of all comfort."
+    "setting": "Paul in that setting. The line is, “Who comforteth us in all our tribulation, that we may be able.”."
   },
   {
     "ref": "2 Corinthians 4:16",
@@ -5151,7 +5151,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Paul",
     "to": "the church at Corinth (and you today)",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth."
+    "setting": "Paul in that setting. The line is, “For which cause we faint not.”."
   },
   {
     "ref": "2 Corinthians 4:18",
@@ -5160,7 +5160,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Paul",
     "to": "the church at Corinth (and you today)",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth."
+    "setting": "Paul — paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse says, “While we look not at the things which are seen, but at the things.”."
   },
   {
     "ref": "2 Corinthians 5:17",
@@ -5169,7 +5169,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Paul",
     "to": "the church at Corinth (and you today)",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse says, “Therefore if any man be in Christ, he is a new creature: old things.”."
   },
   {
     "ref": "2 Corinthians 9:7",
@@ -5178,7 +5178,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Paul",
     "to": "Corinth learning cheerful generosity",
-    "setting": "Paul urges generous giving for the poor saints."
+    "setting": "Paul in that setting. The line is, “Every man according as he purposeth in his heart, so let him give.”."
   },
   {
     "ref": "Galatians 2:20",
@@ -5196,7 +5196,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "The churches of Galatia",
-    "setting": "Paul said this to the churches of Galatia: Freedom in Christ."
+    "setting": "Paul — bearing one another’s burdens. This verse says, “Stand fast therefore in the liberty wherewith Christ has made us.”."
   },
   {
     "ref": "Galatians 5:13",
@@ -5205,7 +5205,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Paul",
     "to": "The churches of Galatia",
-    "setting": "Paul said this to the churches of Galatia: Freedom in Christ."
+    "setting": "bearing one another’s burdens. This verse says, “For, brethren, ye have been called unto liberty; only use not.”."
   },
   {
     "ref": "Galatians 6:2",
@@ -5214,7 +5214,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Paul",
     "to": "Churches learning freedom in the Spirit (and you today)",
-    "setting": "Freedom in the Spirit; fruit of the Spirit; bearing one another’s burdens."
+    "setting": "Paul in that setting. The line is, “Bear ye one another’s burdens, and so fulfil the law of Christ.”."
   },
   {
     "ref": "Ephesians 1:7",
@@ -5223,7 +5223,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Paul",
     "to": "believers in Ephesus (and you today)",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and Gentile."
+    "setting": "Paul — paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and. This verse says, “In whom we have redemption through his blood, the forgiveness of.”."
   },
   {
     "ref": "Ephesians 2:8",
@@ -5232,7 +5232,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Paul",
     "to": "Believers saved by grace (and you today)",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and Gentile."
+    "setting": "Paul in that setting. The line is, “For by grace are ye saved through faith; and that not of.”."
   },
   {
     "ref": "Ephesians 3:16",
@@ -5241,7 +5241,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Paul",
     "to": "believers in Ephesus (and you today)",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and Gentile."
+    "setting": "Paul — paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and. This verse says, “That he would grant you, according to the riches of his glory, to be.”."
   },
   {
     "ref": "Ephesians 3:17",
@@ -5250,7 +5250,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Paul",
     "to": "believers in Ephesus (and you today)",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and Gentile."
+    "setting": "Paul in that setting. The line is, “That Christ may dwell in your hearts by faith; that ye, being.”."
   },
   {
     "ref": "Ephesians 4:2",
@@ -5259,7 +5259,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Paul",
     "to": "Believers in spiritual battle (and you today)",
-    "setting": "Walk worthy: unity, purity, marriage, and the armor of God against spiritual war."
+    "setting": "Paul in that setting. The line is, “With all lowliness and meekness, with longsuffering, forbearing one.”."
   },
   {
     "ref": "Ephesians 5:2",
@@ -5268,7 +5268,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "Believers in spiritual battle (and you today)",
-    "setting": "Walk worthy: unity, purity, marriage, and the armor of God against spiritual war."
+    "setting": "Paul in that setting. The line is, “And walk in love, as Christ also has loved us, and has given himself.”."
   },
   {
     "ref": "Ephesians 6:11",
@@ -5277,7 +5277,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Paul",
     "to": "Believers putting on God’s armor",
-    "setting": "Walk worthy: unity, purity, marriage, and the armor of God against spiritual war."
+    "setting": "Paul in that setting. The line is, “Put on the whole armour of God, that ye may be able to stand.”."
   },
   {
     "ref": "Philippians 1:21",
@@ -5286,7 +5286,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "Paul said this to the church at Philippi (and you today): Letter from prison."
+    "setting": "Paul in that setting. The line is, “For to me to live is Christ, and to die is gain.”."
   },
   {
     "ref": "Philippians 2:3",
@@ -5295,7 +5295,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "Paul said this to the church at Philippi (and you today): Letter from prison."
+    "setting": "Paul — the mind of Christ is humility. This verse says, “Let nothing be done through strife or vainglory; but in lowliness.”."
   },
   {
     "ref": "Philippians 3:13",
@@ -5304,7 +5304,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "Paul said this to the church at Philippi (and you today): Letter from prison."
+    "setting": "Paul — paul counts status as loss for Christ. This verse says, “Brethren, I count not myself to have apprehended: but this one.”."
   },
   {
     "ref": "Philippians 3:14",
@@ -5313,7 +5313,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "Paul said this to the church at Philippi (and you today): Letter from prison."
+    "setting": "Paul in that setting. The line is, “I press toward the mark for the prize of the high calling of God in.”."
   },
   {
     "ref": "Philippians 4:11",
@@ -5322,7 +5322,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "Paul writes from prison to Philippi: rejoice, do not be anxious, the peace of God guards hearts; contentment in every state through Christ."
+    "setting": "Paul writes from prison about contentment: he has learned, in whatever state he is, to be content — not because the cell is easy."
   },
   {
     "ref": "Colossians 1:13",
@@ -5331,7 +5331,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Paul",
     "to": "believers in Colosse (and you today)",
-    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse."
+    "setting": "Paul — paul exalts Christ’s supremacy against hollow philosophy in Colosse. This verse says, “Who has delivered us from the power of darkness, and has translated.”."
   },
   {
     "ref": "Colossians 1:17",
@@ -5340,7 +5340,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "believers in Colosse (and you today)",
-    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse."
+    "setting": "Paul in that setting. The line is, “And he is before all things, and by him all things consist.”."
   },
   {
     "ref": "Colossians 2:6",
@@ -5349,7 +5349,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Paul",
     "to": "believers in Colosse (and you today)",
-    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse."
+    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse. This verse says, “As ye have therefore received Christ Jesus the Lord, so walk ye in.”."
   },
   {
     "ref": "Colossians 3:2",
@@ -5358,7 +5358,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Paul",
     "to": "Believers setting their minds above",
-    "setting": "Paul said this to Believers setting their minds above: Life hidden with Christ."
+    "setting": "Paul in that setting. The line is, “Set your affection on things above, not on things on the earth.”."
   },
   {
     "ref": "Colossians 3:15",
@@ -5367,7 +5367,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Paul",
     "to": "Believers putting on love as God’s chosen ones",
-    "setting": "Paul tells the Colossians to put on mercy and forbear one another, forgiving as Christ forgave them."
+    "setting": "Set minds above; put on love; household codes; prayer and gracious speech. This verse says, “And let the peace of God rule in your hearts, to the which also you are.”."
   },
   {
     "ref": "Colossians 3:16",
@@ -5376,7 +5376,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Paul",
     "to": "Believers setting their minds above",
-    "setting": "Paul said this to Believers setting their minds above: Life hidden with Christ."
+    "setting": "Paul — set minds above; put on love; household codes; prayer and gracious speech. This verse says, “Let the word of Christ dwell in you richly in all wisdom; teaching.”."
   },
   {
     "ref": "1 Thessalonians 4:14",
@@ -5385,7 +5385,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Paul",
     "to": "Believers grieving with hope",
-    "setting": "Paul said this to Believers grieving with hope: Comfort in Christ’s coming."
+    "setting": "Comfort about those who sleep in Christ. This verse says, “For if we believe that Jesus died and rose again, even so them also.”."
   },
   {
     "ref": "1 Thessalonians 5:18",
@@ -5394,7 +5394,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Paul",
     "to": "Thessalonians grieving with hope",
-    "setting": "Comfort about those who sleep in Christ; the day of the Lord; encourage one another."
+    "setting": "Paul — comfort about those who sleep in Christ. This verse says, “In every thing give thanks: for this is the will of God in Christ Jesus.”."
   },
   {
     "ref": "1 Thessalonians 5:23",
@@ -5403,7 +5403,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Paul",
     "to": "Thessalonians grieving with hope",
-    "setting": "Comfort about those who sleep in Christ; the day of the Lord; encourage one another."
+    "setting": "Paul in that setting. The line is, “And the very God of peace sanctify you wholly.”."
   },
   {
     "ref": "1 Thessalonians 5:24",
@@ -5412,7 +5412,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "Thessalonians grieving with hope",
-    "setting": "Comfort about those who sleep in Christ; the day of the Lord; encourage one another."
+    "setting": "Paul is comforting Thessalonica about the day of the Lord and holy living. This verse is the hold: faithful is He that calls you, who also will do it."
   },
   {
     "ref": "2 Thessalonians 2:16",
@@ -5421,7 +5421,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Paul",
     "to": "believers in Thessalonica (and you today)",
-    "setting": "Paul steadies a shaken church about the day of the Lord and idle living."
+    "setting": "Paul steadies a shaken church about the day of the Lord and idle living. This verse says, “Now our Lord Jesus Christ himself, and God, even our Father, which has.”."
   },
   {
     "ref": "1 Timothy 1:15",
@@ -5430,7 +5430,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Paul",
     "to": "Timothy (and every young believer)",
-    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus."
+    "setting": "Paul — paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus. This verse says, “This is a faithful saying, and worthy of all acceptation, that.”."
   },
   {
     "ref": "1 Timothy 6:6",
@@ -5439,7 +5439,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Paul",
     "to": "Timothy (and every young believer)",
-    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus."
+    "setting": "Paul — paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus. This verse says, “But godliness with contentment is great gain.”."
   },
   {
     "ref": "1 Timothy 6:12",
@@ -5448,7 +5448,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Paul",
     "to": "Timothy (and every young believer)",
-    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus."
+    "setting": "Paul — paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus. This verse says, “Fight the good fight of faith, lay hold on eternal life, whereunto.”."
   },
   {
     "ref": "2 Timothy 2:1",
@@ -5457,7 +5457,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Paul",
     "to": "Timothy (and every timid heart)",
-    "setting": "Paul’s last letter from prison: fan the gift; endure hardship; preach the word."
+    "setting": "Paul in that setting. The line is, “you therefore, my son, be strong in the grace that is in Christ Jesus.”."
   },
   {
     "ref": "2 Timothy 3:16",
@@ -5466,7 +5466,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Paul",
     "to": "Timothy (and every timid heart)",
-    "setting": "Paul’s last letter from prison: fan the gift; endure hardship; preach the word."
+    "setting": "Paul — paul’s last letter from prison: fan the gift. This verse says, “All scripture is given by inspiration of God, and is profitable.”."
   },
   {
     "ref": "2 Timothy 4:7",
@@ -5475,7 +5475,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Paul",
     "to": "Timothy (and every timid heart)",
-    "setting": "Paul’s last letter from prison: fan the gift; endure hardship; preach the word."
+    "setting": "Paul in that setting. The line is, “I have fought a good fight, I have finished my course, I have kept the faith:.”."
   },
   {
     "ref": "2 Timothy 4:17",
@@ -5484,7 +5484,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "Timothy (and every timid heart)",
-    "setting": "Paul’s last letter from prison: fan the gift; endure hardship; preach the word."
+    "setting": "Paul in that setting. The line is, “Notwithstanding the Lord stood with me, and strengthened me; that.”."
   },
   {
     "ref": "Titus 3:5",
@@ -5502,7 +5502,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "The writer of Hebrews",
     "to": "Hebrew believers holding fast to Christ",
-    "setting": "A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old priesthood."
+    "setting": "A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old priesthood. This verse says, “For the word of God is quick, and powerful, and sharper than any.”."
   },
   {
     "ref": "Hebrews 6:19",
@@ -5511,7 +5511,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "The writer of Hebrews",
     "to": "Believers tempted to shrink back",
-    "setting": "Jesus the high priest after Melchizedek; a better covenant; draw near with boldness."
+    "setting": "The writer of Hebrews is telling pressured believers to hold the promise. This verse is the anchor: which hope we have as an anchor of the soul, sure and steadfast."
   },
   {
     "ref": "Hebrews 11:6",
@@ -5520,7 +5520,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "The writer of Hebrews",
     "to": "Hebrew believers holding faith",
-    "setting": "Hall of faith; run with patience; practical holiness and praise."
+    "setting": "The writer of Hebrews — practical holiness and praise. This verse says, “But without faith it is impossible to please him: for he that.”."
   },
   {
     "ref": "Hebrews 12:1",
@@ -5529,7 +5529,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "The writer of Hebrews",
     "to": "Believers running with patience",
-    "setting": "The writer of Hebrews said this to Believers running with patience: Cloud of witnesses."
+    "setting": "The writer of Hebrews in that setting. The line is, “Wherefore seeing we also are compassed about with so great a cloud.”."
   },
   {
     "ref": "Hebrews 13:5",
@@ -5538,7 +5538,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "The writer of Hebrews",
     "to": "Hebrew believers holding faith",
-    "setting": "Hall of faith; run with patience; practical holiness and praise."
+    "setting": "run with patience. This verse says, “Let your conversation be without covetousness.”."
   },
   {
     "ref": "Hebrews 13:8",
@@ -5547,7 +5547,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "The writer of Hebrews",
     "to": "Hebrew believers holding faith",
-    "setting": "Hall of faith; run with patience; practical holiness and praise."
+    "setting": "practical holiness and praise. This verse says, “Jesus Christ the same yesterday, and to day, and for ever.”."
   },
   {
     "ref": "James 1:2",
@@ -5556,7 +5556,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "James",
     "to": "Scattered believers under trial",
-    "setting": "James said this to Scattered believers under trial: Faith under pressure."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience. This verse says, “My brethren, count it all joy when you fall into divers temptations.”."
   },
   {
     "ref": "James 1:12",
@@ -5565,7 +5565,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "James",
     "to": "Scattered believers under trial",
-    "setting": "James said this to Scattered believers under trial: Faith under pressure."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience. This verse says, “Blessed is the man that endureth temptation: for when he is tried, he.”."
   },
   {
     "ref": "James 1:22",
@@ -5574,7 +5574,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "James",
     "to": "Scattered believers under trial",
-    "setting": "James said this to Scattered believers under trial: Faith under pressure."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience. This verse says, “But be you doers of the word, and not hearers only, deceiving your own selves.”."
   },
   {
     "ref": "James 4:7",
@@ -5583,7 +5583,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "James",
     "to": "scattered believers under trial",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience."
+    "setting": "James in that setting. The line is, “Submit yourselves therefore to God. Resist the devil, and he will flee from you.”."
   },
   {
     "ref": "James 5:16",
@@ -5592,7 +5592,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "James",
     "to": "scattered believers under trial",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience."
+    "setting": "James — james writes scattered believers under trial about real faith that works in speech, mercy, and patience. This verse says, “Confess your faults one to another, and pray one for another, that.”."
   },
   {
     "ref": "1 Peter 1:16",
@@ -5601,7 +5601,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Peter",
     "to": "believers in suffering and hope",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone."
+    "setting": "Peter — peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse says, “Because it is written, Be ye holy; for I am holy.”."
   },
   {
     "ref": "1 Peter 2:24",
@@ -5610,7 +5610,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Peter",
     "to": "believers in suffering and hope",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone."
+    "setting": "Peter in that setting. The line is, “Who his own self bare our sins in his own body on the tree, that.”."
   },
   {
     "ref": "1 Peter 4:8",
@@ -5619,7 +5619,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Peter",
     "to": "Believers casting care on God",
-    "setting": "Household life, suffering for righteousness, casting care on God, resisting the devil."
+    "setting": "Peter — household life, suffering for righteousness, casting care on God, resisting the devil. This verse says, “And above all things have fervent charity among yourselves: for charity.”."
   },
   {
     "ref": "1 Peter 5:6",
@@ -5628,7 +5628,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Peter",
     "to": "Believers casting care on God under pressure",
-    "setting": "Peter closes his letter: humble yourselves under God’s hand, cast all your care on Him, for He cares for you, and resist the devil."
+    "setting": "Peter in that setting. The line is, “Humble yourselves therefore under the mighty hand of God, that he.”."
   },
   {
     "ref": "1 Peter 5:10",
@@ -5637,7 +5637,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Peter",
     "to": "Believers casting care on God under pressure",
-    "setting": "Peter closes his letter: humble yourselves under God’s hand, cast all your care on Him, for He cares for you, and resist the devil."
+    "setting": "Peter — household life, suffering for righteousness, casting care on God, resisting the devil. This verse says, “But the God of all grace, who has called us unto his eternal glory.”."
   },
   {
     "ref": "2 Peter 1:3",
@@ -5646,7 +5646,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Peter",
     "to": "believers growing in grace and knowledge",
-    "setting": "Peter warns against false teachers and points to the Lord’s coming and sure word."
+    "setting": "Peter in that setting. The line is, “According as his divine power has given unto us all things that.”."
   },
   {
     "ref": "2 Peter 3:9",
@@ -5655,7 +5655,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Peter",
     "to": "believers growing in grace and knowledge",
-    "setting": "Peter warns against false teachers and points to the Lord’s coming and sure word."
+    "setting": "Peter in that setting. The line is, “The Lord is not slack concerning his promise, as some men count.”."
   },
   {
     "ref": "1 John 1:7",
@@ -5664,7 +5664,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "John",
     "to": "beloved children walking in the light",
-    "setting": "John writes about fellowship, light, and assurance against early antichrist lies."
+    "setting": "John in that setting. The line is, “But if we walk in the light, as he is in the light, we have.”."
   },
   {
     "ref": "1 John 1:9",
@@ -5673,7 +5673,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "John",
     "to": "beloved children walking in the light",
-    "setting": "John writes about fellowship, light, and assurance against early antichrist lies."
+    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. The line on the page is “If we confess our sins, he is faithful and just.”."
   },
   {
     "ref": "1 John 2:1",
@@ -5682,7 +5682,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "John",
     "to": "beloved children walking in the light",
-    "setting": "John writes about fellowship, light, and assurance against early antichrist lies."
+    "setting": "John in that setting. The line is, “My little children, these things write I unto you, that you sin not.”."
   },
   {
     "ref": "1 John 3:16",
@@ -5691,7 +5691,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "John",
     "to": "Beloved children learning they are God’s sons",
-    "setting": "John marvels that the Father calls us children of God, and says real love must show in deed and truth—not in word only."
+    "setting": "John in that setting. The line is, “Hereby perceive we the love of God, because he laid down his life.”."
   },
   {
     "ref": "1 John 4:8",
@@ -5700,7 +5700,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "John",
     "to": "Beloved children learning God’s love",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love."
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows. This verse says, “He that loveth not knoweth not God; for God is love.”."
   },
   {
     "ref": "1 John 4:9",
@@ -5709,7 +5709,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "John",
     "to": "Beloved children learning God’s love",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love."
+    "setting": "John — john urges the church to love one another because love is of God: whoever loves is born of God and knows. This verse says, “In this was manifested the love of God toward us, because that God.”."
   },
   {
     "ref": "1 John 4:11",
@@ -5718,7 +5718,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "John",
     "to": "Beloved children learning God’s love",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love."
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows. This verse says, “Beloved, if God so loved us, we ought also to love one another.”."
   },
   {
     "ref": "1 John 4:16",
@@ -5727,7 +5727,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "John",
     "to": "Beloved children learning God’s love",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love."
+    "setting": "John in that setting. The line is, “And we have known and believed the love that God has to us. God is love.”."
   },
   {
     "ref": "1 John 5:4",
@@ -5736,7 +5736,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "John",
     "to": "Believers holding the record that life is in the Son",
-    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given eternal life in His Son."
+    "setting": "John in that setting. The line is, “For whatsoever is born of God overcometh the world: and this is.”."
   },
   {
     "ref": "Jude 1:21",
@@ -5754,7 +5754,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "John (from Jesus Christ)",
     "to": "The seven churches — and every reader",
-    "setting": "John (from Jesus Christ) said this to the seven churches — and every reader: Revelation opening."
+    "setting": "John on Patmos sees the risen Christ. This verse says, “And when I saw him, I fell at his feet as dead.”."
   },
   {
     "ref": "Revelation 7:17",
@@ -5772,7 +5772,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "John (from God)",
     "to": "The church hoping for the new creation",
-    "setting": "Christ returns; new heaven and new earth; the river of life; “Even so, come, Lord Jesus.”."
+    "setting": "“Even so, come, Lord Jesus.”. This verse says, “And God shall wipe away all tears from their eyes; and there shall.”."
   },
   {
     "ref": "Revelation 21:5",
@@ -5781,7 +5781,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "John (from God)",
     "to": "The church hoping for the new creation",
-    "setting": "Christ returns; new heaven and new earth; the river of life; “Even so, come, Lord Jesus.”."
+    "setting": "John — “Even so, come, Lord Jesus.”. This verse says, “And he that sat upon the throne said, Behold, I make all things new.”."
   },
   {
     "ref": "Revelation 22:17",
@@ -5799,7 +5799,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "David",
     "to": "Anyone delivered after a long fight",
-    "setting": "David’s great victory song after the Lord delivered him from Saul and all enemies."
+    "setting": "In this psalm — david’s great victory song after the Lord delivered him from Saul and all enemies — the line is, “For you wilt light my candle: the LORD my God will enlighten my darkness.”."
   },
   {
     "ref": "Psalm 25:8",
@@ -5808,7 +5808,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David seeks guidance, forgiveness, and help against false friends; the Lord is his light and strength."
+    "setting": "the Lord is his light and strength. This verse says, “Good and upright is the LORD: therefore will he teach sinners in.”."
   },
   {
     "ref": "Psalm 27:8",
@@ -5817,7 +5817,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "David",
     "to": "Anyone fighting fear with faith",
-    "setting": "David faces fear of enemies and waits on the Lord as his light and salvation."
+    "setting": "the Lord is his light and strength. This verse says, “When you saidst, Seek you my face.”."
   },
   {
     "ref": "Psalm 31:19",
@@ -5826,7 +5826,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "David",
     "to": "The pressured and the repentant",
-    "setting": "David commits his spirit to God under pressure; confession and instruction; a new song of praise."
+    "setting": "David in that moment. The words are, “Oh how great is your goodness, which you hast laid up for them that.”."
   },
   {
     "ref": "Psalm 33:5",
@@ -5835,7 +5835,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "David",
     "to": "The pressured and the repentant",
-    "setting": "David commits his spirit to God under pressure; confession and instruction; a new song of praise."
+    "setting": "David commits his spirit to God under pressure. This verse says, “He loveth righteousness and judgment: the earth is full of the goodness.”."
   },
   {
     "ref": "Psalm 36:9",
@@ -5844,7 +5844,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "In this psalm — david prays against unjust attackers — the line is, “For with you is the fountain of life: in your light shall we see light.”."
   },
   {
     "ref": "Psalm 37:6",
@@ -5853,7 +5853,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David",
     "to": "Anyone watching the wicked prosper for a season",
-    "setting": "David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord."
+    "setting": "David prays against unjust attackers. The line on the page is “And he shall bring forth thy righteousness as.”."
   },
   {
     "ref": "Psalm 41:12",
@@ -5862,7 +5862,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "David",
     "to": "The sick, the guilty, and the waiting",
-    "setting": "David in sickness, sin-awareness, and waiting; Book I closes with the blessedness of the one who considers the poor."
+    "setting": "In this psalm — david in sickness, sin-awareness, and waiting — the line is, “And as for me, you upholdest me in mine integrity, and settest me.”."
   },
   {
     "ref": "Psalm 48:1",
@@ -5871,7 +5871,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "The sons of Korah",
     "to": "Worshipers in joy and national distress",
-    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
+    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches. The line on the page is “Great is the LORD, and greatly to be praised in.”."
   },
   {
     "ref": "Psalm 52:9",
@@ -5880,7 +5880,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "In this psalm — david under Saul’s pursuit and Doeg’s betrayal — the line is, “I will praise you for ever, because you hast done it: and I will.”."
   },
   {
     "ref": "Psalm 57:7",
@@ -5889,7 +5889,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "David",
     "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "setting": "David in that moment. The words are, “My heart is fixed, O God, my heart is fixed: I will sing and give.”."
   },
   {
     "ref": "Psalm 62:8",
@@ -5898,7 +5898,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise. This verse says, “Trust in him at all times; ye people, pour out your heart before.”."
   },
   {
     "ref": "Psalm 66:1",
@@ -5907,7 +5907,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "David",
     "to": "Worshipers needing a rock higher than themselves",
-    "setting": "David seeks higher rock, waits on God alone, and leads joyful processions of praise."
+    "setting": "David is leading a joyful procession of praise. This opening line is for every land: make a joyful noise unto God, all ye lands."
   },
   {
     "ref": "Psalm 71:3",
@@ -5916,7 +5916,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "David",
     "to": "The reproached and the aging who still hope",
-    "setting": "Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord."
+    "setting": "In this psalm — deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord — the line is, “Be you my strong habitation, whereunto I may continually resort:.”."
   },
   {
     "ref": "Psalm 73:23",
@@ -5925,7 +5925,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Asaph",
     "to": "The faithful confused by injustice",
-    "setting": "Asaph nearly slips seeing the wicked prosper, then enters God’s sanctuary and remembers His deeds."
+    "setting": "Asaph in that moment. The words are, “Nevertheless I am continually with you: you hast holden me by my right hand.”."
   },
   {
     "ref": "Psalm 84:2",
@@ -5934,7 +5934,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "The sons of Korah",
     "to": "Pilgrims longing for God’s house",
-    "setting": "Longing for God’s courts; mercy and truth meet; the Lord is sun and shield."
+    "setting": "Longing for God’s courts. This verse says, “My soul longeth, yea, even fainteth for the courts of the LORD:.”."
   },
   {
     "ref": "Psalm 89:14",
@@ -5943,7 +5943,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Ethan the Ezrahite",
     "to": "Those clinging to God’s promise when it looks broken",
-    "setting": "Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy."
+    "setting": "Ethan wrestles with the seeming failure of David’s line while still singing God’s mercy. This verse says, “Justice and judgment are the habitation of your throne: mercy and truth.”."
   },
   {
     "ref": "Psalm 92:5",
@@ -5952,7 +5952,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "A Sabbath song in Israel’s worship — thanksgiving that God’s works still make the heart glad",
     "to": "Worshipers giving thanks for God’s works",
-    "setting": "A Sabbath song of thanksgiving in Israel’s worship: the psalmist praises the Lord because His works make the heart glad, the wicked will not last, and the righteous still flourish in old age."
+    "setting": "A Sabbath song of thanksgiving: the psalmist praises the Lord because His works make the heart glad and the. This verse says, “O LORD, how great are your works.”."
   },
   {
     "ref": "Psalm 96:9",
@@ -5961,7 +5961,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "All lands called to joyful worship",
-    "setting": "Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright."
+    "setting": "In this psalm — worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright — the line is, “O worship the LORD in the beauty of holiness: fear before him, all.”."
   },
   {
     "ref": "Psalm 97:12",
@@ -5970,7 +5970,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "All lands called to joyful worship",
-    "setting": "Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright."
+    "setting": "In this psalm — worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright — the line is, “Rejoice in the LORD, you righteous.”."
   },
   {
     "ref": "Psalm 104:34",
@@ -5979,7 +5979,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
     "to": "A people remembering creation and covenant",
-    "setting": "Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”"
+    "setting": "In this psalm — retelling of God’s faithfulness and Israel’s failures — the line is, “My meditation of him shall be sweet: I will be glad in the LORD.”."
   },
   {
     "ref": "Psalm 107:13",
@@ -5988,7 +5988,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
     "to": "The redeemed telling what God has done",
-    "setting": "Book V opens: the redeemed from trouble give thanks — desert, prison, sickness, and storm."
+    "setting": "Book V opens: the redeemed from trouble give thanks. This verse says, “Then they cried unto the LORD in their trouble, and he saved them.”."
   },
   {
     "ref": "Psalm 111:5",
@@ -5997,7 +5997,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "In this psalm — hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.” — the line is, “He has given meat unto them that fear him: he will ever be mindful.”."
   },
   {
     "ref": "Psalm 115:1",
@@ -6006,7 +6006,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”. The line on the page is “Not unto us, O LORD, not unto us, but unto thy.”."
   },
   {
     "ref": "Psalm 116:12",
@@ -6015,7 +6015,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Israel’s Hallel — congregation praise that His mercy endures forever",
     "to": "All who praise the Lord",
-    "setting": "Hallelujah psalms: fear of the Lord, the righteous lifted, idols mocked, and “His mercy endures forever.”"
+    "setting": "Israel’s Hallel in that moment. The words are, “What shall I render unto the LORD for all his benefits toward me.”."
   },
   {
     "ref": "Psalm 119:28",
@@ -6024,7 +6024,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "A worshiper in love with God’s Word in that moment. The words are, “My soul melteth for heaviness: strengthen you me according unto.”."
   },
   {
     "ref": "Psalm 119:49",
@@ -6033,7 +6033,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "The great acrostic love-song to God’s Word. This verse says, “Remember the word unto your servant, upon which you hast caused me.”."
   },
   {
     "ref": "Psalm 119:64",
@@ -6042,7 +6042,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "In this psalm — the great acrostic love-song to God’s Word — the line is, “The earth, O LORD, is full of your mercy: teach me your statutes.”."
   },
   {
     "ref": "Psalm 119:72",
@@ -6051,7 +6051,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "A worshiper in love with God’s Word in that moment. The words are, “The law of your mouth is better unto me than thousands of gold and silver.”."
   },
   {
     "ref": "Psalm 119:92",
@@ -6060,7 +6060,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for the pilgrim who walks by Scripture."
+    "setting": "A worshiper in love with God’s Word in that moment. The words are, “Unless your law had been my delights, I should then have perished.”."
   },
   {
     "ref": "Psalm 138:8",
@@ -6069,7 +6069,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom. The line on the page is “The LORD will perfect that which concerneth me:.”."
   },
   {
     "ref": "Psalm 139:5",
@@ -6078,7 +6078,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "David",
     "to": "Anyone who needs to know they are fully known by God",
-    "setting": "David marvels that God searches him, knows him fully, formed him in the womb, and leads him in the everlasting way."
+    "setting": "In this psalm — david’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom — the line is, “you hast beset me behind and before, and laid your hand upon me.”."
   },
   {
     "ref": "Psalm 143:10",
@@ -6087,7 +6087,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom. The line on the page is “Teach me to do thy will; for thou art my God:.”."
   },
   {
     "ref": "Psalm 145:8",
@@ -6096,7 +6096,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "David",
     "to": "Anyone fully known and still loved by God",
-    "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
+    "setting": "In this psalm — david’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom — the line is, “The LORD is gracious, and full of compassion; slow to anger, and of.”."
   },
   {
     "ref": "Psalm 146:1",
@@ -6105,7 +6105,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "setting": "everything that has breath praise the Lord. This verse says, “Praise ye the LORD.”."
   },
   {
     "ref": "Isaiah 12:3",
@@ -6114,7 +6114,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Isaiah",
     "to": "Judah — and all who need comfort and warning",
-    "setting": "Isaiah confronts Judah’s sin and offers hope of a holy remnant and a coming king."
+    "setting": "Isaiah confronts Judah’s sin and offers hope of a holy remnant and a coming king. This verse says, “Therefore with joy shall ye draw water out of the wells of.”."
   },
   {
     "ref": "Isaiah 26:12",
@@ -6123,7 +6123,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Isaiah",
     "to": "A people under threat who need God to reign",
-    "setting": "Judgment and joy; a highway of holiness; God defends Zion."
+    "setting": "God defends Zion. This verse says, “LORD, you wilt ordain peace for us: for you also hast wrought all.”."
   },
   {
     "ref": "Isaiah 41:17",
@@ -6132,7 +6132,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Isaiah (the Lord speaking)",
     "to": "Fearful people — and you when fear is loud",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "Isaiah in that setting. The line is, “When the poor and needy seek water, and there is none, and their tongue.”."
   },
   {
     "ref": "Isaiah 42:16",
@@ -6141,7 +6141,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "Isaiah — a servant will bring justice. This verse says, “And I will bring the blind by a way that they knew not; I will lead.”."
   },
   {
     "ref": "Isaiah 54:17",
@@ -6150,7 +6150,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Isaiah",
     "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "setting": "Isaiah in that setting. The line is, “No weapon that is formed against you shall prosper; and every.”."
   },
   {
     "ref": "Jeremiah 6:16",
@@ -6159,7 +6159,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Jeremiah",
     "to": "Judah and the exiles",
-    "setting": "Jeremiah is called as a youth to warn Judah before Babylon comes."
+    "setting": "Jeremiah is called as a youth to warn Judah before Babylon comes. This verse says, “Thus says the LORD, Stand you in the ways, and see, and ask for the old.”."
   },
   {
     "ref": "Jeremiah 15:16",
@@ -6168,7 +6168,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Jeremiah",
     "to": "A prophet under pressure",
-    "setting": "Jeremiah faces plots, loneliness, and the cost of speaking God’s word."
+    "setting": "Jeremiah faces plots, loneliness, and the cost of speaking God’s word. This verse says, “your words were found, and I did eat them; and your word was unto me.”."
   },
   {
     "ref": "John 4:14",
@@ -6177,7 +6177,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Jesus",
     "to": "The woman at the well — and her town",
-    "setting": "Jesus said this to the woman at the well — and her town: Living water."
+    "setting": "speaks with a Samaritan woman at the well This verse says, “But whosoever drinketh of the water that I shall give him shall.”."
   },
   {
     "ref": "John 5:24",
@@ -6186,7 +6186,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Jesus (through John)",
     "to": "Crowds seeking signs — and disciples needing real food",
-    "setting": "Healing at Bethesda; feeding the five thousand; Bread of Life discourse."
+    "setting": "Bread of Life discourse This verse says, “Verily, verily, I say unto you, He that heareth my word, and believeth.”."
   },
   {
     "ref": "John 6:37",
@@ -6195,7 +6195,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Jesus (through John)",
     "to": "Crowds seeking signs — and disciples needing real food",
-    "setting": "Healing at Bethesda; feeding the five thousand; Bread of Life discourse."
+    "setting": "Bread of Life discourse This verse says, “All that the Father giveth me shall come to me; and him that comes.”."
   },
   {
     "ref": "John 7:37",
@@ -6204,7 +6204,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Jesus (through John)",
     "to": "Jerusalem under debate about who Jesus is",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "setting": "On that day — conflict at feasts in Jerusalem; — He says in the last day, that great day of the feast, Jesus stood and cried, saying,."
   },
   {
     "ref": "John 12:46",
@@ -6222,7 +6222,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Jesus",
     "to": "His disciples abiding in Him",
-    "setting": "Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross."
+    "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “These things have I spoken unto you, that my joy might remain in.”."
   },
   {
     "ref": "Matthew 5:44",
@@ -6231,7 +6231,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The line on the page is “But I say unto you, Love your enemies, bless.”."
   },
   {
     "ref": "Matthew 6:6",
@@ -6240,7 +6240,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Jesus",
     "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way."
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The line on the page is “But thou, when thou prayest, enter into thy.”."
   },
   {
     "ref": "Matthew 9:22",
@@ -6249,7 +6249,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Jesus (through Matthew)",
     "to": "Crowds and disciples seeing the kingdom’s power",
-    "setting": "Miracles of healing and authority; the Twelve are sent out."
+    "setting": "Jesus is in this moment — miracles of healing and authority. He says, “But Jesus turned him about, and when he saw her, he said, Daughter, be.”."
   },
   {
     "ref": "Matthew 10:29",
@@ -6258,7 +6258,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Jesus (through Matthew)",
     "to": "Crowds and disciples seeing the kingdom’s power",
-    "setting": "Miracles of healing and authority; the Twelve are sent out."
+    "setting": "On that day — miracles of healing and authority — the words are, “Are not two sparrows sold for a farthing.”."
   },
   {
     "ref": "Matthew 11:30",
@@ -6267,7 +6267,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Jesus",
     "to": "The weary and heavy laden",
-    "setting": "Jesus said this to the weary and heavy laden: Come unto Me."
+    "setting": "On that day — Jesus invites the weary to rest — the words are, “For my yoke is easy, and my burden is light.”."
   },
   {
     "ref": "Luke 11:9",
@@ -6276,7 +6276,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Jesus (through Luke)",
     "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "setting": "On that day — on the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus — the words are, “And I say unto you, Ask, and it shall be given you; seek, and ye.”."
   },
   {
     "ref": "Luke 12:31",
@@ -6285,7 +6285,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Jesus (through Luke)",
     "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus This verse says, “But rather seek ye the kingdom of God; and all these things shall.”."
   },
   {
     "ref": "Luke 18:27",
@@ -6294,7 +6294,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Jesus (through Luke)",
     "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus This verse says, “And he said, The things which are impossible with men are possible.”."
   },
   {
     "ref": "Romans 1:16",
@@ -6303,7 +6303,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Paul writes to Rome: all have sinned. This verse says, “For I am not ashamed of the gospel of Christ: for it is the power.”."
   },
   {
     "ref": "Romans 8:1",
@@ -6312,7 +6312,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
-    "setting": "Paul teaches believers in Rome about life in the Spirit: no condemnation, adoption, and God working all things for good for those who love Him."
+    "setting": "no condemnation for those in Christ. This verse says, “There is therefore now no condemnation to them which are in Christ.”."
   },
   {
     "ref": "Romans 8:14",
@@ -6321,7 +6321,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
-    "setting": "Paul teaches believers in Rome about life in the Spirit: no condemnation, adoption, and God working all things for good for those who love Him."
+    "setting": "Paul — struggle and Spirit. This verse says, “For as many as are led by the Spirit of God, they are the sons of.”."
   },
   {
     "ref": "Romans 8:15",
@@ -6330,7 +6330,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
-    "setting": "Paul teaches believers in Rome about life in the Spirit: no condemnation, adoption, and God working all things for good for those who love Him."
+    "setting": "Paul in that setting. The line is, “For ye have not received the spirit of bondage again to fear; but.”."
   },
   {
     "ref": "Romans 8:16",
@@ -6339,7 +6339,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
-    "setting": "Paul teaches believers in Rome about life in the Spirit: no condemnation, adoption, and God working all things for good for those who love Him."
+    "setting": "struggle and Spirit. This verse says, “The Spirit itself beareth witness with our spirit, that we are.”."
   },
   {
     "ref": "Romans 14:8",
@@ -6348,7 +6348,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "Believers in Rome (and you today)",
-    "setting": "Paul said this to Believers in Rome (and you today): Letter to Rome."
+    "setting": "Paul in that setting. The line is, “For whether we live, we live unto the Lord; and whether we die, we.”."
   },
   {
     "ref": "1 Corinthians 6:19",
@@ -6366,7 +6366,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Paul",
     "to": "The church at Corinth learning real love",
-    "setting": "Paul said this to the church at Corinth learning real love: Love chapter."
+    "setting": "Paul in that setting. The line is, “Charity never faileth: but whether there be prophecies, they shall fail.”."
   },
   {
     "ref": "1 Corinthians 16:14",
@@ -6375,7 +6375,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Paul",
     "to": "Corinth needing certainty that Christ is risen",
-    "setting": "The resurrection of Christ and of the dead; final instructions and greetings."
+    "setting": "Paul — the resurrection of Christ and of the dead. This verse says, “Let all your things be done with charity.”."
   },
   {
     "ref": "2 Corinthians 3:17",
@@ -6384,7 +6384,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Paul",
     "to": "the church at Corinth (and you today)",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse says, “Now the Lord is that Spirit: and where the Spirit of the Lord is, there.”."
   },
   {
     "ref": "2 Corinthians 4:6",
@@ -6393,7 +6393,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Paul",
     "to": "the church at Corinth (and you today)",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth."
+    "setting": "Paul — paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse says, “For God, who commanded the light to shine out of darkness, has.”."
   },
   {
     "ref": "2 Corinthians 5:21",
@@ -6402,7 +6402,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Paul",
     "to": "the church at Corinth (and you today)",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth."
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. This verse says, “For he has made him to be sin for us, who knew no sin; that we.”."
   },
   {
     "ref": "Galatians 5:16",
@@ -6411,7 +6411,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Paul",
     "to": "The churches of Galatia",
-    "setting": "Paul said this to the churches of Galatia: Freedom in Christ."
+    "setting": "Freedom in the Spirit. This verse says, “This I say then, Walk in the Spirit, and you shall not fulfil the lust.”."
   },
   {
     "ref": "Galatians 6:14",
@@ -6420,7 +6420,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "Churches learning freedom in the Spirit (and you today)",
-    "setting": "Freedom in the Spirit; fruit of the Spirit; bearing one another’s burdens."
+    "setting": "Paul — bearing one another’s burdens. This verse says, “But God forbid that I should glory, save in the cross of our Lord Jesus.”."
   },
   {
     "ref": "Ephesians 1:3",
@@ -6429,7 +6429,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "Paul",
     "to": "believers in Ephesus (and you today)",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and Gentile."
+    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and. This verse says, “Blessed be the God and Father of our Lord Jesus Christ, who has.”."
   },
   {
     "ref": "Ephesians 2:4",
@@ -6438,7 +6438,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "Paul",
     "to": "Believers saved by grace (and you today)",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and Gentile."
+    "setting": "Paul — paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and. This verse says, “But God, who is rich in mercy, for his great love wherewith he.”."
   },
   {
     "ref": "Ephesians 4:15",
@@ -6447,7 +6447,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "Paul",
     "to": "Believers in spiritual battle (and you today)",
-    "setting": "Walk worthy: unity, purity, marriage, and the armor of God against spiritual war."
+    "setting": "Walk worthy: unity, purity, marriage, and the armor of God against spiritual war. The line on the page is “But speaking the truth in love, may grow up.”."
   },
   {
     "ref": "Philippians 2:5",
@@ -6456,7 +6456,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "Paul said this to the church at Philippi (and you today): Letter from prison."
+    "setting": "the mind of Christ is humility. This verse says, “Let this mind be in you, which was also in Christ Jesus:.”."
   },
   {
     "ref": "Philippians 4:9",
@@ -6465,7 +6465,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Paul",
     "to": "Believers learning prayer instead of worry",
-    "setting": "Paul writes from prison to Philippi: rejoice, do not be anxious, the peace of God guards hearts; contentment in every state through Christ."
+    "setting": "Paul closes the prison letter’s teaching: what they have learned and seen in him, they are to do — and the God of peace will be with them."
   },
   {
     "ref": "Colossians 1:27",
@@ -6474,7 +6474,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Paul",
     "to": "believers in Colosse (and you today)",
-    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse."
+    "setting": "Paul in that setting. The line is, “To whom God would make known what is the riches of the glory of.”."
   },
   {
     "ref": "Colossians 4:2",
@@ -6483,7 +6483,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "Paul",
     "to": "Believers setting minds above (and you today)",
-    "setting": "Set minds above; put on love; household codes; prayer and gracious speech."
+    "setting": "Paul in that setting. The line is, “Continue in prayer, and watch in the same with thanksgiving.”."
   },
   {
     "ref": "1 Thessalonians 5:21",
@@ -6492,7 +6492,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "Paul",
     "to": "Thessalonians grieving with hope",
-    "setting": "Comfort about those who sleep in Christ; the day of the Lord; encourage one another."
+    "setting": "Comfort about those who sleep in Christ. This verse says, “Prove all things; hold fast that which is good.”."
   },
   {
     "ref": "Hebrews 3:15",
@@ -6501,7 +6501,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "The writer of Hebrews",
     "to": "Hebrew believers holding fast to Christ",
-    "setting": "A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old priesthood."
+    "setting": "A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old priesthood. This verse says, “While it is said, To day if you will hear his voice, harden not.”."
   },
   {
     "ref": "Hebrews 7:25",
@@ -6510,7 +6510,7 @@
     "step": "Leave one worry with God for ten minutes after reading this.",
     "about": "The writer of Hebrews",
     "to": "Believers tempted to shrink back",
-    "setting": "Jesus the high priest after Melchizedek; a better covenant; draw near with boldness."
+    "setting": "The writer of Hebrews — Jesus the high priest after Melchizedek. This verse says, “Wherefore he is able also to save them to the uttermost that come.”."
   },
   {
     "ref": "Hebrews 10:24",
@@ -6519,7 +6519,7 @@
     "step": "Write one line of this verse where you will see it today.",
     "about": "The writer of Hebrews",
     "to": "Believers tempted to shrink back",
-    "setting": "Jesus the high priest after Melchizedek; a better covenant; draw near with boldness."
+    "setting": "The writer of Hebrews — Jesus the high priest after Melchizedek. This verse says, “And let us consider one another to provoke unto love and to good works:.”."
   },
   {
     "ref": "James 3:17",
@@ -6528,7 +6528,7 @@
     "step": "Say this verse out loud, then take the next right step.",
     "about": "James",
     "to": "scattered believers under trial",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience."
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience. The line on the page is “But the wisdom that is from above is first.”."
   },
   {
     "ref": "1 Peter 1:13",
@@ -6537,7 +6537,7 @@
     "step": "Read this verse once more, slowly, before you stand up.",
     "about": "Peter",
     "to": "believers in suffering and hope",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone."
+    "setting": "Peter — peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse says, “Wherefore gird up the loins of your mind, be sober, and hope to the end.”."
   },
   {
     "ref": "1 Peter 2:2",
@@ -6546,7 +6546,7 @@
     "step": "Ask God for strength for the next hour only, then take one small step.",
     "about": "Peter",
     "to": "believers in suffering and hope",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone."
+    "setting": "Peter — peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse says, “As newborn babes, desire the sincere milk of the word, that ye may.”."
   },
   {
     "ref": "1 John 2:17",
@@ -6555,7 +6555,7 @@
     "step": "Name one honest need this verse meets — tell God in a single sentence.",
     "about": "John",
     "to": "beloved children walking in the light",
-    "setting": "John writes about fellowship, light, and assurance against early antichrist lies."
+    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. This verse says, “And the world passeth away, and the lust thereof: but he that doeth.”."
   },
   {
     "ref": "1 John 3:18",
@@ -6564,7 +6564,7 @@
     "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
     "about": "John",
     "to": "Beloved children learning they are God’s sons",
-    "setting": "John marvels that the Father calls us children of God, and says real love must show in deed and truth—not in word only."
+    "setting": "John — john marvels that the Father calls us children of God, and says real love must show in deed and truth—not. This verse says, “My little children, let us not love in word, neither in tongue; but.”."
   },
   {
     "ref": "1 John 5:21",
@@ -6573,7 +6573,7 @@
     "step": "Do the next honest task while holding one phrase from this verse.",
     "about": "John",
     "to": "Believers holding the record that life is in the Son",
-    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given eternal life in His Son."
+    "setting": "John writes that faith in the Son is the victory that overcomes the world, and that God has given eternal. This verse says, “Little children, keep yourselves from idols.”."
   }
 ];
   global.TDB_GET_HERO_DAY_EXPLANATION = function (dayIndex) {

@@ -639,6 +639,9 @@
     if (/^psalm\s+96:1/.test(r) || /o sing unto the lord a new song/.test(String(verseText || '').toLowerCase())) {
       return 'The whole earth is invited to sing a new song to the Lord — praise that is alive, not leftover.';
     }
+    if (/^psalm\s+96:2/.test(r) || /bless his name.*salvation from day to day/.test(String(verseText || '').toLowerCase())) {
+      return 'Bless the Lord’s name and show His salvation today, then again tomorrow — not a one-day song.';
+    }
     try {
       if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
         var bd = window.TDBVerseBreakdown.getBreakdown(ref, verseText || '', { group: 'general' }) || {};
@@ -657,6 +660,7 @@
     if (/^Read this verse slowly/i.test(t)) return true;
     if (/^What was going on:\s*.{0,60}speaking to/i.test(t)) return true;
     if (/^My loved ones, let us have love for one another/i.test(t)) return true;
+    if (/God'?s care is for you today/i.test(t) && /day feels thin/i.test(t)) return true;
     return false;
   }
 

@@ -2060,11 +2060,11 @@
   {
     "ref": "Psalm 96:2",
     "text": "Sing unto the Lord, bless his name; shew forth his salvation from day to day.",
-    "plain": "Make songs to the Lord, blessing his name; give the good news of his salvation day by day.",
-    "step": "Put a hand on your chest, breathe out slowly, and read the verse again.",
+    "plain": "Bless the Lord’s name and show His salvation today, then again tomorrow — not a one-day song.",
+    "step": "Bless His name out loud once. Then name one place His salvation is still good today.",
     "about": "Israel’s congregation — a song that the Lord is King over all the earth",
     "to": "All lands called to joyful worship",
-    "setting": "Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright."
+    "setting": "Israel calls every land to bless the Lord’s name and tell His salvation from day to day — worship that does not stop after one morning."
   },
   {
     "ref": "1 Peter 1:3",

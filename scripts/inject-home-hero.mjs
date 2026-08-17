@@ -212,7 +212,14 @@ function buildInjectedHeroLesson(refPlain, textPlain, plainMap, explMap, resolve
     refPlain +
     ' into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.';
 
-  if (/^psalm\s+90\s*:\s*14$/i.test(ref) || /satisfy us early with thy mercy/i.test(lower)) {
+  if (/^psalm\s+96\s*:\s*2$/i.test(ref) || /bless his name.*salvation from day to day/i.test(lower)) {
+    meaningOnly =
+      'Bless the Lord’s name and show His salvation today, then again tomorrow — not a one-day song.';
+    step =
+      'Bless His name out loud once. Then name one place His salvation is still good today.';
+    prayer =
+      'Lord, sink Psalm 96:2 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.';
+  } else if (/^psalm\s+90\s*:\s*14$/i.test(ref) || /satisfy us early with thy mercy/i.test(lower)) {
     meaningOnly =
       'God, fill us early with Your kindness, so we can rejoice and be glad all day long.';
     step =

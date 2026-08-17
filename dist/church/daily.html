@@ -21,8 +21,8 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="../styles.css?v=20260816-brightgold" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260816-brightgold">
-  <link rel="preload" href="church.css?v=20260817-onedaily" as="style">
-  <link rel="stylesheet" href="church.css?v=20260817-onedaily">
+  <link rel="preload" href="church.css?v=20260817-quietdaily" as="style">
+  <link rel="stylesheet" href="church.css?v=20260817-quietdaily">
   <link rel="manifest" href="../manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" integrity="sha384-0esPaJH+F9evp2lsJYN36SW7XkRbaYviuyF+PpnbjDXBC9i1CWGiJyGrXCyiyGqZ" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -124,36 +124,16 @@
           <div id="church-daily-verse-card" class="verse-card-loaded" aria-live="polite"></div>
         </section>
 
-        <section class="church-attendance-section glass tdb-porch-paper-glass" role="region" aria-label="Attendance check-in">
-          <h2 class="church-section-title">👋 Attendance Check-in</h2>
-          <p class="church-attendance-note">Mark yourself present—counts toward weekly attendance.</p>
-          <div class="church-attendance-wrap">
-            <button type="button" id="church-attendance-btn" class="btn church-attendance-btn" aria-pressed="false" aria-label="Mark myself present">
-              I'm Here! 👋
-            </button>
-            <span id="church-attendance-done" class="church-attendance-done hidden" aria-live="polite">✓ Marked present today</span>
+        <section class="church-invite-section glass tdb-porch-paper-glass" role="region" aria-label="Share this group">
+          <h2 class="church-section-title">Share this group</h2>
+          <p class="section-note">Anyone with this link sees today&rsquo;s official KJV verse. This is not a roster.</p>
+          <p class="church-invite-code-line">Code: <strong id="church-invite-code"></strong></p>
+          <div class="church-invite-row">
+            <label class="sr-only" for="church-invite-link">Invite link</label>
+            <input type="text" id="church-invite-link" class="church-invite-link" readonly aria-label="Invite link">
+            <button type="button" class="btn btn-secondary" id="church-invite-copy">Copy invite</button>
           </div>
-          <div id="church-attendance-stats" class="church-attendance-stats hidden" aria-live="polite">
-            <p class="church-attendance-count">Attendance this week: <span id="church-attendance-x">0</span>/<span id="church-attendance-y">0</span></p>
-            <div class="church-attendance-bar-wrap">
-              <div class="church-attendance-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                <div id="church-attendance-bar-fill" class="church-attendance-bar-fill" style="width:0%"></div>
-              </div>
-            </div>
-            <p id="church-attendance-badge" class="church-attendance-badge hidden">Great turnout!</p>
-          </div>
-        </section>
-
-        <section id="church-attendance-pastor-section" class="church-attendance-pastor glass tdb-porch-paper-glass hidden" role="region" aria-label="Attendance list (pastor view)">
-          <h2 class="church-section-title">📋 Who's here this week</h2>
-          <div id="church-attendance-pastor-list" class="church-attendance-pastor-list" aria-live="polite"></div>
-        </section>
-
-        <section class="church-verse-challenge-section glass tdb-porch-paper-glass" role="region" aria-label="Group verse challenge">
-          <h2 class="church-section-title">🧠 Group Verse Challenge</h2>
-          <p class="church-verse-challenge-note">Fill the blank together—once per week. Perfect score = +1 week streak!</p>
-          <button type="button" id="church-verse-challenge-btn" class="btn church-verse-challenge-btn">Group Verse Challenge! 🧠</button>
-          <p id="church-verse-challenge-done" class="church-verse-challenge-done hidden" aria-live="polite">Challenge complete for this week. The next one unlocks next week.</p>
+          <p class="section-note">Want more than the verse? <a href="/">Today&rsquo;s verse on the homepage</a> · <a href="/reader.html">Read the chapter</a> · <a href="/plans.html">A short plan</a></p>
         </section>
 
         <section class="church-reflection-section glass tdb-porch-paper-glass" role="region" aria-label="Group reflection">
@@ -175,99 +155,6 @@
           <div id="church-reflections-list" class="church-reflections-bubbles" aria-live="polite">
             <p class="church-reflections-empty">No reflections posted yet. Share the first one with your group.</p>
           </div>
-        </section>
-
-        <section class="church-prayer-wall glass tdb-porch-paper-glass" role="region" aria-label="Prayer">
-          <h2 class="church-section-title">🙏 Prayer</h2>
-          <p class="church-prayer-wall-note">Post prayer requests. Like and comment to encourage.</p>
-          <div class="church-prayer-filters" role="tablist" aria-label="Filter prayers">
-            <button type="button" class="church-prayer-filter-btn active" data-filter="active" role="tab" aria-selected="true">Active</button>
-            <button type="button" class="church-prayer-filter-btn" data-filter="answered" role="tab" aria-selected="false">Answered</button>
-            <button type="button" class="church-prayer-filter-btn" data-filter="all" role="tab" aria-selected="false">All</button>
-          </div>
-          <form id="church-prayer-form" class="church-prayer-form">
-            <label for="church-prayer-input">Prayer request</label>
-            <textarea
-              id="church-prayer-input"
-              class="church-prayer-input"
-              placeholder="Share a prayer request..."
-              rows="2"
-              maxlength="1000"
-              aria-label="Prayer request"
-            ></textarea>
-            <button type="submit" class="btn btn-church-join" id="church-prayer-submit-btn">Post</button>
-          </form>
-          <p id="church-prayer-result" class="church-prayer-result hidden" aria-live="polite"></p>
-          <div id="church-prayer-list" class="church-prayer-cards" aria-live="polite">
-            <p class="church-prayer-empty">No prayer requests here yet. When your group is ready, add the first request above.</p>
-          </div>
-        </section>
-
-        <section id="church-kid-leaderboard-section" class="church-kid-leaderboard glass tdb-porch-paper-glass hidden" role="region" aria-label="Top kid streaks">
-          <h2 class="church-section-title">🏆 Top Kid Streaks</h2>
-          <p class="church-kid-leaderboard-note">Parents: add your family code to show your kid's streak.</p>
-          <form id="church-add-kid-form" class="church-add-kid-form">
-            <label for="church-add-kid-code">Family code (6 letters)</label>
-            <input type="text" id="church-add-kid-code" class="church-add-kid-code" placeholder="ABC123" maxlength="6" autocomplete="off" aria-label="Family invite code">
-            <label for="church-add-kid-name">Kid's name (optional)</label>
-            <input type="text" id="church-add-kid-name" class="church-add-kid-name" placeholder="Kiddo" maxlength="24" aria-label="Kid name">
-            <button type="submit" class="btn btn-church-kid-add" id="church-add-kid-btn">Add my kid</button>
-          </form>
-          <p id="church-add-kid-result" class="church-add-kid-result hidden" aria-live="polite"></p>
-          <div id="church-kid-leaderboard-list" class="church-kid-leaderboard-items" aria-live="polite"></div>
-        </section>
-
-        <section id="church-doodle-gallery-section" class="church-doodle-gallery glass tdb-porch-paper-glass hidden" role="region" aria-label="Kids' doodles this week">
-          <h2 class="church-section-title">🎨 Kids' Doodles</h2>
-          <p class="church-doodle-gallery-subtitle">See what kids drew—latest from your group.</p>
-          <div id="church-doodle-gallery-grid" class="church-doodle-gallery-grid" aria-live="polite"></div>
-        </section>
-
-        <section class="church-leaderboard glass tdb-porch-paper-glass hidden" hidden role="region" aria-label="Streak leaderboard">
-          <h2 class="church-section-title">🔥 Streak leaderboard</h2>
-          <div id="church-leaderboard-list" class="church-leaderboard-items" aria-live="polite">
-            <p class="church-leaderboard-empty">Join the group and start your streak to appear here.</p>
-          </div>
-          <p class="church-kid-leaderboard-trigger">
-            <button type="button" id="church-show-kid-leaderboard-btn" class="church-link-btn" aria-expanded="false" aria-controls="church-kid-leaderboard-section">Parents: Add your kid's streak</button>
-          </p>
-        </section>
-
-        <section id="church-vote-pastor-section" class="church-vote-pastor glass tdb-porch-paper-glass hidden" role="region" aria-label="Publish draft for vote">
-          <h2 class="church-section-title">📖 Next week's sermon</h2>
-          <p class="church-vote-pastor-note">Publish a draft for the church to vote on.</p>
-          <div class="church-vote-pastor-form">
-            <label for="church-vote-draft-select">Select draft</label>
-            <select id="church-vote-draft-select" class="church-vote-draft-select">
-              <option value="">Loading drafts…</option>
-            </select>
-            <button type="button" class="btn btn-church-join" id="church-vote-publish-btn">Publish for vote</button>
-          </div>
-        </section>
-
-        <section id="church-vote-member-section" class="church-vote-member glass tdb-porch-paper-glass" role="region" aria-label="Vote on sermon">
-          <h2 class="church-section-title">📖 Vote: Next week's sermon</h2>
-          <div id="church-votes-list" class="church-votes-list" aria-live="polite">
-            <p class="church-votes-empty">No open votes.</p>
-          </div>
-        </section>
-
-        <section class="church-roundup glass tdb-porch-paper-glass" role="region" aria-label="Weekly roundup email">
-          <h2 class="church-section-title">📬 Get weekly roundup</h2>
-          <p class="church-roundup-note">Get a Monday email: reflections, streak leader, next sermon. Join us Sunday!</p>
-          <form id="church-roundup-form" class="church-roundup-form">
-            <label for="church-roundup-email">Email</label>
-            <input
-              type="email"
-              id="church-roundup-email"
-              class="church-roundup-email"
-              placeholder="you@example.com"
-              required
-              aria-label="Email for weekly roundup"
-            >
-            <button type="submit" class="btn btn-church-join" id="church-roundup-btn">Subscribe</button>
-          </form>
-          <p id="church-roundup-result" class="church-roundup-result hidden" aria-live="polite"></p>
         </section>
       </div>
     </main>
@@ -406,20 +293,7 @@
 </footer>
   </div>
 
-  <div id="church-verse-challenge-modal" class="church-verse-challenge-modal hidden" role="dialog" aria-modal="true" aria-labelledby="church-verse-challenge-modal-title" aria-label="Group Verse Challenge">
-    <div class="church-verse-challenge-modal-inner glass tdb-porch-paper-glass">
-      <button type="button" class="church-verse-challenge-close" id="church-verse-challenge-close" aria-label="Close">×</button>
-      <h2 id="church-verse-challenge-modal-title" class="church-verse-challenge-modal-title">Fill the blank together</h2>
-      <p class="church-verse-challenge-ref" id="church-verse-challenge-ref"></p>
-      <div class="church-verse-challenge-blanks" id="church-verse-challenge-blanks"></div>
-      <div class="church-verse-challenge-actions">
-        <button type="button" id="church-verse-challenge-submit" class="btn btn-church-join">Check</button>
-      </div>
-      <div id="church-verse-challenge-result" class="church-verse-challenge-result hidden" aria-live="polite"></div>
-    </div>
-  </div>
-
   <script type="module" src="../script.js?v=20260816-brightgold" defer></script>
-  <script src="church.js?v=20260817-onedaily" defer></script>
+  <script src="church.js?v=20260817-quietdaily" defer></script>
 </body>
 </html>

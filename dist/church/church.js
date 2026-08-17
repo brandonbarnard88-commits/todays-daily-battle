@@ -1440,77 +1440,15 @@
     }
 
     renderDailyVerse();
-
-    function initVoting(gid) {
-      if (!gid) return;
-      loadVotes(gid);
-      if (isPastor()) {
-        var pastorSection = document.getElementById('church-vote-pastor-section');
-        if (pastorSection) pastorSection.classList.remove('hidden');
-        loadPastorDrafts(getChurchPastorAnonId() || getPastorAnonId());
-        var pubBtn = document.getElementById('church-vote-publish-btn');
-        var draftSel = document.getElementById('church-vote-draft-select');
-        if (pubBtn && draftSel) {
-          pubBtn.addEventListener('click', function () {
-            var draftId = draftSel.value;
-            if (!draftId) return;
-            var opt = draftSel.options[draftSel.selectedIndex];
-            var title = (opt && opt.getAttribute('data-title')) || 'Untitled';
-            var scripture = (opt && opt.getAttribute('data-scripture')) || '';
-            var client = getSupabaseClient();
-            if (!client) return;
-            pubBtn.disabled = true;
-            client.rpc('create_church_vote', {
-              p_group_id: gid,
-              p_draft_id: draftId,
-              p_title: title,
-              p_scripture: scripture,
-              p_pastor_anon_id: getPastorAnonId(),
-              p_days_open: 7
-            })
-              .then(function (res) {
-                var data = res && res.data;
-                if (data && data.ok) {
-                  loadVotes(gid);
-                  draftSel.value = '';
-                }
-              })
-              .finally(function () { pubBtn.disabled = false; });
-          });
-        }
-      } else {
-        var memberSection = document.getElementById('church-vote-member-section');
-        if (memberSection) memberSection.classList.remove('hidden');
-      }
-    }
+    wireDailyInvite(code);
 
     if (!groupId) {
       resolveGroupIdFromCode(code).then(function (id) {
         groupId = id || getChurchGroupId();
-        if (groupId) {
-          loadReflections(groupId);
-          loadPrayerWall(groupId);
-          loadLeaderboard(groupId);
-          loadKidLeaderboard(groupId);
-          loadGroupDoodles(groupId);
-          initVoting(groupId);
-          initKidLeaderboard(groupId);
-          initPrayerWall(groupId);
-          initVerseChallenge(groupId);
-          initAttendanceCheckin(groupId);
-        }
+        if (groupId) loadReflections(groupId);
       });
     } else {
       loadReflections(groupId);
-      loadPrayerWall(groupId);
-      loadLeaderboard(groupId);
-      loadKidLeaderboard(groupId);
-      loadGroupDoodles(groupId);
-      initVoting(groupId);
-      initKidLeaderboard(groupId);
-      initPrayerWall(groupId);
-      initVerseChallenge(groupId);
-      initAttendanceCheckin(groupId);
     }
 
     var saveBtn = document.getElementById('church-reflection-save');
@@ -1525,55 +1463,29 @@
         if (gid && (input.value || '').trim()) saveReflection(gid);
       });
     }
+  }
 
-    var roundupForm = document.getElementById('church-roundup-form');
-    var roundupEmail = document.getElementById('church-roundup-email');
-    var roundupBtn = document.getElementById('church-roundup-btn');
-    var roundupResult = document.getElementById('church-roundup-result');
-    if (roundupForm && roundupEmail && roundupBtn) {
-      roundupForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var gid = getChurchGroupId();
-        if (!gid) return;
-        var email = (roundupEmail.value || '').trim();
-        if (!email) return;
-        if (roundupResult) { roundupResult.classList.add('hidden'); roundupResult.textContent = ''; }
-        roundupBtn.disabled = true;
-        var client = getSupabaseClient();
-        if (!client) {
-          if (roundupResult) { roundupResult.textContent = 'Connection did not open. Try again when you are online.'; roundupResult.classList.remove('hidden'); roundupResult.classList.add('error'); }
-          roundupBtn.disabled = false;
-          return;
+  function wireDailyInvite(code) {
+    var made = String(code || getChurchCode() || '').trim();
+    if (!made) return;
+    var invite = (window.location.origin || 'https://todaysdailybattle.com') + '/church/?group=' + encodeURIComponent(made);
+    var codeEl = document.getElementById('church-invite-code');
+    var link = document.getElementById('church-invite-link');
+    var copy = document.getElementById('church-invite-copy');
+    if (codeEl) codeEl.textContent = made;
+    if (link) link.value = invite;
+    if (!copy) return;
+    copy.addEventListener('click', function () {
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(invite);
+        } else if (link) {
+          link.select();
+          document.execCommand('copy');
         }
-        client.rpc('upsert_church_subscriber', {
-          p_group_id: gid,
-          p_email: email,
-          p_anon_id: getOrCreateAnonId()
-        })
-          .then(function (res) {
-            var data = res && res.data;
-            if (data && data.ok) {
-              if (roundupResult) {
-                roundupResult.textContent = 'Subscribed! You\'ll get the Monday roundup.';
-                roundupResult.classList.remove('hidden', 'error');
-                roundupResult.classList.add('success');
-              }
-            } else {
-              var reason = (data && data.reason) || 'Subscription did not finish. Try again in a moment.';
-              if (reason === 'invalid_email') reason = 'Please enter a valid email.';
-              if (reason === 'not_member') reason = 'Join the group first.';
-              if (roundupResult) { roundupResult.textContent = reason; roundupResult.classList.remove('hidden'); roundupResult.classList.add('error'); }
-            }
-          })
-          .catch(function () {
-            if (roundupResult) { roundupResult.textContent = 'Subscription did not finish. Try again in a moment.'; roundupResult.classList.remove('hidden'); roundupResult.classList.add('error'); }
-          })
-          .finally(function () {
-            roundupBtn.disabled = false;
-          });
-      });
-    }
-
+        copy.textContent = 'Copied';
+      } catch (eCopy) { /* non-fatal */ }
+    });
   }
 
   /* --- Route --- */

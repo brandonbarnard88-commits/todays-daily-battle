@@ -54,9 +54,10 @@ async function main() {
   let filled = 0;
   const enriched = list.map((row) => {
     const ctx = resolve(row.ref) || {};
-    const about = String(ctx.about || '').trim();
-    const to = String(ctx.to || '').trim();
-    const setting = String(ctx.setting || '').trim();
+    const about = String(row.about || '').trim() || String(ctx.about || '').trim();
+    const to = String(row.to || '').trim() || String(ctx.to || '').trim();
+    const existingSetting = String(row.setting || '').trim();
+    const setting = existingSetting.length >= 24 ? existingSetting : String(ctx.setting || '').trim();
     if (about && to) filled += 1;
     const out = {
       ref: row.ref,

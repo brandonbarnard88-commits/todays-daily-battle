@@ -2301,9 +2301,10 @@
     "plain": "God’s mercy has given us a living hope — not a mood, but new life because Jesus rose from the dead.",
     "step": "Before the next task, bless His name with these words: “Blessed be the God and Father of our Lord Jesus.”",
     "about": "Peter",
-    "to": "The first hearers of “Blessed be the God and Father of our Lord” — and you when you have failed and still need to come",
-    "setting": "Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone. This verse is the song: Blessed be the God and Father of our Lord Jesus Christ,.",
-    "prayer": "Lord, i bless Your name with these words: “Blessed be the God and Father of our Lord Jesus”. In Jesus’ name, Amen."
+    "to": "Elect exiles who needed a living hope — and you when hope has gone thin and you need more than a mood",
+    "setting": "Peter writes to elect exiles and opens with blessing: God the Father, by abundant mercy, has begotten us again to a lively hope by the resurrection of Jesus Christ from the dead.",
+    "today": "Living hope is not a mood you have to manufacture. Jesus rose, so hope can stand even when you feel thin.",
+    "prayer": "Lord, I bless You, the God and Father of our Lord Jesus Christ. By Your abundant mercy, give me living hope because Jesus rose from the dead. Amen."
   },
   {
     "ref": "Psalm 97:11",

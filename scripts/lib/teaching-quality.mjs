@@ -35,6 +35,7 @@ export function isWeakPlainStamp(plain) {
   if (/Sit with that until one phrase lands/i.test(p)) return true;
   if (/^Read this verse slowly/i.test(p)) return true;
   if (/God'?s care is for you today/i.test(p) && /day feels thin/i.test(p)) return true;
+  if (/kindness meets you as you are/i.test(p) && /not after you perform/i.test(p)) return true;
   if (/^A steady truth from Scripture for real life today\.?$/i.test(p)) return true;
   if (/^What was going on:\s*.{0,60}speaking to/i.test(p)) return true;
   return false;

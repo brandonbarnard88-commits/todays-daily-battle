@@ -200,7 +200,12 @@
     var todayLine = '';
     var youLine = '';
     var stepLine = '';
-    if (/anxious|careful|worry|fear|afraid|trouble|dismay|terror/i.test(bodyLower)) {
+    if (/1\s*peter\s+1:3/i.test(ref) || /begotten us again unto a lively hope/i.test(bodyLower)) {
+      themeKey = 'hope';
+      todayLine = 'In ' + yr + ', hope is often treated like a mood. This verse says living hope comes from Jesus rising from the dead — not from you talking yourself up.';
+      youLine = 'Living hope is not a mood you have to manufacture. Jesus rose, so hope can stand even when you feel thin.';
+      stepLine = 'So do this: Before the next task, bless His name with these words: “Blessed be the God and Father of our Lord Jesus.”';
+    } else if (/anxious|careful|worry|fear|afraid|trouble|dismay|terror/i.test(bodyLower)) {
       themeKey = 'fear';
       todayLine = 'In ' + yr + ', fear still shows up in texts, bills, headlines, and quiet 2 AM thoughts. This verse meets that pressure with God’s steady word.';
       youLine = 'You do not have to pretend you are fine. Bring the fear to God and let this verse hold you while you take the next small step.';
@@ -330,6 +335,9 @@
     var body = sanitizeText(text);
     var lower = body.toLowerCase();
     var r = sanitizeText(ref).toLowerCase();
+    if (/1\s*peter\s+1:3/.test(r) || /begotten us again unto a lively hope/.test(lower)) {
+      return 'God’s mercy has given us a living hope — not a mood, but new life because Jesus rose from the dead.';
+    }
     if (/91:1/.test(r) || /secret place|shadow of the almighty|dwell/.test(lower)) {
       return 'When you stay close to God, you rest under His protection — safe in His care.';
     }
@@ -430,7 +438,7 @@
       to: sanitizeText((dayEx && dayEx.to) || data.to || ctx.to || ''),
       setting: sanitizeText((dayEx && dayEx.setting) || data.setting || ctx.setting || ''),
       plain: sanitizeText(data.plain || curatedPlain || (offline && offline.plain) || (mood && mood.lines && mood.lines[0]) || (gen && gen.plain) || (lines[0] || '')),
-      today: sanitizeText(data.today || (offline && offline.today) || (mood && mood.lines && mood.lines[1]) || (gen && gen.today) || (lines[1] || '')),
+      today: sanitizeText((dayEx && dayEx.today) || data.today || (offline && offline.today) || (mood && mood.lines && mood.lines[1]) || (gen && gen.today) || (lines[1] || '')),
       action: sanitizeText(data.action || (curatedStep ? ('So do this: ' + curatedStep) : '') || (offline && offline.action) || (mood && mood.app) || (gen && gen.action) || appText),
       prayer: sanitizeText((dayEx && dayEx.prayer) || data.prayer || '')
     };
@@ -665,6 +673,7 @@
     if (/^What was going on:\s*.{0,60}speaking to/i.test(t)) return true;
     if (/^My loved ones, let us have love for one another/i.test(t)) return true;
     if (/God'?s care is for you today/i.test(t) && /day feels thin/i.test(t)) return true;
+    if (/kindness meets you as you are/i.test(t) && /not after you perform/i.test(t)) return true;
     return false;
   }
 

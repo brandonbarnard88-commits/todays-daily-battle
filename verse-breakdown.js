@@ -247,6 +247,9 @@
     if (/psalm\s+96:2/.test(r) || /bless his name.*salvation from day to day/.test(lower)) {
       return 'Bless the Lord’s name and show His salvation today, then again tomorrow — not a one-day song.';
     }
+    if (/1\s*peter\s+1:3/.test(r) || /begotten us again unto a lively hope/.test(lower)) {
+      return 'God’s mercy has given us a living hope — not a mood, but new life because Jesus rose from the dead.';
+    }
     if (/begat|son of|daughter of|the generations of/i.test(body) && body.length < 180) {
       return 'This verse records real family lines in God’s story — names and people matter to Him.';
     }
@@ -377,6 +380,9 @@
     }
     if (/\b(pray|prayer|believe|believing|ask.*believ|believ.*receive|supplication)\b/.test(l)) {
       return 'Pray this verse once as written, then tell God one real need without polishing it.';
+    }
+    if (/begotten us again|lively hope/.test(l) && /resurrection/.test(l)) {
+      return 'Bless God for the living hope this verse names — then carry that hope into the next hard hour.';
     }
     if (/\b(forgiv|mercy|grace)\b/.test(l)) {
       return 'If someone comes to mind, ask God for the mercy this verse describes — for them and for you.';

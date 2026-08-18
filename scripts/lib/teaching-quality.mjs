@@ -3,6 +3,8 @@
  * Keep in sync with runtime checks in verse-breakdown.js / hero-daily-first-paint.js.
  */
 
+import { bookOf } from './verse-teaching-guard.mjs';
+
 export function cleanSituationStamp(s) {
   let t = String(s || '').replace(/\s+/g, ' ').trim();
   t = t.replace(/^In this passage of Scripture, the focus is this:\s*/i, '');
@@ -39,6 +41,36 @@ export function isWeakPlainStamp(plain) {
   if (/^A steady truth from Scripture for real life today\.?$/i.test(p)) return true;
   if (/^What was going on:\s*.{0,60}speaking to/i.test(p)) return true;
   return false;
+}
+
+/**
+ * Leftover Grove templates that sneak past exact-string uniqueness
+ * by appending a unique verse snippet. Hard-fail these in the 730 gate.
+ */
+export function leftoverTemplateIssues(row) {
+  const ref = String((row && row.ref) || '');
+  const book = bookOf(ref);
+  const setting = String((row && row.setting) || '');
+  const to = String((row && row.to) || '');
+  const plain = String((row && row.plain) || '');
+  const today = String((row && row.today) || '');
+  const issues = [];
+  if (/This verse is the song/i.test(setting) && !/^Psalm/i.test(book)) {
+    issues.push('song template on a non-psalm');
+  }
+  if (/you have failed and still need to come/i.test(to + ' ' + today + ' ' + plain)) {
+    issues.push('leftover failure-frame audience');
+  }
+  if (/kindness meets you as you are/i.test(plain) && /not after you perform/i.test(plain)) {
+    issues.push('leftover kindness stamp');
+  }
+  if (/Mercy is not a prize for finishing strong/i.test(today + ' ' + plain + ' ' + to)) {
+    issues.push('leftover finishing-strong mercy stamp');
+  }
+  if (/,\.\s*$/.test(setting) || /,\.\s*$/.test(plain)) {
+    issues.push('truncated leftover comma-period');
+  }
+  return issues;
 }
 
 function normTeachingLine(s) {

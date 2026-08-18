@@ -78,6 +78,18 @@ function auditLeftoverCases() {
   if (speakerBelongsToBook('John', 'Psalm 96:1')) {
     fail('John must not be a legal speaker for Psalm 96:1');
   }
+  if (!situationLooksWrongForRef('This verse is the song: Blessed be the God and Father of our Lord Jesus Christ,.', '1 Peter 1:3')) {
+    fail('Psalm song-template leftover must be rejected under 1 Peter 1:3');
+  }
+  if (situationLooksWrongForRef('This verse is the song: O sing unto the Lord a new song.', 'Psalm 96:1')) {
+    fail('Psalm song-template must stay allowed under a psalm');
+  }
+  if (!situationLooksWrongForRef('Worshipers who needed to hear mercy — and you when you have failed and still need to come', 'Psalm 23:6')) {
+    fail('Leftover failure-frame audience must be rejected');
+  }
+  if (!situationLooksWrongForRef("God's kindness meets you as you are — not after you perform.", 'Micah 6:8')) {
+    fail('Leftover kindness stamp must be rejected as teaching');
+  }
 }
 
 function auditInjectedHtml() {

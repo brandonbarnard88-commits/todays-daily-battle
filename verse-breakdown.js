@@ -281,7 +281,7 @@
       return framed('God offers real rest — a quiet place to set the day down with Him.', modernShort);
     }
     if (/\bmercy|grace|forgiv|compassion|lovingkindness\b/.test(lower)) {
-      return framed("God's kindness meets you as you are — not after you perform.", modernShort);
+      return framed('This verse names mercy that comes from God, not from your record.', modernShort);
     }
     if (/\bstrength|strong|courage|weary|faint|renew|uphold|power\b/.test(lower)) {
       return framed('When you feel empty, God gives strength beyond your own.', modernShort);

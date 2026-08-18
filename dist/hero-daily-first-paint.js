@@ -217,8 +217,8 @@
       stepLine = 'So do this: Sit still for thirty seconds. Read the verse slowly. Whisper, “I receive Your peace,” then take one calm next step.';
     } else if (/mercy|grace|forgiv|compassion|lovingkindness|kind/i.test(bodyLower)) {
       themeKey = 'mercy';
-      todayLine = 'In ' + yr + ', people often feel behind, ashamed, or hard on themselves. This verse points to God’s kindness, not your performance.';
-      youLine = 'You can come to God as you are. Mercy is not a prize for finishing strong — it is help for right now.';
+      todayLine = 'In ' + yr + ', people often feel behind, ashamed, or hard on themselves. This verse points to God’s mercy, not a leftover performance stamp.';
+      youLine = 'Mercy in this verse is help from God for the day you are actually in — not a prize you earn first.';
       stepLine = 'So do this: Tell God one place you need mercy today. Thank Him for it before you try to fix anything.';
     } else if (/strength|strong|courage|wait|weary|faint|renew|help|uphold/i.test(bodyLower)) {
       themeKey = 'strength';
@@ -354,7 +354,7 @@
       return 'God offers real rest — a quiet place to set the day down with Him.';
     }
     if (/mercy|grace|forgiv|compassion|lovingkindness/.test(lower)) {
-      return "God's kindness meets you as you are — not after you perform.";
+      return 'This verse names mercy that comes from God, not from your record.';
     }
     if (/strength|strong|courage|weary|faint|renew|uphold/.test(lower)) {
       return 'When you feel empty, God gives strength beyond your own.';

@@ -181,7 +181,11 @@ export const PHRASE_LOCKS = [
   { id: 'ps93-floods', re: /floods and noise cannot unseat|floods,\s*thrones/i, allow: /^Psalm(s)?\s+93:/i },
   { id: 'ps94-slip', re: /when (his |the )?foot slipp/i, allow: /^Psalm(s)?\s+94:/i },
   { id: 'prov-path', re: /straight path for work and plans|learning a straight path/i, allow: /^Proverbs\b/i },
-  { id: 'solomon-under-wrong', re: /\bSolomon giving wisdom\b/i, allow: /^(Proverbs|Ecclesiastes|Song of Solomon)\b/i }
+  { id: 'solomon-under-wrong', re: /\bSolomon giving wisdom\b/i, allow: /^(Proverbs|Ecclesiastes|Song of Solomon)\b/i },
+  /* Leftover Grove templates that unique-ify themselves with a verse snippet. */
+  { id: 'leftover-song-template', re: /This verse is the song/i, allow: /^Psalm(s)?\s+/i },
+  { id: 'leftover-failed-come', re: /you have failed and still need to come/i, allow: null },
+  { id: 'leftover-kindness-stamp', re: /kindness meets you as you are/i, allow: null }
 ];
 
 export function refAllowsLock(ref, lock) {

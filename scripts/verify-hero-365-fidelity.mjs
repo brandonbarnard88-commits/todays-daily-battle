@@ -8,6 +8,7 @@
  *  3. Setting is a known wrong-chapter cluster blurb
  *  4. Setting is an exact paste of a *different* chapter-band situation in that book
  *  5. Plain is a weak generic stamp
+ *  5b. Leftover Grove templates (song-on-non-psalm, failure-frame audience, kindness stamp, truncated “,.”)
  *  6. Plain has zero content overlap with KJV *and* looks like reusable pastoral paste
  *  7. Same plain text reused under two different refs (copy-paste contamination)
  *  8. Same setting reused under two different refs (chapter-band leftover)
@@ -23,7 +24,7 @@ import path from 'path';
 import vm from 'vm';
 import { fileURLToPath } from 'url';
 import { BOOK_CHAPTER_SITUATIONS, situationForChapter } from './lib/bible-situation-map.mjs';
-import { isWeakPlainStamp } from './lib/teaching-quality.mjs';
+import { isWeakPlainStamp, leftoverTemplateIssues } from './lib/teaching-quality.mjs';
 import {
   bookOf,
   buildBandFingerprints,
@@ -147,6 +148,9 @@ function main() {
     if (!setting || setting.length < 24) failures.push(`${label}: missing/thin setting`);
     if (!plain || plain.length < 12) failures.push(`${label}: missing/thin plain`);
     if (isWeakPlainStamp(plain)) failures.push(`${label}: weak plain stamp: "${plain.slice(0, 80)}"`);
+    leftoverTemplateIssues(row).forEach((issue) => {
+      failures.push(`${label}: leftover template: ${issue}`);
+    });
 
     if (about && !speakerBelongsToBook(about, ref)) {
       failures.push(`${label}: about does not fit book: "${about}"`);

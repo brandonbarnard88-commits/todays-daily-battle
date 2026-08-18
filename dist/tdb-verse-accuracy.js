@@ -67,6 +67,27 @@
     "flags": "i",
     "allow": "^(Proverbs|Ecclesiastes|Song of Solomon)\\b",
     "allowFlags": "i"
+  },
+  {
+    "id": "leftover-song-template",
+    "re": "This verse is the song",
+    "flags": "i",
+    "allow": "^Psalm(s)?\\s+",
+    "allowFlags": "i"
+  },
+  {
+    "id": "leftover-failed-come",
+    "re": "you have failed and still need to come",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "leftover-kindness-stamp",
+    "re": "kindness meets you as you are",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
   }
 ];
   var SPEAKERS = [

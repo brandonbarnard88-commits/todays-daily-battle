@@ -513,7 +513,7 @@ function needWhen(text) {
   if (/ask|seek|knock/.test(l)) return 'the Father feels hidden';
   if (/\blove\b/.test(l)) return 'love feels like a mood you cannot make';
   if (/trust|refuge|rock/.test(l)) return 'you need somewhere that will hold';
-  if (/mercy|forgiv/.test(l)) return 'you have failed and still need to come';
+  if (/mercy|forgiv/.test(l)) return 'mercy still has to reach you today';
   if (/peace|still/.test(l)) return 'your mind will not sit down';
   if (/strength|courage/.test(l)) return 'you have no more push left';
   if (/praise|thanks|sing|bless/.test(l)) return 'praise has to last past the morning';

@@ -467,7 +467,7 @@ export function buildThemeLaymanPlain(ref, text) {
     return withFrag('God offers real rest — a quiet place to set the day down with Him.');
   }
   if (/\bmercy|grace|forgiv|compassion|lovingkindness|longsuffering\b/.test(lower)) {
-    return withFrag('God’s kindness meets you as you are — not after you perform.');
+    return withFrag('This verse names mercy that comes from God, not from your record.');
   }
   if (/\bstrength|strong|courage|weary|faint|renew|uphold|power\b/.test(lower)) {
     return withFrag('When you feel empty, God gives strength beyond your own.');

@@ -2506,8 +2506,18 @@ function initPwaNudge() {
   if (!pwaNudge) return;
   if (localStorage.getItem("tdb-pwa-nudge-dismissed")) return;
   const visitKey = "tdb-visit-count";
-  const visits = (parseInt(localStorage.getItem(visitKey) || "0", 10) || 0) + 1;
-  localStorage.setItem(visitKey, String(visits));
+  const sessionFlag = "tdb-visit-count-tick";
+  var visits = parseInt(localStorage.getItem(visitKey) || "0", 10) || 0;
+  try {
+    if (!sessionStorage.getItem(sessionFlag)) {
+      visits += 1;
+      localStorage.setItem(visitKey, String(visits));
+      sessionStorage.setItem(sessionFlag, "1");
+    }
+  } catch (eVisit) {
+    visits += 1;
+    try { localStorage.setItem(visitKey, String(visits)); } catch (e2) {}
+  }
   const isStandalone = window.matchMedia("(display-mode: standalone)").matches
     || window.navigator.standalone === true;
   if (!isStandalone && visits >= 2) {
@@ -5225,13 +5235,25 @@ document.addEventListener('DOMContentLoaded', function () {
       localStorage.setItem('tdb-first-visit-hint-dismissed', '1');
     });
   }
-  // Returning user greeting
+  // Returning user greeting — only if they were here on a previous calendar day.
   var welcomeBack = document.getElementById('welcomeBackMsg');
   if (welcomeBack) {
-    var v = parseInt(localStorage.getItem('tdb-visit-count') || '0', 10) || 0;
-    if (v >= 2) {
+    var lastDay = '';
+    try { lastDay = localStorage.getItem('tdb_visit_local_ymd') || ''; } catch (eLast) {}
+    var now = new Date();
+    var y = now.getFullYear();
+    var m = now.getMonth() + 1;
+    var d = now.getDate();
+    var todayYmd = y + '-' + (m < 10 ? '0' : '') + m + '-' + (d < 10 ? '0' : '') + d;
+    var already = String(welcomeBack.textContent || '').trim();
+    if (already && !welcomeBack.hidden) {
+      /* script.js may have already written a yesterday line — do not wipe it. */
+    } else if (lastDay && lastDay !== todayYmd) {
       welcomeBack.textContent = 'Good to see you again.';
       welcomeBack.hidden = false;
+    } else {
+      welcomeBack.textContent = '';
+      welcomeBack.hidden = true;
     }
   }
   if (typeof updateStreak === 'function') updateStreak();

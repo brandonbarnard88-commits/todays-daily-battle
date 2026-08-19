@@ -140,8 +140,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260817-bbeink" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260817-bbeink">
+  <link rel="preload" href="tdb-home-page.css?v=20260819-relate3" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260819-relate3">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260812unstick-nav" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260812unstick-nav">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -274,7 +274,7 @@
     ]
   }
   </script>
-  <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_quiet_update_dismiss')==='2026-04-24-uog-rollout')document.documentElement.classList.add('tdb-quiet-update-dismissed');}catch(e){}})();</script>
+  <script nonce="tdb2025s">(function(){try{document.documentElement.classList.add('tdb-quiet-update-dismissed');}catch(e){}})();</script>
 </head>
 <body class="no-tdb-bottom-nav">
   <!-- Early sky class from real sunrise/sunset (place + season), not a fixed 5am/6:30pm clock. -->
@@ -386,7 +386,7 @@
       <button type="button" id="backup-dismiss-btn">Not today</button>
     </div>
   </div>
-  <div id="quiet-update" class="tdb-quiet-update-strip" data-tdb-quiet-update-version="2026-04-24-uog-rollout" role="status" aria-live="polite">
+  <div id="quiet-update" class="tdb-quiet-update-strip" data-tdb-quiet-update-version="2026-04-24-uog-rollout" role="status" aria-live="polite" hidden>
         <p class="tdb-quiet-update-strip__text">Update: today&rsquo;s lesson and Ask the Word refreshed.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
   </div>
@@ -1617,7 +1617,7 @@
   <script nonce="tdb2025s" defer src="tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
-  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260819-relate2"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260819-relate3"></script>
   <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260712-first-doors"></script>
   <script nonce="tdb2025s" defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script nonce="tdb2025s" defer src="/js/feel-combo-presets.js"></script>

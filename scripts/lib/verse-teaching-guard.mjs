@@ -183,9 +183,12 @@ export const PHRASE_LOCKS = [
   { id: 'prov-path', re: /straight path for work and plans|learning a straight path/i, allow: /^Proverbs\b/i },
   { id: 'solomon-under-wrong', re: /\bSolomon giving wisdom\b/i, allow: /^(Proverbs|Ecclesiastes|Song of Solomon)\b/i },
   /* Leftover Grove templates that unique-ify themselves with a verse snippet. */
-  { id: 'leftover-song-template', re: /This verse is the song/i, allow: /^Psalm(s)?\s+/i },
+  { id: 'leftover-role-factory', re: /This verse is the [a-z]+(?: [a-z]+){0,4}:/i, allow: null },
+  { id: 'leftover-here-role', re: /Here the [a-z]+ is this:/i, allow: null },
+  { id: 'leftover-as-it-stands', re: /take the verse as it stands/i, allow: null },
   { id: 'leftover-failed-come', re: /you have failed and still need to come/i, allow: null },
-  { id: 'leftover-kindness-stamp', re: /kindness meets you as you are/i, allow: null }
+  { id: 'leftover-kindness-stamp', re: /kindness meets you as you are/i, allow: null },
+  { id: 'leftover-pet1-cornerstone', re: /Christ the cornerstone/i, allow: /^1 Peter\s+2:/i }
 ];
 
 export function refAllowsLock(ref, lock) {

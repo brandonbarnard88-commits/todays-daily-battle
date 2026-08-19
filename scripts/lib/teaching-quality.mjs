@@ -3,7 +3,6 @@
  * Keep in sync with runtime checks in verse-breakdown.js / hero-daily-first-paint.js.
  */
 
-import { bookOf } from './verse-teaching-guard.mjs';
 
 export function cleanSituationStamp(s) {
   let t = String(s || '').replace(/\s+/g, ' ').trim();
@@ -38,6 +37,8 @@ export function isWeakPlainStamp(plain) {
   if (/^Read this verse slowly/i.test(p)) return true;
   if (/God'?s care is for you today/i.test(p) && /day feels thin/i.test(p)) return true;
   if (/kindness meets you as you are/i.test(p) && /not after you perform/i.test(p)) return true;
+  if (/take the verse as it stands/i.test(p)) return true;
+  if (/This word is for you in the day you are actually living/i.test(p)) return true;
   if (/^A steady truth from Scripture for real life today\.?$/i.test(p)) return true;
   if (/^What was going on:\s*.{0,60}speaking to/i.test(p)) return true;
   return false;
@@ -49,14 +50,13 @@ export function isWeakPlainStamp(plain) {
  */
 export function leftoverTemplateIssues(row) {
   const ref = String((row && row.ref) || '');
-  const book = bookOf(ref);
   const setting = String((row && row.setting) || '');
   const to = String((row && row.to) || '');
   const plain = String((row && row.plain) || '');
   const today = String((row && row.today) || '');
   const issues = [];
-  if (/This verse is the song/i.test(setting) && !/^Psalm/i.test(book)) {
-    issues.push('song template on a non-psalm');
+  if (/This verse is the [a-z]+(?: [a-z]+){0,4}:/i.test(setting) || /Here the [a-z]+ is this:/i.test(setting)) {
+    issues.push('role-factory setting');
   }
   if (/you have failed and still need to come/i.test(to + ' ' + today + ' ' + plain)) {
     issues.push('leftover failure-frame audience');
@@ -67,8 +67,50 @@ export function leftoverTemplateIssues(row) {
   if (/Mercy is not a prize for finishing strong/i.test(today + ' ' + plain + ' ' + to)) {
     issues.push('leftover finishing-strong mercy stamp');
   }
+  if (/take the verse as it stands/i.test(plain)) {
+    issues.push('as-it-stands leftover meaning');
+  }
+  if (/Lord, i bless/i.test(String((row && row.prayer) || ''))) {
+    issues.push('leftover lowercase-i prayer');
+  }
   if (/,\.\s*$/.test(setting) || /,\.\s*$/.test(plain)) {
     issues.push('truncated leftover comma-period');
+  }
+  if (/^1 Peter 1:/.test(ref) && /cornerstone/i.test(setting)) {
+    issues.push('chapter-2 cornerstone leftover on 1 Peter 1');
+  }
+  const leftoverWhen = [
+    'praise has to last past the morning',
+    'love feels like a mood you cannot make',
+    'you need somewhere that will hold',
+    'you only have light for the next step',
+    'gladness feels like a command you cannot feel',
+    'you have no more push left',
+    'your mind will not sit down',
+    'hope has worn thin',
+    'the Father feels hidden',
+    'you are tired of forcing the next thing',
+    'you need to be tended, not driven',
+    'you need a path, not a feeling',
+    'you need rescue that is still good today',
+    'the request is still in your chest',
+    'your own mind looks smarter than trust',
+    'the heart is still broken',
+    'you cannot sleep',
+    'the day has not started clean',
+    'you have forgotten who you are',
+    'the next person will get your sharp edge',
+    'the tears are still here',
+    'you need someone else to hold you steady',
+    'fear is loud'
+  ];
+  const toLow = to.toLowerCase();
+  leftoverWhen.forEach((w) => {
+    if (toLow.indexOf(w) !== -1) issues.push('leftover audience suffix: ' + w);
+  });
+  const taut = to.match(/needed to hear “([^”]+)”[\s\S]*you when you need to hear “([^”]+)”/i);
+  if (taut && taut[1] && taut[2] && taut[1].slice(0, 18) === taut[2].slice(0, 18)) {
+    issues.push('tautological leftover audience');
   }
   return issues;
 }

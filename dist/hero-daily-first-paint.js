@@ -347,28 +347,12 @@
     if (/23:1/.test(r) || /lord is my shepherd|shall not want/.test(lower)) {
       return 'The Lord takes care of me like a shepherd. With Him, I have what I need.';
     }
-    if (/anxious|careful|worry|fear|afraid|dismay|terror/.test(lower)) {
-      return 'You do not have to carry fear alone. Bring it to God and let Him steady you.';
+    if (body.length >= 18) {
+      var cut = body.split(/[.!?]/)[0] || body;
+      if (cut.length > 110) cut = cut.slice(0, 107).replace(/\s+\S*$/, '');
+      return cut.replace(/[.!?]$/, '') + '.';
     }
-    if (/peace|rest|still|quiet|calm/.test(lower)) {
-      return 'God offers real rest — a quiet place to set the day down with Him.';
-    }
-    if (/mercy|grace|forgiv|compassion|lovingkindness/.test(lower)) {
-      return 'This verse names mercy that comes from God, not from your record.';
-    }
-    if (/strength|strong|courage|weary|faint|renew|uphold/.test(lower)) {
-      return 'When you feel empty, God gives strength beyond your own.';
-    }
-    if (/hope|trust|believe|faith|pray|cast|burden/.test(lower)) {
-      return 'Hand the real weight to God. Trust that He hears and holds you.';
-    }
-    if (/sing unto|worship|praise|joyful noise|give thanks|thanksgiving|glorify/.test(lower)) {
-      return 'Give God your attention and thanks — He is worthy of it.';
-    }
-    if (/love|shepherd|save|salvation|rejoice|glad|joy|bless/.test(lower)) {
-      return "God's care is for you today — something solid to hold when the day feels thin.";
-    }
-    return 'Read this verse slowly. Let one clear phrase stay with you through the next hour.';
+    return '';
   }
 
   function resolveHeroContext(ref, dayEx) {
@@ -674,6 +658,8 @@
     if (/^My loved ones, let us have love for one another/i.test(t)) return true;
     if (/God'?s care is for you today/i.test(t) && /day feels thin/i.test(t)) return true;
     if (/kindness meets you as you are/i.test(t) && /not after you perform/i.test(t)) return true;
+    if (/take the verse as it stands/i.test(t)) return true;
+    if (/This word is for you in the day you are actually living/i.test(t)) return true;
     return false;
   }
 
@@ -1197,9 +1183,14 @@
       relatesToday = defaultRelatesTodayLine(yr);
     }
     if (relYou && relYou === simple) {
-      relYou = 'This word is for you in the day you are actually living — not a slogan, but a truth you can hold.';
-    } else if (!relYou) {
-      relYou = 'This word is for you in the day you are actually living — not a slogan, but a truth you can hold.';
+      relYou = '';
+    }
+    if (!relYou) {
+      var hookYou = sanitizeText(v.text || '').replace(/\s+/g, ' ').trim();
+      if (hookYou.length > 72) hookYou = hookYou.slice(0, 69).replace(/\s+\S*$/, '') + '…';
+      relYou = hookYou
+        ? 'Hold this verse in the hour you are in: “' + hookYou.replace(/[.!?]$/, '') + '.”'
+        : (audience || 'This verse is for the hour you are actually in.');
     }
     var oneStep = stepPrefer || sanitizeText(v.action) || sanitizeText(v.app);
     if (!oneStep) {

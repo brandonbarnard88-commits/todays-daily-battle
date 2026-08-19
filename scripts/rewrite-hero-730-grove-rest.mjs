@@ -263,7 +263,7 @@ function isGenericStep(s) {
 
 const HARD_SET = {
   'Psalm 96:2':
-    'Israel is calling every land to sing a new song to the Lord as King. This verse is the daily work of that song: bless His name and show His salvation today, then again tomorrow.',
+    'Israel is calling every land to sing a new song to the Lord as King. The verse: bless His name and show His salvation today, then again tomorrow.',
 };
 
 const HARD_STEP = {
@@ -365,7 +365,7 @@ const HARD_STEP = {
 
 const HARD_TO = {
   'Psalm 96:2':
-    'Every land called to show His salvation today — and you when praise has to last past the morning',
+    'Every land called to show His salvation today — and you when His salvation has to be shown again tomorrow',
   'Psalm 23:1':
     'Anyone who needs a Shepherd — and you when want is loud',
   'Psalm 23:4':
@@ -379,9 +379,9 @@ const HARD_TO = {
   'Philippians 4:13':
     'Friends in Philippi hearing a man in prison — and you when the next thing feels too big',
   'Philippians 4:6':
-    'A church told not to be anxious — and you when the request is still in your chest',
+    'A church told not to be anxious — and you when the request is still unspoken',
   'Matthew 7:7':
-    'Disciples on the mount learning to ask — and you when the Father feels hidden',
+    'Disciples on the mount learning to ask — and you when asking is the next honest step',
   'John 3:16':
     'Nicodemus in the night — and you when you need to know God actually loved the world',
   'Proverbs 3:5':
@@ -430,15 +430,15 @@ function buildSetting(ref, text, about) {
   const hook = verseQuote(text, 70);
   const whoBit = who && !new RegExp('^' + who.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i').test(frame) ? who + ' — ' : '';
   const candidates = [
-    whoBit + frame + '. This verse is the ' + role + ': ' + hook + '.',
-    frame + '. Here the ' + role + ' is this: ' + hook + '.',
-    (who ? who + ' in that hour. ' : '') + 'This verse is the ' + role + ': ' + hook + '.',
+    whoBit + frame + '. The verse: ' + hook + '.',
+    frame + '. The verse: ' + hook + '.',
+    (who ? who + ' in that hour. ' : '') + 'The verse: ' + hook + '.'
   ];
   for (const c of candidates) {
     const line = endsSent(String(c).replace(/\s+/g, ' ').trim());
     if (okField(line, ref, text, 40, 220) && !isThinSetting(line)) return line;
   }
-  const rescue = endsSent(frame + '. This verse is the ' + role + ': ' + hook);
+  const rescue = endsSent(frame + '. The verse: ' + hook);
   return rescue.slice(0, 220);
 }
 
@@ -506,37 +506,13 @@ function buildStep(ref, text) {
 
 function needWhen(text) {
   const l = String(text || '').toLowerCase();
-  if (/fear|afraid/.test(l)) return 'fear is loud';
-  if (/lamp|light|path of/.test(l)) return 'you only have light for the next step';
-  if (/shepherd|shall not want/.test(l)) return 'you need to be tended, not driven';
-  if (/wait/.test(l)) return 'you are tired of forcing the next thing';
-  if (/ask|seek|knock/.test(l)) return 'the Father feels hidden';
-  if (/\blove\b/.test(l)) return 'love feels like a mood you cannot make';
-  if (/trust|refuge|rock/.test(l)) return 'you need somewhere that will hold';
-  if (/mercy|forgiv/.test(l)) return 'mercy still has to reach you today';
-  if (/peace|still/.test(l)) return 'your mind will not sit down';
-  if (/strength|courage/.test(l)) return 'you have no more push left';
-  if (/praise|thanks|sing|bless/.test(l)) return 'praise has to last past the morning';
-  if (/word|law|statute|precept/.test(l)) return 'you need a path, not a feeling';
-  if (/hope/.test(l)) return 'hope has worn thin';
-  if (/save|salvation/.test(l)) return 'you need rescue that is still good today';
-  if (/rejoice|glad|joy/.test(l)) return 'gladness feels like a command you cannot feel';
-  if (/pray|prayer/.test(l)) return 'the request is still in your chest';
-  if (/wisdom|understand/.test(l)) return 'your own mind looks smarter than trust';
-  if (/heal|broken/.test(l)) return 'the heart is still broken';
-  if (/peace|lay me down/.test(l)) return 'you cannot sleep';
-  if (/morning/.test(l)) return 'the day has not started clean';
-  if (/chosen|priesthood/.test(l)) return 'you have forgotten who you are';
-  if (/kind|tender/.test(l)) return 'the next person will get your sharp edge';
-  if (/wipe away|tears/.test(l)) return 'the tears are still here';
-  if (/faithful|stablish/.test(l)) return 'you need someone else to hold you steady';
   return '';
 }
 
 function buildAudience(ref, text, about) {
   if (HARD_TO[ref] && okField(HARD_TO[ref], ref, text, 24, 160)) return HARD_TO[ref];
   const hook = verseQuote(text, 42);
-  const when = needWhen(text) || 'you need to hear “' + hook + '”';
+  const when = '“' + hook + '” has to be lived, not only heard';
   const book = bookOf(ref);
   const who = whoLead(about, ref);
   const cands = [];

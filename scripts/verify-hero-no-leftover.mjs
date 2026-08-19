@@ -79,16 +79,22 @@ function auditLeftoverCases() {
     fail('John must not be a legal speaker for Psalm 96:1');
   }
   if (!situationLooksWrongForRef('This verse is the song: Blessed be the God and Father of our Lord Jesus Christ,.', '1 Peter 1:3')) {
-    fail('Psalm song-template leftover must be rejected under 1 Peter 1:3');
+    fail('Role-factory leftover must be rejected under 1 Peter 1:3');
   }
-  if (situationLooksWrongForRef('This verse is the song: O sing unto the Lord a new song.', 'Psalm 96:1')) {
-    fail('Psalm song-template must stay allowed under a psalm');
+  if (!situationLooksWrongForRef('This verse is the song: O sing unto the Lord a new song.', 'Psalm 96:1')) {
+    fail('Role-factory leftover must be rejected even under a psalm');
   }
   if (!situationLooksWrongForRef('Worshipers who needed to hear mercy — and you when you have failed and still need to come', 'Psalm 23:6')) {
     fail('Leftover failure-frame audience must be rejected');
   }
   if (!situationLooksWrongForRef("God's kindness meets you as you are — not after you perform.", 'Micah 6:8')) {
     fail('Leftover kindness stamp must be rejected as teaching');
+  }
+  if (!situationLooksWrongForRef('Take the verse as it stands: Rejoice evermore.', '1 Thessalonians 5:16')) {
+    fail('As-it-stands leftover meaning must be rejected');
+  }
+  if (!situationLooksWrongForRef('Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone.', '1 Peter 1:8')) {
+    fail('Chapter-2 cornerstone leftover must be rejected under 1 Peter 1');
   }
 }
 

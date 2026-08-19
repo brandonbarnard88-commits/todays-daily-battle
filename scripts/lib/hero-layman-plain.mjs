@@ -206,7 +206,9 @@ export function isWeakLaymanPlain(plain, verseText) {
     /^You do not have to carry fear alone\. Bring it to God/i,
     /^God offers real rest — a quiet place/i,
     /^God'?s kindness meets you as you are/i,
-    /^God shows a clear way to live\. His instructions are for your good\.?$/i
+    /^God shows a clear way to live\. His instructions are for your good\.?$/i,
+    /take the verse as it stands/i,
+    /^This verse names mercy that comes from God, not from your record/i
   ];
   for (let i = 0; i < weakExact.length; i++) {
     if (weakExact[i].test(pRaw)) return true;

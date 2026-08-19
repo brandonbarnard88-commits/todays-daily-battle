@@ -121,7 +121,7 @@ function closerFor(text) {
   if (/strong hold in the day of trouble/.test(l)) return 'a strong hold when the day is trouble';
   if (/all grace abound/.test(l)) return 'He can make grace overflow for every good work';
   if (/gladness in my heart/.test(l)) return 'gladness He put there — more than their grain and wine';
-  return 'take the verse as it stands';
+  return '';
 }
 
 function okLine(line, text, bbe, ref) {
@@ -146,6 +146,11 @@ function buildMeaning(ref, text) {
 
   const modern = firstClause(modernizeKjvText(kjv), 92);
   const close = closerFor(kjv);
+  if (!close) {
+    const only = modern.replace(/[.!?]$/, '') + '.';
+    if (okLine(only, kjv, bbe, ref)) return only;
+    return only;
+  }
   const candidates = [
     modern.replace(/[.!?]$/, '') + ' — ' + close + '.',
     close.charAt(0).toUpperCase() + close.slice(1) + ': ' + modern.replace(/[.!?]$/, '') + '.',

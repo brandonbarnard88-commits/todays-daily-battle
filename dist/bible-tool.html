@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260816-brightgold"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
@@ -31,9 +30,6 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
   <link rel="stylesheet" href="styles.css?v=20260816-brightgold">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <script src="scripts/header-search-bar.js?v=3" defer></script>
@@ -1157,15 +1153,15 @@
     </main>
   </div>
 
-  <script type="module" src="script.js?v=20260816-brightgold"></script>
+  <script type="module" src="script.js?v=20260819-fullkjv"></script>
   <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
   <script src="bible-study-companion.js?v=20260328printpolish"></script>
   <script src="word-study.js?v=20260329pass2off"></script>
   <script src="verse-narration.js?v=20260329narr12"></script>
   <script src="verse-study.js?v=20260328pass4vs"></script>
-  <script src="verse-context.js?v=20260806-context" data-tdb-verse-context="1"></script>
+  <script src="verse-context.js?v=20260819-truth" data-tdb-verse-context="1"></script>
 <script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
-<script src="verse-breakdown.js?v=20260809-search-fix"></script>
+<script src="verse-breakdown.js?v=20260819-fullkjv" data-tdb-verse-breakdown="1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">
@@ -1740,7 +1736,19 @@
     var prayBox = document.getElementById('lookup-prayer-box');
     if (prayBox) { prayBox.classList.add('hidden'); prayBox.innerHTML = ''; }
     var lookupContext = document.getElementById('lookup-context');
-    if (lookupContext && typeof window.buildVerseContextHtml === 'function') lookupContext.innerHTML = window.buildVerseContextHtml(data.reference);
+    if (lookupContext) {
+      lookupContext.innerHTML = '';
+      if (typeof window.tdbMountVerseContextAccordion === 'function') {
+        window.tdbMountVerseContextAccordion(lookupContext, data.reference, true);
+      } else if (typeof window.buildVerseContextHtml === 'function') {
+        lookupContext.innerHTML = window.buildVerseContextHtml(data.reference, true);
+      }
+    }
+    if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.injectInlineBreakdown === 'function') {
+      try {
+        window.TDBVerseBreakdown.injectInlineBreakdown(block, data.reference, data.text);
+      } catch (eLookupBd) {}
+    }
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     renderNotes();
     // Trigger inline "Who's this?" panel
@@ -2959,14 +2967,5 @@
     window.addEventListener('hashchange', tdbOpenBibleToolDisclosureForHash);
   })();
   </script>
-
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
-    <nav class="tdb-bottom-dock" aria-label="Main navigation">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/#feel-section" aria-label="Ask the Word">Ask</a>
-      <a href="/plans.html" aria-label="Reading plans">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
-      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
-    </nav>
 </body>
 </html>

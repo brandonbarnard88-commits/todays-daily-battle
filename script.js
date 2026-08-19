@@ -78,7 +78,7 @@ function tdbIsHomePage() {
   function injectVerseBreakdownStack() {
     if (!window.TDB_VERSE_BREAKDOWN_DATA && !document.querySelector('script[data-tdb-verse-breakdown-overrides]')) {
       var seed = document.createElement('script');
-      seed.src = '/verse-breakdown-overrides.js?v=20260805-audit-focus-lock';
+      seed.src = '/verse-breakdown-overrides.js?v=20260819-truth';
       seed.defer = true;
       seed.setAttribute('data-tdb-verse-breakdown-overrides', '1');
       (document.head || document.documentElement).appendChild(seed);
@@ -110,7 +110,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260809-kjv-text-fix';
+    s.src = '/verse-breakdown.js?v=20260819-fullkjv';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2841,7 +2841,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
   var trustedCtx = trustedScriptURL('/verse-context.js?v=20260808-situation-every');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260809-kjv-text-fix');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260819-fullkjv');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -20938,8 +20938,41 @@ window.VERSE_CONTEXT = {
 
 function getVerseContext(ref) {
   if (!ref) return null;
-  var r = String(ref).trim().replace(/\s+/g, ' ');
-  return window.VERSE_CONTEXT && window.VERSE_CONTEXT[r] || null;
+  var r = String(ref).trim().replace(/\s+/g, ' ').replace(/^Psalms\s+/i, 'Psalm ');
+  if (!r) return null;
+  var text = '';
+  try {
+    if (typeof getBibleVerseText === 'function') text = getBibleVerseText(r) || '';
+  } catch (eTxt) {}
+  var bd = null;
+  try {
+    if (typeof getVerseBreakdown === 'function') bd = getVerseBreakdown(r, text) || null;
+  } catch (eBd) {}
+  var live = null;
+  try {
+    if (typeof window.TDB_resolveVerseContext === 'function') live = window.TDB_resolveVerseContext(r) || null;
+  } catch (eLive) {}
+  var stat =
+    (window.VERSE_CONTEXT && (window.VERSE_CONTEXT[r] || window.VERSE_CONTEXT[ref] || window.VERSE_CONTEXT[r.replace(/^Psalm\s+/i, 'Psalms ')])) ||
+    {};
+  var speaker = String((live && live.about) || (bd && bd.about) || stat.speaker || '').trim();
+  var audience = String((live && live.to) || (bd && bd.to) || stat.audience || '').trim();
+  var situation = String((live && (live.setting || live.situation)) || (bd && (bd.situation || bd.setting)) || '').trim();
+  var meaning = String((bd && (bd.plainMeaningOnly || bd.layman || bd.plainExplanation)) || '').trim();
+  meaning = meaning.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
+  var application = String((bd && (bd.modernApplication || bd.relates)) || stat.application || '').trim();
+  if (/hold this verse as written|life can feel loud/i.test(application)) application = '';
+  var prayer = String((bd && bd.prayer) || stat.prayer || '').trim();
+  if (!speaker && !audience && !situation && !meaning && !application) return null;
+  return {
+    speaker: speaker,
+    audience: audience,
+    situation: situation,
+    meaning: meaning,
+    application: application,
+    reflection: String(stat.reflection || '').trim(),
+    prayer: prayer
+  };
 }
 
 function buildVerseContextHtml(ref, openByDefault) {
@@ -20947,10 +20980,13 @@ function buildVerseContextHtml(ref, openByDefault) {
   var readerUrl = typeof buildReaderUrl === 'function' ? buildReaderUrl(ref) : 'reader.html';
   if (ctx) {
     var openAttr = openByDefault ? ' open' : '';
-    var html = '<details class="verse-context-accordion" aria-label="Context and application"' + openAttr + '><summary class="verse-context-summary">Context &amp; Application</summary><ul class="verse-context-list">' +
-      '<li><strong>Speaker:</strong> ' + escapeHtmlPlain(ctx.speaker || '') + '</li>' +
-      '<li><strong>To whom:</strong> ' + escapeHtmlPlain(ctx.audience || '') + '</li>' +
-      '<li><strong>How it applies today:</strong> ' + escapeHtmlPlain(ctx.application || '') + '</li>';
+    var html = '<details class="verse-context-accordion" aria-label="Context and application"' + openAttr + '><summary class="verse-context-summary">Context from the Word</summary><ul class="verse-context-list">';
+    if (ctx.situation) html += '<li><strong>What was going on:</strong> ' + escapeHtmlPlain(ctx.situation) + '</li>';
+    if (ctx.meaning) html += '<li><strong>What it means:</strong> ' + escapeHtmlPlain(ctx.meaning) + '</li>';
+    html +=
+      '<li><strong>Who’s talking:</strong> ' + escapeHtmlPlain(ctx.speaker || '') + '</li>' +
+      '<li><strong>Who hears this:</strong> ' + escapeHtmlPlain(ctx.audience || '') + '</li>';
+    if (ctx.application) html += '<li><strong>How it relates today:</strong> ' + escapeHtmlPlain(ctx.application) + '</li>';
     if (ctx.reflection) html += '<li><strong>Reflection:</strong> ' + escapeHtmlPlain(ctx.reflection) + '</li>';
     if (ctx.prayer) html += '<li><strong>Prayer:</strong> ' + escapeHtmlPlain(ctx.prayer) + '</li>';
     html += '</ul></details>';
@@ -20987,9 +21023,11 @@ function tdbMountVerseContextAccordion(parent, ref, openByDefault) {
       li.appendChild(document.createTextNode(' ' + String(value || '')));
       ul.appendChild(li);
     }
-    addRow('Speaker:', ctx.speaker || '');
-    addRow('To whom:', ctx.audience || '');
-    addRow('How it applies today:', ctx.application || '');
+    if (ctx.situation) addRow('What was going on:', ctx.situation);
+    if (ctx.meaning) addRow('What it means:', ctx.meaning);
+    addRow('Who’s talking:', ctx.speaker || '');
+    addRow('Who hears this:', ctx.audience || '');
+    if (ctx.application) addRow('How it relates today:', ctx.application);
     if (ctx.reflection) {
       addRow('Reflection:', ctx.reflection);
     }
@@ -28461,7 +28499,11 @@ function fillReaderVerseBreakdown(ref, text) {
   }
   var refEl = document.getElementById('reader-vbd-ref');
   var textEl = document.getElementById('reader-vbd-text');
+  var sitEl = document.getElementById('reader-vbd-situation');
   var laymanEl = document.getElementById('reader-vbd-layman');
+  var whoEl = document.getElementById('reader-vbd-who');
+  var audEl = document.getElementById('reader-vbd-audience');
+  var todayEl = document.getElementById('reader-vbd-today');
   var stepWrap = document.getElementById('reader-vbd-next-step');
   var stepText = document.getElementById('reader-vbd-step-text');
   var prayerWrap = document.getElementById('reader-vbd-prayer');
@@ -28470,6 +28512,14 @@ function fillReaderVerseBreakdown(ref, text) {
   if (refEl) refEl.textContent = cleanRef + ' (KJV)';
   if (textEl) textEl.textContent = cleanText ? '\u201C' + cleanText + '\u201D' : '';
   var bd = typeof getVerseBreakdown === 'function' ? getVerseBreakdown(cleanRef, cleanText, null) : null;
+  if (sitEl) sitEl.textContent = (bd && (bd.situation || bd.setting)) || '';
+  if (whoEl) whoEl.textContent = (bd && bd.about) || '';
+  if (audEl) audEl.textContent = (bd && bd.to) || '';
+  if (todayEl) {
+    var todayTxt = (bd && (bd.modernApplication || bd.relates)) || '';
+    if (/hold this verse as written|life can feel loud/i.test(todayTxt)) todayTxt = '';
+    todayEl.textContent = todayTxt;
+  }
   if (laymanEl) {
     var laymanTxt = (bd && (bd.plainMeaningOnly || bd.layman || bd.plainExplanation)) || '';
     if (typeof window.TDBTeachingQuality !== 'undefined' && window.TDBTeachingQuality.meaningOnly) {

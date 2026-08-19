@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260816-brightgold"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js" defer fetchpriority="low"></script>
   <script src="/tt-bootstrap.js?v=20260816-brightgold" defer fetchpriority="low"></script>
@@ -31,9 +27,6 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
   <link rel="stylesheet" href="styles.css?v=20260816-brightgold">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -779,8 +772,16 @@
             <p class="big-kjv verse-ref" id="reader-vbd-ref"></p>
             <p class="verse-body" id="reader-vbd-text"></p>
             <div class="hero-vbd-primary">
+              <h4 class="tdb-vbd-label">What was going on</h4>
+              <p id="reader-vbd-situation"></p>
               <h4 class="tdb-layman-heading">What it means</h4>
               <p id="reader-vbd-layman"></p>
+              <h4 class="tdb-vbd-label">Who’s talking?</h4>
+              <p id="reader-vbd-who"></p>
+              <h4 class="tdb-vbd-label">Who hears this?</h4>
+              <p id="reader-vbd-audience"></p>
+              <h4 class="tdb-vbd-label">How it relates today</h4>
+              <p id="reader-vbd-today"></p>
             </div>
             <div class="next-step" id="reader-vbd-next-step" hidden>
               <strong>One honest step:</strong> <span id="reader-vbd-step-text"></span>
@@ -862,14 +863,6 @@
         <p class="section-note reader-privacy-foot util-mt-1 util-mb-0">Everything here stays on this device unless you sign in to sync.</p>
       </div>
     </main>
-    <nav class="tdb-bottom-dock" aria-label="Main navigation">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/#feel-section" aria-label="Ask the Word">Ask</a>
-      <a href="/plans.html" aria-label="Reading plans">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
-      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
-    </nav>
-
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -997,7 +990,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">August 16, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -1012,7 +1005,5 @@
   <script src="/js/tdb-plan-progress.js?v=20260711-ms3-desk" defer></script>
   <script src="tdb-continue-surface.js?v=20260712-continue" defer></script>
   <script defer src="reader-core.js?v=20260508-reader-core-pass1" data-cfasync="false" fetchpriority="high"></script>
-
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

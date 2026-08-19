@@ -23,7 +23,7 @@
     if (!nodes.length) return;
     var i;
     for (i = 0; i < nodes.length; i++) {
-      if (needsFix(nodes[i].textContent)) nodes[i].textContent = stamp;
+      nodes[i].textContent = stamp;
     }
     try {
       window.__tdbFooterBuildDateHydrated = true;

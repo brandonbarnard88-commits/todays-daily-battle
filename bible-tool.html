@@ -1153,15 +1153,15 @@
     </main>
   </div>
 
-  <script type="module" src="script.js?v=20260816-brightgold"></script>
+  <script type="module" src="script.js?v=20260819-fullkjv"></script>
   <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
   <script src="bible-study-companion.js?v=20260328printpolish"></script>
   <script src="word-study.js?v=20260329pass2off"></script>
   <script src="verse-narration.js?v=20260329narr12"></script>
   <script src="verse-study.js?v=20260328pass4vs"></script>
-  <script src="verse-context.js?v=20260806-context" data-tdb-verse-context="1"></script>
+  <script src="verse-context.js?v=20260819-truth" data-tdb-verse-context="1"></script>
 <script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
-<script src="verse-breakdown.js?v=20260809-search-fix"></script>
+<script src="verse-breakdown.js?v=20260819-fullkjv" data-tdb-verse-breakdown="1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">
@@ -1736,7 +1736,19 @@
     var prayBox = document.getElementById('lookup-prayer-box');
     if (prayBox) { prayBox.classList.add('hidden'); prayBox.innerHTML = ''; }
     var lookupContext = document.getElementById('lookup-context');
-    if (lookupContext && typeof window.buildVerseContextHtml === 'function') lookupContext.innerHTML = window.buildVerseContextHtml(data.reference);
+    if (lookupContext) {
+      lookupContext.innerHTML = '';
+      if (typeof window.tdbMountVerseContextAccordion === 'function') {
+        window.tdbMountVerseContextAccordion(lookupContext, data.reference, true);
+      } else if (typeof window.buildVerseContextHtml === 'function') {
+        lookupContext.innerHTML = window.buildVerseContextHtml(data.reference, true);
+      }
+    }
+    if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.injectInlineBreakdown === 'function') {
+      try {
+        window.TDBVerseBreakdown.injectInlineBreakdown(block, data.reference, data.text);
+      } catch (eLookupBd) {}
+    }
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     renderNotes();
     // Trigger inline "Who's this?" panel

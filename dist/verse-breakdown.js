@@ -667,6 +667,25 @@
               BREAKDOWN_OVERRIDES[refKey].general.plainExplanation = String(map[cv] || '');
             }
           });
+          try {
+            if (typeof window.dispatchEvent === 'function') {
+              window.dispatchEvent(new CustomEvent('tdb-breakdown-book-ready', { detail: { book: name } }));
+            }
+            var lookup = document.getElementById('lookup-result');
+            if (lookup && String(lookup.className || '').indexOf('hidden') === -1) {
+              var pair = extractRefAndText(lookup);
+              if (pair.ref && pair.text) injectInlineBreakdown(lookup, pair.ref, pair.text);
+            }
+            var ctxEl = document.getElementById('lookup-context');
+            if (ctxEl && typeof window.tdbMountVerseContextAccordion === 'function') {
+              var liveRef = document.getElementById('lookup-ref');
+              var r = liveRef ? String(liveRef.textContent || '').trim() : '';
+              if (r) {
+                ctxEl.innerHTML = '';
+                window.tdbMountVerseContextAccordion(ctxEl, r, true);
+              }
+            }
+          } catch (eReady) {}
         })
         .catch(function () {
           BREAKDOWN_BOOK_LOADING[name] = false;

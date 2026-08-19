@@ -26,6 +26,7 @@
     "build:kjv-lexicon": "node scripts/build-kjv-lexicon.mjs",
     "build:ask-the-word": "node scripts/build-ask-the-word-data.mjs",
     "test:ask-the-word": "node scripts/test-ask-the-word-core.mjs",
+    "eval:full-site": "node scripts/eval-full-site-truth.mjs",
     "test:full-kjv": "node scripts/test-full-kjv-wiring.mjs",
     "audio:mobius-breathe": "node scripts/build-mobius-breathe-human-audio.mjs",
     "audio:mobius-guided": "node scripts/build-mobius-guided-human-audio.mjs",

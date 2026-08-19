@@ -51,6 +51,7 @@ export function isWeakPlainStamp(plain) {
 export function leftoverTemplateIssues(row) {
   const ref = String((row && row.ref) || '');
   const setting = String((row && row.setting) || '');
+  const about = String((row && row.about) || '');
   const to = String((row && row.to) || '');
   const plain = String((row && row.plain) || '');
   const today = String((row && row.today) || '');
@@ -79,8 +80,18 @@ export function leftoverTemplateIssues(row) {
   if (/^1 Peter 1:/.test(ref) && /cornerstone/i.test(setting)) {
     issues.push('chapter-2 cornerstone leftover on 1 Peter 1');
   }
-  if (/new song for all lands/i.test(setting) && !/^Psalm 96:/i.test(ref)) {
+  if (/new song for all (the )?(earth|lands)/i.test(setting) && !/^Psalm 96:/i.test(ref)) {
     issues.push('Psalm 96 leftover band on a non-96 verse');
+  }
+  if (/enter His gates with thanksgiving/i.test(setting + ' ' + about) && !/^Psalm 100:/i.test(ref)) {
+    issues.push('Psalm 100 leftover gates band on a non-100 verse');
+  }
+  const modern = String((row && row.modernApplication) || '');
+  const youLine = String((row && row.today) || '');
+  if (!modern.trim()) issues.push('missing relate-today');
+  if (!youLine.trim()) issues.push('missing you-line');
+  if (/hold this verse as written|life can feel loud/i.test(modern + ' ' + youLine)) {
+    issues.push('leftover relate reprint');
   }
   const leftoverWhen = [
     'praise has to last past the morning',

@@ -266,7 +266,8 @@
     }
 
     /* Dismissible update strip (see also styles.css for non-index pages) */
-    html.tdb-quiet-update-dismissed .tdb-quiet-update-strip {
+    html.tdb-quiet-update-dismissed .tdb-quiet-update-strip,
+    .tdb-quiet-update-strip[hidden] {
       display: none !important;
     }
     .tdb-quiet-update-strip {

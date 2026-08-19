@@ -1156,15 +1156,16 @@
       if (!stepPrefer) stepPrefer = modernA;
       modernA = '';
     }
-    var relatesToday = modernA;
-    if (/life can feel loud/i.test(relatesToday)) relatesToday = '';
+    function isThinRelatesToday(s) {
+      return /life can feel loud|hold this verse as written/i.test(sanitizeText(s));
+    }
+    var curatedNow = sanitizeText(v.modernApplication || '');
+    var relatesToday = curatedNow;
     if (!relatesToday || looksLikeActionStepLine(relatesToday)) {
-      var lessonToday = sanitizeText(v.modernApplication || '');
-      if (lessonToday && !looksLikeActionStepLine(lessonToday)) {
-        relatesToday = lessonToday;
-      } else {
-        relatesToday = defaultRelatesTodayLine(yr, v.text || v.kjv || '');
-      }
+      relatesToday = modernA;
+    }
+    if (!relatesToday || looksLikeActionStepLine(relatesToday) || isThinRelatesToday(relatesToday)) {
+      relatesToday = curatedNow || defaultRelatesTodayLine(yr, v.text || v.kjv || '');
     }
     var curatorYou = sanitizeText(v.today);
     /* lines[1] is often the raw KJV body — do not use it as a personal line. */
@@ -1181,7 +1182,7 @@
       relYou = groupA;
     }
     if (relYou && relatesToday && relYou === relatesToday) {
-      relatesToday = defaultRelatesTodayLine(yr);
+      relatesToday = curatedNow || defaultRelatesTodayLine(yr, v.text || v.kjv || '');
     }
     if (relYou && relYou === simple) {
       relYou = '';
@@ -1651,14 +1652,15 @@
       if (/\bforgive|forgiveness|forgave|forgiven|trespass|trespasses\b/.test(low)) return 'forgiveness';
       if (/\bbitter(ness|ly)?\b|gall of bitterness|root of bitterness|bitter envying|gall and\b/.test(low)) return 'bitterness';
       if (/\blonely|loneliness|\bforsaken\b|forsake me|no companion|desolate and afflicted|solitary in families|comfortless\b/.test(low)) return 'loneliness';
-      if (/\bthank|thanks|thanksgiving|grateful|made me glad|glad through|works of (thy|your) hands|rejoice|joyful|joy in|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
+      if (/\bthank|thanks|thanksgiving|grateful|made me glad|gladness|glad through|light is sown|upright in heart|works of (thy|your) hands|rejoice|joyful|joy in|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
       if (/\bdoubt(s|ed|ful|eth)?\b|unbelief|disbelief|faithless|be not faithless|waver(ing|ed|eth)?\b|staggered not|help thou mine|mine unbelief|look we for another|art thou he that should come\b/.test(low)) return 'doubt';
       if (/\bproverbs\b|commit thy works|commit your works|thoughts shall be established|wisdom\b|understanding\b|fear of the lord is the beginning\b/.test(low)) return 'wisdom';
       if (/\bhope|hopeless|discouraged\b/.test(low)) return 'hope';
       if (/\blove one another\b|\blove is of god\b|\bperfect love\b|\bfirst loved us\b|\bcharity suffereth\b|\bbeloved, let us love\b/.test(low)) {
         return 'love';
       }
-      return 'peace';
+      if (/\bpsalm\b/.test(low)) return 'gratitude';
+      return 'hope';
     }
     var UOG_PLANS = {
       wisdom: [

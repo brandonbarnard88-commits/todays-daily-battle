@@ -727,6 +727,14 @@
       document.getElementById('heroDeepAudience') &&
         document.getElementById('heroDeepAudience').textContent
     );
+    var context = sanitizeText(
+      document.getElementById('heroDeepContext') &&
+        document.getElementById('heroDeepContext').textContent
+    );
+    var youLine = sanitizeText(
+      document.getElementById('heroDeepYou') &&
+        document.getElementById('heroDeepYou').textContent
+    );
     var meanFromSimple = '';
     if (simple && /What it means:/i.test(simple)) {
       meanFromSimple = simple.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
@@ -741,7 +749,9 @@
       situation: pickBestText([sitPrimary, sitDeep, sitFromSimple], scoreSituationLine),
       meaning: pickBestText([meanPrimary, meanFromSimple], scoreMeaningLine),
       who: who,
-      audience: aud
+      audience: aud,
+      context: context,
+      you: youLine
     };
   }
 
@@ -1178,14 +1188,21 @@
     function isThinRelatesToday(s) {
       return /life can feel loud|hold this verse as written/i.test(sanitizeText(s));
     }
+    var snapCtx = snapOk ? sanitizeText(snapIn && snapIn.context) : '';
     var curatedNow = sanitizeText(v.modernApplication || '');
+    if (isThinRelatesToday(curatedNow)) curatedNow = '';
     var relatesToday = curatedNow;
     if (!relatesToday || looksLikeActionStepLine(relatesToday)) {
       relatesToday = modernA;
     }
     if (!relatesToday || looksLikeActionStepLine(relatesToday) || isThinRelatesToday(relatesToday)) {
-      relatesToday = curatedNow || defaultRelatesTodayLine(yr, v.text || v.kjv || '');
+      if (snapCtx && !isThinRelatesToday(snapCtx) && !looksLikeActionStepLine(snapCtx)) {
+        relatesToday = snapCtx;
+      } else {
+        relatesToday = curatedNow || '';
+      }
     }
+    if (isThinRelatesToday(relatesToday)) relatesToday = curatedNow || (snapCtx && !isThinRelatesToday(snapCtx) ? snapCtx : '');
     var curatorYou = sanitizeText(v.today);
     /* lines[1] is often the raw KJV body — do not use it as a personal line. */
     if (!curatorYou && lines[1] && lines[1] !== sanitizeText(v.text) && lines[1].length < 160) {
@@ -1201,7 +1218,7 @@
       relYou = groupA;
     }
     if (relYou && relatesToday && relYou === relatesToday) {
-      relatesToday = curatedNow || defaultRelatesTodayLine(yr, v.text || v.kjv || '');
+      relatesToday = curatedNow || (snapCtx && !isThinRelatesToday(snapCtx) ? snapCtx : '');
     }
     if (relYou && relYou === simple) {
       relYou = '';
@@ -1333,6 +1350,34 @@
     var oneStep = lesson.oneStep;
     var prayer = lesson.prayer;
     var yr = lesson.year;
+    function isThinRelatesTodayPaint(s) {
+      return /life can feel loud|hold this verse as written/i.test(sanitizeText(s));
+    }
+    if (!relatesToday || isThinRelatesTodayPaint(relatesToday) || looksLikeActionStepLine(relatesToday)) {
+      var keepCtx = '';
+      if (snapshotMatchesTargetRef(snap, refKey)) {
+        keepCtx = sanitizeText(snap.context);
+      }
+      if (keepCtx && !isThinRelatesTodayPaint(keepCtx) && !looksLikeActionStepLine(keepCtx)) {
+        relatesToday = keepCtx;
+      } else {
+        try {
+          if (typeof window.TDB_GET_HERO_EXPLANATION_BY_REF === 'function') {
+            var paintEx = window.TDB_GET_HERO_EXPLANATION_BY_REF(refKey);
+            var paintModern = sanitizeText(paintEx && paintEx.modernApplication);
+            if (paintModern && !isThinRelatesTodayPaint(paintModern) && !looksLikeActionStepLine(paintModern)) {
+              relatesToday = paintModern;
+            } else {
+              relatesToday = '';
+            }
+          } else {
+            relatesToday = '';
+          }
+        } catch (ePaintEx) {
+          relatesToday = '';
+        }
+      }
+    }
     /* Combined line is a11y-only legacy; keep text but never show it (CSS hard-hides). */
     simpleOut.textContent = simple;
     simpleOut.setAttribute('aria-hidden', 'true');

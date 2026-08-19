@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260817-skylife';
+const CACHE_NAME = 'tdb-cache-v20260819-relate2';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -723,6 +723,7 @@ self.addEventListener('fetch', (event) => {
     url.pathname.endsWith('/hero-daily-365-data.js') ||
     url.pathname.endsWith('/hero-daily-365-explanations.js') ||
     url.pathname.endsWith('/hero-daily-first-paint.js') ||
+    url.pathname.endsWith('/tdb-home-feel.js') ||
     url.pathname.endsWith('/tdb-verse-accuracy.js')
   ) {
     event.respondWith(
@@ -842,6 +843,40 @@ self.addEventListener('fetch', (event) => {
 
   // Never cache config.js or footer-build-stamp.js so deployments take effect immediately
   if (url.pathname.endsWith('config.js') || url.pathname.endsWith('footer-build-stamp.js')) return;
+
+  // Home teaching must be network-first. Stale-while-revalidate kept yesterday’s
+  // relate-line on returning visits even after a refresh.
+  if (
+    event.request.mode === 'navigate' &&
+    (url.pathname === '/' || url.pathname === '/index.html' || url.pathname === '')
+  ) {
+    event.respondWith(
+      fetch(event.request)
+        .then(function (res) {
+          if (res && res.ok && !res.redirected) {
+            var clone = res.clone();
+            caches.open(CACHE_NAME).then(function (cache) {
+              cache.put(event.request, clone).catch(function () {});
+              try {
+                cache.put('/index.html', res.clone()).catch(function () {});
+              } catch (_eHome) {}
+            });
+          }
+          return res;
+        })
+        .catch(function () {
+          return caches.open(CACHE_NAME).then(function (cache) {
+            return cache.match(event.request).then(function (hit) {
+              if (hit && !hit.redirected) return hit;
+              return cache.match('/index.html').then(function (idx) {
+                return (idx && !idx.redirected) ? idx : cache.match(OFFLINE_URL);
+              });
+            });
+          });
+        })
+    );
+    return;
+  }
 
   // HTML navigations: stale-while-revalidate for instant repeat-visit loads.
   // Cached HTML is served immediately on return visits; network refreshes the cache in background.

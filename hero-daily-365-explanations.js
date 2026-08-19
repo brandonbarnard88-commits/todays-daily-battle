@@ -7318,9 +7318,17 @@
   };
   global.TDB_GET_HERO_EXPLANATION_BY_REF = function (ref) {
     var list = global.__TDB_HERO_DAILY_EXPLANATIONS || [];
-    var r = String(ref || '').replace(/\s+/g, ' ').replace(/^Psalms\s+/i, 'Psalm ').trim();
+    var r = String(ref || '')
+      .replace(/\s+/g, ' ')
+      .replace(/^Psalms\s+/i, 'Psalm ')
+      .replace(/\s*\(KJV\)\s*$/i, '')
+      .trim();
     for (var j = 0; j < list.length; j++) {
-      var lr = String(list[j].ref || '').replace(/\s+/g, ' ').replace(/^Psalms\s+/i, 'Psalm ').trim();
+      var lr = String(list[j].ref || '')
+        .replace(/\s+/g, ' ')
+        .replace(/^Psalms\s+/i, 'Psalm ')
+        .replace(/\s*\(KJV\)\s*$/i, '')
+        .trim();
       if (lr === r) return list[j];
     }
     return null;

@@ -6,7 +6,7 @@
 (function () {
   'use strict';
   /** Replaced in dist only: real build date from npm run build (survives missing build-date.txt). */
-  var INLINE_STAMP = 'August 16, 2026';
+  var INLINE_STAMP = 'August 19, 2026';
   function fallbackDate() {
     var d = new Date();
     var m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -23,7 +23,7 @@
     if (!nodes.length) return;
     var i;
     for (i = 0; i < nodes.length; i++) {
-      if (needsFix(nodes[i].textContent)) nodes[i].textContent = stamp;
+      nodes[i].textContent = stamp;
     }
     try {
       window.__tdbFooterBuildDateHydrated = true;

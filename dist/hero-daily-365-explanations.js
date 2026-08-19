@@ -2311,9 +2311,11 @@
       "text": "Light is sown for the righteous, and gladness for the upright in heart.",
       "plain": "For those who walk upright, God plants light and gladness — joy that grows, not a flash.",
       "step": "Walk to the next doorway holding: “Light is sown for the righteous, and gladness.”",
-      "about": "Israel’s congregation — a song that the Lord is King over all the earth",
-      "to": "Worshipers who needed to hear “Light is sown for the righteous” — and you when “Light is sown for the righteous, and” has to be lived, not only heard",
-      "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. The verse: Light is sown for the righteous, and gladness for the upright.",
+      "about": "Israel’s congregation, after seeing the Lord reign and Zion made glad",
+      "to": "The upright who needed light after idols fell — and you when gladness has to be sown, not forced",
+      "setting": "Psalm 97 has shown the Lord as King: fire, lightning, idols put to shame, Zion glad. This verse is what is planted for the upright: light is sown for the righteous, and gladness for the upright in heart.",
+      "today": "Light is sown, not staged. Gladness for the upright in heart is planted by God — it can grow even if the morning starts dim.",
+      "modernApplication": "In 2026, gladness is often treated like a mood you have to perform. This verse says light is sown for the righteous — planted, then grown.",
       "prayer": "Lord, light the next step: “Light is sown for the righteous, and gladness”. In Jesus’ name, Amen."
     },
     {
@@ -4529,11 +4531,11 @@
     {
       "ref": "Psalm 97:1",
       "text": "The LORD reigneth; let the earth rejoice; let the multitude of isles be glad thereof.",
-      "plain": "The LORD reigneth;.",
+      "plain": "The Lord reigns — let the earth rejoice, and the islands be glad.",
       "step": "Keep this clause until the next meal: “The LORD reigneth.”",
-      "about": "Israel’s congregation — a song that the Lord is King over all the earth",
-      "to": "Worshipers who needed to hear “The LORD reigneth” — and you when “The LORD reigneth;” has to be lived, not only heard",
-      "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. The verse: The LORD reigneth.",
+      "about": "Israel’s congregation opening the psalm: the Lord reigns",
+      "to": "The earth and the isles called to be glad — and you when His reign has to be the first word",
+      "setting": "The psalm opens with the Lord reigning. Let the earth rejoice; let the multitude of isles be glad thereof.",
       "prayer": "Lord, let this word be true in me today: “The LORD reigneth”. In Jesus’ name, Amen."
     },
     {
@@ -6629,11 +6631,11 @@
     {
       "ref": "Psalm 97:12",
       "text": "Rejoice in the LORD, ye righteous; and give thanks at the remembrance of his holiness.",
-      "plain": "Rejoice in the LORD, you righteous; — praise aimed at Him, not at the room.",
+      "plain": "Rejoice in the Lord, you righteous, and give thanks at the remembrance of His holiness.",
       "step": "Before the next task, bless His name with these words: “Rejoice in the LORD, you righteous.”",
-      "about": "Israel’s congregation — a song that the Lord is King over all the earth",
-      "to": "Worshipers who needed to hear “Rejoice in the LORD, you righteous” — and you when “Rejoice in the LORD, ye righteous;” has to be lived, not only heard",
-      "setting": "Israel’s congregation — Worship the Lord as King: a new song for all lands, idol-smashing glory, and joy for the upright. The verse: Rejoice in the LORD, you righteous.",
+      "about": "Israel’s congregation closing the psalm after light is sown",
+      "to": "The righteous called to rejoice — and you when thanks has to rise at the remembrance of His holiness",
+      "setting": "The psalm closes after light is sown for the righteous: rejoice in the Lord, ye righteous, and give thanks at the remembrance of his holiness.",
       "prayer": "Lord, I set these words before You from Psalm 97:12: “Rejoice in the LORD, you righteous.” In Jesus’ name, Amen."
     },
     {

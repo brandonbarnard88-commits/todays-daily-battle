@@ -423,6 +423,7 @@
       setting: sanitizeText((dayEx && dayEx.setting) || data.setting || ctx.setting || ''),
       plain: sanitizeText(data.plain || curatedPlain || (offline && offline.plain) || (mood && mood.lines && mood.lines[0]) || (gen && gen.plain) || (lines[0] || '')),
       today: sanitizeText((dayEx && dayEx.today) || data.today || (offline && offline.today) || (mood && mood.lines && mood.lines[1]) || (gen && gen.today) || (lines[1] || '')),
+      modernApplication: sanitizeText((dayEx && dayEx.modernApplication) || data.modernApplication || (gen && gen.modernApplication) || ''),
       action: sanitizeText(data.action || (curatedStep ? ('So do this: ' + curatedStep) : '') || (offline && offline.action) || (mood && mood.app) || (gen && gen.action) || appText),
       prayer: sanitizeText((dayEx && dayEx.prayer) || data.prayer || '')
     };
@@ -980,13 +981,12 @@
   }
 
   /** When no curated “today / culture” line exists, still anchor the verse in “now”. */
-  function defaultRelatesTodayLine(year) {
-    var std = window.TDB_verseBreakdownStandard;
-    if (std && typeof std.defaultRelatesTodayLine === 'function') {
-      return std.defaultRelatesTodayLine(year);
-    }
+  function defaultRelatesTodayLine(year, verseText) {
     var y = typeof year === 'number' ? year : currentYearFresh();
-    return 'In ' + y + ', life can feel loud—headlines, hurry, tension. God’s Word here still cuts through as something steady you can carry today.';
+    var hook = sanitizeText(verseText || '').replace(/\s+/g, ' ').trim();
+    if (hook.length > 72) hook = hook.slice(0, 69).replace(/\s+\S*$/, '') + '…';
+    if (hook) return 'In ' + y + ', hold this verse as written: “' + hook.replace(/[.!?]$/, '') + '.”';
+    return 'In ' + y + ', hold this verse as written.';
   }
 
   /** Action/step lines often land in modernApplication by mistake — keep them out of “How it relates today”. */
@@ -1157,12 +1157,13 @@
       modernA = '';
     }
     var relatesToday = modernA;
+    if (/life can feel loud/i.test(relatesToday)) relatesToday = '';
     if (!relatesToday || looksLikeActionStepLine(relatesToday)) {
       var lessonToday = sanitizeText(v.modernApplication || '');
-      if (lessonToday && !looksLikeActionStepLine(lessonToday) && looksLikeCultureLine(lessonToday)) {
+      if (lessonToday && !looksLikeActionStepLine(lessonToday)) {
         relatesToday = lessonToday;
       } else {
-        relatesToday = defaultRelatesTodayLine(yr);
+        relatesToday = defaultRelatesTodayLine(yr, v.text || v.kjv || '');
       }
     }
     var curatorYou = sanitizeText(v.today);

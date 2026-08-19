@@ -96,6 +96,9 @@ function auditLeftoverCases() {
   if (!situationLooksWrongForRef('Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone.', '1 Peter 1:8')) {
     fail('Chapter-2 cornerstone leftover must be rejected under 1 Peter 1');
   }
+  if (!situationLooksWrongForRef('Worship the Lord as King: a new song for all lands, idol-smashing glory.', 'Psalm 97:11')) {
+    fail('Psalm 96 leftover band must be rejected under Psalm 97:11');
+  }
 }
 
 function auditInjectedHtml() {

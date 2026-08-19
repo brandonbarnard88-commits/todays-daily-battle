@@ -188,7 +188,8 @@ export const PHRASE_LOCKS = [
   { id: 'leftover-as-it-stands', re: /take the verse as it stands/i, allow: null },
   { id: 'leftover-failed-come', re: /you have failed and still need to come/i, allow: null },
   { id: 'leftover-kindness-stamp', re: /kindness meets you as you are/i, allow: null },
-  { id: 'leftover-pet1-cornerstone', re: /Christ the cornerstone/i, allow: /^1 Peter\s+2:/i }
+  { id: 'leftover-pet1-cornerstone', re: /Christ the cornerstone/i, allow: /^1 Peter\s+2:/i },
+  { id: 'leftover-ps96-newsong', re: /new song for all lands/i, allow: /^Psalm(s)?\s+96:/i }
 ];
 
 export function refAllowsLock(ref, lock) {

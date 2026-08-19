@@ -69,11 +69,25 @@
     "allowFlags": "i"
   },
   {
-    "id": "leftover-song-template",
-    "re": "This verse is the song",
+    "id": "leftover-role-factory",
+    "re": "This verse is the [a-z]+(?: [a-z]+){0,4}:",
     "flags": "i",
-    "allow": "^Psalm(s)?\\s+",
-    "allowFlags": "i"
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "leftover-here-role",
+    "re": "Here the [a-z]+ is this:",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "leftover-as-it-stands",
+    "re": "take the verse as it stands",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
   },
   {
     "id": "leftover-failed-come",
@@ -88,6 +102,13 @@
     "flags": "i",
     "allow": null,
     "allowFlags": ""
+  },
+  {
+    "id": "leftover-pet1-cornerstone",
+    "re": "Christ the cornerstone",
+    "flags": "i",
+    "allow": "^1 Peter\\s+2:",
+    "allowFlags": "i"
   }
 ];
   var SPEAKERS = [

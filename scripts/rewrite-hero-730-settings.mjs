@@ -224,7 +224,7 @@ const HARD = {
   'Psalm 119:105':
     'In the long acrostic love-song to God’s Word, this verse names the Word as a lamp for the feet — light for the next step, not always the whole road.',
   'Psalm 96:2':
-    'Israel is calling every land to sing a new song to the Lord as King. This verse is the daily work of that song: bless His name and show His salvation today, then again tomorrow.',
+    'Israel is calling every land to sing a new song to the Lord as King. The verse: bless His name and show His salvation today, then again tomorrow.',
   'Psalm 46:10':
     'When the earth shakes and nations rage, this psalm says God is a present refuge — then this line stops the striving: be still, and know that He is God.',
   'Psalm 46:1':
@@ -248,33 +248,33 @@ const HARD = {
   'Matthew 7:7':
     'Jesus is on the mount teaching how to live before the Father. This line is the open door: ask, seek, knock — the Father is not hiding.',
   'John 3:16':
-    'Jesus is talking with Nicodemus at night about new birth. This verse is the heart of it: God so loved the world that He gave His only Son.',
+    'Jesus is talking with Nicodemus at night about new birth. The verse: God so loved the world that He gave His only Son.',
   '1 John 4:19':
     'John is teaching the church why love is possible at all: we love Him because He first loved us — love starts with God, not with our effort.',
   'Joshua 1:9':
-    'Joshua has just taken command after Moses’ death. This verse is the charge: be strong and of a good courage; the Lord your God is with you wherever you go.',
+    'Joshua has just taken command after Moses’ death. The verse: be strong and of a good courage; the Lord your God is with you wherever you go.',
   'Romans 5:1':
-    'Paul is teaching Rome that Abraham believed God. This verse is the result: being justified by faith, we have peace with God through our Lord Jesus Christ.',
+    'Paul is teaching Rome that Abraham believed God. The verse: being justified by faith, we have peace with God through our Lord Jesus Christ.',
   'Psalm 6:9':
-    'David is crying out in trouble and tears. This verse is the turn: the Lord has heard my supplication; the Lord will receive my prayer.',
+    'David is crying out in trouble and tears. The verse: the Lord has heard my supplication; the Lord will receive my prayer.',
   'Psalm 52:8':
-    'David is answering Doeg’s betrayal. This verse is the contrast: I am like a green olive tree in the house of God; I trust in His mercy forever.',
+    'David is answering Doeg’s betrayal. The verse: I am like a green olive tree in the house of God; I trust in His mercy forever.',
   'Psalm 66:1':
     'David is leading a joyful procession of praise. This opening line is for every land: make a joyful noise unto God, all ye lands.',
   'Psalm 134:2':
-    'This is a short song of ascent for night servants in the temple. This verse is the blessing: lift up your hands in the sanctuary, and bless the Lord.',
+    'This is a short song of ascent for night servants in the temple. The verse: lift up your hands in the sanctuary, and bless the Lord.',
   'Isaiah 40:31':
-    'Isaiah is comforting weary exiles that God does not faint. This verse is the renewal: they that wait upon the Lord shall renew their strength.',
+    'Isaiah is comforting weary exiles that God does not faint. The verse: they that wait upon the Lord shall renew their strength.',
   '1 Samuel 17:47':
     'David stands before Goliath and Saul’s frozen army. This line is the point of the fight: the battle is the Lord’s, not Israel’s to finish alone.',
   'Psalm 91:11':
     'This is the refuge psalm — dwelling in the secret place of the Most High. This verse says He gives His angels charge over you, to keep you in His ways.',
   'Psalm 121:7':
-    'A pilgrim song of ascent on the road up to Jerusalem. This verse is the keeping: the Lord shall preserve you from all evil — He keeps the soul.',
+    'A pilgrim song of ascent on the road up to Jerusalem. The verse: the Lord shall preserve you from all evil — He keeps the soul.',
   'Psalm 139:14':
     'David marvels that God searches him and formed him in the womb. This line is the wonder: he is fearfully and wonderfully made — not an accident.',
   'Psalm 56:3':
-    'David is hunted and afraid. This verse is the turn he makes in that hour: when I am afraid, I will trust in You — not later, now.',
+    'David is hunted and afraid. The verse: when I am afraid, I will trust in You — not later, now.',
   '2 Timothy 1:7':
     'Paul writes from prison to timid Timothy. This verse names the gift: God has not given a spirit of fear, but of power, love, and a sound mind.',
   'Isaiah 41:10':
@@ -286,13 +286,13 @@ const HARD = {
   'Nehemiah 8:10':
     'Ezra has read the law; the people are weeping. Nehemiah tells them this day is holy — the joy of the Lord is their strength, not their tears alone.',
   'Revelation 3:20':
-    'John on Patmos writes the risen Christ’s letter to Laodicea. This verse is the knock: He stands at the door and knocks; if anyone opens, He will come in.',
+    'John on Patmos writes the risen Christ’s letter to Laodicea. The verse: He stands at the door and knocks; if anyone opens, He will come in.',
   'Zephaniah 3:17':
-    'Zephaniah has warned of the day of the Lord. This verse is the remnant’s rest: the Lord in the midst of you is mighty; He will save and rejoice over you.',
+    'Zephaniah has warned of the day of the Lord. The verse: the Lord in the midst of you is mighty; He will save and rejoice over you.',
   'Psalm 8:2':
     'David is looking at the night sky and human smallness. This verse says strength is ordained out of the mouth of babes — praise that stills the enemy.',
   'Hebrews 13:6':
-    'The writer of Hebrews is telling a pressured church how to live. This verse is the bold line: the Lord is my helper, and I will not fear what man can do.',
+    'The writer of Hebrews is telling a pressured church how to live. The verse: the Lord is my helper, and I will not fear what man can do.',
   'Luke 11:28':
     'A woman has just blessed Jesus’ mother. He answers with this verse: blessed are they that hear the word of God and keep it.',
   'Psalm 34:8':
@@ -306,99 +306,99 @@ const HARD = {
   'Psalm 118:29':
     'This Hallelujah psalm is Israel’s thanks after rescue. This last line is the refrain: give thanks unto the Lord, for He is good; His mercy endures forever.',
   'Psalm 118:24':
-    'Israel is in the Hallel, thanking the Lord after being rescued. This verse is the day itself: this is the day the Lord has made; we will rejoice and be glad in it.',
+    'Israel is in the Hallel, thanking the Lord after being rescued. The verse: this is the day the Lord has made; we will rejoice and be glad in it.',
   'Romans 8:31':
-    'Paul is teaching Rome there is no condemnation in Christ. This verse is the challenge: if God be for us, who can be against us?',
+    'Paul is teaching Rome there is no condemnation in Christ. The verse: if God be for us, who can be against us?',
   'Hebrews 12:2':
-    'The writer of Hebrews tells a pressured church to run with patience. This verse is the look: looking unto Jesus, the author and finisher of our faith.',
+    'The writer of Hebrews tells a pressured church to run with patience. The verse: looking unto Jesus, the author and finisher of our faith.',
   'Ephesians 3:20':
-    'Paul writes from prison about the riches of Christ in the church. This verse is the overflow: He is able to do exceeding abundantly above all we ask or think.',
+    'Paul writes from prison about the riches of Christ in the church. The verse: He is able to do exceeding abundantly above all we ask or think.',
   'Proverbs 3:5':
-    'Solomon is teaching his son the fear of the Lord. This verse is the trust: trust in the Lord with all your heart, and do not lean on your own understanding.',
+    'Solomon is teaching his son the fear of the Lord. The verse: trust in the Lord with all your heart, and do not lean on your own understanding.',
   '1 John 4:18':
-    'John is teaching the church about perfect love. This verse is the result: there is no fear in love; perfect love casts out fear.',
+    'John is teaching the church about perfect love. The verse: there is no fear in love; perfect love casts out fear.',
   'Matthew 5:3':
     'Jesus opens the Sermon on the Mount with blessings that turn the world upside down. This first one is for the poor in spirit — the kingdom is theirs.',
   'Matthew 6:26':
     'Jesus is on the mount teaching people not to worry. This verse points at the birds: your heavenly Father feeds them — you are worth more than they.',
   'Psalm 91:4':
-    'This is the refuge hymn under the shadow of the Almighty. This verse is the covering: He shall cover you with His feathers, and under His wings you trust.',
+    'This is the refuge hymn under the shadow of the Almighty. The verse: He shall cover you with His feathers, and under His wings you trust.',
   'Micah 6:8':
-    'Micah is telling a people who want the right offering what God actually wants. This verse is the requirement: do justly, love mercy, and walk humbly with your God.',
+    'Micah is telling a people who want the right offering what God actually wants. The verse: do justly, love mercy, and walk humbly with your God.',
   'Joshua 1:8':
-    'Joshua has just taken command. This verse is the book in his mouth: this law shall not depart; meditate in it day and night, so you may do it.',
+    'Joshua has just taken command. The verse: this law shall not depart; meditate in it day and night, so you may do it.',
   'Psalm 32:7':
-    'David has confessed and been forgiven. This verse is the hiding place: You are my hiding place; You shall preserve me from trouble.',
+    'David has confessed and been forgiven. The verse: You are my hiding place; You shall preserve me from trouble.',
   'Jeremiah 1:5':
-    'Jeremiah is a youth being called to warn Judah. This verse is the call: before I formed you in the belly I knew you; I ordained you a prophet.',
+    'Jeremiah is a youth being called to warn Judah. The verse: before I formed you in the belly I knew you; I ordained you a prophet.',
   '1 John 5:11':
-    'John is writing that eternal life is in the Son. This verse is the record: God has given us eternal life, and this life is in His Son.',
+    'John is writing that eternal life is in the Son. The verse: God has given us eternal life, and this life is in His Son.',
   'Psalm 86:15':
     'David is poor and needy, asking for mercy. This verse names who God is: a God full of compassion, gracious, longsuffering, and plenteous in mercy and truth.',
   'Psalm 107:8':
-    'Book V opens with the redeemed giving thanks after desert, prison, sickness, and storm. This verse is the refrain: oh that men would praise the Lord for His goodness.',
+    'Book V opens with the redeemed giving thanks after desert, prison, sickness, and storm. The verse: oh that men would praise the Lord for His goodness.',
   'Joel 2:25':
-    'Joel has called the people to repent after locust and drought. This verse is the restore: I will restore to you the years that the locust has eaten.',
+    'Joel has called the people to repent after locust and drought. The verse: I will restore to you the years that the locust has eaten.',
   'Hebrews 6:19':
-    'The writer of Hebrews is telling pressured believers to hold the promise. This verse is the anchor: which hope we have as an anchor of the soul, sure and steadfast.',
+    'The writer of Hebrews is telling pressured believers to hold the promise. The verse: which hope we have as an anchor of the soul, sure and steadfast.',
   '1 Thessalonians 5:24':
-    'Paul is comforting Thessalonica about the day of the Lord and holy living. This verse is the hold: faithful is He that calls you, who also will do it.',
+    'Paul is comforting Thessalonica about the day of the Lord and holy living. The verse: faithful is He that calls you, who also will do it.',
   'Psalm 121:1-2':
     'A pilgrim song on the road up to Jerusalem. This verse lifts the eyes to the hills, then answers: help comes from the Lord, who made heaven and earth.',
   'Psalm 121:8':
     'Still on the ascent road: the Lord shall preserve your going out and your coming in, from this time forth and even forevermore.',
   'Colossians 3:23':
-    'Paul is teaching Colosse to set their minds above and put on love. This verse is the work: whatever you do, do it heartily, as to the Lord.',
+    'Paul is teaching Colosse to set their minds above and put on love. The verse: whatever you do, do it heartily, as to the Lord.',
   'Galatians 5:22':
     'Paul is teaching Galatia freedom in the Spirit, not a return to the law. This verse names the fruit: love, joy, peace, and the rest that the Spirit grows.',
   'Jeremiah 29:11':
     'Jeremiah writes to exiles in Babylon, not to a people going home tomorrow. This verse is God’s thought toward them: plans of peace, and a future.',
   '1 Peter 5:7':
-    'Peter is writing to elect exiles under pressure. This verse is the casting: cast all your care on Him, for He cares for you.',
+    'Peter is writing to elect exiles under pressure. The verse: cast all your care on Him, for He cares for you.',
   '1 Corinthians 16:13':
-    'Paul is closing the Corinth letter after the resurrection chapter. This verse is the watch: stand fast in the faith; be strong.',
+    'Paul is closing the Corinth letter after the resurrection chapter. The verse: stand fast in the faith; be strong.',
   'Psalm 37:4':
-    'David is teaching people not to fret when the wicked prosper. This verse is the delight: delight yourself also in the Lord, and He will give you the desires of your heart.',
+    'David is teaching people not to fret when the wicked prosper. The verse: delight yourself also in the Lord, and He will give you the desires of your heart.',
   'Psalm 27:1':
     'David is seeking the Lord’s face under pressure. This opening line is the light: the Lord is my light and my salvation; whom shall I fear?',
   'Psalm 19:14':
     'David has just praised God in the sky and in the law. This last line is the prayer: let the words of my mouth and the meditation of my heart be acceptable.',
   'Psalm 34:18':
-    'David, after escaping Abimelech, teaches the gathered. This verse is the nearness: the Lord is near to the brokenhearted and saves those of a crushed spirit.',
+    'David, after escaping Abimelech, teaches the gathered. The verse: the Lord is near to the brokenhearted and saves those of a crushed spirit.',
   'Psalm 32:8':
-    'David has confessed and been forgiven. This verse is the Lord’s answer: I will instruct you and teach you in the way you should go.',
+    'David has confessed and been forgiven. The verse: I will instruct you and teach you in the way you should go.',
   'Psalm 40:1':
-    'David has been in the pit and waited. This verse is the waiting: I waited patiently for the Lord, and He inclined unto me and heard my cry.',
+    'David has been in the pit and waited. The verse: I waited patiently for the Lord, and He inclined unto me and heard my cry.',
   'Psalm 42:11':
-    'The sons of Korah are talking a downcast soul back toward hope. This verse is the self-talk: hope in God, for I shall yet praise Him.',
+    'The sons of Korah are talking a downcast soul back toward hope. The verse: hope in God, for I shall yet praise Him.',
   'Psalm 103:13':
-    'David is blessing the Lord who forgives and crowns with mercy. This verse is the father-heart: as a father pities his children, so the Lord pities those who fear Him.',
+    'David is blessing the Lord who forgives and crowns with mercy. The verse: as a father pities his children, so the Lord pities those who fear Him.',
   'Psalm 145:9':
-    'David is praising a forever kingdom. This verse is the wideness: the Lord is good to all, and His tender mercies are over all His works.',
+    'David is praising a forever kingdom. The verse: the Lord is good to all, and His tender mercies are over all His works.',
   '1 Timothy 4:12':
-    'Paul is coaching Timothy how to lead in Ephesus. This verse is the charge: let no one despise your youth; be an example in word, love, and faith.',
+    'Paul is coaching Timothy how to lead in Ephesus. The verse: let no one despise your youth; be an example in word, love, and faith.',
   '2 Corinthians 9:8':
-    'Paul is urging Corinth to give generously for the poor saints. This verse is the supply: God is able to make all grace abound, so you have enough for every good work.',
+    'Paul is urging Corinth to give generously for the poor saints. The verse: God is able to make all grace abound, so you have enough for every good work.',
   'Psalm 36:7':
-    'David is contrasting the wicked with God’s mercy. This verse is the refuge: how excellent is Your lovingkindness; the children of men put their trust under Your wings.',
+    'David is contrasting the wicked with God’s mercy. The verse: how excellent is Your lovingkindness; the children of men put their trust under Your wings.',
   'Psalm 4:7':
-    'David is crying out at night while opposed. This verse is the gift: You have put gladness in my heart, more than in the time their grain and wine increased.',
+    'David is crying out at night while opposed. The verse: You have put gladness in my heart, more than in the time their grain and wine increased.',
   'Psalm 31:3':
-    'David is committing himself to God under pressure. This verse is the rock: You are my rock and my fortress; therefore for Your name’s sake lead me and guide me.',
+    'David is committing himself to God under pressure. The verse: You are my rock and my fortress; therefore for Your name’s sake lead me and guide me.',
   'Psalm 33:4':
     'David is calling for a new song of praise. This verse is why: the word of the Lord is right, and all His works are done in truth.',
   'Psalm 37:5':
-    'David is teaching people not to fret when the wicked prosper. This verse is the commit: commit your way unto the Lord; trust also in Him, and He shall bring it to pass.',
+    'David is teaching people not to fret when the wicked prosper. The verse: commit your way unto the Lord; trust also in Him, and He shall bring it to pass.',
   'Psalm 59:16':
-    'David is under Saul’s pursuit. This verse is the morning song: I will sing of Your power; yes, I will sing aloud of Your mercy in the morning.',
+    'David is under Saul’s pursuit. The verse: I will sing of Your power; yes, I will sing aloud of Your mercy in the morning.',
   'Matthew 6:33':
-    'Jesus is on the mount, teaching people not to worry about food and clothes. This verse is the first thing: seek the kingdom of God and His righteousness.',
+    'Jesus is on the mount, teaching people not to worry about food and clothes. The verse: seek the kingdom of God and His righteousness.',
   'John 14:6':
-    'Jesus is in the upper room the night before the cross, comforting troubled disciples. This verse is the way: I am the way, the truth, and the life.',
+    'Jesus is in the upper room the night before the cross, comforting troubled disciples. The verse: I am the way, the truth, and the life.',
   'Romans 8:28':
-    'Paul is teaching Rome about life in the Spirit and a groaning creation. This verse is the working: all things work together for good to them that love God.',
+    'Paul is teaching Rome about life in the Spirit and a groaning creation. The verse: all things work together for good to them that love God.',
   'Psalm 46:7':
-    'The sons of Korah sing while nations rage. This verse is the refrain: the Lord of hosts is with us; the God of Jacob is our refuge.',
+    'The sons of Korah sing while nations rage. The verse: the Lord of hosts is with us; the God of Jacob is our refuge.',
   'Psalm 119:11':
     'In the long acrostic love-song to God’s Word, this verse is the hiding: Your word have I hid in my heart, that I might not sin against You.',
   'Psalm 119:50':
@@ -408,15 +408,15 @@ const HARD = {
   'Psalm 18:2':
     'David’s great victory song after deliverance from Saul. This verse names the Lord as rock, fortress, and deliverer — the one he runs to.',
   'Psalm 16:11':
-    'David is trusting God with his portion and his cup. This verse is the path: You will show me the path of life; in Your presence is fullness of joy.',
+    'David is trusting God with his portion and his cup. The verse: You will show me the path of life; in Your presence is fullness of joy.',
   'Psalm 27:14':
-    'David has been seeking the Lord’s face under pressure. This verse is the charge he gives his own soul: wait on the Lord; be of good courage.',
+    'David has been seeking the Lord’s face under pressure. The verse: wait on the Lord; be of good courage.',
   'Psalm 28:7':
-    'David is crying for help against the wicked. This verse is the turn: the Lord is his strength and shield; his heart trusted, and he is helped.',
+    'David is crying for help against the wicked. The verse: the Lord is his strength and shield; his heart trusted, and he is helped.',
   '1 Chronicles 16:34':
-    'The ark has come to Jerusalem; David’s appointed singers give thanks. This verse is the refrain: give thanks, for He is good; His mercy endures forever.',
+    'The ark has come to Jerusalem; David’s appointed singers give thanks. The verse: give thanks, for He is good; His mercy endures forever.',
   '1 Chronicles 16:11':
-    'The ark is in the city; David’s psalm of thanks is being sung. This verse is the search: seek the Lord and His strength; seek His face always.',
+    'The ark is in the city; David’s psalm of thanks is being sung. The verse: seek the Lord and His strength; seek His face always.',
 };
 
 function isUglySetting(s) {

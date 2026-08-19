@@ -271,60 +271,11 @@
       modernShort = modernShort.slice(0, 49).replace(/\s+\S*$/, '') + '…';
     }
 
-    if (/\btempt(ation|ed)?\b/.test(lower)) {
-      return framed('Temptation is real and common, but God is faithful and makes a way through it.', modernShort);
-    }
-    if (/\banxious|careful for nothing|worry|fear|afraid|dismay|terror|troubled\b/.test(lower)) {
-      return framed('You do not have to carry fear alone. Bring it to God and let Him steady you.', modernShort);
-    }
-    if (/\bpeace|rest|still|quiet|calm|be still\b/.test(lower)) {
-      return framed('God offers real rest — a quiet place to set the day down with Him.', modernShort);
-    }
-    if (/\bmercy|grace|forgiv|compassion|lovingkindness\b/.test(lower)) {
-      return framed('This verse names mercy that comes from God, not from your record.', modernShort);
-    }
-    if (/\bstrength|strong|courage|weary|faint|renew|uphold|power\b/.test(lower)) {
-      return framed('When you feel empty, God gives strength beyond your own.', modernShort);
-    }
-    if (/\bhope|trust|believe|faith|pray|prayer|cast.*care|burden\b/.test(lower)) {
-      return framed('Hand the real weight to God. Trust that He hears and holds you.', modernShort);
-    }
-    if (/\bworship|praise|sing unto|joyful noise|glorify|hallelujah|give thanks|thanksgiving\b/.test(lower)) {
-      return framed('Give God your attention and thanks — He is worthy of it.', modernShort);
-    }
-    if (/\blove|charity|shepherd|save|salvation|rejoice|glad|joy|bless\b/.test(lower)) {
-      return framed("God's care is for you today — something solid when the day feels thin.", modernShort);
-    }
-    if (/\bwisdom|wise|understand|understanding|knowledge|instruction|proverb\b/.test(lower)) {
-      return framed('Real wisdom starts with taking God seriously and walking in His way.', modernShort);
-    }
-    if (/\bcommand|thou shalt|ye shall|statute|precept|ordinance|law of the lord\b/.test(lower)) {
-      return framed('God shows a clear way to live. His instructions are for your good.', modernShort);
-    }
-    if (/\bcreat(ed|e|ion|or)\b|\bmade the heaven|\bmade heaven and earth\b/.test(lower)) {
-      return framed('God is the Maker. Nothing exists outside His hand.', modernShort);
-    }
-    if (/\bcross|crucif|blood of|resurrection|risen|die for|gave himself\b/.test(lower)) {
-      return framed('Jesus gave Himself so you could be brought near to God.', modernShort);
-    }
-    if (/\bjudg(e|ment)|wrath|punish|condemn|vengeance\b/.test(lower)) {
-      return framed('God takes wrong seriously. This verse keeps justice and holiness in view.', modernShort);
-    }
-    if (/\bwait|patience|patient|endure|persevere\b/.test(lower)) {
-      return framed('Waiting with God is not wasted time. Stay steady; He is still at work.', modernShort);
-    }
-    if (/\bword of the lord|thus saith|it is written|thy word|my words|scripture\b/.test(lower)) {
-      return framed("God's Word is not empty talk. It teaches, steadies, and leads.", modernShort);
-    }
-
-    /* Last resort: framed teaching line (never “In plain terms…” stamp — that leaked into search/plans). */
+    /* Last resort: the modernized clause of THIS verse — never a leftover theme stamp. */
     if (modernShort && modernShort.length >= 12) {
-      return framed(
-        'God’s Word here is steady for real life — hold one clear phrase and walk with it.',
-        modernShort
-      );
+      return modernShort.replace(/\.$/, '') + '.';
     }
-    return 'God’s Word here is steady for real life — hold one clear phrase and walk with it.';
+    return body ? String(body).replace(/\s+/g, ' ').trim() : '';
   }
 
   /** Drop override fields that only echo the KJV (archaic word-swap). */

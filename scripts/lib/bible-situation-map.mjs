@@ -400,7 +400,8 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 1, thru: 5, situation: 'James writes scattered believers under trial about real faith that works in speech, mercy, and patience.', about: 'James', to: 'scattered believers under trial' }
   ],
   '1 Peter': [
-    { from: 1, thru: 2, situation: 'Peter encourages elect exiles: living hope, holy living, and Christ the cornerstone.', about: 'Peter', to: 'believers in suffering and hope' },
+    { from: 1, thru: 1, situation: 'Peter writes to elect exiles and blesses God for new birth and living hope through Christ’s resurrection.', about: 'Peter', to: 'elect exiles in suffering and hope' },
+    { from: 2, thru: 2, situation: 'Peter calls elect exiles to holy living and names Christ the living cornerstone.', about: 'Peter', to: 'believers in suffering and hope' },
     { from: 3, thru: 5, situation: 'Household life, suffering for righteousness, casting care on God, resisting the devil.', about: 'Peter', to: 'Believers casting care on God' }
   ],
   '2 Peter': [

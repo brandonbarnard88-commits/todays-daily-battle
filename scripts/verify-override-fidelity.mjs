@@ -98,6 +98,27 @@ function main() {
 
   const failures = [];
   let checked = 0;
+  const leftoverPlain =
+    /kindness meets you as you are|not after you perform|take the verse as it stands|hold this verse as written|has to be lived, not only heard|life can feel loud/i;
+  for (const ref of allKeys) {
+    const g = pickGeneral(overrides[ref]);
+    const plain = String((g && (g.plainExplanation || g.plain)) || '').trim();
+    if (isWeakPlainStamp(plain) || leftoverPlain.test(plain)) {
+      failures.push(`${ref}: leftover/weak plain stamp`);
+    }
+  }
+  if (failures.length) {
+    console.error(
+      'Override fidelity FAIL — leftover plains in full catalog:',
+      failures.length,
+      '/',
+      allKeys.length,
+      '\n'
+    );
+    failures.slice(0, 40).forEach((f) => console.error(' •', f));
+    if (failures.length > 40) console.error(' … and', failures.length - 40, 'more');
+    process.exit(1);
+  }
 
   for (const ref of keys) {
     const g = pickGeneral(overrides[ref]);
@@ -113,7 +134,9 @@ function main() {
 
     if (!about) failures.push(`${label}: missing about`);
     if (!to) failures.push(`${label}: missing to`);
-    if (!plain || plain.length < 12) failures.push(`${label}: missing/thin plain`);
+    if (!plain || (plain.length < 12 && !/^Jesus wept/i.test(plain))) {
+      failures.push(`${label}: missing/thin plain`);
+    }
     if (isWeakPlainStamp(plain)) failures.push(`${label}: weak plain stamp`);
 
     if (about && !speakerBelongsToBook(about, ref)) {

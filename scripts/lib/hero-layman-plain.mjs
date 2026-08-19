@@ -206,9 +206,17 @@ export function isWeakLaymanPlain(plain, verseText) {
     /^You do not have to carry fear alone\. Bring it to God/i,
     /^God offers real rest — a quiet place/i,
     /^God'?s kindness meets you as you are/i,
+    /not after you perform/i,
     /^God shows a clear way to live\. His instructions are for your good\.?$/i,
     /take the verse as it stands/i,
-    /^This verse names mercy that comes from God, not from your record/i
+    /^This verse names mercy that comes from God, not from your record/i,
+    /^God'?s care is for you today/i,
+    /^Give God your attention and thanks/i,
+    /^You do not have to carry fear alone/i,
+    /^God offers real rest/i,
+    /^When you feel empty, God gives strength/i,
+    /^Hand the real weight to God/i,
+    /^Temptation is real and common, but God is faithful/i
   ];
   for (let i = 0; i < weakExact.length; i++) {
     if (weakExact[i].test(pRaw)) return true;
@@ -323,6 +331,9 @@ export function buildFamousVersePlain(ref, text) {
 
   if (/genesis\s+1:1/.test(r) || /^in the beginning god created/.test(lower)) {
     return 'In the beginning, God created the heavens and the earth — everything starts with Him.';
+  }
+  if (/john\s+11:35/.test(r) || /^jesus wept\.?$/i.test(lower)) {
+    return 'Jesus wept. He is close to grief — not above it.';
   }
   if (/john\s+3:16/.test(r) || /for god so loved the world/.test(lower)) {
     return 'God loved the world so much He gave His only Son, so whoever believes in Him will not be lost but have eternal life.';
@@ -576,18 +587,14 @@ export function buildHeroLaymanPlain(ref, text, map, rootDir) {
   const famous = buildFamousVersePlain(ref, raw);
   if (famous && !isWeakLaymanPlain(famous, raw) && !isBbeReprint(famous)) return famous;
 
-  /* Prefer a short teaching line. Never return BBE — that label is “In simpler words.” */
+  /* This verse, in plain English — not a leftover mood stamp plus a snippet. */
+  if (modern && modern.length >= 20 && !isBbeReprint(modern)) {
+    return modern;
+  }
+
   const theme = buildThemeLaymanPlain(ref, raw);
-  if (theme && !isWeakLaymanPlain(theme, raw) && !isBbeReprint(theme) && normalizeForCompare(theme) !== normalizeForCompare(modern)) {
-    return theme;
-  }
-
-  if (modern && modern.length >= 24 && normalizeForCompare(modern) !== normalizeForCompare(raw) && !isBbeReprint(modern)) {
-    if (!isWeakLaymanPlain(modern, raw)) return modern;
-  }
-
-  if (theme && !isBbeReprint(theme)) return theme;
-  return modern || 'Read this verse slowly and hold the words that land — God is speaking here.';
+  if (theme && !isWeakLaymanPlain(theme, raw) && !isBbeReprint(theme)) return theme;
+  return 'Read this verse slowly and hold the words that land — God is speaking here.';
 }
 
 /** Concrete "for today" line grounded in verse keywords. */

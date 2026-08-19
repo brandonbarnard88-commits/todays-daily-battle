@@ -112,10 +112,31 @@
   },
   {
     "id": "leftover-ps96-newsong",
-    "re": "new song for all lands",
+    "re": "new song for all (the )?(earth|lands)",
     "flags": "i",
     "allow": "^Psalm(s)?\\s+96:",
     "allowFlags": "i"
+  },
+  {
+    "id": "leftover-ps100-gates",
+    "re": "enter His gates with thanksgiving",
+    "flags": "i",
+    "allow": "^Psalm(s)?\\s+100:",
+    "allowFlags": "i"
+  },
+  {
+    "id": "leftover-relate-reprint",
+    "re": "hold this verse as written",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "leftover-lived-heard",
+    "re": "has to be lived, not only heard",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
   }
 ];
   var SPEAKERS = [

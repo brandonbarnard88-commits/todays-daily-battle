@@ -178,7 +178,7 @@ function tdbIsHomePage() {
     if (/\bforgive|forgiveness|forgave|forgiven|trespass|trespasses\b/.test(low)) return 'forgiveness';
     if (/\bbitter(ness|ly)?\b|gall of bitterness|root of bitterness|bitter envying|gall and\b/.test(low)) return 'bitterness';
     if (/\blonely|loneliness|\bforsaken\b|forsake me|no companion|desolate and afflicted|solitary in families|comfortless\b/.test(low)) return 'loneliness';
-    if (/\bthank|thanks|thanksgiving|grateful|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
+    if (/\bthank|thanks|thanksgiving|grateful|made me glad|gladness|glad through|light is sown|upright in heart|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
     if (/\bdoubt(s|ed|ful|eth)?\b|unbelief|disbelief|faithless|be not faithless|waver(ing|ed|eth)?\b|staggered not|help thou mine|mine unbelief|look we for another|art thou he that should come\b/.test(low)) return 'doubt';
     if (/\bhope|hopeless|discouraged\b/.test(low)) return 'hope';
     if (/\blove one another\b|\blove is of god\b|\bperfect love\b|\bfirst loved us\b|\bcharity suffereth\b|\bbeloved, let us love\b/.test(low)) {

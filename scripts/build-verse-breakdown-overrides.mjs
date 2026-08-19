@@ -5,9 +5,12 @@ import { fileURLToPath } from 'url';
 import {
   buildHeroLaymanPlain,
   buildModernApplication,
+  compressToTeachingLine,
   loadVersePlainMeanings,
+  modernizeKjvText,
   normalizeHeroRef
 } from './lib/hero-layman-plain.mjs';
+import { isWeakPlainStamp } from './lib/teaching-quality.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -137,8 +140,12 @@ function decodeDoubleQuoted(value) {
 
 function getPlainExplanation(ref, text, plainMeanings) {
   const raw = String(text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-  if (!raw) return 'A steady truth from Scripture for the day in front of you.';
-  return buildHeroLaymanPlain(ref, raw, plainMeanings, repoRoot);
+  if (!raw) return 'Read this verse slowly and hold the words that land — God is speaking here.';
+  let p = buildHeroLaymanPlain(ref, raw, plainMeanings, repoRoot);
+  if (isWeakPlainStamp(p) || /kindness meets you as you are|not after you perform/i.test(p)) {
+    p = compressToTeachingLine(modernizeKjvText(raw), 200);
+  }
+  return p || compressToTeachingLine(modernizeKjvText(raw), 200);
 }
 
 function inferApplies(text, ref) {

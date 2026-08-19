@@ -30,7 +30,9 @@
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
   /* v4: verse-grounded plains (BBE/modernized KJV), not mood stamps */
-  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v6::';
+  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v7::';
+  var BREAKDOWN_BOOK_PACKS = {};
+  var BREAKDOWN_BOOK_LOADING = {};
   var BREAKDOWN_MAX_MEMORY_CACHE = 600;
   var KJV_DICT_URLS = ['/data/kjv-full.json', '/kjv.json'];
   var BREAKDOWN_OVERRIDES_SCRIPT_URL = '/verse-breakdown-overrides.js';
@@ -247,6 +249,9 @@
     if (/psalm\s+96:2/.test(r) || /bless his name.*salvation from day to day/.test(lower)) {
       return 'Bless the Lord’s name and show His salvation today, then again tomorrow — not a one-day song.';
     }
+    if (/john\s+11:35/.test(r) || /^jesus wept\.?$/i.test(lower)) {
+      return 'Jesus wept. He is close to grief — not above it.';
+    }
     if (/1\s*peter\s+1:3/.test(r) || /begotten us again unto a lively hope/.test(lower)) {
       return 'God’s mercy has given us a living hope — not a mood, but new life because Jesus rose from the dead.';
     }
@@ -309,7 +314,12 @@
 
   function ensureStrongPlain(ref, verseText, plain) {
     var p = tdbPlainTextForUi(plain || '');
-    if (!p || isNearVerbatimPlain(p, verseText) || isBbeEcho(p, ref)) {
+    if (
+      !p ||
+      isNearVerbatimPlain(p, verseText) ||
+      isBbeEcho(p, ref) ||
+      /kindness meets you as you are|not after you perform|hold this verse as written|life can feel loud/i.test(p)
+    ) {
       return buildThemeLaymanPlain(ref, verseText);
     }
     return p;
@@ -628,8 +638,48 @@
     });
   }
 
+  function bookPackSlug(book) {
+    return String(book || '')
+      .replace(/^Psalms$/i, 'Psalm')
+      .toLowerCase()
+      .replace(/\s+/g, '-');
+  }
+
+  function prefetchBookBreakdown(book) {
+    var name = String(book || '').replace(/^Psalms$/i, 'Psalm');
+    if (!name || BREAKDOWN_BOOK_PACKS[name] || BREAKDOWN_BOOK_LOADING[name]) return;
+    BREAKDOWN_BOOK_LOADING[name] = true;
+    var url = '/data/breakdown/' + bookPackSlug(name) + '.json';
+    try {
+      fetch(url, { credentials: 'same-origin' })
+        .then(function (res) {
+          if (!res || !res.ok) return null;
+          return res.json();
+        })
+        .then(function (map) {
+          if (!map || typeof map !== 'object') return;
+          BREAKDOWN_BOOK_PACKS[name] = map;
+          Object.keys(map).forEach(function (cv) {
+            var refKey = name + ' ' + cv;
+            if (!BREAKDOWN_OVERRIDES[refKey]) BREAKDOWN_OVERRIDES[refKey] = {};
+            if (!BREAKDOWN_OVERRIDES[refKey].general) BREAKDOWN_OVERRIDES[refKey].general = {};
+            if (!BREAKDOWN_OVERRIDES[refKey].general.plainExplanation) {
+              BREAKDOWN_OVERRIDES[refKey].general.plainExplanation = String(map[cv] || '');
+            }
+          });
+        })
+        .catch(function () {
+          BREAKDOWN_BOOK_LOADING[name] = false;
+        });
+    } catch (ePrefetch) {
+      BREAKDOWN_BOOK_LOADING[name] = false;
+    }
+  }
+
   function getRegisteredOverride(ref, group) {
     var refKey = normalizeRef(ref);
+    var book = parseBook(refKey);
+    if (book) prefetchBookBreakdown(book);
     if (!refKey || !BREAKDOWN_OVERRIDES[refKey]) return {};
     return Object.assign({}, BREAKDOWN_OVERRIDES[refKey].general || {}, BREAKDOWN_OVERRIDES[refKey][normalizeGroup(group)] || {});
   }

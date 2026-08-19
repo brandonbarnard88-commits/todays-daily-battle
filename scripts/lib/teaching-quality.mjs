@@ -93,6 +93,9 @@ export function leftoverTemplateIssues(row) {
   if (/hold this verse as written|life can feel loud/i.test(modern + ' ' + youLine)) {
     issues.push('leftover relate reprint');
   }
+  if (/has to be lived, not only heard/i.test(to + ' ' + youLine)) {
+    issues.push('leftover lived-not-heard audience');
+  }
   const leftoverWhen = [
     'praise has to last past the morning',
     'love feels like a mood you cannot make',

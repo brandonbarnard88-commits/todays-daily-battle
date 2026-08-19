@@ -99,6 +99,9 @@ function auditLeftoverCases() {
   if (!situationLooksWrongForRef('Worship the Lord as King: a new song for all lands, idol-smashing glory.', 'Psalm 97:11')) {
     fail('Psalm 96 leftover band must be rejected under Psalm 97:11');
   }
+  if (!situationLooksWrongForRef('and you when “Rejoice evermore” has to be lived, not only heard', '1 Thessalonians 5:16')) {
+    fail('Leftover lived-not-heard audience must be rejected');
+  }
 }
 
 function auditInjectedHtml() {
@@ -125,6 +128,22 @@ function auditInjectedHtml() {
   const bbeRef = bbeM ? String(bbeM[1]).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
   if (bbeRef !== expect) {
     fail('#heroBbeSimple data-bbe-ref is "' + bbeRef + '" but today is ' + expect);
+  }
+  const ymd = new Date().toISOString().slice(0, 10);
+  const ymdM = html.match(/id="verseCard"[^>]*data-tdb-hero-ymd="([^"]+)"/) ||
+    html.match(/data-tdb-hero-ymd="([^"]+)"[^>]*id="verseCard"/);
+  const stamped = ymdM ? ymdM[1] : '';
+  if (stamped !== ymd) {
+    fail('#verseCard data-tdb-hero-ymd is "' + stamped + '" but UTC today is ' + ymd);
+  }
+  if (/hold this verse as written/i.test(html)) {
+    fail('homepage HTML still contains leftover relate reprint');
+  }
+  if (/has to be lived, not only heard/i.test(html)) {
+    fail('homepage HTML still contains leftover lived-not-heard teaching');
+  }
+  if (!html.includes("stamp !== utc")) {
+    fail('index.html must hide a yesterday inject when data-tdb-hero-ymd is not UTC today');
   }
 }
 

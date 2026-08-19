@@ -270,6 +270,14 @@
     .tdb-quiet-update-strip[hidden] {
       display: none !important;
     }
+    /* After UTC midnight, hide a yesterday inject until first-paint swaps today’s verse. */
+    #verseCard[data-tdb-hero-stale="1"] #heroVerse,
+    #verseCard[data-tdb-hero-stale="1"] #heroRef,
+    #verseCard[data-tdb-hero-stale="1"] #heroVbdPrimary,
+    #verseCard[data-tdb-hero-stale="1"] #heroDigDeeper,
+    #verseCard[data-tdb-hero-stale="1"] #heroBbeSimple {
+      visibility: hidden;
+    }
     .tdb-quiet-update-strip {
       display: flex;
       flex-wrap: wrap;

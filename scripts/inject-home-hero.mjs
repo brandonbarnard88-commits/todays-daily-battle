@@ -262,7 +262,11 @@ function buildInjectedHeroLesson(refPlain, textPlain, plainMap, explMap, resolve
   };
 }
 
-function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap, explMap, resolveCtx) {
+function utcYmdStamp(d = new Date()) {
+  return d.toISOString().slice(0, 10);
+}
+
+function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap, explMap, resolveCtx, ymd) {
   const heroVerseRe = /<p[^>]*\bid="heroVerse"[^>]*>[\s\S]*?<\/p>/;
   if (!heroVerseRe.test(html)) fail('could not find #heroVerse paragraph in ' + label);
   html = html.replace(
@@ -277,14 +281,23 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
     '<p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>' + escapeHtmlText(refPlain) + ' (KJV)</strong></p>'
   );
 
-  if (!html.includes('data-tdb-hero-prebuilt')) {
-    const verseCardRe = /<section\b[^>]*\bid="verseCard"[^>]*>/;
-    if (!verseCardRe.test(html)) fail('could not find #verseCard <section> in ' + label);
-    html = html.replace(verseCardRe, function (full) {
-      if (full.includes('data-tdb-hero-prebuilt')) return full;
-      return full.slice(0, -1) + ' data-tdb-hero-prebuilt="1">';
-    });
-  }
+  const stamp = String(ymd || utcYmdStamp());
+  const verseCardRe = /<section\b[^>]*\bid="verseCard"[^>]*>/;
+  if (!verseCardRe.test(html)) fail('could not find #verseCard <section> in ' + label);
+  html = html.replace(verseCardRe, function (full) {
+    let tag = full.replace(/>$/, '');
+    if (/data-tdb-hero-prebuilt=/.test(tag)) {
+      /* keep */
+    } else {
+      tag += ' data-tdb-hero-prebuilt="1"';
+    }
+    if (/data-tdb-hero-ymd=/.test(tag)) {
+      tag = tag.replace(/data-tdb-hero-ymd="[^"]*"/, 'data-tdb-hero-ymd="' + stamp + '"');
+    } else {
+      tag += ' data-tdb-hero-ymd="' + stamp + '"';
+    }
+    return tag + '>';
+  });
 
   html = html.replace(/<button([^>]*id="heroWordStudyBtn"[^>]*)>/, function (_full, inner) {
     let u = inner.replace(
@@ -524,7 +537,8 @@ function main() {
       verseInner,
       plainMap,
       explMap,
-      resolveCtx
+      resolveCtx,
+      utcYmdStamp()
     );
     fs.writeFileSync(t.path, next, 'utf8');
   }

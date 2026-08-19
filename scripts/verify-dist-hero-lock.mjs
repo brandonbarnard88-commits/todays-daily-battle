@@ -38,6 +38,12 @@ function main() {
   if (!fp.includes('hideHeroTeachingIfMismatched')) {
     fail('hero-daily-first-paint.js must hide teaching when bound-ref !== displayed verse');
   }
+  if (!fp.includes('markHeroStampCurrent') || !fp.includes('data-tdb-hero-stale')) {
+    fail('hero-daily-first-paint.js must clear a stale yesterday inject after painting UTC today');
+  }
+  if (!srcIndex.includes('data-tdb-hero-ymd') || !srcIndex.includes('data-tdb-hero-stale')) {
+    fail('index.html must stamp UTC day on #verseCard and hide teaching when that day is stale');
+  }
   if (!srcIndex.includes('bound !== shown')) {
     fail('index.html must hide teaching immediately if bound-ref does not match the on-screen verse');
   }

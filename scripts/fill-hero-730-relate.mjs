@@ -45,7 +45,7 @@ function todayFor(row) {
   if (have && !/hold this verse as written|life can feel loud/i.test(have)) return have;
   const to = String(row.to || '');
   const youWhen = to.match(/and you when (.+)$/i);
-  if (youWhen) {
+  if (youWhen && !/has to be lived, not only heard/i.test(youWhen[1])) {
     const clause = youWhen[1].replace(/[.]$/, '').trim();
     return 'This word is for you when ' + clause + '.';
   }
@@ -144,6 +144,22 @@ for (const row of list) {
     if (row.setting && !/The verse:/i.test(row.setting)) {
       row.setting = row.setting.replace(/[.]$/, '') + '. The verse: ' + hookOf(row.text) + '.';
     }
+  }
+  if (/has to be lived, not only heard/i.test(String(row.to || ''))) {
+    const hook = hookOf(row.text);
+    const first = String(row.to)
+      .split(/—\s*and you when/i)[0]
+      .trim()
+      .replace(/[-—–]\s*$/, '')
+      .trim();
+    row.to =
+      (first || 'The first hearers of this verse') +
+      ' — and you in the hour this verse is for: “' +
+      hook +
+      '.”';
+  }
+  if (/has to be lived, not only heard/i.test(String(row.today || ''))) {
+    row.today = '';
   }
   if (/new song for all (the )?(earth|lands)/i.test(String(row.setting || '')) && !/^Psalm 96:/.test(row.ref)) {
     row.setting = String(row.setting || '')

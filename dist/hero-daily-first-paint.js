@@ -536,6 +536,22 @@
     return normalizeHeroBoundRef(el.getAttribute('data-tdb-bound-ref') || '');
   }
 
+  function utcYmdNow() {
+    try {
+      return new Date().toISOString().slice(0, 10);
+    } catch (eY) {
+      return '';
+    }
+  }
+
+  function markHeroStampCurrent() {
+    var card = document.getElementById('verseCard');
+    if (!card) return;
+    var y = utcYmdNow();
+    if (y) card.setAttribute('data-tdb-hero-ymd', y);
+    card.removeAttribute('data-tdb-hero-stale');
+  }
+
   /** Never show situation/meaning if they are not bound to the verse on screen. */
   function hideHeroTeachingIfMismatched() {
     var displayed = readDisplayedHeroRef();
@@ -1600,6 +1616,7 @@
 
     window.__TDB_HERO_FIRST_PAINT_SIGNATURE = sig;
     window.__TDB_HERO_FIRST_PAINT_REF = v.ref;
+    markHeroStampCurrent();
 
     try {
       if (typeof window.dispatchEvent === 'function') {

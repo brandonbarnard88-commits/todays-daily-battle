@@ -651,10 +651,12 @@ function normalizeVerse(data) {
       setting: sanitizeText(v.setting || ''),
       plain:   sanitizeText(v.plain),
       today:   sanitizeText(v.today),
+      modernApplication: sanitizeText(v.modernApplication || ''),
+      prayer:  sanitizeText(v.prayer || ''),
       action:  sanitizeText(v.action)
     };
   }
-  const fallback = VERSES.find((item) => item.ref === data.ref) || VERSES[0];
+  const fallback = VERSES.find((item) => item.ref === data.ref) || VERSES[0] || {};
   const lines   = Array.isArray(data.lines) && data.lines.length ? data.lines
                 : (Array.isArray(fallback.lines) ? fallback.lines : []);
   const appText = sanitizeText(data.app || fallback.app || '');
@@ -669,6 +671,8 @@ function normalizeVerse(data) {
     setting: sanitizeText(data.setting || ''),
     plain:   sanitizeText(data.plain   || fallback.plain   || (lines[0] || '')),
     today:   sanitizeText(data.today   || fallback.today   || (lines[1] || '')),
+    modernApplication: sanitizeText(data.modernApplication || fallback.modernApplication || ''),
+    prayer:  sanitizeText(data.prayer || fallback.prayer || ''),
     action:  sanitizeText(data.action  || fallback.action  || appText)
   };
 }
@@ -915,6 +919,7 @@ function queueHeroBreakdownRefresh(data, attempt) {
       if (!sharedReady) queueHeroBreakdownRefresh(data, 0);
     } else {
       /* modernApplication from overrides is usually a practical step, not a “culture today” line. */
+      var curatedModern = String(v.modernApplication || '').trim();
       var engineModern = (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || '';
       var looksAction = /^(so do this:|name one |sit |write |list |ask |pray |return to|take one|say |read |thank |end the day|hold this|use this)/i.test(
         String(engineModern || '').trim()
@@ -959,7 +964,7 @@ function queueHeroBreakdownRefresh(data, attempt) {
       window.__TDB_applyHeroVotdFromInputs(v, {
         plainExplanation: bestPlain,
         groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || curatedToday || v.today,
-        modernApplication: looksAction ? '' : engineModern,
+        modernApplication: curatedModern || (looksAction ? '' : engineModern),
         practicalStep: curatedStep || v.action || v.app || (looksAction ? engineModern : ''),
         about: bestAbout,
         to: liveTo || v.to || (heroSharedBreakdown && heroSharedBreakdown.to) || '',

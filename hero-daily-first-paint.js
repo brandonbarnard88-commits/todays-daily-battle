@@ -903,6 +903,11 @@
     if (isThinSpeakerLine(sit)) return true;
     if (!sit || sit.length < 12) return true;
     if (!mean || mean.length < 12) return true;
+    var ctx = sanitizeText(
+      document.getElementById('heroDeepContext') &&
+        document.getElementById('heroDeepContext').textContent
+    );
+    if (/life can feel loud|hold this verse as written/i.test(ctx)) return true;
     /* Primary and deep must agree when both present — desync means a partial overwrite. */
     var sitP = sanitizeText(
       document.getElementById('heroSimpleSituation') &&
@@ -955,7 +960,7 @@
     applyHeroVotdFromInputs(v, {
       plainExplanation: bestPlain || v.plain || '',
       groupApplication: v.today || '',
-      modernApplication: '',
+      modernApplication: v.modernApplication || '',
       practicalStep: v.action || v.app || '',
       about: v.about || v.speaker || liveAbout || (snapOk ? snap.who : '') || '',
       to: v.to || liveTo || (snapOk ? snap.audience : '') || '',
@@ -1036,6 +1041,20 @@
     var modernA = sanitizeText(sh.modernApplication != null ? sh.modernApplication : sh.modern);
     var aboutA = sanitizeText(sh.about);
     var audienceShared = sanitizeText(sh.to != null ? sh.to : sh.audience);
+    try {
+      if (typeof window.TDB_GET_HERO_EXPLANATION_BY_REF === 'function') {
+        var liveEx = window.TDB_GET_HERO_EXPLANATION_BY_REF(v.ref);
+        if (liveEx) {
+          var liveModern = sanitizeText(liveEx.modernApplication);
+          var liveToday = sanitizeText(liveEx.today);
+          var haveModern = sanitizeText(v.modernApplication);
+          if (liveModern && (!haveModern || /life can feel loud|hold this verse as written/i.test(haveModern))) {
+            v.modernApplication = liveModern;
+          }
+          if (liveToday && !sanitizeText(v.today)) v.today = liveToday;
+        }
+      }
+    } catch (eLiveEx) { /* non-fatal */ }
     var stepPrefer = sanitizeText(sh.practicalStep != null ? sh.practicalStep : sh.oneStep);
     var yr = currentYearFresh();
     var lines = Array.isArray(v.lines) ? v.lines : [];
@@ -1505,7 +1524,7 @@
     applyHeroVotdFromInputs(v, hasRich ? {
       plainExplanation: v.plain,
       groupApplication: v.today,
-      modernApplication: '',
+      modernApplication: v.modernApplication || '',
       practicalStep: v.action || v.app,
       about: v.about || v.speaker,
       to: v.to,

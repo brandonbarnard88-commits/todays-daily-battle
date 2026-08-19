@@ -28,7 +28,7 @@
     bible: 1, scripture: 1, say: 1, says: 1, mean: 1, meaning: 1
   };
 
-  var OFF_TOPIC = /pineapple|pizza|football|nfl|nba|sports|movie|netflix|recipe|cooking|stock market|crypto|weather|bitcoin/i;
+  var OFF_TOPIC = /pineapple|pizza|football|nfl|nba|sports|movie|netflix|recipe|cooking|stock market|\bstocks?\b|ticker|crypto|weather|bitcoin|malware|javascript:|<script/i;
 
   var LEARN_SPINE = [
     {

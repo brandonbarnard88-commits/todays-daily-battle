@@ -1203,6 +1203,17 @@
       }
     }
     if (isThinRelatesToday(relatesToday)) relatesToday = curatedNow || (snapCtx && !isThinRelatesToday(snapCtx) ? snapCtx : '');
+    if (!relatesToday || isThinRelatesToday(relatesToday) || looksLikeActionStepLine(relatesToday)) {
+      var fromPlain = sanitizeText(v.plain || meaningClean || '');
+      fromPlain = fromPlain.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').replace(/^What it means:\s*/i, '');
+      if (fromPlain && !isThinRelatesToday(fromPlain) && !looksLikeActionStepLine(fromPlain)) {
+        relatesToday = /^In\s+20\d{2}\b/.test(fromPlain) ? fromPlain : 'In ' + yr + ', ' + fromPlain;
+      } else {
+        var hookNow = sanitizeText(v.text || v.kjv || '').replace(/\s+/g, ' ').trim().replace(/[.!?]$/, '');
+        if (hookNow.length > 64) hookNow = hookNow.slice(0, 61).replace(/\s+\S*$/, '');
+        relatesToday = hookNow ? 'In ' + yr + ', the hour still has this word: “' + hookNow + '.”' : '';
+      }
+    }
     var curatorYou = sanitizeText(v.today);
     /* lines[1] is often the raw KJV body — do not use it as a personal line. */
     if (!curatorYou && lines[1] && lines[1] !== sanitizeText(v.text) && lines[1].length < 160) {

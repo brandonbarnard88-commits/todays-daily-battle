@@ -347,6 +347,26 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
         '$1' + escapeHtmlText(String(expl.to)) + '$2'
       );
     }
+    if (expl && expl.modernApplication) {
+      html = html.replace(
+        /(<div class="hero-vbd-bundle" id="heroVbdRowCtx"[^>]*)\s*hidden/,
+        '$1'
+      );
+      html = html.replace(
+        /(<p[^>]*\bid="heroDeepContext"[^>]*>)[\s\S]*?(<\/p>)/,
+        '$1' + escapeHtmlText(String(expl.modernApplication)) + '$2'
+      );
+    }
+    if (expl && expl.today) {
+      html = html.replace(
+        /(<div class="hero-vbd-bundle" id="heroVbdRowYou"[^>]*)\s*hidden/,
+        '$1'
+      );
+      html = html.replace(
+        /(<p[^>]*\bid="heroDeepYou"[^>]*>)[\s\S]*?(<\/p>)/,
+        '$1' + escapeHtmlText(String(expl.today)) + '$2'
+      );
+    }
   }
   html = html.replace(
     /(<span id="heroVotdOneStep">)[\s\S]*?(<\/span>)/,

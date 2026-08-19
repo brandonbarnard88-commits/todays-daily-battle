@@ -20,13 +20,12 @@
   }
 
   /** @param {number} [year] */
-  function defaultRelatesTodayLine(year) {
+  function defaultRelatesTodayLine(year, verseText) {
     var y = typeof year === 'number' && !isNaN(year) ? year : currentYear();
-    return (
-      'In ' +
-      y +
-      ', life can feel loud—headlines, hurry, tension. God’s Word here still cuts through as something steady you can carry today.'
-    );
+    var hook = sanitize(verseText || '').replace(/\s+/g, ' ').trim();
+    if (hook.length > 72) hook = hook.slice(0, 69).replace(/\s+\S*$/, '') + '…';
+    if (hook) return 'In ' + y + ', hold this verse as written: “' + hook.replace(/[.!?]$/, '') + '.”';
+    return 'In ' + y + ', hold this verse as written.';
   }
 
   /** @param {string} refFull e.g. "John 3:16" — no HTML */

@@ -109,6 +109,13 @@
     "flags": "i",
     "allow": "^1 Peter\\s+2:",
     "allowFlags": "i"
+  },
+  {
+    "id": "leftover-ps96-newsong",
+    "re": "new song for all lands",
+    "flags": "i",
+    "allow": "^Psalm(s)?\\s+96:",
+    "allowFlags": "i"
   }
 ];
   var SPEAKERS = [

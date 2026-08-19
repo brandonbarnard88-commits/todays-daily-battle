@@ -79,6 +79,9 @@ export function leftoverTemplateIssues(row) {
   if (/^1 Peter 1:/.test(ref) && /cornerstone/i.test(setting)) {
     issues.push('chapter-2 cornerstone leftover on 1 Peter 1');
   }
+  if (/new song for all lands/i.test(setting) && !/^Psalm 96:/i.test(ref)) {
+    issues.push('Psalm 96 leftover band on a non-96 verse');
+  }
   const leftoverWhen = [
     'praise has to last past the morning',
     'love feels like a mood you cannot make',

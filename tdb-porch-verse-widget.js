@@ -119,15 +119,34 @@
       refEl.textContent !== '\u2014' &&
       refEl.textContent !== '—';
 
-    if (!prebuilt) {
+    function fillFromQueue() {
       var verse =
         pickVerseFromYear(window.__TDB_HERO_DAILY_YEAR) ||
         readCache() ||
         null;
-      if (verse) {
-        setVerseDom(refEl, textEl, verse);
-        writeCache(verse);
-        root.setAttribute('data-tdb-porch-verse-prebuilt', '1');
+      if (!verse) return false;
+      setVerseDom(refEl, textEl, verse);
+      writeCache(verse);
+      root.setAttribute('data-tdb-porch-verse-prebuilt', '1');
+      return true;
+    }
+
+    if (!prebuilt) {
+      if (!fillFromQueue()) {
+        var tries = 0;
+        var wait = setInterval(function () {
+          tries += 1;
+          if (fillFromQueue() || tries > 40) {
+            clearInterval(wait);
+            if (
+              refEl &&
+              root.getAttribute('data-tdb-porch-verse-prebuilt') !== '1' &&
+              (refEl.textContent === '\u2014' || refEl.textContent === '—')
+            ) {
+              refEl.textContent = '';
+            }
+          }
+        }, 50);
       }
     } else if (refEl && textEl) {
       var cached = readCache();

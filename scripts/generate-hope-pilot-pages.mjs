@@ -922,7 +922,7 @@ pages.push({
   },
 });
 
-// —— Indonesian (explanatory + Terjemahan Baru–style public wording for verses) ——
+// —— Indonesian (KJV on the page — Terjemahan Baru is not public domain and must not be quoted) ——
 pages.push({
   rel: "id/harapan.html",
   lang: "id",

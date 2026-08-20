@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260816-brightgold"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
@@ -33,9 +29,6 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
   <link rel="stylesheet" href="styles.css?v=20260816-brightgold">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
   <link rel="manifest" href="manifest.json">
   <script src="scripts/header-search-bar.js?v=3" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -199,14 +192,6 @@
         </section>
       </div>
     </main>
-    <nav class="tdb-bottom-dock" aria-label="Main navigation">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/#feel-section" aria-label="Ask the Word">Ask</a>
-      <a href="/plans.html" aria-label="Reading plans">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
-      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
-    </nav>
-
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -242,7 +227,7 @@
   <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
     <a href="/plans.html">Plans</a>
     <a href="/kids/">Kids</a>
-    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1909, public domain). Site Bible tool stays KJV English.">
       <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
       <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
       <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
@@ -334,7 +319,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">August 16, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -440,7 +425,5 @@
     });
   })();
   </script>
-
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

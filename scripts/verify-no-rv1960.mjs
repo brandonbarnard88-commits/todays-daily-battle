@@ -10,6 +10,8 @@ const SKIP_DIR = new Set(['node_modules', '.git', '.worktrees', 'next-app', 'arc
 const ALLOW = new Set([
   'scripts/replace-rv1960-with-rv1909.mjs',
   'scripts/verify-no-rv1960.mjs',
+  'scripts/verify-no-copyrighted-editions.mjs',
+  'scripts/legal-fix-unverified-scripture.mjs',
   'data/bibles/meta.json',
   'data/bibles/NOTICE.txt',
   'bible-credits.html',

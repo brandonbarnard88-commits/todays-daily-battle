@@ -20724,12 +20724,9 @@ const templates = [
 ];
 
 const versionFiles = {
-  /* Full public-domain KJV (~31k verses). Tiny root /kjv.json is a 44-verse emergency stub only. */
-  KJV: '/data/kjv-full.json',
-  NIV: '/niv.json',
-  ESV: '/esv.json',
-  NLT: '/nlt.json',
-  NKJV: '/nkjv.json'
+  /* Full public-domain KJV (~31k verses). Tiny root /kjv.json is a 44-verse emergency stub only.
+     Do not map NIV/ESV/NLT/NKJV — those editions are not public domain and are not hosted. */
+  KJV: '/data/kjv-full.json'
 };
 const BIBLE_DATA_ORIGIN = 'https://todaysdailybattle.com';
 const BIBLE_DATA_CACHE_BUST = '20260802fullkjv';

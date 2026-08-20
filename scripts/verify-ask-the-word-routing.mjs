@@ -254,7 +254,7 @@ report(/id=["']feel-search["']/.test(indexHtml), 'index.html has feel-search inp
 report(/appendAskTheWordAnswerSection\s*\(/.test(src), 'script.js wires appendAskTheWordAnswerSection');
 report(/classifyAskTheWordQuery\s*\(/.test(src) && /buildUniversalScriptureAnswerEntry\s*\(/.test(src),
   'script.js has classifier + universal entry builder');
-report(/script\.js\?v=20260820-ruth/.test(coreHome), 'core-home.js cache-busts interactive script.js');
+report(/script\.js\?v=20260820-askwalk/.test(coreHome), 'core-home.js cache-busts interactive script.js');
 
 console.log('\n---');
 console.log('Passed:', pass);

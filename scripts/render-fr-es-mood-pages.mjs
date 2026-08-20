@@ -1,5 +1,5 @@
 /**
- * Generates FR + ES mood depth pages (Louis Segond / Reina-Valera 1960 on-page).
+ * Generates FR + ES mood depth pages (Louis Segond / Reina-Valera 1909 on-page).
  * Run: node scripts/render-fr-es-mood-pages.mjs
  * Requires: scripts/lib/lang-switcher-inner.mjs (shared switcher rows).
  */
@@ -226,7 +226,7 @@ ${hrefExtra}  <link rel="alternate" hreflang="x-default" href="https://todaysdai
 ${LANG_SWITCHER_INNER}
           </span>
         </nav>
-        <p class="tdb-mood-door-kjv-banner" lang="es">Versículos en esta página: español (Reina-Valera 1960, dominio público). Herramientas en <strong>inglés</strong>; Biblia en pantalla en <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+        <p class="tdb-mood-door-kjv-banner" lang="es">Versículos en esta página: español (Reina-Valera 1909, dominio público). Herramientas en <strong>inglés</strong>; Biblia en pantalla en <abbr title="King James Version" lang="en">KJV</abbr>.</p>
       </div>
       <div class="brand">
         <a class="brand-title" href="/es/">Today's Daily Battle</a>
@@ -253,7 +253,7 @@ ${LANG_SWITCHER_INNER}
         <header class="hero-banner">
           <h1>${h1}</h1>
           <p class="real-talk">${lead}</p>
-          <p class="section-note" style="margin-top:0.5rem;">Citas: <strong>Reina-Valera 1960</strong> (dominio público). Herramientas del sitio en inglés.</p>
+          <p class="section-note" style="margin-top:0.5rem;">Citas: <strong>Reina-Valera 1909</strong> (dominio público). Herramientas del sitio en inglés.</p>
         </header>
         <section class="glass es-topic-breakdown" lang="es">
           <div class="breakdown">
@@ -499,8 +499,8 @@ const frPages = [
 const esPages = [
   {
     fileRel: 'miedo.html',
-    title: "Miedo y valor: versículos (Reina-Valera 1960) | Today's Daily Battle",
-    desc: 'Cuando el miedo aprieta: Reina-Valera 1960 (dominio público) y un paso sencillo. Herramientas en inglés, KJV.',
+    title: "Miedo y valor: versículos (Reina-Valera 1909) | Today's Daily Battle",
+    desc: 'Cuando el miedo aprieta: Reina-Valera 1909 (dominio público) y un paso sencillo. Herramientas en inglés, KJV.',
     canonicalPath: '/miedo.html',
     enPath: '/topic-fear.html',
     extraHreflang: [
@@ -510,12 +510,12 @@ const esPages = [
     ],
     h1: 'Cuando el miedo llega antes que los hechos',
     lead: 'El corazón acelera, la mente imagina lo peor — y tú sigues respirando. Dios no te pide fingir valentía; se acerca con Su Palabra.',
-    v1: '&ldquo;Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.&rdquo; &mdash; 2 Timoteo 1:7 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span>',
+    v1: '&ldquo;Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.&rdquo; &mdash; 2 Timoteo 1:7 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span>',
     simple: 'El miedo que paraliza no es dueño legítimo de tu casa: Dios ofrece otro espíritu — firme, amoroso, sereno.',
     feel: 'Cuando todo grita «va a salir mal», este versículo recuerda que puedes detenerte ante Él antes de derrumbarte.',
     change: '«Espíritu de cobardía» habla de encogerse; «poder y amor» hablan de ser sostenido. No es exigencia de teatro: es invitación a apoyarte en Él.',
     doit: 'Di en voz baja: «Señor, el miedo está aquí — habla más alto que él.» Tres respiraciones lentas.',
-    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios que te esfuerzo; y siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia.&rdquo; &mdash; Isaías 41:10 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>`,
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;No temas, que yo soy contigo; no desmayes, que yo soy tu Dios que te esfuerzo: siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia.&rdquo; &mdash; Isaías 41:10 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span></p>`,
     relatedBtns:
       esRelatedCore +
       `
@@ -525,8 +525,8 @@ const esPages = [
   },
   {
     fileRel: 'soledad.html',
-    title: "Soledad: versículos (Reina-Valera 1960) | Today's Daily Battle",
-    desc: 'Cuando te sientes invisible: Reina-Valera 1960 (dominio público). Herramientas en inglés, KJV.',
+    title: "Soledad: versículos (Reina-Valera 1909) | Today's Daily Battle",
+    desc: 'Cuando te sientes invisible: Reina-Valera 1909 (dominio público). Herramientas en inglés, KJV.',
     canonicalPath: '/soledad.html',
     enPath: '/topic-loneliness.html',
     extraHreflang: [
@@ -535,12 +535,12 @@ const esPages = [
     ],
     h1: 'Cuando parece que nadie te ve',
     lead: 'La soledad duele de verdad — y la Escritura no la trata con frase vacía. Él dice que se queda.',
-    v1: '&ldquo;No te dejaré ni te desampararé.&rdquo; &mdash; Hebreos 13:5 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span>',
+    v1: '&ldquo;No te dejaré ni te desampararé.&rdquo; &mdash; Hebreos 13:5 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span>',
     simple: 'No es promesa de multitud ruidosa: es presencia fiel en el silencio.',
     feel: 'A veces la multitud agranda el vacío. Este versículo apunta a un «conmigo» que no depende del salón lleno.',
     change: 'La promesa no compite con tu dolor: lo nombra y lo acompaña con presencia.',
     doit: 'Di: «Señor, me siento solo — quédate conmigo esta hora.» Quédate quieto un minuto.',
-    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Aunque ande en valle de sombra de muerte, no temeré mal alguno, porque tú estarás conmigo; tu vara y tu cayado me infundirán aliento.&rdquo; &mdash; Salmos 23:4 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>`,
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Aunque ande en valle de sombra de muerte, no temeré mal alguno; porque tú estarás conmigo: tu vara y tu cayado me infundirán aliento.&rdquo; &mdash; Salmos 23:4 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span></p>`,
     relatedBtns:
       esRelatedCore +
       `
@@ -550,8 +550,8 @@ const esPages = [
   },
   {
     fileRel: 'culpa.html',
-    title: "Culpa y perdón: versículos (Reina-Valera 1960) | Today's Daily Battle",
-    desc: 'Verdad sin ahogarte en vergüenza: Reina-Valera 1960 (dominio público). Herramientas en inglés, KJV.',
+    title: "Culpa y perdón: versículos (Reina-Valera 1909) | Today's Daily Battle",
+    desc: 'Verdad sin ahogarte en vergüenza: Reina-Valera 1909 (dominio público). Herramientas en inglés, KJV.',
     canonicalPath: '/culpa.html',
     enPath: '/topic-guilt.html',
     extraHreflang: [
@@ -560,12 +560,12 @@ const esPages = [
     ],
     h1: 'Cuando la culpa no calla',
     lead: 'Dios no te pide negar lo ocurrido — te invita a decir verdad delante de Él y recibir perdón que limpia sin tenerte rehén.',
-    v1: '&ldquo;Si confesamos nuestros pecados, él es fiel y justo para perdonarnos nuestros pecados, y limpiarnos de toda maldad.&rdquo; &mdash; 1 Juan 1:9 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span>',
+    v1: '&ldquo;Si confesamos nuestros pecados, él es fiel y justo para perdonarnos nuestros pecados, y limpiarnos de toda maldad.&rdquo; &mdash; 1 Juan 1:9 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span>',
     simple: 'Confesar no es espectáculo de vergüenza: es decir lo que es verdad y dejarle espacio a Su promesa.',
     feel: 'La culpa repite el fallo en bucle. Este versículo habla de perdón y limpieza — camino adelante, no celda.',
     change: 'La justicia de Dios incluye el perdón prometido, no solo el reproche.',
     doit: 'Di: «Señor, esto hice — lo confieso ante Ti.» Queda un momento sin devorarte tú mismo.',
-    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Ahora, pues, ninguna condenación hay para los que están en Cristo Jesús.&rdquo; &mdash; Romanos 8:1 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>`,
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;AHORA pues, ninguna condenación hay para los que están en Cristo Jesús, los que no andan conforme á la carne, mas conforme al espíritu.&rdquo; &mdash; Romanos 8:1 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span></p>`,
     relatedBtns:
       esRelatedCore +
       `
@@ -575,8 +575,8 @@ const esPages = [
   },
   {
     fileRel: 'agobio.html',
-    title: "Agobio: versículos (Reina-Valera 1960) | Today's Daily Battle",
-    desc: 'Cuando todo pesa a la vez: Reina-Valera 1960 (dominio público). Herramientas en inglés, KJV.',
+    title: "Agobio: versículos (Reina-Valera 1909) | Today's Daily Battle",
+    desc: 'Cuando todo pesa a la vez: Reina-Valera 1909 (dominio público). Herramientas en inglés, KJV.',
     canonicalPath: '/agobio.html',
     enPath: '/topic-overwhelmed.html',
     extraHreflang: [
@@ -585,13 +585,13 @@ const esPages = [
     ],
     h1: 'Cuando todo se cae encima',
     lead: 'No tienes que cargar como si la fuerza fuera solo tuya. Él invita: ven como estás.',
-    v1: '&ldquo;Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.&rdquo; &mdash; Mateo 11:28 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span>',
+    v1: '&ldquo;Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.&rdquo; &mdash; Mateo 11:28 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span>',
     simple: 'Jesús no dice «arregla todo» primero: dice «ven». El descanso empieza con un paso hacia Él.',
     feel: 'Cuando todo grita «urgente», este versículo recoloca el centro: puedes parar ante Él antes de romperse.',
     change: '«Venid a mí» mueve el peso de tu capacidad a Su acogida.',
     doit: 'Di en voz baja: «Señor, estoy cargado — vengo.» Tres respiraciones lentas.',
-    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Echad sobre él toda vuestra ansiedad, porque él tiene cuidado de vosotros.&rdquo; &mdash; 1 Pedro 5:7 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>
-          <p class="verse" style="margin-top:0.75rem;">&ldquo;Llevad mis cargas, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas.&rdquo; &mdash; Mateo 11:29 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>`,
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Echando toda vuestra solicitud en él, porque él tiene cuidado de vosotros.&rdquo; &mdash; 1 Pedro 5:7 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span></p>
+          <p class="verse" style="margin-top:0.75rem;">&ldquo;Llevad mi yugo sobre vosotros, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas.&rdquo; &mdash; Mateo 11:29 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span></p>`,
     relatedBtns:
       esRelatedCore +
       `
@@ -601,8 +601,8 @@ const esPages = [
   },
   {
     fileRel: 'ira.html',
-    title: "Ira y enojo: versículos (Reina-Valera 1960) | Today's Daily Battle",
-    desc: 'Cuando sube el enojo: Reina-Valera 1960 (dominio público). En inglés, más temas en explore.html; herramientas en inglés, KJV.',
+    title: "Ira y enojo: versículos (Reina-Valera 1909) | Today's Daily Battle",
+    desc: 'Cuando sube el enojo: Reina-Valera 1909 (dominio público). En inglés, más temas en explore.html; herramientas en inglés, KJV.',
     canonicalPath: '/ira.html',
     enPath: '/explore.html',
     extraHreflang: [
@@ -610,12 +610,12 @@ const esPages = [
     ],
     h1: 'Cuando la ira quiere hablar por ti',
     lead: 'No estás condenado a dejarla mandar. Dios invita a decir verdad sin quemarte ni quemar a los demás.',
-    v1: '&ldquo;Estando enojados, no pecéis; no se ponga el sol sobre vuestro enojo.&rdquo; &mdash; Efesios 4:26 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span>',
+    v1: '&ldquo;Estando enojados, no pecéis; no se ponga el sol sobre vuestro enojo.&rdquo; &mdash; Efesios 4:26 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span>',
     simple: 'La ira en sí no es la sentencia final: importa qué haces con ella antes de que caiga la noche.',
     feel: 'Cuando sube el calor, este versículo da un límite humilde: no alimentes la herida toda la noche.',
     change: '«No pecéis» habla del corazón y las acciones; «el sol» habla del tiempo — Dios acoge la verdad sin dejarte atascado.',
     doit: 'Di: «Señor, está aquí — Tú guías la mano.» Un minuto en silencio. Si puedes, escribe una línea honesta antes de responder a alguien.',
-    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Todo hombre sea pronto para oír, tardo para hablar, tardo para airarse.&rdquo; &mdash; Santiago 1:19 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>`,
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Por esto, mis amados hermanos, todo hombre sea pronto para oir, tardío para hablar, tardío para airarse:&rdquo; &mdash; Santiago 1:19 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span></p>`,
     relatedBtns:
       esRelatedCore +
       `
@@ -624,8 +624,8 @@ const esPages = [
   },
   {
     fileRel: 'duelo.html',
-    title: "Duelo y tristeza: versículos (Reina-Valera 1960) | Today's Daily Battle",
-    desc: 'Pérdida, pena, corazón pesado: Reina-Valera 1960 (dominio público). Par inglés: topic-grief.html. Herramientas en inglés, KJV.',
+    title: "Duelo y tristeza: versículos (Reina-Valera 1909) | Today's Daily Battle",
+    desc: 'Pérdida, pena, corazón pesado: Reina-Valera 1909 (dominio público). Par inglés: topic-grief.html. Herramientas en inglés, KJV.',
     canonicalPath: '/duelo.html',
     enPath: '/topic-grief.html',
     extraHreflang: [
@@ -634,12 +634,12 @@ const esPages = [
     ],
     h1: 'Cuando el dolor pesa y faltan palabras',
     lead: 'Dios no te pide «estar bien» a la fuerza. Se acerca a los quebrantados con ternura.',
-    v1: '&ldquo;Bienaventurados los que lloran, porque ellos recibirán consolación.&rdquo; &mdash; Mateo 5:4 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span>',
+    v1: '&ldquo;Bienaventurados los que lloran, porque ellos recibirán consolación.&rdquo; &mdash; Mateo 5:4 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span>',
     simple: 'Jesús honra las lágrimas: no es una vergüenza delante de Él.',
     feel: 'Cuando se cierra la garganta, este versículo dice: tu pena es vista, no juzgada a la ligera.',
     change: 'Las Bienaventuranzas nombran la realidad sin menospreciarla; el consuelo viene de Él, en Su tiempo, con Su presencia.',
     doit: 'Di: «Señor, me duele — quédate conmigo.» Quédate un momento sin obligarte a explicar todo.',
-    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Cercano está Jehová a los quebrantados de corazón; y salva a los contritos de espíritu.&rdquo; &mdash; Salmos 34:18 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>`,
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Cercano está Jehová á los quebrantados de corazón; y salvará á los contritos de espíritu.&rdquo; &mdash; Salmos 34:18 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span></p>`,
     relatedBtns:
       esRelatedCore +
       `
@@ -648,8 +648,8 @@ const esPages = [
   },
   {
     fileRel: 'perdon.html',
-    title: "Perdón: versículos (Reina-Valera 1960) | Today's Daily Battle",
-    desc: 'Perdonar y ser perdonado: Reina-Valera 1960 (dominio público). Par inglés: topic-forgiveness.html. Herramientas en inglés, KJV.',
+    title: "Perdón: versículos (Reina-Valera 1909) | Today's Daily Battle",
+    desc: 'Perdonar y ser perdonado: Reina-Valera 1909 (dominio público). Par inglés: topic-forgiveness.html. Herramientas en inglés, KJV.',
     canonicalPath: '/perdon.html',
     enPath: '/topic-forgiveness.html',
     extraHreflang: [
@@ -658,12 +658,12 @@ const esPages = [
     ],
     h1: 'Cuando el corazón quiere quedarse con el golpe',
     lead: 'Perdonar no es fingir que no dolió — es no construir una celda con el resentimiento. Dios te llama a la verdad y a la libertad, a Su ritmo.',
-    v1: '&ldquo;Antes bien, sed benignos unos con otros, misericordiosos, perdonándoos unos a otros, como Dios también os perdonó a vosotros en Cristo.&rdquo; &mdash; Efesios 4:32 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span>',
+    v1: '&ldquo;Antes bien, sed benignos unos con otros, misericordiosos, perdonándoos unos a otros, como Dios también os perdonó a vosotros en Cristo.&rdquo; &mdash; Efesios 4:32 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span>',
     simple: 'El perdón que Él da enseña, con humildad, a soltar al otro — sin obligar a los sentimientos a mentir.',
     feel: 'Cuando el recuerdo quema, este versículo recoloca el centro: fuiste perdonado — puedes aprender a soltar delante de Él.',
     change: '«Como Dios os perdonó» fija la medida: no es carrera al olvido instantáneo, sino dirección hacia Su paz.',
     doit: 'Di: «Señor, Te confío esta herida — enséñame Tu perdón.» Un minuto en silencio. No tienes que arreglarlo todo antes de hablar con Él.',
-    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Soportándoos unos a otros, y perdonándoos unos a otros si alguno tuviere queja contra otro. De la manera que Cristo os perdonó, así también hacedlo vosotros.&rdquo; &mdash; Colosenses 3:13 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>`,
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Sufriéndoos los unos á los otros, y perdonándoos los unos á los otros si alguno tuviere queja del otro: de la manera que Cristo os perdonó, así también hacedlo vosotros.&rdquo; &mdash; Colosenses 3:13 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span></p>`,
     relatedBtns:
       esRelatedCore +
       `

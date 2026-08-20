@@ -5,7 +5,7 @@
  *
  *   node scripts/vendor-locale-bibles.mjs
  *
- * RV 1960 is not public domain. Spanish uses Reina-Valera 1909.
+ * RV1909 is not public domain. Spanish uses Reina-Valera 1909.
  */
 import fs from 'fs';
 import path from 'path';
@@ -257,7 +257,7 @@ async function main() {
   }
   const meta = {
     generated: new Date().toISOString().slice(0, 10),
-    note: 'Flattened public-domain Bibles keyed like data/kjv-full.json. Official English line stays KJV. RV 1960 is not included (not public domain).',
+    note: 'Flattened public-domain Bibles keyed like data/kjv-full.json. Official English line stays KJV. RV1909 is not included (not public domain).',
     bibles: Object.values(LOCALE_BIBLES).map((spec) => ({
       ...spec,
       verses: counts[spec.lang]

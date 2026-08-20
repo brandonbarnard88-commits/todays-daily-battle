@@ -285,8 +285,8 @@ function esperanzaPage() {
   <script defer src="/analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Esperanza: versículos (Reina-Valera 1960) | Today's Daily Battle</title>
-  <meta name="description" content="Cuando el pecho pide una razón para seguir: Reina-Valera 1960 (dominio público). Herramientas en inglés, KJV.">
+  <title>Esperanza: versículos (Reina-Valera 1909) | Today's Daily Battle</title>
+  <meta name="description" content="Cuando el pecho pide una razón para seguir: Reina-Valera 1909 (dominio público). Herramientas en inglés, KJV.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${canonical}">
   <link rel="alternate" hreflang="es" href="${canonical}">
@@ -316,7 +316,7 @@ ${extraHref}  <link rel="alternate" hreflang="x-default" href="https://todaysdai
 ${LANG_SWITCHER_INNER}
           </span>
         </nav>
-        <p class="tdb-mood-door-kjv-banner" lang="es">Versículos en esta página: español (Reina-Valera 1960, dominio público). Herramientas en <strong>inglés</strong>; Biblia en pantalla en <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+        <p class="tdb-mood-door-kjv-banner" lang="es">Versículos en esta página: español (Reina-Valera 1909, dominio público). Herramientas en <strong>inglés</strong>; Biblia en pantalla en <abbr title="King James Version" lang="en">KJV</abbr>.</p>
       </div>
       <div class="brand">
         <a class="brand-title" href="/es/">Today's Daily Battle</a>
@@ -342,12 +342,12 @@ ${LANG_SWITCHER_INNER}
         <header class="hero-banner">
           <h1>Cuando necesitas una razón para seguir</h1>
           <p class="real-talk">Dios no promete días sin dolor, pero sí presencia fiel — y Su Palabra puede sostener el siguiente aliento.</p>
-          <p class="section-note" style="margin-top:0.5rem;">Citas: <strong>Reina-Valera 1960</strong> (dominio público). Herramientas del sitio en inglés.</p>
+          <p class="section-note" style="margin-top:0.5rem;">Citas: <strong>Reina-Valera 1909</strong> (dominio público). Herramientas del sitio en inglés.</p>
         </header>
         <section class="glass es-topic-breakdown" lang="es">
           <div class="breakdown">
             <h2>Versículo para hoy</h2>
-            <p class="verse">&ldquo;Y el Dios de esperanza os llene de todo gozo y paz en el creer, para que abundéis en esperanza por el poder del Espíritu Santo.&rdquo; &mdash; Romanos 15:13 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>
+            <p class="verse">&ldquo;Y el Dios de esperanza os llene de todo gozo y paz creyendo, para que abundéis en esperanza por la virtud del Espíritu Santo.&rdquo; &mdash; Romanos 15:13 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span></p>
             <h3>En palabras simples</h3>
             <p>La esperanza aquí no es optimismo barato: es confianza puesta en quien puede llenar de gozo y paz mientras crees.</p>
             <h3>Cómo se siente hoy</h3>
@@ -360,8 +360,8 @@ ${LANG_SWITCHER_INNER}
         </section>
         <section class="glass" lang="es">
           <h2 class="section-divider">Otro versículo, si el alma sigue cansada</h2>
-          <p class="verse" style="margin-top:0.75rem;">&ldquo;Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperáis.&rdquo; &mdash; Jeremías 29:11 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>
-          <p class="verse" style="margin-top:0.75rem;">&ldquo;Para que por dos cosas inmutables, en las cuales es imposible que Dios mienta, tengamos un fortísimo consuelo, los que acudimos para asirnos de la esperanza puesta delante de nosotros.&rdquo; &mdash; Hebreos 6:18 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>
+          <p class="verse" style="margin-top:0.75rem;">&ldquo;Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperáis.&rdquo; &mdash; Jeremías 29:11 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span></p>
+          <p class="verse" style="margin-top:0.75rem;">&ldquo;Para que por dos cosas inmutables, en las cuales es imposible que Dios mienta, tengamos un fortísimo consuelo, los que nos acogemos á trabarnos de la esperanza propuesta:&rdquo; &mdash; Hebreos 6:18 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1909)</span></p>
         </section>
         <section class="glass es-mas-ayuda" lang="es">
           <h2 class="section-divider">Herramientas (inglés / KJV)</h2>

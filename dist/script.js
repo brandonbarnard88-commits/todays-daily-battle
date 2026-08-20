@@ -3382,8 +3382,8 @@ function ensureTdbCookieNoticeStyles() {
   var style = document.createElement('style');
   style.id = 'tdb-cookie-notice-style';
   style.textContent =
-    'body.tdb-cookie-notice-visible{padding-bottom:clamp(7rem,22vw,10rem);}' +
-    '#tdb-cookie-notice{position:fixed;left:50%;bottom:max(0.75rem,env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(calc(100% - 1rem),40rem);max-height:calc(100vh - 1.5rem);overflow-y:auto;padding:0.95rem 1rem;background:rgba(8,12,22,0.97);color:#f5f7fb;border:1px solid rgba(227,188,103,0.28);border-radius:18px;box-shadow:0 18px 42px rgba(0,0,0,0.42);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);z-index:450;}' +
+    'body.tdb-cookie-notice-visible{padding-bottom:clamp(5.5rem,18vw,8rem);}' +
+    '#tdb-cookie-notice{position:fixed;left:0;right:0;bottom:0;transform:none;width:100%;max-width:none;max-height:none;overflow:visible;padding:0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom,0px));background:rgba(8,12,22,0.96);color:#f5f7fb;border:0;border-top:1px solid rgba(227,188,103,0.28);border-radius:0;box-shadow:0 -8px 24px rgba(0,0,0,0.28);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:450;}' +
     '#tdb-cookie-notice[hidden]{display:none!important;}' +
     '#tdb-cookie-notice .tdb-cookie-notice__title{margin:0 0 0.3rem;font:600 1rem/1.3 var(--font-ui,Inter,sans-serif);color:#fcfcfd;}' +
     '#tdb-cookie-notice .tdb-cookie-notice__copy{margin:0;font:500 0.96rem/1.55 var(--font-ui,Inter,sans-serif);color:rgba(245,247,251,0.88);}' +
@@ -3399,7 +3399,7 @@ function ensureTdbCookieNoticeStyles() {
     'html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__title{color:#2f2f2f;}' +
     'html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__copy{color:#4d525c;}' +
     'html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__btn--secondary,html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__link{color:#2f2f2f;background:rgba(64,41,8,0.04);border-color:rgba(64,41,8,0.12);}' +
-    '@media (max-width:640px){#tdb-cookie-notice{width:calc(100% - 0.8rem);padding:0.9rem 0.85rem;}#tdb-cookie-notice .tdb-cookie-notice__actions{gap:0.55rem;}#tdb-cookie-notice .tdb-cookie-notice__btn{flex:1 1 calc(50% - 0.3rem);}#tdb-cookie-notice .tdb-cookie-notice__link{flex:1 1 100%;}}';
+    '@media (max-width:640px){#tdb-cookie-notice{padding:0.65rem 0.85rem calc(0.65rem + env(safe-area-inset-bottom,0px));}#tdb-cookie-notice .tdb-cookie-notice__actions{gap:0.45rem;}#tdb-cookie-notice .tdb-cookie-notice__btn{flex:1 1 calc(50% - 0.3rem);}#tdb-cookie-notice .tdb-cookie-notice__link{flex:1 1 100%;}}';
   document.head.appendChild(style);
 }
 

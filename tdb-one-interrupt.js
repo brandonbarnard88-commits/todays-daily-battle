@@ -67,7 +67,7 @@
 
   function wireQuietUpdate() {
     var strip = document.getElementById('quiet-update') || document.getElementById('plans-quiet-update');
-    if (!strip) return;
+    if (!strip || strip.hidden) return;
     if (document.documentElement.classList.contains('tdb-quiet-update-dismissed')) {
       strip.hidden = true;
       return;

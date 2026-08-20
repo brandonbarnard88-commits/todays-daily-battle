@@ -9300,7 +9300,7 @@
     fig.setAttribute('aria-hidden', 'true');
     var img = document.createElement('img');
     img.className = 'kids-story-ls-intro-mascot';
-    img.src = '/kids/shepherd-mascot-welcome.png?v=20260810ears';
+    img.src = '/kids/shepherd-mascot-welcome.png?v=20260820polish';
     img.alt = '';
     img.setAttribute('width', '72');
     img.setAttribute('height', '80');

@@ -2791,7 +2791,7 @@
     },
     {
       "ref": "Hebrews 12:2",
-      "text": "Looking unto Jesus the author and finisher of our faith.",
+      "text": "Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.",
       "plain": "Keep your eyes on Jesus. He started this faith and He will finish it — even through the cross.",
       "step": "Look away from the scroll of the day. Say: I am looking unto Jesus, the author and finisher of my faith.",
       "about": "The writer of Hebrews",

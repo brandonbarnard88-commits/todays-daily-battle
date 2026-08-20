@@ -12,6 +12,7 @@ const ALLOW = new Set([
   'scripts/verify-no-rv1960.mjs',
   'scripts/verify-no-copyrighted-editions.mjs',
   'scripts/legal-fix-unverified-scripture.mjs',
+  'scripts/vendor-locale-bibles.mjs',
   'data/bibles/meta.json',
   'data/bibles/NOTICE.txt',
   'bible-credits.html',

@@ -98,6 +98,84 @@ export const LOCALE_BIBLES = {
     years: '2017–2019',
     onPageCredit:
       'Hindi Indian Revised Version © 2017–2019 Bridge Connectivity Solutions. Used under CC BY-SA 4.0. Source: eBible.org. Flattened to a verse map for lookup; trailing study-note parentheses removed. This flattened file remains under CC BY-SA 4.0.'
+  },
+  ar: {
+    lang: 'ar',
+    file: 'ar-vandyck.json',
+    id: 'arb_vdv',
+    kind: 'helloao',
+    htmlLang: 'ar',
+    name: 'فان دايك 1865',
+    short: 'Van Dyck',
+    license: 'Public domain',
+    licenseUrl: 'https://en.wikipedia.org/wiki/Public_domain',
+    source: 'https://ebible.org/Scriptures/details.php?id=arb-vd',
+    via: 'eBible.org and the HelloAO Free Use Bible API',
+    holder: 'Public domain (Van Dyck Arabic Bible, 1865)',
+    onPageCredit:
+      'Van Dyck Arabic Bible (1865). Public domain. Text via eBible.org and HelloAO. Flattened to a verse map for lookup.'
+  },
+  sv: {
+    lang: 'sv',
+    file: 'sv-1917.json',
+    id: 'swedish',
+    kind: 'getbible',
+    name: '1917 års bibel',
+    short: 'SV1917',
+    license: 'Public domain',
+    licenseUrl: 'https://en.wikipedia.org/wiki/Public_domain',
+    source: 'https://api.getbible.net/v2/swedish.json',
+    via: 'getBible.net (Projekt Runeberg 1917 text)',
+    holder: 'Public domain (Swedish Bible 1917)',
+    onPageCredit:
+      'Swedish Bible 1917 (allmän egendom). Digital source: getBible.net / Projekt Runeberg. Flattened to a verse map for lookup.'
+  },
+  tl: {
+    lang: 'tl',
+    file: 'tl-1905.json',
+    id: 'tagalog',
+    kind: 'getbible',
+    name: 'Ang Dating Biblia 1905',
+    short: 'ADB1905',
+    license: 'Public domain',
+    licenseUrl: 'https://en.wikipedia.org/wiki/Public_domain',
+    source: 'https://api.getbible.net/v2/tagalog.json',
+    via: 'getBible.net (Ang Dating Biblia 1905)',
+    holder: 'Public domain (Ang Dating Biblia, 1905)',
+    onPageCredit:
+      'Ang Dating Biblia 1905. Public domain. Typed from the 1905 Tagalog Bible by Richard and Dolores Long. Digital source: getBible.net. Flattened to a verse map for lookup.'
+  },
+  sw: {
+    lang: 'sw',
+    file: 'sw-ulb.json',
+    id: 'swh_ulb',
+    kind: 'helloao',
+    name: 'Biblia Takatifu (ULB)',
+    short: 'ULB',
+    license: 'CC BY-SA 4.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+    source: 'https://ebible.org/Scriptures/details.php?id=swhulb',
+    via: 'eBible.org and the HelloAO Free Use Bible API',
+    holder: 'Door43 World Missions Community',
+    years: '2019',
+    onPageCredit:
+      'Swahili Unlocked Literal Bible © 2019 Door43 World Missions Community. Used under CC BY-SA 4.0. Source: eBible.org. Flattened to a verse map for lookup. This flattened file remains under CC BY-SA 4.0.'
+  },
+  bn: {
+    lang: 'bn',
+    file: 'bn-irv.json',
+    id: 'ben_irv',
+    kind: 'helloao',
+    name: 'বাংলা IRV 2019',
+    short: 'IRV',
+    license: 'CC BY-SA 4.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+    source: 'https://ebible.org/Scriptures/details.php?id=benirv',
+    via: 'eBible.org and the HelloAO Free Use Bible API',
+    holder: 'Bridge Connectivity Solutions',
+    years: '2018–2019',
+    onPageCredit:
+      'Bengali Indian Revised Version © 2018–2019 Bridge Connectivity Solutions. Used under CC BY-SA 4.0. Source: eBible.org. Flattened to a verse map for lookup. This flattened file remains under CC BY-SA 4.0.'
   }
 };
 

@@ -70,7 +70,11 @@ function main() {
     'HelloAO',
     'eBible.org',
     'getBible.net',
-    'João Ferreira de Almeida'
+    'João Ferreira de Almeida',
+    'Van Dyck',
+    '1917',
+    'Ang Dating Biblia',
+    'Door43'
   ].forEach((need) => {
     if (!credits.includes(need)) fail('bible-credits.html missing credit: ' + need);
     if (!notice.includes(need) && need !== 'Chinese Union Version' && need !== 'Синодальный') {
@@ -147,7 +151,17 @@ function main() {
     'hi/index.html',
     'dist/hi/index.html',
     'id/index.html',
-    'dist/id/index.html'
+    'dist/id/index.html',
+    'ar/index.html',
+    'dist/ar/index.html',
+    'sv/index.html',
+    'dist/sv/index.html',
+    'tl/index.html',
+    'dist/tl/index.html',
+    'sw/index.html',
+    'dist/sw/index.html',
+    'bn/index.html',
+    'dist/bn/index.html'
   ];
 
   pages.forEach((rel) => {
@@ -171,7 +185,7 @@ function main() {
     leftoverSnips.forEach((snip) => {
       if (wrap.includes(snip)) fail(rel + ' leftover in daily wrap: ' + snip);
     });
-    const langMatch = rel.match(/(?:^|\/)(es|fr|pt|zh|ru|hi|id)(?:\/|$)/);
+    const langMatch = rel.match(/(?:^|\/)(es|fr|pt|zh|ru|hi|id|ar|sv|tl|sw|bn)(?:\/|$)/);
     const lang = rel.includes('verso') ? 'es' : langMatch ? langMatch[1] : '';
     if (lang && LOCALE_BIBLES[lang]) {
       const locText = localeTextForRef(root, lang, expectRef);
@@ -183,8 +197,11 @@ function main() {
       if (!wrap.includes('bible-credits.html#locale-' + lang)) {
         fail(rel + ' missing Bible credits link');
       }
-      if (lang === 'hi' && !wrap.includes('Bridge Connectivity Solutions')) {
-        fail(rel + ' Hindi IRV must credit Bridge Connectivity Solutions on the page');
+      if ((lang === 'hi' || lang === 'bn') && !wrap.includes('Bridge Connectivity Solutions')) {
+        fail(rel + ' IRV must credit Bridge Connectivity Solutions on the page');
+      }
+      if (lang === 'sw' && !wrap.includes('Door43')) {
+        fail(rel + ' Swahili ULB must credit Door43 on the page');
       }
     } else if (lang === 'id') {
       if (!wrap.includes('data-tdb-locale-hub="id"')) fail(rel + ' missing Indonesian locale hub stamp');

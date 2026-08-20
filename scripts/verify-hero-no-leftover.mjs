@@ -39,6 +39,12 @@ function auditSourceContracts() {
   if (!fp.includes('sitForThisRef')) {
     fail('hero-daily-first-paint.js must drop situation lines that fail the book/speaker lock');
   }
+  if (/return 'In ' \+ y \+ ', hold this verse as written/.test(fp)) {
+    fail('hero-daily-first-paint.js still generates leftover relate reprint');
+  }
+  if (!fp.includes('floorHeroTeaching')) {
+    fail('hero-daily-first-paint.js must floor missing queue teaching from catalog/context');
+  }
   if (/to:\s*liveTo\s*\|\|\s*v\.to/.test(fp)) {
     fail('hero-daily-first-paint.js must prefer this day’s audience over live chapter-band context');
   }

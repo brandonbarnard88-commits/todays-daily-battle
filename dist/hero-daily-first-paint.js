@@ -398,10 +398,14 @@
     var gen = !offline ? defaultHeroEnrichment(ref, text) : null;
     var dayEx = null;
     try {
+      wrapHeroExplanationGetter();
       if (typeof window.TDB_GET_HERO_EXPLANATION_BY_REF === 'function') {
         dayEx = window.TDB_GET_HERO_EXPLANATION_BY_REF(ref);
       }
     } catch (eEx) { dayEx = null; }
+    if (!dayEx || isHoleTeachingField(dayEx.modernApplication) || isHoleTeachingField(dayEx.today) || isHoleTeachingField(dayEx.plain, 'plain')) {
+      dayEx = floorHeroTeaching(ref, text, dayEx);
+    }
     var ctx = resolveHeroContext(ref, dayEx);
 
     var lines = Array.isArray(data.lines) && data.lines.length ? data.lines
@@ -1016,9 +1020,109 @@
     var y = typeof year === 'number' ? year : currentYearFresh();
     var hook = sanitizeText(verseText || '').replace(/\s+/g, ' ').trim();
     if (hook.length > 72) hook = hook.slice(0, 69).replace(/\s+\S*$/, '') + '…';
-    if (hook) return 'In ' + y + ', hold this verse as written: “' + hook.replace(/[.!?]$/, '') + '.”';
-    return 'In ' + y + ', hold this verse as written.';
+    if (hook) return 'In ' + y + ', this verse still says: “' + hook.replace(/[.!?]$/, '') + '.”';
+    return 'In ' + y + ', this verse still speaks into the hour you are in.';
   }
+
+  function hookOfVerse(text) {
+    var t = sanitizeText(text).replace(/\s+/g, ' ').trim().replace(/[.!?]$/, '');
+    if (t.length > 64) t = t.slice(0, 61).replace(/\s+\S*$/, '');
+    return t;
+  }
+
+  function isHoleTeachingField(s, field) {
+    var t = sanitizeText(s).replace(/\s+/g, ' ').trim();
+    if (!t) return true;
+    if (/hold this verse as written|life can feel loud/i.test(t)) return true;
+    if (/has to be lived, not only heard/i.test(t)) return true;
+    if (/His way is for your good/i.test(t)) return true;
+    if (/kindness meets you as you are/i.test(t) && /not after you perform/i.test(t)) return true;
+    if (/take the verse as it stands/i.test(t)) return true;
+    if (field === 'prayer' && /sink .+ into my heart/i.test(t)) return true;
+    return false;
+  }
+
+  /** Catalog + chapter floor so a queue day cannot paint empty or leftover. */
+  function floorHeroTeaching(ref, text, row) {
+    var r = normalizeRefBare(ref);
+    var body = sanitizeText((row && row.text) || text);
+    var hook = hookOfVerse(body);
+    var ctxAbout = '';
+    var ctxTo = '';
+    var ctxSit = '';
+    try {
+      if (typeof window.TDB_resolveVerseContext === 'function') {
+        var hit = window.TDB_resolveVerseContext(r) || {};
+        ctxAbout = sanitizeText(hit.about);
+        ctxTo = sanitizeText(hit.to);
+        ctxSit = sanitizeText(hit.situation || hit.setting);
+      }
+    } catch (eFloorCtx) { /* non-fatal */ }
+    var plain = row && !isHoleTeachingField(row.plain, 'plain') ? sanitizeText(row.plain) : '';
+    if (!plain) {
+      try {
+        if (typeof window.getPlainMeaning === 'function') plain = sanitizeText(window.getPlainMeaning(r) || '');
+      } catch (ePlain) { plain = ''; }
+    }
+    if (isHoleTeachingField(plain, 'plain')) {
+      plain = hook ? hook.charAt(0).toUpperCase() + hook.slice(1) + '.' : '';
+    }
+    var out = row ? Object.assign({}, row) : { ref: r, text: body };
+    if (isHoleTeachingField(out.plain, 'plain')) out.plain = plain;
+    if (isHoleTeachingField(out.about, 'about') && ctxAbout) out.about = ctxAbout;
+    if (isHoleTeachingField(out.to, 'to')) {
+      var hear = ctxTo || 'The first hearers of this verse';
+      if (/and you when|and you in the hour/i.test(hear)) out.to = hear;
+      else out.to = hear.replace(/[.]$/, '') + (hook ? ' — and you in the hour this verse is for: “' + hook + '.”' : '');
+    }
+    if (isHoleTeachingField(out.setting, 'setting')) {
+      var sit = ctxSit || ctxAbout;
+      out.setting = (sit ? sit.replace(/[.]$/, '') + '. ' : '') + (hook ? 'The verse: ' + hook + '.' : '');
+    }
+    if (isHoleTeachingField(out.today, 'today')) {
+      out.today = hook
+        ? 'This word is for you in the hour this verse is for: “' + hook + '.”'
+        : sanitizeText(out.plain);
+    }
+    if (isHoleTeachingField(out.modernApplication, 'modernApplication')) {
+      var meaningBare = sanitizeText(out.plain).replace(/[.]$/, '');
+      out.modernApplication = hook
+        ? 'In ' + currentYearFresh() + ', ' + meaningBare + '. The verse still says: “' + hook + '.”'
+        : meaningBare;
+    }
+    if (isHoleTeachingField(out.step, 'step') && hook) {
+      out.step = 'Write this where you will see it: “' + hook + '.”';
+    }
+    if (isHoleTeachingField(out.prayer, 'prayer') && hook) {
+      out.prayer = 'Lord, let this word be true in me today: “' + hook + '”. In Jesus’ name, Amen.';
+    }
+    out.ref = out.ref || r;
+    out.text = out.text || body;
+    return out;
+  }
+
+  function wrapHeroExplanationGetter() {
+    var orig = window.TDB_GET_HERO_EXPLANATION_BY_REF;
+    if (typeof orig !== 'function' || orig.__tdbCatalogFloor) return;
+    window.TDB_GET_HERO_EXPLANATION_BY_REF = function (ref) {
+      var row = orig(ref);
+      var text = sanitizeText(row && row.text);
+      if (!text) {
+        try {
+          var el = document.getElementById('heroVerse');
+          var refEl = document.getElementById('heroRef');
+          if (el && refEl && normalizeRefBare(refEl.textContent) === normalizeRefBare(ref)) {
+            text = sanitizeText(el.textContent).replace(/^[\u201c"'\s]+|[\u201d"'\s]+$/g, '');
+          }
+        } catch (eTxt) { /* non-fatal */ }
+      }
+      return floorHeroTeaching(ref, text, row);
+    };
+    window.TDB_GET_HERO_EXPLANATION_BY_REF.__tdbCatalogFloor = true;
+  }
+  wrapHeroExplanationGetter();
+  window.__TDB_floorHeroTeaching = floorHeroTeaching;
+  window.__TDB_wrapHeroExplanationGetter = wrapHeroExplanationGetter;
 
   /** Action/step lines often land in modernApplication by mistake — keep them out of “How it relates today”. */
   function looksLikeActionStepLine(s) {
@@ -1068,6 +1172,7 @@
     var aboutA = sanitizeText(sh.about);
     var audienceShared = sanitizeText(sh.to != null ? sh.to : sh.audience);
     try {
+      wrapHeroExplanationGetter();
       if (typeof window.TDB_GET_HERO_EXPLANATION_BY_REF === 'function') {
         var liveEx = window.TDB_GET_HERO_EXPLANATION_BY_REF(v.ref);
         if (liveEx) {
@@ -1389,6 +1494,7 @@
         relatesToday = keepCtx;
       } else {
         try {
+          wrapHeroExplanationGetter();
           if (typeof window.TDB_GET_HERO_EXPLANATION_BY_REF === 'function') {
             var paintEx = window.TDB_GET_HERO_EXPLANATION_BY_REF(refKey);
             var paintModern = sanitizeText(paintEx && paintEx.modernApplication);
@@ -1403,6 +1509,12 @@
         } catch (ePaintEx) {
           relatesToday = '';
         }
+      }
+    }
+    if (!relatesToday || isThinRelatesTodayPaint(relatesToday)) {
+      var floorRel = floorHeroTeaching(refKey, v && v.text, { modernApplication: relatesToday, text: v && v.text, ref: refKey });
+      if (floorRel.modernApplication && !isThinRelatesTodayPaint(floorRel.modernApplication)) {
+        relatesToday = floorRel.modernApplication;
       }
     }
     /* Combined line is a11y-only legacy; keep text but never show it (CSS hard-hides). */

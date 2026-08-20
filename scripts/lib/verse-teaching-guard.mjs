@@ -192,7 +192,8 @@ export const PHRASE_LOCKS = [
   { id: 'leftover-ps96-newsong', re: /new song for all (the )?(earth|lands)/i, allow: /^Psalm(s)?\s+96:/i },
   { id: 'leftover-ps100-gates', re: /enter His gates with thanksgiving/i, allow: /^Psalm(s)?\s+100:/i },
   { id: 'leftover-relate-reprint', re: /hold this verse as written/i, allow: null },
-  { id: 'leftover-lived-heard', re: /has to be lived, not only heard/i, allow: null }
+  { id: 'leftover-lived-heard', re: /has to be lived, not only heard/i, allow: null },
+  { id: 'leftover-way-good', re: /His way is for your good/i, allow: null }
 ];
 
 export function refAllowsLock(ref, lock) {

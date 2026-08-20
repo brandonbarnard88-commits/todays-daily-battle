@@ -40,6 +40,7 @@ export function isWeakPlainStamp(plain) {
   if (/take the verse as it stands/i.test(p)) return true;
   if (/This word is for you in the day you are actually living/i.test(p)) return true;
   if (/^A steady truth from Scripture for real life today\.?$/i.test(p)) return true;
+  if (/His way is for your good/i.test(p)) return true;
   if (/^What was going on:\s*.{0,60}speaking to/i.test(p)) return true;
   return false;
 }
@@ -64,6 +65,9 @@ export function leftoverTemplateIssues(row) {
   }
   if (/kindness meets you as you are/i.test(plain) && /not after you perform/i.test(plain)) {
     issues.push('leftover kindness stamp');
+  }
+  if (/His way is for your good/i.test(plain + ' ' + today + ' ' + String((row && row.modernApplication) || ''))) {
+    issues.push('leftover way-is-for-your-good stamp');
   }
   if (/Mercy is not a prize for finishing strong/i.test(today + ' ' + plain + ' ' + to)) {
     issues.push('leftover finishing-strong mercy stamp');

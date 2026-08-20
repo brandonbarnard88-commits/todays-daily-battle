@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260815-voice-all';
+  var INTERACTIVE_SRC = 'script.js?v=20260820-ref';
   var loaded = false;
   var pendingQuery = '';
 

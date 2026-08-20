@@ -6937,7 +6937,8 @@
       color: var(--muted-readable, #c8d3e3);
       letter-spacing: 0.01em;
     }
-    .site-footer-hint { font-size: 0.8rem; color: var(--muted); opacity: 0.5; margin: 0.25rem 0 0; }
+    .site-footer-hint { display: none; }
+    .morning-skip-btn[hidden] { display: none !important; }
 
     .site-footer a {
       color: color-mix(in srgb, var(--gold) 70%, var(--muted));

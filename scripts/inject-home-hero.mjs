@@ -13,7 +13,7 @@ import {
   buildHeroLaymanPlain,
   loadVersePlainMeanings,
 } from './lib/hero-layman-plain.mjs';
-import { teachingForRef } from './lib/verse-teaching-floor.mjs';
+import { teachingForRef, kjvTextForRef } from './lib/verse-teaching-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -166,10 +166,19 @@ function loadBbeMap() {
   }
 }
 
+function stripBbeSuperscription(s) {
+  return String(s || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/^\s*-\s*(?:A Psalm|Of David|A Song|Of the sons of Korah|To the chief music-maker)[^.]*\.\s*-\s*/i, '')
+    .trim();
+}
+
 function officialBbeSingle(map, ref) {
   if (!map) return '';
   const n = normalizeRefBare(ref);
-  return map[n] || map[n.replace(/^Psalm /i, 'Psalms ')] || map[n.replace(/^Psalms /i, 'Psalm ')] || '';
+  const raw = map[n] || map[n.replace(/^Psalm /i, 'Psalms ')] || map[n.replace(/^Psalms /i, 'Psalm ')] || '';
+  return stripBbeSuperscription(raw);
 }
 
 function officialBbeText(map, ref) {
@@ -523,7 +532,10 @@ function main() {
 
   const refPlain = String(v.ref).trim();
   const refNorm = normalizeRefBare(refPlain);
-  let textPlain = normalizeHeroKjvLine(v.text);
+  const officialKjv = kjvTextForRef(root, refPlain);
+  let textPlain = normalizeHeroKjvLine(
+    officialKjv && officialKjv.length >= String(v.text || '').length ? officialKjv : v.text
+  );
   if (/^matthew\s+5\s*:\s*14$/i.test(refNorm) && !/^ye\s+/i.test(textPlain.replace(/\uFEFF/g, '').trim())) {
     textPlain = 'Ye are the light of the world.';
   }

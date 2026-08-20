@@ -30987,7 +30987,7 @@ function executeQuery(parsed, tier, filters) {
   results.phraseMatches = filterVerseList(results.phraseMatches, filters);
   results.relatedMatches = filterVerseList(results.relatedMatches, filters);
 
-  if (results.verses.length === 0) {
+  if (results.verses.length === 0 && parsed.intent !== 'reference') {
     // Curated hope verses with full breakdowns—no search leaves empty-handed
     if (typeof DEFAULT_VERSES !== 'undefined' && DEFAULT_VERSES.length > 0) {
       var shuffled = DEFAULT_VERSES.slice();
@@ -31010,8 +31010,15 @@ function executeQuery(parsed, tier, filters) {
       results.fallback = true;
     }
   }
-  // Pad to at least 6 verses when we have some but fewer than 6
-  if (results.verses.length > 0 && results.verses.length < 6 && typeof DEFAULT_VERSES !== 'undefined' && DEFAULT_VERSES.length > 0) {
+  // Pad feeling/topic searches only. Never pad a verse lookup with leftover comfort verses
+  // (John 3:16 must not grow Romans 8:28 / Psalm 23:4 / Philippians 4:6).
+  if (
+    parsed.intent !== 'reference' &&
+    results.verses.length > 0 &&
+    results.verses.length < 6 &&
+    typeof DEFAULT_VERSES !== 'undefined' &&
+    DEFAULT_VERSES.length > 0
+  ) {
     var shuffledPad = DEFAULT_VERSES.slice();
     if (typeof shuffleArray === 'function') shuffleArray(shuffledPad);
     var existingRefs = new Set(results.verses.map(function(v) { return v.ref; }));
@@ -32806,6 +32813,11 @@ function buildHomeSearchPlanMatches(results, queryText) {
   var active = getHomeSearchActiveTopics(results, queryText);
   var primary = active[0] || '';
   var prefs = HOME_SEARCH_TOPIC_PLAN_PREFS[q] || HOME_SEARCH_TOPIC_PLAN_PREFS[primary] || null;
+  /* Verse lookup: only plans that actually score (e.g. Gospel of John for John 3:16).
+     Never pad with leftover comfort/peace plans. */
+  if (results && results.intent === 'reference') {
+    return pickHomeSearchEntries(HOME_SEARCH_PLAN_LIBRARY, results, queryText, 2, []);
+  }
   return pickHomeSearchEntries(
     HOME_SEARCH_PLAN_LIBRARY,
     results,

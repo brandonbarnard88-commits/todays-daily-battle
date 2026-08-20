@@ -931,7 +931,7 @@
   },
   {
     "ref": "Psalm 98:1",
-    "text": "O sing unto the Lord a new song; for he hath done marvellous things."
+    "text": "O sing unto the Lord a new song; for he hath done marvellous things: his right hand, and his holy arm, hath gotten him the victory."
   },
   {
     "ref": "Hebrews 12:2",

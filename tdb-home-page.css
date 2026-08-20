@@ -1243,12 +1243,18 @@
         background: transparent;
         border-color: color-mix(in srgb, var(--line) 60%, transparent);
       }
+      .site-top-links { display: none !important; }
+      .sky-bird { display: none !important; }
       .tdb-home-main-nav.tdb-primary-site-nav .tdb-nav-flyout-toggle {
         display: inline-flex;
         background: transparent;
         border-color: color-mix(in srgb, var(--line) 65%, transparent);
         color: var(--muted, #a8b3c4);
         font-weight: 550;
+        overflow: hidden;
+      }
+      .tdb-home-main-nav .tdb-nav-flyout-toggle__bars {
+        flex-shrink: 0;
       }
       .tdb-home-main-nav.tdb-primary-site-nav .tdb-nav-flyout-toggle:hover,
       .tdb-home-main-nav.tdb-primary-site-nav .tdb-nav-flyout-toggle:focus-visible {
@@ -1256,7 +1262,7 @@
         background: color-mix(in srgb, var(--gold) 10%, transparent);
       }
       .tdb-home-main-nav.tdb-primary-site-nav {
-        overflow-x: visible;
+        overflow: hidden;
         flex-wrap: wrap;
         justify-content: center;
         padding: 0.35rem 0.45rem;

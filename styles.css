@@ -22346,7 +22346,33 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
   color: #1c1910;
 }
 body.tdb-inner-page .tdb-header-account-nudge .tdb-tour-open-btn,
-body.tdb-inner-page .tdb-header-account-nudge .tdb-tour-restart-btn {
+body.tdb-inner-page .tdb-header-account-nudge .tdb-tour-restart-btn,
+body.tdb-inner-page .tdb-header-account-nudge [data-tdb-theme-toggle="header_nudge"] {
+  display: none !important;
+}
+
+/* Explore: one column, no leftover admin sidebar */
+body.tdb-explore-page .sidebar,
+body.tdb-explore-page #sidebar-toggle {
+  display: none !important;
+}
+body.tdb-explore-page .app-shell {
+  display: flex !important;
+  flex-direction: column;
+  grid-template-columns: none !important;
+  grid-template-areas: none !important;
+}
+body.tdb-explore-page .top-bar,
+body.tdb-explore-page .app-content,
+body.tdb-explore-page .site-footer {
+  grid-area: auto;
+}
+body.tdb-explore-page .app-content {
+  margin-left: 0;
+}
+
+/* When it's hard: the hero is the page — skip the empty "On this page" bar */
+body.tdb-calm-shelf-page .calm-onpage-nav-wrap {
   display: none !important;
 }
 

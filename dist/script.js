@@ -932,6 +932,8 @@ function getTdbThemeCopy(theme) {
 
 function ensureVisibleThemeShortcut() {
   if (typeof document === 'undefined') return;
+  /* Inner pages already keep Appearance under More — don't add a second chip. */
+  if (document.querySelector('.tdb-primary-site-nav [data-tdb-theme-toggle]')) return;
   var groups = document.querySelectorAll('.tdb-header-account-nudge');
   Array.prototype.forEach.call(groups, function (group) {
     if (!group || group.querySelector('[data-tdb-theme-toggle="header_nudge"]')) return;
@@ -3382,7 +3384,7 @@ function ensureTdbCookieNoticeStyles() {
   var style = document.createElement('style');
   style.id = 'tdb-cookie-notice-style';
   style.textContent =
-    'body.tdb-cookie-notice-visible{padding-bottom:clamp(5.5rem,18vw,8rem);}' +
+    'body.tdb-cookie-notice-visible{padding-bottom:clamp(7.5rem,24vw,11rem);}' +
     '#tdb-cookie-notice{position:fixed;left:0;right:0;bottom:0;transform:none;width:100%;max-width:none;max-height:none;overflow:visible;padding:0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom,0px));background:rgba(8,12,22,0.96);color:#f5f7fb;border:0;border-top:1px solid rgba(227,188,103,0.28);border-radius:0;box-shadow:0 -8px 24px rgba(0,0,0,0.28);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:450;}' +
     '#tdb-cookie-notice[hidden]{display:none!important;}' +
     '#tdb-cookie-notice .tdb-cookie-notice__title{margin:0 0 0.3rem;font:600 1rem/1.3 var(--font-ui,Inter,sans-serif);color:#fcfcfd;}' +
@@ -41856,7 +41858,7 @@ function wireRandomBattleVerseHero() {
         if (!footer || footer.querySelector('.footer-trust-note')) return;
         var note = document.createElement('p');
         note.className = 'footer-trust-note section-note';
-        note.innerHTML = 'Human-curated · Privacy-first · KJV only · Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> · <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>';
+        note.innerHTML = 'Human-curated · Privacy-first · English: KJV · Other languages: public-rights Bibles · <a href="/bible-credits.html">Bible credits</a> · Report safety: <a href="/contact.html?topic=safety">contact form</a> · <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>';
         var anchor = footer.querySelector('.site-footer-copy, .site-footer-legal-line, .site-footer-updated, p');
         if (anchor) footer.insertBefore(note, anchor);
         else footer.appendChild(note);

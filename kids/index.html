@@ -43,6 +43,11 @@
       font-weight: 800; font-size: 1.35rem; line-height: 1.25; color: #0f172a;
       box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1); border: 3px solid transparent;
     }
+    .kids-easy-door-pic {
+      width: 2.75rem; height: 2.75rem; object-fit: cover; object-position: center 22%;
+      border-radius: 12px; display: block; margin: 0 auto 0.4rem;
+      border: 2px solid rgba(255,255,255,0.7);
+    }
     .kids-easy-door small { display: block; font-weight: 600; font-size: 0.95rem; margin-top: 0.25rem; opacity: 0.85; }
     .kids-easy-door--story { background: linear-gradient(145deg, #fef3c7, #fde68a); border-color: #f59e0b; }
     .kids-easy-door--color { background: linear-gradient(145deg, #dbeafe, #93c5fd); border-color: #3b82f6; }
@@ -152,11 +157,13 @@
 
           <div class="kids-easy-doors" role="navigation" aria-label="Story, color, or play">
             <a class="kids-easy-door kids-easy-door--story" href="corner.html?choose=1#kids-library-grid">
-              📖 Story
+              <img class="kids-easy-door-pic" src="../coloring-pages/colored/creation.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async">
+              Story
               <small>Pick a picture, then open a Bible story</small>
             </a>
             <a class="kids-easy-door kids-easy-door--color" href="../coloring.html?story=jesus-children">
-              🖍️ Color
+              <img class="kids-easy-door-pic" src="../coloring-pages/colored/jesus-and-the-children.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async">
+              Color
               <small>Paint a Bible picture</small>
             </a>
           </div>

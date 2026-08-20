@@ -1,0 +1,36 @@
+{
+  "generated": "2026-08-20",
+  "note": "Flattened public-domain Bibles keyed like data/kjv-full.json. Official English line stays KJV. RV 1960 is not included (not public domain).",
+  "bibles": [
+    {
+      "lang": "es",
+      "file": "es-rv1909.json",
+      "id": "spa_r09",
+      "name": "Reina-Valera 1909",
+      "short": "RV1909",
+      "license": "Public domain",
+      "source": "https://ebible.org/Scriptures/details.php?id=spaRV1909",
+      "verses": 31084
+    },
+    {
+      "lang": "fr",
+      "file": "fr-lsg1910.json",
+      "id": "fra_lsg",
+      "name": "Louis Segond 1910",
+      "short": "LSG1910",
+      "license": "Public domain",
+      "source": "https://bible.helloao.org/api/fra_lsg/complete.simple.json",
+      "verses": 31170
+    },
+    {
+      "lang": "pt",
+      "file": "pt-almeida1911.json",
+      "id": "almeida",
+      "name": "Almeida 1911",
+      "short": "Almeida",
+      "license": "Public domain (1911 reprint of Almeida)",
+      "source": "https://api.getbible.net/v2/almeida.json",
+      "verses": 31101
+    }
+  ]
+}

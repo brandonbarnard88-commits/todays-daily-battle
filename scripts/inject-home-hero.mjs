@@ -14,6 +14,7 @@ import {
   loadVersePlainMeanings,
 } from './lib/hero-layman-plain.mjs';
 import { teachingForRef, kjvTextForRef } from './lib/verse-teaching-floor.mjs';
+import { injectLocaleHubHero } from './inject-locale-hub-hero.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -584,6 +585,7 @@ function main() {
     'utf8'
   );
 
+  injectLocaleHubHero();
   console.log('inject-home-hero: OK —', refPlain, '(UTC doy', utcDayOfYear() + ')');
 }
 

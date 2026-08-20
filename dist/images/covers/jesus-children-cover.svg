@@ -13,7 +13,7 @@
   <rect width="720" height="480" fill="url(#bg)"/>
   <rect width="720" height="480" fill="url(#glow)"/>
 
-  <!-- White page area  scene drawn on it -->
+  <!-- White page area  —  scene drawn on it -->
   <rect x="80" y="60" width="560" height="320" rx="8" fill="#f8f7f4" stroke="rgba(163,139,110,0.3)" stroke-width="1.5"/>
 
   <!-- Gentle hills / ground background -->
@@ -35,7 +35,7 @@
   <!-- Right arm extended to child -->
   <path d="M396 205 Q435 215 468 240" fill="none" stroke="#2a2218" stroke-width="2.5" stroke-linecap="round"/>
 
-  <!-- Child left  small, running toward Jesus -->
+  <!-- Child left  —  small, running toward Jesus -->
   <circle cx="210" cy="228" r="16" fill="none" stroke="#2a2218" stroke-width="2"/>
   <path d="M210 244 L210 295" stroke="#2a2218" stroke-width="2" stroke-linecap="round"/>
   <path d="M210 262 L194 278" stroke="#2a2218" stroke-width="2" stroke-linecap="round"/>
@@ -43,7 +43,7 @@
   <path d="M210 295 L196 318" stroke="#2a2218" stroke-width="1.8" stroke-linecap="round"/>
   <path d="M210 295 L224 318" stroke="#2a2218" stroke-width="1.8" stroke-linecap="round"/>
 
-  <!-- Child right  arms raised -->
+  <!-- Child right  —  arms raised -->
   <circle cx="510" cy="228" r="16" fill="none" stroke="#2a2218" stroke-width="2"/>
   <path d="M510 244 L510 295" stroke="#2a2218" stroke-width="2" stroke-linecap="round"/>
   <path d="M510 262 L490 250" stroke="#2a2218" stroke-width="2" stroke-linecap="round"/>
@@ -51,11 +51,11 @@
   <path d="M510 295 L496 318" stroke="#2a2218" stroke-width="1.8" stroke-linecap="round"/>
   <path d="M510 295 L524 318" stroke="#2a2218" stroke-width="1.8" stroke-linecap="round"/>
 
-  <!-- Child center  held/seated near Jesus -->
+  <!-- Child center  —  held/seated near Jesus -->
   <circle cx="360" cy="265" r="13" fill="none" stroke="#2a2218" stroke-width="2"/>
   <path d="M360 278 L360 310" stroke="#2a2218" stroke-width="1.8" stroke-linecap="round"/>
 
-  <!-- Small child far left  toddler, very small -->
+  <!-- Small child far left  —  toddler, very small -->
   <circle cx="152" cy="268" r="11" fill="none" stroke="#2a2218" stroke-width="1.8"/>
   <path d="M152 279 L152 308" stroke="#2a2218" stroke-width="1.8" stroke-linecap="round"/>
   <path d="M152 290 L140 300" stroke="#2a2218" stroke-width="1.5" stroke-linecap="round"/>
@@ -71,10 +71,10 @@
   <line x1="80" y1="330" x2="640" y2="330" stroke="#ccc5b8" stroke-width="1"/>
 
   <!-- KJV verse below the scene (on white) -->
-  <text x="360" y="354" font-family="Georgia,serif" font-size="10.5" font-style="italic" fill="#666" text-anchor="middle">"Suffer the little children to come unto me."  Mark 10:14 (KJV)</text>
+  <text x="360" y="354" font-family="Georgia,serif" font-size="10.5" font-style="italic" fill="#666" text-anchor="middle">"Suffer the little children to come unto me."  —  Mark 10:14 (KJV)</text>
 
   <!-- Title block (on dark background) -->
   <text x="360" y="415" font-family="Georgia,'Times New Roman',serif" font-size="22" font-weight="700" fill="#d4c4a8" text-anchor="middle">Jesus &amp; the Children</text>
   <text x="360" y="440" font-family="Georgia,serif" font-size="11.5" fill="rgba(163,139,110,0.8)" text-anchor="middle">Five gentle stories for young hearts</text>
-  <text x="360" y="463" font-family="Georgia,serif" font-size="8.5" fill="rgba(163,139,110,0.38)" text-anchor="middle" letter-spacing="0.08em">TODAYSDAILYBATTLE.COM � FREE TO PRINT � KJV ONLY</text>
+  <text x="360" y="463" font-family="Georgia,serif" font-size="8.5" fill="rgba(163,139,110,0.38)" text-anchor="middle" letter-spacing="0.08em">TODAYSDAILYBATTLE.COM · FREE TO PRINT · KJV ONLY</text>
 </svg>

@@ -141,11 +141,51 @@
       </section>
 
       <section class="card glass tdb-porch-paper-glass" aria-labelledby="credits-es-h" style="margin-top:1rem;">
-        <h2 id="credits-es-h">Spanish topic pages</h2>
-        <p>Some Spanish mood pages may quote <strong>Reina-Valera 1960</strong> or note public-domain Spanish Scripture separately. Those pages say so on the page. The main English Bible tool remains <abbr title="King James Version">KJV</abbr>.</p>
+        <h2 id="credits-es-h">Older Spanish topic pages</h2>
+        <p>Some older Spanish mood pages still quote <strong>Reina-Valera 1960</strong> on the page. That edition is <strong>not</strong> public domain. The official daily verse in Spanish is looked up from the <strong>Reina-Valera 1909</strong> (public domain), labeled on the page. The main English Bible tool remains <abbr title="King James Version">KJV</abbr>.</p>
       </section>
 
-      <p class="section-note" style="margin-top:1.5rem;">Questions about sources or licensing: <a href="/contact.html">Contact</a>. Mission heart: <a href="/about.html">About</a>.</p>
+      <section class="card glass tdb-porch-paper-glass" aria-labelledby="locale-bibles" style="margin-top:1rem;">
+        <h2 id="locale-bibles">Language Bibles used for today’s verse</h2>
+        <p>Language homes look up the same official UTC book, chapter, and verse as English. We store a public-domain or openly licensed Bible for that language, flatten it to a verse map, and grab the day’s reference. The English line on those pages is still KJV. We flattened texts for lookup (verse keys like the KJV map); that is an adaptation, not a new translation.</p>
+        <p class="section-note">JSON copies of several of these texts were received through <a href="https://bible.helloao.org/">HelloAO’s Free Use Bible API</a> and <a href="https://ebible.org/">eBible.org</a>. Almeida 1911 came through <a href="https://getbible.net/">getBible.net</a>. We are thankful for that distribution work.</p>
+
+        <h3 id="locale-es">Spanish — Reina-Valera 1909</h3>
+        <p>Public domain (1909 edition in the Reina-Valera tradition). Source: <a href="https://ebible.org/Scriptures/details.php?id=spaRV1909">eBible.org spaRV1909</a>, via HelloAO. Leading “Salmo.” headings were stripped from some verses.</p>
+
+        <h3 id="locale-fr">French — Louis Segond 1910</h3>
+        <p>Public domain (Louis Segond, 1910). Source: eBible.org / HelloAO (<code>fra_lsg</code>). Leading “Psaume.” headings were stripped from some verses.</p>
+
+        <h3 id="locale-pt">Portuguese — Almeida 1911</h3>
+        <p>Public domain text: João Ferreira de Almeida tradition, 1911 reprint of a 1900 edition. Digital source: <a href="https://api.getbible.net/v2/almeida.json">getBible.net almeida</a> (OSIS module). Flattened to a verse map for lookup.</p>
+
+        <h3 id="locale-zh">Chinese — 和合本 / Chinese Union Version 1919 (simplified)</h3>
+        <p>Public domain. Source: <a href="https://ebible.org/Scriptures/details.php?id=cmn-cu89s">eBible.org cmn-cu89s</a>, via HelloAO.</p>
+
+        <h3 id="locale-ru">Russian — Синодальный перевод (1876)</h3>
+        <p>Public domain. Source: <a href="https://ebible.org/Scriptures/details.php?id=russyn">eBible.org russyn</a>, via HelloAO. Psalm chapter numbers in this edition follow the Septuagint; we map them to the KJV calendar so the day’s verse is the same passage, not the neighboring psalm.</p>
+
+        <h3 id="locale-hi">Hindi — Indian Revised Version (IRV) 2019</h3>
+        <p><strong>Copyright © 2017, 2018, 2019 <a href="https://bridgeconn.com/">Bridge Connectivity Solutions</a>.</strong> Used under the <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">Creative Commons Attribution-ShareAlike 4.0 International license (CC BY-SA 4.0)</a>.</p>
+        <p>Source: <a href="https://ebible.org/Scriptures/details.php?id=hin2017">eBible.org hin2017</a>, via HelloAO. Translation by Bridge Connectivity Solutions Pvt. Ltd.</p>
+        <p>Adaptation: we flattened the text to a verse map for lookup and removed trailing study-note parentheses that were not the verse wording. That flattened file remains under <strong>CC BY-SA 4.0</strong>. If you reuse it, keep the copyright notice, the license, and this adaptation note.</p>
+
+        <h3 id="locale-id">Indonesian</h3>
+        <p>We do not yet store a public-domain Indonesian full Bible. The Indonesian home shows the official day’s verse in the <strong>King James Version</strong> (public domain in the United States), labeled as KJV — not a leftover rotating comfort verse.</p>
+      </section>
+
+      <section class="card glass tdb-porch-paper-glass" aria-labelledby="credits-distributors-h" style="margin-top:1rem;">
+        <h2 id="credits-distributors-h">Distributors we thank</h2>
+        <ul>
+          <li><a href="https://ebible.org/">eBible.org</a> — public-domain and openly licensed Scripture files.</li>
+          <li><a href="https://bible.helloao.org/">HelloAO Free Use Bible API</a> — JSON access to those texts.</li>
+          <li><a href="https://getbible.net/">getBible.net</a> — Almeida 1911 digital module.</li>
+          <li><a href="https://github.com/aruljohn/Bible-kjv">aruljohn/Bible-kjv</a> — KJV JSON used to vendor the English full text.</li>
+          <li><a href="https://bridgeconn.com/">Bridge Connectivity Solutions</a> — Hindi IRV under CC BY-SA 4.0.</li>
+        </ul>
+      </section>
+
+      <p class="section-note" style="margin-top:1.5rem;">Questions about sources or licensing: <a href="/contact.html">Contact</a>. Mission heart: <a href="/about.html">About</a>. Machine-readable notice: <a href="/data/bibles/NOTICE.txt">data/bibles/NOTICE.txt</a>.</p>
     </main>
 
     <!-- Footer injected pattern: minimal legal on this page -->

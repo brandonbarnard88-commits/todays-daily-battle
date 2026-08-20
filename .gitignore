@@ -4,6 +4,7 @@
 !CLOUDFLARE-CSP-COPY-PASTE.txt
 !scripts/mobius-breathe-human-say-input.txt
 !scripts/mobius-guided-human-say-input.txt
+!data/bibles/NOTICE.txt
 token*
 *.key
 .env

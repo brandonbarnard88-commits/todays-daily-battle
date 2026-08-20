@@ -153,6 +153,10 @@ report(
   /intent === 'reference'/.test(scriptSrc) && /pickHomeSearchEntries\(HOME_SEARCH_PLAN_LIBRARY, results, queryText, 2, \[\]\)/.test(scriptSrc),
   'script.js does not pad verse lookups with leftover comfort plans'
 );
+report(
+  scriptSrc.includes('applyCuratedAnswerToSearchResults') && scriptSrc.includes('usedCuratedKnowledge'),
+  'script.js lets curated who-was answers own the verse cards'
+);
 const coreSrc = fs.readFileSync(path.join(root, 'ask-the-word-core.js'), 'utf8');
 report(
   /john 3 16/.test(coreSrc) && /\\s\+\(\\d\+\)\$/.test(coreSrc),
@@ -171,6 +175,7 @@ const curatedCases = [
   { q: 'who is jesus', expectId: 'who-was-jesus' },
   { q: 'tell me about jesus', expectId: 'who-was-jesus' },
   { q: 'who is god', expectId: 'who-is-god' },
+  { q: 'who was ruth', expectId: 'who-was-ruth' },
   { q: 'what is the gospel', expectId: 'what-is-the-gospel' },
   { q: 'how can i be saved', expectId: 'assurance-salvation' },
   { q: 'what is repentance', expectId: 'what-is-repentance' },
@@ -249,7 +254,7 @@ report(/id=["']feel-search["']/.test(indexHtml), 'index.html has feel-search inp
 report(/appendAskTheWordAnswerSection\s*\(/.test(src), 'script.js wires appendAskTheWordAnswerSection');
 report(/classifyAskTheWordQuery\s*\(/.test(src) && /buildUniversalScriptureAnswerEntry\s*\(/.test(src),
   'script.js has classifier + universal entry builder');
-report(/script\.js\?v=20260820-ref/.test(coreHome), 'core-home.js cache-busts interactive script.js');
+report(/script\.js\?v=20260820-ruth/.test(coreHome), 'core-home.js cache-busts interactive script.js');
 
 console.log('\n---');
 console.log('Passed:', pass);

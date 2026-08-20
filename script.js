@@ -7724,13 +7724,13 @@ var TDB_BIBLICAL_ANSWERS = [
     id: 'who-was-ruth',
     type: 'knowledge',
     triggers: [
-      'who was ruth in the bible', 'tell me about ruth', 'ruth in the bible',
+      'who was ruth', 'who is ruth', 'who was ruth in the bible', 'tell me about ruth', 'ruth in the bible',
       'story of ruth', 'ruth and naomi', 'ruth and boaz', 'ruth kinsman redeemer',
       'where thou goest i will go', 'whither thou goest bible', 'ruth old testament'
     ],
     answer: 'Ruth was a Moabite woman who chose to stay with her widowed mother-in-law Naomi after her own husband died. "Whither thou goest, I will go" (Ruth 1:16) is her declaration of loyalty — one of the most celebrated in all of Scripture. She was a foreigner who showed more faithfulness than many Israelites in the story. Her loyalty brought her to the fields of Boaz, a kinsman-redeemer who married her and restored both women. Ruth became the great-grandmother of King David — and by extension, an ancestor of Jesus (Matthew 1:5). Her story is one of God\'s faithfulness working through ordinary loyalty, grief accepted with grace, and quiet provision that came through staying rather than running.',
     verses: ['Ruth 1:16', 'Ruth 2:12', 'Ruth 3:11', 'Matthew 1:5'],
-    plan: 'grief'
+    plan: ''
   },
   {
     id: 'who-was-esther',
@@ -32640,6 +32640,7 @@ function titleCaseHomeTopic(topic) {
 }
 
 function getHomeSearchActiveTopics(results, queryText) {
+  if (results && results.usedCuratedKnowledge) return [];
   var q = normalizeInput(String(queryText || ''));
   if (q === 'jesus said' || q === 'red letter' || q === 'words of jesus' || (results && results.intent === 'jesus_said')) {
     return ['jesus said'];
@@ -32818,6 +32819,10 @@ function buildHomeSearchPlanMatches(results, queryText) {
   if (results && results.intent === 'reference') {
     return pickHomeSearchEntries(HOME_SEARCH_PLAN_LIBRARY, results, queryText, 2, []);
   }
+  /* “Who was Ruth?” is a person, not a leftover purpose/trauma lane. */
+  if (results && results.usedCuratedKnowledge) {
+    return pickHomeSearchEntries(HOME_SEARCH_PLAN_LIBRARY, results, queryText, 1, []);
+  }
   return pickHomeSearchEntries(
     HOME_SEARCH_PLAN_LIBRARY,
     results,
@@ -32828,6 +32833,7 @@ function buildHomeSearchPlanMatches(results, queryText) {
 }
 
 function buildHomeSearchResourceMatches(results, queryText) {
+  if (results && results.usedCuratedKnowledge) return [];
   return pickHomeSearchEntries(
     HOME_SEARCH_RESOURCE_LIBRARY,
     results,
@@ -34295,6 +34301,53 @@ function findBiblicalAnswer(queryText) {
   return null;
 }
 
+function resolveSearchVerseText(ref) {
+  var r = String(ref || '').replace(/\s+/g, ' ').trim();
+  if (!r) return '';
+  if (typeof resolveBibleTextFromMap === 'function' && typeof bible !== 'undefined') {
+    var hit = resolveBibleTextFromMap(bible, r);
+    if (hit) return hit;
+  }
+  if (typeof getBibleVerseText === 'function') {
+    var g = getBibleVerseText(r);
+    if (g) return g;
+  }
+  if (typeof bible !== 'undefined' && bible && bible[r]) return bible[r];
+  return '';
+}
+
+/** Curated “who was Ruth?” (and other knowledge) answers own the verse list. */
+function applyCuratedAnswerToSearchResults(results, queryText) {
+  if (!results || typeof findBiblicalAnswer !== 'function') return results;
+  var entry = findBiblicalAnswer(queryText);
+  if (!entry || !Array.isArray(entry.verses) || !entry.verses.length) return results;
+  var rows = [];
+  var seen = {};
+  entry.verses.forEach(function (item) {
+    var ref = typeof item === 'string' ? item : (item && item.ref) || '';
+    ref = String(ref || '').replace(/\s+/g, ' ').trim();
+    if (!ref || seen[ref]) return;
+    seen[ref] = true;
+    var text = (item && item.text) || resolveSearchVerseText(ref);
+    rows.push({ ref: ref, text: text || '' });
+  });
+  if (!rows.length) return results;
+  results.verses = rows;
+  results.usedDefaultVerses = false;
+  results.fallback = false;
+  results.curatedAnswerId = entry.id || '';
+  results.curatedPlan = entry.plan || '';
+  if (entry.type === 'knowledge') {
+    results.intent = 'knowledge';
+    results.topic = '';
+    results.semanticTopic = '';
+    results.semanticBlendedTopics = [];
+    results.usedSemanticTopic = false;
+    results.usedCuratedKnowledge = true;
+  }
+  return results;
+}
+
 /**
  * Append a biblical answer, forcing crisis help first for suicidal-despair / self-harm.
  * Those answers must never appear without the crisis block.
@@ -34579,6 +34632,7 @@ function renderHomeSearchResults(results, output, queryText) {
   prependCrisisHelpIfNeeded(shell, queryText, true);
 
   var askProfile = typeof classifyAskTheWordQuery === 'function' ? classifyAskTheWordQuery(queryText) : null;
+  applyCuratedAnswerToSearchResults(results, queryText);
   // Off-topic: honest redirect only — do not dump unrelated verse packs.
   if (askProfile && askProfile.offTopic) {
     results = {
@@ -34608,17 +34662,20 @@ function renderHomeSearchResults(results, output, queryText) {
 
   var title = document.createElement('h3');
   title.className = 'home-search-response-title';
+  var curatedEntry = typeof findBiblicalAnswer === 'function' ? findBiblicalAnswer(queryText) : null;
   title.textContent = (askProfile && askProfile.offTopic)
     ? 'Stay with the Word'
     : (quietTopic
       ? titleCaseHomeTopic((results && results.topic) || queryText || '')
-      : getAskTheWordHeading(queryText, results, askResponse));
+      : (curatedEntry ? 'Ask the Word' : getAskTheWordHeading(queryText, results, askResponse)));
   header.appendChild(title);
 
   if (!quietTopic) {
-    var askLead = askResponse && askResponse.answer
-      ? tdbPlainTextForUi(askResponse.answer)
-      : buildAskTheWordLocalLead(queryText, results);
+    var askLead = curatedEntry
+      ? buildAskTheWordLocalLead(queryText, results)
+      : (askResponse && askResponse.answer
+        ? tdbPlainTextForUi(askResponse.answer)
+        : buildAskTheWordLocalLead(queryText, results));
     var lead = document.createElement('p');
     lead.className = 'home-search-response-lead';
     lead.textContent = askLead;
@@ -36729,10 +36786,12 @@ async function tdbInitImpl() {
             if (cacheKey && searchCache.has(cacheKey)) {
               searchResults = searchCache.get(cacheKey);
               searchResults.queryText = normalizeInput(input || '');
+              applyCuratedAnswerToSearchResults(searchResults, input);
               renderResults(searchResults);
             } else {
               searchResults = executeQuery(parsed, tier, filters);
               searchResults.queryText = normalizeInput(input || '');
+              applyCuratedAnswerToSearchResults(searchResults, input);
               if (cacheKey) searchCache.set(cacheKey, searchResults);
               renderResults(searchResults);
             }

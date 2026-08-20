@@ -52,6 +52,9 @@ if (!/hero-daily-365-data\.js\?v=20260820-full/.test(indexHtml)) {
 if (!fp.includes('Never shorten the KJV') && !fp.includes('Stale calendar JS can truncate')) {
   fail('hero-daily-first-paint.js must refuse to shorten an injected full KJV line');
 }
+if (!script.includes('applyCuratedAnswerToSearchResults') || !script.includes('usedCuratedKnowledge')) {
+  fail('script.js must bind curated who-was answers to their own verses, not leftover cards');
+}
 
 if (failures.length) {
   console.error('ref-search leftover FAIL — ' + failures.length + ' issue(s):\n');

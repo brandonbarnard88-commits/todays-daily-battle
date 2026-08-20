@@ -1,9 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M120 400 Q300 360 480 400 T840 380"/>
-    <path d="M200 400 L200 520 L320 520"/>
-    <circle cx="380" cy="300" r="40"/>
-    <path d="M380 340 L380 420"/>
-    <path d="M340 260 L420 260"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="elijah-ravens.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

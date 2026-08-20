@@ -236,6 +236,7 @@
       width: 100%;
       height: auto;
     }
+    .cb-story__art img.cb-story__art-print { display: none; }
     .cb-story__footer {
       padding: 0.6rem 1.15rem;
       background: #f8f9fb;
@@ -297,6 +298,8 @@
         width: 100%;
         object-fit: contain;
       }
+      .cb-story__art img.cb-story__art-screen { display: none !important; }
+      .cb-story__art img.cb-story__art-print { display: block !important; }
 
       /* Print-only footer on each page */
       .cb-story__print-footer {
@@ -907,6 +910,89 @@
         verseRef:'Acts 27:22,25 (KJV)' }
     ];
 
+      var STORY_ART = {
+        'creation': { src: '/coloring-pages/colored/creation-six-days-coloring-page.jpg', print: '/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg' },
+        'noah': { src: '/coloring-pages/colored/noah-s1.jpg', print: '/coloring-pages/noah-s1.jpg' },
+        'abraham-sarah': { src: '/coloring-pages/colored/abraham-sarah.jpg', print: '/coloring-pages/abraham-sarah.jpg' },
+        'abraham-isaac': { src: '/coloring-pages/colored/abraham-isaac.jpg', print: '/coloring-pages/abraham-isaac.jpg' },
+        'joseph-coat': { src: '/coloring-pages/colored/joseph-coat.jpg', print: '/coloring-pages/joseph-coat.jpg' },
+        'joseph-dreams': { src: '/coloring-pages/colored/joseph-dreams.jpg', print: '/coloring-pages/joseph-dreams.jpg' },
+        'baby-moses': { src: '/coloring-pages/colored/baby-moses-s1.jpg', print: '/coloring-pages/baby-moses-s1.jpg' },
+        'burning-bush': { src: '/coloring-pages/colored/burning-bush.jpg', print: '/coloring-pages/burning-bush.jpg' },
+        'moses-red-sea': { src: '/coloring-pages/colored/moses-red-sea-s1.jpg', print: '/coloring-pages/moses-red-sea-s1.jpg' },
+        'balaams-donkey': { src: '/coloring-pages/colored/balaams-donkey.jpg', print: '/coloring-pages/balaams-donkey.jpg' },
+        'jordan-crossing': { src: '/coloring-pages/colored/jordan-crossing.jpg', print: '/coloring-pages/jordan-crossing.jpg' },
+        'rahab-spies': { src: '/coloring-pages/colored/rahab-spies.jpg', print: '/coloring-pages/rahab-spies.jpg' },
+        'jericho': { src: '/coloring-pages/colored/jericho.jpg', print: '/coloring-pages/jericho.jpg' },
+        'gideon-fleece': { src: '/coloring-pages/colored/gideon-fleece.jpg', print: '/coloring-pages/gideon-fleece.jpg' },
+        'samson': { src: '/coloring-pages/colored/samson.jpg', print: '/coloring-pages/samson.jpg' },
+        'ruth-naomi': { src: '/coloring-pages/colored/ruth-naomi-s1.jpg', print: '/coloring-pages/ruth-naomi-s1.jpg' },
+        'ruth-boaz': { src: '/coloring-pages/colored/ruth-boaz.jpg', print: '/coloring-pages/ruth-boaz.jpg' },
+        'hannah-samuel': { src: '/coloring-pages/colored/hannah-samuel.jpg', print: '/coloring-pages/hannah-samuel.jpg' },
+        'boy-samuel': { src: '/coloring-pages/colored/boy-samuel.jpg', print: '/coloring-pages/boy-samuel.jpg' },
+        'boy-david': { src: '/coloring-pages/colored/boy-david.jpg', print: '/coloring-pages/boy-david.jpg' },
+        'david': { src: '/coloring-pages/colored/david-and-goliath-v2.jpg', print: '/coloring-pages/bible-stories/david-and-goliath-v2.jpg' },
+        'david-jonathan': { src: '/coloring-pages/colored/david-jonathan.jpg', print: '/coloring-pages/david-jonathan.jpg' },
+        'david-spares-saul': { src: '/coloring-pages/colored/david-spares-saul.jpg', print: '/coloring-pages/david-spares-saul.jpg' },
+        'elijah-ravens': { src: '/coloring-pages/colored/elijah-ravens.jpg', print: '/coloring-pages/elijah-ravens.jpg' },
+        'elijah-widow': { src: '/coloring-pages/colored/elijah-widow.jpg', print: '/coloring-pages/elijah-widow.jpg' },
+        'elijah-carmel': { src: '/coloring-pages/colored/elijah-carmel.jpg', print: '/coloring-pages/elijah-carmel.jpg' },
+        'elijah-taken-up': { src: '/coloring-pages/colored/elijah-taken-up.jpg', print: '/coloring-pages/elijah-taken-up.jpg' },
+        'elisha-oil': { src: '/coloring-pages/colored/elisha-oil.jpg', print: '/coloring-pages/elisha-oil.jpg' },
+        'naaman': { src: '/coloring-pages/colored/naaman.jpg', print: '/coloring-pages/naaman.jpg' },
+        'esther': { src: '/coloring-pages/colored/esther.jpg', print: '/coloring-pages/esther.jpg' },
+        'nehemiah-walls': { src: '/coloring-pages/colored/nehemiah-walls.jpg', print: '/coloring-pages/nehemiah-walls.jpg' },
+        'fiery-furnace': { src: '/coloring-pages/colored/fiery-furnace.jpg', print: '/coloring-pages/fiery-furnace.jpg' },
+        'daniel-lions': { src: '/coloring-pages/colored/daniel-in-the-lions-den-coloring-page.jpg', print: '/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg' },
+        'writing-on-wall': { src: '/coloring-pages/colored/writing-on-wall.jpg', print: '/coloring-pages/writing-on-wall.jpg' },
+        'jonah': { src: '/coloring-pages/colored/jonah-s1.jpg', print: '/coloring-pages/jonah-s1.jpg' },
+        'nativity': { src: '/coloring-pages/colored/nativity-s1.jpg', print: '/coloring-pages/nativity-s1.jpg' },
+        'jesus-baptism': { src: '/coloring-pages/colored/jesus-baptism.jpg', print: '/coloring-pages/jesus-baptism.jpg' },
+        'jesus-tempted': { src: '/coloring-pages/colored/jesus-tempted.jpg', print: '/coloring-pages/jesus-tempted.jpg' },
+        'triumphal-entry': { src: '/coloring-pages/colored/triumphal-entry.jpg', print: '/coloring-pages/triumphal-entry.jpg' },
+        'jesus-washes-feet': { src: '/coloring-pages/colored/jesus-washes-feet.jpg', print: '/coloring-pages/jesus-washes-feet.jpg' },
+        'transfiguration': { src: '/coloring-pages/colored/transfiguration.jpg', print: '/coloring-pages/transfiguration.jpg' },
+        'empty-tomb': { src: '/coloring-pages/colored/empty-tomb-coloring-page.jpg', print: '/coloring-pages/bible-stories/empty-tomb-coloring-page.jpg' },
+        'emmaus-road': { src: '/coloring-pages/colored/emmaus-road.jpg', print: '/coloring-pages/emmaus-road.jpg' },
+        'fishers-of-men': { src: '/coloring-pages/colored/fishers-of-men-s1.jpg', print: '/coloring-pages/fishers-of-men-s1.jpg' },
+        'wedding-cana': { src: '/coloring-pages/colored/wedding-cana-s1.jpg', print: '/coloring-pages/wedding-cana-s1.jpg' },
+        'healing-paralytic': { src: '/coloring-pages/colored/healing-paralytic.jpg', print: '/coloring-pages/healing-paralytic.jpg' },
+        'withered-hand': { src: '/coloring-pages/colored/withered-hand.jpg', print: '/coloring-pages/withered-hand.jpg' },
+        'centurion-servant': { src: '/coloring-pages/colored/centurion-servant.jpg', print: '/coloring-pages/centurion-servant.jpg' },
+        'feeding-5000': { src: '/coloring-pages/colored/feeding-5000-s1.jpg', print: '/coloring-pages/feeding-5000-s1.jpg' },
+        'feeding-4000': { src: '/coloring-pages/colored/feeding-4000.jpg', print: '/coloring-pages/feeding-4000.jpg' },
+        'jesus-storm': { src: '/coloring-pages/colored/jesus-storm-s1.jpg', print: '/coloring-pages/jesus-storm-s1.jpg' },
+        'walks-on-water': { src: '/coloring-pages/colored/walks-on-water-s1.jpg', print: '/coloring-pages/walks-on-water-s1.jpg' },
+        'healing-leper': { src: '/coloring-pages/colored/healing-leper.jpg', print: '/coloring-pages/healing-leper.jpg' },
+        'ten-lepers': { src: '/coloring-pages/colored/ten-lepers.jpg', print: '/coloring-pages/ten-lepers.jpg' },
+        'jairus-daughter': { src: '/coloring-pages/colored/jairus-daughter-s1.jpg', print: '/coloring-pages/jairus-daughter-s1.jpg' },
+        'lazarus': { src: '/coloring-pages/colored/lazarus-s1.jpg', print: '/coloring-pages/lazarus-s1.jpg' },
+        'blind-man': { src: '/coloring-pages/colored/blind-man-s1.jpg', print: '/coloring-pages/blind-man-s1.jpg' },
+        'woman-at-well': { src: '/coloring-pages/colored/woman-at-well-s1.jpg', print: '/coloring-pages/woman-at-well-s1.jpg' },
+        'good-shepherd': { src: '/coloring-pages/colored/good-shepherd-s1.jpg', print: '/coloring-pages/good-shepherd-s1.jpg' },
+        'good-samaritan': { src: '/coloring-pages/colored/good-samaritan-s1.jpg', print: '/coloring-pages/good-samaritan-s1.jpg' },
+        'prodigal-son': { src: '/coloring-pages/colored/prodigal-son-s1.jpg', print: '/coloring-pages/prodigal-son-s1.jpg' },
+        'lost-sheep': { src: '/coloring-pages/colored/lost-sheep-s1.jpg', print: '/coloring-pages/lost-sheep-s1.jpg' },
+        'lost-coin': { src: '/coloring-pages/colored/lost-coin.jpg', print: '/coloring-pages/lost-coin.jpg' },
+        'mustard-seed': { src: '/coloring-pages/colored/mustard-seed.jpg', print: '/coloring-pages/mustard-seed.jpg' },
+        'the-sower': { src: '/coloring-pages/colored/the-sower.jpg', print: '/coloring-pages/the-sower.jpg' },
+        'the-talents': { src: '/coloring-pages/colored/the-talents.jpg', print: '/coloring-pages/the-talents.jpg' },
+        'wise-foolish-builders': { src: '/coloring-pages/colored/wise-foolish-builders.jpg', print: '/coloring-pages/wise-foolish-builders.jpg' },
+        'pearl-great-price': { src: '/coloring-pages/colored/pearl-great-price.jpg', print: '/coloring-pages/pearl-great-price.jpg' },
+        'persistent-widow': { src: '/coloring-pages/colored/persistent-widow.jpg', print: '/coloring-pages/persistent-widow.jpg' },
+        'pharisee-tax-collector': { src: '/coloring-pages/colored/pharisee-tax-collector.jpg', print: '/coloring-pages/pharisee-tax-collector.jpg' },
+        'unforgiving-servant': { src: '/coloring-pages/colored/unforgiving-servant.jpg', print: '/coloring-pages/unforgiving-servant.jpg' },
+        'rich-young-ruler': { src: '/coloring-pages/colored/rich-young-ruler.jpg', print: '/coloring-pages/rich-young-ruler.jpg' },
+        'widows-mite': { src: '/coloring-pages/colored/widows-mite.jpg', print: '/coloring-pages/widows-mite.jpg' },
+        'jesus-children': { src: '/coloring-pages/colored/jesus-and-the-children-coloring-page.jpg', print: '/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg' },
+        'zacchaeus': { src: '/coloring-pages/colored/zacchaeus-s1.jpg', print: '/coloring-pages/zacchaeus-s1.jpg' },
+        'paul-silas-prison': { src: '/coloring-pages/colored/paul-silas-prison.jpg', print: '/coloring-pages/paul-silas-prison.jpg' },
+        'lydia-purple': { src: '/coloring-pages/colored/lydia-purple.jpg', print: '/coloring-pages/lydia-purple.jpg' },
+        'tabitha-dorcas': { src: '/coloring-pages/colored/tabitha-dorcas.jpg', print: '/coloring-pages/tabitha-dorcas.jpg' },
+        'philip-ethiopian': { src: '/coloring-pages/colored/philip-ethiopian.jpg', print: '/coloring-pages/philip-ethiopian.jpg' },
+        'paul-shipwreck': { src: '/coloring-pages/colored/paul-shipwreck.jpg', print: '/coloring-pages/paul-shipwreck.jpg' },
+      };
+
     /* ─── Q&A: mapping from coloring-book IDs → TDB_KIDS_READ_QUIZ keys ─── */
     var CB_QUIZ_MAP = {
       'creation':'creation','noah':'noah','abraham-isaac':'abrahamIsaac',
@@ -1075,8 +1161,10 @@
         article.id = 'story-' + story.id;
         article.setAttribute('data-section', story.section);
 
-        /* Scene src */
-        var sceneSrc = '/coloring-pages/' + story.id + '-s' + story.scene + '.svg';
+        /* Real Color & Tell paintings — never the stick-figure SVG stubs */
+        var art = STORY_ART[story.id] || {};
+        var sceneSrc = art.src || ('/coloring-pages/' + story.id + '.jpg');
+        var printSrc = art.print || sceneSrc;
 
         /* Meta bar (screen only) */
         var metaDiv = document.createElement('div');
@@ -1124,10 +1212,22 @@
         img.src = sceneSrc;
         img.alt = story.title + ' \u2014 Bible story coloring page (KJV)';
         img.width = 900;
-        img.height = 680;
+        img.height = 1200;
         img.loading = 'lazy';
         img.decoding = 'async';
+        img.className = printSrc !== sceneSrc ? 'cb-story__art-screen' : '';
         artDiv.appendChild(img);
+        if (printSrc !== sceneSrc) {
+          var imgPrint = document.createElement('img');
+          imgPrint.src = printSrc;
+          imgPrint.alt = story.title + ' \u2014 printable line art (KJV)';
+          imgPrint.width = 900;
+          imgPrint.height = 1200;
+          imgPrint.loading = 'lazy';
+          imgPrint.decoding = 'async';
+          imgPrint.className = 'cb-story__art-print';
+          artDiv.appendChild(imgPrint);
+        }
         article.appendChild(artDiv);
 
         /* Screen footer */

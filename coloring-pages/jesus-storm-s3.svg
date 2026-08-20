@@ -1,20 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M170 425 L730 425 L690 500 L210 500 Z"/>
-    <rect x="370" y="398" width="200" height="32" rx="8"/>
-    <ellipse cx="478" cy="382" rx="52" ry="20"/>
-    <circle cx="518" cy="372" r="15"/>
-    <path d="M430 382 L380 355"/>
-    <path d="M526 382 L575 358"/>
-    <circle cx="300" cy="365" r="14"/>
-    <line x1="300" y1="379" x2="285" y2="335"/>
-    <line x1="300" y1="379" x2="315" y2="335"/>
-    <line x1="300" y1="379" x2="300" y2="415"/>
-    <circle cx="620" cy="360" r="14"/>
-    <line x1="620" y1="374" x2="600" y2="328"/>
-    <line x1="620" y1="374" x2="640" y2="328"/>
-    <line x1="620" y1="374" x2="620" y2="410"/>
-    <path d="M340 350 L360 320"/>
-    <path d="M580 345 L560 318"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="jesus-storm-s3.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

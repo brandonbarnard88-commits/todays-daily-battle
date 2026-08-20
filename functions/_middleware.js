@@ -15,9 +15,12 @@ const FALLBACK_SECURITY_HEADERS = {
 
 const BLOCKED_PATHS = new Set(['/stats', '/stats/', '/stats.html']);
 
-/** Retired stick-figure panel art — never serve even if a ghost asset remains at the edge. */
+/** Retired stick-figure art — never serve even if a ghost asset remains at the edge. */
 function isRetiredStickPanelPath(path) {
-  return /^\/kids\/panel-[a-z0-9-]+\.svg\/?$/i.test(path || '');
+  return (
+    /^\/kids\/panel-[a-z0-9-]+\.svg\/?$/i.test(path || '') ||
+    /^\/images\/covers\/[^/]+\.svg$/i.test(path || '')
+  );
 }
 
 const BLOCKED_HTML = `<!DOCTYPE html>

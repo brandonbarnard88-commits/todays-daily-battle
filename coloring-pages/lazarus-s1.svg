@@ -1,14 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="280" y="260" width="340" height="40" rx="8"/>
-    <path d="M300 300 L300 420"/>
-    <path d="M400 300 L400 420"/>
-    <path d="M500 300 L500 420"/>
-    <path d="M600 300 L600 420"/>
-    <ellipse cx="450" cy="220" rx="55" ry="30"/>
-    <circle cx="450" cy="200" r="18"/>
-    <path d="M200 380 L240 340 L280 380"/>
-    <circle cx="680" cy="360" r="14"/>
-    <line x1="680" y1="346" x2="680" y2="300"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="lazarus-s1.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

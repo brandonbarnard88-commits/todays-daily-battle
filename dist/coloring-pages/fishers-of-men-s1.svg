@@ -1,11 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M40 360 Q200 320 450 340 Q700 360 860 340"/>
-    <path d="M60 420 Q250 380 450 400 Q650 420 840 400"/>
-    <path d="M280 340 L320 280 L400 300 L440 360 Z"/>
-    <path d="M520 350 L560 290 L640 310 L680 370 Z"/>
-    <path d="M340 300 L380 240 L420 260"/>
-    <path d="M580 310 L620 250 L660 270"/>
-    <circle cx="360" cy="260" r="14"/><circle cx="600" cy="270" r="14"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="fishers-of-men-s1.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

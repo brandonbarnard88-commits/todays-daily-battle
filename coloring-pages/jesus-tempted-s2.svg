@@ -1,7 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="450" cy="300" r="38"/>
-    <path d="M450 338 L450 440"/>
-    <path d="M320 400 L580 400 M380 420 L520 420"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="jesus-tempted.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

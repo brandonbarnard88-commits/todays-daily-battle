@@ -1,12 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M40 460 L860 460"/>
-    <circle cx="520" cy="260" r="24"/>
-    <line x1="520" y1="284" x2="520" y2="380"/>
-    <line x1="520" y1="310" x2="485" y2="290"/><line x1="520" y1="310" x2="555" y2="290"/>
-    <circle cx="360" cy="340" r="18"/>
-    <line x1="360" y1="358" x2="360" y2="430"/>
-    <path d="M400 360 L480 320"/>
-    <path d="M580 340 L640 320"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="blind-man-s2.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

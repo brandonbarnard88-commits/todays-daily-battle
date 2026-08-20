@@ -1,9 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M300 180 L600 180 L580 480 L320 480 Z"/>
-    <path d="M340 240 Q450 200 560 240"/>
-    <circle cx="380" cy="340" r="16"/><circle cx="450" cy="330" r="16"/><circle cx="520" cy="340" r="16"/>
-    <circle cx="450" cy="300" r="14"/>
-    <line x1="380" y1="356" x2="380" y2="400"/><line x1="450" y1="346" x2="450" y2="400"/><line x1="520" y1="356" x2="520" y2="400"/><line x1="450" y1="314" x2="450" y2="330"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="fiery-furnace.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

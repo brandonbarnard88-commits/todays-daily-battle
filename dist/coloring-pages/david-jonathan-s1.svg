@@ -1,9 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="340" cy="300" r="18"/><circle cx="560" cy="300" r="18"/>
-    <line x1="340" y1="318" x2="340" y2="400"/><line x1="560" y1="318" x2="560" y2="400"/>
-    <path d="M380 280 L520 280"/>
-    <path d="M300 240 L380 200 M600 240 L520 200"/>
-    <path d="M100 480 L800 480"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="david-jonathan.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

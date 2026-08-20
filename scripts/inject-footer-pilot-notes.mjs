@@ -30,7 +30,7 @@ const NOTES = [
   {
     match: (rel) => rel.startsWith('hi/'),
     html:
-      '  <p class="site-footer-pilot-note" lang="hi">हिन्दी पृष्ठ। जब औज़ार अंग्रेज़ी में खुलते हैं, रास्ता फिर भी साफ़ रहता है; बाइबल टूल में आमतौर पर <abbr title="King James Version" lang="en">KJV</abbr> दिखता है (इस पृष्ठ पर उद्धृत १८५१ हिंदी वचन को छोड़कर)। आज सिर्फ़ इसी पृष्ठ पर ठहरना भी ठीक है।</p>\n\n',
+      '  <p class="site-footer-pilot-note" lang="hi">हिन्दी पृष्ठ। जब औज़ार अंग्रेज़ी में खुलते हैं, रास्ता फिर भी साफ़ रहता है; बाइबल टूल में आमतौर पर <abbr title="King James Version" lang="en">KJV</abbr> दिखता है (इस पृष्ठ पर उद्धृत हिन्दी IRV 2019 वचन को छोड़कर)। आज सिर्फ़ इसी पृष्ठ पर ठहरना भी ठीक है।</p>\n\n',
   },
   {
     match: (rel) => rel.startsWith('ru/'),

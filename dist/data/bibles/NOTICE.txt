@@ -49,9 +49,13 @@ Hindi Indian Revised Version (IRV) 2019
               copyright notice, the license, and this adaptation note.
 
 Indonesian
-  No public-domain Indonesian full Bible is stored yet. The Indonesian
-  home uses the King James Version (public domain in the United States)
-  for the official day's verse.
+  No public-domain Indonesian full Bible is stored yet. Indonesian pages
+  that quote Scripture use the King James Version (public domain in the
+  United States). Terjemahan Baru is not stored and must not be quoted.
+
+Not hosted
+  NIV, ESV, NLT, NKJV, NASB, Reina-Valera 1960, NVI, Segond 1978/NEG,
+  Terjemahan Baru, and other copyrighted modern editions.
 
 Distributors
   eBible.org — https://ebible.org/

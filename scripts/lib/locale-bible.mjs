@@ -153,7 +153,9 @@ export function localeTextForRef(root, lang, ref) {
     if (bible[k]) {
       return String(bible[k])
         .replace(/\s*\([^)]*\d+[:.][^)]*\)\s*$/g, '')
+        .replace(/\d+:\d+\s+[^।]*।/g, '')
         .replace(/\s+/g, ' ')
+        .replace(/\s+,/g, ',')
         .trim();
     }
   }

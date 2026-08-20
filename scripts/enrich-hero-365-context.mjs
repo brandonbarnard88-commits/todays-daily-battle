@@ -59,16 +59,11 @@ async function main() {
     const existingSetting = String(row.setting || '').trim();
     const setting = existingSetting.length >= 24 ? existingSetting : String(ctx.setting || '').trim();
     if (about && to) filled += 1;
-    const out = {
-      ref: row.ref,
-      text: row.text,
-      plain: row.plain,
-      step: row.step,
-      about,
-      to
-    };
+    const out = Object.assign({}, row, { about, to });
     if (setting) out.setting = setting;
     if (row.prayer) out.prayer = String(row.prayer).trim();
+    if (row.modernApplication) out.modernApplication = String(row.modernApplication).trim();
+    if (row.today) out.today = String(row.today).trim();
     return out;
   });
   const header = `/**
@@ -90,9 +85,9 @@ async function main() {
   };
   global.TDB_GET_HERO_EXPLANATION_BY_REF = function (ref) {
     var list = global.__TDB_HERO_DAILY_EXPLANATIONS || [];
-    var r = String(ref || '').replace(/\\s+/g, ' ').replace(/^Psalms\\s+/i, 'Psalm ').trim();
+    var r = String(ref || '').replace(/\\s+/g, ' ').replace(/^Psalms\\s+/i, 'Psalm ').replace(/\\s*\\(KJV\\)\\s*$/i, '').trim();
     for (var j = 0; j < list.length; j++) {
-      var lr = String(list[j].ref || '').replace(/\\s+/g, ' ').replace(/^Psalms\\s+/i, 'Psalm ').trim();
+      var lr = String(list[j].ref || '').replace(/\\s+/g, ' ').replace(/^Psalms\\s+/i, 'Psalm ').replace(/\\s*\\(KJV\\)\\s*$/i, '').trim();
       if (lr === r) return list[j];
     }
     return null;

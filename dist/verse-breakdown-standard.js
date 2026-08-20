@@ -24,8 +24,8 @@
     var y = typeof year === 'number' && !isNaN(year) ? year : currentYear();
     var hook = sanitize(verseText || '').replace(/\s+/g, ' ').trim();
     if (hook.length > 72) hook = hook.slice(0, 69).replace(/\s+\S*$/, '') + '…';
-    if (hook) return 'In ' + y + ', hold this verse as written: “' + hook.replace(/[.!?]$/, '') + '.”';
-    return 'In ' + y + ', hold this verse as written.';
+    if (hook) return 'In ' + y + ', this verse still says: “' + hook.replace(/[.!?]$/, '') + '.”';
+    return 'In ' + y + ', this verse still speaks into the hour you are in.';
   }
 
   /** @param {string} refFull e.g. "John 3:16" — no HTML */

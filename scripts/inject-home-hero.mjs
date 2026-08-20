@@ -13,6 +13,7 @@ import {
   buildHeroLaymanPlain,
   loadVersePlainMeanings,
 } from './lib/hero-layman-plain.mjs';
+import { teachingForRef } from './lib/verse-teaching-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -203,7 +204,7 @@ function buildInjectedHeroLesson(refPlain, textPlain, plainMap, explMap, resolve
   const ref = normalizeRefBare(refPlain);
   const text = String(textPlain || '').replace(/\s+/g, ' ').trim();
   const lower = text.toLowerCase();
-  const expl = (explMap && explMap[ref]) || null;
+  const expl = teachingForRef(root, ref, text, (explMap && explMap[ref]) || null);
   let meaningOnly = '';
   let step =
     'Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.';
@@ -338,8 +339,13 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
       '$1' + escapeHtmlText(meaningOnly) + '$2'
     );
   }
-  if (explMap) {
-    const expl = explMap[normalizeRefBare(refPlain)];
+  if (explMap || lesson) {
+    const expl = teachingForRef(
+      root,
+      refPlain,
+      textPlain,
+      (explMap && explMap[normalizeRefBare(refPlain)]) || null
+    );
     if (expl && expl.about) {
       html = html.replace(
         /(<div class="hero-vbd-bundle" id="heroVbdRowWho"[^>]*)\s*hidden/,

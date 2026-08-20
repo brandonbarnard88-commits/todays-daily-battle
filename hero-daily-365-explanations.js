@@ -524,14 +524,14 @@
     {
       "ref": "Psalm 33:4",
       "text": "The word of the Lord is right; and all his works are done in truth.",
-      "plain": "The word of the Lord is right; — His way is for your good.",
+      "plain": "For the word of the LORD is right; and all his works are done in truth.",
       "step": "Read this once out loud, then do the next honest thing it names: “The word of the Lord is right.”",
       "about": "David",
       "to": "Worshipers who needed to hear “The word of the Lord is right” — and you in the hour this verse is for: “The word of the Lord is right; and all his works are done in.”",
       "setting": "David is calling for a new song of praise. This verse is why: the word of the Lord is right, and all His works are done in truth. The verse: The word of the Lord is right;.",
       "prayer": "Lord, write this on my path today: “The word of the Lord is right”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, The word of the Lord is right; — His way is for your good. The verse still says: “The word of the Lord is right; and all his works are done in.”",
-      "today": "The word of the Lord is right; — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, For the word of the LORD is right; and all his works are done in truth. The verse still says: “The word of the Lord is right; and all his works are done in.”",
+      "today": "This word is for you in the hour this verse is for: “The word of the Lord is right; and all his works are done in.”"
     },
     {
       "ref": "Isaiah 41:10",
@@ -704,14 +704,14 @@
     {
       "ref": "Luke 11:28",
       "text": "Blessed are they that hear the word of God.",
-      "plain": "His way is for your good: Blessed are they that hear the word of God.",
+      "plain": "But he said, Yes rather, blessed are they that hear the word of God, and keep it.",
       "step": "Thank Him out loud using this line, then start the next honest work: “Blessed are they that hear the word of God.”",
       "about": "Jesus (through Luke)",
       "to": "The people in front of Jesus when He said “Blessed are they that hear the word” — and you in the hour this verse is for: “Blessed are they that hear the word of God.”",
       "setting": "A woman has just blessed Jesus’ mother. He answers with this verse: blessed are they that hear the word of God and keep it. The verse: Blessed are they that hear the word of God.",
       "prayer": "Lord, I set these words before You from Luke 11:28: “Blessed are they that hear the word of God.” In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: Blessed are they that hear the word of God. The verse still says: “Blessed are they that hear the word of God.”",
-      "today": "His way is for your good: Blessed are they that hear the word of God — that is for the hour you are actually in."
+      "modernApplication": "In 2026, But he said, Yes rather, blessed are they that hear the word of God, and keep it. The verse still says: “Blessed are they that hear the word of God.”",
+      "today": "This word is for you in the hour this verse is for: “Blessed are they that hear the word of God.”"
     },
     {
       "ref": "Psalm 73:26",
@@ -896,14 +896,14 @@
     {
       "ref": "Psalm 119:50",
       "text": "This is my comfort in my affliction: for thy word hath quickened me.",
-      "plain": "This is my comfort in my affliction: — His way is for your good.",
+      "plain": "This is my comfort in my affliction: for your word has quickened me.",
       "step": "Write this where you will see it: “This is my comfort in my affliction:.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “This is my comfort in my affliction:” — and you in the hour this verse is for: “This is my comfort in my affliction: for thy word hath.”",
       "setting": "Still in the long love-song to God’s Word, The verse: this is my comfort in my affliction, for Your word has given me life.",
       "prayer": "Lord, write this on my path today: “This is my comfort in my affliction: for your word”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, This is my comfort in my affliction: — His way is for your good. The verse still says: “This is my comfort in my affliction: for thy word hath.”",
-      "today": "This is my comfort in my affliction: — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, This is my comfort in my affliction: for your word has quickened me. The verse still says: “This is my comfort in my affliction: for thy word hath.”",
+      "today": "This word is for you in the hour this verse is for: “This is my comfort in my affliction: for thy word hath.”"
     },
     {
       "ref": "Psalm 119:76",
@@ -1244,14 +1244,14 @@
     {
       "ref": "Psalm 12:6",
       "text": "The words of the Lord are pure words.",
-      "plain": "His way is for your good: The words of the Lord are pure words.",
+      "plain": "The words of the LORD are pure words: as silver tried in a furnace of earth, purified seven times.",
       "step": "Carry this clause in your mouth until noon: “The words of the Lord are pure words.”",
       "about": "David",
       "to": "Worshipers who needed to hear “The words of the Lord are pure words” — and you in the hour this verse is for: “The words of the Lord are pure words.”",
       "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God. The verse: The words of the Lord are pure words.",
       "prayer": "Lord, write this on my path today: “The words of the Lord are pure words”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: The words of the Lord are pure words. The verse still says: “The words of the Lord are pure words.”",
-      "today": "His way is for your good: The words of the Lord are pure words — that is for the hour you are actually in."
+      "modernApplication": "In 2026, The words of the LORD are pure words: as silver tried in a furnace of earth, purified seven times. The verse still says: “The words of the Lord are pure words.”",
+      "today": "This word is for you in the hour this verse is for: “The words of the Lord are pure words.”"
     },
     {
       "ref": "Ephesians 2:10",
@@ -3476,14 +3476,14 @@
     {
       "ref": "Proverbs 12:25",
       "text": "Heaviness in the heart of man maketh it stoop: but a good word maketh it glad.",
-      "plain": "Heaviness in the heart of man makes it stoop: — His way is for your good.",
+      "plain": "Heaviness in the heart of man makes it stoop: but a good word makes it glad.",
       "step": "Write this where you will see it: “Heaviness in the heart of man maketh it stoop:.”",
       "about": "Solomon giving wisdom",
       "to": "A son learning wisdom, starting with “Heaviness in the heart of man maketh it” — and you in the hour this verse is for: “Heaviness in the heart of man maketh it stoop: but a good.”",
       "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. The verse: Heaviness in the heart of man maketh it stoop: but a good word maketh.",
       "prayer": "Lord, write this on my path today: “Heaviness in the heart of man maketh it stoop: but”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, Heaviness in the heart of man makes it stoop: — His way is for your good. The verse still says: “Heaviness in the heart of man maketh it stoop: but a good.”",
-      "today": "Heaviness in the heart of man makes it stoop: — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, Heaviness in the heart of man makes it stoop: but a good word makes it glad. The verse still says: “Heaviness in the heart of man maketh it stoop: but a good.”",
+      "today": "This word is for you in the hour this verse is for: “Heaviness in the heart of man maketh it stoop: but a good.”"
     },
     {
       "ref": "Psalm 118:1",
@@ -3632,14 +3632,14 @@
     {
       "ref": "Psalm 119:9",
       "text": "Wherewithal shall a young man cleanse his way? by taking heed thereto according to thy word.",
-      "plain": "Wherewithal shall a young man cleanse his way — His way is for your good.",
+      "plain": "Wherewithal shall a young man cleanse his way? By taking heed thereto according to your word.",
       "step": "Read this once out loud, then do the next honest thing it names: “Wherewithal shall a young man cleanse his way.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “Wherewithal shall a young man cleanse” — and you in the hour this verse is for: “Wherewithal shall a young man cleanse his way? by taking.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: Wherewithal shall a young man cleanse his way.",
       "prayer": "Lord, write this on my path today: “Wherewithal shall a young man cleanse his way”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, Wherewithal shall a young man cleanse his way — His way is for your good. The verse still says: “Wherewithal shall a young man cleanse his way? by taking.”",
-      "today": "Wherewithal shall a young man cleanse his way — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, Wherewithal shall a young man cleanse his way? By taking heed thereto according to your word. The verse still says: “Wherewithal shall a young man cleanse his way? by taking.”",
+      "today": "This word is for you in the hour this verse is for: “Wherewithal shall a young man cleanse his way? by taking.”"
     },
     {
       "ref": "Psalm 119:18",
@@ -3704,14 +3704,14 @@
     {
       "ref": "Psalm 119:32",
       "text": "I will run the way of thy commandments, when thou shalt enlarge my heart.",
-      "plain": "His way is for your good: I will run the way of your commandments, when you shall enlarge my heart.",
+      "plain": "I will run the way of your commandments, when you shall enlarge my heart.",
       "step": "Read this once out loud, then do the next honest thing it names: “I will run the way of your commandments, when.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “I will run the way of your commandments” — and you in the hour this verse is for: “I will run the way of thy commandments, when thou shalt.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: I will run the way of your commandments, when you shall enlarge.",
       "prayer": "Lord, let this word be true in me today: “I will run the way of your commandments, when you”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: I will run the way of your commandments, when you shall enlarge my heart. The verse still says: “I will run the way of thy commandments, when thou shalt.”",
-      "today": "His way is for your good: I will run the way of your commandments, when you shall enlarge my heart — that is for the hour you are actually in."
+      "modernApplication": "In 2026, I will run the way of your commandments, when you shall enlarge my heart. The verse still says: “I will run the way of thy commandments, when thou shalt.”",
+      "today": "This word is for you in the hour this verse is for: “I will run the way of thy commandments, when thou shalt.”"
     },
     {
       "ref": "Psalm 119:45",
@@ -3740,14 +3740,14 @@
     {
       "ref": "Psalm 119:65",
       "text": "Thou hast dealt well with thy servant, O Lord, according unto thy word.",
-      "plain": "His way is for your good: You have dealt well with your servant, O Lord, according to your word.",
+      "plain": "You have dealt well with your servant, O LORD, according to your word.",
       "step": "Read this once out loud, then do the next honest thing it names: “you hast dealt well with your servant, O Lord.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “you hast dealt well with your servant, O” — and you in the hour this verse is for: “Thou hast dealt well with thy servant, O Lord, according.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: you hast dealt well with your servant, O Lord, according unto.",
       "prayer": "Lord, write this on my path today: “you hast dealt well with your servant, O Lord”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: You have dealt well with your servant, O Lord, according to your word. The verse still says: “Thou hast dealt well with thy servant, O Lord, according.”",
-      "today": "His way is for your good: You have dealt well with your servant, O Lord, according to your word — that is for the hour you are actually in."
+      "modernApplication": "In 2026, You have dealt well with your servant, O LORD, according to your word. The verse still says: “Thou hast dealt well with thy servant, O Lord, according.”",
+      "today": "This word is for you in the hour this verse is for: “Thou hast dealt well with thy servant, O Lord, according.”"
     },
     {
       "ref": "Isaiah 49:16",
@@ -3776,26 +3776,26 @@
     {
       "ref": "Psalm 119:68",
       "text": "Thou art good, and doest good; teach me thy statutes.",
-      "plain": "You are good, and doest good; — His way is for your good.",
+      "plain": "You are good, and doest good; teach me your statutes.",
       "step": "Read this once out loud, then do the next honest thing it names: “you art good, and doest good.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “you art good, and doest good” — and you in the hour this verse is for: “Thou art good, and doest good; teach me thy statutes.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: you art good, and doest good.",
       "prayer": "Lord, write this on my path today: “you art good, and doest good”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, You are good, and doest good; — His way is for your good. The verse still says: “Thou art good, and doest good; teach me thy statutes.”",
-      "today": "You are good, and doest good; — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, You are good, and doest good; teach me your statutes. The verse still says: “Thou art good, and doest good; teach me thy statutes.”",
+      "today": "This word is for you in the hour this verse is for: “Thou art good, and doest good; teach me thy statutes.”"
     },
     {
       "ref": "John 13:34",
       "text": "A new commandment I give unto you, That ye love one another.",
-      "plain": "His way is for your good: A new commandment I give to you, That you love one another.",
+      "plain": "A new commandment I give to you, That you love one another; as I have loved you, that you also love one another.",
       "step": "Write this where you will see it: “A new commandment I give unto you, That you love.”",
       "about": "Jesus",
       "to": "The people in front of Jesus when He said “A new commandment I give unto you” — and you in the hour this verse is for: “A new commandment I give unto you, That ye love one another.”",
       "setting": "Jesus is in this moment — upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. He says, “A new commandment I give unto you, That you love one another.”. The verse: A new commandment I give unto you, That ye love one another.",
       "prayer": "Lord, let this mercy reach me, then go out from me: “A new commandment I give unto you, That you love one”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: A new commandment I give to you, That you love one another. The verse still says: “A new commandment I give unto you, That ye love one another.”",
-      "today": "His way is for your good: A new commandment I give to you, That you love one another — that is for the hour you are actually in."
+      "modernApplication": "In 2026, A new commandment I give to you, That you love one another; as I have loved you, that you also love one another. The verse still says: “A new commandment I give unto you, That ye love one another.”",
+      "today": "This word is for you in the hour this verse is for: “A new commandment I give unto you, That ye love one another.”"
     },
     {
       "ref": "Psalm 119:73",
@@ -3812,14 +3812,14 @@
     {
       "ref": "Psalm 119:89",
       "text": "For ever, O Lord, thy word is settled in heaven.",
-      "plain": "Forever, O Lord, your word is settled in heaven — His way is for your good.",
+      "plain": "Forever, O LORD, your word is settled in heaven.",
       "step": "Write this where you will see it: “For ever, O Lord, your word is settled in heaven.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “For ever, O Lord, your word is settled” — and you in the hour this verse is for: “For ever, O Lord, thy word is settled in heaven.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: For ever, O Lord, your word is settled in heaven.",
       "prayer": "Lord, write this on my path today: “For ever, O Lord, your word is settled in heaven”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, Forever, O Lord, your word is settled in heaven — His way is for your good. The verse still says: “For ever, O Lord, thy word is settled in heaven.”",
-      "today": "Forever, O Lord, your word is settled in heaven — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, Forever, O LORD, your word is settled in heaven. The verse still says: “For ever, O Lord, thy word is settled in heaven.”",
+      "today": "This word is for you in the hour this verse is for: “For ever, O Lord, thy word is settled in heaven.”"
     },
     {
       "ref": "Matthew 7:12",
@@ -3872,26 +3872,26 @@
     {
       "ref": "Psalm 119:103",
       "text": "How sweet are thy words unto my taste! yea, sweeter than honey to my mouth!",
-      "plain": "How sweet are your words to my taste — His way is for your good.",
+      "plain": "How sweet are your words to my taste! Yes, sweeter than honey to my mouth!",
       "step": "Write this where you will see it: “How sweet are your words unto my taste.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “How sweet are your words unto my taste” — and you in the hour this verse is for: “How sweet are thy words unto my taste! yea, sweeter than.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: How sweet are your words unto my taste.",
       "prayer": "Lord, write this on my path today: “How sweet are your words unto my taste”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, How sweet are your words to my taste — His way is for your good. The verse still says: “How sweet are thy words unto my taste! yea, sweeter than.”",
-      "today": "How sweet are your words to my taste — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, How sweet are your words to my taste! Yes, sweeter than honey to my mouth!. The verse still says: “How sweet are thy words unto my taste! yea, sweeter than.”",
+      "today": "This word is for you in the hour this verse is for: “How sweet are thy words unto my taste! yea, sweeter than.”"
     },
     {
       "ref": "Psalm 119:114",
       "text": "Thou art my hiding place and my shield: I hope in thy word.",
-      "plain": "You are my hiding place and my shield: — His way is for your good.",
+      "plain": "You are my hiding place and my shield: I hope in your word.",
       "step": "When you want another rescue, return to: “you art my hiding place and my shield: I hope.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “you art my hiding place and my shield: I” — and you in the hour this verse is for: “Thou art my hiding place and my shield: I hope in thy word.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: you art my hiding place and my shield: I hope in your word.",
       "prayer": "Lord, i put my weight on You: “you art my hiding place and my shield: I hope”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, You are my hiding place and my shield: — His way is for your good. The verse still says: “Thou art my hiding place and my shield: I hope in thy word.”",
-      "today": "You are my hiding place and my shield: — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, You are my hiding place and my shield: I hope in your word. The verse still says: “Thou art my hiding place and my shield: I hope in thy word.”",
+      "today": "This word is for you in the hour this verse is for: “Thou art my hiding place and my shield: I hope in thy word.”"
     },
     {
       "ref": "Isaiah 54:10",
@@ -3908,14 +3908,14 @@
     {
       "ref": "Psalm 119:116",
       "text": "Uphold me according unto thy word, that I may live: and let me not be ashamed of my hope.",
-      "plain": "Uphold me according to your word, that I may live: — His way is for your good.",
+      "plain": "Uphold me according to your word, that I may live: and let me not be ashamed of my hope.",
       "step": "Write this where you will see it: “Uphold me according unto your word, that I may.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “Uphold me according unto your word, that I” — and you in the hour this verse is for: “Uphold me according unto thy word, that I may live: and let.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: Uphold me according unto your word, that I may live: and let me not be.",
       "prayer": "Lord, write this on my path today: “Uphold me according unto your word, that I may live”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, Uphold me according to your word, that I may live: — His way is for your good. The verse still says: “Uphold me according unto thy word, that I may live: and let.”",
-      "today": "Uphold me according to your word, that I may live: — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, Uphold me according to your word, that I may live: and let me not be ashamed of my hope. The verse still says: “Uphold me according unto thy word, that I may live: and let.”",
+      "today": "This word is for you in the hour this verse is for: “Uphold me according unto thy word, that I may live: and let.”"
     },
     {
       "ref": "Psalm 119:130",
@@ -3944,26 +3944,26 @@
     {
       "ref": "Psalm 119:151",
       "text": "Thou art near, O Lord; and all thy commandments are truth.",
-      "plain": "You are near, O Lord; — His way is for your good.",
+      "plain": "You are near, O LORD; and all your commandments are truth.",
       "step": "Carry this clause in your mouth until noon: “you art near, O Lord.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “you art near, O Lord” — and you in the hour this verse is for: “Thou art near, O Lord; and all thy commandments are truth.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: you art near, O Lord.",
       "prayer": "Lord, let this word be true in me today: “you art near, O Lord”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, You are near, O Lord; — His way is for your good. The verse still says: “Thou art near, O Lord; and all thy commandments are truth.”",
-      "today": "You are near, O Lord; — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, You are near, O LORD; and all your commandments are truth. The verse still says: “Thou art near, O Lord; and all thy commandments are truth.”",
+      "today": "This word is for you in the hour this verse is for: “Thou art near, O Lord; and all thy commandments are truth.”"
     },
     {
       "ref": "Psalm 119:140",
       "text": "Thy word is very pure: therefore thy servant loveth it.",
-      "plain": "Your word is very pure: — His way is for your good.",
+      "plain": "Your word is very pure: so your servant loves it.",
       "step": "Write this where you will see it: “your word is very pure: therefore your servant.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “your word is very pure: therefore” — and you in the hour this verse is for: “Thy word is very pure: therefore thy servant loveth it.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: your word is very pure: therefore your servant loveth it.",
       "prayer": "Lord, write this on my path today: “your word is very pure: therefore your servant loveth”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, Your word is very pure: — His way is for your good. The verse still says: “Thy word is very pure: therefore thy servant loveth it.”",
-      "today": "Your word is very pure: — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, Your word is very pure: so your servant loves it. The verse still says: “Thy word is very pure: therefore thy servant loveth it.”",
+      "today": "This word is for you in the hour this verse is for: “Thy word is very pure: therefore thy servant loveth it.”"
     },
     {
       "ref": "Matthew 18:20",
@@ -3980,26 +3980,26 @@
     {
       "ref": "Psalm 119:160",
       "text": "Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.",
-      "plain": "Your word is true from the beginning: — His way is for your good.",
+      "plain": "Your word is true from the beginning: and every one of your righteous judgments endureth forever.",
       "step": "Write this where you will see it: “your word is true from the beginning: and every.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “your word is true from the beginning:” — and you in the hour this verse is for: “Thy word is true from the beginning: and every one of thy.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: your word is true from the beginning: and every one of your righteous.",
       "prayer": "Lord, write this on my path today: “your word is true from the beginning: and every one”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, Your word is true from the beginning: — His way is for your good. The verse still says: “Thy word is true from the beginning: and every one of thy.”",
-      "today": "Your word is true from the beginning: — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, Your word is true from the beginning: and every one of your righteous judgments endureth forever. The verse still says: “Thy word is true from the beginning: and every one of thy.”",
+      "today": "This word is for you in the hour this verse is for: “Thy word is true from the beginning: and every one of thy.”"
     },
     {
       "ref": "Psalm 119:162",
       "text": "I rejoice at thy word, as one that findeth great spoil.",
-      "plain": "His way is for your good: I rejoice at your word, as one that findeth great spoil.",
+      "plain": "I rejoice at your word, as one that findeth great spoil.",
       "step": "Read this once out loud, then do the next honest thing it names: “I rejoice at your word, as one that findeth.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “I rejoice at your word, as one” — and you in the hour this verse is for: “I rejoice at thy word, as one that findeth great spoil.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: I rejoice at your word, as one that findeth great spoil.",
       "prayer": "Lord, write this on my path today: “I rejoice at your word, as one that findeth great”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: I rejoice at your word, as one that findeth great spoil. The verse still says: “I rejoice at thy word, as one that findeth great spoil.”",
-      "today": "His way is for your good: I rejoice at your word, as one that findeth great spoil — that is for the hour you are actually in."
+      "modernApplication": "In 2026, I rejoice at your word, as one that findeth great spoil. The verse still says: “I rejoice at thy word, as one that findeth great spoil.”",
+      "today": "This word is for you in the hour this verse is for: “I rejoice at thy word, as one that findeth great spoil.”"
     },
     {
       "ref": "Proverbs 15:3",
@@ -4196,26 +4196,26 @@
     {
       "ref": "Psalm 130:5",
       "text": "I wait for the Lord, my soul doth wait, and in his word do I hope.",
-      "plain": "His way is for your good: I wait for the Lord, my soul does wait, and in his word do I hope.",
+      "plain": "I wait for the LORD, my soul does wait, and in his word do I hope.",
       "step": "Carry this clause in your mouth until noon: “I wait for the Lord, my soul doth wait.”",
       "about": "Pilgrim songs of ascent — Israel going up to Jerusalem",
       "to": "Worshipers who needed to hear “I wait for the Lord, my soul doth wait” — and you in the hour this verse is for: “I wait for the Lord, my soul doth wait, and in his word do I.”",
       "setting": "Pilgrim songs of ascent — Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing. The verse: I wait for the Lord, my soul doth wait, and in his word do I hope.",
       "prayer": "Lord, write this on my path today: “I wait for the Lord, my soul doth wait”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: I wait for the Lord, my soul does wait, and in his word do I hope. The verse still says: “I wait for the Lord, my soul doth wait, and in his word do I.”",
-      "today": "His way is for your good: I wait for the Lord, my soul does wait, and in his word do I hope — that is for the hour you are actually in."
+      "modernApplication": "In 2026, I wait for the LORD, my soul does wait, and in his word do I hope. The verse still says: “I wait for the Lord, my soul doth wait, and in his word do I.”",
+      "today": "This word is for you in the hour this verse is for: “I wait for the Lord, my soul doth wait, and in his word do I.”"
     },
     {
       "ref": "John 15:12",
       "text": "This is my commandment, That ye love one another, as I have loved you.",
-      "plain": "His way is for your good: This is my commandment, That you love one another, as I have loved you.",
+      "plain": "This is my commandment, That you love one another, as I have loved you.",
       "step": "Carry this clause in your mouth until noon: “This is my commandment, That you love one.”",
       "about": "Jesus",
       "to": "The people in front of Jesus when He said “This is my commandment, That you love one” — and you in the hour this verse is for: “This is my commandment, That ye love one another, as I have.”",
       "setting": "Jesus — Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross. The verse: This is my commandment, That you love one another, as I have loved you.",
       "prayer": "Lord, let this mercy reach me, then go out from me: “This is my commandment, That you love one another”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: This is my commandment, That you love one another, as I have loved you. The verse still says: “This is my commandment, That ye love one another, as I have.”",
-      "today": "His way is for your good: This is my commandment, That you love one another, as I have loved you — that is for the hour you are actually in."
+      "modernApplication": "In 2026, This is my commandment, That you love one another, as I have loved you. The verse still says: “This is my commandment, That ye love one another, as I have.”",
+      "today": "This word is for you in the hour this verse is for: “This is my commandment, That ye love one another, as I have.”"
     },
     {
       "ref": "Psalm 130:7",
@@ -4724,14 +4724,14 @@
     {
       "ref": "Psalm 1:2",
       "text": "But his delight is in the law of the LORD; and in his law doth he meditate day and night.",
-      "plain": "But his delight is in the law of the LORD; — His way is for your good.",
+      "plain": "But his delight is in the law of the LORD; and in his law does he meditate day and night.",
       "step": "Carry this clause in your mouth until noon: “But his delight is in the law of the LORD.”",
       "about": "A psalm writer",
       "to": "Worshipers who needed to hear “But his delight is in the law of the LORD” — and you in the hour this verse is for: “But his delight is in the law of the LORD; and in his law.”",
       "setting": "A psalm writer — Opening of the Psalter: two ways. The verse: But his delight is in the law of the LORD.",
       "prayer": "Lord, write this on my path today: “But his delight is in the law of the LORD”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, But his delight is in the law of the LORD; — His way is for your good. The verse still says: “But his delight is in the law of the LORD; and in his law.”",
-      "today": "But his delight is in the law of the LORD; — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, But his delight is in the law of the LORD; and in his law does he meditate day and night. The verse still says: “But his delight is in the law of the LORD; and in his law.”",
+      "today": "This word is for you in the hour this verse is for: “But his delight is in the law of the LORD; and in his law.”"
     },
     {
       "ref": "Psalm 1:3",
@@ -5132,13 +5132,13 @@
     {
       "ref": "Psalm 119:11",
       "text": "Thy word have I hid in mine heart, that I might not sin against thee.",
-      "plain": "His way is for your good: Your word have I hid in mine heart, that I might not sin against you.",
+      "plain": "Your word have I hid in mine heart, that I might not sin against you.",
       "step": "Hide this line in your mouth before the day gets loud: “Your word have I hid in my heart.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Anyone hiding the Word so they will not sin — and you when temptation is close",
       "setting": "In the long acrostic love-song to God’s Word, The verse: Your word have I hid in my heart, that I might not sin against You.",
       "prayer": "Lord, write this on my path today: “your word have I hid in mine heart, that I might not”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: Your word have I hid in mine heart, that I might not sin against you. The verse still says: “Thy word have I hid in mine heart, that I might not sin.”",
+      "modernApplication": "In 2026, Your word have I hid in mine heart, that I might not sin against you. The verse still says: “Thy word have I hid in mine heart, that I might not sin.”",
       "today": "This word is for you when temptation is close."
     },
     {
@@ -5660,14 +5660,14 @@
     {
       "ref": "Proverbs 16:24",
       "text": "Pleasant words are as an honeycomb, sweet to the soul, and health to the bones.",
-      "plain": "His way is for your good: Pleasant words are as an honeycomb, sweet to the soul, and health to the bones.",
+      "plain": "Pleasant words are as an honeycomb, sweet to the soul, and health to the bones.",
       "step": "Read this once out loud, then do the next honest thing it names: “Pleasant words are as an honeycomb, sweet.”",
       "about": "Solomon giving wisdom",
       "to": "A son learning wisdom, starting with “Pleasant words are as an honeycomb, sweet” — and you in the hour this verse is for: “Pleasant words are as an honeycomb, sweet to the soul, and.”",
       "setting": "Solomon giving wisdom — Short proverbs for daily life: work, words, friends, and the fear of the Lord. The verse: Pleasant words are as an honeycomb, sweet to the soul, and health.",
       "prayer": "Lord, write this on my path today: “Pleasant words are as an honeycomb, sweet”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: Pleasant words are as an honeycomb, sweet to the soul, and health to the bones. The verse still says: “Pleasant words are as an honeycomb, sweet to the soul, and.”",
-      "today": "His way is for your good: Pleasant words are as an honeycomb, sweet to the soul, and health to the bones — that is for the hour you are actually in."
+      "modernApplication": "In 2026, Pleasant words are as an honeycomb, sweet to the soul, and health to the bones. The verse still says: “Pleasant words are as an honeycomb, sweet to the soul, and.”",
+      "today": "This word is for you in the hour this verse is for: “Pleasant words are as an honeycomb, sweet to the soul, and.”"
     },
     {
       "ref": "Proverbs 18:21",
@@ -5792,14 +5792,14 @@
     {
       "ref": "Isaiah 40:8",
       "text": "The grass withereth, the flower fadeth: but the word of our God shall stand for ever.",
-      "plain": "The grass withereth, the flower fadeth: — His way is for your good.",
+      "plain": "The grass withereth, the flower fadeth: but the word of our God shall stand forever.",
       "step": "Carry this clause in your mouth until noon: “The grass withereth, the flower fadeth: but.”",
       "about": "Isaiah (comfort from God)",
       "to": "The first people who had to hear “The grass withereth, the flower fadeth:” — and you in the hour this verse is for: “The grass withereth, the flower fadeth: but the word of our.”",
       "setting": "Isaiah — Comfort for exiles: God is incomparable. The verse: The grass withereth, the flower fadeth: but the word of our God shall.",
       "prayer": "Lord, write this on my path today: “The grass withereth, the flower fadeth: but”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, The grass withereth, the flower fadeth: — His way is for your good. The verse still says: “The grass withereth, the flower fadeth: but the word of our.”",
-      "today": "The grass withereth, the flower fadeth: — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, The grass withereth, the flower fadeth: but the word of our God shall stand forever. The verse still says: “The grass withereth, the flower fadeth: but the word of our.”",
+      "today": "This word is for you in the hour this verse is for: “The grass withereth, the flower fadeth: but the word of our.”"
     },
     {
       "ref": "Isaiah 40:11",
@@ -6404,14 +6404,14 @@
     {
       "ref": "Mark 12:31",
       "text": "And the second is like, namely this, Thou shalt love thy neighbour as thyself. There is none other commandment greater than these.",
-      "plain": "And the second is like, namely this, You shall love your neighbor as thyself — His way is for your good.",
+      "plain": "And the second is like, namely this, You shall love your neighbor as thyself. There is none other commandment greater than these.",
       "step": "Carry this clause in your mouth until noon: “And the second is like, namely this, you shall.”",
       "about": "Jesus (through Mark)",
       "to": "The people in front of Jesus when He said “And the second is like, namely this, you” — and you in the hour this verse is for: “And the second is like, namely this, Thou shalt love thy.”",
       "setting": "Jesus — Entry into Jerusalem. The verse: And the second is like, namely this, you shall love your neighbour as.",
       "prayer": "Lord, let this mercy reach me, then go out from me: “And the second is like, namely this, you shalt”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, And the second is like, namely this, You shall love your neighbor as thyself — His way is for your good. The verse still says: “And the second is like, namely this, Thou shalt love thy.”",
-      "today": "And the second is like, namely this, You shall love your neighbor as thyself — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, And the second is like, namely this, You shall love your neighbor as thyself. There is none other commandment greater than these. The verse still says: “And the second is like, namely this, Thou shalt love thy.”",
+      "today": "This word is for you in the hour this verse is for: “And the second is like, namely this, Thou shalt love thy.”"
     },
     {
       "ref": "Luke 2:10",
@@ -6536,14 +6536,14 @@
     {
       "ref": "John 8:31",
       "text": "Then said Jesus to those Jews which believed on him, If ye continue in my word, then are ye my disciples indeed;",
-      "plain": "Then said Jesus to those Jews which believed on him, If you continue in my word, then are — His way is for your good.",
+      "plain": "Then said Jesus to those Jews which believed on him, If you continue in my word, then are you my disciples indeed;.",
       "step": "Carry this clause in your mouth until noon: “Then said Jesus to those Jews which believed on.”",
       "about": "Jesus (through John)",
       "to": "The people in front of Jesus when He said “Then said Jesus to those Jews” — and you in the hour this verse is for: “Then said Jesus to those Jews which believed on him, If ye.”",
       "setting": "Jesus — Conflict at feasts in Jerusalem. The verse: Then said Jesus to those Jews which believed on him, If you continue.",
       "prayer": "Lord, write this on my path today: “Then said Jesus to those Jews which believed on”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, Then said Jesus to those Jews which believed on him, If you continue in my word, then are — His way is for your good. The verse still says: “Then said Jesus to those Jews which believed on him, If ye.”",
-      "today": "Then said Jesus to those Jews which believed on him, If you continue in my word, then are — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, Then said Jesus to those Jews which believed on him, If you continue in my word, then are you my disciples indeed;. The verse still says: “Then said Jesus to those Jews which believed on him, If ye.”",
+      "today": "This word is for you in the hour this verse is for: “Then said Jesus to those Jews which believed on him, If ye.”"
     },
     {
       "ref": "John 8:32",
@@ -7328,14 +7328,14 @@
     {
       "ref": "Hebrews 4:12",
       "text": "For the word of God is quick, and powerful, and sharper than any twoedged sword, piercing even to the dividing asunder of soul and spirit, and of the joints and marrow, and is a discerner of the thoughts and intents of the heart.",
-      "plain": "For the word of God is quick, and powerful, and sharper than any twoedged sword, piercing — His way is for your good.",
+      "plain": "For the word of God is quick, and powerful, and sharper than any twoedged sword, piercing even to the dividing asunder of soul and spirit, and of the joints and marrow, and is a discerner of the…",
       "step": "Read this once out loud, then do the next honest thing it names: “For the word of God is quick, and powerful.”",
       "about": "The writer of Hebrews",
       "to": "The first hearers of “For the word of God is quick” — and you in the hour this verse is for: “For the word of God is quick, and powerful, and sharper than.”",
       "setting": "The writer of Hebrews — A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old. The verse: For the word of God is quick, and powerful, and sharper than any.",
       "prayer": "Lord, write this on my path today: “For the word of God is quick, and powerful”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, For the word of God is quick, and powerful, and sharper than any twoedged sword, piercing — His way is for your good. The verse still says: “For the word of God is quick, and powerful, and sharper than.”",
-      "today": "For the word of God is quick, and powerful, and sharper than any twoedged sword, piercing — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, For the word of God is quick, and powerful, and sharper than any twoedged sword, piercing even to the dividing asunder of soul and spirit, and of the joints and marrow, and is a discerner of the…. The verse still says: “For the word of God is quick, and powerful, and sharper than.”",
+      "today": "This word is for you in the hour this verse is for: “For the word of God is quick, and powerful, and sharper than.”"
     },
     {
       "ref": "Hebrews 6:19",
@@ -7424,14 +7424,14 @@
     {
       "ref": "James 1:22",
       "text": "But be ye doers of the word, and not hearers only, deceiving your own selves.",
-      "plain": "But Be doers of the word, and not hearers only, deceiving your own selves — His way is for your good.",
+      "plain": "But Be doers of the word, and not hearers only, deceiving your own selves.",
       "step": "Read this once out loud, then do the next honest thing it names: “But be you doers of the word, and not hearers.”",
       "about": "James",
       "to": "The first hearers of “But be you doers of the word, and not” — and you in the hour this verse is for: “But be ye doers of the word, and not hearers only, deceiving.”",
       "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and. The verse: But be you doers of the word, and not hearers only, deceiving your own.",
       "prayer": "Lord, write this on my path today: “But be you doers of the word, and not hearers only”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, But Be doers of the word, and not hearers only, deceiving your own selves — His way is for your good. The verse still says: “But be ye doers of the word, and not hearers only, deceiving.”",
-      "today": "But Be doers of the word, and not hearers only, deceiving your own selves — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, But Be doers of the word, and not hearers only, deceiving your own selves. The verse still says: “But be ye doers of the word, and not hearers only, deceiving.”",
+      "today": "This word is for you in the hour this verse is for: “But be ye doers of the word, and not hearers only, deceiving.”"
     },
     {
       "ref": "James 4:7",
@@ -7700,14 +7700,14 @@
     {
       "ref": "Revelation 21:5",
       "text": "And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.",
-      "plain": "And he that sat upon the throne said, Look, I make all things new — His way is for your good.",
+      "plain": "And he that sat upon the throne said, Look, I make all things new. And he said to me, Write: for these words are true and faithful.",
       "step": "Write this where you will see it: “And he that sat upon the throne said, Behold, I.”",
       "about": "John (from God)",
       "to": "The first hearers of “And he that sat upon the throne said” — and you in the hour this verse is for: “And he that sat upon the throne said, Behold, I make all.”",
       "setting": "John — new heaven and new earth. The verse: And he that sat upon the throne said, Behold, I make all things new.",
       "prayer": "Lord, write this on my path today: “And he that sat upon the throne said, Behold, I”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, And he that sat upon the throne said, Look, I make all things new — His way is for your good. The verse still says: “And he that sat upon the throne said, Behold, I make all.”",
-      "today": "And he that sat upon the throne said, Look, I make all things new — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, And he that sat upon the throne said, Look, I make all things new. And he said to me, Write: for these words are true and faithful. The verse still says: “And he that sat upon the throne said, Behold, I make all.”",
+      "today": "This word is for you in the hour this verse is for: “And he that sat upon the throne said, Behold, I make all.”"
     },
     {
       "ref": "Revelation 22:17",
@@ -8036,14 +8036,14 @@
     {
       "ref": "Psalm 119:49",
       "text": "Remember the word unto thy servant, upon which thou hast caused me to hope.",
-      "plain": "His way is for your good: Remember the word to your servant, upon which you have caused me to hope.",
+      "plain": "Remember the word to your servant, upon which you have caused me to hope.",
       "step": "Write this where you will see it: “Remember the word unto your servant, upon.”",
       "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
       "to": "Worshipers who needed to hear “Remember the word unto your servant, upon” — and you in the hour this verse is for: “Remember the word unto thy servant, upon which thou hast.”",
       "setting": "A worshiper in love with God’s Word — The great acrostic love-song to God’s Word. The verse: Remember the word unto your servant, upon which you hast caused me.",
       "prayer": "Lord, write this on my path today: “Remember the word unto your servant, upon which you”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: Remember the word to your servant, upon which you have caused me to hope. The verse still says: “Remember the word unto thy servant, upon which thou hast.”",
-      "today": "His way is for your good: Remember the word to your servant, upon which you have caused me to hope — that is for the hour you are actually in."
+      "modernApplication": "In 2026, Remember the word to your servant, upon which you have caused me to hope. The verse still says: “Remember the word unto thy servant, upon which thou hast.”",
+      "today": "This word is for you in the hour this verse is for: “Remember the word unto thy servant, upon which thou hast.”"
     },
     {
       "ref": "Psalm 119:64",
@@ -8216,14 +8216,14 @@
     {
       "ref": "Jeremiah 15:16",
       "text": "Thy words were found, and I did eat them; and thy word was unto me the joy and rejoicing of mine heart: for I am called by thy name, O LORD God of hosts.",
-      "plain": "Your words were found, and I did eat them; — His way is for your good.",
+      "plain": "Your words were found, and I did eat them; and your word was to me the joy and rejoicing of mine heart: for I am called by your name, O LORD God of hosts.",
       "step": "Read this once out loud, then do the next honest thing it names: “your words were found, and I did eat them.”",
       "about": "Jeremiah",
       "to": "The first people who had to hear “your words were found, and I did eat them” — and you in the hour this verse is for: “Thy words were found, and I did eat them; and thy word was.”",
       "setting": "Jeremiah faces plots, loneliness, and the cost of speaking God’s word. The verse: your words were found, and I did eat them.",
       "prayer": "Lord, write this on my path today: “your words were found, and I did eat them”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, Your words were found, and I did eat them; — His way is for your good. The verse still says: “Thy words were found, and I did eat them; and thy word was.”",
-      "today": "Your words were found, and I did eat them; — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, Your words were found, and I did eat them; and your word was to me the joy and rejoicing of mine heart: for I am called by your name, O LORD God of hosts. The verse still says: “Thy words were found, and I did eat them; and thy word was.”",
+      "today": "This word is for you in the hour this verse is for: “Thy words were found, and I did eat them; and thy word was.”"
     },
     {
       "ref": "John 4:14",
@@ -8240,14 +8240,14 @@
     {
       "ref": "John 5:24",
       "text": "Verily, verily, I say unto you, He that heareth my word, and believeth on him that sent me, hath everlasting life, and shall not come into condemnation; but is passed from death unto life.",
-      "plain": "Truly, truly, I say to you, He that hears my word, and believes on him that sent me, has — His way is for your good.",
+      "plain": "Truly, truly, I say to you, He that hears my word, and believes on him that sent me, has eternal life, and shall not come into condemnation; but is passed from death to life.",
       "step": "Carry this clause in your mouth until noon: “Verily, verily, I say unto you, He that heareth.”",
       "about": "Jesus (through John)",
       "to": "The people in front of Jesus when He said “Verily, verily, I say unto you, He” — and you in the hour this verse is for: “Verily, verily, I say unto you, He that heareth my word, and.”",
       "setting": "Jesus — Bread of Life discourse. The verse: Verily, verily, I say unto you, He that heareth my word.",
       "prayer": "Lord, write this on my path today: “Verily, verily, I say unto you, He that heareth”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, Truly, truly, I say to you, He that hears my word, and believes on him that sent me, has — His way is for your good. The verse still says: “Verily, verily, I say unto you, He that heareth my word, and.”",
-      "today": "Truly, truly, I say to you, He that hears my word, and believes on him that sent me, has — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, Truly, truly, I say to you, He that hears my word, and believes on him that sent me, has eternal life, and shall not come into condemnation; but is passed from death to life. The verse still says: “Verily, verily, I say unto you, He that heareth my word, and.”",
+      "today": "This word is for you in the hour this verse is for: “Verily, verily, I say unto you, He that heareth my word, and.”"
     },
     {
       "ref": "John 6:37",
@@ -8720,14 +8720,14 @@
     {
       "ref": "1 Peter 2:2",
       "text": "As newborn babes, desire the sincere milk of the word, that ye may grow thereby:",
-      "plain": "His way is for your good: As newborn babes, desire the sincere milk of the word, that you may grow thereby:.",
+      "plain": "As newborn babes, desire the sincere milk of the word, that you may grow thereby:.",
       "step": "Write this where you will see it: “As newborn babes, desire the sincere milk.”",
       "about": "Peter",
       "to": "The first hearers of “As newborn babes, desire the sincere milk” — and you in the hour this verse is for: “As newborn babes, desire the sincere milk of the word, that.”",
       "setting": "Peter tells elect exiles to desire the sincere milk of the word, as newborn babes. The verse: desire the sincere milk of the word, that ye may grow thereby.",
       "prayer": "Lord, write this on my path today: “As newborn babes, desire the sincere milk”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, His way is for your good: As newborn babes, desire the sincere milk of the word, that you may grow thereby:. The verse still says: “As newborn babes, desire the sincere milk of the word, that.”",
-      "today": "His way is for your good: As newborn babes, desire the sincere milk of the word, that you may grow thereby: — that is for the hour you are actually in."
+      "modernApplication": "In 2026, As newborn babes, desire the sincere milk of the word, that you may grow thereby:. The verse still says: “As newborn babes, desire the sincere milk of the word, that.”",
+      "today": "This word is for you in the hour this verse is for: “As newborn babes, desire the sincere milk of the word, that.”"
     },
     {
       "ref": "1 John 2:17",
@@ -8744,14 +8744,14 @@
     {
       "ref": "1 John 3:18",
       "text": "My little children, let us not love in word, neither in tongue; but in deed and in truth.",
-      "plain": "My little children, let us not love in word, neither in tongue; — His way is for your good.",
+      "plain": "My little children, let us not love in word, neither in tongue; but in deed and in truth.",
       "step": "Write this where you will see it: “My little children, let us not love in word.”",
       "about": "John",
       "to": "The first hearers of “My little children, let us not love” — and you in the hour this verse is for: “My little children, let us not love in word, neither in.”",
       "setting": "John marvels that the Father calls us children of God, and says real love must show in deed and. The verse: My little children, let us not love in word, neither in tongue.",
       "prayer": "Lord, write this on my path today: “My little children, let us not love in word”. In Jesus’ name, Amen.",
-      "modernApplication": "In 2026, My little children, let us not love in word, neither in tongue; — His way is for your good. The verse still says: “My little children, let us not love in word, neither in.”",
-      "today": "My little children, let us not love in word, neither in tongue; — His way is for your good — that is for the hour you are actually in."
+      "modernApplication": "In 2026, My little children, let us not love in word, neither in tongue; but in deed and in truth. The verse still says: “My little children, let us not love in word, neither in.”",
+      "today": "This word is for you in the hour this verse is for: “My little children, let us not love in word, neither in.”"
     },
     {
       "ref": "1 John 5:21",

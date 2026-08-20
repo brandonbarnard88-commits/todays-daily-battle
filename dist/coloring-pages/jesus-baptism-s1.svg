@@ -1,8 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M100 320 Q450 240 800 340 Q450 420 100 320"/>
-    <circle cx="280" cy="260" r="28"/>
-    <circle cx="450" cy="240" r="28"/>
-    <circle cx="620" cy="260" r="28"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="jesus-baptism.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

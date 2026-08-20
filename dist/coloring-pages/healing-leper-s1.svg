@@ -1,10 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="360" cy="320" r="18"/>
-    <line x1="360" y1="338" x2="360" y2="420"/>
-    <path d="M320 360 L300 400"/>
-    <circle cx="540" cy="280" r="22"/>
-    <line x1="540" y1="302" x2="540" y2="380"/>
-    <path d="M400 340 L480 320"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="healing-leper.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

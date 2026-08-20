@@ -1,16 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M180 440 L180 220 L620 220 L620 440 Z"/>
-    <path d="M240 440 L240 300 L300 300 L300 440"/>
-    <circle cx="520" cy="300" r="22"/>
-    <line x1="520" y1="322" x2="520" y2="400"/>
-    <path d="M490 350 L460 330"/>
-    <path d="M550 350 L580 330"/>
-    <path d="M520 360 L520 320 L560 280 L600 300 L580 340"/>
-    <circle cx="380" cy="400" r="18"/>
-    <path d="M380 382 L400 360"/>
-    <path d="M360 410 L340 430"/>
-    <path d="M400 410 L420 430"/>
-    <path d="M520 400 Q480 360 420 380"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="prodigal-son-s4.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

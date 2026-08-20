@@ -1,18 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="200" y="180" width="500" height="320" rx="8"/>
-    <path d="M200 280 L700 280"/>
-    <path d="M320 180 L320 500"/>
-    <path d="M450 180 L450 500"/>
-    <path d="M580 180 L580 500"/>
-    <path d="M520 400 L620 400"/>
-    <circle cx="380" cy="360" r="22"/>
-    <path d="M380 382 L380 440"/>
-    <path d="M350 395 L320 375"/>
-    <path d="M410 395 L440 375"/>
-    <circle cx="620" cy="350" r="22"/>
-    <path d="M620 372 L620 430"/>
-    <path d="M590 365 L560 345"/>
-    <path d="M650 365 L680 345"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="rahab-spies.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

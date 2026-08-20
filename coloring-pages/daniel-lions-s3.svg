@@ -1,26 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M80 520 L820 520"/>
-    <path d="M100 540 L800 540"/>
-    <ellipse cx="450" cy="120" rx="200" ry="45"/>
-    <path d="M250 120 L250 520"/>
-    <path d="M650 120 L650 520"/>
-    <rect x="380" y="340" width="140" height="22" rx="6"/>
-    <circle cx="450" cy="300" r="20"/>
-    <line x1="450" y1="320" x2="450" y2="340"/>
-    <line x1="450" y1="350" x2="420" y2="380"/>
-    <line x1="450" y1="350" x2="480" y2="380"/>
-    <path d="M220 460 Q260 400 300 440 Q280 500 240 510"/>
-    <circle cx="270" cy="430" r="22"/>
-    <path d="M255 418 L240 408"/>
-    <path d="M285 418 L300 408"/>
-    <path d="M600 450 Q640 390 680 430 Q660 495 620 505"/>
-    <circle cx="640" cy="420" r="22"/>
-    <path d="M625 408 L610 398"/>
-    <path d="M655 408 L670 398"/>
-    <path d="M360 480 Q400 430 440 470 Q420 520 380 525"/>
-    <circle cx="400" cy="455" r="20"/>
-    <path d="M520 485 Q560 435 600 475 Q580 525 540 530"/>
-    <circle cx="560" cy="460" r="20"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <image href="/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg" width="900" height="1200" preserveAspectRatio="xMidYMid meet"/>
 </svg>

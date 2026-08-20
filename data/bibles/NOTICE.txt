@@ -49,9 +49,43 @@ Hindi Indian Revised Version (IRV) 2019
               copyright notice, the license, and this adaptation note.
 
 Indonesian
-  No public-domain Indonesian full Bible is stored yet. Indonesian pages
-  that quote Scripture use the King James Version (public domain in the
-  United States). Terjemahan Baru is not stored and must not be quoted.
+  No public-domain Indonesian full Bible is stored yet. Indonesian language
+  pages stay. The official day's verse there is the King James Version
+  (public domain in the United States), labeled KJV. Terjemahan Baru is
+  not stored and must not be quoted. AYT is CC BY-NC and is not stored.
+
+Van Dyck Arabic Bible, 1865
+  License: public domain
+  Via: eBible.org (arb-vd) and HelloAO (arb_vdv)
+  File: ar-vandyck.json
+
+Swedish Bible 1917
+  License: public domain
+  Via: getBible.net swedish (Projekt Runeberg)
+  File: sv-1917.json
+
+Ang Dating Biblia 1905 (Tagalog)
+  License: public domain
+  Via: getBible.net tagalog (typed by Richard and Dolores Long)
+  File: tl-1905.json
+
+Swahili Unlocked Literal Bible
+  Copyright © 2019 Door43 World Missions Community
+  https://door43.org/
+  License: Creative Commons Attribution-ShareAlike 4.0 International
+           https://creativecommons.org/licenses/by-sa/4.0/
+  Via: eBible.org (swhulb) and HelloAO (swh_ulb)
+  File: sw-ulb.json
+  ShareAlike: this flattened file remains under CC BY-SA 4.0.
+
+Bengali Indian Revised Version (IRV) 2019
+  Copyright © 2018, 2019 Bridge Connectivity Solutions
+  https://bridgeconn.com/
+  License: Creative Commons Attribution-ShareAlike 4.0 International
+           https://creativecommons.org/licenses/by-sa/4.0/
+  Via: eBible.org (benirv) and HelloAO (ben_irv)
+  File: bn-irv.json
+  ShareAlike: this flattened file remains under CC BY-SA 4.0.
 
 Not hosted
   NIV, ESV, NLT, NKJV, NASB, Reina-Valera 1960, NVI, Segond 1978/NEG,

@@ -139,6 +139,96 @@ const COPY = {
       'Pengajaran ayat ini masih dalam bahasa Inggris. Ayat di atas adalah ayat resmi hari ini — bukan ayat penghiburan yang berputar.',
     openEn: 'Lihat beranda Inggris lengkap',
     creditsLink: 'Kredit Alkitab'
+  },
+  ar: {
+    heading: 'آية اليوم',
+    eyebrow: 'الآية الرسمية نفسها التي على الصفحة الإنجليزية',
+    kjvNote:
+      'نفس السفر والأصحاح والآية التي على الصفحة الإنجليزية. النص أعلاه: فان دايك 1865 (ملكية عامة). الخط الإنجليزي في الموقع هو KJV.',
+    sit: 'ماذا كان يحدث',
+    mean: 'ماذا يعني هذا',
+    who: 'من يتكلم',
+    hear: 'من يسمع هذا',
+    modern: 'كيف يتكلم هذا اليوم (2026)',
+    you: 'كيف يكلمك الآن',
+    step: 'خطوة صادقة لليوم فقط',
+    prayer: 'صلاة بسيطة',
+    fallback:
+      'شرح هذه الآية ما زال بالإنجليزية. الآية أعلاه هي آية اليوم الرسمية — ليست آية تعزية دوّارة.',
+    openEn: 'انظر الرواق الإنجليزي كاملاً',
+    creditsLink: 'شكر نصوص الكتاب'
+  },
+  sv: {
+    heading: 'Dagens vers',
+    eyebrow: 'Samma officiella vers som den engelska startsidan',
+    kjvNote:
+      'Samma bok, kapitel och vers som den engelska startsidan. Texten ovan: 1917 års bibel (allmän egendom). Sajtens engelska linje är KJV.',
+    sit: 'Vad som hände',
+    mean: 'Vad det betyder',
+    who: 'Vem talar',
+    hear: 'Vem hör detta',
+    modern: 'Hur det talar i dag (2026)',
+    you: 'Hur det talar till dig nu',
+    step: 'Ett ärligt steg, bara för i dag',
+    prayer: 'En enkel bön',
+    fallback:
+      'Undervisningen till denna vers är fortfarande på engelska. Versen ovan är dagens officiella vers — inte en roterande tröstvers.',
+    openEn: 'Se den fulla engelska verandan',
+    creditsLink: 'Bibelkällor'
+  },
+  tl: {
+    heading: 'Talata ngayon',
+    eyebrow: 'Ang parehong opisyal na talata ng English home',
+    kjvNote:
+      'Parehong aklat, kabanata, at talata ng English home. Teksto sa itaas: Ang Dating Biblia 1905 (pampublikong domain). Ang English line ng site ay KJV.',
+    sit: 'Ano ang nangyayari noon',
+    mean: 'Ano ang ibig sabihin',
+    who: 'Sino ang nagsasalita',
+    hear: 'Sino ang nakaririnig nito',
+    modern: 'Paano ito nagsasalita ngayon (2026)',
+    you: 'Paano ito nagsasalita sa iyo ngayon',
+    step: 'Isang tapat na hakbang, para sa araw na ito lamang',
+    prayer: 'Isang simpleng panalangin',
+    fallback:
+      'Ang turo ng talatang ito ay Ingles pa. Ang talata sa itaas ang opisyal na talata ngayon — hindi umiikot na talata ng aliw.',
+    openEn: 'Tingnan ang buong English porch',
+    creditsLink: 'Mga kredito sa Biblia'
+  },
+  sw: {
+    heading: 'Aya ya leo',
+    eyebrow: 'Aya rasmi ileile ya ukurasa wa Kiingereza',
+    kjvNote:
+      'Kitabu, sura, na aya ileile ya ukurasa wa Kiingereza. Maandishi hapo juu: Biblia Takatifu ULB (CC BY-SA 4.0, Door43). Mstari wa Kiingereza wa tovuti ni KJV.',
+    sit: 'Kilichokuwa kikitokea',
+    mean: 'Maana yake',
+    who: 'Nani anasema',
+    hear: 'Nani anasikia hii',
+    modern: 'Inavyosema leo (2026)',
+    you: 'Inavyokusemea sasa',
+    step: 'Hatua moja ya uaminifu, leo tu',
+    prayer: 'Sala rahisi',
+    fallback:
+      'Mafundisho ya aya hii bado ni Kiingereza. Aya hapo juu ndiyo aya rasmi ya leo — si aya ya faraja inayozunguka.',
+    openEn: 'Tazama ukumbi kamili wa Kiingereza',
+    creditsLink: 'Shukrani za Biblia'
+  },
+  bn: {
+    heading: 'আজকের পদ',
+    eyebrow: 'ইংরেজি হোমের একই অফিসিয়াল পদ',
+    kjvNote:
+      'ইংরেজি হোমের একই পুস্তক, অধ্যায় ও পদ। উপরের পাঠ: বাংলা IRV 2019 (CC BY-SA 4.0, Bridge Connectivity Solutions)। সাইটের ইংরেজি লাইন KJV।',
+    sit: 'তখন কী ঘটছিল',
+    mean: 'এর অর্থ কী',
+    who: 'কে বলছেন',
+    hear: 'কে এটি শোনে',
+    modern: 'এটি আজ (2026) কীভাবে বলে',
+    you: 'এটি এখন তোমাকে কীভাবে বলে',
+    step: 'আজকের জন্য একটি সত্ পদক্ষেপ',
+    prayer: 'একটি সরল প্রার্থনা',
+    fallback:
+      'এই পদের শিক্ষা এখনও ইংরেজিতে। উপরের পদটি আজকের অফিসিয়াল পদ — ঘুরতে থাকা সান্ত্বনার পদ নয়।',
+    openEn: 'সম্পূর্ণ ইংরেজি বারান্দা দেখুন',
+    creditsLink: 'বাইবেল কৃতজ্ঞতা'
   }
 };
 
@@ -175,6 +265,26 @@ const HUBS = [
   {
     lang: 'id',
     files: [path.join(root, 'id', 'index.html'), path.join(root, 'dist', 'id', 'index.html')]
+  },
+  {
+    lang: 'ar',
+    files: [path.join(root, 'ar', 'index.html'), path.join(root, 'dist', 'ar', 'index.html')]
+  },
+  {
+    lang: 'sv',
+    files: [path.join(root, 'sv', 'index.html'), path.join(root, 'dist', 'sv', 'index.html')]
+  },
+  {
+    lang: 'tl',
+    files: [path.join(root, 'tl', 'index.html'), path.join(root, 'dist', 'tl', 'index.html')]
+  },
+  {
+    lang: 'sw',
+    files: [path.join(root, 'sw', 'index.html'), path.join(root, 'dist', 'sw', 'index.html')]
+  },
+  {
+    lang: 'bn',
+    files: [path.join(root, 'bn', 'index.html'), path.join(root, 'dist', 'bn', 'index.html')]
   }
 ];
 
@@ -382,7 +492,13 @@ export function injectLocaleHubHero() {
     });
   }
 
-  console.log('inject-locale-hub-hero: OK —', ref, '(UTC doy', utcDayOfYear() + ')', 'es/fr/pt/zh/ru/hi/id');
+  console.log(
+    'inject-locale-hub-hero: OK —',
+    ref,
+    '(UTC doy',
+    utcDayOfYear() + ')',
+    'es/fr/pt/zh/ru/hi/id/ar/sv/tl/sw/bn'
+  );
 }
 
 const isDirect =

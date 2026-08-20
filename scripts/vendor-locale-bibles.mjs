@@ -257,7 +257,7 @@ async function main() {
   }
   const meta = {
     generated: new Date().toISOString().slice(0, 10),
-    note: 'Flattened public-domain Bibles keyed like data/kjv-full.json. Official English line stays KJV. RV1909 is not included (not public domain).',
+    note: 'Flattened public-domain or CC BY-SA Bibles keyed like data/kjv-full.json. Official English line stays KJV. RV 1960 is not included (not public domain).',
     bibles: Object.values(LOCALE_BIBLES).map((spec) => ({
       ...spec,
       verses: counts[spec.lang]

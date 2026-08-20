@@ -45,6 +45,13 @@ const data = fs.readFileSync(path.join(root, 'hero-daily-365-data.js'), 'utf8');
 if (!/hath gotten him the victory/.test(data)) {
   fail('Psalm 98:1 queue text is still truncated');
 }
+const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+if (!/hero-daily-365-data\.js\?v=20260820-full/.test(indexHtml)) {
+  fail('index.html must cache-bust hero-daily-365-data.js after a verse-text change');
+}
+if (!fp.includes('Never shorten the KJV') && !fp.includes('Stale calendar JS can truncate')) {
+  fail('hero-daily-first-paint.js must refuse to shorten an injected full KJV line');
+}
 
 if (failures.length) {
   console.error('ref-search leftover FAIL — ' + failures.length + ' issue(s):\n');

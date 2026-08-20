@@ -1615,6 +1615,21 @@
     var verseRaw = useDomPrebuilt ? parseHeroFromDom(heroVerse, heroRef) : pickHeroVerseForToday();
     if (!verseRaw || !verseRaw.ref) return;
     if (verseRaw.text) verseRaw.text = normalizeHeroKjvLine(verseRaw.text);
+    /* Never shorten the KJV for this ref. Stale calendar JS can truncate a full inject. */
+    if (prebuilt) {
+      var domV = parseHeroFromDom(heroVerse, heroRef);
+      if (domV && normalizeRefBare(domV.ref) === normalizeRefBare(verseRaw.ref)) {
+        var domT = normalizeHeroKjvLine(domV.text);
+        if (domT.length > String(verseRaw.text || '').length) verseRaw.text = domT;
+      }
+    }
+    try {
+      if (typeof window.TDB_GET_HERO_EXPLANATION_BY_REF === 'function') {
+        var exRow = window.TDB_GET_HERO_EXPLANATION_BY_REF(verseRaw.ref);
+        var exT = normalizeHeroKjvLine(exRow && exRow.text);
+        if (exT.length > String(verseRaw.text || '').length) verseRaw.text = exT;
+      }
+    } catch (eFullKjv) { /* non-fatal */ }
     verseRaw.text = repairMatthew514ByRef(verseRaw.ref, verseRaw.text);
     var v = normalizeVerse(verseRaw);
     if (!v.ref) return;
@@ -1745,7 +1760,7 @@
     if (window.__TDB_HERO_DAILY_YEAR && window.__TDB_HERO_DAILY_YEAR.length) return;
     window.__TDB_HERO365_LOAD_SCHEDULED = true;
     var s = document.createElement('script');
-    s.src = 'hero-daily-365-data.js?v=20260802-calendar-mix';
+    s.src = 'hero-daily-365-data.js?v=20260820-full';
     s.async = true;
     s.setAttribute('data-tdb-hero365', '1');
     s.onload = function () {

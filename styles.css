@@ -22340,10 +22340,14 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
   max-width: 40rem;
   margin: 0 0 1.1rem;
   padding: 0.7rem 1rem 0.8rem 1rem;
-  border-left: 3px solid var(--gold, #c9a44a);
+  border-left: 3px solid #c9a44a;
   border-radius: 0 10px 10px 0;
-  background: color-mix(in srgb, var(--card) 90%, var(--gold) 7%);
-  color: var(--text, rgba(248, 250, 252, 0.92));
+  background: rgba(255, 250, 240, 0.94);
+  color: #1c1910;
+}
+body.tdb-inner-page .tdb-header-account-nudge .tdb-tour-open-btn,
+body.tdb-inner-page .tdb-header-account-nudge .tdb-tour-restart-btn {
+  display: none !important;
 }
 
 :root[data-theme="light"] .about-page .about-mission-line {

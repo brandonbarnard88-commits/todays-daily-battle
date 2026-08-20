@@ -1,5 +1,20 @@
 /* Color & Tell My Story — progress, story tabs, slideshow (kids coloring) */
 
+/* Quiet the adult app chrome on the kids coloring page */
+body.tdb-kids-coloring-page .sidebar,
+body.tdb-kids-coloring-page #sidebar-toggle,
+body.tdb-kids-coloring-page .tdb-header-account-nudge,
+body.tdb-kids-coloring-page .tdb-tour-open-btn,
+body.tdb-kids-coloring-page .tdb-tour-restart-btn {
+  display: none !important;
+}
+body.tdb-kids-coloring-page .app-content {
+  margin-left: 0 !important;
+  width: 100% !important;
+  max-width: 100%;
+}
+.tdb-quiet-update-strip--plans[hidden] { display: none !important; }
+
 .tdb-cat-parent-tip {
   margin: 0 0 1.25rem;
   padding-block: 0.75rem 0.8rem;

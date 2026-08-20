@@ -403,7 +403,7 @@
   /* Absolute /kids/ paths so poses resolve from coloring.html, little-ones, and Kids.
    * Premium illustrated PNG set (v20260810) — soft kids-book style, not stick SVGs. */
   var MASCOT_POSES = [
-    { src: '/kids/shepherd-mascot-welcome.png?v=20260810ears2', label: 'Little Shepherd waves hello' },
+    { src: '/kids/shepherd-mascot-welcome.png?v=20260820polish', label: 'Little Shepherd waves hello' },
     { src: '/kids/shepherd-mascot-point.png?v=20260810ears2', label: 'Little Shepherd points the way' },
     { src: '/kids/shepherd-mascot-sheep.png?v=20260810ears2', label: 'Little Shepherd with a small sheep' },
     { src: '/kids/shepherd-mascot-cheer.png?v=20260810ears2', label: 'Little Shepherd cheering for you' },

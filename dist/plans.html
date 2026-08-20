@@ -3143,7 +3143,7 @@
   <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="plans"><p class="offline-msg"></p></div>
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_plans_quiet_update_dismiss')==='2026-05-11-plans')document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');}catch(e){}})();</script>
   <script nonce="tdb2025s">(function(){function openPlansDisclosureForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-hero-more','plansAllLibrary','plans-find-your-plan-details','plansCoreSevenDetails','plansAccountStripDetails','plansPorchVerseDetails','plansSermonIntroDetails','plansBibleStudiesDetails','plansBuilderDetails'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openPlansDisclosureForHash);else openPlansDisclosureForHash();window.addEventListener('hashchange',openPlansDisclosureForHash);})();</script>
-  <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-05-11-plans" role="status" aria-live="polite">
+  <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-05-11-plans" role="status" aria-live="polite" hidden>
     <p class="tdb-quiet-update-strip__text">Short KJV reading tracks—open any day.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="plans-quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
   </div>
@@ -11788,7 +11788,7 @@
 
   <script type="module" src="config.js"></script>
   <script src="js/surfaces/plans.js?v=20260805-four-pillars"></script>
-  <script type="module" src="script.js?v=20260816-brightgold" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260820polish" data-cfasync="false"></script>
   <script nonce="tdb2025s">
     (function () {
       var nonCriticalScripts = [

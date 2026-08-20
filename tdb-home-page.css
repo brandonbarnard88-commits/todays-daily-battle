@@ -655,11 +655,12 @@
     /* Sun */
     .sky-sun {
       position: absolute;
-      z-index: 5;
+      z-index: 1;
       width: 96px; height: 96px;
       border-radius: 50%;
       left: 68%; top: 18%;
       transform: translate(-50%, -50%);
+      pointer-events: none;
       background: radial-gradient(circle at 38% 38%, #fffff2 0%, #ffe060 42%, #ffaa00 100%);
       box-shadow:
         0 0 0 16px rgba(255,200,60,0.12),
@@ -671,6 +672,19 @@
     body.sky-dawn  .sky-sun { left: 32%; top: 72%; background: radial-gradient(circle at 38% 38%, #fff0d8 0%, #ffb030 42%, #ff5e00 100%); box-shadow: 0 0 0 18px rgba(255,120,20,0.14), 0 0 0 50px rgba(220,60,0,0.08), 0 0 100px 30px rgba(220,80,10,0.35), 0 0 200px 60px rgba(180,30,0,0.18); }
     body.sky-dusk  .sky-sun { left: 25%; top: 65%; background: radial-gradient(circle at 38% 38%, #fff0d8 0%, #ffb030 42%, #ff5e00 100%); box-shadow: 0 0 0 18px rgba(255,120,20,0.14), 0 0 0 50px rgba(220,60,0,0.08), 0 0 100px 30px rgba(220,80,10,0.35), 0 0 200px 60px rgba(180,30,0,0.18); }
     body.sky-night .sky-sun { display: none; }
+    @media (max-width: 640px) {
+      .sky-sun {
+        z-index: 0;
+        width: 52px;
+        height: 52px;
+        left: 88%;
+        top: 9%;
+      }
+      body.sky-dawn .sky-sun,
+      body.sky-dusk .sky-sun { left: 88%; top: 9%; }
+      .site-header,
+      .tdb-home-main-nav { position: relative; z-index: 20; }
+    }
     /* Gentle drift */
     body:not(.sky-night) .sky-sun { animation: sun-drift 90s ease-in-out infinite; }
     @keyframes sun-drift {
@@ -10187,7 +10201,10 @@
       padding-left: 0.1rem;
       line-height: 1.25;
       text-wrap: balance;
+      list-style: none;
     }
+    .tdb-verse-section-label::before,
+    .tdb-verse-section-label::after { content: none !important; }
     :root[data-theme="light"] .tdb-verse-section-label,
     :root[data-theme="daylight"] .tdb-verse-section-label,
     :root[data-theme="parchment"] .tdb-verse-section-label {
@@ -13146,9 +13163,13 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
   border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 32%, transparent);
   background: color-mix(in srgb, var(--card, #1b212d) 82%, #000 18%);
 }
+#verseCard #heroBbeSimple .tdb-bbe-simple__heading,
+#heroBbeSimple .tdb-bbe-simple__heading {
+  color: #f2dc98;
+}
 #verseCard #heroBbeSimple .tdb-bbe-simple__text,
 #heroBbeSimple .tdb-bbe-simple__text {
-  color: #eaf2ff;
+  color: #f4efe3 !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 :root[data-theme="light"] #verseCard #heroBbeSimple,

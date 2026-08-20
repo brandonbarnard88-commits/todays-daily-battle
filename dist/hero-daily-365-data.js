@@ -935,7 +935,7 @@
   },
   {
     "ref": "Hebrews 12:2",
-    "text": "Looking unto Jesus the author and finisher of our faith."
+    "text": "Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God."
   },
   {
     "ref": "Psalm 99:2",

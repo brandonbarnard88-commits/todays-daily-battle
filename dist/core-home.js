@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260820-ruth';
+  var INTERACTIVE_SRC = 'script.js?v=20260820-askwalk';
   var loaded = false;
   var pendingQuery = '';
 

@@ -25,7 +25,7 @@
     "extract:plans-data": "node scripts/extract-plans-data-to-json.mjs",
     "build:kjv-lexicon": "node scripts/build-kjv-lexicon.mjs",
     "build:ask-the-word": "node scripts/build-ask-the-word-data.mjs",
-    "test:ask-the-word": "node scripts/test-ask-the-word-core.mjs && node scripts/verify-ask-the-word-routing.mjs && node scripts/verify-ref-search-no-leftover.mjs",
+    "test:ask-the-word": "node scripts/test-ask-the-word-core.mjs && node scripts/verify-ask-the-word-routing.mjs && node scripts/verify-ref-search-no-leftover.mjs && node scripts/walk-ask-the-word-truth.mjs",
     "eval:full-site": "node scripts/eval-full-site-truth.mjs",
     "test:full-kjv": "node scripts/test-full-kjv-wiring.mjs",
     "audio:mobius-breathe": "node scripts/build-mobius-breathe-human-audio.mjs",

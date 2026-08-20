@@ -6486,6 +6486,7 @@ var TDB_BIBLICAL_ANSWERS = [
     id: 'how-do-i-know-god-loves-me',
     triggers: [
       'how do i know god loves me', 'does god love me', 'does god still love me',
+      'does god still want me', 'does god want me',
       'does god love me after what i did', 'god loves me', 'does god care about me',
       'does god care', 'what is gods love', 'how much does god love me',
       'why would god love me', 'does god love me even when i sin',
@@ -6809,7 +6810,7 @@ var TDB_BIBLICAL_ANSWERS = [
   {
     id: 'exhaustion-burnout',
     triggers: [
-      'i am exhausted', 'i am burnt out', 'i am so tired', 'running on empty', 'nothing left',
+      'i am exhausted', 'i am burnt out', 'i am so tired', 'why am i so tired', 'running on empty', 'nothing left',
       'completely drained', 'burned out', 'too tired to go on', 'emotionally exhausted',
       'i have nothing left to give', 'bone tired', 'tired of everything', 'bible help for exhaustion',
       'rest bible', 'i need rest'
@@ -30100,15 +30101,22 @@ function updateGroupPrompts(results) {
     list.appendChild(li);
   });
 }
+function queryIsSpecificAsk(q) {
+  var s = String(q || '').replace(/\s+/g, ' ').trim();
+  if (!s) return false;
+  if (typeof parseReference === 'function' && parseReference(s)) return true;
+  return /^(who|what|why|how|when|where|which|tell me about|explain )\b/i.test(s);
+}
+
 function parseQuery(input) {
   const trimmed = input.trim();
   if (!trimmed) {
-    return { intent: 'empty', payload: null };
+    return { intent: 'empty', payload: null, specificAsk: false, raw: '' };
   }
 
   const referenceKey = parseReference(trimmed);
   if (referenceKey) {
-    return { intent: 'reference', payload: referenceKey };
+    return { intent: 'reference', payload: referenceKey, specificAsk: true, raw: trimmed };
   }
 
   var correctedQuery = trimmed;
@@ -30987,7 +30995,12 @@ function executeQuery(parsed, tier, filters) {
   results.phraseMatches = filterVerseList(results.phraseMatches, filters);
   results.relatedMatches = filterVerseList(results.relatedMatches, filters);
 
-  if (results.verses.length === 0 && parsed.intent !== 'reference') {
+  var specificAsk =
+    parsed.intent === 'reference' ||
+    parsed.specificAsk ||
+    queryIsSpecificAsk(parsed.raw) ||
+    (typeof lastQueryInput === 'string' && queryIsSpecificAsk(lastQueryInput));
+  if (results.verses.length === 0 && parsed.intent !== 'reference' && !specificAsk) {
     // Curated hope verses with full breakdowns—no search leaves empty-handed
     if (typeof DEFAULT_VERSES !== 'undefined' && DEFAULT_VERSES.length > 0) {
       var shuffled = DEFAULT_VERSES.slice();
@@ -31010,10 +31023,11 @@ function executeQuery(parsed, tier, filters) {
       results.fallback = true;
     }
   }
-  // Pad feeling/topic searches only. Never pad a verse lookup with leftover comfort verses
-  // (John 3:16 must not grow Romans 8:28 / Psalm 23:4 / Philippians 4:6).
+  // Pad feeling/topic searches only. Never pad a verse lookup or a who/what question
+  // with leftover comfort verses (Ruth must not grow Jeremiah 29:11).
   if (
     parsed.intent !== 'reference' &&
+    !specificAsk &&
     results.verses.length > 0 &&
     results.verses.length < 6 &&
     typeof DEFAULT_VERSES !== 'undefined' &&
@@ -34337,6 +34351,7 @@ function applyCuratedAnswerToSearchResults(results, queryText) {
   results.fallback = false;
   results.curatedAnswerId = entry.id || '';
   results.curatedPlan = entry.plan || '';
+  results.usedCuratedAnswer = true;
   if (entry.type === 'knowledge') {
     results.intent = 'knowledge';
     results.topic = '';

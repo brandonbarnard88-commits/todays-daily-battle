@@ -144,6 +144,21 @@ function report(ok, line) {
 
 console.log('Ask the Word routing verification\n');
 
+const scriptSrc = fs.readFileSync(path.join(root, 'script.js'), 'utf8');
+report(
+  /parsed\.intent !== 'reference'/.test(scriptSrc) && /Pad feeling\/topic searches only/.test(scriptSrc),
+  'script.js does not pad verse lookups with leftover DEFAULT_VERSES'
+);
+report(
+  /intent === 'reference'/.test(scriptSrc) && /pickHomeSearchEntries\(HOME_SEARCH_PLAN_LIBRARY, results, queryText, 2, \[\]\)/.test(scriptSrc),
+  'script.js does not pad verse lookups with leftover comfort plans'
+);
+const coreSrc = fs.readFileSync(path.join(root, 'ask-the-word-core.js'), 'utf8');
+report(
+  /john 3 16/.test(coreSrc) && /\\s\+\(\\d\+\)\$/.test(coreSrc),
+  'ask-the-word-core.js parses space-format refs like "john 3 16"'
+);
+
 const typo = sandbox.applyBibleNameTypos('who is marry');
 report(typo === 'who is mary', 'applyBibleNameTypos("who is marry") → ' + JSON.stringify(typo));
 
@@ -234,7 +249,7 @@ report(/id=["']feel-search["']/.test(indexHtml), 'index.html has feel-search inp
 report(/appendAskTheWordAnswerSection\s*\(/.test(src), 'script.js wires appendAskTheWordAnswerSection');
 report(/classifyAskTheWordQuery\s*\(/.test(src) && /buildUniversalScriptureAnswerEntry\s*\(/.test(src),
   'script.js has classifier + universal entry builder');
-report(/script\.js\?v=20260802-ask-universal/.test(coreHome), 'core-home.js cache-busts ask-universal script');
+report(/script\.js\?v=20260820-ref/.test(coreHome), 'core-home.js cache-busts interactive script.js');
 
 console.log('\n---');
 console.log('Passed:', pass);

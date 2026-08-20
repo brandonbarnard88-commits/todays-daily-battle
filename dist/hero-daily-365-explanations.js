@@ -2779,12 +2779,12 @@
     },
     {
       "ref": "Psalm 98:1",
-      "text": "O sing unto the Lord a new song; for he hath done marvellous things.",
+      "text": "O sing unto the Lord a new song; for he hath done marvellous things: his right hand, and his holy arm, hath gotten him the victory.",
       "plain": "Sing a new song because the Lord has done wonders — praise that answers what He has already done.",
       "step": "Thank Him out loud using this line, then start the next honest work: “O sing unto the Lord a new song.”",
       "about": "Israel’s congregation, singing because the Lord has done marvellous things",
       "to": "Anyone who needed a new song after God had already acted — and you when praise has to answer what He has done, not a mood",
-      "setting": "Psalm 98 calls a new song because the Lord has done marvellous things — His salvation shown, not a leftover chorus from another psalm. The verse: O sing unto the Lord a new song; for he hath done marvellous things.",
+      "setting": "Psalm 98 calls a new song because the Lord has done marvellous things — His salvation shown, not a leftover chorus from another psalm. The verse: O sing unto the Lord a new song; for he hath done marvellous things: his right hand, and his holy arm, hath gotten him the victory.",
       "prayer": "Lord, I set these words before You from Psalm 98:1: “O sing unto the Lord a new song.” In Jesus’ name, Amen.",
       "today": "A new song here is not a playlist. He has done marvellous things — start there, even if the morning is quiet.",
       "modernApplication": "In 2026, new songs are often a feed you refresh. This verse says sing because He has already done marvellous things — not because you feel fresh."

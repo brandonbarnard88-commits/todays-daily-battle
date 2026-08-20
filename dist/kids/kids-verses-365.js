@@ -244,7 +244,7 @@
   { ref: "Psalm 96:2", text: "Sing unto the Lord, bless his name; shew forth his salvation from day to day." },
   { ref: "1 Peter 1:3", text: "Blessed be the God and Father of our Lord Jesus Christ, which according to his abundant mercy hath begotten us again unto a lively hope by the resurrection of Jesus Christ from the dead." },
   { ref: "Psalm 97:11", text: "Light is sown for the righteous, and gladness for the upright in heart." },
-  { ref: "Psalm 98:1", text: "O sing unto the Lord a new song; for he hath done marvellous things." },
+  { ref: "Psalm 98:1", text: "O sing unto the Lord a new song; for he hath done marvellous things: his right hand, and his holy arm, hath gotten him the victory." },
   { ref: "Hebrews 12:2", text: "Looking unto Jesus the author and finisher of our faith." },
   { ref: "Psalm 99:2", text: "The Lord is great in Zion; and he is high above all the people." },
   { ref: "Isaiah 26:4", text: "Trust ye in the Lord for ever: for in the Lord Jehovah is everlasting strength." },

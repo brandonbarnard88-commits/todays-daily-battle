@@ -67,12 +67,20 @@
     return loadPromise;
   }
 
+  function stripBbeSuperscription(s) {
+    return String(s || '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/^\s*-\s*(?:A Psalm|Of David|A Song|Of the sons of Korah|To the chief music-maker)[^.]*\.\s*-\s*/i, '')
+      .trim();
+  }
+
   function getTextSync(ref) {
     if (!map) return '';
     var keys = lookupKeys(ref);
     for (var i = 0; i < keys.length; i++) {
       var hit = map[keys[i]];
-      if (hit && String(hit).trim()) return String(hit).replace(/\s+/g, ' ').trim();
+      if (hit && String(hit).trim()) return stripBbeSuperscription(hit);
     }
     return '';
   }

@@ -428,7 +428,7 @@
       plain: sanitizeText(data.plain || curatedPlain || (offline && offline.plain) || (mood && mood.lines && mood.lines[0]) || (gen && gen.plain) || (lines[0] || '')),
       today: sanitizeText((dayEx && dayEx.today) || data.today || (offline && offline.today) || (mood && mood.lines && mood.lines[1]) || (gen && gen.today) || (lines[1] || '')),
       modernApplication: sanitizeText((dayEx && dayEx.modernApplication) || data.modernApplication || (gen && gen.modernApplication) || ''),
-      action: sanitizeText(data.action || (curatedStep ? ('So do this: ' + curatedStep) : '') || (offline && offline.action) || (mood && mood.app) || (gen && gen.action) || appText),
+      action: sanitizeText(data.action || curatedStep || (offline && offline.action) || (mood && mood.app) || (gen && gen.action) || appText).replace(/^\s*So do this:\s*/i, ''),
       prayer: sanitizeText((dayEx && dayEx.prayer) || data.prayer || '')
     };
   }
@@ -1535,7 +1535,7 @@
     setVotdRowVisible(document.getElementById('heroVbdRowYou'), document.getElementById('heroDeepYou'), relYou);
     var stepOut = document.getElementById('heroVotdOneStep');
     var stepWrap = document.getElementById('heroVotdNextStep');
-    if (stepOut) stepOut.textContent = oneStep;
+    if (stepOut) stepOut.textContent = sanitizeText(oneStep).replace(/^\s*So do this:\s*/i, '');
     if (stepWrap) stepWrap.hidden = false;
     var prayerTarget = document.getElementById('heroVotdPrayer');
     var prayerWrap = document.getElementById('heroVotdPrayerBlock');

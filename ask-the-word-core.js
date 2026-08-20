@@ -444,8 +444,9 @@
       var entry = findCurated(q, catalog);
       if (entry) return responseFromEntry(entry, q);
 
-      // Reference lookup e.g. John 3:16
-      var refGuess = q.match(/^((?:[1-3]\s*)?[A-Za-z]+(?:\s+[A-Za-z]+)?)\s+(\d+):(\d+)(?:-(\d+))?$/);
+      // Reference lookup e.g. John 3:16 or "john 3 16"
+      var refGuess = q.match(/^((?:[1-3]\s*)?[A-Za-z]+(?:\s+[A-Za-z]+)?)\s+(\d+)\s*:\s*(\d+)(?:\s*-\s*(\d+))?$/);
+      if (!refGuess) refGuess = q.match(/^((?:[1-3]\s*)?[A-Za-z]+(?:\s+[A-Za-z]+)?)\s+(\d+)\s+(\d+)$/);
       if (refGuess && state.kjv) {
         var book = refGuess[1].replace(/\s+/g, ' ').replace(/^([1-3])\s*/, '$1 ');
         // title-case-ish

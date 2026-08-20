@@ -51,7 +51,7 @@ ${pilotNote}
     <a href="/plans.html" hreflang="en">Planes (EN)</a>
     <a href="/explore.html">Explore</a>
     <a href="/kids/" hreflang="en">Kids (EN)</a>
-    <span class="bottom-nav-es-inline" role="group" aria-label="Temas en español (Reina-Valera 1960, dominio público)">
+    <span class="bottom-nav-es-inline" role="group" aria-label="Temas en español (Reina-Valera 1909, dominio público)">
       <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
       <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
       <a href="/paz.html" hreflang="es" lang="es">Paz</a>

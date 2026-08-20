@@ -10,7 +10,7 @@ Use this as the **release gate** before calling a language **shipped** (not “p
 |---------|--------|---------------------|--------|
 | `/pt/` | Portuguese | **Closest to complete** | Eight Almeida mood doors + tool shells + legal summaries; strongest grid. |
 | `/fr/` | French | **Deep pilot** | Many Louis Segond mood doors + tool shells; legal still points to EN. |
-| `/es/` | Spanish | **Solid hub** | Reina-Valera 1960 moods + root tool shells; legal → EN. |
+| `/es/` | Spanish | **Solid hub** | Reina-Valera 1909 moods + root tool shells; legal → EN. |
 | `/id/` | Indonesian | **Honest pilot** | Three KJV + ID pilots (kecemasan, harapan, ketakutan); most site UI remains EN. |
 
 **Fifth hub** (when ready): strong candidates include **Arabic** (reach in difficult places) and **Tagalog** (large church presence; anxiety + hope pilots already exist outside the hub pattern).
@@ -47,7 +47,7 @@ Use this as the **release gate** before calling a language **shipped** (not “p
 | Layer | Portuguese | French | Spanish | Indonesian (pilot) |
 |--------|------------|--------|---------|-------------------|
 | Hub | `/pt/` | `/fr/` | `/es/` | `/id/` |
-| Moods (tradition on-page) | ansiedade, esperança, medo, força, paz, solidão, culpa, sobrecarga (Almeida) | anxiété, espoir, peur, colère, tristesse, pardon, force, paix, solitude, culpabilité, débordé (Louis Segond) | ansiedad, esperanza, miedo, ira, duelo, perdón, fuerza, paz, soledad, culpa, agobio (Reina-Valera 1960) | kecemasan, harapan, ketakutan (KJV on-page + ID support copy) |
+| Moods (tradition on-page) | ansiedade, esperança, medo, força, paz, solidão, culpa, sobrecarga (Almeida) | anxiété, espoir, peur, colère, tristesse, pardon, force, paix, solitude, culpabilité, débordé (Louis Segond) | ansiedad, esperanza, miedo, ira, duelo, perdón, fuerza, paz, soledad, culpa, agobio (Reina-Valera 1909) | kecemasan, harapan, ketakutan (KJV on-page + ID support copy) |
 | Tool entry shells | `/pt/planos`, `mural`, `leitor`, `crianças` | `/fr/plans`, `mural`, `lecteur`, `enfants` | `/planes`, `muro`, `lector`, `ninos` (root) | — (tools link to EN) |
 | Legal summaries | `/pt/privacy`, `/pt/terms` | Link from hub to EN canonical | Link from hub to EN canonical | Link from hub to EN canonical |
 
@@ -57,7 +57,7 @@ Use this as the **release gate** before calling a language **shipped** (not “p
 
 - **Pastoral, calm, specific** — quiet friend at dawn; no hype, no prosperity/politics framing.
 - **KJV** only where English product surfaces show English Bible text; label it.
-- **On-page Scripture** must name tradition + public-domain note where applicable (Almeida, Louis Segond, Reina-Valera 1960, etc.).
+- **On-page Scripture** must name tradition + public-domain note where applicable (Almeida, Louis Segond, Reina-Valera 1909, etc.).
 - **No fake localization** — if the UI is English, the shell page must say so before the CTA.
 
 ---

@@ -221,9 +221,9 @@ function flattenGetbible(data) {
 
 async function vendorOne(spec) {
   let map;
-  if (spec.id === 'almeida') {
+  if (spec.kind === 'getbible') {
     console.log('fetch getbible', spec.id);
-    const data = await fetchJson('https://api.getbible.net/v2/almeida.json');
+    const data = await fetchJson('https://api.getbible.net/v2/' + spec.id + '.json');
     map = flattenGetbible(data);
   } else {
     const url = 'https://bible.helloao.org/api/' + spec.id + '/complete.simple.json';
@@ -244,8 +244,15 @@ async function vendorOne(spec) {
 
 async function main() {
   fs.mkdirSync(outDir, { recursive: true });
+  const force = process.argv.includes('--force');
   const counts = {};
   for (const spec of Object.values(LOCALE_BIBLES)) {
+    const dest = path.join(outDir, spec.file);
+    if (!force && fs.existsSync(dest)) {
+      counts[spec.lang] = Object.keys(JSON.parse(fs.readFileSync(dest, 'utf8'))).length;
+      console.log('keep', spec.file, counts[spec.lang], 'verses');
+      continue;
+    }
     counts[spec.lang] = await vendorOne(spec);
   }
   const meta = {

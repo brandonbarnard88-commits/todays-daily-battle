@@ -1,0 +1,63 @@
+Today's Daily Battle — locale Bible NOTICE
+==========================================
+
+English on this site is the King James Version (public domain in the United States).
+Language homes look up the same official UTC reference from the files below.
+We flattened each text to a {"Book C:V": "text"} map for lookup. That is an
+adaptation, not a new translation.
+
+Reina-Valera 1909 (Spanish)
+  License: public domain
+  Via: eBible.org (spaRV1909) and HelloAO (spa_r09)
+  File: es-rv1909.json
+  Adaptation: leading "Salmo." headings stripped from some verses.
+
+Louis Segond 1910 (French)
+  License: public domain
+  Via: eBible.org / HelloAO (fra_lsg)
+  File: fr-lsg1910.json
+  Adaptation: leading "Psaume." headings stripped from some verses.
+
+Almeida 1911 (Portuguese)
+  License: public domain text (João Ferreira de Almeida tradition;
+           1911 reprint of a 1900 edition)
+  Via: getBible.net https://api.getbible.net/v2/almeida.json
+  File: pt-almeida1911.json
+
+Chinese Union Version 1919, simplified (和合本)
+  License: public domain
+  Via: eBible.org (cmn-cu89s) and HelloAO (cmn_cu1)
+  File: zh-cuv.json
+
+Russian Synodal Bible, 1876 (Синодальный перевод)
+  License: public domain
+  Via: eBible.org (russyn) and HelloAO (rus_syn)
+  File: ru-synodal.json
+  Adaptation: psalm chapter numbers follow the Septuagint; lookup maps
+              KJV psalm numbers onto this edition so the day's verse matches.
+
+Hindi Indian Revised Version (IRV) 2019
+  Copyright © 2017, 2018, 2019 Bridge Connectivity Solutions
+  https://bridgeconn.com/
+  License: Creative Commons Attribution-ShareAlike 4.0 International
+           https://creativecommons.org/licenses/by-sa/4.0/
+  Via: eBible.org (hin2017) and HelloAO (HINIRV)
+  File: hi-irv.json
+  Adaptation: flattened to a verse map; trailing study-note parentheses
+              that were not verse wording were removed.
+  ShareAlike: this flattened file remains under CC BY-SA 4.0. Keep this
+              copyright notice, the license, and this adaptation note.
+
+Indonesian
+  No public-domain Indonesian full Bible is stored yet. The Indonesian
+  home uses the King James Version (public domain in the United States)
+  for the official day's verse.
+
+Distributors
+  eBible.org — https://ebible.org/
+  HelloAO Free Use Bible API — https://bible.helloao.org/
+  getBible.net — https://getbible.net/
+  aruljohn/Bible-kjv (English KJV vendor source) —
+    https://github.com/aruljohn/Bible-kjv
+
+Human-readable credits: https://todaysdailybattle.com/bible-credits.html

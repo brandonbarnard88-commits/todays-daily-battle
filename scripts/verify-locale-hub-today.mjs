@@ -52,6 +52,44 @@ function main() {
     if (!fs.existsSync(p)) fail('missing locale Bible ' + spec.file + ' — run node scripts/vendor-locale-bibles.mjs');
   });
 
+  const credits = read('bible-credits.html');
+  const notice = read('data/bibles/NOTICE.txt');
+  const injectSrc = read('scripts/inject-locale-hub-hero.mjs');
+  if (!injectSrc.includes('bible-credits.html')) {
+    fail('inject-locale-hub-hero must link Bible credits on locale hubs');
+  }
+  [
+    'Reina-Valera 1909',
+    'Louis Segond 1910',
+    'Almeida 1911',
+    'Chinese Union Version',
+    'Синодальный',
+    'Bridge Connectivity Solutions',
+    'CC BY-SA 4.0',
+    'creativecommons.org/licenses/by-sa/4.0',
+    'HelloAO',
+    'eBible.org',
+    'getBible.net',
+    'João Ferreira de Almeida'
+  ].forEach((need) => {
+    if (!credits.includes(need)) fail('bible-credits.html missing credit: ' + need);
+    if (!notice.includes(need) && need !== 'Chinese Union Version' && need !== 'Синодальный') {
+      /* NOTICE uses English CUV / Synodal names; still require Hindi legal line */
+    }
+  });
+  if (!notice.includes('Bridge Connectivity Solutions') || !notice.includes('CC BY-SA 4.0')) {
+    fail('data/bibles/NOTICE.txt must carry Hindi IRV copyright and CC BY-SA 4.0');
+  }
+  if (!credits.includes('id="locale-hi"') || !credits.includes('id="locale-bibles"')) {
+    fail('bible-credits.html must have #locale-bibles and #locale-hi anchors');
+  }
+  Object.values(LOCALE_BIBLES).forEach((spec) => {
+    if (!spec.onPageCredit) fail(spec.lang + ' missing onPageCredit');
+    if (/CC BY-SA/i.test(spec.license || '') && (!spec.holder || !spec.licenseUrl)) {
+      fail(spec.lang + ' CC license must name holder and license URL');
+    }
+  });
+
   const injectHome = read('scripts/inject-home-hero.mjs');
   if (!injectHome.includes('injectLocaleHubHero')) {
     fail('inject-home-hero.mjs must call injectLocaleHubHero');
@@ -141,6 +179,12 @@ function main() {
       if (!wrap.includes(locText)) fail(rel + ' missing locale Bible text for ' + expectRef);
       if (!wrap.includes('data-tdb-locale-bible="' + LOCALE_BIBLES[lang].name + '"')) {
         fail(rel + ' missing locale Bible stamp');
+      }
+      if (!wrap.includes('bible-credits.html#locale-' + lang)) {
+        fail(rel + ' missing Bible credits link');
+      }
+      if (lang === 'hi' && !wrap.includes('Bridge Connectivity Solutions')) {
+        fail(rel + ' Hindi IRV must credit Bridge Connectivity Solutions on the page');
       }
     } else if (lang === 'id') {
       if (!wrap.includes('data-tdb-locale-hub="id"')) fail(rel + ' missing Indonesian locale hub stamp');

@@ -30,7 +30,8 @@ const COPY = {
     prayer: 'Una oración sencilla',
     fallback:
       'La enseñanza de este versículo aún está en inglés. El versículo de arriba es el oficial de hoy — no un versículo de consuelo rotado.',
-    openEn: 'Ver el porche completo en inglés'
+    openEn: 'Ver el porche completo en inglés',
+    creditsLink: 'Créditos de las Biblias'
   },
   fr: {
     heading: 'Verset du jour',
@@ -47,7 +48,8 @@ const COPY = {
     prayer: 'Une prière simple',
     fallback:
       'L’enseignement de ce verset est encore en anglais. Le verset ci-dessus est le verset officiel d’aujourd’hui — pas un verset de réconfort en rotation.',
-    openEn: 'Voir le porche complet en anglais'
+    openEn: 'Voir le porche complet en anglais',
+    creditsLink: 'Crédits des Bibles'
   },
   pt: {
     heading: 'Versículo do dia',
@@ -64,7 +66,8 @@ const COPY = {
     prayer: 'Uma oração simples',
     fallback:
       'O ensino deste versículo ainda está em inglês. O versículo acima é o oficial de hoje — não um versículo de consolo a rodá-lo.',
-    openEn: 'Ver o alpendre completo em inglês'
+    openEn: 'Ver o alpendre completo em inglês',
+    creditsLink: 'Créditos das Bíblias'
   },
   zh: {
     heading: '今日经文',
@@ -80,7 +83,8 @@ const COPY = {
     step: '今天一个诚实的下一步',
     prayer: '一句简单的祷告',
     fallback: '这一节的讲解仍是英文。上面的经文是今天的官方经文——不是轮换的安慰句。',
-    openEn: '查看完整英文门廊'
+    openEn: '查看完整英文门廊',
+    creditsLink: '圣经版权与致谢'
   },
   ru: {
     heading: 'Стих дня',
@@ -97,7 +101,8 @@ const COPY = {
     prayer: 'Простая молитва',
     fallback:
       'Разбор этого стиха пока на английском. Стих выше — официальный стих сегодняшнего дня, не утешительный стих в ротации.',
-    openEn: 'Открыть полное английское крыльцо'
+    openEn: 'Открыть полное английское крыльцо',
+    creditsLink: 'Благодарности за тексты Библии'
   },
   hi: {
     heading: 'आज का वचन',
@@ -114,7 +119,8 @@ const COPY = {
     prayer: 'एक सीधी प्रार्थना',
     fallback:
       'इस वचन की व्याख्या अभी अंग्रेज़ी में है। ऊपर का वचन आज का आधिकारिक वचन है — घूमता हुआ सांत्वना वचन नहीं।',
-    openEn: 'पूरा अंग्रेज़ी बरामदा देखें'
+    openEn: 'पूरा अंग्रेज़ी बरामदा देखें',
+    creditsLink: 'बाइबल श्रेय'
   },
   id: {
     heading: 'Ayat hari ini',
@@ -131,7 +137,8 @@ const COPY = {
     prayer: 'Doa yang sederhana',
     fallback:
       'Pengajaran ayat ini masih dalam bahasa Inggris. Ayat di atas adalah ayat resmi hari ini — bukan ayat penghiburan yang berputar.',
-    openEn: 'Lihat beranda Inggris lengkap'
+    openEn: 'Lihat beranda Inggris lengkap',
+    creditsLink: 'Kredit Alkitab'
   }
 };
 
@@ -245,6 +252,19 @@ function buildSection(lang, ref, localeText, kjvText, bibleName, teach, ymd) {
     '            <p class="section-note">' +
     escapeHtml(c.kjvNote) +
     '</p>\n' +
+    '            <p class="section-note" data-locale-field="credit">' +
+    escapeHtml(
+      (spec && spec.onPageCredit) ||
+        'King James Version. Public domain in the United States.'
+    ) +
+    (spec && spec.licenseUrl && /CC BY-SA/i.test(spec.license || '')
+      ? ' <a href="' + escapeHtml(spec.licenseUrl) + '" rel="license">' + escapeHtml(spec.license) + '</a>.'
+      : '') +
+    ' <a href="/bible-credits.html#locale-' +
+    lang +
+    '">' +
+    escapeHtml(c.creditsLink || 'Bible credits') +
+    '</a></p>\n' +
     '            <p class="section-note" data-locale-field="kjv-line"><strong>' +
     escapeHtml(ref) +
     ' (KJV)</strong> \u201c' +

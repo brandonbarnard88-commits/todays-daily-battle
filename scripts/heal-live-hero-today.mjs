@@ -31,6 +31,10 @@ const HERO_PURGE_FILES = [
   'https://todaysdailybattle.com/pt/',
   'https://todaysdailybattle.com/pt/index.html',
   'https://todaysdailybattle.com/verso.html',
+  'https://todaysdailybattle.com/zh/',
+  'https://todaysdailybattle.com/ru/',
+  'https://todaysdailybattle.com/hi/',
+  'https://todaysdailybattle.com/id/',
   'https://www.todaysdailybattle.com/',
   'https://www.todaysdailybattle.com/index.html',
   'https://www.todaysdailybattle.com/today-kjv-verse.json',
@@ -39,6 +43,10 @@ const HERO_PURGE_FILES = [
   'https://www.todaysdailybattle.com/fr/',
   'https://www.todaysdailybattle.com/pt/',
   'https://www.todaysdailybattle.com/verso.html',
+  'https://www.todaysdailybattle.com/zh/',
+  'https://www.todaysdailybattle.com/ru/',
+  'https://www.todaysdailybattle.com/hi/',
+  'https://www.todaysdailybattle.com/id/',
 ].join(',');
 
 function run(args, extraEnv = {}) {

@@ -65,6 +65,73 @@ const COPY = {
     fallback:
       'O ensino deste versículo ainda está em inglês. O versículo acima é o oficial de hoje — não um versículo de consolo a rodá-lo.',
     openEn: 'Ver o alpendre completo em inglês'
+  },
+  zh: {
+    heading: '今日经文',
+    eyebrow: '与英文首页同一日的官方经文',
+    kjvNote:
+      '书卷、章、节与英文首页相同。上文：和合本 1919（公有领域）。本站英文线是 KJV。',
+    sit: '当时在发生什么',
+    mean: '这是什么意思',
+    who: '谁在说话',
+    hear: '谁听见这话',
+    modern: '这话怎样对着 2026 说话',
+    you: '这话现在怎样对你说',
+    step: '今天一个诚实的下一步',
+    prayer: '一句简单的祷告',
+    fallback: '这一节的讲解仍是英文。上面的经文是今天的官方经文——不是轮换的安慰句。',
+    openEn: '查看完整英文门廊'
+  },
+  ru: {
+    heading: 'Стих дня',
+    eyebrow: 'Тот же официальный стих, что и на английской главной',
+    kjvNote:
+      'Та же книга, глава и стих, что на английской главной. Текст выше: Синодальный перевод (общественное достояние). Английская линия сайта — KJV.',
+    sit: 'Что происходило',
+    mean: 'Что это значит',
+    who: 'Кто говорит',
+    hear: 'Кто это слышит',
+    modern: 'Как это говорит сегодня (2026)',
+    you: 'Как это говорит тебе сейчас',
+    step: 'Один честный шаг только на сегодня',
+    prayer: 'Простая молитва',
+    fallback:
+      'Разбор этого стиха пока на английском. Стих выше — официальный стих сегодняшнего дня, не утешительный стих в ротации.',
+    openEn: 'Открыть полное английское крыльцо'
+  },
+  hi: {
+    heading: 'आज का वचन',
+    eyebrow: 'अंग्रेज़ी होम जैसा ही आधिकारिक वचन',
+    kjvNote:
+      'वही पुस्तक, अध्याय और वचन जो अंग्रेज़ी होम पर है। ऊपर का पाठ: हिन्दी IRV 2019 (CC BY-SA 4.0, Bridge Connectivity Solutions)। साइट की अंग्रेज़ी पंक्ति KJV है।',
+    sit: 'तब क्या हो रहा था',
+    mean: 'इसका अर्थ क्या है',
+    who: 'कौन बोलता है',
+    hear: 'यह किस तक पहुँचता है',
+    modern: 'यह आज (2026) कैसे बोलता है',
+    you: 'यह अभी तुमसे कैसे बोलता है',
+    step: 'आज के लिए एक ईमानदार कदम',
+    prayer: 'एक सीधी प्रार्थना',
+    fallback:
+      'इस वचन की व्याख्या अभी अंग्रेज़ी में है। ऊपर का वचन आज का आधिकारिक वचन है — घूमता हुआ सांत्वना वचन नहीं।',
+    openEn: 'पूरा अंग्रेज़ी बरामदा देखें'
+  },
+  id: {
+    heading: 'Ayat hari ini',
+    eyebrow: 'Ayat resmi yang sama dengan beranda Inggris',
+    kjvNote:
+      'Kitab, pasal, dan ayat yang sama dengan beranda Inggris. Belum ada Alkitab Indonesia domain publik di situs ini; teks di atas adalah KJV.',
+    sit: 'Apa yang sedang terjadi',
+    mean: 'Apa artinya',
+    who: 'Siapa yang berbicara',
+    hear: 'Siapa yang mendengar ini',
+    modern: 'Bagaimana ini berbicara hari ini (2026)',
+    you: 'Bagaimana ini berbicara kepadamu sekarang',
+    step: 'Satu langkah jujur, hanya untuk hari ini',
+    prayer: 'Doa yang sederhana',
+    fallback:
+      'Pengajaran ayat ini masih dalam bahasa Inggris. Ayat di atas adalah ayat resmi hari ini — bukan ayat penghiburan yang berputar.',
+    openEn: 'Lihat beranda Inggris lengkap'
   }
 };
 
@@ -85,6 +152,22 @@ const HUBS = [
   {
     lang: 'pt',
     files: [path.join(root, 'pt', 'index.html'), path.join(root, 'dist', 'pt', 'index.html')]
+  },
+  {
+    lang: 'zh',
+    files: [path.join(root, 'zh', 'index.html'), path.join(root, 'dist', 'zh', 'index.html')]
+  },
+  {
+    lang: 'ru',
+    files: [path.join(root, 'ru', 'index.html'), path.join(root, 'dist', 'ru', 'index.html')]
+  },
+  {
+    lang: 'hi',
+    files: [path.join(root, 'hi', 'index.html'), path.join(root, 'dist', 'hi', 'index.html')]
+  },
+  {
+    lang: 'id',
+    files: [path.join(root, 'id', 'index.html'), path.join(root, 'dist', 'id', 'index.html')]
   }
 ];
 
@@ -120,13 +203,15 @@ function pickTeaching(lang, ref, english) {
 
 function buildSection(lang, ref, localeText, kjvText, bibleName, teach, ymd) {
   const c = COPY[lang];
+  const spec = LOCALE_BIBLES[lang] || {};
+  const htmlLang = spec.htmlLang || lang;
   const fallbackNote =
     teach.teachLang !== lang
       ? '<p class="section-note" data-locale-field="fallback-note">' + escapeHtml(c.fallback) + '</p>'
       : '<p class="section-note" data-locale-field="fallback-note" hidden></p>';
   return (
     '<section class="glass tdb-porch-paper-glass pt-topic-breakdown tdb-hub-daily-wrap" lang="' +
-    lang +
+    htmlLang +
     '" id="' +
     lang +
     '-hub-daily-verse" data-tdb-locale-hub="' +
@@ -261,20 +346,23 @@ export function injectLocaleHubHero() {
 
   for (const hub of HUBS) {
     const spec = LOCALE_BIBLES[hub.lang];
-    const localeText = localeTextForRef(root, hub.lang, ref).replace(/\s+/g, ' ').trim();
-    if (!localeText) fail(hub.lang + ' missing locale Bible text for ' + ref + ' — run node scripts/vendor-locale-bibles.mjs');
+    const localeText = localeTextForRef(root, hub.lang, ref).replace(/\s+/g, ' ').trim() || text;
+    if (spec && !localeTextForRef(root, hub.lang, ref).trim()) {
+      fail(hub.lang + ' missing locale Bible text for ' + ref + ' — run node scripts/vendor-locale-bibles.mjs');
+    }
+    const bibleName = spec ? spec.name : 'King James Version';
     const teach = pickTeaching(hub.lang, ref, english);
     leftoverTemplateIssues(teach).forEach((issue) => {
       fail(hub.lang + ' leftover: ' + issue);
     });
-    const section = buildSection(hub.lang, ref, localeText, text, spec.name, teach, ymd);
+    const section = buildSection(hub.lang, ref, localeText, text, bibleName, teach, ymd);
     hub.files.forEach((filePath) => {
       const label = path.relative(root, filePath);
       applyToFile(filePath, label, section);
     });
   }
 
-  console.log('inject-locale-hub-hero: OK —', ref, '(UTC doy', utcDayOfYear() + ')', 'es/fr/pt + verso');
+  console.log('inject-locale-hub-hero: OK —', ref, '(UTC doy', utcDayOfYear() + ')', 'es/fr/pt/zh/ru/hi/id');
 }
 
 const isDirect =

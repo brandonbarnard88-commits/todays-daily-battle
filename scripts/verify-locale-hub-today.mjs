@@ -40,6 +40,13 @@ function main() {
   if (!expectRef) fail('could not pick official today');
   if (!expectText) fail('official KJV text empty');
 
+  if (/^Psalms? 98:/i.test(expectRef)) {
+    const ru = localeTextForRef(root, 'ru', expectRef);
+    if (!ru || /херувим/i.test(ru) || !/песн/i.test(ru)) {
+      fail('Russian Synodal must map KJV Psalm 98 to LXX Psalm 97 (new song), not Psalm 98 (the LORD reigns)');
+    }
+  }
+
   Object.values(LOCALE_BIBLES).forEach((spec) => {
     const p = path.join(localeBibleDir(root), spec.file);
     if (!fs.existsSync(p)) fail('missing locale Bible ' + spec.file + ' — run node scripts/vendor-locale-bibles.mjs');
@@ -76,7 +83,14 @@ function main() {
     'Matthieu 11:28',
     'Mateus 11:28',
     'Isaías 41:10',
-    'Ésaïe 41:10'
+    'Ésaïe 41:10',
+    '诗篇 55:22',
+    '马太福音 11:28',
+    'Псалом 55:22',
+    'От Матфея 11:28',
+    'भजन संहिता ५५:२२',
+    'Psalm 55:22',
+    'Matthew 11:28'
   ];
 
   const pages = [
@@ -87,7 +101,15 @@ function main() {
     'pt/index.html',
     'dist/pt/index.html',
     'verso.html',
-    'dist/verso.html'
+    'dist/verso.html',
+    'zh/index.html',
+    'dist/zh/index.html',
+    'ru/index.html',
+    'dist/ru/index.html',
+    'hi/index.html',
+    'dist/hi/index.html',
+    'id/index.html',
+    'dist/id/index.html'
   ];
 
   pages.forEach((rel) => {
@@ -111,20 +133,18 @@ function main() {
     leftoverSnips.forEach((snip) => {
       if (wrap.includes(snip)) fail(rel + ' leftover in daily wrap: ' + snip);
     });
-    const lang = rel.includes('verso') || rel.startsWith('es/') || rel.startsWith('dist/es/')
-      ? 'es'
-      : rel.includes('/fr/')
-        ? 'fr'
-        : rel.includes('/pt/')
-          ? 'pt'
-          : '';
-    if (lang) {
+    const langMatch = rel.match(/(?:^|\/)(es|fr|pt|zh|ru|hi|id)(?:\/|$)/);
+    const lang = rel.includes('verso') ? 'es' : langMatch ? langMatch[1] : '';
+    if (lang && LOCALE_BIBLES[lang]) {
       const locText = localeTextForRef(root, lang, expectRef);
       if (!locText) fail(lang + ' locale Bible missing ' + expectRef + ' — run node scripts/vendor-locale-bibles.mjs');
       if (!wrap.includes(locText)) fail(rel + ' missing locale Bible text for ' + expectRef);
       if (!wrap.includes('data-tdb-locale-bible="' + LOCALE_BIBLES[lang].name + '"')) {
         fail(rel + ' missing locale Bible stamp');
       }
+    } else if (lang === 'id') {
+      if (!wrap.includes('data-tdb-locale-hub="id"')) fail(rel + ' missing Indonesian locale hub stamp');
+      if (!wrap.includes(expectText)) fail(rel + ' Indonesian hub must show official KJV until a PD Indonesian Bible is vendored');
     }
   });
 
@@ -151,7 +171,7 @@ function main() {
     expectRef,
     '(UTC doy',
     utcDayOfYear() + ')',
-    'es/fr/pt + verso'
+    'es/fr/pt/zh/ru/hi/id'
   );
 }
 

@@ -6,6 +6,7 @@
       "lang": "es",
       "file": "es-rv1909.json",
       "id": "spa_r09",
+      "kind": "helloao",
       "name": "Reina-Valera 1909",
       "short": "RV1909",
       "license": "Public domain",
@@ -16,6 +17,7 @@
       "lang": "fr",
       "file": "fr-lsg1910.json",
       "id": "fra_lsg",
+      "kind": "helloao",
       "name": "Louis Segond 1910",
       "short": "LSG1910",
       "license": "Public domain",
@@ -26,11 +28,46 @@
       "lang": "pt",
       "file": "pt-almeida1911.json",
       "id": "almeida",
+      "kind": "getbible",
       "name": "Almeida 1911",
       "short": "Almeida",
       "license": "Public domain (1911 reprint of Almeida)",
       "source": "https://api.getbible.net/v2/almeida.json",
       "verses": 31101
+    },
+    {
+      "lang": "zh",
+      "file": "zh-cuv.json",
+      "id": "cmn_cu1",
+      "kind": "helloao",
+      "htmlLang": "zh-CN",
+      "name": "和合本 1919",
+      "short": "CUV",
+      "license": "Public domain",
+      "source": "https://ebible.org/Scriptures/details.php?id=cmn-cu89s",
+      "verses": 31021
+    },
+    {
+      "lang": "ru",
+      "file": "ru-synodal.json",
+      "id": "rus_syn",
+      "kind": "helloao",
+      "name": "Синодальный перевод",
+      "short": "Synodal",
+      "license": "Public domain",
+      "source": "https://ebible.org/Scriptures/details.php?id=russyn",
+      "verses": 31169
+    },
+    {
+      "lang": "hi",
+      "file": "hi-irv.json",
+      "id": "HINIRV",
+      "kind": "helloao",
+      "name": "हिन्दी IRV 2019",
+      "short": "IRV",
+      "license": "CC BY-SA 4.0 (Bridge Connectivity Solutions)",
+      "source": "https://ebible.org/Scriptures/details.php?id=hin2017",
+      "verses": 31104
     }
   ]
 }

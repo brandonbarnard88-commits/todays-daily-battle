@@ -82,8 +82,8 @@
   <!-- Ribbon bookmark (small hint) -->
   <path d="M484 362 L484 395 L479 390 L474 395 L474 362" fill="rgba(163,139,110,0.45)" stroke="none"/>
 
-  <!-- Below book  description text on dark bg -->
+  <!-- Below book  —  description text on dark bg -->
   <text x="360" y="430" font-family="Georgia,'Times New Roman',serif" font-size="14" fill="rgba(212,196,168,0.8)" text-anchor="middle">Undated. One verse per spread.</text>
-  <text x="360" y="452" font-family="Georgia,serif" font-size="11" fill="rgba(163,139,110,0.6)" text-anchor="middle">Generous white space  quiet place to meet God.</text>
+  <text x="360" y="452" font-family="Georgia,serif" font-size="11" fill="rgba(163,139,110,0.6)" text-anchor="middle">Generous white space  —  quiet place to meet God.</text>
   <text x="360" y="470" font-family="Georgia,serif" font-size="8.5" fill="rgba(163,139,110,0.32)" text-anchor="middle" letter-spacing="0.08em">TODAYSDAILYBATTLE.COM</text>
 </svg>

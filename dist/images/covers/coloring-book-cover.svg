@@ -65,7 +65,7 @@
   <text x="340" y="294" font-family="Georgia,serif" font-size="9.5" fill="#666" text-anchor="middle">Daniel in the Lions&apos; Den</text>
   <text x="340" y="308" font-family="Georgia,serif" font-size="8" fill="#999" text-anchor="middle" font-style="italic">Daniel 6 (KJV)</text>
 
-  <!-- Third frame  right side standalone -->
+  <!-- Third frame  â€”  right side standalone -->
   <rect x="444" y="80" width="176" height="240" rx="6" fill="#fafaf8" stroke="rgba(163,139,110,0.35)" stroke-width="1.2"/>
   <!-- Empty tomb scene -->
   <!-- Stone rolled away -->
@@ -88,8 +88,8 @@
 
   <!-- Title block -->
   <text x="360" y="358" font-family="Georgia,'Times New Roman',serif" font-size="24" font-weight="700" fill="#d4c4a8" text-anchor="middle" letter-spacing="0.5">Color &amp; Tell</text>
-  <text x="360" y="382" font-family="Georgia,serif" font-size="12" fill="rgba(163,139,110,0.85)" text-anchor="middle">83 Bible Stories · KJV Line Art Coloring Book</text>
+  <text x="360" y="382" font-family="Georgia,serif" font-size="12" fill="rgba(163,139,110,0.85)" text-anchor="middle">83 Bible Stories Â· KJV Line Art Coloring Book</text>
   <line x1="200" y1="396" x2="520" y2="396" stroke="rgba(163,139,110,0.3)" stroke-width="1"/>
-  <text x="360" y="416" font-family="Georgia,serif" font-size="10" font-style="italic" fill="rgba(200,210,230,0.45)" text-anchor="middle">"Let the little children come unto me."  Mark 10:14 (KJV)</text>
-  <text x="360" y="456" font-family="Georgia,serif" font-size="8.5" fill="rgba(163,139,110,0.4)" text-anchor="middle" letter-spacing="0.1em">TODAYSDAILYBATTLE.COM · FREE · OFFLINE-FIRST · NO ADS</text>
+  <text x="360" y="416" font-family="Georgia,serif" font-size="10" font-style="italic" fill="rgba(200,210,230,0.45)" text-anchor="middle">"Let the little children come unto me."  â€”  Mark 10:14 (KJV)</text>
+  <text x="360" y="456" font-family="Georgia,serif" font-size="8.5" fill="rgba(163,139,110,0.4)" text-anchor="middle" letter-spacing="0.1em">TODAYSDAILYBATTLE.COM Â· FREE Â· OFFLINE-FIRST Â· NO ADS</text>
 </svg>

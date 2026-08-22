@@ -6,7 +6,7 @@
   <script src="/tt-bootstrap.js?v=20260816-brightgold" defer fetchpriority="low"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260822read2"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260822read3"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Read the Bible by Chapter (KJV) — Clean Chapter Reader | Today's Daily Battle</title>
@@ -26,8 +26,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822read2" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822read2">
+  <link rel="preload" href="styles.css?v=20260822read3" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822read3">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -35,7 +35,7 @@
   <style>
     .reader-hero-tagline {
       font-size: 1.05rem;
-      color: #1e293b;
+      color: #f4efe3;
       margin-bottom: 0.75rem;
     }
     .reader-hero-lead {
@@ -43,33 +43,39 @@
       line-height: 1.6;
       max-width: 46rem;
       margin-bottom: 1.25rem;
-      color: #1e293b;
+      color: #f4efe3;
     }
     .reader-pills {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.55);
-      border: 1px solid rgba(122, 84, 16, 0.35);
+      background: rgba(242, 220, 152, 0.14);
+      border: 1px solid rgba(242, 220, 152, 0.42);
       padding: 0.7rem 1.1rem;
       border-radius: 14px;
       margin: 0.5rem 0 1.25rem;
       font-size: 0.9rem;
-      color: #7a5410;
+      color: #f2dc98;
       letter-spacing: 0.01em;
     }
     .reader-hero-reassurance {
       font-size: 0.97rem;
-      color: #1e293b;
+      color: #f4efe3;
       font-style: italic;
       margin-bottom: 1.5rem;
     }
-    /* Dawn band is cream; quiet-luxury was painting a dark wash + charcoal ink */
+    /* Night: solid dark card + cream ink. Charcoal-on-cream lost to the dark wash. */
     body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn {
-      background: var(--tdb-dawn-classic, linear-gradient(135deg, #f5e8c7 0%, #c8d8e8 50%, #a3b8d1 100%)) !important;
-      color: #0f172a;
+      background: #141922 !important;
+      background-image: none !important;
+      color: #f4efe3 !important;
+    }
+    body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn::before,
+    body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn::after {
+      content: none !important;
+      opacity: 0 !important;
     }
     body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn h1 {
-      color: #0f172a !important;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+      color: #f8fafc !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     }
     body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn p,
     body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .section-note,
@@ -79,7 +85,48 @@
     body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .reader-hero-reassurance,
     body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .tdb-offline-ready,
     body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .tdb-continue-surface__note {
+      color: #f4efe3 !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+    body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .reader-pills {
+      color: #f2dc98 !important;
+      background: rgba(242, 220, 152, 0.14) !important;
+      border-color: rgba(242, 220, 152, 0.42) !important;
+    }
+    html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn,
+    html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn,
+    html[data-theme="daylight"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn,
+    html[data-theme="parchment"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn {
+      background: #f5e8c7 !important;
+      color: #0f172a !important;
+    }
+    html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn h1,
+    html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn h1,
+    html[data-theme="daylight"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn h1,
+    html[data-theme="parchment"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn h1 {
+      color: #0f172a !important;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+    }
+    html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn p,
+    html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .section-note,
+    html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .topic-mood-porch,
+    html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .reader-hero-tagline,
+    html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .reader-hero-lead,
+    html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .reader-hero-reassurance,
+    html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .tdb-offline-ready,
+    html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn p,
+    html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .section-note,
+    html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .reader-hero-tagline,
+    html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .reader-hero-lead,
+    html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .reader-hero-reassurance {
       color: #1e293b !important;
+      text-shadow: none;
+    }
+    html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .reader-pills,
+    html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .reader-pills {
+      color: #7a5410 !important;
+      background: rgba(255, 255, 255, 0.7) !important;
+      border-color: rgba(122, 84, 16, 0.35) !important;
     }
     body.chapter-reader-page #chapter-reader .section-note,
     body.chapter-reader-page .tdb-kjv-dict-hint,

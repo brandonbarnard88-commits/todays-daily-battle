@@ -3191,7 +3191,7 @@ body {
 }
 
 .tdb-header-account-nudge {
-  display: flex;
+  display: none !important;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.25rem 0.5rem;

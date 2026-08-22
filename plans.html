@@ -42,8 +42,8 @@
   </script>
   <link rel="preload" href="/plans-data.js" as="script" fetchpriority="low">
   <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
-  <link rel="preload" href="styles.css?v=20260816-brightgold" as="style" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260816-brightgold" media="all">
+  <link rel="preload" href="styles.css?v=20260822desk16" as="style" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20260822desk16" media="all">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase2a" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase2a">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
@@ -126,6 +126,12 @@
 
     .skip-link { position: absolute; left: -9999px; }
     .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; }
+    /* Quiet desk: Sign in/Saved strip off; plan titles that quote the verse stay */
+    .tdb-header-account-nudge,
+    #plansAccountStripDetails,
+    .tdb-shell-account-strip {
+      display: none !important;
+    }
     /* critical base classes — defined here so they apply before styles.css finishes loading */
     .tdb-quiet-container {
       width: 100%; max-width: var(--tdb-inner-max);
@@ -3423,7 +3429,7 @@
         <summary class="tdb-hub-disclosure__summary">Save on this device</summary>
         <div class="tdb-hub-disclosure__inner">
       <div class="tdb-shell-account-strip" role="region" aria-label="Account shortcuts">
-        <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <div class="tdb-header-account-nudge" hidden role="group" aria-label="Account shortcuts" style="display:none!important">
             <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
             <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
             <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>

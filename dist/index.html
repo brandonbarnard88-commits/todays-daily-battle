@@ -131,7 +131,7 @@
   <!-- Cormorant hero subset (LCP) + Caveat deferred. No Google Fonts on homepage. -->
   <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-garamond-hero-latin.woff2" crossorigin fetchpriority="high">
   <link rel="preload" as="font" type="font/woff2" href="/fonts/caveat-latin-700.woff2" crossorigin fetchpriority="low">
-  <style id="tdb-hero-lcp-critical">@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/cormorant-garamond-hero-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2000-206F,U+2122,U+FEFF,U+FFFD}#hero-verse-wrap #heroVerse,#heroVerse.hero-verse.verse-body{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:clamp(1.05rem,2.8vw,1.22rem);line-height:1.62;letter-spacing:.012em;font-weight:400;color:#f5f7fb;margin:0;overflow-wrap:break-word;word-break:break-word}#verseCard #heroVerse.hero-verse.is-visible{opacity:1}</style>
+  <style id="tdb-hero-lcp-critical">@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/cormorant-garamond-hero-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2000-206F,U+2122,U+FEFF,U+FFFD}#hero-verse-wrap #heroVerse,#heroVerse.hero-verse.verse-body{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:clamp(1.45rem,3.4vw,1.95rem);line-height:1.42;letter-spacing:.012em;font-weight:500;font-style:italic;color:#f4efe3;margin:0;overflow-wrap:break-word;word-break:break-word}#verseCard #heroVerse.hero-verse.is-visible{opacity:1}</style>
   <!-- Idler/third-party: resolve DNS only — avoids early TCP+TLS to GA/Plausible/JSDelivr before first paint. -->
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="dns-prefetch" href="https://www.google.com">
@@ -140,8 +140,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260820chrome" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260820chrome">
+  <link rel="preload" href="tdb-home-page.css?v=20260822desk16" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260822desk16">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260812unstick-nav" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260812unstick-nav">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -275,6 +275,47 @@
   }
   </script>
   <script nonce="tdb2025s">(function(){try{document.documentElement.classList.add('tdb-quiet-update-dismissed');}catch(e){}})();</script>
+  <style id="tdb-home-quiet-desk">
+    /* Word first: leftover catalog, extra shares, and Sign in stay off even if CSS cache is stale */
+    #header-auth-links,
+    .site-top-links #header-auth-links + span[aria-hidden],
+    .tdb-nav-more-panel a[href="/login.html"],
+    #heroVbdRowCtx,
+    #heroVbdRowYou,
+    #heroVotdNextStep,
+    #heroVotdPrayerBlock,
+    .tdb-verse-human-note,
+    .tdb-hero-share-more,
+    #heroDigDeeperPlan,
+    #hero-my-verses-hint,
+    #hero-my-verses-privacy-line {
+      display: none !important;
+    }
+    #verseCard {
+      border-left: 4px solid #f2dc98;
+      background: #141922;
+    }
+    #heroRef.hero-daily-ref-above {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #f2dc98;
+    }
+    #hero-verse-wrap,
+    #verseCard,
+    #heroVotdBreakdown,
+    .hero-calendar-breakdown-wrap {
+      max-height: none !important;
+      overflow: visible !important;
+    }
+    html[data-theme="light"] #verseCard,
+    :root[data-theme="light"] #verseCard { background: #fbf6ea; }
+    html[data-theme="light"] #heroRef.hero-daily-ref-above,
+    :root[data-theme="light"] #heroRef.hero-daily-ref-above { color: #8a6d1f; }
+    html[data-theme="light"] #heroVerse.hero-verse,
+    :root[data-theme="light"] #heroVerse.hero-verse { color: #1a1610; }
+  </style>
 </head>
 <body class="no-tdb-bottom-nav">
   <!-- Early sky class from real sunrise/sunset (place + season), not a fixed 5am/6:30pm clock. -->

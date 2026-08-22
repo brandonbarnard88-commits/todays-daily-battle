@@ -64,7 +64,11 @@
     body.bible-tool-page #people-input-wrap,
     body.bible-tool-page #people-result,
     body.bible-tool-page #whos-this-inline,
-    body.bible-tool-page .tdb-vb-curriculum {
+    body.bible-tool-page .tdb-vb-curriculum,
+    body.bible-tool-page .tdb-vb-inline-bubble,
+    body.bible-tool-page .tdb-vb-reflection,
+    body.bible-tool-page .tdb-vb-inline-ref,
+    body.bible-tool-page .tdb-vb-inline-verse-text {
       display: none !important;
     }
     /* Context + breakdown grow with the page — no inner scroll box */
@@ -1169,7 +1173,7 @@
     </main>
   </div>
 
-  <script type="module" src="script.js?v=20260820-askwalk"></script>
+  <script type="module" src="script.js?v=20260822desk7"></script>
   <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
   <script src="bible-study-companion.js?v=20260328printpolish"></script>
   <script src="word-study.js?v=20260329pass2off"></script>
@@ -1177,7 +1181,7 @@
   <script src="verse-study.js?v=20260328pass4vs"></script>
   <script src="verse-context.js?v=20260819-truth" data-tdb-verse-context="1"></script>
 <script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
-<script src="verse-breakdown.js?v=20260822desk6" data-tdb-verse-breakdown="1"></script>
+<script src="verse-breakdown.js?v=20260822desk7" data-tdb-verse-breakdown="1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">
@@ -1770,7 +1774,9 @@
     var prayBox = document.getElementById('lookup-prayer-box');
     if (prayBox) { prayBox.classList.add('hidden'); prayBox.innerHTML = ''; }
     var lookupContext = document.getElementById('lookup-context');
-    if (lookupContext) {
+    if (lookupContext) lookupContext.innerHTML = '';
+    function mountLookupContext() {
+      if (!lookupContext) return;
       lookupContext.innerHTML = '';
       if (typeof window.tdbMountVerseContextAccordion === 'function') {
         window.tdbMountVerseContextAccordion(lookupContext, data.reference, true);
@@ -1785,6 +1791,7 @@
           window.TDBVerseBreakdown.injectInlineBreakdown(bdHost, data.reference, data.text);
         } catch (eLookupBd) {}
       }
+      mountLookupContext();
     }
     var lookupBook = (parts && parts.book) ? parts.book : '';
     if (lookupBook && window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.prefetchBookBreakdown === 'function') {

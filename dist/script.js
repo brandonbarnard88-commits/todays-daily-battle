@@ -20960,6 +20960,15 @@ function getVerseContext(ref) {
   var situation = String((live && (live.setting || live.situation)) || (bd && (bd.situation || bd.setting)) || '').trim();
   var meaning = String((bd && (bd.plainMeaningOnly || bd.layman || bd.plainExplanation)) || '').trim();
   meaning = meaning.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
+  try {
+    if (meaning && window.TDBVerseBreakdown) {
+      var near = window.TDBVerseBreakdown.isNearVerbatimPlain;
+      var frame = window.TDBVerseBreakdown.frameVerseTeaching;
+      if (typeof near === 'function' && near(meaning, text)) {
+        meaning = typeof frame === 'function' ? String(frame(text) || '').trim() : '';
+      }
+    }
+  } catch (eMeanEcho) {}
   var application = String((bd && (bd.modernApplication || bd.relates)) || stat.application || '').trim();
   if (/hold this verse as written|life can feel loud/i.test(application)) application = '';
   var prayer = String((bd && bd.prayer) || stat.prayer || '').trim();

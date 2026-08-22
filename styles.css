@@ -22503,6 +22503,23 @@ html[data-theme="sepia"] body.bible-tool-page .bible-tool-hero--soar-dawn .secti
   color: #1e293b !important;
 }
 
+/* Look up: a KJV desk — not Ask, plans, Win the Day, or a workshop shelf */
+body.bible-tool-page #ask-the-word-section,
+body.bible-tool-page #search-hero,
+body.bible-tool-page #bible-tool-onpage-nav-details,
+body.bible-tool-page #bible-tool-hero-more,
+body.bible-tool-page #bible-tool-hub,
+body.bible-tool-page #bible-tool-secondary-details,
+body.bible-tool-page #bible-tool-reading-plan,
+body.bible-tool-page #bible-tool-win-the-day,
+body.bible-tool-page #bible-tool-battle-ready,
+body.bible-tool-page #global-search-wrap,
+body.bible-tool-page .tdb-soft-retry-row,
+body.bible-tool-page .bible-tool-workshop-strip,
+body.bible-tool-page .bible-tool-mini-hub {
+  display: none !important;
+}
+
 /* Read hero in Night: solid dark card + cream ink (charcoal-on-cream lost to the wash) */
 body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn {
   background: #141922 !important;

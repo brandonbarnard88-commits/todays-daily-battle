@@ -13,9 +13,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import {
   buildHeroLaymanPlain,
-  compressToTeachingLine,
+  frameVerseTeaching,
+  isWeakLaymanPlain,
   loadVersePlainMeanings,
-  modernizeKjvText,
   normalizeHeroRef
 } from './lib/hero-layman-plain.mjs';
 import { isWeakPlainStamp } from './lib/teaching-quality.mjs';
@@ -47,13 +47,20 @@ function loadKjv() {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
 }
 
+function leftoverish(p) {
+  return (
+    isWeakPlainStamp(p) ||
+    /kindness meets you as you are|not after you perform|hold this verse as written/i.test(p)
+  );
+}
+
 function plainFor(ref, text, map) {
   const raw = String(text || '').replace(/\s+/g, ' ').trim();
   let p = buildHeroLaymanPlain(ref, raw, map, root);
-  if (isWeakPlainStamp(p) || /kindness meets you as you are|not after you perform|hold this verse as written/i.test(p)) {
-    p = compressToTeachingLine(modernizeKjvText(raw), 200);
+  if (!p || leftoverish(p) || isWeakLaymanPlain(p, raw)) {
+    p = frameVerseTeaching(raw);
   }
-  return String(p || compressToTeachingLine(modernizeKjvText(raw), 200) || '').trim();
+  return String(p || frameVerseTeaching(raw) || '').trim();
 }
 
 function main() {
@@ -70,8 +77,8 @@ function main() {
     if (!parts) return;
     const p = plainFor(parts.ref, text, map);
     if (!p) leftover.push(parts.ref + ': empty');
-    else if (isWeakPlainStamp(p) || /kindness meets you as you are|hold this verse as written/i.test(p)) {
-      leftover.push(parts.ref + ': leftover');
+    else if (leftoverish(p) || isWeakLaymanPlain(p, text)) {
+      leftover.push(parts.ref + ': leftover-or-echo');
     }
     if (!byBook[parts.book]) byBook[parts.book] = {};
     byBook[parts.book][parts.cv] = p;
@@ -104,6 +111,9 @@ function main() {
   );
   const distDir = path.join(root, 'dist', 'data', 'breakdown');
   fs.mkdirSync(distDir, { recursive: true });
+  fs.readdirSync(distDir).forEach((name) => {
+    fs.unlinkSync(path.join(distDir, name));
+  });
   fs.readdirSync(outDir).forEach((name) => {
     fs.copyFileSync(path.join(outDir, name), path.join(distDir, name));
   });

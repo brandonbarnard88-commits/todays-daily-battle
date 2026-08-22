@@ -6,6 +6,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { isWeakPlainStamp } from './lib/teaching-quality.mjs';
+import { isWeakLaymanPlain } from './lib/hero-layman-plain.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -21,6 +22,10 @@ if (Number(meta.verseCount) < 31000) {
   console.error('verify-full-kjv-breakdown: verseCount is', meta.verseCount, 'expected ~31102');
   process.exit(1);
 }
+const kjvPath = fs.existsSync(path.join(root, 'data', 'kjv-full.json'))
+  ? path.join(root, 'data', 'kjv-full.json')
+  : path.join(root, 'kjv.json');
+const kjv = JSON.parse(fs.readFileSync(kjvPath, 'utf8'));
 const leftover = [];
 let seen = 0;
 for (const book of Object.keys(meta.books || {})) {
@@ -34,7 +39,15 @@ for (const book of Object.keys(meta.books || {})) {
   Object.keys(map).forEach((cv) => {
     seen += 1;
     const plain = String(map[cv] || '');
-    if (!plain || isWeakPlainStamp(plain) || /kindness meets you as you are|hold this verse as written/i.test(plain)) {
+    const kjvKey = book === 'Psalm' ? 'Psalm ' + cv : book + ' ' + cv;
+    const altKey = book === 'Psalm' ? 'Psalms ' + cv : '';
+    const verseText = String(kjv[kjvKey] || kjv[altKey] || '');
+    if (
+      !plain ||
+      isWeakPlainStamp(plain) ||
+      /kindness meets you as you are|hold this verse as written/i.test(plain) ||
+      (verseText && isWeakLaymanPlain(plain, verseText))
+    ) {
       leftover.push(book + ' ' + cv);
     }
   });

@@ -308,7 +308,7 @@ export function compressToTeachingLine(text, maxLen) {
     return s.charAt(0).toUpperCase() + s.slice(1);
   }
   /* Prefer first two clauses. */
-  const parts = s.split(/(?<=[.:;])\s+/);
+  const parts = s.split(/[.:;]\s+/);
   let out = parts[0] || s;
   if (parts[1] && (out + ' ' + parts[1]).length <= limit + 20) {
     out = out + ' ' + parts[1];
@@ -318,6 +318,55 @@ export function compressToTeachingLine(text, maxLen) {
   }
   if (!/[.!?…]"?$/.test(out)) out += '.';
   return out.charAt(0).toUpperCase() + out.slice(1);
+}
+
+function snippetFromVerse(raw, maxWords) {
+  let modern = compressToTeachingLine(modernizeKjvText(raw), 160);
+  modern = String(modern || '')
+    .replace(/^(And|But|For|Then|Now|So|Also)[, ]+/i, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const parts = modern.split(/[.:;]\s+/);
+  let clause = parts[0] || modern;
+  if (/says?|said|commanded|spoke/i.test(clause) && parts[1] && parts[1].length > 12) {
+    clause = parts[1];
+  }
+  clause = clause.replace(/[;:,.]+$/g, '').trim();
+  const words = clause.split(/\s+/).filter(Boolean);
+  if (words.length > maxWords) return words.slice(0, maxWords).join(' ') + '…';
+  return words.join(' ');
+}
+
+/**
+ * Leftover-free teaching line for any KJV verse.
+ * Restates THIS verse in everyday English — never a Grove mood stamp.
+ * Framed so runtime echo-hide does not blank the breakdown.
+ */
+export function frameVerseTeaching(verseText) {
+  const raw = String(verseText || '').replace(/\s+/g, ' ').trim();
+  if (!raw) return '';
+  if (/begat|son of|daughter of|the generations of/i.test(raw) && raw.length < 180) {
+    return 'This verse records real family lines in God’s story — names and people matter to Him.';
+  }
+  const snip = snippetFromVerse(raw, 10);
+  if (!snip) return '';
+  let rest = snip;
+  if (/^(and|but|for|the|a|an|then|now|so|also)\b/i.test(rest)) {
+    rest = rest.charAt(0).toLowerCase() + rest.slice(1);
+  }
+  const frames = [
+    'In everyday English, this verse records: ' + rest + '.',
+    'Here is the point of this verse: ' + rest + '.',
+    'This verse is saying: ' + rest + '.'
+  ];
+  for (let i = 0; i < frames.length; i++) {
+    if (!isWeakLaymanPlain(frames[i], raw)) return frames[i];
+  }
+  let short = snippetFromVerse(raw, 6);
+  if (/^(and|but|for|the|a|an|then|now|so|also)\b/i.test(short)) {
+    short = short.charAt(0).toLowerCase() + short.slice(1);
+  }
+  return 'In everyday English, this verse records: ' + short + '.';
 }
 
 /**
@@ -516,10 +565,12 @@ export function buildThemeLaymanPlain(ref, text) {
     return withFrag('Waiting with God is not wasted time. Stay steady; He is still at work.');
   }
 
-  /* Last resort: modernized verse itself (always verse-grounded). */
+  /* Last resort: this verse in everyday English — never a leftover stamp. */
+  const framed = frameVerseTeaching(body);
+  if (framed && !isWeakLaymanPlain(framed, body)) return framed;
   const modern = compressToTeachingLine(modernizeKjvText(body), 200);
-  if (modern && modern.length >= 20) return modern;
-  return 'Read this verse slowly and hold the words that land — God is speaking here.';
+  if (modern && modern.length >= 20 && !isWeakLaymanPlain(modern, body)) return modern;
+  return framed || modern || '';
 }
 
 export function loadVersePlainMeanings(rootDir) {
@@ -587,14 +638,17 @@ export function buildHeroLaymanPlain(ref, text, map, rootDir) {
   const famous = buildFamousVersePlain(ref, raw);
   if (famous && !isWeakLaymanPlain(famous, raw) && !isBbeReprint(famous)) return famous;
 
-  /* This verse, in plain English — not a leftover mood stamp plus a snippet. */
-  if (modern && modern.length >= 20 && !isBbeReprint(modern)) {
+  /* Keep a modern restatement only when it is not a KJV echo. */
+  if (modern && modern.length >= 20 && !isBbeReprint(modern) && !isWeakLaymanPlain(modern, raw)) {
     return modern;
   }
 
+  const framed = frameVerseTeaching(raw);
+  if (framed && !isWeakLaymanPlain(framed, raw) && !isBbeReprint(framed)) return framed;
+
   const theme = buildThemeLaymanPlain(ref, raw);
   if (theme && !isWeakLaymanPlain(theme, raw) && !isBbeReprint(theme)) return theme;
-  return 'Read this verse slowly and hold the words that land — God is speaking here.';
+  return framed || modern || '';
 }
 
 /** Concrete "for today" line grounded in verse keywords. */

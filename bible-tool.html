@@ -1177,7 +1177,7 @@
   <script src="verse-study.js?v=20260328pass4vs"></script>
   <script src="verse-context.js?v=20260819-truth" data-tdb-verse-context="1"></script>
 <script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
-<script src="verse-breakdown.js?v=20260822desk5" data-tdb-verse-breakdown="1"></script>
+<script src="verse-breakdown.js?v=20260822desk6" data-tdb-verse-breakdown="1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">
@@ -1535,6 +1535,24 @@
     });
   }
 
+  function prefetchLookupBookPack(book) {
+    var name = String(book || '').replace(/^Psalms$/i, 'Psalm').trim();
+    if (!name || !window.TDBVerseBreakdown || typeof window.TDBVerseBreakdown.prefetchBookBreakdown !== 'function') return;
+    try {
+      window.TDBVerseBreakdown.prefetchBookBreakdown(name);
+    } catch (ePrefetchBook) {}
+  }
+
+  function wireLookupBookPrefetch() {
+    var bookEl = document.getElementById('book');
+    if (!bookEl || bookEl.getAttribute('data-tdb-bd-prefetch') === '1') return;
+    bookEl.setAttribute('data-tdb-bd-prefetch', '1');
+    bookEl.addEventListener('change', function () {
+      prefetchLookupBookPack(bookEl.value);
+    });
+    if (bookEl.value) prefetchLookupBookPack(bookEl.value);
+  }
+
   function normRef(ref) { return String(ref).replace(/\s+/g, ' ').trim(); }
 
   function findChainBlurbForRef(reference) {
@@ -1760,11 +1778,28 @@
         lookupContext.innerHTML = window.buildVerseContextHtml(data.reference, true);
       }
     }
-    if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.injectInlineBreakdown === 'function') {
+    function injectLookupBreakdown() {
+      if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.injectInlineBreakdown === 'function') {
+        try {
+          var bdHost = document.getElementById('lookup-text') || block;
+          window.TDBVerseBreakdown.injectInlineBreakdown(bdHost, data.reference, data.text);
+        } catch (eLookupBd) {}
+      }
+    }
+    var lookupBook = (parts && parts.book) ? parts.book : '';
+    if (lookupBook && window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.prefetchBookBreakdown === 'function') {
       try {
-        var bdHost = document.getElementById('lookup-text') || block;
-        window.TDBVerseBreakdown.injectInlineBreakdown(bdHost, data.reference, data.text);
-      } catch (eLookupBd) {}
+        var packWait = window.TDBVerseBreakdown.prefetchBookBreakdown(lookupBook);
+        if (packWait && typeof packWait.then === 'function') {
+          packWait.then(function () { injectLookupBreakdown(); }).catch(function () { injectLookupBreakdown(); });
+        } else {
+          injectLookupBreakdown();
+        }
+      } catch (ePrefetchLu) {
+        injectLookupBreakdown();
+      }
+    } else {
+      injectLookupBreakdown();
     }
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     renderNotes();
@@ -1931,12 +1966,14 @@
   }
 
   ensureBookSelectPopulated();
+  wireLookupBookPrefetch();
   renderDaily();
   renderNotes();
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       ensureBookSelectPopulated();
+      wireLookupBookPrefetch();
     });
   }
 

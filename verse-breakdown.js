@@ -29,8 +29,8 @@
   };
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
-  /* v4: verse-grounded plains (BBE/modernized KJV), not mood stamps */
-  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v7::';
+  /* v8: full-KJV framed teaching lines (not KJV echoes) */
+  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v8::';
   var BREAKDOWN_BOOK_PACKS = {};
   var BREAKDOWN_BOOK_LOADING = {};
   var BREAKDOWN_MAX_MEMORY_CACHE = 600;
@@ -189,6 +189,51 @@
     return out;
   }
 
+  function snippetFromVerse(raw, maxWords) {
+    var modern = modernizeKjvInline(raw);
+    modern = String(modern || '')
+      .replace(/^(And|But|For|Then|Now|So|Also)[, ]+/i, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    var parts = modern.split(/[.:;]\s+/);
+    var clause = parts[0] || modern;
+    if (/says?|said|commanded|spoke/i.test(clause) && parts[1] && parts[1].length > 12) {
+      clause = parts[1];
+    }
+    clause = clause.replace(/[;:,.]+$/g, '').trim();
+    var words = clause.split(/\s+/).filter(Boolean);
+    if (words.length > maxWords) return words.slice(0, maxWords).join(' ') + '\u2026';
+    return words.join(' ');
+  }
+
+  function frameVerseTeaching(verseText) {
+    var raw = String(verseText || '').replace(/\s+/g, ' ').trim();
+    if (!raw) return '';
+    if (/begat|son of|daughter of|the generations of/i.test(raw) && raw.length < 180) {
+      return 'This verse records real family lines in God\u2019s story \u2014 names and people matter to Him.';
+    }
+    var snip = snippetFromVerse(raw, 10);
+    if (!snip) return '';
+    var rest = snip;
+    if (/^(and|but|for|the|a|an|then|now|so|also)\b/i.test(rest)) {
+      rest = rest.charAt(0).toLowerCase() + rest.slice(1);
+    }
+    var frames = [
+      'In everyday English, this verse records: ' + rest + '.',
+      'Here is the point of this verse: ' + rest + '.',
+      'This verse is saying: ' + rest + '.'
+    ];
+    var i;
+    for (i = 0; i < frames.length; i++) {
+      if (!isNearVerbatimPlain(frames[i], raw)) return frames[i];
+    }
+    var short = snippetFromVerse(raw, 6);
+    if (/^(and|but|for|the|a|an|then|now|so|also)\b/i.test(short)) {
+      short = short.charAt(0).toLowerCase() + short.slice(1);
+    }
+    return 'In everyday English, this verse records: ' + short + '.';
+  }
+
   function buildThemeLaymanPlain(ref, text) {
     var body = String(text || '').replace(/\s+/g, ' ').trim();
     var lower = body.toLowerCase();
@@ -259,28 +304,10 @@
       return 'This verse records real family lines in God’s story — names and people matter to Him.';
     }
 
-    /*
-     * Full-KJV coverage path: never return a near-verbatim KJV modernization.
-     * Prefer a short teaching line. When helpful, anchor with a brief modern phrase
-     * that is framed enough to fail the echo check.
-     */
-    function framed(base, snippet) {
-      var s = String(snippet || '').replace(/\s+/g, ' ').trim();
-      if (!s || s.length < 8) return base;
-      if (s.length > 48) s = s.slice(0, 45).replace(/\s+\S*$/, '') + '…';
-      return base.replace(/\.$/, '') + ' — held in the words “' + s.replace(/[“”"]/g, '') + '.”';
-    }
-
-    var modernShort = modernizeKjvInline(body);
-    if (modernShort.length > 52) {
-      modernShort = modernShort.slice(0, 49).replace(/\s+\S*$/, '') + '…';
-    }
-
-    /* Last resort: the modernized clause of THIS verse — never a leftover theme stamp. */
-    if (modernShort && modernShort.length >= 12) {
-      return modernShort.replace(/\.$/, '') + '.';
-    }
-    return body ? String(body).replace(/\s+/g, ' ').trim() : '';
+    /* Last resort: this verse in everyday English — never a leftover theme stamp. */
+    var framed = frameVerseTeaching(body);
+    if (framed && !isNearVerbatimPlain(framed, body)) return framed;
+    return framed || '';
   }
 
   /** Drop override fields that only echo the KJV (archaic word-swap). */
@@ -645,54 +672,73 @@
       .replace(/\s+/g, '-');
   }
 
+  function applyBookPack(name, map) {
+    if (!name || !map || typeof map !== 'object') return;
+    BREAKDOWN_BOOK_PACKS[name] = map;
+    Object.keys(map).forEach(function (cv) {
+      var refKey = name + ' ' + cv;
+      if (!BREAKDOWN_OVERRIDES[refKey]) BREAKDOWN_OVERRIDES[refKey] = {};
+      if (!BREAKDOWN_OVERRIDES[refKey].general) BREAKDOWN_OVERRIDES[refKey].general = {};
+      if (!BREAKDOWN_OVERRIDES[refKey].general.plainExplanation) {
+        BREAKDOWN_OVERRIDES[refKey].general.plainExplanation = String(map[cv] || '');
+      }
+    });
+  }
+
+  function refreshLookupBreakdownFromPack() {
+    try {
+      var lookup = document.getElementById('lookup-result');
+      if (lookup && String(lookup.className || '').indexOf('hidden') === -1) {
+        var pair = extractRefAndText(lookup);
+        if (pair.ref && pair.text) injectInlineBreakdown(lookup, pair.ref, pair.text);
+      }
+      var ctxEl = document.getElementById('lookup-context');
+      if (ctxEl && typeof window.tdbMountVerseContextAccordion === 'function') {
+        var liveRef = document.getElementById('lookup-ref');
+        var r = liveRef ? String(liveRef.textContent || '').trim() : '';
+        if (r) {
+          ctxEl.innerHTML = '';
+          window.tdbMountVerseContextAccordion(ctxEl, r, true);
+        }
+      }
+    } catch (eReady) {}
+  }
+
   function prefetchBookBreakdown(book) {
     var name = String(book || '').replace(/^Psalms$/i, 'Psalm');
-    if (!name || BREAKDOWN_BOOK_PACKS[name] || BREAKDOWN_BOOK_LOADING[name]) return;
-    BREAKDOWN_BOOK_LOADING[name] = true;
+    if (!name) return Promise.resolve(null);
+    if (BREAKDOWN_BOOK_PACKS[name]) return Promise.resolve(BREAKDOWN_BOOK_PACKS[name]);
+    if (BREAKDOWN_BOOK_LOADING[name]) return BREAKDOWN_BOOK_LOADING[name];
     var url = '/data/breakdown/' + bookPackSlug(name) + '.json';
+    var p;
     try {
-      fetch(url, { credentials: 'same-origin' })
+      p = fetch(url, { credentials: 'same-origin' })
         .then(function (res) {
           if (!res || !res.ok) return null;
           return res.json();
         })
         .then(function (map) {
-          if (!map || typeof map !== 'object') return;
-          BREAKDOWN_BOOK_PACKS[name] = map;
-          Object.keys(map).forEach(function (cv) {
-            var refKey = name + ' ' + cv;
-            if (!BREAKDOWN_OVERRIDES[refKey]) BREAKDOWN_OVERRIDES[refKey] = {};
-            if (!BREAKDOWN_OVERRIDES[refKey].general) BREAKDOWN_OVERRIDES[refKey].general = {};
-            if (!BREAKDOWN_OVERRIDES[refKey].general.plainExplanation) {
-              BREAKDOWN_OVERRIDES[refKey].general.plainExplanation = String(map[cv] || '');
-            }
-          });
+          BREAKDOWN_BOOK_LOADING[name] = null;
+          if (!map || typeof map !== 'object') return null;
+          applyBookPack(name, map);
           try {
             if (typeof window.dispatchEvent === 'function') {
               window.dispatchEvent(new CustomEvent('tdb-breakdown-book-ready', { detail: { book: name } }));
             }
-            var lookup = document.getElementById('lookup-result');
-            if (lookup && String(lookup.className || '').indexOf('hidden') === -1) {
-              var pair = extractRefAndText(lookup);
-              if (pair.ref && pair.text) injectInlineBreakdown(lookup, pair.ref, pair.text);
-            }
-            var ctxEl = document.getElementById('lookup-context');
-            if (ctxEl && typeof window.tdbMountVerseContextAccordion === 'function') {
-              var liveRef = document.getElementById('lookup-ref');
-              var r = liveRef ? String(liveRef.textContent || '').trim() : '';
-              if (r) {
-                ctxEl.innerHTML = '';
-                window.tdbMountVerseContextAccordion(ctxEl, r, true);
-              }
-            }
+            refreshLookupBreakdownFromPack();
           } catch (eReady) {}
+          return map;
         })
         .catch(function () {
-          BREAKDOWN_BOOK_LOADING[name] = false;
+          BREAKDOWN_BOOK_LOADING[name] = null;
+          return null;
         });
     } catch (ePrefetch) {
-      BREAKDOWN_BOOK_LOADING[name] = false;
+      BREAKDOWN_BOOK_LOADING[name] = null;
+      return Promise.resolve(null);
     }
+    BREAKDOWN_BOOK_LOADING[name] = p;
+    return p;
   }
 
   function getRegisteredOverride(ref, group) {
@@ -1689,6 +1735,10 @@
     if (layShown0 && resolvedText && isNearVerbatimPlain(layShown0, resolvedText)) {
       layShown0 = '';
     }
+    if (!layShown0 && resolvedText) {
+      layShown0 = tdbPlainTextForUi(frameVerseTeaching(resolvedText) || '').trim();
+      if (layShown0 && isNearVerbatimPlain(layShown0, resolvedText)) layShown0 = '';
+    }
     layEl.textContent = layShown0;
     try {
       var layHead = details.querySelector('[data-bk="layman-h"], .tdb-vb-layman-h');
@@ -2500,6 +2550,8 @@
     addButton: addButton,
     injectInlineBreakdown: injectInlineBreakdown,
     populateInlineDetails: populateInlineDetails,
+    prefetchBookBreakdown: prefetchBookBreakdown,
+    frameVerseTeaching: frameVerseTeaching,
     enhanceVisibleVerseContainers: enhanceVerseContainers,
     getMissingVisibleBreakdowns: getMissingVisibleBreakdowns,
     countMissingVisibleBreakdowns: countMissingVisibleBreakdowns,

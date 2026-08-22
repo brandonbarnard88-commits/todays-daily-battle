@@ -6,6 +6,8 @@ import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
 import { fileURLToPath } from 'url';
+import { isWeakLaymanPlain } from './lib/hero-layman-plain.mjs';
+import { isWeakPlainStamp } from './lib/teaching-quality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -20,7 +22,20 @@ function loadContext() {
 }
 
 const resolve = loadContext();
-const samples = ['Haggai 1:5', 'Obadiah 1:3', 'Nahum 1:7', '3 John 1:2', 'Philemon 1:4'];
+const meta = JSON.parse(fs.readFileSync(path.join(root, 'data', 'breakdown', '_meta.json'), 'utf8'));
+const kjv = JSON.parse(
+  fs.readFileSync(
+    fs.existsSync(path.join(root, 'data', 'kjv-full.json'))
+      ? path.join(root, 'data', 'kjv-full.json')
+      : path.join(root, 'kjv.json'),
+    'utf8'
+  )
+);
+const samples = Object.keys(meta.books || {}).map((book) => book + ' 1:1');
+const extra = ['Haggai 1:5', 'Obadiah 1:3', 'Nahum 1:7', '3 John 1:2', 'Philemon 1:4', '1 Samuel 16:17', 'John 3:16'];
+extra.forEach((r) => {
+  if (samples.indexOf(r) === -1) samples.push(r);
+});
 const fails = [];
 for (const ref of samples) {
   const ctx = resolve(ref);
@@ -31,8 +46,21 @@ for (const ref of samples) {
   const book = ref.replace(/\s+\d+:\d+$/, '').replace(/^Psalms$/i, 'Psalm');
   const cv = ref.match(/(\d+:\d+)$/)[1];
   const slug = book.toLowerCase().replace(/\s+/g, '-');
-  const pack = JSON.parse(fs.readFileSync(path.join(root, 'data', 'breakdown', slug + '.json'), 'utf8'));
-  if (!pack[cv] || pack[cv].length < 8) fails.push(ref + ': missing full-Bible plain');
+  const packPath = path.join(root, 'data', 'breakdown', slug + '.json');
+  if (!fs.existsSync(packPath)) {
+    fails.push(ref + ': missing pack');
+    continue;
+  }
+  const pack = JSON.parse(fs.readFileSync(packPath, 'utf8'));
+  const plain = String(pack[cv] || '');
+  if (!plain || plain.length < 8) {
+    fails.push(ref + ': missing full-Bible plain');
+    continue;
+  }
+  const verseText = String(kjv[ref] || kjv[ref.replace(/^Psalm /, 'Psalms ')] || '');
+  if (isWeakPlainStamp(plain) || (verseText && isWeakLaymanPlain(plain, verseText))) {
+    fails.push(ref + ': weak or echo plain');
+  }
 }
 if (fails.length) {
   console.error('verify-lookup-full-bible FAIL');

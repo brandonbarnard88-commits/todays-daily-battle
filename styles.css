@@ -22411,6 +22411,55 @@ body.chapter-reader-page .app-content {
   margin-left: 0;
 }
 
+/* Read hero: cream dawn + charcoal ink (beats quiet-luxury dark wash) */
+body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn {
+  background: var(--tdb-dawn-classic) !important;
+  color: #0f172a;
+}
+body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn h1 {
+  color: #0f172a !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn p,
+body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .section-note,
+body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .topic-mood-porch,
+body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .tdb-offline-ready {
+  color: #1e293b !important;
+}
+body.chapter-reader-page #chapter-reader .section-note,
+body.chapter-reader-page .tdb-kjv-dict-hint,
+body.chapter-reader-page .reader-pickers label,
+body.chapter-reader-page .reader-audio-hint,
+body.chapter-reader-page .reader-privacy-foot {
+  color: #e8eef6;
+}
+body.chapter-reader-page #chapter-reader .section-note a {
+  color: #f2dc98;
+}
+body.chapter-reader-page .chapter-output {
+  background: rgba(12, 18, 30, 0.78);
+  color: #f4efe3;
+}
+html[data-theme="light"] body.chapter-reader-page #chapter-reader .section-note,
+html[data-theme="light"] body.chapter-reader-page .tdb-kjv-dict-hint,
+html[data-theme="light"] body.chapter-reader-page .reader-pickers label,
+html[data-theme="light"] body.chapter-reader-page .reader-audio-hint,
+html[data-theme="light"] body.chapter-reader-page .reader-privacy-foot,
+html[data-theme="sepia"] body.chapter-reader-page #chapter-reader .section-note,
+html[data-theme="sepia"] body.chapter-reader-page .tdb-kjv-dict-hint,
+html[data-theme="sepia"] body.chapter-reader-page .reader-pickers label {
+  color: #1e293b;
+}
+html[data-theme="light"] body.chapter-reader-page #chapter-reader .section-note a,
+html[data-theme="sepia"] body.chapter-reader-page #chapter-reader .section-note a {
+  color: #7a5410;
+}
+html[data-theme="light"] body.chapter-reader-page .chapter-output,
+html[data-theme="sepia"] body.chapter-reader-page .chapter-output {
+  background: #f8f1e0;
+  color: #172230;
+}
+
 /* When it's hard: the hero is the page — skip the empty "On this page" bar */
 body.tdb-calm-shelf-page .calm-onpage-nav-wrap {
   display: none !important;

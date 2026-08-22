@@ -8,6 +8,7 @@
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260822quiet"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Look up a verse • Bible Tool • Today's Daily Battle</title>
@@ -28,8 +29,8 @@
   <meta name="twitter:description" content="Look up verses, take notes, follow a reading plan, and get Win the Day verses by topic. KJV, no login.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260322">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260816-brightgold">
+  <link rel="preload" href="styles.css?v=20260822quiet" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822quiet">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <script src="scripts/header-search-bar.js?v=3" defer></script>
@@ -695,7 +696,7 @@
     }
   </style>
 </head>
-<body class="dark-mode tdb-inner-page bible-tool-page">
+<body class="dark-mode tdb-inner-page tdb-no-sidebar-shell bible-tool-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
@@ -766,10 +767,7 @@
       <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
         <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
         <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
       </div>
-      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <div id="auth-details" class="auth-details-inline">
 </div>
     </header>
@@ -777,32 +775,15 @@
     <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline — still got you. Notes and verses saved here. We'll sync when you're back.</div>
     <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="bible-tool"><p class="offline-msg"></p></div>
 
-    <aside id="sidebar" class="sidebar">
-      <nav class="side-nav" aria-label="Site navigation">
-        <a href="/" data-section="search" data-icon="SR">Search</a>
-        <a href="bible-tool.html" data-section="bible-tool" data-icon="BT">Bible Tool</a>
-        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
-        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
-        <a href="bible-study.html" data-section="bible-study" data-icon="BS">Bible Studies</a>
-        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
-        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
-        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
-        <a href="/prayer-wall.html?tab=with-others" data-section="message-board" data-icon="MB">Prayer</a>
-        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
-        <a href="about.html" data-section="about" data-icon="AB">About</a>
-        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
-        <a href="/give" data-section="pricing" data-icon="PC">Support</a>
-      </nav>
-    </aside>
+    
 
     <main class="app-content tdb-quiet-container" id="main-content">
       <div class="content-inner bible-tool">
         <header class="bible-tool-hero bible-tool-hero--soar-dawn" id="bible-tool-overview" tabindex="-1" aria-labelledby="bible-tool-hero-heading">
         <h1 class="section-divider" id="bible-tool-hero-heading"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/></svg>Look up a verse</h1>
-        <p class="section-note util-mt-0 util-mb-0_75">Also known as the Bible Tool — same KJV lookup desk.</p>
         <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome at this desk&mdash;look up, linger, or step away. No minimum.</p>
-        <p class="section-note">Look up any verse, take notes, track your reading&mdash;<abbr title="King James Version">KJV</abbr>, no account needed. Sign in only if you want sync across devices.</p>
-        <p class="tdb-trust-return">Notes and lookups stay on this device unless you sign in to sync. Still here when the signal isn&rsquo;t.</p>
+        <p class="section-note">Look up any <abbr title="King James Version">KJV</abbr> verse. Notes stay on this device. No account needed.</p>
+        <p class="tdb-trust-return">Lookups stay here unless you choose to save them. Still here when the signal isn&rsquo;t.</p>
         <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
         <div class="tdb-soft-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads this page if a verse or panel didn&rsquo;t load.</span></div>
         <nav class="bible-tool-mini-hub" id="bible-tool-hub" aria-label="Verse and reading tools">
@@ -814,7 +795,7 @@
           <a href="bible/tools.html">Study workshop</a>
         </nav>
         <details class="tdb-hub-disclosure util-mt-0_75" id="bible-tool-hero-more">
-          <summary class="tdb-hub-disclosure__summary">Supporters, workshop shelf, and peer tools</summary>
+          <summary class="tdb-hub-disclosure__summary">More ways to sit with a verse</summary>
           <div class="tdb-hub-disclosure__inner">
         <p class="section-note util-mt-0_5 util-mb-0" style="padding:0.65rem 0.85rem;border-radius:10px;border:1px solid rgba(212,175,55,0.28);background:rgba(212,175,55,0.06);max-width:42rem;"><strong>Supporters:</strong> <a href="verse-image.html" class="bible-tool-gold-link">Create a custom verse image</a> — pick a verse, style the card, export PNG or share.</p>
 
@@ -825,8 +806,7 @@
           <summary>More ways to sit with a verse</summary>
           <p class="section-note">Same look-up tools—open one when you need it.</p>
           <ul class="section-note">
-            <li><a href="verse.html">Today&rsquo;s Lesson / Verse of the Day</a></li>
-            <li><a href="study.html">Study workspace</a></li>
+            <li><a href="verse.html">Today&rsquo;s verse</a></li>
             <li><a href="memorize.html">Memorize</a></li>
             <li><a href="reader.html">Chapter reader</a></li>
             <li><a href="printables.html">Print packs</a></li>
@@ -1060,7 +1040,7 @@
                 <div id="bible-tool-book-intro-panel" class="bible-tool-book-intro-panel hidden" role="region" aria-labelledby="bible-tool-book-intro-h">
                   <h3 id="bible-tool-book-intro-h" class="section-note util-mb-0_5 util-mt-0">About this book</h3>
                   <div id="bible-tool-book-intro-body" class="bible-tool-book-intro-body"></div>
-                  <p class="section-note util-mt-0_5 util-mb-0"><a href="reader.html" class="bible-tool-gold-link">Chapter reader</a> · <a href="bible/tools.html#book-intros" class="bible-tool-gold-link">Browse every book in the workshop</a> · <a href="sermon.html" class="bible-tool-gold-link">Sermon Builder</a> accepts <code class="bible-tool-code">?ref=</code> when you want a prefilled passage.</p>
+                  <p class="section-note util-mt-0_5 util-mb-0"><a href="reader.html" class="bible-tool-gold-link">Chapter reader</a> · <a href="bible/tools.html#book-intros" class="bible-tool-gold-link">Book introductions</a></p>
                 </div>
                 <p class="section-note util-mt-0_75 util-mb-0_5"><strong>KJV word search (concordance)</strong> — see every verse that uses a word.</p>
                 <div class="lookup-controls util-mt-0_5" role="group" aria-label="Concordance shortcuts">
@@ -1147,7 +1127,7 @@
         </section>
 
         <p class="section-note util-mb-0_5 util-mt-1">Everything here stays on this device unless you sign in to sync.</p>
-        <p class="section-note util-mt-1 bible-tool-footer-links"><a class="bible-tool-gold-link" href="/">← Back to Home</a> · <a class="bible-tool-gold-link" href="explore.html">Explore</a> · <a class="bible-tool-gold-link" href="mystudy.html">My Study</a> · <a class="bible-tool-gold-link" href="verse-image.html">Verse image generator</a> · <a class="bible-tool-gold-link" href="verse.html">Verse of the Day</a> · <a class="bible-tool-gold-link" href="reading-plan.html">7-Day Plan</a> · <a class="bible-tool-gold-link" href="study.html">Study Workspace</a></p>
+        <p class="section-note util-mt-1 bible-tool-footer-links"><a class="bible-tool-gold-link" href="/">Home</a> · <a class="bible-tool-gold-link" href="reader.html">Read</a> · <a class="bible-tool-gold-link" href="verse.html">Today&rsquo;s verse</a> · <a class="bible-tool-gold-link" href="/mystudy">Saved on this device</a></p>
         <p class="footer-humility util-mt-1" style="text-align: center; margin-bottom: 0;">We battle. He wins.</p>
       </div>
     </main>
@@ -2239,7 +2219,7 @@
     this.textContent = 'Highlighted';
     var btn = this;
     setTimeout(function () { btn.textContent = 'Highlight'; }, 1600);
-    if (typeof window.showEliteToast === 'function') window.showEliteToast('Saved. View in Study Workspace.');
+    if (typeof window.showEliteToast === 'function') window.showEliteToast('Saved on this device.');
   });
 
   document.getElementById('pray-lookup').addEventListener('click', function () {

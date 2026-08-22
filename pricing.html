@@ -7,6 +7,7 @@
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260822quiet"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://cdn.jsdelivr.net https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://www.google.com https://api.stripe.com https://unpkg.com https://cdn.jsdelivr.net; frame-src 'self' https://challenges.cloudflare.com https://js.stripe.com https://hooks.stripe.com;">
@@ -26,15 +27,15 @@
   <meta name="twitter:description" content="All tools are free. Giving is optional. You're already welcome here.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260816-brightgold" nonce="tdb2025s">
+  <link rel="preload" href="styles.css?v=20260822quiet" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822quiet" nonce="tdb2025s">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" nonce="tdb2025s" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" nonce="tdb2025s">
 </head>
-<body class="dark-mode tdb-inner-page pricing-page">
+<body class="dark-mode tdb-inner-page tdb-no-sidebar-shell pricing-page">
   <p class="section-note" id="free-forever-redirect" style="max-width:36rem;margin:1rem auto;padding:0 1rem;text-align:center;font-family:system-ui,sans-serif;">
     <strong>Free forever.</strong> There is no paid plan and no paywall.
     <a href="/give#free-forever">Optional gifts (never required)</a> ·
@@ -113,40 +114,10 @@
       <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
         <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
         <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
       </div>
-      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
 </header>
 
-    <aside id="sidebar" class="sidebar">
-      <nav class="side-nav" aria-label="Site navigation">
-        <a href="/" data-section="search" data-icon="SR">Search</a>
-        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
-        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
-        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
-        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
-        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
-        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
-        <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
-        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
-        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
-        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
-        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
-        <a href="/prayer-wall.html?tab=with-others" data-section="prayer" data-icon="MB">Prayer</a>
-        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
-        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
-        <a href="about.html" data-section="about" data-icon="AB">About</a>
-        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
-        <a href="/give" data-section="pricing" data-icon="PC">Support</a>
-      </nav>
-      <div class="sidebar-options">
-        <label class="inline-toggle">
-          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
-          Red letters
-        </label>
-      </div>
-    </aside>
+    
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
@@ -262,6 +233,8 @@
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Optional support — you choose the amount">Support</a>
   </nav>
+
+    <p class="footer-trust-note section-note">Human-curated · Privacy-first · English: KJV · Other languages: public-rights Bibles · <a href="/bible-credits.html">Bible credits</a> · Report safety: <a href="/contact.html?topic=safety">contact form</a> · <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support@todaysdailybattle.com</a></p>
 
   <p class="site-footer-share-wrap">
     <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>

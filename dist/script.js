@@ -87,7 +87,7 @@ function tdbIsHomePage() {
       /* homepage may load this before deferred verse-breakdown.js */
     } else {
       var sv = document.createElement('script');
-      sv.src = '/verse-breakdown-standard.js?v=20260428-vbd';
+      sv.src = '/verse-breakdown-standard.js?v=20260822desk10';
       sv.defer = true;
       sv.setAttribute('data-tdb-verse-breakdown-standard', '1');
       (document.head || document.documentElement).appendChild(sv);
@@ -2841,7 +2841,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
-  var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
+  var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260822desk10');
   var trustedCtx = trustedScriptURL('/verse-context.js?v=20260808-situation-every');
   var trusted = trustedScriptURL('/verse-breakdown.js?v=20260819-fullkjv');
   if (!trustedStd || !trusted) return;

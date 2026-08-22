@@ -1017,11 +1017,11 @@
 
   /** When no curated “today / culture” line exists, still anchor the verse in “now”. */
   function defaultRelatesTodayLine(year, verseText) {
-    var y = typeof year === 'number' ? year : currentYearFresh();
     var hook = sanitizeText(verseText || '').replace(/\s+/g, ' ').trim();
-    if (hook.length > 72) hook = hook.slice(0, 69).replace(/\s+\S*$/, '') + '…';
-    if (hook) return 'In ' + y + ', this verse still says: “' + hook.replace(/[.!?]$/, '') + '.”';
-    return 'In ' + y + ', this verse still speaks into the hour you are in.';
+    if (/\b(spake|spoke|said|saith)\b.+\bsaying\b/i.test(hook)) {
+      return 'Read the next verses as the Lord speaking — not as extra history.';
+    }
+    return 'Carry one true phrase from this verse into the next hour — not as a slogan.';
   }
 
   function hookOfVerse(text) {

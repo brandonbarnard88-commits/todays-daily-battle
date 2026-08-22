@@ -216,7 +216,10 @@ export function isWeakLaymanPlain(plain, verseText) {
     /^God offers real rest/i,
     /^When you feel empty, God gives strength/i,
     /^Hand the real weight to God/i,
-    /^Temptation is real and common, but God is faithful/i
+    /^Temptation is real and common, but God is faithful/i,
+    /this verse records:\s*(to|unto)\s+\S.{0,40}\bsaying\b/i,
+    /this verse still says:\s*[“"']/i,
+    /still speaks into the hour you are in/i
   ];
   for (let i = 0; i < weakExact.length; i++) {
     if (weakExact[i].test(pRaw)) return true;
@@ -327,8 +330,11 @@ function snippetFromVerse(raw, maxWords) {
     .replace(/\s+/g, ' ')
     .trim();
   const quoted = modern.match(/\b(?:said|says|saying|spoke|commanded)[,:]?\s+(.+)/i);
-  if (quoted && quoted[1] && quoted[1].replace(/\s+/g, ' ').trim().length > 8) {
-    modern = quoted[1].replace(/\s+/g, ' ').trim();
+  if (quoted && quoted[1]) {
+    const q = quoted[1].replace(/\s+/g, ' ').trim();
+    if (q.length > 8 && !/^(to|unto)\s+/i.test(q) && !/\bsaying\b[,.]?$/i.test(q)) {
+      modern = q;
+    }
   }
   const parts = modern.split(/[.:;]\s+/);
   let clause = parts[0] || modern;
@@ -350,14 +356,29 @@ function snippetFromVerse(raw, maxWords) {
  * Restates THIS verse in everyday English — never a Grove mood stamp.
  * Framed so runtime echo-hide does not blank the breakdown.
  */
+function speechIntroTeaching(raw) {
+  const t = String(raw || '').replace(/\s+/g, ' ').trim();
+  if (!t) return '';
+  const introOnly = /,\s*saying[,.]?\s*$/i.test(t) && t.length < 120;
+  if (!introOnly) return '';
+  const m = t.match(/\b(?:spake|spoke|said|saith)\s+(?:unto|to)\s+([^,:]+?)(?:,\s*saying)?[,.]?\s*$/i);
+  const who = m ? m[1].replace(/^the\s+/i, '').trim() : '';
+  if (who && who.length < 40) {
+    return 'The Lord spoke to ' + who + ' — the words that follow are His, not a human idea.';
+  }
+  return 'This verse opens the Lord’s word — what follows is God speaking.';
+}
+
 export function frameVerseTeaching(verseText) {
   const raw = String(verseText || '').replace(/\s+/g, ' ').trim();
   if (!raw) return '';
   if (/begat|son of|daughter of|the generations of/i.test(raw) && raw.length < 180) {
     return 'This verse records real family lines in God’s story — names and people matter to Him.';
   }
+  const intro = speechIntroTeaching(raw);
+  if (intro) return intro;
   const snip = snippetFromVerse(raw, 10);
-  if (!snip) return '';
+  if (!snip) return intro || '';
   let rest = snip;
   if (/^(and|but|for|the|a|an|then|now|so|also)\b/i.test(rest)) {
     rest = rest.charAt(0).toLowerCase() + rest.slice(1);

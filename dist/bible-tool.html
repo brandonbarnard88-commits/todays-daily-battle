@@ -67,6 +67,23 @@
     body.bible-tool-page .tdb-vb-curriculum {
       display: none !important;
     }
+    /* Context + breakdown grow with the page — no inner scroll box */
+    body.bible-tool-page .tdb-verse-breakdown-inline,
+    body.bible-tool-page .tdb-verse-breakdown-inline.is-open,
+    body.bible-tool-page #lookup-context,
+    body.bible-tool-page #lookup-result,
+    body.bible-tool-page #lookup-result-body {
+      max-height: none !important;
+      overflow: visible !important;
+      contain: none;
+    }
+    body.bible-tool-page .tdb-vb-inline-panel,
+    body.bible-tool-page .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-panel,
+    body.bible-tool-page .verse-context-accordion,
+    body.bible-tool-page .verse-context-wrap {
+      max-height: none !important;
+      overflow: visible !important;
+    }
     .bible-tool { font-size: 1.0625rem; }
     .bible-tool .section-note { font-size: 1rem; }
     .bible-tool #daily-text, .bible-tool #lookup-text, .bible-tool .verse-ref { font-size: 1.1rem; line-height: 1.5; }

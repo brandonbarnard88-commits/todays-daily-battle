@@ -16530,6 +16530,10 @@ body.sepia-mode:not(.dark-mode) .tdb-vb-reflection__sat-note p { color: #3a2a10;
   .tdb-vb-inline-panel {
     max-height: min(75vh, 32rem);
   }
+  body.bible-tool-page .tdb-vb-inline-panel {
+    max-height: none !important;
+    overflow: visible !important;
+  }
   .tdb-vb-inline-ref {
     font-size: 1.2rem;
   }

@@ -1774,6 +1774,9 @@
 
   function findExistingInline(host) {
     if (!host) return null;
+    if (host.id === 'lookup-text' && host.parentNode) {
+      return host.parentNode.querySelector(':scope > .tdb-verse-breakdown-inline, .tdb-verse-breakdown-inline');
+    }
     if (host.id === 'lookup-result') {
       return host.querySelector('.tdb-verse-breakdown-inline');
     }
@@ -1819,6 +1822,9 @@
       }
     }
 
+    if (host.id === 'lookup-text') {
+      return { parent: host.parentNode, before: host.nextSibling };
+    }
     if (host.id === 'lookup-result') {
       var lt = host.querySelector('#lookup-text');
       if (lt && lt.parentNode) {
@@ -1975,7 +1981,7 @@
     try {
       var pathBt = String((window.location && window.location.pathname) || '').toLowerCase();
       if (pathBt.indexOf('bible-tool') !== -1) {
-        if (el.id === 'lookup-text') return false;
+        if (el.id === 'lookup-text' || el.id === 'lookup-result') return false;
         return true;
       }
     } catch (eBt) {}

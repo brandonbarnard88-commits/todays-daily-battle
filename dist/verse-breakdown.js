@@ -2326,6 +2326,7 @@
       '#verseCard',
       '#verse-container',
       '#desktop-verse',
+      '#lookup-text',
       '#lookup-result',
       '#mystudy-highlight-detail',
       '.verse-card',

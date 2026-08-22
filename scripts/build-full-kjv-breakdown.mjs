@@ -13,7 +13,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import {
   buildHeroLaymanPlain,
+  completeEverydayEnglish,
   frameVerseTeaching,
+  isIncompleteFragment,
   isWeakLaymanPlain,
   loadVersePlainMeanings,
   normalizeHeroRef
@@ -57,10 +59,10 @@ function leftoverish(p) {
 function plainFor(ref, text, map) {
   const raw = String(text || '').replace(/\s+/g, ' ').trim();
   let p = buildHeroLaymanPlain(ref, raw, map, root);
-  if (!p || leftoverish(p) || isWeakLaymanPlain(p, raw)) {
-    p = frameVerseTeaching(raw);
+  if (!p || leftoverish(p) || isWeakLaymanPlain(p, raw) || isIncompleteFragment(p, raw)) {
+    p = completeEverydayEnglish(raw) || frameVerseTeaching(raw);
   }
-  return String(p || frameVerseTeaching(raw) || '').trim();
+  return String(p || completeEverydayEnglish(raw) || '').trim();
 }
 
 function main() {
@@ -77,8 +79,8 @@ function main() {
     if (!parts) return;
     const p = plainFor(parts.ref, text, map);
     if (!p) leftover.push(parts.ref + ': empty');
-    else if (leftoverish(p) || isWeakLaymanPlain(p, text)) {
-      leftover.push(parts.ref + ': leftover-or-echo');
+    else if (leftoverish(p) || isWeakLaymanPlain(p, text) || isIncompleteFragment(p, text)) {
+      leftover.push(parts.ref + ': leftover-or-incomplete');
     }
     if (!byBook[parts.book]) byBook[parts.book] = {};
     byBook[parts.book][parts.cv] = p;

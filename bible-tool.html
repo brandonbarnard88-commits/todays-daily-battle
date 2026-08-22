@@ -104,9 +104,58 @@
     :root[data-theme="light"] .bible-tool label.plan-progress { color: #2f2f2f; }
     .bible-tool .daily-ref { color: #d4af37; font-weight: 600; }
     .bible-tool .win-title { color: #d4af37; font-weight: 600; }
-    .bible-tool .lookup-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.5rem; }
-    .bible-tool .lookup-controls select, .bible-tool .lookup-controls input[type="number"], .bible-tool .lookup-controls input[type="text"] { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 1rem; }
-    .bible-tool .lookup-controls input[type="number"] { width: 3.5rem; }
+    .bible-tool .lookup-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: flex-end; margin-top: 0.5rem; }
+    .bible-tool .lookup-field { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+    .bible-tool .lookup-field-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      color: #f2dc98;
+    }
+    .bible-tool .lookup-type-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: flex-end;
+      margin-top: 0.35rem;
+    }
+    .bible-tool .lookup-ref-typed {
+      flex: 1 1 16rem;
+      min-width: 12rem;
+      min-height: 44px;
+      padding: 0.5rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid rgba(242, 220, 152, 0.55);
+      background: #141922;
+      color: #f4efe3;
+      font-size: 1.05rem;
+      box-sizing: border-box;
+    }
+    .bible-tool .lookup-controls select,
+    .bible-tool .lookup-controls input[type="number"],
+    .bible-tool .lookup-controls input[type="text"] {
+      padding: 0.45rem 0.6rem;
+      min-height: 44px;
+      border-radius: 8px;
+      border: 1px solid rgba(242, 220, 152, 0.55);
+      background: #141922;
+      color: #f4efe3;
+      font-size: 1rem;
+    }
+    .bible-tool .lookup-controls input[type="number"] { width: 4.25rem; }
+    html[data-theme="light"] .bible-tool .lookup-field-label,
+    :root[data-theme="light"] .bible-tool .lookup-field-label { color: #5c4a16; }
+    html[data-theme="light"] .bible-tool .lookup-ref-typed,
+    html[data-theme="light"] .bible-tool .lookup-controls select,
+    html[data-theme="light"] .bible-tool .lookup-controls input[type="number"],
+    html[data-theme="light"] .bible-tool .lookup-controls input[type="text"],
+    :root[data-theme="light"] .bible-tool .lookup-ref-typed,
+    :root[data-theme="light"] .bible-tool .lookup-controls select,
+    :root[data-theme="light"] .bible-tool .lookup-controls input[type="number"],
+    :root[data-theme="light"] .bible-tool .lookup-controls input[type="text"] {
+      background: #fff;
+      color: #1a1a1a;
+      border-color: #8a8170;
+    }
     .bible-tool .bible-tool-tags-input {
       width: 100%; max-width: 28rem; padding: 0.55rem 0.65rem; border-radius: 8px;
       border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.85); color: #e2e8f0; font-size: 1rem;
@@ -1015,12 +1064,29 @@
         <section class="verse-card glass tdb-porch-paper-glass" id="bible-tool-lookup-section" aria-label="Look up a verse">
           <p class="section-note util-mb-0_5">Type a reference like John 3:16, or pick book, chapter, and verse.</p>
           <fieldset style="border:none;padding:0;margin:0;">
-            <legend class="sr-only">Book, chapter, and verse</legend>
-            <div class="lookup-controls">
-              <select id="book" aria-label="Book"></select>
-              <input type="number" id="chapter" placeholder="Ch" min="1" aria-label="Chapter" />
-              <input type="number" id="verse" placeholder="Vs" min="1" aria-label="Verse" />
+            <legend class="sr-only">Look up a KJV verse</legend>
+            <div class="lookup-type-row">
+              <div class="lookup-field" style="flex:1 1 16rem;">
+                <label class="lookup-field-label" for="lookup-ref-typed">Reference</label>
+                <input type="text" id="lookup-ref-typed" class="lookup-ref-typed" placeholder="John 3:16" aria-label="Type a KJV reference like John 3:16" autocomplete="off" />
+              </div>
               <button type="button" id="lookup-btn" class="btn btn-primary">Go</button>
+            </div>
+            <div class="lookup-controls">
+              <div class="lookup-field">
+                <label class="lookup-field-label" for="book">Book</label>
+                <select id="book" aria-label="Book">
+                  <option value="">Book</option>
+                </select>
+              </div>
+              <div class="lookup-field">
+                <label class="lookup-field-label" for="chapter">Chapter</label>
+                <input type="number" id="chapter" placeholder="1" min="1" aria-label="Chapter" />
+              </div>
+              <div class="lookup-field">
+                <label class="lookup-field-label" for="verse">Verse</label>
+                <input type="number" id="verse" placeholder="1" min="1" aria-label="Verse" />
+              </div>
               <button type="button" id="people-btn" class="btn people-btn" aria-label="Who's this Bible person?" aria-expanded="false" aria-controls="people-input-wrap">Who's this?</button>
             </div>
           </fieldset>
@@ -1526,11 +1592,13 @@
   function ensureBookSelectPopulated() {
     var bookEl = document.getElementById('book');
     if (!bookEl) return;
-    if (bookEl.options.length > 0) return;
-    var opt0 = document.createElement('option');
-    opt0.value = '';
-    opt0.textContent = 'Select book';
-    bookEl.appendChild(opt0);
+    if (bookEl.options.length > 1) return;
+    if (bookEl.options.length === 0) {
+      var opt0 = document.createElement('option');
+      opt0.value = '';
+      opt0.textContent = 'Book';
+      bookEl.appendChild(opt0);
+    }
     BOOKS.forEach(function (b) {
       var o = document.createElement('option');
       o.value = b;
@@ -1604,9 +1672,13 @@
     var bookEl = document.getElementById('book');
     var chEl = document.getElementById('chapter');
     var vsEl = document.getElementById('verse');
+    var typedEl = document.getElementById('lookup-ref-typed');
     if (bookEl && book) bookEl.value = book;
     if (chEl && chapter) chEl.value = chapter;
     if (vsEl && verse) vsEl.value = verse;
+    if (typedEl && book && chapter && verse) {
+      typedEl.value = book + ' ' + chapter + ':' + verse;
+    }
   }
 
   function getDailyRef() {
@@ -1614,9 +1686,29 @@
     return KEY_REFS[day] || 'Colossians 3:23';
   }
 
+  function lookupLocalKjv(ref) {
+    var r = normRef(ref);
+    if (KEY_VERSES[r]) return KEY_VERSES[r];
+    try {
+      if (typeof getBibleVerseText === 'function') {
+        var t = getBibleVerseText(r);
+        if (t) return String(t).replace(/\s+/g, ' ').trim();
+      }
+    } catch (eLocal) {}
+    try {
+      var map = (typeof window !== 'undefined' && (window.bible || window.kjvData)) || null;
+      if (map && typeof map === 'object') {
+        var hit = map[r] || map[r.replace(/^Psalm /, 'Psalms ')] || map[r.replace(/^Psalms /, 'Psalm ')];
+        if (hit) return String(hit).replace(/\s+/g, ' ').trim();
+      }
+    } catch (eMap) {}
+    return '';
+  }
+
   function fetchVerse(ref, cb) {
     var r = normRef(ref);
-    if (KEY_VERSES[r]) { cb({ reference: r, text: KEY_VERSES[r] }); return; }
+    var local = lookupLocalKjv(r);
+    if (local) { cb({ reference: r, text: local }); return; }
     var timeout = 10000;
     var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
     var id = controller ? setTimeout(function () { controller.abort(); }, timeout) : null;
@@ -1749,6 +1841,7 @@
       window.TdbKjvDictionary.applyToElement(textEl, { plainText: data.text || '', contextVerse: data.text || '' });
     }
     var parts = parseRefToParts(data.reference);
+    if (parts) setLookupForm(parts.book, parts.chapter, parts.verse);
     if (readChapterLink) {
       if (parts && parts.book && parts.chapter) {
         readChapterLink.href = 'reader.html?book=' + encodeURIComponent(parts.book) + '&chapter=' + encodeURIComponent(parts.chapter);
@@ -2239,15 +2332,28 @@
     var bookEl = document.getElementById('book');
     var chEl = document.getElementById('chapter');
     var vsEl = document.getElementById('verse');
+    var typedEl = document.getElementById('lookup-ref-typed');
     if (!bookEl || !chEl || !vsEl) return;
+    var typed = typedEl ? String(typedEl.value || '').trim() : '';
+    var typedParts = typed ? parseRefToParts(typed) : null;
     var book = bookEl.value;
     var ch = chEl.value;
     var vs = vsEl.value;
-    if (!book || !ch || !vs) {
-      if (typeof window.showEliteToast === 'function') window.showEliteToast('Choose a book, chapter, and verse first.');
+    var ref = '';
+    if (typedParts && typedParts.book && typedParts.chapter && typedParts.verse) {
+      setLookupForm(typedParts.book, typedParts.chapter, typedParts.verse);
+      prefetchLookupBookPack(typedParts.book);
+      ref = typedParts.book + ' ' + typedParts.chapter + ':' + typedParts.verse;
+    } else if (book && ch && vs) {
+      ref = book + ' ' + ch + ':' + vs;
+      if (typedEl) typedEl.value = ref;
+    } else {
+      if (typeof window.showEliteToast === 'function') {
+        window.showEliteToast(typed && !typedParts ? 'Use a reference like John 3:16.' : 'Type a reference like John 3:16, or pick book, chapter, and verse.');
+      }
+      if (typedEl && typeof typedEl.focus === 'function') typedEl.focus();
       return;
     }
-    var ref = book + ' ' + ch + ':' + vs;
     var btn = document.getElementById('lookup-btn');
     var origText = btn.textContent;
     btn.disabled = true;
@@ -2268,6 +2374,10 @@
 
   document.getElementById('chapter').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLookup(); });
   document.getElementById('verse').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLookup(); });
+  var typedLookupEl = document.getElementById('lookup-ref-typed');
+  if (typedLookupEl) {
+    typedLookupEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); doLookup(); } });
+  }
 
   document.getElementById('share-daily').addEventListener('click', function () {
     shareVerse(document.getElementById('daily-ref').textContent, document.getElementById('daily-text').textContent);

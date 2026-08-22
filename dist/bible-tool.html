@@ -1752,14 +1752,125 @@
     } catch (ePrefetchBook) {}
   }
 
+  var LOOKUP_SHAPE = {};
+
+  function canonLookupBook(book) {
+    var b = String(book || '').replace(/\s+/g, ' ').trim();
+    if (/^Psalms$/i.test(b)) b = 'Psalm';
+    if (LOOKUP_SHAPE[b]) return b;
+    var keys = Object.keys(LOOKUP_SHAPE);
+    var lower = b.toLowerCase();
+    for (var i = 0; i < keys.length; i++) {
+      if (keys[i].toLowerCase() === lower) return keys[i];
+    }
+    return b;
+  }
+
+  function lookupChapterCount(book) {
+    var arr = LOOKUP_SHAPE[canonLookupBook(book)];
+    return arr && arr.length ? arr.length : 0;
+  }
+
+  function lookupVerseCount(book, chapter) {
+    var arr = LOOKUP_SHAPE[canonLookupBook(book)];
+    var ch = parseInt(chapter, 10);
+    if (!arr || !ch || ch < 1 || ch > arr.length) return 0;
+    return Number(arr[ch - 1] || 0);
+  }
+
+  function explainMissingRef(book, chapter, verse) {
+    var canon = canonLookupBook(book);
+    var maxCh = lookupChapterCount(canon);
+    if (!maxCh) return '';
+    var nCh = parseInt(chapter, 10);
+    if (!nCh || nCh < 1 || nCh > maxCh) {
+      return canon + ' has ' + maxCh + ' chapter' + (maxCh === 1 ? '' : 's') + '.';
+    }
+    var maxVs = lookupVerseCount(canon, nCh);
+    var nVs = parseInt(verse, 10);
+    if (!nVs || nVs < 1 || nVs > maxVs) {
+      return canon + ' ' + nCh + ' has ' + maxVs + ' verse' + (maxVs === 1 ? '' : 's') + '.';
+    }
+    return '';
+  }
+
+  function clampLookupFields(opts) {
+    opts = opts || {};
+    var bookEl = document.getElementById('book');
+    var chEl = document.getElementById('chapter');
+    var vsEl = document.getElementById('verse');
+    if (!bookEl || !chEl || !vsEl) return null;
+    var book = canonLookupBook(bookEl.value);
+    if (book && LOOKUP_SHAPE[book] && bookEl.value !== book) bookEl.value = book;
+    var maxCh = lookupChapterCount(book);
+    if (!book || !maxCh) {
+      chEl.removeAttribute('max');
+      vsEl.removeAttribute('max');
+      return { book: book || '', chapter: '', verse: '', maxCh: 0, maxVs: 0, ok: false };
+    }
+    chEl.min = '1';
+    chEl.max = String(maxCh);
+    if (chEl.value !== '' || opts.fill) {
+      var ch = parseInt(chEl.value, 10);
+      if (isNaN(ch) || ch < 1) ch = 1;
+      if (ch > maxCh) ch = maxCh;
+      chEl.value = String(ch);
+    }
+    var chNow = parseInt(chEl.value, 10) || 1;
+    var maxVs = lookupVerseCount(book, chNow);
+    vsEl.min = '1';
+    if (maxVs) vsEl.max = String(maxVs);
+    else vsEl.removeAttribute('max');
+    if (vsEl.value !== '' || opts.fill) {
+      var vs = parseInt(vsEl.value, 10);
+      if (isNaN(vs) || vs < 1) vs = 1;
+      if (maxVs && vs > maxVs) vs = maxVs;
+      vsEl.value = String(vs);
+    }
+    if (chEl.value && vsEl.value) {
+      var typedEl = document.getElementById('lookup-ref-typed');
+      if (typedEl) typedEl.value = book + ' ' + chEl.value + ':' + vsEl.value;
+    }
+    return {
+      book: book,
+      chapter: chEl.value,
+      verse: vsEl.value,
+      maxCh: maxCh,
+      maxVs: maxVs,
+      ok: !!(chEl.value && vsEl.value)
+    };
+  }
+
+  function loadLookupShape() {
+    fetch('/data/kjv-chapter-verses.json', { credentials: 'same-origin' })
+      .then(function (res) { return res && res.ok ? res.json() : null; })
+      .then(function (map) {
+        if (map && typeof map === 'object') LOOKUP_SHAPE = map;
+        clampLookupFields();
+      })
+      .catch(function () {});
+  }
+
   function wireLookupBookPrefetch() {
     var bookEl = document.getElementById('book');
+    var chEl = document.getElementById('chapter');
+    var vsEl = document.getElementById('verse');
     if (!bookEl || bookEl.getAttribute('data-tdb-bd-prefetch') === '1') return;
     bookEl.setAttribute('data-tdb-bd-prefetch', '1');
     bookEl.addEventListener('change', function () {
       prefetchLookupBookPack(bookEl.value);
+      clampLookupFields({ fill: true });
     });
+    if (chEl) {
+      chEl.addEventListener('change', function () { clampLookupFields({ fill: true }); });
+      chEl.addEventListener('input', function () { if (chEl.value !== '') clampLookupFields(); });
+    }
+    if (vsEl) {
+      vsEl.addEventListener('change', function () { clampLookupFields({ fill: true }); });
+      vsEl.addEventListener('input', function () { if (vsEl.value !== '') clampLookupFields(); });
+    }
     if (bookEl.value) prefetchLookupBookPack(bookEl.value);
+    clampLookupFields();
   }
 
   function normRef(ref) { return String(ref).replace(/\s+/g, ' ').trim(); }
@@ -1796,7 +1907,7 @@
     var r = normRef(ref);
     var m = r.match(/^(.+?)\s+(\d+):(\d+)$/);
     if (!m) return null;
-    return { book: m[1].trim(), chapter: m[2], verse: m[3] };
+    return { book: canonLookupBook(m[1].trim()), chapter: m[2], verse: m[3] };
   }
 
   function readerHrefFromRef(ref) {
@@ -1816,6 +1927,7 @@
     if (typedEl && book && chapter && verse) {
       typedEl.value = book + ' ' + chapter + ':' + verse;
     }
+    clampLookupFields({ fill: true });
   }
 
   function getDailyRef() {
@@ -2203,6 +2315,7 @@
   }
 
   ensureBookSelectPopulated();
+  loadLookupShape();
   wireLookupBookPrefetch();
   renderDaily();
   renderNotes();
@@ -2210,6 +2323,7 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       ensureBookSelectPopulated();
+      loadLookupShape();
       wireLookupBookPrefetch();
     });
   }
@@ -2259,19 +2373,16 @@
       var dir = Number(btn.getAttribute('data-lookup-dir') || 0);
       var input = id ? document.getElementById(id) : null;
       if (!input || !dir) return;
+      clampLookupFields({ fill: true });
       var min = Number(input.getAttribute('min') || 1);
+      var max = Number(input.getAttribute('max') || 0);
       var cur = parseInt(input.value, 10);
       if (isNaN(cur) || cur < min) cur = min;
       var next = cur + dir;
       if (next < min) next = min;
+      if (max && next > max) next = max;
       input.value = String(next);
-      var bookEl = document.getElementById('book');
-      var chEl = document.getElementById('chapter');
-      var vsEl = document.getElementById('verse');
-      var typedEl = document.getElementById('lookup-ref-typed');
-      if (typedEl && bookEl && bookEl.value && chEl && chEl.value && vsEl && vsEl.value) {
-        typedEl.value = bookEl.value + ' ' + chEl.value + ':' + vsEl.value;
-      }
+      clampLookupFields({ fill: true });
       try { input.focus(); } catch (eFocus) {}
     });
   })();
@@ -2505,11 +2616,23 @@
     var vs = vsEl.value;
     var ref = '';
     if (typedParts && typedParts.book && typedParts.chapter && typedParts.verse) {
+      var typedMiss = explainMissingRef(typedParts.book, typedParts.chapter, typedParts.verse);
       setLookupForm(typedParts.book, typedParts.chapter, typedParts.verse);
       prefetchLookupBookPack(typedParts.book);
+      if (typedMiss) {
+        if (typeof window.showEliteToast === 'function') window.showEliteToast(typedMiss);
+        return;
+      }
       ref = typedParts.book + ' ' + typedParts.chapter + ':' + typedParts.verse;
     } else if (book && ch && vs) {
-      ref = book + ' ' + ch + ':' + vs;
+      var pickMiss = explainMissingRef(book, ch, vs);
+      if (pickMiss) {
+        if (typeof window.showEliteToast === 'function') window.showEliteToast(pickMiss);
+        clampLookupFields({ fill: true });
+        return;
+      }
+      clampLookupFields({ fill: true });
+      ref = bookEl.value + ' ' + chEl.value + ':' + vsEl.value;
       if (typedEl) typedEl.value = ref;
     } else {
       if (typeof window.showEliteToast === 'function') {

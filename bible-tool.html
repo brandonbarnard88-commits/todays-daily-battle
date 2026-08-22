@@ -29,8 +29,8 @@
   <meta name="twitter:description" content="Look up any KJV verse. Notes stay on this device. No account.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260322">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822desk2" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822desk2">
+  <link rel="preload" href="styles.css?v=20260822desk8" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822desk8">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <!-- header-search-bar (Hope/Win the Day chips) stays off this desk -->
@@ -158,11 +158,37 @@
     }
     .bible-tool .lookup-controls select {
       min-width: 10.5rem;
+      width: auto !important;
+      margin: 0 !important;
+    }
+    @media (max-width: 640px) {
+      body.bible-tool-page #bible-tool-lookup-section .lookup-controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem 0.75rem;
+        align-items: end;
+      }
+      body.bible-tool-page #bible-tool-lookup-section .lookup-field:first-child {
+        grid-column: 1 / -1;
+      }
+      body.bible-tool-page #bible-tool-lookup-section .lookup-controls select {
+        width: 100% !important;
+        min-width: 0;
+        max-width: none;
+      }
+    }
+    body.bible-tool-page #bible-tool-lookup-section .lookup-controls {
+      flex-wrap: nowrap;
+      align-items: flex-end;
     }
     .bible-tool .lookup-stepper {
       display: flex;
+      flex-wrap: nowrap;
       align-items: stretch;
       height: 44px;
+      max-height: 44px;
+      min-height: 44px;
+      width: max-content;
       box-sizing: border-box;
       border: 1px solid rgba(242, 220, 152, 0.55);
       border-radius: 8px;
@@ -170,10 +196,12 @@
       background: #141922;
     }
     .bible-tool .lookup-stepper input[type="number"] {
-      width: 3.15rem;
-      height: 100%;
-      min-height: 0;
-      padding: 0 0.35rem 0 0.5rem;
+      width: 3.15rem !important;
+      max-width: 3.15rem;
+      height: 100% !important;
+      min-height: 0 !important;
+      margin: 0 !important;
+      padding: 0 0.35rem 0 0.5rem !important;
       border: 0;
       border-radius: 0;
       background: transparent;
@@ -200,14 +228,18 @@
     }
     .bible-tool .lookup-stepper-btn {
       flex: 1 1 50%;
-      height: 50%;
-      min-height: 0;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      color: #f2dc98;
+      width: 100% !important;
+      height: 50% !important;
+      min-height: 0 !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      color: #f2dc98 !important;
+      box-shadow: none !important;
+      transform: none !important;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -219,9 +251,11 @@
     }
     .bible-tool .lookup-stepper-btn:hover,
     .bible-tool .lookup-stepper-btn:focus-visible {
-      background: rgba(242, 220, 152, 0.12);
-      color: #fff4c4;
+      background: rgba(242, 220, 152, 0.12) !important;
+      color: #fff4c4 !important;
       outline: none;
+      transform: none !important;
+      box-shadow: none !important;
     }
     .bible-tool .lookup-stepper-btn:focus-visible {
       box-shadow: inset 0 0 0 2px #f2dc98;

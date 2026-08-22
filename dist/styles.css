@@ -1343,8 +1343,8 @@ html[data-theme="light"] .side-nav a:hover {
 }
 
 /* Generic button shell only — do not flatten .btn-primary / .btn-secondary (they need their own contrast). */
-button:not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary):not(.tdb-appearance-opt):not(.footer-appearance-link):not(.share-page-btn):not(.link-button):not(.tdb-verse-ribbon-toggle):not(.mem-btn),
-.btn:not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary):not(.tdb-verse-ribbon-toggle):not(.mem-btn) {
+button:not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary):not(.tdb-appearance-opt):not(.footer-appearance-link):not(.share-page-btn):not(.link-button):not(.tdb-verse-ribbon-toggle):not(.mem-btn):not(.lookup-stepper-btn),
+.btn:not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary):not(.tdb-verse-ribbon-toggle):not(.mem-btn):not(.lookup-stepper-btn) {
   background: #1a1a1a !important;
   color: #e5e5e5 !important;
   border-color: #2a2a2a !important;
@@ -1353,8 +1353,8 @@ button:not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary):
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-html[data-theme="light"] button:not(.tdb-appearance-opt):not(.footer-appearance-link):not(.share-page-btn):not(.link-button):not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary):not(.mem-btn),
-html[data-theme="light"] .btn:not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary):not(.mem-btn) {
+html[data-theme="light"] button:not(.tdb-appearance-opt):not(.footer-appearance-link):not(.share-page-btn):not(.link-button):not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary):not(.mem-btn):not(.lookup-stepper-btn),
+html[data-theme="light"] .btn:not(.btn-primary):not(.btn-secondary):not(.tdb-votm-read-aloud--primary):not(.mem-btn):not(.lookup-stepper-btn) {
   background: #fffdf7 !important;
   color: #2f2f2f !important;
   border-color: #e6dcc1 !important;

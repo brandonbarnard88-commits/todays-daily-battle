@@ -326,9 +326,17 @@ function snippetFromVerse(raw, maxWords) {
     .replace(/^(And|But|For|Then|Now|So|Also)[, ]+/i, '')
     .replace(/\s+/g, ' ')
     .trim();
+  const quoted = modern.match(/\b(?:said|says|saying|spoke|commanded)[,:]?\s+(.+)/i);
+  if (quoted && quoted[1] && quoted[1].replace(/\s+/g, ' ').trim().length > 8) {
+    modern = quoted[1].replace(/\s+/g, ' ').trim();
+  }
   const parts = modern.split(/[.:;]\s+/);
   let clause = parts[0] || modern;
-  if (/says?|said|commanded|spoke/i.test(clause) && parts[1] && parts[1].length > 12) {
+  if (
+    /^(god|the lord|he|she|they|jesus|moses|the lord god)\s+(said|says|spoke|commanded)\.?$/i.test(clause) &&
+    parts[1] &&
+    parts[1].length > 8
+  ) {
     clause = parts[1];
   }
   clause = clause.replace(/[;:,.]+$/g, '').trim();
@@ -380,6 +388,9 @@ export function buildFamousVersePlain(ref, text) {
 
   if (/genesis\s+1:1/.test(r) || /^in the beginning god created/.test(lower)) {
     return 'In the beginning, God created the heavens and the earth — everything starts with Him.';
+  }
+  if (/genesis\s+1:3/.test(r) || /let there be light:\s*and there was light/.test(lower)) {
+    return 'God spoke, and light appeared — His word is enough to make something from nothing.';
   }
   if (/john\s+11:35/.test(r) || /^jesus wept\.?$/i.test(lower)) {
     return 'Jesus wept. He is close to grief — not above it.';

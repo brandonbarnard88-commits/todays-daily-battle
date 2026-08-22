@@ -195,9 +195,17 @@
       .replace(/^(And|But|For|Then|Now|So|Also)[, ]+/i, '')
       .replace(/\s+/g, ' ')
       .trim();
+    var quoted = modern.match(/\b(?:said|says|saying|spoke|commanded)[,:]?\s+(.+)/i);
+    if (quoted && quoted[1] && quoted[1].replace(/\s+/g, ' ').trim().length > 8) {
+      modern = quoted[1].replace(/\s+/g, ' ').trim();
+    }
     var parts = modern.split(/[.:;]\s+/);
     var clause = parts[0] || modern;
-    if (/says?|said|commanded|spoke/i.test(clause) && parts[1] && parts[1].length > 12) {
+    if (
+      /^(god|the lord|he|she|they|jesus|moses|the lord god)\s+(said|says|spoke|commanded)\.?$/i.test(clause) &&
+      parts[1] &&
+      parts[1].length > 8
+    ) {
       clause = parts[1];
     }
     clause = clause.replace(/[;:,.]+$/g, '').trim();
@@ -242,6 +250,9 @@
     /* Well-known anchors — verse-specific */
     if (/genesis\s+1:1/.test(r) || /^in the beginning\s+god\s+created/.test(lower)) {
       return 'In the beginning, God created the heavens and the earth — everything starts with Him.';
+    }
+    if (/genesis\s+1:3/.test(r) || /let there be light:\s*and there was light/.test(lower)) {
+      return 'God spoke, and light appeared — His word is enough to make something from nothing.';
     }
     if (/john\s+3:16/.test(r) || /for god so loved the world/.test(lower)) {
       return 'God loved the world so much He gave His only Son, so whoever believes in Him will not be lost but have eternal life.';
@@ -1372,7 +1383,8 @@
     var layWrap = document.createElement('div');
     layWrap.className = 'tdb-layman-collapse tdb-vb-layman-collapse tdb-layman-always-open';
     var laySum = document.createElement('h4');
-    laySum.className = 'tdb-layman-collapse__summary';
+    laySum.className = 'tdb-layman-collapse__summary tdb-vb-layman-h';
+    laySum.setAttribute('data-bk', 'layman-h');
     laySum.appendChild(document.createTextNode('Simple layman terms'));
     layWrap.appendChild(laySum);
     var layP = document.createElement('p');
@@ -1450,9 +1462,13 @@
     prayBlk.appendChild(prayPwrap);
     panel.appendChild(prayBlk);
 
-    /* Reflection block — gentle adult "sit with this" questions */
+    /* Reflection journal stays off the Look up desk — leftover prompts. */
     var std = window.TDB_verseBreakdownStandard;
-    if (std && typeof std.buildReflectionBlock === 'function') {
+    var onLookupDesk = false;
+    try {
+      onLookupDesk = String((window.location && window.location.pathname) || '').toLowerCase().indexOf('bible-tool') !== -1;
+    } catch (ePathRefl) {}
+    if (!onLookupDesk && std && typeof std.buildReflectionBlock === 'function') {
       panel.appendChild(std.buildReflectionBlock());
     }
 
@@ -1676,9 +1692,20 @@
     var slot = details.querySelector('[data-bbe-slot]');
     if (!slot) return;
     slot.innerHTML = '';
+    slot.hidden = false;
+    slot.removeAttribute('hidden');
     if (window.TDBBbeSimple && typeof window.TDBBbeSimple.buildDetailsBlock === 'function') {
       try {
-        /* Open by default so simpler English leads; layman stays collapsed under it. */
+        var kjvForBbe = '';
+        try {
+          kjvForBbe = getBibleVerseText(ref) || '';
+        } catch (eKjvBbe) {}
+        var bbeSync = getBbePlainForRef(ref);
+        if (bbeSync && kjvForBbe && isNearVerbatimPlain(bbeSync, kjvForBbe)) {
+          slot.hidden = true;
+          slot.setAttribute('hidden', '');
+          return;
+        }
         slot.appendChild(
           window.TDBBbeSimple.buildDetailsBlock(ref, { className: 'tdb-bbe-simple--inline', open: true })
         );
@@ -1731,24 +1758,34 @@
       '\u201c' + (resolvedText || 'Loading verse text\u2026') + '\u201d';
     aboutEl.textContent = tdbPlainTextForUi(breakdown.about || '—');
     toEl.textContent = tdbPlainTextForUi(breakdown.to || '—');
-    var layShown0 = tdbPlainTextForUi(breakdown.layman || '').trim();
+    var layShown0 = tdbPlainTextForUi(breakdown.plainMeaningOnly || breakdown.layman || '').trim();
     if (layShown0 && resolvedText && isNearVerbatimPlain(layShown0, resolvedText)) {
       layShown0 = '';
     }
-    if (!layShown0 && resolvedText) {
-      layShown0 = tdbPlainTextForUi(frameVerseTeaching(resolvedText) || '').trim();
-      if (layShown0 && isNearVerbatimPlain(layShown0, resolvedText)) layShown0 = '';
+    if ((!layShown0 || isBbeEcho(layShown0, ref)) && resolvedText) {
+      layShown0 = tdbPlainTextForUi(buildThemeLaymanPlain(ref, resolvedText) || frameVerseTeaching(resolvedText) || '').trim();
+      if (layShown0 && isNearVerbatimPlain(layShown0, resolvedText)) {
+        layShown0 = tdbPlainTextForUi(frameVerseTeaching(resolvedText) || '').trim();
+      }
     }
     layEl.textContent = layShown0;
     try {
-      var layHead = details.querySelector('[data-bk="layman-h"], .tdb-vb-layman-h');
-      var layWrap = layEl.closest('p, div, section') || layEl.parentNode;
+      var layHead = details.querySelector('[data-bk="layman-h"], .tdb-vb-layman-h, .tdb-layman-collapse__summary');
+      var layWrap = layEl.closest('.tdb-layman-collapse, .tdb-vb-layman-collapse') || layEl.closest('p, div, section') || layEl.parentNode;
       if (!layShown0) {
         layEl.hidden = true;
         if (layHead) layHead.hidden = true;
-        if (layWrap && layWrap !== details) layWrap.hidden = true;
+        if (layWrap && layWrap !== details) {
+          layWrap.hidden = true;
+          layWrap.setAttribute('hidden', '');
+        }
       } else {
         layEl.hidden = false;
+        if (layHead) layHead.hidden = false;
+        if (layWrap && layWrap !== details) {
+          layWrap.hidden = false;
+          layWrap.removeAttribute('hidden');
+        }
       }
     } catch (eLayHide) {}
 
@@ -1769,13 +1806,11 @@
       personalYou = holdYouFallback;
     }
     try {
-      if (personalYou === relDisplayed) {
+      if (personalYou === relDisplayed || /still speaks into the hour you are in|life can feel loud/i.test(relDisplayed || '')) {
         relDisplayed =
           stdVB && typeof stdVB.defaultRelatesTodayLine === 'function'
-            ? stdVB.defaultRelatesTodayLine(yrChip)
-            : 'In ' +
-              yrChip +
-              ', life can feel loud—headlines, hurry, tension. God’s Word here still cuts through as something steady you can carry today.';
+            ? stdVB.defaultRelatesTodayLine(yrChip, resolvedText)
+            : inferApplies(resolvedText);
       }
     } catch (eDedup) { /* non-fatal */ }
 
@@ -1810,8 +1845,10 @@
 
     var bubble = details.querySelector('.tdb-vb-inline-bubble');
     if (bubble) {
-      bubble.textContent = tdbPlainTextForUi(breakdown.bubbleTitle || 'Plain') + (breakdown.bubbleEmoji ? (' ' + breakdown.bubbleEmoji) : '');
-      bubble.className = 'tdb-vb-inline-bubble tdb-vb-inline-bubble-' + ageMode;
+      /* Same words as the toggle — hide the extra label. */
+      bubble.hidden = true;
+      bubble.setAttribute('hidden', '');
+      bubble.textContent = '';
     }
 
     runInlineLazyLoads(details, ref, resolvedText, ageMode, topic);
@@ -1981,7 +2018,7 @@
     } else {
       pt.parent.appendChild(details);
     }
-    if (host.id === 'church-daily-verse-card') {
+    if (host.id === 'church-daily-verse-card' || host.id === 'lookup-text' || host.id === 'lookup-result') {
       details.classList.add('tdb-vb-inline--host-has-kjv');
     }
     setInlineBreakdownOpen(details, true);

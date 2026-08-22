@@ -1954,11 +1954,17 @@
     /* Parent shells (e.g. .church-verse-card) must not get a second copy after the inner card. */
     if (el.querySelector && el.querySelector('.tdb-verse-breakdown-inline')) return true;
     if (el.classList && el.classList.contains('church-verse-card') && el.querySelector('#church-daily-verse-card')) return true;
+    try {
+      var path2 = String((window.location && window.location.pathname) || '').toLowerCase();
+      if (path2.indexOf('bible-tool') !== -1 && !el.closest('#lookup-result')) return true;
+    } catch (eBt) {}
+    if (el.closest('#plan-progress, #plan-progress-wrap, #win-result, #battle-ready-result')) return true;
     return false;
   }
 
   function addButton(container, ref, text) {
     if (!container || !ref || !text) return;
+    if (!parseBook(ref)) return;
     var host = container;
     if (typeof container.closest === 'function') {
       var c = container.closest('#daily-verse-card, #verseCard, #lookup-result, #verse-container, #desktop-verse, .mystudy-verse-card, #mystudy-highlight-detail, .mystudy-result, .verse-card, .context-line, .smart-card, .verse-item');

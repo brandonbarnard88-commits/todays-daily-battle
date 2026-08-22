@@ -12,25 +12,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Look up a verse • Bible Tool • Today's Daily Battle</title>
-  <meta name="description" content="Look up verses, browse every Kids Bible story with Scripture and “for you” lines, take notes, follow a reading plan, and get Win the Day verses by topic. KJV, no login.">
+  <meta name="description" content="Look up any KJV verse. Notes stay on this device. No account. No ads.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/bible-tool.html">
   <meta property="og:title" content="Bible Tool • Today's Daily Battle">
-  <meta property="og:description" content="Look up verses, take notes, follow a reading plan, and get Win the Day verses by topic. KJV, no login.">
+  <meta property="og:description" content="Look up any KJV verse. Notes stay on this device. No account.">
   <meta property="og:url" content="https://todaysdailybattle.com/bible-tool.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260322">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Bible Tool — KJV lookup, notes, Win the Day">
+  <meta property="og:image:alt" content="Look up a KJV verse — Today’s Daily Battle">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bible Tool • Today's Daily Battle">
-  <meta name="twitter:description" content="Look up verses, take notes, follow a reading plan, and get Win the Day verses by topic. KJV, no login.">
+  <meta name="twitter:description" content="Look up any KJV verse. Notes stay on this device. No account.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260322">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822quiet" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822quiet">
+  <link rel="preload" href="styles.css?v=20260822lookup" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822lookup">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <script src="scripts/header-search-bar.js?v=3" defer></script>
@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script nonce="tdb2025s" type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"Bible Tool • Today's Daily Battle","url":"https://todaysdailybattle.com/bible-tool.html","description":"Look up verses, take notes, follow a reading plan, and get Win the Day verses by topic. KJV, no login.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
+  {"@context":"https://schema.org","@type":"WebPage","name":"Look up a verse • Today's Daily Battle","url":"https://todaysdailybattle.com/bible-tool.html","description":"Look up any KJV verse. Notes stay on this device. No account.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
   <style>
     .bible-tool { font-size: 1.0625rem; }
@@ -720,7 +720,7 @@
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
-        <span class="brand-subtitle">Look up a verse — KJV verse lookup, notes, and reading plans</span>
+        <span class="brand-subtitle">Look up a KJV verse on this device</span>
       </div>
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
       <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
@@ -786,7 +786,7 @@
         <p class="tdb-trust-return">Lookups stay here unless you choose to save them. Still here when the signal isn&rsquo;t.</p>
         <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
         <div class="tdb-soft-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads this page if a verse or panel didn&rsquo;t load.</span></div>
-        <nav class="bible-tool-mini-hub" id="bible-tool-hub" aria-label="Verse and reading tools">
+        <nav class="bible-tool-mini-hub" id="bible-tool-hub" aria-label="Verse and reading tools" hidden>
           <span class="bible-tool-mini-hub-label">From this hub</span>
           <a href="verse-image.html">Verse image</a>
           <span class="bible-tool-mini-hub-sep" aria-hidden="true">·</span>
@@ -794,7 +794,7 @@
           <span class="bible-tool-mini-hub-sep" aria-hidden="true">·</span>
           <a href="bible/tools.html">Study workshop</a>
         </nav>
-        <details class="tdb-hub-disclosure util-mt-0_75" id="bible-tool-hero-more">
+        <details class="tdb-hub-disclosure util-mt-0_75" id="bible-tool-hero-more" hidden>
           <summary class="tdb-hub-disclosure__summary">More ways to sit with a verse</summary>
           <div class="tdb-hub-disclosure__inner">
         <p class="section-note util-mt-0_5 util-mb-0" style="padding:0.65rem 0.85rem;border-radius:10px;border:1px solid rgba(212,175,55,0.28);background:rgba(212,175,55,0.06);max-width:42rem;"><strong>Supporters:</strong> <a href="verse-image.html" class="bible-tool-gold-link">Create a custom verse image</a> — pick a verse, style the card, export PNG or share.</p>
@@ -817,7 +817,7 @@
         </details>
         </header>
 
-        <details class="tdb-hub-disclosure" id="bible-tool-onpage-nav-details">
+        <details class="tdb-hub-disclosure" id="bible-tool-onpage-nav-details" hidden>
           <summary class="tdb-hub-disclosure__summary">On this page</summary>
           <div class="tdb-hub-disclosure__inner">
         <nav class="bible-tool-onpage-nav" aria-label="On this page">
@@ -839,7 +839,7 @@
         <p class="section-note tdb-kjv-dict-hint util-mb-0_75" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
 
         <!-- Ask the Word — Bible Q&A (standalone, runs before main script) -->
-        <section class="bible-qa" id="ask-the-word-section" aria-label="Ask the Word" role="search">
+        <section class="bible-qa" id="ask-the-word-section" aria-label="Ask the Word" role="search" hidden>
           <h2 class="bible-qa-title">✝️ Ask the Word</h2>
           <div class="qa-input-group" style="display:flex !important; gap:10px; flex-wrap:wrap;">
             <input id="bible-qa-search" type="text" placeholder="Ask anything about the Bible…" aria-label="Ask a Bible question" autocomplete="off" style="flex:1; min-width:12rem;">
@@ -861,7 +861,7 @@
         <script src="ask-the-word-core.js?v=20260820-ref" defer></script>
         <script src="ask-the-word.js?v=20260802-teach" defer></script>
 
-        <section class="search-hero glass tdb-porch-paper-glass" id="search-hero" role="search" aria-label="Search Scripture">
+        <section class="search-hero glass tdb-porch-paper-glass" id="search-hero" role="search" aria-label="Search Scripture" hidden>
           <label for="query" class="search-hero-label">Search by emotion or verse</label>
           <div class="search-hero-row">
             <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
@@ -902,7 +902,7 @@
           }());
         </script>
 
-        <details class="tdb-hub-disclosure" id="bible-tool-secondary-details">
+        <details class="tdb-hub-disclosure" id="bible-tool-secondary-details" hidden>
           <summary class="tdb-hub-disclosure__summary">Verse mode, Bible stories, and today&rsquo;s verse</summary>
           <div class="tdb-hub-disclosure__inner">
         <section class="verse-card glass tdb-porch-paper-glass" id="bible-tool-verse-mode-section" aria-label="Verse mode">
@@ -971,7 +971,7 @@
         <!-- Verse lookup -->
         <section class="verse-card glass tdb-porch-paper-glass" id="bible-tool-lookup-section" aria-label="Look up a verse">
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Look up a verse</h2>
-          <p class="section-note util-mb-0_5">Type in the header search bar, or pick book, chapter, and verse below.</p>
+          <p class="section-note util-mb-0_5">Type a reference like John 3:16, or pick book, chapter, and verse.</p>
           <fieldset style="border:none;padding:0;margin:0;">
             <legend class="sr-only">Look up a verse</legend>
             <div class="lookup-controls">
@@ -1066,13 +1066,12 @@
         <section class="verse-card glass tdb-porch-paper-glass" aria-label="Notes">
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Notes</h2>
           <textarea id="note-input" placeholder="Add a note for the verse above (after you look one up)…" rows="2" aria-label="Note for current verse"></textarea>
-          <p class="section-note util-mb-0">Everything here stays on this device until you choose to sign in and sync.</p>
-          <p class="section-note util-mt-0_5 util-mb-0" style="padding:0.55rem 0.7rem;border-radius:8px;border:1px solid rgba(148,163,184,0.2);background:rgba(15,23,42,0.35);max-width:40rem;">Want deeper study tools? Tell us what would help: <a href="contact.html" class="bible-tool-gold-link">Contact</a> — we read every note.</p>
+          <p class="section-note util-mb-0">Everything here stays on this device.</p>
           <div id="notes-list" class="util-mt-1"></div>
         </section>
 
-        <!-- Reading plan -->
-        <section class="verse-card glass tdb-porch-paper-glass">
+        <!-- Reading plan (kept for scripts; hidden — Plans is the porch for tracks) -->
+        <section class="verse-card glass tdb-porch-paper-glass" id="bible-tool-reading-plan" hidden>
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Reading plan</h2>
           <p class="section-note util-mb-0_5">Pick a plan below—checkboxes appear so you can track progress.</p>
           <p class="section-note util-mb-0_5" style="padding:0.55rem 0.7rem;border-radius:8px;border:1px solid rgba(148,163,184,0.2);background:rgba(15,23,42,0.35);max-width:40rem;">Same readings as these checklists where noted, plus more paths—daily prayer + study prompts on Plans (progress is separate): <a href="plans.html?plan=psalmscomfort" class="bible-tool-gold-link">Psalms of Comfort</a> · <a href="plans.html?plan=proverbswisdom" class="bible-tool-gold-link">Proverbs Wisdom</a> · <a href="plans.html?plan=hopeuncertain" class="bible-tool-gold-link">Hope in Uncertainty</a> · <a href="plans.html?plan=gospeljohn" class="bible-tool-gold-link">John (7-day sampler)</a> · <a href="plans.html?plan=sufferendure" class="bible-tool-gold-link">Suffering &amp; Endurance</a> · <a href="plans.html?plan=psalmspraise" class="bible-tool-gold-link">Psalms of Praise</a>.</p>
@@ -1102,8 +1101,8 @@
           </div>
         </section>
 
-        <!-- Win the Day -->
-        <section class="verse-card glass tdb-porch-paper-glass border-gold" aria-label="Win the Day">
+        <!-- Win the Day (kept for scripts; hidden — leftover catalog) -->
+        <section class="verse-card glass tdb-porch-paper-glass border-gold" id="bible-tool-win-the-day" aria-label="Win the Day" hidden>
           <h2 class="win-title section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Win the Day</h2>
           <p class="section-note">Three verses on a topic — read them, pray one, act on one.</p>
           <select id="win-topic" aria-label="Topic">
@@ -1118,8 +1117,8 @@
           <div id="win-result" class="hidden util-mt-1" aria-live="polite"></div>
         </section>
 
-        <!-- Battle Ready -->
-        <section class="verse-card glass tdb-porch-paper-glass border-accent" aria-label="Battle Ready">
+        <!-- Battle Ready (kept for scripts; hidden — leftover catalog) -->
+        <section class="verse-card glass tdb-porch-paper-glass border-accent" id="bible-tool-battle-ready" aria-label="Battle Ready" hidden>
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Battle Ready</h2>
           <p class="section-note">One verse. One prayer. Go.</p>
           <button type="button" id="battle-ready-btn" class="btn btn-primary">Give me a verse</button>
@@ -1141,7 +1140,7 @@
   <script src="verse-study.js?v=20260328pass4vs"></script>
   <script src="verse-context.js?v=20260819-truth" data-tdb-verse-context="1"></script>
 <script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
-<script src="verse-breakdown.js?v=20260819-fullkjv" data-tdb-verse-breakdown="1"></script>
+<script src="verse-breakdown.js?v=20260822lookup" data-tdb-verse-breakdown="1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">

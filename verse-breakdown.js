@@ -29,8 +29,8 @@
   };
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
-  /* v8: full-KJV framed teaching lines (not KJV echoes) */
-  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v8::';
+  /* v9: drop cached speech-intro leftovers (“to Moses, saying”) */
+  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v9::';
   var BREAKDOWN_BOOK_PACKS = {};
   var BREAKDOWN_BOOK_LOADING = {};
   var BREAKDOWN_MAX_MEMORY_CACHE = 600;
@@ -163,6 +163,18 @@
         if (hit / pTok.length >= 0.78) return true;
       }
     }
+    return false;
+  }
+
+  function isLeftoverLookupPlain(p) {
+    var t = tdbPlainTextForUi(p || '');
+    if (!t) return false;
+    if (/this verse records:\s*(to|unto)\s+\S.{0,40}\bsaying\b/i.test(t)) return true;
+    if (/In everyday English, this verse records:\s*to Moses, saying/i.test(t)) return true;
+    if (/this verse still says:\s*[“"']/i.test(t)) return true;
+    if (/still speaks into the hour you are in/i.test(t)) return true;
+    if (/Sit with one phrase from this verse before you move on/i.test(t)) return true;
+    if (/life can feel loud/i.test(t)) return true;
     return false;
   }
 
@@ -714,8 +726,10 @@
       var refKey = name + ' ' + cv;
       if (!BREAKDOWN_OVERRIDES[refKey]) BREAKDOWN_OVERRIDES[refKey] = {};
       if (!BREAKDOWN_OVERRIDES[refKey].general) BREAKDOWN_OVERRIDES[refKey].general = {};
-      if (!BREAKDOWN_OVERRIDES[refKey].general.plainExplanation) {
-        BREAKDOWN_OVERRIDES[refKey].general.plainExplanation = String(map[cv] || '');
+      var prevPlain = BREAKDOWN_OVERRIDES[refKey].general.plainExplanation;
+      var nextPlain = String(map[cv] || '');
+      if (!prevPlain || isLeftoverLookupPlain(prevPlain)) {
+        BREAKDOWN_OVERRIDES[refKey].general.plainExplanation = nextPlain;
       }
     });
   }
@@ -744,7 +758,7 @@
     if (!name) return Promise.resolve(null);
     if (BREAKDOWN_BOOK_PACKS[name]) return Promise.resolve(BREAKDOWN_BOOK_PACKS[name]);
     if (BREAKDOWN_BOOK_LOADING[name]) return BREAKDOWN_BOOK_LOADING[name];
-    var url = '/data/breakdown/' + bookPackSlug(name) + '.json';
+    var url = '/data/breakdown/' + bookPackSlug(name) + '.json?v=20260822desk11';
     var p;
     try {
       p = fetch(url, { credentials: 'same-origin' })
@@ -1114,6 +1128,8 @@
         isWeakContextStamp(cached.about, cached.to) ||
         /^In plain terms for life today:/i.test(cachedPlain) ||
         /Sit with that until one phrase lands/i.test(cachedPlain) ||
+        isLeftoverLookupPlain(cachedPlain) ||
+        isLeftoverLookupPlain(cached.relates || cached.modernApplication || '') ||
         isThinSpeakerSituation(cachedSit);
       if (
         !weakCached &&
@@ -1783,10 +1799,10 @@
     aboutEl.textContent = tdbPlainTextForUi(breakdown.about || '—');
     toEl.textContent = tdbPlainTextForUi(breakdown.to || '—');
     var layShown0 = tdbPlainTextForUi(breakdown.plainMeaningOnly || breakdown.layman || '').trim();
-    if (layShown0 && resolvedText && isNearVerbatimPlain(layShown0, resolvedText)) {
+    if (layShown0 && resolvedText && (isNearVerbatimPlain(layShown0, resolvedText) || isLeftoverLookupPlain(layShown0))) {
       layShown0 = '';
     }
-    if ((!layShown0 || isBbeEcho(layShown0, ref)) && resolvedText) {
+    if ((!layShown0 || isBbeEcho(layShown0, ref) || isLeftoverLookupPlain(layShown0)) && resolvedText) {
       layShown0 = tdbPlainTextForUi(buildThemeLaymanPlain(ref, resolvedText) || frameVerseTeaching(resolvedText) || '').trim();
       if (layShown0 && isNearVerbatimPlain(layShown0, resolvedText)) {
         layShown0 = tdbPlainTextForUi(frameVerseTeaching(resolvedText) || '').trim();
@@ -1826,18 +1842,16 @@
     var layShown = tdbPlainTextForUi(breakdown.layman || '').trim();
     if (personalYou && personalYou === layShown) {
       personalYou = holdYouFallback;
-    } else if (!personalYou) {
-      personalYou = holdYouFallback;
+    } else if (!personalYou || isLeftoverLookupPlain(personalYou)) {
+      personalYou = inferApplies(resolvedText) || holdYouFallback;
     }
     try {
       if (
         personalYou === relDisplayed ||
+        isLeftoverLookupPlain(relDisplayed) ||
         /still speaks into the hour you are in|life can feel loud|this verse still says:/i.test(relDisplayed || '')
       ) {
-        relDisplayed =
-          stdVB && typeof stdVB.defaultRelatesTodayLine === 'function'
-            ? stdVB.defaultRelatesTodayLine(yrChip, resolvedText)
-            : inferApplies(resolvedText);
+        relDisplayed = inferApplies(resolvedText);
       }
     } catch (eDedup) { /* non-fatal */ }
 

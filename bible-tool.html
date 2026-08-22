@@ -68,7 +68,23 @@
     body.bible-tool-page .tdb-vb-inline-bubble,
     body.bible-tool-page .tdb-vb-reflection,
     body.bible-tool-page .tdb-vb-inline-ref,
-    body.bible-tool-page .tdb-vb-inline-verse-text {
+    body.bible-tool-page .tdb-vb-inline-verse-text,
+    body.bible-tool-page .tdb-header-account-nudge,
+    body.bible-tool-page #auth-details,
+    body.bible-tool-page #lookup-context,
+    body.bible-tool-page #lookup-cross-refs-details,
+    body.bible-tool-page .tdb-vb-extra,
+    body.bible-tool-page .tdb-vb-inline-next-step,
+    body.bible-tool-page .tdb-vb-inline-prayer-block,
+    body.bible-tool-page .tdb-vb-inline-actions,
+    body.bible-tool-page .tdb-vb-inline-level-btn,
+    body.bible-tool-page #share-lookup,
+    body.bible-tool-page #highlight-lookup,
+    body.bible-tool-page #memorize-lookup,
+    body.bible-tool-page #pray-lookup,
+    body.bible-tool-page #wordstudy-lookup,
+    body.bible-tool-page #lookup-verse-image,
+    body.bible-tool-page #lookup-prayer-box {
       display: none !important;
     }
     /* Context + breakdown grow with the page — no inner scroll box */
@@ -1260,22 +1276,22 @@
             <legend class="sr-only">Look up a KJV verse</legend>
             <div class="lookup-type-row">
               <div class="lookup-field" style="flex:1 1 16rem;">
-                <label class="lookup-field-label" for="lookup-ref-typed">Reference</label>
+                <label class="sr-only" for="lookup-ref-typed">Reference</label>
                 <input type="text" id="lookup-ref-typed" class="lookup-ref-typed" placeholder="John 3:16" aria-label="Type a KJV reference like John 3:16" autocomplete="off" />
               </div>
               <button type="button" id="lookup-btn" class="btn btn-primary">Go</button>
             </div>
             <div class="lookup-controls">
               <div class="lookup-field">
-                <label class="lookup-field-label" for="book">Book</label>
+                <label class="sr-only" for="book">Book</label>
                 <select id="book" aria-label="Book">
                   <option value="">Book</option>
                 </select>
               </div>
               <div class="lookup-field">
-                <label class="lookup-field-label" for="chapter">Chapter</label>
+                <label class="sr-only" for="chapter">Chapter</label>
                 <div class="lookup-stepper">
-                  <input type="number" id="chapter" placeholder="1" min="1" inputmode="numeric" aria-label="Chapter" />
+                  <input type="number" id="chapter" placeholder="Ch" min="1" inputmode="numeric" aria-label="Chapter" />
                   <div class="lookup-stepper-arrows" role="group" aria-label="Change chapter">
                     <button type="button" class="lookup-stepper-btn" data-lookup-step="chapter" data-lookup-dir="1" aria-label="Chapter up">
                       <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M6 1.2L11 6.8H1L6 1.2z"></path></svg>
@@ -1287,9 +1303,9 @@
                 </div>
               </div>
               <div class="lookup-field">
-                <label class="lookup-field-label" for="verse">Verse</label>
+                <label class="sr-only" for="verse">Verse</label>
                 <div class="lookup-stepper">
-                  <input type="number" id="verse" placeholder="1" min="1" inputmode="numeric" aria-label="Verse" />
+                  <input type="number" id="verse" placeholder="Vs" min="1" inputmode="numeric" aria-label="Verse" />
                   <div class="lookup-stepper-arrows" role="group" aria-label="Change verse">
                     <button type="button" class="lookup-stepper-btn" data-lookup-step="verse" data-lookup-dir="1" aria-label="Verse up">
                       <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M6 1.2L11 6.8H1L6 1.2z"></path></svg>
@@ -1462,7 +1478,7 @@
   <script src="verse-study.js?v=20260328pass4vs"></script>
   <script src="verse-context.js?v=20260819-truth" data-tdb-verse-context="1"></script>
 <script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
-<script src="verse-breakdown.js?v=20260822desk13" data-tdb-verse-breakdown="1"></script>
+<script src="verse-breakdown.js?v=20260822desk14" data-tdb-verse-breakdown="1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">
@@ -2195,15 +2211,6 @@
     if (prayBox) { prayBox.classList.add('hidden'); prayBox.innerHTML = ''; }
     var lookupContext = document.getElementById('lookup-context');
     if (lookupContext) lookupContext.innerHTML = '';
-    function mountLookupContext() {
-      if (!lookupContext) return;
-      lookupContext.innerHTML = '';
-      if (typeof window.tdbMountVerseContextAccordion === 'function') {
-        window.tdbMountVerseContextAccordion(lookupContext, data.reference, true);
-      } else if (typeof window.buildVerseContextHtml === 'function') {
-        lookupContext.innerHTML = window.buildVerseContextHtml(data.reference, true);
-      }
-    }
     function injectLookupBreakdown() {
       if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.injectInlineBreakdown === 'function') {
         try {
@@ -2211,7 +2218,6 @@
           window.TDBVerseBreakdown.injectInlineBreakdown(bdHost, data.reference, data.text);
         } catch (eLookupBd) {}
       }
-      mountLookupContext();
     }
     var lookupBook = (parts && parts.book) ? parts.book : '';
     if (lookupBook && window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.prefetchBookBreakdown === 'function') {

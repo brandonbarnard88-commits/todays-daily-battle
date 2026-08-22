@@ -22411,6 +22411,36 @@ body.chapter-reader-page .app-content {
   margin-left: 0;
 }
 
+/* Bible credits: one column — do not park the page in the empty sidebar cell */
+body.tdb-bible-credits-page .sidebar,
+body.tdb-bible-credits-page #sidebar-toggle {
+  display: none !important;
+}
+body.tdb-bible-credits-page .app-shell {
+  display: flex !important;
+  flex-direction: column;
+  grid-template-columns: none !important;
+  grid-template-areas: none !important;
+}
+body.tdb-bible-credits-page .top-bar,
+body.tdb-bible-credits-page .app-content,
+body.tdb-bible-credits-page .site-footer {
+  grid-area: auto;
+}
+body.tdb-bible-credits-page .app-content {
+  width: 100%;
+  max-width: min(46rem, 100%);
+  margin: 0 auto;
+  padding: 1.5rem var(--tdb-quiet-pad-x) 3rem;
+  box-sizing: border-box;
+}
+body.tdb-bible-credits-page .app-content h1 {
+  margin: 0 0 0.65rem;
+}
+body.tdb-bible-credits-page .app-content > section.glass {
+  margin-top: 1.15rem;
+}
+
 /* Read hero in Night: solid dark card + cream ink (charcoal-on-cream lost to the wash) */
 body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn {
   background: #141922 !important;

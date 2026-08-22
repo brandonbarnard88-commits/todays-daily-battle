@@ -62,7 +62,11 @@
     body.bible-tool-page #bible-tool-study-details,
     body.bible-tool-page #people-btn,
     body.bible-tool-page #people-input-wrap,
-    body.bible-tool-page #people-result {
+    body.bible-tool-page #people-result,
+    body.bible-tool-page #whos-this-inline,
+    body.bible-tool-page #lookup-context,
+    body.bible-tool-page .tdb-vb-curriculum,
+    body.bible-tool-page .tdb-vb-reflection {
       display: none !important;
     }
     .bible-tool { font-size: 1.0625rem; }
@@ -991,7 +995,7 @@
 
         <!-- Verse lookup -->
         <section class="verse-card glass tdb-porch-paper-glass" id="bible-tool-lookup-section" aria-label="Look up a verse">
-          <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Look up a verse</h2>
+          <h2 class="sr-only">Look up a verse</h2>
           <p class="section-note util-mb-0_5">Type a reference like John 3:16, or pick book, chapter, and verse.</p>
           <fieldset style="border:none;padding:0;margin:0;">
             <legend class="sr-only">Look up a verse</legend>
@@ -1161,7 +1165,7 @@
   <script src="verse-study.js?v=20260328pass4vs"></script>
   <script src="verse-context.js?v=20260819-truth" data-tdb-verse-context="1"></script>
 <script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
-<script src="verse-breakdown.js?v=20260822desk2" data-tdb-verse-breakdown="1"></script>
+<script src="verse-breakdown.js?v=20260822desk3" data-tdb-verse-breakdown="1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">

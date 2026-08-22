@@ -1685,7 +1685,22 @@
       '\u201c' + (resolvedText || 'Loading verse text\u2026') + '\u201d';
     aboutEl.textContent = tdbPlainTextForUi(breakdown.about || '—');
     toEl.textContent = tdbPlainTextForUi(breakdown.to || '—');
-    layEl.textContent = tdbPlainTextForUi(breakdown.layman || '—');
+    var layShown0 = tdbPlainTextForUi(breakdown.layman || '').trim();
+    if (layShown0 && resolvedText && isNearVerbatimPlain(layShown0, resolvedText)) {
+      layShown0 = '';
+    }
+    layEl.textContent = layShown0;
+    try {
+      var layHead = details.querySelector('[data-bk="layman-h"], .tdb-vb-layman-h');
+      var layWrap = layEl.closest('p, div, section') || layEl.parentNode;
+      if (!layShown0) {
+        layEl.hidden = true;
+        if (layHead) layHead.hidden = true;
+        if (layWrap && layWrap !== details) layWrap.hidden = true;
+      } else {
+        layEl.hidden = false;
+      }
+    } catch (eLayHide) {}
 
     var yrChip = stdVB && typeof stdVB.currentYear === 'function' ? stdVB.currentYear() : new Date().getFullYear();
     try {
@@ -1960,8 +1975,7 @@
     try {
       var pathBt = String((window.location && window.location.pathname) || '').toLowerCase();
       if (pathBt.indexOf('bible-tool') !== -1) {
-        if (el.id === 'lookup-result' || el.id === 'lookup-result-body' || el.id === 'lookup-text') return false;
-        if (el.closest('#lookup-text, #lookup-ref')) return false;
+        if (el.id === 'lookup-text') return false;
         return true;
       }
     } catch (eBt) {}
@@ -1971,6 +1985,16 @@
   function addButton(container, ref, text) {
     if (!container || !ref || !text) return;
     if (!parseBook(ref)) return;
+    try {
+      var pLu = String((window.location && window.location.pathname) || '').toLowerCase();
+      if (pLu.indexOf('bible-tool') !== -1) {
+        var luTxt = byId('lookup-text');
+        if (luTxt) {
+          injectInlineBreakdown(luTxt, ref, text);
+          return;
+        }
+      }
+    } catch (eLu) {}
     var host = container;
     if (typeof container.closest === 'function') {
       var c = container.closest('#daily-verse-card, #verseCard, #lookup-result, #verse-container, #desktop-verse, .mystudy-verse-card, #mystudy-highlight-detail, .mystudy-result, .verse-card, .context-line, .smart-card, .verse-item');
@@ -2155,6 +2179,16 @@
       var rOk = extractRefFromText(rL) || rL;
       if (!tL && rOk) tL = getBibleVerseText(rOk);
       if (rOk && tL) return { ref: rOk, text: tL };
+    }
+
+    if (container.id === 'lookup-text' || container.id === 'lookup-result-body' || container.id === 'lookup-result') {
+      var luRefEl = byId('lookup-ref');
+      var luTxtEl = byId('lookup-text');
+      var luRef = luRefEl ? extractRefFromText(String(luRefEl.textContent || '')) : '';
+      var luTxt = luTxtEl ? cleanVerseText(luTxtEl.textContent || '') : '';
+      if (!luTxt && luRef) luTxt = getBibleVerseText(luRef);
+      if (luRef && luTxt && parseBook(luRef)) return { ref: luRef, text: luTxt };
+      return { ref: '', text: '' };
     }
 
     if (container.classList && container.classList.contains('mystudy-verse-card')) {

@@ -90,7 +90,49 @@
     }
     .bible-tool { font-size: 1.0625rem; }
     .bible-tool .section-note { font-size: 1rem; }
-    .bible-tool #daily-text, .bible-tool #lookup-text, .bible-tool .verse-ref { font-size: 1.1rem; line-height: 1.5; }
+    .bible-tool #daily-text, .bible-tool .verse-ref { font-size: 1.1rem; line-height: 1.5; }
+    body.bible-tool-page .lookup-kjv {
+      margin: 1rem 0 1.2rem;
+      padding: 1.15rem 1.2rem 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(242, 220, 152, 0.38);
+      border-left: 4px solid #f2dc98;
+      background: #141922;
+    }
+    body.bible-tool-page #lookup-ref {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #f2dc98;
+      margin: 0 0 0.55rem;
+      line-height: 1.3;
+    }
+    body.bible-tool-page #lookup-text,
+    body.bible-tool-page #lookup-text.lookup-kjv-text {
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.45rem, 3.4vw, 1.95rem);
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.42;
+      color: #f4efe3;
+      margin: 0;
+      text-shadow: none;
+    }
+    html[data-theme="light"] body.bible-tool-page .lookup-kjv,
+    :root[data-theme="light"] body.bible-tool-page .lookup-kjv {
+      background: #fbf6ea;
+      border-color: #c4b07a;
+      border-left-color: #8a6d1f;
+    }
+    html[data-theme="light"] body.bible-tool-page #lookup-ref,
+    :root[data-theme="light"] body.bible-tool-page #lookup-ref {
+      color: #8a6d1f;
+    }
+    html[data-theme="light"] body.bible-tool-page #lookup-text,
+    :root[data-theme="light"] body.bible-tool-page #lookup-text {
+      color: #1a1610;
+    }
     .bible-tool .verse-card { margin-bottom: 1.25rem; padding: 1.25rem; border-radius: var(--tdb-surface-radius, 12px); border: 1px solid var(--tdb-surface-card-border); background-color: var(--tdb-surface-card-bg); background-image: var(--tdb-surface-veil-subtle); box-shadow: var(--tdb-surface-card-shadow); }
     .bible-tool .verse-card.border-accent { border-left: 4px solid var(--color-primary, #6d28d9); }
     .bible-tool .verse-card.border-gold { border-left: 4px solid #d4af37; }
@@ -1269,8 +1311,10 @@
           <div id="lookup-result" class="hidden util-mt-1" role="region" aria-live="polite" aria-label="Lookup result">
             <div id="lookup-error-banner" class="hidden util-mt-0_5" role="alert" aria-live="assertive"></div>
             <div id="lookup-result-body">
+            <div class="lookup-kjv">
             <p class="verse-ref" id="lookup-ref"></p>
-            <p id="lookup-text" class="util-mt-0_5"></p>
+            <p id="lookup-text" class="lookup-kjv-text"></p>
+            </div>
             <div id="whos-this-inline" class="hidden" role="region" aria-live="polite" aria-label="Who's this person?"></div>
             <div class="util-mt-0_5" role="group" aria-label="Verse actions">
               <button type="button" id="share-lookup" class="link-button" aria-label="Share this verse lookup">Share</button>
@@ -1418,7 +1462,7 @@
   <script src="verse-study.js?v=20260328pass4vs"></script>
   <script src="verse-context.js?v=20260819-truth" data-tdb-verse-context="1"></script>
 <script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
-<script src="verse-breakdown.js?v=20260822desk7" data-tdb-verse-breakdown="1"></script>
+<script src="verse-breakdown.js?v=20260822desk9" data-tdb-verse-breakdown="1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">

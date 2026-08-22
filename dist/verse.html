@@ -31,8 +31,8 @@
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&apos;s Verse • Deep KJV study and breakdown">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822quiet" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822quiet">
+  <link rel="preload" href="styles.css?v=20260822desk15" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822desk15">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
@@ -73,6 +73,17 @@
     body.tdb-verse-page .site-footer-hint,
     body.tdb-verse-page .easter-banner-vod {
       display: none !important;
+    }
+    /* Teaching grows with the page — no inner scroll box */
+    body.tdb-verse-page .tdb-verse-breakdown-inline,
+    body.tdb-verse-page .tdb-verse-breakdown-inline.is-open,
+    body.tdb-verse-page .tdb-vb-inline-panel,
+    body.tdb-verse-page .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-panel,
+    body.tdb-verse-page #daily-verse-card,
+    body.tdb-verse-page #verse-of-day {
+      max-height: none !important;
+      overflow: visible !important;
+      contain: none;
     }
     body.tdb-verse-page #daily-verse-card {
       border-left: 4px solid #f2dc98;
@@ -462,7 +473,7 @@
           </div>
           <button type="button" class="easter-banner-vod-dismiss" id="tdbVerseEasterDismiss" aria-label="Dismiss Easter note">×</button>
         </div>
-        <section id="verse-of-day" class="verse-of-day glass tdb-porch-paper-glass tdb-vod-sticky-mobile" role="region" aria-live="polite" aria-label="Today’s KJV lesson; verse of the day">
+        <section id="verse-of-day" class="verse-of-day glass tdb-porch-paper-glass" role="region" aria-live="polite" aria-label="Today’s KJV verse">
           <h2 class="section-divider">Today&rsquo;s Verse</h2>
           <div id="daily-verse-card" class="verse-card verse-card-loaded" aria-live="polite" data-hydrate-breakdown="true">
             <p class="daily-verse-ref" id="daily-verse-ref">Philippians 4:6</p>

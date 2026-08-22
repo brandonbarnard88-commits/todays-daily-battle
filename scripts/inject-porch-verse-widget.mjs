@@ -11,9 +11,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
 const TARGETS = [
-  { file: 'dist/explore.html', label: 'explore.html' },
-  { file: 'dist/plans.html', label: 'plans.html' },
-  { file: 'dist/family.html', label: 'family.html' }
+  { file: 'explore.html', label: 'explore.html' },
+  { file: 'plans.html', label: 'plans.html' },
+  { file: 'family.html', label: 'family.html' },
+  { file: 'dist/explore.html', label: 'dist/explore.html' },
+  { file: 'dist/plans.html', label: 'dist/plans.html' },
+  { file: 'dist/family.html', label: 'dist/family.html' }
 ];
 
 function escapeHtmlText(s) {
@@ -60,7 +63,10 @@ const textHtml = escapeHtmlText('\u201c' + verse.text + '\u201d');
 for (const target of TARGETS) {
   const filePath = path.join(root, target.file);
   if (!fs.existsSync(filePath)) {
-    fail(target.file + ' missing — run build-copy-static first');
+    if (target.file.indexOf('dist/') === 0) {
+      fail(target.file + ' missing — run build-copy-static first');
+    }
+    continue;
   }
   const original = fs.readFileSync(filePath, 'utf8');
   const updated = injectPorchVerse(original, refHtml, textHtml);

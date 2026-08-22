@@ -13264,7 +13264,14 @@ nav.tdb-bottom-dock:has(.sos-btn) {
 .tdb-hero-share-more,
 #heroDigDeeperPlan,
 #hero-my-verses-hint,
-#hero-my-verses-privacy-line {
+#hero-my-verses-privacy-line,
+#tdbStartMyDayDialog,
+#tdbStartMyDayBtn,
+#family-armor-stories-modal,
+#family-armor-stories-btn,
+#auth-modal,
+#backup-reminder,
+#quiet-update {
   display: none !important;
 }
 #verseCard {

@@ -131,7 +131,25 @@
       return true;
     }
 
-    if (!prebuilt) {
+    function stampedRef() {
+      return refEl
+        ? String(refEl.textContent || '')
+            .replace(/\s*\(KJV\)\s*$/i, '')
+            .replace(/\s+/g, ' ')
+            .trim()
+        : '';
+    }
+    function queueRef() {
+      var q = pickVerseFromYear(window.__TDB_HERO_DAILY_YEAR);
+      return q && q.ref
+        ? String(q.ref)
+            .replace(/\s*\(KJV\)\s*$/i, '')
+            .replace(/\s+/g, ' ')
+            .trim()
+        : '';
+    }
+    var stampedIsToday = prebuilt && stampedRef() && queueRef() && stampedRef() === queueRef();
+    if (!prebuilt || !stampedIsToday) {
       if (!fillFromQueue()) {
         var tries = 0;
         var wait = setInterval(function () {

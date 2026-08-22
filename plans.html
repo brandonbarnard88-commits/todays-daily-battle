@@ -42,8 +42,8 @@
   </script>
   <link rel="preload" href="/plans-data.js" as="script" fetchpriority="low">
   <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
-  <link rel="preload" href="styles.css?v=20260822desk16" as="style" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260822desk16" media="all">
+  <link rel="preload" href="styles.css?v=20260822desk17" as="style" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20260822desk17" media="all">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase2a" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase2a">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
@@ -129,7 +129,16 @@
     /* Quiet desk: Sign in/Saved strip off; plan titles that quote the verse stay */
     .tdb-header-account-nudge,
     #plansAccountStripDetails,
-    .tdb-shell-account-strip {
+    .tdb-shell-account-strip,
+    #plans-maps-into-paths-details,
+    #plans-hero-more,
+    #plansBrowseMore,
+    #plans-start-here-details,
+    #plansSermonIntroDetails,
+    #plansBibleStudiesDetails,
+    #plans-editorial-picks-details,
+    #plans-find-your-plan-details,
+    #plans-memory-activities-teaser {
       display: none !important;
     }
     /* critical base classes — defined here so they apply before styles.css finishes loading */
@@ -3442,12 +3451,10 @@
       <details class="tdb-hub-disclosure" id="plansPorchVerseDetails">
         <summary class="tdb-hub-disclosure__summary">Today&rsquo;s verse (same as Home)</summary>
         <div class="tdb-hub-disclosure__inner">
-      <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="0">
+      <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
         <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
-        <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">&mdash;</p>
-        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText">
-          <p class="section-note">Same quiet KJV calendar as Home.</p>
-        </blockquote>
+        <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Psalm 99:2 (KJV)</p>
+        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“The Lord is great in Zion; and he is high above all the people.”</p></blockquote>
         <div class="tdb-porch-verse-widget__actions">
           <a class="btn btn-secondary" href="/">Read with breakdown</a>
           <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
@@ -11819,7 +11826,7 @@
     })();
   </script>
   <script defer src="hero-daily-365-data.js?v=20260820-heb"></script>
-  <script defer src="tdb-porch-verse-widget.js?v=20260820verse"></script>
+  <script defer src="tdb-porch-verse-widget.js?v=20260822desk17"></script>
 
 </body>
 </html>

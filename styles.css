@@ -22441,6 +22441,68 @@ body.tdb-bible-credits-page .app-content > section.glass {
   margin-top: 1.15rem;
 }
 
+/* Shared: leftover catalog sidebar gone, one-column shell */
+body.tdb-no-sidebar-shell .sidebar,
+body.tdb-no-sidebar-shell #sidebar-toggle,
+body.tdb-no-sidebar-shell .header-menu-link {
+  display: none !important;
+}
+body.tdb-no-sidebar-shell .app-shell {
+  display: flex !important;
+  flex-direction: column;
+  grid-template-columns: none !important;
+  grid-template-areas: none !important;
+}
+body.tdb-no-sidebar-shell .top-bar,
+body.tdb-no-sidebar-shell .app-content,
+body.tdb-no-sidebar-shell .site-footer,
+body.tdb-no-sidebar-shell main {
+  grid-area: auto;
+}
+body.tdb-no-sidebar-shell .app-content {
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Look up a verse — Night: cream ink on a solid dark card */
+body.bible-tool-page .bible-tool-hero--soar-dawn {
+  background: #141922 !important;
+  background-image: none !important;
+  color: #f4efe3 !important;
+}
+body.bible-tool-page .bible-tool-hero--soar-dawn .section-divider:first-child,
+body.bible-tool-page .bible-tool-hero--soar-dawn h1 {
+  color: #f8fafc !important;
+}
+body.bible-tool-page .bible-tool-hero--soar-dawn .section-note,
+body.bible-tool-page .bible-tool-hero--soar-dawn .tdb-trust-return,
+body.bible-tool-page .bible-tool-hero--soar-dawn .topic-mood-porch,
+body.bible-tool-page .bible-tool-hero--soar-dawn .tdb-offline-ready,
+body.bible-tool-page .bible-tool-hero--soar-dawn .bible-tool-mini-hub-label,
+body.bible-tool-page .bible-tool-hero--soar-dawn .bible-tool-workshop-strip-inner {
+  color: #f4efe3 !important;
+}
+body.bible-tool-page .bible-tool-hero--soar-dawn .bible-tool-mini-hub a,
+body.bible-tool-page .bible-tool-hero--soar-dawn .bible-tool-gold-link {
+  color: #f2dc98 !important;
+}
+html[data-theme="light"] body.bible-tool-page .bible-tool-hero--soar-dawn,
+html[data-theme="sepia"] body.bible-tool-page .bible-tool-hero--soar-dawn {
+  background: #f5e8c7 !important;
+  color: #0f172a !important;
+}
+html[data-theme="light"] body.bible-tool-page .bible-tool-hero--soar-dawn .section-divider:first-child,
+html[data-theme="light"] body.bible-tool-page .bible-tool-hero--soar-dawn h1,
+html[data-theme="sepia"] body.bible-tool-page .bible-tool-hero--soar-dawn .section-divider:first-child,
+html[data-theme="sepia"] body.bible-tool-page .bible-tool-hero--soar-dawn h1 {
+  color: #0f172a !important;
+}
+html[data-theme="light"] body.bible-tool-page .bible-tool-hero--soar-dawn .section-note,
+html[data-theme="light"] body.bible-tool-page .bible-tool-hero--soar-dawn .tdb-trust-return,
+html[data-theme="sepia"] body.bible-tool-page .bible-tool-hero--soar-dawn .section-note {
+  color: #1e293b !important;
+}
+
 /* Read hero in Night: solid dark card + cream ink (charcoal-on-cream lost to the wash) */
 body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn {
   background: #141922 !important;

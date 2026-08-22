@@ -5,6 +5,7 @@
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
   <script defer src="analytics-loader.js"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260822quiet"></script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,14 +28,14 @@
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg">
   <meta name="twitter:image:alt" content="Church Hub &mdash; Today&rsquo;s Daily Battle">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260816-brightgold">
+  <link rel="preload" href="styles.css?v=20260822quiet" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822quiet">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
 </head>
-<body class="dark-mode tdb-inner-page church-hub-page">
+<body class="dark-mode tdb-inner-page tdb-no-sidebar-shell church-hub-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
@@ -105,23 +106,10 @@
       <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
         <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
         <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
       </div>
-      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
     </header>
 
-    <aside id="sidebar" class="sidebar">
-      <nav class="side-nav" aria-label="Site navigation">
-        <a href="/">Home</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/church-hub.html" aria-current="page">Pastor&rsquo;s Study</a>
-        <a href="/church-sharing-kit.html">Church Sharing Kit</a>
-        <a href="/sermon.html">Sermon Builder</a>
-        <a href="/testimonials.html">Stories</a>
-        <a href="/about.html">About</a>
-      </nav>
-    </aside>
+    
 
     <main class="app-content" id="main-content">
     <div class="tdb-quiet-container" id="legacy-simple-path" style="max-width:40rem;margin:1rem auto;padding:0.75rem 1rem;border:1px solid rgba(227,188,103,0.35);border-radius:8px;">
@@ -274,6 +262,8 @@
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Optional support — you choose the amount">Support</a>
   </nav>
+
+    <p class="footer-trust-note section-note">Human-curated · Privacy-first · English: KJV · Other languages: public-rights Bibles · <a href="/bible-credits.html">Bible credits</a> · Report safety: <a href="/contact.html?topic=safety">contact form</a> · <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support@todaysdailybattle.com</a></p>
 
   <p class="site-footer-share-wrap">
     <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>

@@ -28,6 +28,20 @@ function fail(msg) {
   process.exit(1);
 }
 
+function injectFamilyDailyVerse(html, refHtml, textHtml) {
+  const refIds = ['family-daily-verse-ref', 'family-quick-start-ref'];
+  const textIds = ['family-daily-verse-text', 'family-quick-start-verse'];
+  refIds.forEach((id) => {
+    const re = new RegExp('(<p[^>]*id="' + id + '"[^>]*>)[\\s\\S]*?(</p>)');
+    if (re.test(html)) html = html.replace(re, '$1' + refHtml + '$2');
+  });
+  textIds.forEach((id) => {
+    const re = new RegExp('(<p[^>]*id="' + id + '"[^>]*>)[\\s\\S]*?(</p>)');
+    if (re.test(html)) html = html.replace(re, '$1' + textHtml + '$2');
+  });
+  return html;
+}
+
 function injectPorchVerse(html, refHtml, textHtml) {
   const refRe = /(<p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">)[\s\S]*?(<\/p>)/;
   const textRe = /(<blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText">)[\s\S]*?(<\/blockquote>)/;
@@ -69,9 +83,12 @@ for (const target of TARGETS) {
     continue;
   }
   const original = fs.readFileSync(filePath, 'utf8');
-  const updated = injectPorchVerse(original, refHtml, textHtml);
+  let updated = injectPorchVerse(original, refHtml, textHtml);
   if (!updated) {
     fail('tdbPorchVerseRef / tdbPorchVerseText markers missing in ' + target.label);
+  }
+  if (/family\.html$/.test(target.file)) {
+    updated = injectFamilyDailyVerse(updated, refHtml, textHtml);
   }
   fs.writeFileSync(filePath, updated);
 }

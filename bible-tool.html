@@ -29,11 +29,11 @@
   <meta name="twitter:description" content="Look up any KJV verse. Notes stay on this device. No account.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260322">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822lookup" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822lookup">
+  <link rel="preload" href="styles.css?v=20260822desk2" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822desk2">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
-  <script src="scripts/header-search-bar.js?v=3" defer></script>
+  <!-- header-search-bar (Hope/Win the Day chips) stays off this desk -->
   <script src="people-verse-map.js" defer></script>
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
@@ -44,6 +44,27 @@
   {"@context":"https://schema.org","@type":"WebPage","name":"Look up a verse • Today's Daily Battle","url":"https://todaysdailybattle.com/bible-tool.html","description":"Look up any KJV verse. Notes stay on this device. No account.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
   <style>
+    /* In-page so leftover shelves stay gone even if styles.css is cached */
+    body.bible-tool-page #global-search-wrap,
+    body.bible-tool-page #ask-the-word-section,
+    body.bible-tool-page #search-hero,
+    body.bible-tool-page #bible-tool-onpage-nav-details,
+    body.bible-tool-page #bible-tool-hero-more,
+    body.bible-tool-page #bible-tool-hub,
+    body.bible-tool-page #bible-tool-secondary-details,
+    body.bible-tool-page #bible-tool-reading-plan,
+    body.bible-tool-page #bible-tool-win-the-day,
+    body.bible-tool-page #bible-tool-battle-ready,
+    body.bible-tool-page .tdb-soft-retry-row,
+    body.bible-tool-page .bible-tool-workshop-strip,
+    body.bible-tool-page .bible-tool-mini-hub,
+    body.bible-tool-page #bible-tool-themed-chains,
+    body.bible-tool-page #bible-tool-study-details,
+    body.bible-tool-page #people-btn,
+    body.bible-tool-page #people-input-wrap,
+    body.bible-tool-page #people-result {
+      display: none !important;
+    }
     .bible-tool { font-size: 1.0625rem; }
     .bible-tool .section-note { font-size: 1rem; }
     .bible-tool #daily-text, .bible-tool #lookup-text, .bible-tool .verse-ref { font-size: 1.1rem; line-height: 1.5; }
@@ -771,7 +792,7 @@
       <div id="auth-details" class="auth-details-inline">
 </div>
     </header>
-    <div id="global-search-wrap"></div>
+    <div id="global-search-wrap" hidden></div>
     <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline — still got you. Notes and verses saved here. We'll sync when you're back.</div>
     <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="bible-tool"><p class="offline-msg"></p></div>
 
@@ -1125,7 +1146,7 @@
           <div id="battle-ready-result" class="hidden util-mt-1" aria-live="polite"></div>
         </section>
 
-        <p class="section-note util-mb-0_5 util-mt-1">Everything here stays on this device unless you sign in to sync.</p>
+        <p class="section-note util-mb-0_5 util-mt-1">Everything here stays on this device.</p>
         <p class="section-note util-mt-1 bible-tool-footer-links"><a class="bible-tool-gold-link" href="/">Home</a> · <a class="bible-tool-gold-link" href="reader.html">Read</a> · <a class="bible-tool-gold-link" href="verse.html">Today&rsquo;s verse</a> · <a class="bible-tool-gold-link" href="/mystudy">Saved on this device</a></p>
         <p class="footer-humility util-mt-1" style="text-align: center; margin-bottom: 0;">We battle. He wins.</p>
       </div>
@@ -1140,7 +1161,7 @@
   <script src="verse-study.js?v=20260328pass4vs"></script>
   <script src="verse-context.js?v=20260819-truth" data-tdb-verse-context="1"></script>
 <script src="tdb-verse-accuracy.js?v=20260815-accuracy"></script>
-<script src="verse-breakdown.js?v=20260822lookup" data-tdb-verse-breakdown="1"></script>
+<script src="verse-breakdown.js?v=20260822desk2" data-tdb-verse-breakdown="1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">

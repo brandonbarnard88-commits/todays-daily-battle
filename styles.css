@@ -22389,6 +22389,28 @@ body.tdb-explore-page .app-content {
   margin-left: 0;
 }
 
+/* Read: one column, no leftover ministry catalog sidebar */
+body.chapter-reader-page .sidebar,
+body.chapter-reader-page #sidebar-toggle,
+body.chapter-reader-page .header-menu-link,
+body.chapter-reader-page .reader-back-btn {
+  display: none !important;
+}
+body.chapter-reader-page .app-shell {
+  display: flex !important;
+  flex-direction: column;
+  grid-template-columns: none !important;
+  grid-template-areas: none !important;
+}
+body.chapter-reader-page .top-bar,
+body.chapter-reader-page .app-content,
+body.chapter-reader-page .site-footer {
+  grid-area: auto;
+}
+body.chapter-reader-page .app-content {
+  margin-left: 0;
+}
+
 /* When it's hard: the hero is the page — skip the empty "On this page" bar */
 body.tdb-calm-shelf-page .calm-onpage-nav-wrap {
   display: none !important;

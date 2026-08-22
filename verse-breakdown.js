@@ -768,14 +768,7 @@
         if (pair.ref && pair.text) injectInlineBreakdown(lookup, pair.ref, pair.text);
       }
       var ctxEl = document.getElementById('lookup-context');
-      if (ctxEl && typeof window.tdbMountVerseContextAccordion === 'function') {
-        var liveRef = document.getElementById('lookup-ref');
-        var r = liveRef ? String(liveRef.textContent || '').trim() : '';
-        if (r) {
-          ctxEl.innerHTML = '';
-          window.tdbMountVerseContextAccordion(ctxEl, r, true);
-        }
-      }
+      if (ctxEl) ctxEl.innerHTML = '';
     } catch (eReady) {}
   }
 
@@ -784,7 +777,7 @@
     if (!name) return Promise.resolve(null);
     if (BREAKDOWN_BOOK_PACKS[name]) return Promise.resolve(BREAKDOWN_BOOK_PACKS[name]);
     if (BREAKDOWN_BOOK_LOADING[name]) return BREAKDOWN_BOOK_LOADING[name];
-    var url = '/data/breakdown/' + bookPackSlug(name) + '.json?v=20260822desk13';
+    var url = '/data/breakdown/' + bookPackSlug(name) + '.json?v=20260822desk14';
     var p;
     try {
       p = fetch(url, { credentials: 'same-origin' })
@@ -1430,11 +1423,13 @@
     var breakdown = document.createElement('div');
     breakdown.className = 'verse-breakdown tdb-vb-inline-breakdown';
 
-    function addBkH4(title, dataBkKey) {
+    function addBkH4(title, dataBkKey, extraClass) {
       var h = document.createElement('h4');
+      if (extraClass) h.className = extraClass;
       h.appendChild(document.createTextNode(title));
       breakdown.appendChild(h);
       var p = document.createElement('p');
+      if (extraClass) p.className = extraClass;
       var span = document.createElement('span');
       span.setAttribute('data-bk', dataBkKey);
       p.appendChild(span);
@@ -1447,12 +1442,14 @@
     bbeHost.setAttribute('data-bbe-slot', '1');
     breakdown.appendChild(bbeHost);
 
+    addBkH4('What was going on', 'situation');
+
     var layWrap = document.createElement('div');
     layWrap.className = 'tdb-layman-collapse tdb-vb-layman-collapse tdb-layman-always-open';
     var laySum = document.createElement('h4');
     laySum.className = 'tdb-layman-collapse__summary tdb-vb-layman-h';
     laySum.setAttribute('data-bk', 'layman-h');
-    laySum.appendChild(document.createTextNode('Simple layman terms'));
+    laySum.appendChild(document.createTextNode('What it means'));
     layWrap.appendChild(laySum);
     var layP = document.createElement('p');
     var laySpan = document.createElement('span');
@@ -1465,15 +1462,17 @@
     addBkH4('Who hears this?', 'to');
 
     var relH = document.createElement('h4');
+    relH.className = 'tdb-vb-extra';
     relH.appendChild(document.createTextNode('How it relates today'));
     breakdown.appendChild(relH);
     var relP = document.createElement('p');
+    relP.className = 'tdb-vb-extra';
     var relSpan = document.createElement('span');
     relSpan.setAttribute('data-bk', 'relates');
     relP.appendChild(relSpan);
     breakdown.appendChild(relP);
 
-    addBkH4('How it relates to you right now', 'applies');
+    addBkH4('How it relates to you right now', 'applies', 'tdb-vb-extra');
 
     var curriculum = document.createElement('div');
     curriculum.className = 'tdb-vb-curriculum';
@@ -1781,6 +1780,7 @@
     var verseTextEl = details.querySelector('.tdb-vb-inline-verse-text');
     var aboutEl = details.querySelector('[data-bk="about"]');
     var toEl = details.querySelector('[data-bk="to"]');
+    var sitEl = details.querySelector('[data-bk="situation"]');
     var layEl = details.querySelector('[data-bk="layman"]');
     var appEl = details.querySelector('[data-bk="applies"]');
     var relEl = details.querySelector('[data-bk="relates"]');
@@ -1820,6 +1820,9 @@
       '\u201c' + (resolvedText || 'Loading verse text\u2026') + '\u201d';
     aboutEl.textContent = tdbPlainTextForUi(breakdown.about || '—');
     toEl.textContent = tdbPlainTextForUi(breakdown.to || '—');
+    if (sitEl) {
+      sitEl.textContent = tdbPlainTextForUi(breakdown.situation || breakdown.setting || '') || '—';
+    }
     var layShown0 = tdbPlainTextForUi(breakdown.plainMeaningOnly || breakdown.layman || '').trim();
     if (layShown0 && resolvedText && (isIncompleteFragment(layShown0, resolvedText) || isLeftoverLookupPlain(layShown0))) {
       layShown0 = '';

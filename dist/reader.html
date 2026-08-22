@@ -26,8 +26,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822desk17" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822desk17">
+  <link rel="preload" href="styles.css?v=20260822desk18" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822desk18">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -38,13 +38,28 @@
       color: #f4efe3;
       margin-bottom: 0.75rem;
     }
-    /* Quiet desk: chapter first; leftover porch and Sign in off */
+    /* Quiet desk: chapter first; leftover porch, Sign in talk, leftover relates off */
     body.chapter-reader-page .tdb-header-account-nudge,
     body.chapter-reader-page .topic-mood-porch,
+    body.chapter-reader-page .reader-hero-tagline,
     body.chapter-reader-page .reader-hero-lead,
     body.chapter-reader-page .reader-hero-reassurance,
     body.chapter-reader-page .reader-pills,
-    body.chapter-reader-page .cta-group .btn-secondary {
+    body.chapter-reader-page .cta-group .btn-secondary,
+    body.chapter-reader-page .brand-subtitle,
+    body.chapter-reader-page .reader-privacy-foot,
+    body.chapter-reader-page .site-footer-hint,
+    body.chapter-reader-page #reader-vbd-today,
+    body.chapter-reader-page #reader-vbd-today + .next-step,
+    body.chapter-reader-page #reader-vbd-next-step,
+    body.chapter-reader-page #reader-vbd-prayer,
+    body.chapter-reader-page .tdb-vb-extra,
+    body.chapter-reader-page .tdb-vb-inline-next-step,
+    body.chapter-reader-page .tdb-vb-inline-prayer-block,
+    body.chapter-reader-page .tdb-vb-reflection {
+      display: none !important;
+    }
+    body.chapter-reader-page .reader-memorize-nudge {
       display: none !important;
     }
     .reader-hero-lead {
@@ -814,7 +829,7 @@
               <h3 id="reader-bookmarks-heading" class="reader-bookmarks-heading">Saved chapters</h3>
               <button type="button" id="reader-bookmark-toggle" class="btn btn-secondary reader-bookmark-toggle" aria-pressed="false">Save chapter</button>
             </div>
-            <p id="reader-bookmarks-empty" class="section-note reader-bookmarks-empty">Nothing here yet. When a chapter draws you in, open it and tap Save chapter—bookmarks stay on this device. The Lord meets you right where you are.</p>
+            <p id="reader-bookmarks-empty" class="section-note reader-bookmarks-empty">Nothing here yet. Open a chapter and tap Save chapter—bookmarks stay on this device.</p>
             <ul id="reader-bookmarks-list" class="reader-bookmarks-list" aria-label="Saved chapter bookmarks"></ul>
             <p class="section-note reader-strip-hint util-mb-0">Tip: <kbd class="reader-kbd">Alt</kbd> + <kbd class="reader-kbd">←</kbd> / <kbd class="reader-kbd">→</kbd> for Prev/Next when focus is inside the reader block.</p>
           </div>
@@ -840,8 +855,8 @@
               <p id="reader-vbd-who"></p>
               <h4 class="tdb-vbd-label">Who hears this?</h4>
               <p id="reader-vbd-audience"></p>
-              <h4 class="tdb-vbd-label">How it relates today</h4>
-              <p id="reader-vbd-today"></p>
+              <h4 class="tdb-vbd-label tdb-vb-extra">How it relates today</h4>
+              <p id="reader-vbd-today" class="tdb-vb-extra"></p>
             </div>
             <div class="next-step" id="reader-vbd-next-step" hidden>
               <strong>One honest step:</strong> <span id="reader-vbd-step-text"></span>
@@ -858,7 +873,7 @@
             <label for="reader-chapter-study-notes" class="sr-only">Notes for this chapter</label>
             <textarea id="reader-chapter-study-notes" class="reader-chapter-study-textarea" maxlength="8000" rows="4" autocomplete="off" placeholder="A word, a question, something to pray&hellip;"></textarea>
           </details>
-          <p class="section-note util-mt-1 util-mb-0"><a href="memorize.html">Memorize</a> &mdash; gentle verse memory tools on this device (no account).</p>
+          <p class="section-note util-mt-1 util-mb-0 reader-memorize-nudge"><a href="memorize.html">Memorize</a> &mdash; gentle verse memory tools on this device (no account).</p>
 
           <div id="reader-xrefs-layer" class="reader-sheet-layer hidden" aria-hidden="true">
             <div id="reader-xrefs-backdrop" class="reader-sheet-backdrop" tabindex="-1" aria-hidden="true"></div>
@@ -920,7 +935,7 @@
             </div>
           </div>
         </section>
-        <p class="section-note reader-privacy-foot util-mt-1 util-mb-0">Everything here stays on this device unless you sign in to sync.</p>
+        <p class="section-note reader-privacy-foot util-mt-1 util-mb-0">Notes and saved chapters stay on this device.</p>
       </div>
     </main>
 

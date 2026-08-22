@@ -1862,7 +1862,9 @@
   function findExistingInline(host) {
     if (!host) return null;
     if (host.id === 'lookup-text' && host.parentNode) {
-      return host.parentNode.querySelector(':scope > .tdb-verse-breakdown-inline, .tdb-verse-breakdown-inline');
+      var kjvScope = host.closest ? host.closest('.lookup-kjv') : null;
+      var luParent = (kjvScope && kjvScope.parentNode) ? kjvScope.parentNode : host.parentNode;
+      return luParent.querySelector(':scope > .tdb-verse-breakdown-inline, .tdb-verse-breakdown-inline');
     }
     if (host.id === 'lookup-result') {
       return host.querySelector('.tdb-verse-breakdown-inline');
@@ -1910,10 +1912,18 @@
     }
 
     if (host.id === 'lookup-text') {
+      var kjvBox = host.closest ? host.closest('.lookup-kjv') : null;
+      if (kjvBox && kjvBox.parentNode) {
+        return { parent: kjvBox.parentNode, before: kjvBox.nextSibling };
+      }
       return { parent: host.parentNode, before: host.nextSibling };
     }
     if (host.id === 'lookup-result') {
       var lt = host.querySelector('#lookup-text');
+      var kjvHost = lt && lt.closest ? lt.closest('.lookup-kjv') : null;
+      if (kjvHost && kjvHost.parentNode) {
+        return { parent: kjvHost.parentNode, before: kjvHost.nextSibling };
+      }
       if (lt && lt.parentNode) {
         return { parent: lt.parentNode, before: lt.nextSibling };
       }

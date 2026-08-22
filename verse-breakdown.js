@@ -29,8 +29,8 @@
   };
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
-  /* v9: drop cached speech-intro leftovers (“to Moses, saying”) */
-  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v9::';
+  /* v10: complete-verse plains only — never chopped fragments */
+  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v10::';
   var BREAKDOWN_BOOK_PACKS = {};
   var BREAKDOWN_BOOK_LOADING = {};
   var BREAKDOWN_MAX_MEMORY_CACHE = 600;
@@ -178,6 +178,41 @@
     return false;
   }
 
+  function isIncompleteFragment(plain, verseText) {
+    var strip = function (s) {
+      return tdbPlainTextForUi(s || '')
+        .replace(/^\s*In everyday English, this verse records:\s*/i, '')
+        .replace(/^\s*Here is the point of this verse:\s*/i, '')
+        .replace(/^\s*This verse is saying:\s*/i, '')
+        .replace(/^\s*In everyday English:\s*/i, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    };
+    var norm = function (s) {
+      return rephraseArchaic(strip(s))
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    };
+    var p = norm(plain);
+    var v = norm(verseText);
+    if (!p) return true;
+    if (!v) return false;
+    if (p === v) return false;
+    var pWords = p.split(' ').filter(Boolean);
+    var vWords = v.split(' ').filter(Boolean);
+    if (v.indexOf(p) !== -1 && p.length < v.length * 0.85 && pWords.length < vWords.length) return true;
+    if (vWords.length >= 6 && pWords.length >= 2 && pWords.length <= Math.max(3, Math.floor(vWords.length * 0.45))) {
+      var vSet = {};
+      vWords.forEach(function (w) { vSet[w] = true; });
+      var hit = 0;
+      pWords.forEach(function (w) { if (vSet[w]) hit += 1; });
+      if (hit / pWords.length >= 0.9) return true;
+    }
+    return false;
+  }
+
   function modernizeKjvInline(text) {
     var out = String(text || '').replace(/\s+/g, ' ').trim();
     if (!out) return '';
@@ -198,6 +233,7 @@
     out = out.replace(/\s+/g, ' ').replace(/\s+([,.;:!?])/g, '$1').trim();
     if (out) out = out.charAt(0).toUpperCase() + out.slice(1);
     if (out && !/[.!?]"?$/.test(out)) out += '.';
+    out = out.replace(/,+\./g, '.').replace(/\.\.+/g, '.');
     return out;
   }
 
@@ -248,28 +284,7 @@
     if (/begat|son of|daughter of|the generations of/i.test(raw) && raw.length < 180) {
       return 'This verse records real family lines in God\u2019s story \u2014 names and people matter to Him.';
     }
-    var intro = speechIntroTeaching(raw);
-    if (intro) return intro;
-    var snip = snippetFromVerse(raw, 10);
-    if (!snip) return intro || '';
-    var rest = snip;
-    if (/^(and|but|for|the|a|an|then|now|so|also)\b/i.test(rest)) {
-      rest = rest.charAt(0).toLowerCase() + rest.slice(1);
-    }
-    var frames = [
-      'In everyday English, this verse records: ' + rest + '.',
-      'Here is the point of this verse: ' + rest + '.',
-      'This verse is saying: ' + rest + '.'
-    ];
-    var i;
-    for (i = 0; i < frames.length; i++) {
-      if (!isNearVerbatimPlain(frames[i], raw)) return frames[i];
-    }
-    var short = snippetFromVerse(raw, 6);
-    if (/^(and|but|for|the|a|an|then|now|so|also)\b/i.test(short)) {
-      short = short.charAt(0).toLowerCase() + short.slice(1);
-    }
-    return 'In everyday English, this verse records: ' + short + '.';
+    return modernizeKjvInline(raw);
   }
 
   function buildThemeLaymanPlain(ref, text) {
@@ -389,7 +404,8 @@
       /kindness meets you as you are|not after you perform|hold this verse as written|life can feel loud/i.test(p) ||
       /this verse records:\s*(to|unto)\s+\S.{0,40}\bsaying\b/i.test(p) ||
       /this verse still says:\s*[“"']/i.test(p) ||
-      /still speaks into the hour you are in/i.test(p)
+      /still speaks into the hour you are in/i.test(p) ||
+      isIncompleteFragment(p, verseText)
     ) {
       return buildThemeLaymanPlain(ref, verseText);
     }
@@ -758,7 +774,7 @@
     if (!name) return Promise.resolve(null);
     if (BREAKDOWN_BOOK_PACKS[name]) return Promise.resolve(BREAKDOWN_BOOK_PACKS[name]);
     if (BREAKDOWN_BOOK_LOADING[name]) return BREAKDOWN_BOOK_LOADING[name];
-    var url = '/data/breakdown/' + bookPackSlug(name) + '.json?v=20260822desk11';
+    var url = '/data/breakdown/' + bookPackSlug(name) + '.json?v=20260822desk12';
     var p;
     try {
       p = fetch(url, { credentials: 'same-origin' })
@@ -1129,6 +1145,7 @@
         /^In plain terms for life today:/i.test(cachedPlain) ||
         /Sit with that until one phrase lands/i.test(cachedPlain) ||
         isLeftoverLookupPlain(cachedPlain) ||
+        isIncompleteFragment(cachedPlain, raw) ||
         isLeftoverLookupPlain(cached.relates || cached.modernApplication || '') ||
         isThinSpeakerSituation(cachedSit);
       if (
@@ -1799,10 +1816,10 @@
     aboutEl.textContent = tdbPlainTextForUi(breakdown.about || '—');
     toEl.textContent = tdbPlainTextForUi(breakdown.to || '—');
     var layShown0 = tdbPlainTextForUi(breakdown.plainMeaningOnly || breakdown.layman || '').trim();
-    if (layShown0 && resolvedText && (isNearVerbatimPlain(layShown0, resolvedText) || isLeftoverLookupPlain(layShown0))) {
+    if (layShown0 && resolvedText && (isIncompleteFragment(layShown0, resolvedText) || isLeftoverLookupPlain(layShown0))) {
       layShown0 = '';
     }
-    if ((!layShown0 || isBbeEcho(layShown0, ref) || isLeftoverLookupPlain(layShown0)) && resolvedText) {
+    if ((!layShown0 || isBbeEcho(layShown0, ref) || isLeftoverLookupPlain(layShown0) || isIncompleteFragment(layShown0, resolvedText)) && resolvedText) {
       layShown0 = tdbPlainTextForUi(buildThemeLaymanPlain(ref, resolvedText) || frameVerseTeaching(resolvedText) || '').trim();
       if (layShown0 && isNearVerbatimPlain(layShown0, resolvedText)) {
         layShown0 = tdbPlainTextForUi(frameVerseTeaching(resolvedText) || '').trim();

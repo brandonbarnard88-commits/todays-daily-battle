@@ -6,7 +6,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { isWeakPlainStamp } from './lib/teaching-quality.mjs';
-import { isWeakLaymanPlain } from './lib/hero-layman-plain.mjs';
+import { isIncompleteFragment, isWeakLaymanPlain } from './lib/hero-layman-plain.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -46,7 +46,7 @@ for (const book of Object.keys(meta.books || {})) {
       !plain ||
       isWeakPlainStamp(plain) ||
       /kindness meets you as you are|hold this verse as written/i.test(plain) ||
-      (verseText && isWeakLaymanPlain(plain, verseText))
+      (verseText && (isWeakLaymanPlain(plain, verseText) || isIncompleteFragment(plain, verseText)))
     ) {
       leftover.push(book + ' ' + cv);
     }

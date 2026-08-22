@@ -180,11 +180,40 @@ export function normalizeForCompare(text) {
     .trim();
 }
 
-/** True when plain is empty, filler, or basically echoes the KJV. */
+/** True when plain chops the verse so it can say something the verse does not. */
+export function isIncompleteFragment(plain, verseText) {
+  const pRaw = String(plain || '')
+    .replace(/^\s*In everyday English, this verse records:\s*/i, '')
+    .replace(/^\s*Here is the point of this verse:\s*/i, '')
+    .replace(/^\s*This verse is saying:\s*/i, '')
+    .replace(/^\s*In everyday English:\s*/i, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const vRaw = String(verseText || '').replace(/\s+/g, ' ').trim();
+  if (!pRaw) return true;
+  if (!vRaw) return false;
+  const p = normalizeForCompare(pRaw);
+  const v = normalizeForCompare(vRaw);
+  if (!p) return true;
+  if (p === v) return false;
+  const pWords = p.split(' ').filter(Boolean);
+  const vWords = v.split(' ').filter(Boolean);
+  if (v.indexOf(p) !== -1 && p.length < v.length * 0.85 && pWords.length < vWords.length) {
+    return true;
+  }
+  if (vWords.length >= 6 && pWords.length >= 2 && pWords.length <= Math.max(3, Math.floor(vWords.length * 0.45))) {
+    const vSet = new Set(vWords);
+    const hit = pWords.filter((w) => vSet.has(w)).length;
+    if (hit / pWords.length >= 0.9) return true;
+  }
+  return false;
+}
+
+/** True when plain is empty, leftover filler, or a chopped fragment of the verse. */
 export function isWeakLaymanPlain(plain, verseText) {
   const pRaw = String(plain || '').replace(/\s+/g, ' ').trim();
   if (!pRaw) return true;
-  if (pRaw.length < 18) return true;
+  if (pRaw.length < 8) return true;
   const weakExact = [
     /^God can do what looks impossible to us\.?\s*$/i,
     /^This word from Scripture meets you/i,
@@ -225,25 +254,7 @@ export function isWeakLaymanPlain(plain, verseText) {
     if (weakExact[i].test(pRaw)) return true;
   }
 
-  const p = normalizeForCompare(pRaw);
-  const v = normalizeForCompare(verseText);
-  if (!p) return true;
-  if (v && p === v) return true;
-  if (v && (p.indexOf(v) === 0 || v.indexOf(p) === 0) && Math.abs(p.length - v.length) < 40) {
-    return true;
-  }
-  /* Near-echo of KJV (same length-ish, high token overlap) is weak as "teaching". */
-  if (v && p.length >= Math.max(28, v.length * 0.78)) {
-    const pTok = p.split(' ').filter(Boolean);
-    const vTok = new Set(v.split(' ').filter(Boolean));
-    if (pTok.length >= 8) {
-      let hit = 0;
-      pTok.forEach((t) => {
-        if (vTok.has(t)) hit += 1;
-      });
-      if (hit / pTok.length >= 0.82) return true;
-    }
-  }
+  if (isIncompleteFragment(pRaw, verseText)) return true;
   return false;
 }
 
@@ -270,6 +281,7 @@ export function modernizeKjvText(text) {
     .trim();
   if (out) out = out.charAt(0).toUpperCase() + out.slice(1);
   if (out && !/[.!?]"?$/.test(out)) out += '.';
+  out = out.replace(/,+\./g, '.').replace(/\.\.+/g, '.');
   return out;
 }
 
@@ -369,33 +381,17 @@ function speechIntroTeaching(raw) {
   return 'This verse opens the Lord’s word — what follows is God speaking.';
 }
 
+export function completeEverydayEnglish(verseText) {
+  return modernizeKjvText(String(verseText || '').replace(/\s+/g, ' ').trim());
+}
+
 export function frameVerseTeaching(verseText) {
   const raw = String(verseText || '').replace(/\s+/g, ' ').trim();
   if (!raw) return '';
   if (/begat|son of|daughter of|the generations of/i.test(raw) && raw.length < 180) {
     return 'This verse records real family lines in God’s story — names and people matter to Him.';
   }
-  const intro = speechIntroTeaching(raw);
-  if (intro) return intro;
-  const snip = snippetFromVerse(raw, 10);
-  if (!snip) return intro || '';
-  let rest = snip;
-  if (/^(and|but|for|the|a|an|then|now|so|also)\b/i.test(rest)) {
-    rest = rest.charAt(0).toLowerCase() + rest.slice(1);
-  }
-  const frames = [
-    'In everyday English, this verse records: ' + rest + '.',
-    'Here is the point of this verse: ' + rest + '.',
-    'This verse is saying: ' + rest + '.'
-  ];
-  for (let i = 0; i < frames.length; i++) {
-    if (!isWeakLaymanPlain(frames[i], raw)) return frames[i];
-  }
-  let short = snippetFromVerse(raw, 6);
-  if (/^(and|but|for|the|a|an|then|now|so|also)\b/i.test(short)) {
-    short = short.charAt(0).toLowerCase() + short.slice(1);
-  }
-  return 'In everyday English, this verse records: ' + short + '.';
+  return completeEverydayEnglish(raw);
 }
 
 /**
@@ -653,7 +649,7 @@ export function buildHeroLaymanPlain(ref, text, map, rootDir) {
   const raw = String(text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   const root = rootDir || process.cwd();
   const bbe = lookupBbeText(ref, root);
-  const modern = compressToTeachingLine(modernizeKjvText(raw), 200);
+  const modern = modernizeKjvText(raw);
 
   function isBbeReprint(line) {
     const t = String(line || '').replace(/\s+/g, ' ').trim();
@@ -670,8 +666,8 @@ export function buildHeroLaymanPlain(ref, text, map, rootDir) {
   const famous = buildFamousVersePlain(ref, raw);
   if (famous && !isWeakLaymanPlain(famous, raw) && !isBbeReprint(famous)) return famous;
 
-  /* Keep a modern restatement only when it is not a KJV echo. */
-  if (modern && modern.length >= 20 && !isBbeReprint(modern) && !isWeakLaymanPlain(modern, raw)) {
+  /* Full everyday English of THIS verse — never a chopped fragment. */
+  if (modern && !isBbeReprint(modern) && !isWeakLaymanPlain(modern, raw)) {
     return modern;
   }
 

@@ -29,8 +29,8 @@
   };
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
-  /* v10: complete-verse plains only — never chopped fragments */
-  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v10::';
+  /* v11: relates/applies must stay this verse, not leftover conversation stamps */
+  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v11::';
   var BREAKDOWN_BOOK_PACKS = {};
   var BREAKDOWN_BOOK_LOADING = {};
   var BREAKDOWN_MAX_MEMORY_CACHE = 600;
@@ -175,6 +175,11 @@
     if (/still speaks into the hour you are in/i.test(t)) return true;
     if (/Sit with one phrase from this verse before you move on/i.test(t)) return true;
     if (/life can feel loud/i.test(t)) return true;
+    if (/set the pace of your next conversation/i.test(t)) return true;
+    if (/Name one true phrase in this verse/i.test(t)) return true;
+    if (/Even when today feels thin/i.test(t)) return true;
+    if (/Hold this word as God speaking kindly to you/i.test(t)) return true;
+    if (/quiet promise that lasts longer than the feeling/i.test(t)) return true;
     return false;
   }
 
@@ -444,7 +449,12 @@
     if (/\b(spake|spoke|said|saith)\b.+\bsaying\b/i.test(l)) {
       return 'Read the next verses as the Lord speaking — not as extra history.';
     }
-    return 'Name one true phrase in this verse, then take the next honest step it asks.';
+    if (/\bcreat(ed|e|ion|or)\b|\bheaven and (the )?earth\b|\bin the beginning\b/.test(l)) {
+      return 'Start from this: God created heaven and earth. This world is His, not an accident.';
+    }
+    var whole = modernizeKjvInline(text);
+    if (whole) return 'Walk in what this verse says: ' + whole;
+    return '';
   }
 
   function plainSpeaker(raw) {
@@ -774,7 +784,7 @@
     if (!name) return Promise.resolve(null);
     if (BREAKDOWN_BOOK_PACKS[name]) return Promise.resolve(BREAKDOWN_BOOK_PACKS[name]);
     if (BREAKDOWN_BOOK_LOADING[name]) return BREAKDOWN_BOOK_LOADING[name];
-    var url = '/data/breakdown/' + bookPackSlug(name) + '.json?v=20260822desk12';
+    var url = '/data/breakdown/' + bookPackSlug(name) + '.json?v=20260822desk13';
     var p;
     try {
       p = fetch(url, { credentials: 'same-origin' })
@@ -1455,12 +1465,7 @@
     addBkH4('Who hears this?', 'to');
 
     var relH = document.createElement('h4');
-    relH.appendChild(document.createTextNode('How it relates today ('));
-    var relYearSpan = document.createElement('span');
-    relYearSpan.className = 'tdb-vb-relates-year';
-    relYearSpan.setAttribute('aria-label', 'calendar year');
-    relH.appendChild(relYearSpan);
-    relH.appendChild(document.createTextNode(')'));
+    relH.appendChild(document.createTextNode('How it relates today'));
     breakdown.appendChild(relH);
     var relP = document.createElement('p');
     var relSpan = document.createElement('span');
@@ -1852,43 +1857,44 @@
       if (yrSp0) yrSp0.textContent = String(yrChip);
     } catch (eYrC) { /* non-fatal */ }
 
-    var holdYouFallback =
-      'Hold this word as God speaking kindly to you—today, personally—not as a slogan you have to manufacture.';
+    var verseGrounded = inferApplies(resolvedText) || '';
     var relDisplayed = breakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK);
     var personalYou = resolvePersonalYouFromBreakdown(breakdown);
     var layShown = tdbPlainTextForUi(breakdown.layman || '').trim();
-    if (personalYou && personalYou === layShown) {
-      personalYou = holdYouFallback;
-    } else if (!personalYou || isLeftoverLookupPlain(personalYou)) {
-      personalYou = inferApplies(resolvedText) || holdYouFallback;
+    if (!personalYou || personalYou === layShown || isLeftoverLookupPlain(personalYou)) {
+      personalYou = verseGrounded;
     }
-    try {
-      if (
-        personalYou === relDisplayed ||
-        isLeftoverLookupPlain(relDisplayed) ||
-        /still speaks into the hour you are in|life can feel loud|this verse still says:/i.test(relDisplayed || '')
-      ) {
-        relDisplayed = inferApplies(resolvedText);
-      }
-    } catch (eDedup) { /* non-fatal */ }
+    if (
+      !relDisplayed ||
+      relDisplayed === layShown ||
+      relDisplayed === personalYou ||
+      isLeftoverLookupPlain(relDisplayed) ||
+      /still speaks into the hour you are in|life can feel loud|this verse still says:/i.test(relDisplayed || '')
+    ) {
+      relDisplayed = verseGrounded;
+    }
 
     appEl.textContent = tdbPlainTextForUi(personalYou || '—');
     relEl.textContent = tdbPlainTextForUi(relDisplayed);
 
     if (stepEl) {
-      var ns =
-        stdVB && typeof stdVB.nextStepFallback === 'function'
-          ? stdVB.nextStepFallback()
-          : 'Read it slowly one more time\u2014then thank God aloud for one true thing inside it before you move.';
+      var ns = verseGrounded
+        ? 'Read this verse again as written, then thank God for what it actually says.'
+        : 'Read this verse again as written.';
       stepEl.textContent = tdbPlainTextForUi(ns);
     }
     if (prayEl) {
-      var pr =
-        stdVB && typeof stdVB.prayerForRef === 'function'
-          ? stdVB.prayerForRef(ref)
-          : 'Lord, sink ' +
-            (tdbPlainTextForUi(ref) || 'this verse') +
-            ' into my heart\u2014not as noise, but as truth that changes how I walk. In Jesus\u2019 name, Amen.';
+      var bit = modernizeKjvInline(resolvedText);
+      if (bit.length > 110) bit = bit.slice(0, 107).replace(/\s+\S*$/, '') + '\u2026';
+      var pr = bit
+        ? 'Lord, let ' +
+          (tdbPlainTextForUi(ref) || 'this verse') +
+          ' stand as You wrote it: ' +
+          bit +
+          ' In Jesus\u2019 name, Amen.'
+        : 'Lord, let ' +
+          (tdbPlainTextForUi(ref) || 'this verse') +
+          ' stand as You wrote it. In Jesus\u2019 name, Amen.';
       prayEl.textContent = tdbPlainTextForUi(pr);
     }
 

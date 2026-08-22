@@ -42,6 +42,8 @@ export function isWeakPlainStamp(plain) {
   if (/^A steady truth from Scripture for real life today\.?$/i.test(p)) return true;
   if (/His way is for your good/i.test(p)) return true;
   if (/^What was going on:\s*.{0,60}speaking to/i.test(p)) return true;
+  if (/this verse records:\s*(to|unto)\s+\S.{0,40}\bsaying\b/i.test(p)) return true;
+  if (/this verse still says:\s*[“"']/i.test(p)) return true;
   return false;
 }
 

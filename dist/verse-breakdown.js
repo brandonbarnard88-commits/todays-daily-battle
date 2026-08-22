@@ -196,8 +196,11 @@
       .replace(/\s+/g, ' ')
       .trim();
     var quoted = modern.match(/\b(?:said|says|saying|spoke|commanded)[,:]?\s+(.+)/i);
-    if (quoted && quoted[1] && quoted[1].replace(/\s+/g, ' ').trim().length > 8) {
-      modern = quoted[1].replace(/\s+/g, ' ').trim();
+    if (quoted && quoted[1]) {
+      var q = quoted[1].replace(/\s+/g, ' ').trim();
+      if (q.length > 8 && !/^(to|unto)\s+/i.test(q) && !/\bsaying\b[,.]?$/i.test(q)) {
+        modern = q;
+      }
     }
     var parts = modern.split(/[.:;]\s+/);
     var clause = parts[0] || modern;
@@ -214,14 +217,29 @@
     return words.join(' ');
   }
 
+  function speechIntroTeaching(raw) {
+    var t = String(raw || '').replace(/\s+/g, ' ').trim();
+    if (!t) return '';
+    var introOnly = /,\s*saying[,.]?\s*$/i.test(t) && t.length < 120;
+    if (!introOnly) return '';
+    var m = t.match(/\b(?:spake|spoke|said|saith)\s+(?:unto|to)\s+([^,:]+?)(?:,\s*saying)?[,.]?\s*$/i);
+    var who = m ? m[1].replace(/^the\s+/i, '').trim() : '';
+    if (who && who.length < 40) {
+      return 'The Lord spoke to ' + who + ' \u2014 the words that follow are His, not a human idea.';
+    }
+    return 'This verse opens the Lord\u2019s word \u2014 what follows is God speaking.';
+  }
+
   function frameVerseTeaching(verseText) {
     var raw = String(verseText || '').replace(/\s+/g, ' ').trim();
     if (!raw) return '';
     if (/begat|son of|daughter of|the generations of/i.test(raw) && raw.length < 180) {
       return 'This verse records real family lines in God\u2019s story \u2014 names and people matter to Him.';
     }
+    var intro = speechIntroTeaching(raw);
+    if (intro) return intro;
     var snip = snippetFromVerse(raw, 10);
-    if (!snip) return '';
+    if (!snip) return intro || '';
     var rest = snip;
     if (/^(and|but|for|the|a|an|then|now|so|also)\b/i.test(rest)) {
       rest = rest.charAt(0).toLowerCase() + rest.slice(1);
@@ -356,7 +374,10 @@
       !p ||
       isNearVerbatimPlain(p, verseText) ||
       isBbeEcho(p, ref) ||
-      /kindness meets you as you are|not after you perform|hold this verse as written|life can feel loud/i.test(p)
+      /kindness meets you as you are|not after you perform|hold this verse as written|life can feel loud/i.test(p) ||
+      /this verse records:\s*(to|unto)\s+\S.{0,40}\bsaying\b/i.test(p) ||
+      /this verse still says:\s*[“"']/i.test(p) ||
+      /still speaks into the hour you are in/i.test(p)
     ) {
       return buildThemeLaymanPlain(ref, verseText);
     }
@@ -392,7 +413,10 @@
     if (/\b(give thanks|thanksgiving|praise|rejoice)\b/.test(l)) {
       return 'List three ordinary mercies out loud, then thank God for them before the day ends.';
     }
-    return 'Sit with one phrase from this verse before you move on. What does it ask of you today?';
+    if (/\b(spake|spoke|said|saith)\b.+\bsaying\b/i.test(l)) {
+      return 'Read the next verses as the Lord speaking — not as extra history.';
+    }
+    return 'Name one true phrase in this verse, then take the next honest step it asks.';
   }
 
   function plainSpeaker(raw) {
@@ -1806,7 +1830,10 @@
       personalYou = holdYouFallback;
     }
     try {
-      if (personalYou === relDisplayed || /still speaks into the hour you are in|life can feel loud/i.test(relDisplayed || '')) {
+      if (
+        personalYou === relDisplayed ||
+        /still speaks into the hour you are in|life can feel loud|this verse still says:/i.test(relDisplayed || '')
+      ) {
         relDisplayed =
           stdVB && typeof stdVB.defaultRelatesTodayLine === 'function'
             ? stdVB.defaultRelatesTodayLine(yrChip, resolvedText)

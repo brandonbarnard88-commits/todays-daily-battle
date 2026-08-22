@@ -14,6 +14,7 @@ import {
   loadVersePlainMeanings,
 } from './lib/hero-layman-plain.mjs';
 import { teachingForRef, kjvTextForRef } from './lib/verse-teaching-floor.mjs';
+import { isLeftoverRelateLine } from './lib/teaching-quality.mjs';
 import { injectLocaleHubHero } from './inject-locale-hub-hero.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -366,35 +367,64 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
         '$1' + escapeHtmlText(String(expl.about)) + '$2'
       );
     }
-    if (expl && expl.to) {
+    function hideHeroRow(rowId, pId) {
+      html = html.replace(
+        new RegExp('(<div class="hero-vbd-bundle" id="' + rowId + '"[^>]*)'),
+        function (open) {
+          if (/\bhidden\b/.test(open)) return open;
+          return open.replace(/\s*$/, ' hidden');
+        }
+      );
+      html = html.replace(
+        new RegExp('(<p[^>]*\\bid="' + pId + '"[^>]*>)[\\s\\S]*?(</p>)'),
+        '$1$2'
+      );
+    }
+    let audience = expl && expl.to ? String(expl.to) : '';
+    if (isLeftoverRelateLine(audience)) {
+      audience = audience
+        .replace(/\s*[—–-]\s*and you when people on a screen[\s\S]*$/i, '')
+        .replace(/\s*including the ones filling your screen\.?$/i, '')
+        .trim();
+      if (isLeftoverRelateLine(audience)) audience = '';
+    }
+    if (audience) {
       html = html.replace(
         /(<div class="hero-vbd-bundle" id="heroVbdRowAud"[^>]*)\s*hidden/,
         '$1'
       );
       html = html.replace(
         /(<p[^>]*\bid="heroDeepAudience"[^>]*>)[\s\S]*?(<\/p>)/,
-        '$1' + escapeHtmlText(String(expl.to)) + '$2'
+        '$1' + escapeHtmlText(audience) + '$2'
       );
+    } else {
+      hideHeroRow('heroVbdRowAud', 'heroDeepAudience');
     }
-    if (expl && expl.modernApplication) {
+    const modern = expl && expl.modernApplication ? String(expl.modernApplication) : '';
+    if (modern && !isLeftoverRelateLine(modern)) {
       html = html.replace(
         /(<div class="hero-vbd-bundle" id="heroVbdRowCtx"[^>]*)\s*hidden/,
         '$1'
       );
       html = html.replace(
         /(<p[^>]*\bid="heroDeepContext"[^>]*>)[\s\S]*?(<\/p>)/,
-        '$1' + escapeHtmlText(String(expl.modernApplication)) + '$2'
+        '$1' + escapeHtmlText(modern) + '$2'
       );
+    } else {
+      hideHeroRow('heroVbdRowCtx', 'heroDeepContext');
     }
-    if (expl && expl.today) {
+    const youLine = expl && expl.today ? String(expl.today) : '';
+    if (youLine && !isLeftoverRelateLine(youLine)) {
       html = html.replace(
         /(<div class="hero-vbd-bundle" id="heroVbdRowYou"[^>]*)\s*hidden/,
         '$1'
       );
       html = html.replace(
         /(<p[^>]*\bid="heroDeepYou"[^>]*>)[\s\S]*?(<\/p>)/,
-        '$1' + escapeHtmlText(String(expl.today)) + '$2'
+        '$1' + escapeHtmlText(youLine) + '$2'
       );
+    } else {
+      hideHeroRow('heroVbdRowYou', 'heroDeepYou');
     }
   }
   html = html.replace(

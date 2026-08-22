@@ -8,7 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
-import { leftoverTemplateIssues, isWeakPlainStamp } from './teaching-quality.mjs';
+import { leftoverTemplateIssues, isWeakPlainStamp, isLeftoverRelateLine } from './teaching-quality.mjs';
 import { normalizeHeroRef } from './hero-layman-plain.mjs';
 
 const FIELDS = ['plain', 'step', 'about', 'to', 'setting', 'prayer', 'modernApplication', 'today'];
@@ -47,6 +47,7 @@ export function fieldNeedsFloor(value, field) {
     .replace(/\s+/g, ' ')
     .trim();
   if (!t) return true;
+  if (isLeftoverRelateLine(t)) return true;
   if (/hold this verse as written|life can feel loud/i.test(t)) return true;
   if (/has to be lived, not only heard/i.test(t)) return true;
   if (/His way is for your good/i.test(t)) return true;

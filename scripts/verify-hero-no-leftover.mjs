@@ -148,6 +148,12 @@ function auditInjectedHtml() {
   if (/has to be lived, not only heard/i.test(html)) {
     fail('homepage HTML still contains leftover lived-not-heard teaching');
   }
+  if (/platforms make people look tall/i.test(html)) {
+    fail('homepage HTML still contains leftover 2026 platforms relate');
+  }
+  if (/filling your screen/i.test(html) || /look taller than God/i.test(html)) {
+    fail('homepage HTML still contains leftover screen-taller relate');
+  }
   if (!html.includes("stamp !== utc")) {
     fail('index.html must hide a yesterday inject when data-tdb-hero-ymd is not UTC today');
   }

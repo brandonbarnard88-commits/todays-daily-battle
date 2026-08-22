@@ -29,6 +29,28 @@ export function isThinSpeakerLine(s) {
   return false;
 }
 
+/** Leftover 2026 / screen / catalog talk — not this verse. */
+export function isLeftoverRelateLine(s) {
+  const t = String(s || '').replace(/\s+/g, ' ').trim();
+  if (!t) return false;
+  if (/platforms make people look tall/i.test(t)) return true;
+  if (/screen look taller than God/i.test(t)) return true;
+  if (/ones filling your screen/i.test(t)) return true;
+  if (/\bIn 2026\b/i.test(t)) return true;
+  if (/this verse still says:\s*[“"']/i.test(t)) return true;
+  if (/hold this verse as written/i.test(t)) return true;
+  if (/life can feel loud/i.test(t)) return true;
+  if (/set the pace of your next conversation/i.test(t)) return true;
+  if (/Name one true phrase in this verse/i.test(t)) return true;
+  if (/Even when today feels thin/i.test(t)) return true;
+  if (/Hold this word as God speaking kindly to you/i.test(t)) return true;
+  if (/quiet promise that lasts longer than the feeling/i.test(t)) return true;
+  if (/has to be lived, not only heard/i.test(t)) return true;
+  if (/still speaks into the hour you are in/i.test(t)) return true;
+  if (/Sit with one phrase from this verse before you move on/i.test(t)) return true;
+  return false;
+}
+
 export function isWeakPlainStamp(plain) {
   const p = String(plain || '').replace(/\s+/g, ' ').trim();
   if (!p) return true;

@@ -1483,7 +1483,16 @@
     var prayer = lesson.prayer;
     var yr = lesson.year;
     function isThinRelatesTodayPaint(s) {
-      return /life can feel loud|hold this verse as written/i.test(sanitizeText(s));
+      var t = sanitizeText(s);
+      return (
+        /life can feel loud|hold this verse as written/i.test(t) ||
+        /platforms make people look tall/i.test(t) ||
+        /screen look taller than God/i.test(t) ||
+        /ones filling your screen/i.test(t) ||
+        /\bIn 2026\b/i.test(t) ||
+        /this verse still says:\s*[“"']/i.test(t) ||
+        /set the pace of your next conversation/i.test(t)
+      );
     }
     if (!relatesToday || isThinRelatesTodayPaint(relatesToday) || looksLikeActionStepLine(relatesToday)) {
       var keepCtx = '';
@@ -1528,19 +1537,27 @@
     /* Primary split owns situation/meaning; dig-deeper situation row stays hidden (no duplicate). */
     if (sitPrimary) sitPrimary.textContent = situation || '';
     if (meanPrimary) meanPrimary.textContent = meaningOnly || '';
+    if (audience && isThinRelatesTodayPaint(audience)) {
+      audience = String(audience)
+        .replace(/\s*[—–-]\s*and you when people on a screen[\s\S]*$/i, '')
+        .trim();
+      if (isThinRelatesTodayPaint(audience)) audience = '';
+    }
+    if (relYou && isThinRelatesTodayPaint(relYou)) relYou = '';
+    if (relatesToday && isThinRelatesTodayPaint(relatesToday)) relatesToday = '';
     setVotdRowVisible(document.getElementById('heroVbdRowSit'), document.getElementById('heroDeepSituation'), '');
     setVotdRowVisible(document.getElementById('heroVbdRowWho'), document.getElementById('heroDeepWho'), who);
     setVotdRowVisible(document.getElementById('heroVbdRowAud'), document.getElementById('heroDeepAudience'), audience);
-    setVotdRowVisible(document.getElementById('heroVbdRowCtx'), document.getElementById('heroDeepContext'), relatesToday);
-    setVotdRowVisible(document.getElementById('heroVbdRowYou'), document.getElementById('heroDeepYou'), relYou);
+    setVotdRowVisible(document.getElementById('heroVbdRowCtx'), document.getElementById('heroDeepContext'), '');
+    setVotdRowVisible(document.getElementById('heroVbdRowYou'), document.getElementById('heroDeepYou'), '');
     var stepOut = document.getElementById('heroVotdOneStep');
     var stepWrap = document.getElementById('heroVotdNextStep');
     if (stepOut) stepOut.textContent = sanitizeText(oneStep).replace(/^\s*So do this:\s*/i, '');
-    if (stepWrap) stepWrap.hidden = false;
+    if (stepWrap) stepWrap.hidden = true;
     var prayerTarget = document.getElementById('heroVotdPrayer');
     var prayerWrap = document.getElementById('heroVotdPrayerBlock');
     if (prayerTarget) prayerTarget.textContent = prayer;
-    if (prayerWrap) prayerWrap.hidden = false;
+    if (prayerWrap) prayerWrap.hidden = true;
     try {
       var yrChip = document.getElementById('heroVotdBreakdownYear');
       if (yrChip) yrChip.textContent = String(yr);

@@ -180,6 +180,10 @@
     if (/Even when today feels thin/i.test(t)) return true;
     if (/Hold this word as God speaking kindly to you/i.test(t)) return true;
     if (/quiet promise that lasts longer than the feeling/i.test(t)) return true;
+    if (/platforms make people look tall/i.test(t)) return true;
+    if (/screen look taller than God/i.test(t)) return true;
+    if (/ones filling your screen/i.test(t)) return true;
+    if (/\bIn 2026\b/i.test(t)) return true;
     return false;
   }
 

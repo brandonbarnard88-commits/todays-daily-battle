@@ -8,7 +8,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { loadYear365, pickVerseForToday, utcDayOfYear } from './lib/hero-daily-verse-pick.mjs';
 import { teachingForRef, kjvTextForRef } from './lib/verse-teaching-floor.mjs';
-import { leftoverTemplateIssues } from './lib/teaching-quality.mjs';
+import { leftoverTemplateIssues, isLeftoverRelateLine } from './lib/teaching-quality.mjs';
 import { LOCALE_BIBLES, localeTextForRef } from './lib/locale-bible.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -403,19 +403,32 @@ function buildSection(lang, ref, localeText, kjvText, bibleName, teach, ymd) {
     escapeHtml(c.hear) +
     '</strong></p>\n' +
     '            <p data-locale-field="to">' +
-    escapeHtml(teach.to || '') +
+    escapeHtml(
+      (function () {
+        var aud = String(teach.to || '');
+        if (isLeftoverRelateLine(aud)) {
+          aud = aud
+            .replace(/\s*[—–-]\s*and you when people on a screen[\s\S]*$/i, '')
+            .trim();
+          if (isLeftoverRelateLine(aud)) aud = '';
+        }
+        return aud;
+      })()
+    ) +
     '</p>\n' +
     '            <p class="section-note"><strong>' +
     escapeHtml(c.modern) +
     '</strong></p>\n' +
     '            <p data-locale-field="modernApplication">' +
-    escapeHtml(teach.modernApplication || '') +
+    escapeHtml(
+      isLeftoverRelateLine(teach.modernApplication) ? '' : teach.modernApplication || ''
+    ) +
     '</p>\n' +
     '            <p class="section-note"><strong>' +
     escapeHtml(c.you) +
     '</strong></p>\n' +
     '            <p data-locale-field="today">' +
-    escapeHtml(teach.today || '') +
+    escapeHtml(isLeftoverRelateLine(teach.today) ? '' : teach.today || '') +
     '</p>\n' +
     '            <p class="section-note"><strong>' +
     escapeHtml(c.step) +

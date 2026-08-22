@@ -13,12 +13,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style id="tdb-critical-shell">html{background:#0d1117}body{margin:0;background:#0d1117;color:#e6edf3}</style>
   <title>Today&rsquo;s Verse (KJV) &mdash; Breakdown &amp; Prayer | Today&rsquo;s Daily Battle</title>
-  <meta name="description" content="One KJV verse, plainly explained &mdash; with a next step and a prayer to hold onto. For weary people who need one honest word today. No study background needed.">
+  <meta name="description" content="Today’s KJV verse. Notes stay on this device. No account.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/verse.html">
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:title" content="Today&apos;s Verse (KJV) — Breakdown &amp; Prayer | Today&apos;s Daily Battle">
-  <meta property="og:description" content="One KJV verse, plainly explained — with a next step and a prayer to hold onto. For weary people who need one honest word today.">
+  <meta property="og:description" content="Today’s KJV verse. Notes stay on this device. No account.">
   <meta property="og:url" content="https://todaysdailybattle.com/verse.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
@@ -27,7 +27,7 @@
   <meta property="og:image:alt" content="Today&apos;s Verse • Deep KJV study and breakdown">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Today&apos;s Verse (KJV) — Breakdown &amp; Prayer | Today&apos;s Daily Battle">
-  <meta name="twitter:description" content="One KJV verse, plainly explained — with a next step and a prayer to hold onto. For weary people who need one honest word today.">
+  <meta name="twitter:description" content="Today’s KJV verse. Notes stay on this device. No account.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&apos;s Verse • Deep KJV study and breakdown">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -38,6 +38,75 @@
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <style>
+    body.tdb-verse-page .tdb-header-account-nudge,
+    body.tdb-verse-page #auth-details,
+    body.tdb-verse-page .verse-hero-lead,
+    body.tdb-verse-page .verse-hero-whisper,
+    body.tdb-verse-page .tdb-today-lesson-foot,
+    body.tdb-verse-page #verse-listen-hint,
+    body.tdb-verse-page .verse-listen-options,
+    body.tdb-verse-page #verse-page-share,
+    body.tdb-verse-page #verse-page-share-encourage,
+    body.tdb-verse-page #verse-page-friend-email,
+    body.tdb-verse-page #verse-page-friend-sms,
+    body.tdb-verse-page #tdb-print-verse-pack-btn,
+    body.tdb-verse-page #verse-page-memorize-link,
+    body.tdb-verse-page #tdb-votm-verse-image-link,
+    body.tdb-verse-page .verse-word-study-wrap,
+    body.tdb-verse-page #pray-this-with-me-verse,
+    body.tdb-verse-page .verse-save-hint,
+    body.tdb-verse-page #versePorchPathCard,
+    body.tdb-verse-page .verse-prayer-wall-nudge,
+    body.tdb-verse-page #tdb-verse-ics-reminder,
+    body.tdb-verse-page .tdb-float-share-verse,
+    body.tdb-verse-page .tdb-verse-ribbon-fab,
+    body.tdb-verse-page .tdb-vb-extra,
+    body.tdb-verse-page .tdb-vb-inline-next-step,
+    body.tdb-verse-page .tdb-vb-inline-prayer-block,
+    body.tdb-verse-page .tdb-vb-inline-actions,
+    body.tdb-verse-page .tdb-vb-inline-level-btn,
+    body.tdb-verse-page .tdb-vb-curriculum,
+    body.tdb-verse-page .tdb-vb-inline-bubble,
+    body.tdb-verse-page .tdb-vb-reflection,
+    body.tdb-verse-page .tdb-vb-inline-ref,
+    body.tdb-verse-page .tdb-vb-inline-verse-text,
+    body.tdb-verse-page .site-footer-hint,
+    body.tdb-verse-page .easter-banner-vod {
+      display: none !important;
+    }
+    body.tdb-verse-page #daily-verse-card {
+      border-left: 4px solid #f2dc98;
+      padding: 1.15rem 1.2rem 1.25rem;
+      background: #141922;
+    }
+    body.tdb-verse-page #daily-verse-ref {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #f2dc98;
+      margin: 0 0 0.55rem;
+    }
+    body.tdb-verse-page #daily-verse-text,
+    body.tdb-verse-page .daily-verse-body {
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.45rem, 3.4vw, 1.95rem);
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.42;
+      color: #f4efe3;
+      margin: 0;
+    }
+    html[data-theme="light"] body.tdb-verse-page #daily-verse-card,
+    :root[data-theme="light"] body.tdb-verse-page #daily-verse-card {
+      background: #fbf6ea;
+    }
+    html[data-theme="light"] body.tdb-verse-page #daily-verse-ref,
+    :root[data-theme="light"] body.tdb-verse-page #daily-verse-ref { color: #8a6d1f; }
+    html[data-theme="light"] body.tdb-verse-page #daily-verse-text,
+    html[data-theme="light"] body.tdb-verse-page .daily-verse-body,
+    :root[data-theme="light"] body.tdb-verse-page #daily-verse-text,
+    :root[data-theme="light"] body.tdb-verse-page .daily-verse-body { color: #1a1610; }
     .verse-hero-lead {
       margin: 0.45rem 0 0.35rem;
       font-size: clamp(0.97rem, 2.6vw, 1.07rem);
@@ -382,10 +451,9 @@
     <main class="app-content tdb-quiet-container porch-section" id="main-content">
       <div class="content-inner">
         <header class="hero-banner verse-hero tdb-micro-hero-dawn">
-          <h1>Verse of the Day</h1>
-          <p class="verse-hero-lead">Come as you are. One KJV verse, plainly broken down &mdash; with a next step and a prayer to carry.</p>
-          <p class="verse-hero-whisper">No study background needed. One honest line is enough for today.</p>
-          <a href="bible-tool.html" class="btn btn-secondary">Look up any verse</a>
+          <h1>Today&rsquo;s verse</h1>
+          <p class="section-note">Today&rsquo;s KJV verse. Notes stay on this device.</p>
+          <p class="section-note util-mb-0"><a href="bible-tool.html">Look up a verse</a></p>
         </header>
         <div class="easter-banner-vod hidden" id="tdbVerseEasterBanner" role="region" aria-labelledby="tdbVerseEasterH" hidden>
           <div class="easter-banner-vod-text">
@@ -635,10 +703,11 @@
   </div>
 
   <script src="inline-bootstrap.js"></script>
-  <!-- Phase 6: verse breakdown + narration + word-study + tdb-mobius-journal (ribbon) load from script.js after idle (tdbScheduleDeferredVodAndReaderTooling). Same cache tokens as injected head scripts: verse-breakdown-overrides.js?v=20260805-audit-focus-lock then verse-breakdown.js?v=20260809-kjv-text-fix"/bbe-simple.js?v=20260809-kjv-text-fix" data-tdb-bbe-simple="1" defer></script>
+  <script src="bbe-simple.js?v=20260822desk14" data-tdb-bbe-simple="1"></script>
+  <script src="verse-breakdown.js?v=20260822desk14" data-tdb-verse-breakdown="1"></script>
   <script type="module" src="config.js"></script>
   <script src="tdb-offline-strip.js?v=20260421pwa1"></script>
-  <script type="module" src="script.js?v=20260816-brightgold" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260822desk14" data-cfasync="false"></script>
   <script defer src="porch-effects.js?v=20260507"></script>
   <script src="/easter-season.js"></script>
   <script nonce="tdb2025s">

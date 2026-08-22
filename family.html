@@ -28,8 +28,8 @@
   <meta name="twitter:image:alt" content="Family hub &mdash; KJV tools for parents and little ones | Today&#39;s Daily Battle">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260820polish"></script>
-  <link rel="preload" href="styles.css?v=20260822desk17" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822desk17">
+  <link rel="preload" href="styles.css?v=20260822desk18" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822desk18">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-porch-verse-widget.css?v=20260519-porch-verse" as="style">
@@ -71,6 +71,61 @@
         radial-gradient(ellipse 55% 40% at 100% 85%, rgba(48, 38, 72, 0.14), transparent 45%),
         linear-gradient(178deg, #06080e 0%, #0c1018 40%, #080a12 100%);
       min-height: 100vh;
+    }
+    /* Quiet desk: official KJV first; leftover catalog, calendar, and leftover relates off */
+    body.family-hub-deep-page .family-hub-tagline,
+    body.family-hub-deep-page .topic-mood-porch,
+    body.family-hub-deep-page .family-hub-reassurance,
+    body.family-hub-deep-page .family-hub-onpage-nav,
+    body.family-hub-deep-page #family-year-round-tools,
+    body.family-hub-deep-page #family-tonight-path-disclosure,
+    body.family-hub-deep-page #family-household-dashboard,
+    body.family-hub-deep-page #family-month-stat,
+    body.family-hub-deep-page #family-year-round-memory,
+    body.family-hub-deep-page #tdbPorchVerseWidget,
+    body.family-hub-deep-page #family-year-round-rhythm,
+    body.family-hub-deep-page #family-quick-starts-disclosure,
+    body.family-hub-deep-page #family-private-share-heading,
+    body.family-hub-deep-page #family-invite-share,
+    body.family-hub-deep-page .tdb-header-account-nudge,
+    body.family-hub-deep-page .tdb-vb-extra,
+    body.family-hub-deep-page .tdb-vb-inline-next-step,
+    body.family-hub-deep-page .tdb-vb-inline-prayer-block,
+    body.family-hub-deep-page .tdb-vb-inline-actions,
+    body.family-hub-deep-page .tdb-vb-inline-level-btn,
+    body.family-hub-deep-page .tdb-vb-curriculum,
+    body.family-hub-deep-page .tdb-vb-inline-bubble,
+    body.family-hub-deep-page .tdb-vb-reflection,
+    body.family-hub-deep-page .verse-context-accordion,
+    body.family-hub-deep-page section[aria-labelledby="family-wins-gently-heading"],
+    body.family-hub-deep-page section[aria-labelledby="family-kids-plans-guide-heading"],
+    body.family-hub-deep-page section[aria-labelledby="family-devotion-rhythm-heading"],
+    body.family-hub-deep-page section[aria-labelledby="family-when-to-use-heading"],
+    body.family-hub-deep-page section[aria-labelledby="family-private-share-heading"] {
+      display: none !important;
+    }
+    body.family-hub-deep-page #family-daily-verse-root {
+      border-left: 4px solid #f2dc98;
+      background: #141922;
+    }
+    body.family-hub-deep-page #family-daily-verse-ref {
+      color: #f2dc98;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    body.family-hub-deep-page #family-daily-verse-text {
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.42;
+      color: #f4efe3;
+    }
+    html[data-theme="light"] body.family-hub-deep-page #family-daily-verse-root {
+      background: #fbf6ea;
+    }
+    html[data-theme="light"] body.family-hub-deep-page #family-daily-verse-text {
+      color: #1a1610;
     }
     /* Shell: .tdb-quiet-container supplies max-width + side/bottom padding; top tuned here */
     main.family-hub-page.tdb-quiet-container {
@@ -1279,8 +1334,8 @@
     <section class="family-parent-quick-start family-hub-animate family-hub-d2" aria-labelledby="family-quick-start-heading">
       <h2 class="family-parent-quick-start__title" id="family-quick-start-heading">Today&rsquo;s family quick start</h2>
       <p class="family-parent-quick-start__lead">A one-glance line: today&rsquo;s reference, a short KJV line from the same pick as home, then one gentle question. No quiz; just listening.</p>
-      <p class="family-parent-quick-start__ref" id="family-quick-start-ref" aria-live="polite">Same daily pick (KJV)</p>
-      <p class="family-parent-quick-start__verse" id="family-quick-start-verse" aria-live="polite">&ldquo;Open the verse card below if today&rsquo;s line has not landed yet.&rdquo;</p>
+      <p class="family-parent-quick-start__ref" id="family-quick-start-ref" aria-live="polite">Psalm 99:2 (KJV)</p>
+      <p class="family-parent-quick-start__verse" id="family-quick-start-verse" aria-live="polite">“The Lord is great in Zion; and he is high above all the people.”</p>
       <p class="family-parent-quick-start__question" id="family-quick-start-question" aria-live="polite">What one word from this verse do we want to carry into tonight?</p>
     </section>
 
@@ -1360,9 +1415,9 @@
     <section class="family-verse-card family-hub-animate family-hub-d2" id="family-daily-verse-root" aria-labelledby="family-daily-verse-heading">
       <h2 id="family-daily-verse-heading">Today&rsquo;s family verse</h2>
       <div class="family-verse-frame">
-        <p class="family-verse-ref daily-verse-ref" id="family-daily-verse-ref">Same daily pick (KJV)</p>
+        <p class="family-verse-ref daily-verse-ref" id="family-daily-verse-ref">Psalm 99:2 (KJV)</p>
         <blockquote class="daily-verse-body family-daily-verse-body" aria-labelledby="family-daily-verse-ref">
-          <p class="family-verse-quote daily-verse-text" id="family-daily-verse-text" aria-live="polite">The same KJV verse from home will appear here. If the signal is slow, open <a href="verse.html">Verse of the Day</a> or tap Try again above.</p>
+          <p class="family-verse-quote daily-verse-text" id="family-daily-verse-text" aria-live="polite">“The Lord is great in Zion; and he is high above all the people.”</p>
         </blockquote>
       </div>
       <p class="family-verse-print-delight">
@@ -2147,7 +2202,7 @@
   <script defer src="hero-daily-365-data.js?v=20260820-heb"></script>
   <script defer src="tdb-porch-verse-widget.js?v=20260822desk17"></script>
   <script type="module" src="script.js?v=20260820polish" data-cfasync="false"></script>
-  <script src="kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
+  <script src="kids-corner-daily-verse.js?v=20260822desk18" defer></script>
   <script src="family-dashboard.js?v=20260405familydash1" defer></script>
 </body>
 </html>

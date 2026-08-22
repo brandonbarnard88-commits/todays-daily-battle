@@ -23,11 +23,14 @@
   }
 
   function ready() {
+    var hasBible = window.bible && Object.keys(window.bible).length > 0;
+    if (rootId() === 'family-daily-verse-root') {
+      return !!(hasBible && window.__TDB_HERO_DAILY_YEAR && window.__TDB_HERO_DAILY_YEAR.length);
+    }
     return typeof window.getDailyBattleFallbackForKey === 'function' &&
       typeof window.getDailyKey === 'function' &&
       typeof window.getBibleVerseText === 'function' &&
-      window.bible &&
-      Object.keys(window.bible).length > 0;
+      hasBible;
   }
 
   function showError(msg) {
@@ -95,7 +98,29 @@
     }
   }
 
+  function pickOfficialToday() {
+    var arr = window.__TDB_HERO_DAILY_YEAR;
+    if (!arr || !arr.length) return null;
+    var d = new Date();
+    var todayUtc = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+    var epoch = Date.UTC(2026, 0, 1);
+    var days = Math.floor((todayUtc - epoch) / 86400000);
+    var idx = ((days % arr.length) + arr.length) % arr.length;
+    var row = arr[idx] || null;
+    if (!row || !row.ref) return null;
+    return {
+      ref: String(row.ref).replace(/\s*\(KJV\)\s*$/i, '').trim(),
+      verse: String(row.text || '').replace(/\s+/g, ' ').trim(),
+      reflection: '',
+      prayer: ''
+    };
+  }
+
   async function resolveBattle() {
+    if (rootId() === 'family-daily-verse-root') {
+      var official = pickOfficialToday();
+      if (official) return official;
+    }
     var key = window.getDailyKey();
     var fallback = window.getDailyBattleFallbackForKey;
     var fetchS = window.getDailyBattleFromSupabaseForKey;

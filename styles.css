@@ -22411,20 +22411,44 @@ body.chapter-reader-page .app-content {
   margin-left: 0;
 }
 
-/* Read hero: cream dawn + charcoal ink (beats quiet-luxury dark wash) */
+/* Read hero in Night: solid dark card + cream ink (charcoal-on-cream lost to the wash) */
 body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn {
-  background: var(--tdb-dawn-classic) !important;
-  color: #0f172a;
+  background: #141922 !important;
+  background-image: none !important;
+  color: #f4efe3 !important;
+}
+body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn::before,
+body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn::after {
+  content: none !important;
+  opacity: 0 !important;
 }
 body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn h1 {
-  color: #0f172a !important;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  color: #f8fafc !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn p,
 body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .section-note,
 body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .topic-mood-porch,
 body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .tdb-offline-ready {
+  color: #f4efe3 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn,
+html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn {
+  background: #f5e8c7 !important;
+  color: #0f172a !important;
+}
+html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn h1,
+html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn h1 {
+  color: #0f172a !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn p,
+html[data-theme="light"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .section-note,
+html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn p,
+html[data-theme="sepia"] body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn .section-note {
   color: #1e293b !important;
+  text-shadow: none;
 }
 body.chapter-reader-page #chapter-reader .section-note,
 body.chapter-reader-page .tdb-kjv-dict-hint,

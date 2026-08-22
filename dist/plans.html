@@ -42,8 +42,8 @@
   </script>
   <link rel="preload" href="/plans-data.js" as="script" fetchpriority="low">
   <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
-  <link rel="preload" href="styles.css?v=20260816-brightgold" as="style" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260816-brightgold" media="all">
+  <link rel="preload" href="styles.css?v=20260822desk16" as="style" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20260822desk16" media="all">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase2a" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase2a">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
@@ -126,6 +126,12 @@
 
     .skip-link { position: absolute; left: -9999px; }
     .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; }
+    /* Quiet desk: Sign in/Saved strip off; plan titles that quote the verse stay */
+    .tdb-header-account-nudge,
+    #plansAccountStripDetails,
+    .tdb-shell-account-strip {
+      display: none !important;
+    }
     /* critical base classes — defined here so they apply before styles.css finishes loading */
     .tdb-quiet-container {
       width: 100%; max-width: var(--tdb-inner-max);
@@ -3423,7 +3429,7 @@
         <summary class="tdb-hub-disclosure__summary">Save on this device</summary>
         <div class="tdb-hub-disclosure__inner">
       <div class="tdb-shell-account-strip" role="region" aria-label="Account shortcuts">
-        <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <div class="tdb-header-account-nudge" hidden role="group" aria-label="Account shortcuts" style="display:none!important">
             <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
             <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
             <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" hidden aria-hidden="true" tabindex="-1" aria-label="Open the five-minute site tour">Site tour</button>
@@ -3436,10 +3442,12 @@
       <details class="tdb-hub-disclosure" id="plansPorchVerseDetails">
         <summary class="tdb-hub-disclosure__summary">Today&rsquo;s verse (same as Home)</summary>
         <div class="tdb-hub-disclosure__inner">
-      <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
+      <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="0">
         <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
-        <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Psalm 98:1 (KJV)</p>
-        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“O sing unto the Lord a new song; for he hath done marvellous things: his right hand, and his holy arm, hath gotten him the victory.”</p></blockquote>
+        <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">&mdash;</p>
+        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText">
+          <p class="section-note">Same quiet KJV calendar as Home.</p>
+        </blockquote>
         <div class="tdb-porch-verse-widget__actions">
           <a class="btn btn-secondary" href="/">Read with breakdown</a>
           <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>

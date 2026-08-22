@@ -13251,3 +13251,37 @@ nav.tdb-bottom-dock:has(.sos-btn) {
     font-size: 0.58rem;
   }
 }
+
+/* Quiet desk: KJV first; leftover relates / one-step / prayer / extra shares / Sign in off */
+#header-auth-links,
+.site-top-links #header-auth-links + span[aria-hidden],
+.tdb-nav-more-panel a[href="/login.html"],
+#heroVbdRowCtx,
+#heroVbdRowYou,
+#heroVotdNextStep,
+#heroVotdPrayerBlock,
+.tdb-verse-human-note,
+.tdb-hero-share-more,
+#heroDigDeeperPlan,
+#hero-my-verses-hint,
+#hero-my-verses-privacy-line {
+  display: none !important;
+}
+#verseCard {
+  border-left: 4px solid #f2dc98;
+}
+#hero-verse-wrap #heroVerse,
+#heroVerse.hero-verse.verse-body {
+  font-size: clamp(1.45rem, 3.4vw, 1.95rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.42;
+  color: #f4efe3;
+}
+#hero-verse-wrap,
+#verseCard,
+#heroVotdBreakdown,
+.hero-calendar-breakdown-wrap {
+  max-height: none !important;
+  overflow: visible !important;
+}

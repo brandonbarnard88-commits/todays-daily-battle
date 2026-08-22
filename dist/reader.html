@@ -26,8 +26,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822read3" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822read3">
+  <link rel="preload" href="styles.css?v=20260822desk16" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822desk16">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -37,6 +37,15 @@
       font-size: 1.05rem;
       color: #f4efe3;
       margin-bottom: 0.75rem;
+    }
+    /* Quiet desk: chapter first; leftover porch and Sign in off */
+    body.chapter-reader-page .tdb-header-account-nudge,
+    body.chapter-reader-page .topic-mood-porch,
+    body.chapter-reader-page .reader-hero-lead,
+    body.chapter-reader-page .reader-hero-reassurance,
+    body.chapter-reader-page .reader-pills,
+    body.chapter-reader-page .cta-group .btn-secondary {
+      display: none !important;
     }
     .reader-hero-lead {
       font-size: 1.08rem;
@@ -719,7 +728,7 @@
         </details>
       </div>
     </nav>
-      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+      <div class="tdb-header-account-nudge" hidden role="group" aria-label="Account shortcuts" style="display:none!important">
         <a href="/login.html" class="tdb-header-account-nudge__link">Sign in</a>
         <a href="/mystudy" class="tdb-header-account-nudge__link">Saved</a>
       </div>

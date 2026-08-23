@@ -26,8 +26,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822desk21" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822desk21">
+  <link rel="preload" href="styles.css?v=20260823desk22" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk22">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -119,13 +119,40 @@
     }
     body.chapter-reader-page .reader-actions {
       display: flex !important;
-      flex-wrap: wrap;
-      gap: 0.45rem;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      gap: 0.4rem !important;
+      align-items: center !important;
+    }
+    body.chapter-reader-page .reader-actions > button,
+    body.chapter-reader-page .reader-actions > .btn,
+    body.chapter-reader-page .reader-actions > label {
+      flex: 0 0 auto !important;
+      width: auto !important;
+      max-width: none !important;
+      margin: 0 !important;
+      display: inline-flex !important;
       align-items: center;
+      justify-content: center;
+      min-height: 44px;
     }
     body.chapter-reader-page .reader-audio-hint {
-      flex: 1 1 100%;
+      flex: 1 1 100% !important;
+      width: 100% !important;
       margin: 0.15rem 0 0 !important;
+    }
+    body.chapter-reader-page .reader-bookmarks-toolbar {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+    }
+    body.chapter-reader-page .reader-bookmarks-toolbar > *,
+    body.chapter-reader-page .reader-bookmark-toggle {
+      flex: 0 0 auto !important;
+      width: auto !important;
+      margin: 0 !important;
     }
     body.chapter-reader-page #chapter-reader .section-note {
       margin-top: 0.3rem;

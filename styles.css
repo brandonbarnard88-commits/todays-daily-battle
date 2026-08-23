@@ -13923,6 +13923,17 @@ body.kids-battle-page.kids-parent-dashboard .kids-parent-note {
   h1 { font-size: 2.4rem; }
   .container { margin-top: 0; }
   input, select, textarea, button { width: 100%; margin: 0.4rem 0; }
+  body.chapter-reader-page input,
+  body.chapter-reader-page select,
+  body.chapter-reader-page textarea,
+  body.chapter-reader-page button {
+    width: auto;
+    margin: 0;
+  }
+  body.chapter-reader-page .reader-pickers input,
+  body.chapter-reader-page .reader-pickers select {
+    width: 100%;
+  }
   .controls { flex-direction: column; align-items: stretch; }
   .auth-card, .controls { padding: 1.35rem; }
   .feature-tabs { flex-direction: column; }
@@ -13942,12 +13953,14 @@ body.kids-battle-page.kids-parent-dashboard .kids-parent-note {
   .reader-pickers label { font-size: 0.95rem; }
   .reader-pickers select { min-height: 48px; width: 100%; font-size: 1rem; }
   .reader-actions {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.6rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
   }
-  .reader-actions .inline-toggle { grid-column: 1 / -1; font-size: 1rem; }
-  .reader-actions button { min-height: 48px; font-size: 1rem; }
+  .reader-actions .inline-toggle { flex: 0 0 auto; font-size: 1rem; }
+  .reader-actions button { min-height: 48px; font-size: 1rem; width: auto; margin: 0; }
   .chapter-output { max-height: 50vh; }
   #chapter-reader #reader-output:not(.reader-output-empty) {
     min-height: 50vh;
@@ -14051,7 +14064,22 @@ body.kids-battle-page.kids-parent-dashboard .kids-parent-note {
   .newsletter-tagline { font-size: 1rem; }
   .reader-pickers { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
   .reader-pickers label { font-size: 0.95rem; }
-  .reader-actions button { font-size: 1rem; min-height: 52px; }
+  .reader-actions button { font-size: 1rem; min-height: 52px; width: auto; margin: 0; flex: 0 0 auto; }
+  body.chapter-reader-page .reader-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  body.chapter-reader-page button {
+    width: auto;
+    margin: 0;
+  }
+  body.chapter-reader-page .reader-pickers input,
+  body.chapter-reader-page .reader-pickers select {
+    width: 100%;
+  }
   .content-inner .glass { padding: 1rem; max-width: 100%; }
   .content-inner .list .list-item { padding: 1rem 0; }
   .content-inner .list .list-item strong { font-size: 1.1rem; }

@@ -26,8 +26,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260823desk24" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260823desk24">
+  <link rel="preload" href="styles.css?v=20260823desk25" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk25">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -79,75 +79,56 @@
     }
     body.chapter-reader-page .reader-controls,
     body.chapter-reader-page .reader-controls-panel {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
+      display: block !important;
       padding: 0.75rem 0.85rem;
     }
+    body.chapter-reader-page table.reader-desk {
+      display: table !important;
+      width: 100%;
+      table-layout: auto;
+      border-collapse: separate;
+      border-spacing: 0.55rem 0.45rem;
+    }
+    body.chapter-reader-page table.reader-desk tr,
     body.chapter-reader-page .reader-pickers {
-      display: grid !important;
-      grid-template-columns: minmax(7rem, 1.5fr) minmax(6rem, 1fr) minmax(4.5rem, 0.7fr) !important;
-      gap: 0.45rem 0.55rem !important;
-      align-items: end !important;
+      display: table-row !important;
     }
-    body.chapter-reader-page .reader-book-jump-wrap {
-      grid-column: 1 !important;
-      min-width: 0;
-    }
-    body.chapter-reader-page .reader-book-jump-wrap .section-note {
-      display: none !important;
+    body.chapter-reader-page table.reader-desk td {
+      display: table-cell !important;
+      vertical-align: bottom;
+      width: auto;
     }
     body.chapter-reader-page .reader-pickers label {
+      display: block !important;
       margin: 0 0 0.2rem !important;
       font-size: 0.78rem;
     }
     body.chapter-reader-page .reader-pickers input,
-    body.chapter-reader-page .reader-pickers select,
-    body.chapter-reader-page .reader-actions button,
-    body.chapter-reader-page .reader-actions .btn,
-    body.chapter-reader-page .reader-bookmark-toggle {
-      width: auto !important;
-      max-width: 100%;
-      margin: 0 !important;
-      min-height: 44px;
-      box-sizing: border-box;
-    }
-    body.chapter-reader-page .reader-pickers input,
     body.chapter-reader-page .reader-pickers select {
       width: 100% !important;
-    }
-    body.chapter-reader-page .reader-book-jump-wrap .section-note {
-      display: none !important;
+      margin: 0 !important;
+      min-height: 40px;
+      box-sizing: border-box;
     }
     body.chapter-reader-page .reader-actions {
-      display: block !important;
+      display: table-cell !important;
+      white-space: nowrap !important;
     }
     body.chapter-reader-page .reader-action-row {
-      display: grid !important;
-      grid-auto-flow: column !important;
-      grid-auto-columns: max-content !important;
-      justify-content: start !important;
-      align-items: center !important;
-      gap: 0.35rem !important;
-      overflow-x: auto !important;
-      -webkit-overflow-scrolling: touch;
-      width: 100% !important;
+      display: inline !important;
+      white-space: nowrap !important;
     }
     body.chapter-reader-page .reader-action-row > button,
     body.chapter-reader-page .reader-action-row > .btn,
-    body.chapter-reader-page .reader-action-row > label,
-    body.chapter-reader-page .reader-action-row > * {
-      flex: 0 0 auto !important;
+    body.chapter-reader-page .reader-action-row > label {
+      display: inline-block !important;
       width: auto !important;
       max-width: none !important;
-      margin: 0 !important;
-      display: inline-flex !important;
-      align-items: center;
-      justify-content: center;
+      margin: 0 0.35rem 0 0 !important;
+      vertical-align: middle;
       min-height: 40px !important;
-      padding: 0.35rem 0.65rem !important;
+      padding: 0.35rem 0.7rem !important;
       font-size: 0.88rem !important;
-      box-sizing: border-box;
       white-space: nowrap !important;
     }
     body.chapter-reader-page .reader-audio-hint,
@@ -155,18 +136,15 @@
       display: none !important;
     }
     body.chapter-reader-page .reader-bookmarks-toolbar {
-      display: grid !important;
-      grid-auto-flow: column !important;
-      grid-auto-columns: max-content !important;
-      justify-content: start !important;
-      align-items: center !important;
-      gap: 0.5rem !important;
+      display: block !important;
+      white-space: nowrap !important;
     }
-    body.chapter-reader-page .reader-bookmarks-toolbar > *,
+    body.chapter-reader-page .reader-bookmarks-heading,
     body.chapter-reader-page .reader-bookmark-toggle {
-      flex: 0 0 auto !important;
+      display: inline-block !important;
       width: auto !important;
-      margin: 0 !important;
+      margin: 0 0.6rem 0 0 !important;
+      vertical-align: middle;
     }
     body.chapter-reader-page #chapter-reader .section-note {
       margin-top: 0.3rem;
@@ -178,11 +156,6 @@
     body.chapter-reader-page .reader-bookmarks-panel {
       margin: 0.35rem 0 0.75rem;
       padding: 0.65rem 0.75rem 0.75rem;
-    }
-    @media (max-width: 720px) {
-      body.chapter-reader-page .reader-pickers {
-        grid-template-columns: minmax(6rem, 1.3fr) minmax(5rem, 1fr) minmax(4rem, 0.7fr) !important;
-      }
     }
     .reader-hero-lead {
       font-size: 1.08rem;
@@ -903,42 +876,45 @@
           <p class="section-note tdb-kjv-dict-hint util-mb-0_5 util-mt-0" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
           <p class="section-note reader-one-chapter-today util-mb-0_75 util-mt-0" role="note"><strong>Read one chapter today:</strong> <a href="?book=Psalm&amp;chapter=1">Psalm 1</a><span aria-hidden="true"> · </span><a href="?book=Psalm&amp;chapter=23">Psalm 23</a><span aria-hidden="true"> · </span><a href="?book=Mark&amp;chapter=1">Mark 1</a><span aria-hidden="true"> · </span><a href="?book=Luke&amp;chapter=15">Luke 15</a><span aria-hidden="true"> · </span><a href="?book=John&amp;chapter=1">John 1</a><span aria-hidden="true"> · </span><a href="?book=Matthew&amp;chapter=11">Matthew 11</a><span aria-hidden="true"> · </span><a href="?book=Philippians&amp;chapter=4">Philippians 4</a><span aria-hidden="true"> · </span><a href="?book=Romans&amp;chapter=8">Romans 8</a><span aria-hidden="true"> · </span><a href="?book=Proverbs&amp;chapter=3">Proverbs 3</a> — or choose any book above.</p>
           <div class="reader-controls reader-controls-panel">
-            <div class="reader-pickers">
-              <div class="reader-book-jump-wrap">
-                <label for="reader-book-quick">Find a book</label>
-                <input
-                  id="reader-book-quick"
-                  type="search"
-                  enterkeyhint="go"
-                  autocomplete="off"
-                  placeholder="e.g. Psalm, 1 Corinthians…"
-                  aria-label="Type a Bible book name and press Enter to jump"
-                />
-                <p class="section-note util-mb-0 util-mt-0_35" style="font-size:0.8rem">Matches the first KJV book that fits what you typed.</p>
-              </div>
-              <div>
-                <label for="reader-book">Book</label>
-                <select id="reader-book" aria-label="Choose book"></select>
-              </div>
-              <div>
-                <label for="reader-chapter">Chapter</label>
-                <select id="reader-chapter" aria-label="Choose chapter"></select>
-              </div>
-            </div>
-            <div class="reader-actions">
-              <div class="reader-action-row" role="group" aria-label="Chapter controls" style="display:grid!important;grid-auto-flow:column!important;grid-auto-columns:max-content!important;justify-content:start!important;align-items:center!important;gap:0.35rem!important;overflow-x:auto!important;width:100%">
-              <label class="inline-toggle reader-red-letter" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important">
-                <input id="reader-red-letter-toggle" type="checkbox" aria-label="Show red letters (words of Jesus)">
-                Red letters
-              </label>
-              <button id="reader-prev" class="btn btn-secondary" type="button" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important">Prev</button>
-              <button id="reader-next" class="btn btn-secondary" type="button" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important">Next</button>
-              <button id="reader-open" class="btn btn-secondary" type="button" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important">Open Chapter</button>
-              <button id="reader-listen" class="btn btn-secondary btn-listen" type="button" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important" aria-pressed="false" aria-label="Listen to this chapter on your device">Listen</button>
-              <button id="reader-audio" class="btn btn-secondary btn-kjv-audio" type="button" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important" aria-label="Open KJV audio in new tab">KJV Audio</button>
-              </div>
-              <p class="section-note util-mb-0 reader-audio-hint tdb-listen-privacy-hint"><span id="reader-listen-hint">KJV loads on this device—tap Listen for a quiet hear-through; tap again to stop. </span>KJV Audio opens the passage in a new tab when you want that player.</p>
-            </div>
+            <table class="reader-desk">
+              <tr class="reader-pickers">
+                <td class="reader-book-jump-wrap">
+                  <label for="reader-book-quick">Find a book</label>
+                  <input
+                    id="reader-book-quick"
+                    type="search"
+                    enterkeyhint="go"
+                    autocomplete="off"
+                    placeholder="e.g. Psalm, 1 Corinthians…"
+                    aria-label="Type a Bible book name and press Enter to jump"
+                  />
+                </td>
+                <td>
+                  <label for="reader-book">Book</label>
+                  <select id="reader-book" aria-label="Choose book"></select>
+                </td>
+                <td>
+                  <label for="reader-chapter">Chapter</label>
+                  <select id="reader-chapter" aria-label="Choose chapter"></select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3" class="reader-actions">
+                  <span class="reader-action-row" role="group" aria-label="Chapter controls">
+                    <label class="inline-toggle reader-red-letter">
+                      <input id="reader-red-letter-toggle" type="checkbox" aria-label="Show red letters (words of Jesus)">
+                      Red letters
+                    </label>
+                    <button id="reader-prev" class="btn btn-secondary" type="button">Prev</button>
+                    <button id="reader-next" class="btn btn-secondary" type="button">Next</button>
+                    <button id="reader-open" class="btn btn-secondary" type="button">Open Chapter</button>
+                    <button id="reader-listen" class="btn btn-secondary btn-listen" type="button" aria-pressed="false" aria-label="Listen to this chapter on your device">Listen</button>
+                    <button id="reader-audio" class="btn btn-secondary btn-kjv-audio" type="button" aria-label="Open KJV audio in new tab">KJV Audio</button>
+                  </span>
+                </td>
+              </tr>
+            </table>
+            <p class="section-note util-mb-0 reader-audio-hint tdb-listen-privacy-hint" hidden><span id="reader-listen-hint">KJV loads on this device—tap Listen for a quiet hear-through; tap again to stop. </span>KJV Audio opens the passage in a new tab when you want that player.</p>
           </div>
           <div id="reader-resume-strip" class="reader-resume-strip hidden" role="region" aria-label="Continue this chapter">
             <p id="reader-resume-text" class="reader-resume-text section-note"></p>

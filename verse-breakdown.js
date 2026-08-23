@@ -2138,6 +2138,13 @@
     if (el.closest('.tdb-kiss-verse, [data-tdb-kiss-verse="1"]')) return true;
     if (el.closest('[data-home-result-card="verse"], .home-search-card--verse')) return true;
     if (el.closest('#feelCards, .feel-verse-card, #feel-results')) return true;
+    /* Calm has its own porch for THIS verse. Auto-inject here mixed in leftover Matthew 11:28. */
+    try {
+      var pathCalm = String((window.location && window.location.pathname) || '').toLowerCase();
+      if (pathCalm.indexOf('calm') !== -1 || pathCalm.indexOf('/paz') !== -1) {
+        if (el.id === 'verse-container' || el.id === 'desktop-verse' || el.closest('#verse-container, #desktop-verse, .calm-verse-container, [data-calm-verse-porch]')) return true;
+      }
+    } catch (eCalmSkip) {}
     if (el.closest('.home-search-detail-panel')) return true;
     if (el.classList && el.classList.contains('tdb-verse-breakdown-inline')) return true;
     if (el.closest('.tdb-verse-breakdown-inline')) return true;

@@ -26,8 +26,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260823desk26" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260823desk26">
+  <link rel="preload" href="styles.css?v=20260823desk27" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk27">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -85,14 +85,16 @@
       align-items: stretch !important;
       justify-content: flex-start !important;
       gap: 0.75rem !important;
-      position: static !important;
+      position: relative !important;
       top: auto !important;
-      z-index: auto !important;
+      z-index: 4 !important;
       overflow: visible !important;
       float: none !important;
       grid-template-columns: none !important;
       grid-auto-flow: row !important;
       padding: 0.75rem 0.85rem;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
     }
     body.chapter-reader-page .reader-pickers {
       display: flex !important;
@@ -102,17 +104,20 @@
       gap: 0.75rem !important;
       width: 100% !important;
       min-width: 0 !important;
+      position: relative !important;
+      z-index: 5 !important;
     }
     body.chapter-reader-page .reader-pickers > * {
       display: block !important;
-      flex: 1 1 0 !important;
-      min-width: 0 !important;
+      flex: 1 1 8rem !important;
+      min-width: 8rem !important;
       width: auto !important;
       margin: 0 !important;
-      position: static !important;
+      position: relative !important;
+      z-index: 5 !important;
     }
     body.chapter-reader-page .reader-book-jump-wrap {
-      flex: 1.4 1 0 !important;
+      flex: 1.4 1 8rem !important;
     }
     body.chapter-reader-page .reader-pickers label {
       display: block !important;
@@ -124,9 +129,20 @@
       display: block !important;
       width: 100% !important;
       max-width: 100% !important;
+      min-width: 8rem !important;
       margin: 0 !important;
       min-height: 40px;
       box-sizing: border-box;
+      position: relative !important;
+      z-index: 6 !important;
+      pointer-events: auto !important;
+      cursor: pointer;
+      color: #f4efe3 !important;
+      background: #1a2234 !important;
+    }
+    body.chapter-reader-page .reader-pickers select {
+      -webkit-appearance: menulist;
+      appearance: auto;
     }
     body.chapter-reader-page .reader-actions {
       display: flex !important;

@@ -26,8 +26,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822desk18" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822desk18">
+  <link rel="preload" href="styles.css?v=20260822desk21" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260822desk21">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -59,8 +59,92 @@
     body.chapter-reader-page .tdb-vb-reflection {
       display: none !important;
     }
-    body.chapter-reader-page .reader-memorize-nudge {
+    body.chapter-reader-page .reader-memorize-nudge,
+    body.chapter-reader-page .cta-group,
+    body.chapter-reader-page #chapter-reader > h2.section-divider,
+    body.chapter-reader-page .reader-tagline,
+    body.chapter-reader-page .tdb-offline-ready {
       display: none !important;
+    }
+    /* Compact desk: leftover porch gone, pickers in a real row, no 100% stacked buttons */
+    body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn {
+      display: block;
+      padding: 0.85rem 1rem 0.95rem;
+      margin-bottom: 0.85rem;
+      text-align: left;
+    }
+    body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn h1 {
+      margin: 0;
+      font-size: clamp(1.35rem, 3.2vw, 1.7rem);
+    }
+    body.chapter-reader-page .reader-controls,
+    body.chapter-reader-page .reader-controls-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 0.75rem 0.85rem;
+    }
+    body.chapter-reader-page .reader-pickers {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 0.7fr);
+      gap: 0.5rem 0.65rem;
+      align-items: end;
+    }
+    body.chapter-reader-page .reader-book-jump-wrap {
+      grid-column: auto;
+      min-width: 0;
+    }
+    body.chapter-reader-page .reader-pickers label {
+      margin: 0 0 0.2rem !important;
+      font-size: 0.78rem;
+    }
+    body.chapter-reader-page .reader-pickers input,
+    body.chapter-reader-page .reader-pickers select,
+    body.chapter-reader-page .reader-actions button,
+    body.chapter-reader-page .reader-actions .btn,
+    body.chapter-reader-page .reader-bookmark-toggle {
+      width: auto !important;
+      max-width: 100%;
+      margin: 0 !important;
+      min-height: 44px;
+      box-sizing: border-box;
+    }
+    body.chapter-reader-page .reader-pickers input,
+    body.chapter-reader-page .reader-pickers select {
+      width: 100% !important;
+    }
+    body.chapter-reader-page .reader-book-jump-wrap .section-note {
+      margin: 0.25rem 0 0 !important;
+      font-size: 0.75rem;
+    }
+    body.chapter-reader-page .reader-actions {
+      display: flex !important;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
+    }
+    body.chapter-reader-page .reader-audio-hint {
+      flex: 1 1 100%;
+      margin: 0.15rem 0 0 !important;
+    }
+    body.chapter-reader-page #chapter-reader .section-note {
+      margin-top: 0.3rem;
+      margin-bottom: 0.45rem;
+    }
+    body.chapter-reader-page .reader-one-chapter-today {
+      line-height: 1.45;
+    }
+    body.chapter-reader-page .reader-bookmarks-panel {
+      margin: 0.35rem 0 0.75rem;
+      padding: 0.65rem 0.75rem 0.75rem;
+    }
+    @media (max-width: 720px) {
+      body.chapter-reader-page .reader-pickers {
+        grid-template-columns: 1fr 1fr;
+      }
+      body.chapter-reader-page .reader-book-jump-wrap {
+        grid-column: 1 / -1;
+      }
     }
     .reader-hero-lead {
       font-size: 1.08rem;

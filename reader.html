@@ -26,8 +26,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260823desk27" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260823desk27">
+  <link rel="preload" href="styles.css?v=20260823desk28" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk28">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -143,6 +143,85 @@
     body.chapter-reader-page .reader-pickers select {
       -webkit-appearance: menulist;
       appearance: auto;
+    }
+    html:has(body.chapter-reader-page) {
+      overflow-x: visible;
+    }
+    body.chapter-reader-page {
+      overflow-x: visible;
+    }
+    body.chapter-reader-page #chapter-reader.glass,
+    body.chapter-reader-page #chapter-reader.tdb-porch-paper-glass {
+      isolation: auto !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      overflow: visible !important;
+      filter: none !important;
+      transform: none !important;
+      contain: none !important;
+    }
+    body.chapter-reader-page .reader-menu-host {
+      position: relative !important;
+      z-index: 8 !important;
+    }
+    body.chapter-reader-page .reader-native-select {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      clip: rect(0, 0, 0, 0) !important;
+    }
+    body.chapter-reader-page .reader-menu-btn {
+      display: block !important;
+      width: 100% !important;
+      min-height: 40px !important;
+      margin: 0 !important;
+      padding: 0.35rem 0.7rem !important;
+      text-align: left;
+      color: #f4efe3 !important;
+      background: #1a2234 !important;
+      border: 1px solid rgba(242, 220, 152, 0.4);
+      border-radius: 8px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    body.chapter-reader-page .reader-menu {
+      position: absolute !important;
+      left: 0;
+      right: 0;
+      top: calc(100% + 4px);
+      z-index: 80 !important;
+      max-height: 18rem;
+      overflow-x: hidden;
+      overflow-y: auto;
+      margin: 0;
+      padding: 0.25rem 0;
+      list-style: none;
+      background: #141922 !important;
+      color: #f4efe3 !important;
+      border: 1px solid rgba(242, 220, 152, 0.45);
+      border-radius: 8px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    }
+    body.chapter-reader-page .reader-menu[hidden] {
+      display: none !important;
+    }
+    body.chapter-reader-page .reader-menu [role="option"] {
+      display: block;
+      padding: 0.4rem 0.75rem;
+      min-height: 36px;
+      cursor: pointer;
+      color: #f4efe3;
+    }
+    body.chapter-reader-page .reader-menu [role="option"]:hover,
+    body.chapter-reader-page .reader-menu [role="option"][aria-selected="true"] {
+      background: rgba(242, 220, 152, 0.16);
+      color: #f2dc98;
     }
     body.chapter-reader-page .reader-actions {
       display: flex !important;
@@ -1238,6 +1317,6 @@
   <script src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script src="/js/tdb-plan-progress.js?v=20260711-ms3-desk" defer></script>
   <script src="tdb-continue-surface.js?v=20260712-continue" defer></script>
-  <script defer src="reader-core.js?v=20260508-reader-core-pass1" data-cfasync="false" fetchpriority="high"></script>
+  <script defer src="reader-core.js?v=20260823desk28" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

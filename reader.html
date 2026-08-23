@@ -26,8 +26,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260823desk25" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260823desk25">
+  <link rel="preload" href="styles.css?v=20260823desk26" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk26">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -66,7 +66,7 @@
     body.chapter-reader-page .tdb-offline-ready {
       display: none !important;
     }
-    /* Compact desk: leftover porch gone, pickers in a real row, no 100% stacked buttons */
+    /* Compact desk: two rows, no sticky overlay, no auto-fit grid, no table */
     body.chapter-reader-page .content-inner > header.hero-banner.chapter-reader-hero--soar-dawn {
       display: block;
       padding: 0.85rem 1rem 0.95rem;
@@ -79,24 +79,40 @@
     }
     body.chapter-reader-page .reader-controls,
     body.chapter-reader-page .reader-controls-panel {
-      display: block !important;
+      display: flex !important;
+      flex-direction: column !important;
+      flex-wrap: nowrap !important;
+      align-items: stretch !important;
+      justify-content: flex-start !important;
+      gap: 0.75rem !important;
+      position: static !important;
+      top: auto !important;
+      z-index: auto !important;
+      overflow: visible !important;
+      float: none !important;
+      grid-template-columns: none !important;
+      grid-auto-flow: row !important;
       padding: 0.75rem 0.85rem;
     }
-    body.chapter-reader-page table.reader-desk {
-      display: table !important;
-      width: 100%;
-      table-layout: auto;
-      border-collapse: separate;
-      border-spacing: 0.55rem 0.45rem;
-    }
-    body.chapter-reader-page table.reader-desk tr,
     body.chapter-reader-page .reader-pickers {
-      display: table-row !important;
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: flex-end !important;
+      gap: 0.75rem !important;
+      width: 100% !important;
+      min-width: 0 !important;
     }
-    body.chapter-reader-page table.reader-desk td {
-      display: table-cell !important;
-      vertical-align: bottom;
-      width: auto;
+    body.chapter-reader-page .reader-pickers > * {
+      display: block !important;
+      flex: 1 1 0 !important;
+      min-width: 0 !important;
+      width: auto !important;
+      margin: 0 !important;
+      position: static !important;
+    }
+    body.chapter-reader-page .reader-book-jump-wrap {
+      flex: 1.4 1 0 !important;
     }
     body.chapter-reader-page .reader-pickers label {
       display: block !important;
@@ -105,46 +121,64 @@
     }
     body.chapter-reader-page .reader-pickers input,
     body.chapter-reader-page .reader-pickers select {
+      display: block !important;
       width: 100% !important;
+      max-width: 100% !important;
       margin: 0 !important;
       min-height: 40px;
       box-sizing: border-box;
     }
     body.chapter-reader-page .reader-actions {
-      display: table-cell !important;
-      white-space: nowrap !important;
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      gap: 0.45rem !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      white-space: normal !important;
     }
-    body.chapter-reader-page .reader-action-row {
-      display: inline !important;
-      white-space: nowrap !important;
-    }
-    body.chapter-reader-page .reader-action-row > button,
-    body.chapter-reader-page .reader-action-row > .btn,
-    body.chapter-reader-page .reader-action-row > label {
-      display: inline-block !important;
+    body.chapter-reader-page .reader-actions > button,
+    body.chapter-reader-page .reader-actions > .btn,
+    body.chapter-reader-page .reader-actions > label {
+      display: inline-flex !important;
+      align-items: center !important;
       width: auto !important;
       max-width: none !important;
-      margin: 0 0.35rem 0 0 !important;
-      vertical-align: middle;
+      flex: 0 0 auto !important;
+      margin: 0 !important;
       min-height: 40px !important;
       padding: 0.35rem 0.7rem !important;
       font-size: 0.88rem !important;
       white-space: nowrap !important;
+      position: static !important;
     }
     body.chapter-reader-page .reader-audio-hint,
     body.chapter-reader-page .reader-strip-hint {
       display: none !important;
     }
+    body.chapter-reader-page .reader-resume-strip,
+    body.chapter-reader-page .reader-recent-strip,
+    body.chapter-reader-page .reader-bookmarks-panel {
+      position: relative !important;
+      z-index: 0 !important;
+      clear: both !important;
+      float: none !important;
+    }
     body.chapter-reader-page .reader-bookmarks-toolbar {
-      display: block !important;
-      white-space: nowrap !important;
+      display: flex !important;
+      flex-flow: row wrap !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+      white-space: normal !important;
     }
     body.chapter-reader-page .reader-bookmarks-heading,
     body.chapter-reader-page .reader-bookmark-toggle {
-      display: inline-block !important;
+      display: inline-flex !important;
       width: auto !important;
-      margin: 0 0.6rem 0 0 !important;
+      margin: 0 !important;
       vertical-align: middle;
+      position: static !important;
     }
     body.chapter-reader-page #chapter-reader .section-note {
       margin-top: 0.3rem;
@@ -154,8 +188,21 @@
       line-height: 1.45;
     }
     body.chapter-reader-page .reader-bookmarks-panel {
-      margin: 0.35rem 0 0.75rem;
+      display: block !important;
+      margin: 0.85rem 0 0.75rem;
       padding: 0.65rem 0.75rem 0.75rem;
+      background: #141922;
+    }
+    @media (max-width: 640px) {
+      body.chapter-reader-page .reader-pickers {
+        flex-wrap: wrap !important;
+      }
+      body.chapter-reader-page .reader-book-jump-wrap {
+        flex: 1 1 100% !important;
+      }
+      body.chapter-reader-page .reader-pickers > * {
+        flex: 1 1 calc(50% - 0.4rem) !important;
+      }
     }
     .reader-hero-lead {
       font-size: 1.08rem;
@@ -876,44 +923,38 @@
           <p class="section-note tdb-kjv-dict-hint util-mb-0_5 util-mt-0" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
           <p class="section-note reader-one-chapter-today util-mb-0_75 util-mt-0" role="note"><strong>Read one chapter today:</strong> <a href="?book=Psalm&amp;chapter=1">Psalm 1</a><span aria-hidden="true"> · </span><a href="?book=Psalm&amp;chapter=23">Psalm 23</a><span aria-hidden="true"> · </span><a href="?book=Mark&amp;chapter=1">Mark 1</a><span aria-hidden="true"> · </span><a href="?book=Luke&amp;chapter=15">Luke 15</a><span aria-hidden="true"> · </span><a href="?book=John&amp;chapter=1">John 1</a><span aria-hidden="true"> · </span><a href="?book=Matthew&amp;chapter=11">Matthew 11</a><span aria-hidden="true"> · </span><a href="?book=Philippians&amp;chapter=4">Philippians 4</a><span aria-hidden="true"> · </span><a href="?book=Romans&amp;chapter=8">Romans 8</a><span aria-hidden="true"> · </span><a href="?book=Proverbs&amp;chapter=3">Proverbs 3</a> — or choose any book above.</p>
           <div class="reader-controls reader-controls-panel">
-            <table class="reader-desk">
-              <tr class="reader-pickers">
-                <td class="reader-book-jump-wrap">
-                  <label for="reader-book-quick">Find a book</label>
-                  <input
-                    id="reader-book-quick"
-                    type="search"
-                    enterkeyhint="go"
-                    autocomplete="off"
-                    placeholder="e.g. Psalm, 1 Corinthians…"
-                    aria-label="Type a Bible book name and press Enter to jump"
-                  />
-                </td>
-                <td>
-                  <label for="reader-book">Book</label>
-                  <select id="reader-book" aria-label="Choose book"></select>
-                </td>
-                <td>
-                  <label for="reader-chapter">Chapter</label>
-                  <select id="reader-chapter" aria-label="Choose chapter"></select>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="3" class="reader-actions">
-                  <span class="reader-action-row" role="group" aria-label="Chapter controls">
-                    <label class="inline-toggle reader-red-letter">
-                      <input id="reader-red-letter-toggle" type="checkbox" aria-label="Show red letters (words of Jesus)">
-                      Red letters
-                    </label>
-                    <button id="reader-prev" class="btn btn-secondary" type="button">Prev</button>
-                    <button id="reader-next" class="btn btn-secondary" type="button">Next</button>
-                    <button id="reader-open" class="btn btn-secondary" type="button">Open Chapter</button>
-                    <button id="reader-listen" class="btn btn-secondary btn-listen" type="button" aria-pressed="false" aria-label="Listen to this chapter on your device">Listen</button>
-                    <button id="reader-audio" class="btn btn-secondary btn-kjv-audio" type="button" aria-label="Open KJV audio in new tab">KJV Audio</button>
-                  </span>
-                </td>
-              </tr>
-            </table>
+            <div class="reader-pickers">
+              <div class="reader-book-jump-wrap">
+                <label for="reader-book-quick">Find a book</label>
+                <input
+                  id="reader-book-quick"
+                  type="search"
+                  enterkeyhint="go"
+                  autocomplete="off"
+                  placeholder="e.g. Psalm, 1 Corinthians…"
+                  aria-label="Type a Bible book name and press Enter to jump"
+                />
+              </div>
+              <div>
+                <label for="reader-book">Book</label>
+                <select id="reader-book" aria-label="Choose book"></select>
+              </div>
+              <div>
+                <label for="reader-chapter">Chapter</label>
+                <select id="reader-chapter" aria-label="Choose chapter"></select>
+              </div>
+            </div>
+            <div class="reader-actions" role="group" aria-label="Chapter controls">
+              <label class="inline-toggle reader-red-letter">
+                <input id="reader-red-letter-toggle" type="checkbox" aria-label="Show red letters (words of Jesus)">
+                Red letters
+              </label>
+              <button id="reader-prev" class="btn btn-secondary" type="button">Prev</button>
+              <button id="reader-next" class="btn btn-secondary" type="button">Next</button>
+              <button id="reader-open" class="btn btn-secondary" type="button">Open Chapter</button>
+              <button id="reader-listen" class="btn btn-secondary btn-listen" type="button" aria-pressed="false" aria-label="Listen to this chapter on your device">Listen</button>
+              <button id="reader-audio" class="btn btn-secondary btn-kjv-audio" type="button" aria-label="Open KJV audio in new tab">KJV Audio</button>
+            </div>
             <p class="section-note util-mb-0 reader-audio-hint tdb-listen-privacy-hint" hidden><span id="reader-listen-hint">KJV loads on this device—tap Listen for a quiet hear-through; tap again to stop. </span>KJV Audio opens the passage in a new tab when you want that player.</p>
           </div>
           <div id="reader-resume-strip" class="reader-resume-strip hidden" role="region" aria-label="Continue this chapter">
@@ -925,9 +966,9 @@
             <ul id="reader-recent-strip-list" class="reader-recent-strip-list"></ul>
           </div>
           <div class="reader-bookmarks-panel" role="region" aria-labelledby="reader-bookmarks-heading">
-            <div class="reader-bookmarks-toolbar" style="display:flex!important;flex-flow:row wrap!important;align-items:center!important;gap:0.5rem!important">
+            <div class="reader-bookmarks-toolbar">
               <h3 id="reader-bookmarks-heading" class="reader-bookmarks-heading">Saved chapters</h3>
-              <button type="button" id="reader-bookmark-toggle" class="btn btn-secondary reader-bookmark-toggle" aria-pressed="false" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important">Save chapter</button>
+              <button type="button" id="reader-bookmark-toggle" class="btn btn-secondary reader-bookmark-toggle" aria-pressed="false">Save chapter</button>
             </div>
             <p id="reader-bookmarks-empty" class="section-note reader-bookmarks-empty">Nothing here yet. Open a chapter and tap Save chapter—bookmarks stay on this device.</p>
             <ul id="reader-bookmarks-list" class="reader-bookmarks-list" aria-label="Saved chapter bookmarks"></ul>

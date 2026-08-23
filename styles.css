@@ -16308,6 +16308,12 @@ body.has-promo-banner .header-search-sticky {
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
+body.tdb-calm-shelf-page .tdb-vb-inline-panel,
+body.tdb-calm-shelf-page .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-panel {
+  max-height: none;
+  overflow: visible;
+  overscroll-behavior: auto;
+}
 .tdb-vb-inline-panel[hidden] {
   display: none !important;
 }
@@ -16561,7 +16567,8 @@ body.sepia-mode:not(.dark-mode) .tdb-vb-reflection__sat-note p { color: #3a2a10;
     max-height: min(75vh, 32rem);
   }
   body.bible-tool-page .tdb-vb-inline-panel,
-  body.tdb-verse-page .tdb-vb-inline-panel {
+  body.tdb-verse-page .tdb-vb-inline-panel,
+  body.tdb-calm-shelf-page .tdb-vb-inline-panel {
     max-height: none !important;
     overflow: visible !important;
   }

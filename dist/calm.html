@@ -50,8 +50,8 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Calm page?","acceptedAnswer":{"@type":"Answer","text":"Calm is a quiet page with one KJV Bible verse — no ads, no account, no noise. It's a place to breathe and rest in Scripture when life is heavy. Works offline after first visit."}},{"@type":"Question","name":"Do I need an account to use Calm?","acceptedAnswer":{"@type":"Answer","text":"No account or sign-up is needed. Open it, breathe, receive the verse, and go. Verse text stays on your device; optional analytics never include your private prayer text. See Privacy for the short version."}},{"@type":"Question","name":"Does Calm work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. After your first visit, Calm works without an internet connection — built for hard moments at 3am or anywhere you have no signal."}}]}
   </script>
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822desk17" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822desk17">
+  <link rel="preload" href="styles.css?v=20260823desk29" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk29">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
@@ -165,6 +165,46 @@
     body.tdb-calm-shelf-page .calm-helped-row,
     body.tdb-calm-shelf-page .calm-mobius-cta {
       display: none !important;
+    }
+    /* Teaching, rest kit, and hero grow with the page — no inner scroll box */
+    body.tdb-calm-shelf-page .tdb-verse-breakdown-inline,
+    body.tdb-calm-shelf-page .tdb-verse-breakdown-inline.is-open,
+    body.tdb-calm-shelf-page .tdb-vb-inline-panel,
+    body.tdb-calm-shelf-page .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-panel,
+    body.tdb-calm-shelf-page .verse-breakdown-container,
+    body.tdb-calm-shelf-page .calm-verse-porch,
+    body.tdb-calm-shelf-page .context-block,
+    body.tdb-calm-shelf-page .chapter-block,
+    body.tdb-calm-shelf-page .calm-rest-kit-panel__sheet,
+    body.tdb-calm-shelf-page .calm-rest-kit-panel__body {
+      max-height: none !important;
+      overflow: visible !important;
+    }
+    body.tdb-calm-shelf-page .calm-page .calm-hero--soar-dawn.glass {
+      overflow: visible !important;
+    }
+    body.tdb-calm-shelf-page .calm-rest-kit-panel {
+      position: relative !important;
+      inset: auto !important;
+      z-index: 1 !important;
+      display: block;
+      padding: 0 !important;
+      background: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    body.tdb-calm-shelf-page .calm-rest-kit-panel[hidden] {
+      display: none !important;
+    }
+    body.tdb-calm-shelf-page .calm-rest-kit-panel__sheet {
+      width: 100%;
+      max-width: 36rem;
+      margin: 0.75rem auto 0;
+      border-radius: 12px;
+      box-shadow: none;
+    }
+    body.calm-rest-kit-open {
+      overflow: visible !important;
     }
     body.tdb-calm-shelf-page .calm-daily-verse-surface {
       border-left: 4px solid #f2dc98;

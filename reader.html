@@ -26,8 +26,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260823desk22" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260823desk22">
+  <link rel="preload" href="styles.css?v=20260823desk23" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk23">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -118,15 +118,18 @@
       font-size: 0.75rem;
     }
     body.chapter-reader-page .reader-actions {
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: wrap !important;
-      gap: 0.4rem !important;
-      align-items: center !important;
+      display: block !important;
     }
-    body.chapter-reader-page .reader-actions > button,
-    body.chapter-reader-page .reader-actions > .btn,
-    body.chapter-reader-page .reader-actions > label {
+    body.chapter-reader-page .reader-action-row {
+      display: flex !important;
+      flex-flow: row wrap !important;
+      align-items: center !important;
+      gap: 0.4rem !important;
+    }
+    body.chapter-reader-page .reader-action-row > button,
+    body.chapter-reader-page .reader-action-row > .btn,
+    body.chapter-reader-page .reader-action-row > label,
+    body.chapter-reader-page .reader-action-row > * {
       flex: 0 0 auto !important;
       width: auto !important;
       max-width: none !important;
@@ -135,6 +138,7 @@
       align-items: center;
       justify-content: center;
       min-height: 44px;
+      box-sizing: border-box;
     }
     body.chapter-reader-page .reader-audio-hint {
       flex: 1 1 100% !important;
@@ -915,15 +919,17 @@
               </div>
             </div>
             <div class="reader-actions">
-              <label class="inline-toggle reader-red-letter">
+              <div class="reader-action-row" role="group" aria-label="Chapter controls" style="display:flex!important;flex-flow:row wrap!important;align-items:center!important;gap:0.4rem!important;width:100%">
+              <label class="inline-toggle reader-red-letter" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important">
                 <input id="reader-red-letter-toggle" type="checkbox" aria-label="Show red letters (words of Jesus)">
                 Red letters
               </label>
-              <button id="reader-prev" type="button">Prev</button>
-              <button id="reader-next" type="button">Next</button>
-              <button id="reader-open" type="button">Open Chapter</button>
-              <button id="reader-listen" class="btn btn-secondary btn-listen" type="button" aria-pressed="false" aria-label="Listen to this chapter on your device">Listen</button>
-              <button id="reader-audio" class="btn btn-secondary btn-kjv-audio" type="button" aria-label="Open KJV audio in new tab">KJV Audio</button>
+              <button id="reader-prev" class="btn btn-secondary" type="button" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important">Prev</button>
+              <button id="reader-next" class="btn btn-secondary" type="button" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important">Next</button>
+              <button id="reader-open" class="btn btn-secondary" type="button" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important">Open Chapter</button>
+              <button id="reader-listen" class="btn btn-secondary btn-listen" type="button" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important" aria-pressed="false" aria-label="Listen to this chapter on your device">Listen</button>
+              <button id="reader-audio" class="btn btn-secondary btn-kjv-audio" type="button" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important" aria-label="Open KJV audio in new tab">KJV Audio</button>
+              </div>
               <p class="section-note util-mb-0 reader-audio-hint tdb-listen-privacy-hint"><span id="reader-listen-hint">KJV loads on this device—tap Listen for a quiet hear-through; tap again to stop. </span>KJV Audio opens the passage in a new tab when you want that player.</p>
             </div>
           </div>
@@ -936,9 +942,9 @@
             <ul id="reader-recent-strip-list" class="reader-recent-strip-list"></ul>
           </div>
           <div class="reader-bookmarks-panel" role="region" aria-labelledby="reader-bookmarks-heading">
-            <div class="reader-bookmarks-toolbar">
+            <div class="reader-bookmarks-toolbar" style="display:flex!important;flex-flow:row wrap!important;align-items:center!important;gap:0.5rem!important">
               <h3 id="reader-bookmarks-heading" class="reader-bookmarks-heading">Saved chapters</h3>
-              <button type="button" id="reader-bookmark-toggle" class="btn btn-secondary reader-bookmark-toggle" aria-pressed="false">Save chapter</button>
+              <button type="button" id="reader-bookmark-toggle" class="btn btn-secondary reader-bookmark-toggle" aria-pressed="false" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important">Save chapter</button>
             </div>
             <p id="reader-bookmarks-empty" class="section-note reader-bookmarks-empty">Nothing here yet. Open a chapter and tap Save chapter—bookmarks stay on this device.</p>
             <ul id="reader-bookmarks-list" class="reader-bookmarks-list" aria-label="Saved chapter bookmarks"></ul>

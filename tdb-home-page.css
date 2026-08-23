@@ -13271,7 +13271,19 @@ nav.tdb-bottom-dock:has(.sos-btn) {
 #family-armor-stories-btn,
 #auth-modal,
 #backup-reminder,
-#quiet-update {
+#quiet-update,
+#welcomeBackMsg,
+.welcome-back-msg,
+.tdb-verse-appearance-help,
+#tdbHomeAfterAsk,
+#tdbQuietCornerStrip,
+.tdb-quiet-corner-strip,
+.easter-banner,
+#footerMoodInsight,
+.site-footer-mood-insight,
+.site-footer-hint,
+.tdb-nav-more-panel a[href="/for-pastors.html"],
+.easter-egg-badge {
   display: none !important;
 }
 #verseCard {

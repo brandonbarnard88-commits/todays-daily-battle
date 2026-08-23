@@ -26,8 +26,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260823desk23" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260823desk23">
+  <link rel="preload" href="styles.css?v=20260823desk24" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk24">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
@@ -86,13 +86,16 @@
     }
     body.chapter-reader-page .reader-pickers {
       display: grid !important;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 0.7fr);
-      gap: 0.5rem 0.65rem;
-      align-items: end;
+      grid-template-columns: minmax(7rem, 1.5fr) minmax(6rem, 1fr) minmax(4.5rem, 0.7fr) !important;
+      gap: 0.45rem 0.55rem !important;
+      align-items: end !important;
     }
     body.chapter-reader-page .reader-book-jump-wrap {
-      grid-column: auto;
+      grid-column: 1 !important;
       min-width: 0;
+    }
+    body.chapter-reader-page .reader-book-jump-wrap .section-note {
+      display: none !important;
     }
     body.chapter-reader-page .reader-pickers label {
       margin: 0 0 0.2rem !important;
@@ -114,17 +117,21 @@
       width: 100% !important;
     }
     body.chapter-reader-page .reader-book-jump-wrap .section-note {
-      margin: 0.25rem 0 0 !important;
-      font-size: 0.75rem;
+      display: none !important;
     }
     body.chapter-reader-page .reader-actions {
       display: block !important;
     }
     body.chapter-reader-page .reader-action-row {
-      display: flex !important;
-      flex-flow: row wrap !important;
+      display: grid !important;
+      grid-auto-flow: column !important;
+      grid-auto-columns: max-content !important;
+      justify-content: start !important;
       align-items: center !important;
-      gap: 0.4rem !important;
+      gap: 0.35rem !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+      width: 100% !important;
     }
     body.chapter-reader-page .reader-action-row > button,
     body.chapter-reader-page .reader-action-row > .btn,
@@ -137,18 +144,21 @@
       display: inline-flex !important;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
+      min-height: 40px !important;
+      padding: 0.35rem 0.65rem !important;
+      font-size: 0.88rem !important;
       box-sizing: border-box;
+      white-space: nowrap !important;
     }
-    body.chapter-reader-page .reader-audio-hint {
-      flex: 1 1 100% !important;
-      width: 100% !important;
-      margin: 0.15rem 0 0 !important;
+    body.chapter-reader-page .reader-audio-hint,
+    body.chapter-reader-page .reader-strip-hint {
+      display: none !important;
     }
     body.chapter-reader-page .reader-bookmarks-toolbar {
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: wrap !important;
+      display: grid !important;
+      grid-auto-flow: column !important;
+      grid-auto-columns: max-content !important;
+      justify-content: start !important;
       align-items: center !important;
       gap: 0.5rem !important;
     }
@@ -171,10 +181,7 @@
     }
     @media (max-width: 720px) {
       body.chapter-reader-page .reader-pickers {
-        grid-template-columns: 1fr 1fr;
-      }
-      body.chapter-reader-page .reader-book-jump-wrap {
-        grid-column: 1 / -1;
+        grid-template-columns: minmax(6rem, 1.3fr) minmax(5rem, 1fr) minmax(4rem, 0.7fr) !important;
       }
     }
     .reader-hero-lead {
@@ -919,7 +926,7 @@
               </div>
             </div>
             <div class="reader-actions">
-              <div class="reader-action-row" role="group" aria-label="Chapter controls" style="display:flex!important;flex-flow:row wrap!important;align-items:center!important;gap:0.4rem!important;width:100%">
+              <div class="reader-action-row" role="group" aria-label="Chapter controls" style="display:grid!important;grid-auto-flow:column!important;grid-auto-columns:max-content!important;justify-content:start!important;align-items:center!important;gap:0.35rem!important;overflow-x:auto!important;width:100%">
               <label class="inline-toggle reader-red-letter" style="width:auto!important;flex:none!important;margin:0!important;display:inline-flex!important">
                 <input id="reader-red-letter-toggle" type="checkbox" aria-label="Show red letters (words of Jesus)">
                 Red letters

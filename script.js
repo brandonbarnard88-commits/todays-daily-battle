@@ -32,7 +32,7 @@
   if (!('serviceWorker' in navigator)) return;
   if (document.querySelector('script[data-tdb-sw-register]')) return;
   var s = document.createElement('script');
-  s.src = '/register-sw.js?v=20260823desk52';
+  s.src = '/register-sw.js?v=20260823desk53';
   s.defer = true;
   s.setAttribute('data-tdb-sw-register', '1');
   (document.head || document.documentElement).appendChild(s);
@@ -18554,6 +18554,37 @@ function wireVersePageListen() {
     var v = getRefTextHighlight();
     if (!v.ref || !v.text) return;
     var body = v.ref + '. ' + v.text;
+    var listenSlug = String(v.ref)
+      .replace(/\s*\(KJV\)\s*$/i, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+    if (listenSlug) {
+      var bakedUrl = '/audio/hero-listen/' + encodeURIComponent(listenSlug) + '.mp3';
+      tdbStopElevenLabsPlayback();
+      var audio = new Audio(bakedUrl);
+      window.__tdbElevenLabsAudio = audio;
+      audio.preload = 'auto';
+      audio.onended = function () {
+        tdbStopElevenLabsPlayback();
+        setIdle();
+      };
+      audio.onerror = function () {
+        tdbStopElevenLabsPlayback();
+        setIdle();
+        if (startLocal(body, v.highlightEl)) return;
+      };
+      var playP = audio.play();
+      if (playP && typeof playP.then === 'function') {
+        playP.then(function () {
+          setActive();
+        }).catch(function () {
+          tdbStopElevenLabsPlayback();
+          if (startLocal(body, v.highlightEl)) setActive();
+        });
+        return;
+      }
+    }
     if (!navigator.onLine) {
       if (typeof showEliteToast === 'function') {
         showEliteToast(TDB_CLOUD_TTS_FALLBACK_TOAST);

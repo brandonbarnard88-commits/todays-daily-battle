@@ -308,6 +308,19 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
     } else {
       tag += ' data-tdb-hero-ymd="' + stamp + '"';
     }
+    var listenSlug = String(refPlain || '')
+      .replace(/\s*\(KJV\)\s*$/i, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+    var listenSrc = listenSlug ? '/audio/hero-listen/' + listenSlug + '.mp3' : '';
+    if (listenSrc) {
+      if (/data-tdb-listen-src=/.test(tag)) {
+        tag = tag.replace(/data-tdb-listen-src="[^"]*"/, 'data-tdb-listen-src="' + listenSrc + '"');
+      } else {
+        tag += ' data-tdb-listen-src="' + listenSrc + '"';
+      }
+    }
     return tag + '>';
   });
 

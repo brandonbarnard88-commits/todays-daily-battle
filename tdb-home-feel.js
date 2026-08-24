@@ -2882,6 +2882,49 @@ function wireReadAloudTts() {
       if (typeof window.tdbStopElevenLabsPlayback === 'function') window.tdbStopElevenLabsPlayback();
       const text = buildTtsText();
       if (!text.trim()) return;
+      function heroListenUrl() {
+        var card = document.getElementById('verseCard');
+        var stamped = card && card.getAttribute('data-tdb-listen-src');
+        if (stamped) return stamped;
+        var ref = '';
+        if (card && typeof window.tdbGetDailyVerseRefFromCard === 'function') {
+          ref = window.tdbGetDailyVerseRefFromCard(card) || '';
+        }
+        if (!ref) {
+          var refEl = document.getElementById('heroRef');
+          ref = refEl ? String(refEl.textContent || '') : '';
+        }
+        var slug = String(ref)
+          .replace(/\s*\(KJV\)\s*$/i, '')
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-|-$/g, '');
+        return slug ? '/audio/hero-listen/' + encodeURIComponent(slug) + '.mp3' : '';
+      }
+      function playBakedHeroListen(url, onFail) {
+        var audio = new Audio(url);
+        if (typeof window !== 'undefined') window.__tdbElevenLabsAudio = audio;
+        audio.preload = 'auto';
+        audio.onended = function () {
+          if (highlightTarget) highlightTarget.classList.remove('tdb-tts-highlight-active');
+          setPlaying(false);
+          if (typeof window.tdbStopElevenLabsPlayback === 'function') window.tdbStopElevenLabsPlayback();
+        };
+        audio.onerror = function () {
+          if (typeof window.tdbStopElevenLabsPlayback === 'function') window.tdbStopElevenLabsPlayback();
+          if (onFail) onFail();
+        };
+        var p = audio.play();
+        if (p && typeof p.then === 'function') {
+          p.then(function () {
+            if (highlightTarget) highlightTarget.classList.add('tdb-tts-highlight-active');
+            setPlaying(true);
+          }).catch(function () {
+            if (typeof window.tdbStopElevenLabsPlayback === 'function') window.tdbStopElevenLabsPlayback();
+            if (onFail) onFail();
+          });
+        }
+      }
       const verseCardEl = document.getElementById('verseCard');
       const highlightTarget = (verseCardEl && typeof window.tdbGetDailyVerseBodyElementFromCard === 'function')
         ? window.tdbGetDailyVerseBodyElementFromCard(verseCardEl)
@@ -2913,6 +2956,34 @@ function wireReadAloudTts() {
         dailyUtterance.onpause = () => setPlaying(false);
         dailyUtterance.onresume = () => setPlaying(true);
         synth.speak(dailyUtterance);
+      }
+      var baked = heroListenUrl();
+      if (baked) {
+        playBakedHeroListen(baked, function () {
+          if (navigator.onLine && typeof window.tdbPlayElevenLabsTts === 'function') {
+            window.tdbPlayElevenLabsTts(text, {
+              onStart: function () {
+                if (highlightTarget) highlightTarget.classList.add('tdb-tts-highlight-active');
+                setPlaying(true);
+              },
+              onEnd: function () {
+                if (highlightTarget) highlightTarget.classList.remove('tdb-tts-highlight-active');
+                setPlaying(false);
+              },
+              onError: function () {
+                if (highlightTarget) highlightTarget.classList.remove('tdb-tts-highlight-active');
+                setPlaying(false);
+                startLocalNarration();
+              },
+            }).then(function (res) {
+              if (res && res.started) return;
+              startLocalNarration();
+            });
+            return;
+          }
+          startLocalNarration();
+        });
+        return;
       }
       if (navigator.onLine && typeof window.tdbPlayElevenLabsTts === 'function') {
         btn.disabled = true;

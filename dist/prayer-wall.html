@@ -13,7 +13,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://cdn.jsdelivr.net https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://www.google.com https://unpkg.com https://cdn.jsdelivr.net; frame-src 'self' https://challenges.cloudflare.com;">
   <meta name="referrer" content="no-referrer">
   <title>Prayer &mdash; Today&rsquo;s Daily Battle</title>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260822quiet"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260823desk38"></script>
   <meta name="description" content="Rest first. A prayer porch&mdash;private lines stay on this device, or a shared wall with others after you sign in. You&rsquo;re already welcome here.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/prayer-wall.html">
@@ -29,8 +29,8 @@
   <meta name="twitter:description" content="Rest first. Private prayer on this device, or a moderated wall with others when you&rsquo;re ready&mdash;no performance.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="/styles.css?v=20260822quiet" as="style">
-  <link rel="stylesheet" href="/styles.css?v=20260822quiet" nonce="tdb2025s">
+  <link rel="preload" href="/styles.css?v=20260823desk38" as="style">
+  <link rel="stylesheet" href="/styles.css?v=20260823desk38" nonce="tdb2025s">
   <link rel="manifest" href="/manifest.json">
   <noscript>
     <meta http-equiv="refresh" content="0;url=/explore.html#prayer">
@@ -158,7 +158,7 @@
           <p class="prayer-wall-privacy-note landing-privacy-teaser section-note">Everything in this tab stays on this device until <em>you</em> open the shared wall and post while signed in. Your words are not uploaded as “private” lines. <a href="privacy.html">Read the promise</a>.</p>
           <p class="prayer-privacy-note section-note" id="prayer-privacy-stay-note">Your private prayers stay on this device until you choose to share.</p>
           <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
-          <p class="section-note">Human-curated. All anonymous by default. Report any concern: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+          <p class="section-note prayer-quiet-extra">Human-curated. All anonymous by default. Report any concern: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
           <p class="prayer-wall-community-line section-note">The shared wall is in the other tab. It waits until you are ready and signed in.</p>
           <section class="prayer-choice-guide glass tdb-porch-paper-glass" aria-label="Private and shared prayer guide">
             <h3 class="section-divider">Private first. Shared only when you mean it.</h3>
@@ -207,10 +207,10 @@
           </div>
           <!-- Community wall: name the battle in a few words; stored as "Facing … today" -->
           <div class="prayer-wall-input-row">
-            <label for="prayer-wall-input" class="sr-only">Name your battle in a few words (posts anonymously)</label>
+            <label for="prayer-wall-input" class="sr-only">One honest line, kept on this device</label>
             <input type="text" id="prayer-wall-input" class="prayer-wall-input" maxlength="120"
-              placeholder="e.g. anxiety, caregiving, chronic pain" aria-label="Name your battle in a few words (posts anonymously)" autocomplete="off">
-            <button type="button" id="prayer-wall-add" class="prayer-wall-add-btn" aria-label="Share anonymously on the prayer wall">Share anonymously</button>
+              placeholder="One honest line is enough" aria-label="One honest line, kept on this device" autocomplete="off">
+            <button type="button" id="prayer-wall-add" class="prayer-wall-add-btn" aria-label="Keep this line on this device">Keep this line</button>
           </div>
           <p id="prayer-wall-input-error" class="prayer-wall-input-error section-note" role="alert" hidden></p>
           <p id="prayer-wall-post-success" class="prayer-wall-post-success section-note" role="status" aria-live="polite" hidden></p>
@@ -323,8 +323,8 @@
         <section id="prayer-panel-with-others" class="message-board glass tdb-porch-paper-glass hidden" data-prayer-panel="with-others" role="tabpanel" aria-labelledby="prayer-tab-with-others" aria-hidden="true">
           <h2 class="section-divider" id="message-board-heading">Pray with others</h2>
           <p class="section-note" id="message-board-intro">Read what others have placed here. No sign-in needed to read or to amen. Add your own when you&rsquo;re ready — sign in first, no name required, no performance.</p>
-          <p class="section-note" role="note">Short and honest is enough. Leave out names and details.</p>
-          <p class="section-note" role="note">Human-curated and moderated. Report any concern: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+          <p class="section-note prayer-quiet-extra" role="note">Short and honest is enough. Leave out names and details.</p>
+          <p class="section-note prayer-quiet-extra" role="note">Human-curated and moderated. Report any concern: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
           <p class="section-note tdb-privacy-whisper" id="message-board-privacy-note" role="note">No selling. No ads. Shared posts stay anonymous and are moderated. <strong>Before you post</strong>, read the <a href="privacy.html">privacy promise</a>.</p>
           <div id="message-board-note" class="section-note"></div>
           <div class="message-toolbar">

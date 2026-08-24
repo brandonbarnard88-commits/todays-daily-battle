@@ -121,15 +121,18 @@ function main() {
   }
   total += auditPlansDataJs(kjv);
 
-  // Also scan plans.html inline plan day refs lightly
+  // Catalog lives in plans-app.js (was inline in plans.html)
+  const plansApp = path.join(root, 'plans-app.js');
   const plansHtml = path.join(root, 'plans.html');
-  if (fs.existsSync(plansHtml)) {
-    const html = fs.readFileSync(plansHtml, 'utf8');
-    const refs = [...html.matchAll(/ref:\s*['"]([^'"]+\d+:\d+[^'"]*)['"]/g)].map((m) => m[1]);
+  const catalogSrc = fs.existsSync(plansApp)
+    ? fs.readFileSync(plansApp, 'utf8')
+    : (fs.existsSync(plansHtml) ? fs.readFileSync(plansHtml, 'utf8') : '');
+  if (catalogSrc) {
+    const refs = [...catalogSrc.matchAll(/ref:\s*['"]([^'"]+\d+:\d+[^'"]*)['"]/g)].map((m) => m[1]);
     let sample = 0;
     for (const ref of refs.slice(0, 80)) {
       // Multi-ref: resolveKjvText handles "Romans 3:23; 6:23" book inheritance
-      if (!resolveKjvText(kjv, ref)) fail(`plans.html inline ref not in KJV: ${ref}`);
+      if (!resolveKjvText(kjv, ref)) fail(`plans-app.js ref not in KJV: ${ref}`);
       else sample++;
     }
     total += sample;

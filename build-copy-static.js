@@ -122,6 +122,7 @@ const CRITICAL_DIST_JS = [
   'tdb-another-verse.js',
   'js/surfaces/home.js',
   'js/surfaces/plans.js',
+  'plans-app.js',
   'js/surfaces/church.js',
   'kids/kids-play-helpers.js',
   'kids/kids-play-skin.css'
@@ -152,6 +153,7 @@ const rootFiles = [
   'calm-rest-kit.js',
   'calm-breathe.js',
   'plans-builder.js',
+  'plans-app.js',
   'plans-weary-season-plans.js',
   'tdb-feel-combo.js',
   'tool-pages.css',
@@ -245,6 +247,7 @@ const rootFiles = [
   'easter-season.js',
   'easter-eggs.css',
   'plans-data.js',
+  'plans-app.js',
   'university-plan-extensions.js',
   'memory-verses.js',
   'mission-outreach-data.js',
@@ -426,143 +429,149 @@ for (const f of otherHtml) {
   content = stampAuthAssetUrls(content);
   fs.writeFileSync(path.join(dist, f), content);
   if (f === 'plans.html') {
+    const plansAppPath = path.join(root, 'plans-app.js');
+    if (!fs.existsSync(plansAppPath)) {
+      console.error('BUILD FAIL: plans-app.js missing (Plans catalog).');
+      process.exit(1);
+    }
+    const haystack = content + '\n' + fs.readFileSync(plansAppPath, 'utf8');
     if (!content.includes('plan-list') || !content.includes('Battle Distraction')) {
       console.error('BUILD FAIL: plans.html must contain plan-list and Battle Distraction. Plan cards are required.');
       process.exit(1);
     }
-    if (!content.includes('fearfaith') || !content.includes('tdb-plan-fearfaith-day')) {
+    if (!haystack.includes('fearfaith') || !haystack.includes('tdb-plan-fearfaith-day')) {
       console.error('BUILD FAIL: plans.html must include Fear to Faith plan (fearfaith / tdb-plan-fearfaith-day).');
       process.exit(1);
     }
-    if (!content.includes('worrytrust') || !content.includes('tdb-plan-worrytrust-day')) {
+    if (!haystack.includes('worrytrust') || !haystack.includes('tdb-plan-worrytrust-day')) {
       console.error('BUILD FAIL: plans.html must include Worry to Trust plan (worrytrust / tdb-plan-worrytrust-day).');
       process.exit(1);
     }
-    if (!content.includes('angerpeace') || !content.includes('tdb-plan-angerpeace-day')) {
+    if (!haystack.includes('angerpeace') || !haystack.includes('tdb-plan-angerpeace-day')) {
       console.error('BUILD FAIL: plans.html must include Anger → Peace plan (angerpeace / tdb-plan-angerpeace-day).');
       process.exit(1);
     }
-    if (!content.includes('doubtassurance') || !content.includes('tdb-plan-doubtassurance-day')) {
+    if (!haystack.includes('doubtassurance') || !haystack.includes('tdb-plan-doubtassurance-day')) {
       console.error('BUILD FAIL: plans.html must include Doubt → Assurance plan (doubtassurance / tdb-plan-doubtassurance-day).');
       process.exit(1);
     }
-    if (!content.includes('griefhope') || !content.includes('tdb-plan-griefhope-day')) {
+    if (!haystack.includes('griefhope') || !haystack.includes('tdb-plan-griefhope-day')) {
       console.error('BUILD FAIL: plans.html must include Grief → Hope plan (griefhope / tdb-plan-griefhope-day).');
       process.exit(1);
     }
-    if (!content.includes('painwontquit') || !content.includes('tdb-plan-painwontquit-day')) {
+    if (!haystack.includes('painwontquit') || !haystack.includes('tdb-plan-painwontquit-day')) {
       console.error('BUILD FAIL: plans.html must include When Pain Won\'t Quit plan (painwontquit / tdb-plan-painwontquit-day).');
       process.exit(1);
     }
-    if (!content.includes('heavyhope') || !content.includes('tdb-plan-heavyhope-day')) {
+    if (!haystack.includes('heavyhope') || !haystack.includes('tdb-plan-heavyhope-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Depression & Hopelessness plan (heavyhope / tdb-plan-heavyhope-day).');
       process.exit(1);
     }
-    if (!content.includes('universitywaiting') || !content.includes('tdb-plan-universitywaiting-day')) {
+    if (!haystack.includes('universitywaiting') || !haystack.includes('tdb-plan-universitywaiting-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Waiting plan (universitywaiting / tdb-plan-universitywaiting-day).');
       process.exit(1);
     }
-    if (!content.includes('universitygrief') || !content.includes('tdb-plan-universitygrief-day')) {
+    if (!haystack.includes('universitygrief') || !haystack.includes('tdb-plan-universitygrief-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Grief plan (universitygrief / tdb-plan-universitygrief-day).');
       process.exit(1);
     }
-    if (!content.includes('parentweary') || !content.includes('tdb-plan-parentweary-day')) {
+    if (!haystack.includes('parentweary') || !haystack.includes('tdb-plan-parentweary-day')) {
       console.error('BUILD FAIL: plans.html must include parentweary porch plan (parentweary / tdb-plan-parentweary-day).');
       process.exit(1);
     }
-    if (!content.includes('aftergrief') || !content.includes('tdb-plan-aftergrief-day')) {
+    if (!haystack.includes('aftergrief') || !haystack.includes('tdb-plan-aftergrief-day')) {
       console.error('BUILD FAIL: plans.html must include aftergrief porch plan (aftergrief / tdb-plan-aftergrief-day).');
       process.exit(1);
     }
-    if (!content.includes('ordinarytuesday') || !content.includes('tdb-plan-ordinarytuesday-day')) {
+    if (!haystack.includes('ordinarytuesday') || !haystack.includes('tdb-plan-ordinarytuesday-day')) {
       console.error('BUILD FAIL: plans.html must include ordinarytuesday porch plan (ordinarytuesday / tdb-plan-ordinarytuesday-day).');
       process.exit(1);
     }
-    if (!content.includes('smallchurchheavy') || !content.includes('tdb-plan-smallchurchheavy-day')) {
+    if (!haystack.includes('smallchurchheavy') || !haystack.includes('tdb-plan-smallchurchheavy-day')) {
       console.error('BUILD FAIL: plans.html must include smallchurchheavy porch plan (smallchurchheavy / tdb-plan-smallchurchheavy-day).');
       process.exit(1);
     }
-    if (!content.includes('universityparenting') || !content.includes('tdb-plan-universityparenting-day')) {
+    if (!haystack.includes('universityparenting') || !haystack.includes('tdb-plan-universityparenting-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Parenting Young Kids plan (universityparenting / tdb-plan-universityparenting-day).');
       process.exit(1);
     }
-    if (!content.includes('universitysecretprayer') || !content.includes('tdb-plan-universitysecretprayer-day')) {
+    if (!haystack.includes('universitysecretprayer') || !haystack.includes('tdb-plan-universitysecretprayer-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Secret Prayer plan (universitysecretprayer / tdb-plan-universitysecretprayer-day).');
       process.exit(1);
     }
-    if (!content.includes('universityanxiety') || !content.includes('tdb-plan-universityanxiety-day')) {
+    if (!haystack.includes('universityanxiety') || !haystack.includes('tdb-plan-universityanxiety-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Anxiety & Fear plan (universityanxiety / tdb-plan-universityanxiety-day).');
       process.exit(1);
     }
-    if (!content.includes('universityexhaustion') || !content.includes('tdb-plan-universityexhaustion-day')) {
+    if (!haystack.includes('universityexhaustion') || !haystack.includes('tdb-plan-universityexhaustion-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Exhaustion plan (universityexhaustion / tdb-plan-universityexhaustion-day).');
       process.exit(1);
     }
-    if (!content.includes('universitygratitude') || !content.includes('tdb-plan-universitygratitude-day')) {
+    if (!haystack.includes('universitygratitude') || !haystack.includes('tdb-plan-universitygratitude-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Gratitude plan (universitygratitude / tdb-plan-universitygratitude-day).');
       process.exit(1);
     }
-    if (!content.includes('universityloneliness') || !content.includes('tdb-plan-universityloneliness-day')) {
+    if (!haystack.includes('universityloneliness') || !haystack.includes('tdb-plan-universityloneliness-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Loneliness plan (universityloneliness / tdb-plan-universityloneliness-day).');
       process.exit(1);
     }
-    if (!content.includes('universityforgiveness') || !content.includes('tdb-plan-universityforgiveness-day')) {
+    if (!haystack.includes('universityforgiveness') || !haystack.includes('tdb-plan-universityforgiveness-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Forgiveness plan (universityforgiveness / tdb-plan-universityforgiveness-day).');
       process.exit(1);
     }
-    if (!content.includes('universitydoubt') || !content.includes('tdb-plan-universitydoubt-day')) {
+    if (!haystack.includes('universitydoubt') || !haystack.includes('tdb-plan-universitydoubt-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Doubt plan (universitydoubt / tdb-plan-universitydoubt-day).');
       process.exit(1);
     }
-    if (!content.includes('universitybitterness') || !content.includes('tdb-plan-universitybitterness-day')) {
+    if (!haystack.includes('universitybitterness') || !haystack.includes('tdb-plan-universitybitterness-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Bitterness plan (universitybitterness / tdb-plan-universitybitterness-day).');
       process.exit(1);
     }
-    if (!content.includes('universitybroken') || !content.includes('tdb-plan-universitybroken-day')) {
+    if (!haystack.includes('universitybroken') || !haystack.includes('tdb-plan-universitybroken-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Broken Relationships plan (universitybroken / tdb-plan-universitybroken-day).');
       process.exit(1);
     }
-    if (!content.includes('latesummerrest') || !content.includes('tdb-plan-latesummerrest-day')) {
+    if (!haystack.includes('latesummerrest') || !haystack.includes('tdb-plan-latesummerrest-day')) {
       console.error('BUILD FAIL: plans.html must include Late Summer, Early Rest plan (latesummerrest / tdb-plan-latesummerrest-day).');
       process.exit(1);
     }
-    if (!content.includes('universitycomparison') || !content.includes('tdb-plan-universitycomparison-day')) {
+    if (!haystack.includes('universitycomparison') || !haystack.includes('tdb-plan-universitycomparison-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Comparison plan (universitycomparison / tdb-plan-universitycomparison-day).');
       process.exit(1);
     }
-    if (!content.includes('universityanger') || !content.includes('tdb-plan-universityanger-day')) {
+    if (!haystack.includes('universityanger') || !haystack.includes('tdb-plan-universityanger-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Anger plan (universityanger / tdb-plan-universityanger-day).');
       process.exit(1);
     }
-    if (!content.includes('quietfallharvest') || !content.includes('tdb-plan-quietfallharvest-day')) {
+    if (!haystack.includes('quietfallharvest') || !haystack.includes('tdb-plan-quietfallharvest-day')) {
       console.error('BUILD FAIL: plans.html must include Quiet Fall Harvest plan (quietfallharvest / tdb-plan-quietfallharvest-day).');
       process.exit(1);
     }
-    if (!content.includes('universityregret') || !content.includes('tdb-plan-universityregret-day')) {
+    if (!haystack.includes('universityregret') || !haystack.includes('tdb-plan-universityregret-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Regret plan (universityregret / tdb-plan-universityregret-day).');
       process.exit(1);
     }
-    if (!content.includes('universitycontentment') || !content.includes('tdb-plan-universitycontentment-day')) {
+    if (!haystack.includes('universitycontentment') || !haystack.includes('tdb-plan-universitycontentment-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Contentment in Small Seasons plan (universitycontentment / tdb-plan-universitycontentment-day).');
       process.exit(1);
     }
-    if (!content.includes('universityoverwhelm') || !content.includes('tdb-plan-universityoverwhelm-day')) {
+    if (!haystack.includes('universityoverwhelm') || !haystack.includes('tdb-plan-universityoverwhelm-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Overwhelm plan (universityoverwhelm / tdb-plan-universityoverwhelm-day).');
       process.exit(1);
     }
-    if (!content.includes('universityparentfear') || !content.includes('tdb-plan-universityparentfear-day')) {
+    if (!haystack.includes('universityparentfear') || !haystack.includes('tdb-plan-universityparentfear-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Fear for My Children plan (universityparentfear / tdb-plan-universityparentfear-day).');
       process.exit(1);
     }
-    if (!content.includes('latefallwinter') || !content.includes('tdb-plan-latefallwinter-day')) {
+    if (!haystack.includes('latefallwinter') || !haystack.includes('tdb-plan-latefallwinter-day')) {
       console.error('BUILD FAIL: plans.html must include Late Fall, Quiet Winter plan (latefallwinter / tdb-plan-latefallwinter-day).');
       process.exit(1);
     }
-    if (!content.includes('eveninguog') || !content.includes('tdb-plan-eveninguog-day')) {
+    if (!haystack.includes('eveninguog') || !haystack.includes('tdb-plan-eveninguog-day')) {
       console.error('BUILD FAIL: plans.html must include Evening in the University plan (eveninguog / tdb-plan-eveninguog-day).');
       process.exit(1);
     }
-    if (!content.includes('cancercomfort') || !content.includes('tdb-plan-cancercomfort-day')) {
+    if (!haystack.includes('cancercomfort') || !haystack.includes('tdb-plan-cancercomfort-day')) {
       console.error('BUILD FAIL: plans.html must include Cancer Comfort plan (cancercomfort / tdb-plan-cancercomfort-day).');
       process.exit(1);
     }

@@ -390,16 +390,10 @@
           paintOfficialDaily(String(row.ref), String(row.text));
           return;
         }
-        paintOfficialDaily(
-          'Psalm 96:2',
-          'Sing unto the Lord, bless his name; shew forth his salvation from day to day.'
-        );
+        /* Keep first-paint stamp. Do not paint leftover Psalm 96:2 as today. */
       })
       .catch(function () {
-        paintOfficialDaily(
-          'Psalm 96:2',
-          'Sing unto the Lord, bless his name; shew forth his salvation from day to day.'
-        );
+        /* Keep first-paint stamp. */
       });
   }
 

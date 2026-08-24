@@ -117,6 +117,7 @@
     'Proverbs 22:1': "Plain nudge: A good, honest name is better than a pile of money.",
     'Proverbs 28:26': "Plain nudge: Trusting your own heart is foolish — walk wisely and God keeps you.",
     'Isaiah 26:4': "Plain nudge: Trust the Lord forever - He is the Rock that never quits.",
+    'Psalm 100:1': "Plain nudge: Make a joyful noise to the Lord, all the lands.",
     'Isaiah 40:29': "Plain nudge: He gives power to the tired; He makes weak people strong.",
     'Isaiah 49:16': "Plain nudge: I have you pictured on my hands - I will not forget you.",
     'John 14:1': "Plain nudge: Do not let your heart be troubled - trust God, and trust Jesus.",

@@ -8,7 +8,7 @@
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260822quiet"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260823desk43"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style id="tdb-critical-shell">html{background:#0d1117}body{margin:0;background:#0d1117;color:#e6edf3}</style>
@@ -31,8 +31,8 @@
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&apos;s Verse • Deep KJV study and breakdown">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822desk15" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822desk15">
+  <link rel="preload" href="styles.css?v=20260823desk43" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk43">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
@@ -97,6 +97,14 @@
       letter-spacing: 0.04em;
       color: #f2dc98;
       margin: 0 0 0.55rem;
+    }
+    body.tdb-verse-page #daily-verse-card .tdb-bbe-simple__heading,
+    body.tdb-verse-page #daily-verse-card .tdb-vbd-label {
+      color: #f2dc98;
+    }
+    body.tdb-verse-page #daily-verse-card .tdb-bbe-simple__text,
+    body.tdb-verse-page #daily-verse-card .tdb-vbd-body {
+      color: #f4efe3;
     }
     body.tdb-verse-page #daily-verse-text,
     body.tdb-verse-page .daily-verse-body {
@@ -475,9 +483,19 @@
         </div>
         <section id="verse-of-day" class="verse-of-day glass tdb-porch-paper-glass" role="region" aria-live="polite" aria-label="Today’s KJV verse">
           <h2 class="section-divider">Today&rsquo;s Verse</h2>
-          <div id="daily-verse-card" class="verse-card verse-card-loaded" aria-live="polite" data-hydrate-breakdown="true">
-            <p class="daily-verse-ref" id="daily-verse-ref">Philippians 4:6</p>
-            <blockquote class="daily-verse-body" aria-labelledby="daily-verse-ref"><p class="daily-verse-text" id="daily-verse-text">Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.</p></blockquote>
+          <div id="daily-verse-card" class="verse-card verse-card-loaded" aria-live="polite" data-tdb-no-verse-breakdown="1">
+            <p class="daily-verse-ref" id="daily-verse-ref">Psalm 100:1 (KJV)</p>
+            <blockquote class="daily-verse-body" aria-labelledby="daily-verse-ref"><p class="daily-verse-text" id="daily-verse-text">“Make a joyful noise unto the Lord, all ye lands.”</p></blockquote>
+            <div class="tdb-bbe-simple tdb-bbe-simple--always-open" data-bbe-simple="1" data-bbe-ref="Psalm 100:1" data-bbe-always-open="1">
+              <h4 class="tdb-bbe-simple__heading">In simpler words (BBE)</h4>
+              <p class="tdb-bbe-simple__text" lang="en">Make a glad sound to the Lord, all the earth.</p>
+            </div>
+            <div class="hero-vbd-primary tdb-layman-always-open" role="group" aria-label="What was going on and what it means" data-tdb-bound-ref="Psalm 100:1">
+              <h4 class="tdb-vbd-label">What was going on</h4>
+              <p class="tdb-vbd-body">Psalm 100 opens with a call to the whole earth: make a joyful noise unto the Lord, all ye lands. The verse: Make a joyful noise unto the Lord, all ye lands.</p>
+              <h4 class="tdb-vbd-label">What it means</h4>
+              <p class="tdb-vbd-body">The whole earth is called to make a glad noise to the Lord — not a private whisper only.</p>
+            </div>
             <p class="tdb-today-lesson-foot">Lesson from the University of God &mdash; <time id="tdbVersePageLessonDate" datetime=""></time></p>
           </div>
           <div class="verse-card-actions verse-actions calm-actions" aria-label="Verse actions: listen, share, copy, save, study, pray">
@@ -517,7 +535,7 @@
             <a href="verse-image.html" class="btn btn-secondary" id="tdb-votm-verse-image-link" aria-label="Open verse image generator with today&apos;s KJV verse (Supporter)">Verse image</a>
             <div class="verse-word-study-wrap">
               <span id="verse-study-hint" class="verse-study-hint">One honest verse. That&rsquo;s enough for today.</span>
-              <button type="button" id="verse-page-word-study" class="btn btn-secondary" data-tdb-wordstudy-ref="Philippians 4:6" data-tdb-wordstudy-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." aria-describedby="verse-study-hint" aria-label="Open verse study for Philippians 4:6">Study this verse</button>
+              <button type="button" id="verse-page-word-study" class="btn btn-secondary" data-tdb-wordstudy-ref="Psalm 100:1" data-tdb-wordstudy-text="Make a joyful noise unto the LORD, all ye lands." aria-describedby="verse-study-hint" aria-label="Open verse study for Psalm 100:1">Study this verse</button>
             </div>
             <button type="button" id="pray-this-with-me-verse" class="btn btn-secondary pray-this-with-me-btn" aria-label="Copy a short prayer line and link for today&apos;s verse">Pray this with me</button>
           </div>

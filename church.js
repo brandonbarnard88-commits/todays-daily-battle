@@ -245,9 +245,7 @@
       byId('church-daily-ref').textContent = v.ref;
       byId('church-daily-text').textContent = v.text;
     } catch (e) {
-      byId('church-daily-ref').textContent = 'Psalm 96:2';
-      byId('church-daily-text').textContent =
-        'Sing unto the Lord, bless his name; shew forth his salvation from day to day.';
+      /* Keep first-paint stamp. Do not paint leftover Psalm 96:2 as today. */
     }
   }
 

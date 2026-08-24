@@ -19,6 +19,17 @@ const TARGETS = [
   { file: 'dist/family.html', label: 'dist/family.html' }
 ];
 
+const DAILY_DESKS = [
+  { file: 'verse.html', ids: { ref: 'daily-verse-ref', text: 'daily-verse-text' } },
+  { file: 'kids-corner.html', ids: { ref: 'kids-daily-verse-ref', text: 'kids-daily-verse-text' } },
+  { file: 'kids/corner.html', ids: { ref: 'kids-daily-verse-ref', text: 'kids-daily-verse-text' } },
+  { file: 'church/daily.html', ids: { ref: 'church-daily-ref', text: 'church-daily-verse-text', refAlt: 'church-daily-verse-ref' } },
+  { file: 'dist/verse.html', ids: { ref: 'daily-verse-ref', text: 'daily-verse-text' } },
+  { file: 'dist/kids-corner.html', ids: { ref: 'kids-daily-verse-ref', text: 'kids-daily-verse-text' } },
+  { file: 'dist/kids/corner.html', ids: { ref: 'kids-daily-verse-ref', text: 'kids-daily-verse-text' } },
+  { file: 'dist/church/daily.html', ids: { ref: 'church-daily-ref', text: 'church-daily-verse-text', refAlt: 'church-daily-verse-ref' } }
+];
+
 function escapeHtmlText(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
@@ -26,6 +37,19 @@ function escapeHtmlText(s) {
 function fail(msg) {
   console.error('inject-porch-verse-widget:', msg);
   process.exit(1);
+}
+
+function injectIdInner(html, id, inner) {
+  const re = new RegExp('(<[^>]*\\bid="' + id + '"[^>]*>)[\\s\\S]*?(</[^>]+>)');
+  if (!re.test(html)) return html;
+  return html.replace(re, '$1' + inner + '$2');
+}
+
+function injectDailyDesk(html, ids, refHtml, textHtml, refBare) {
+  html = injectIdInner(html, ids.ref, ids.ref === 'church-daily-ref' ? refBare : refHtml);
+  html = injectIdInner(html, ids.text, textHtml);
+  if (ids.refAlt) html = injectIdInner(html, ids.refAlt, refHtml);
+  return html;
 }
 
 function injectFamilyDailyVerse(html, refHtml, textHtml) {
@@ -93,10 +117,24 @@ for (const target of TARGETS) {
   fs.writeFileSync(filePath, updated);
 }
 
+for (const desk of DAILY_DESKS) {
+  const filePath = path.join(root, desk.file);
+  if (!fs.existsSync(filePath)) {
+    if (desk.file.indexOf('dist/') === 0) continue;
+    fail(desk.file + ' missing');
+  }
+  const original = fs.readFileSync(filePath, 'utf8');
+  const updated = injectDailyDesk(original, desk.ids, refHtml, textHtml, refPlain);
+  if (original === updated && !original.includes(refPlain)) {
+    fail('could not stamp today into ' + desk.file);
+  }
+  fs.writeFileSync(filePath, updated);
+}
+
 console.log(
   'inject-porch-verse-widget: OK — ' +
     refPlain +
     ' (UTC doy ' +
     utcDayOfYear() +
-    ') → explore + plans + family'
+    ') → explore + plans + family + verse + kids + church'
 );

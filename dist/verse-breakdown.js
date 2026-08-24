@@ -2152,6 +2152,15 @@
         if (el.id === 'family-daily-verse-root' || el.closest('#family-daily-verse-root, .family-verse-card, #tdbPorchVerseWidget')) return true;
       }
     } catch (eFamSkip) {}
+    /* Verse page / kids / church stamp THIS day's KJV. Auto-inject mixed leftover Philippians 4:6 / Psalm 96:2. */
+    try {
+      var pathDesk = String((window.location && window.location.pathname) || '').toLowerCase();
+      if (pathDesk.indexOf('verse.html') !== -1 || pathDesk === '/verse' || /\/verse\/?$/.test(pathDesk)) {
+        if (el.id === 'daily-verse-card' || el.closest('#daily-verse-card, #verse-of-day')) return true;
+      }
+    } catch (eVerseSkip) {}
+    if (el.id === 'kids-daily-verse-card' || el.closest('#kids-daily-verse-root, #kids-daily-verse-card')) return true;
+    if (el.id === 'church-daily-verse-card' || el.closest('#church-daily-verse-card')) return true;
     if (el.closest('.home-search-detail-panel')) return true;
     if (el.classList && el.classList.contains('tdb-verse-breakdown-inline')) return true;
     if (el.closest('.tdb-verse-breakdown-inline')) return true;

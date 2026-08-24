@@ -3,6 +3,18 @@
   "version": 1,
   "entries": [
     {
+      "id": "prayer-guess",
+      "note": "People type /prayer; the wall is /prayer-wall.",
+      "aliases": [
+        "/prayer",
+        "/prayer/"
+      ],
+      "redirect": {
+        "to": "/prayer-wall.html",
+        "status": 301
+      }
+    },
+    {
       "id": "ask-the-word",
       "note": "Ask the Word lives inside Bible Tool; tdb_focus=ask scrolls to #ask-the-word-section and is replaced with the hash for sharing.",
       "aliases": [

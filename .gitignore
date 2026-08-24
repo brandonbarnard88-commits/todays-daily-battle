@@ -1,4 +1,5 @@
 *.txt
+!ads.txt
 !data/official-export-hash.txt
 !.well-known/security.txt
 !CLOUDFLARE-CSP-COPY-PASTE.txt

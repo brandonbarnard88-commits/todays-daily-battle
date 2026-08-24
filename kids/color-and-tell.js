@@ -151,6 +151,186 @@
     llcommandments: 'll-commandments'
   };
 
+  /** Color & Tell story id → recorded Little Shepherd narration key (kids/audio/shepherd/*.m4a). */
+  var STORY_LISTEN_KEYS = {
+    noah: 'noah',
+    david: 'david',
+    'daniel-lions': 'daniel',
+    'jesus-children': 'jesus',
+    'jesus-storm': 'jesusCalmsStorm',
+    'feeding-5000': 'jesusFeeds5000',
+    'good-samaritan': 'goodSamaritan',
+    'lost-sheep': 'lostSheep',
+    creation: 'creation',
+    'empty-tomb': 'resurrection',
+    'prodigal-son': 'prodigalSon',
+    zacchaeus: 'zacchaeus',
+    esther: 'esther',
+    jonah: 'jonah',
+    'moses-red-sea': 'redSea',
+    nativity: 'jesusBirth',
+    'paul-shipwreck': 'paulShipwreck',
+    'rahab-spies': 'rahab',
+    jericho: 'joshuaJericho',
+    'gideon-fleece': 'gideon',
+    lazarus: 'lazarus',
+    'walks-on-water': 'jesusWalksWater',
+    'good-shepherd': 'goodShepherdParable',
+    'burning-bush': 'mosesBush',
+    'ruth-naomi': 'ruthBoaz',
+    'healing-paralytic': 'jesusHealsParalytic',
+    'triumphal-entry': 'palmSunday',
+    'the-sower': 'parableSower'
+  };
+
+  var listenAudio = null;
+  var listenBtnActive = null;
+  var listenTtsCache = null;
+
+  function stopStoryListen() {
+    if (listenAudio) {
+      try {
+        listenAudio.pause();
+        listenAudio.removeAttribute('src');
+        listenAudio.load();
+      } catch (eA) {}
+      listenAudio = null;
+    }
+    try {
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+    } catch (eS) {}
+    if (typeof document !== 'undefined') {
+      document.querySelectorAll('.tdb-cat-hear-story').forEach(function (b) {
+        b.setAttribute('aria-pressed', 'false');
+        b.textContent = 'Hear the story';
+      });
+    }
+    listenBtnActive = null;
+  }
+
+  function shepherdAudioUrl(story) {
+    var key = story && STORY_LISTEN_KEYS[story.id];
+    if (!key) return '';
+    if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getShepherdNarrationAudioUrl === 'function') {
+      try {
+        return window.tdbLittleShepherd.getShepherdNarrationAudioUrl(key) || '';
+      } catch (eU) {}
+    }
+    return '/kids/audio/shepherd/' + encodeURIComponent(key) + '.m4a';
+  }
+
+  function composeListenScript(story) {
+    if (!story) return '';
+    var parts = [];
+    if (story.title) parts.push(story.title + '.');
+    if (story.verse) parts.push(String(story.verse).replace(/\s+/g, ' ').trim());
+    if (story.scenes && story.scenes.length) {
+      for (var i = 0; i < story.scenes.length; i++) {
+        var sc = story.scenes[i];
+        if (sc.caption) parts.push(String(sc.caption).replace(/\s+/g, ' ').trim());
+        if (sc.verse) parts.push(String(sc.verse).replace(/\s+/g, ' ').trim());
+      }
+    }
+    if (story.idea) parts.push('One big idea: ' + story.idea);
+    return parts.join(' ');
+  }
+
+  function loadListenText(story, done) {
+    var key = story && STORY_LISTEN_KEYS[story.id];
+    if (key && window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getBriefNarration === 'function') {
+      try {
+        var brief = window.tdbLittleShepherd.getBriefNarration(key);
+        if (brief && String(brief).trim()) {
+          done(String(brief).trim());
+          return;
+        }
+      } catch (eB) {}
+    }
+    if (!key) {
+      done(composeListenScript(story));
+      return;
+    }
+    function fromCache() {
+      if (listenTtsCache && listenTtsCache.stories && listenTtsCache.stories[key]) {
+        done(String(listenTtsCache.stories[key]));
+        return true;
+      }
+      return false;
+    }
+    if (fromCache()) return;
+    fetch('/kids/data/shepherd-narration-tts.json', { cache: 'force-cache' })
+      .then(function (res) {
+        return res.ok ? res.json() : null;
+      })
+      .then(function (json) {
+        if (json) listenTtsCache = json;
+        if (!fromCache()) done(composeListenScript(story));
+      })
+      .catch(function () {
+        done(composeListenScript(story));
+      });
+  }
+
+  function speakListenText(text, btn) {
+    if (!text || !window.speechSynthesis || typeof window.SpeechSynthesisUtterance === 'undefined') {
+      stopStoryListen();
+      return;
+    }
+    var u = new window.SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.pitch = 1;
+    u.onend = function () {
+      if (listenBtnActive === btn) stopStoryListen();
+    };
+    u.onerror = function () {
+      if (listenBtnActive === btn) stopStoryListen();
+    };
+    window.speechSynthesis.speak(u);
+  }
+
+  function playStoryListen(story, btn) {
+    if (listenBtnActive === btn) {
+      stopStoryListen();
+      return;
+    }
+    stopStoryListen();
+    listenBtnActive = btn;
+    btn.setAttribute('aria-pressed', 'true');
+    btn.textContent = 'Stop story';
+    var url = shepherdAudioUrl(story);
+    if (url) {
+      var audio = new Audio(url);
+      audio.preload = 'auto';
+      listenAudio = audio;
+      audio.addEventListener('ended', function () {
+        if (listenBtnActive === btn) stopStoryListen();
+      });
+      audio.addEventListener('error', function () {
+        loadListenText(story, function (text) {
+          speakListenText(text, btn);
+        });
+      });
+      var p = audio.play();
+      if (p && typeof p.catch === 'function') {
+        p.catch(function () {
+          loadListenText(story, function (text) {
+            speakListenText(text, btn);
+          });
+        });
+      }
+      return;
+    }
+    loadListenText(story, function (text) {
+      speakListenText(text, btn);
+    });
+  }
+
+  if (typeof document !== 'undefined') {
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stopStoryListen();
+    });
+  }
+
   var STORY_RETURN_HANDOFFS = {
     'jesus-children': {
       storyHref: '/kids/corner.html?story=jesus',
@@ -4458,6 +4638,19 @@
         celebrate.className = 'tdb-cat-story-celebrate';
         celebrate.setAttribute('role', 'status');
 
+        var hearBtn = document.createElement('button');
+        hearBtn.type = 'button';
+        hearBtn.className = 'btn btn-secondary tdb-cat-hear-story no-print';
+        hearBtn.textContent = 'Hear the story';
+        hearBtn.setAttribute('aria-pressed', 'false');
+        hearBtn.setAttribute(
+          'aria-label',
+          'Hear the story of ' + story.title + ' while you color. Nothing is uploaded.'
+        );
+        hearBtn.addEventListener('click', function () {
+          playStoryListen(story, hearBtn);
+        });
+
         var isSingle = story.scenes.length === 1;
         var tablist = null;
         if (!isSingle) {
@@ -4624,6 +4817,7 @@
           ) {
             return;
           }
+          stopStoryListen();
           clearStorySnapshots(story);
           clearJlStrokesInSection(section);
           section.querySelectorAll('.tdb-cat-scene-saved-msg').forEach(function (m) {
@@ -4655,6 +4849,7 @@
 
         section.appendChild(h2);
         section.appendChild(lead);
+        section.appendChild(hearBtn);
         section.appendChild(celebrate);
         if (tablist) {
           section.appendChild(tablist);
@@ -4672,7 +4867,7 @@
         hint.className = 'section-note';
         hint.id = 'tdb-cat-watch-hint-' + story.id;
         hint.textContent =
-          'Watch the scenes you’ve saved — one is enough. More panels make a fuller storyboard.';
+          'Hear the story while you color. Watch the scenes you’ve saved — one is enough. More panels make a fuller storyboard.';
         section.appendChild(hint);
 
         mount.appendChild(section);

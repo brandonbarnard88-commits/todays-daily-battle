@@ -15,6 +15,21 @@ body.tdb-kids-coloring-page .app-content {
 }
 .tdb-quiet-update-strip--plans[hidden] { display: none !important; }
 
+.tdb-cat-hear-story {
+  min-height: 44px;
+  margin: 0.35rem 0 0.75rem;
+  color: #7a5410;
+  border: 1px solid #f2dc98;
+  background: transparent;
+}
+.dark-mode .tdb-cat-hear-story {
+  color: #f2dc98;
+  border-color: #f2dc98;
+}
+.tdb-cat-hear-story[aria-pressed="true"] {
+  background: rgba(242, 220, 152, 0.18);
+}
+
 .tdb-cat-parent-tip {
   margin: 0 0 1.25rem;
   padding-block: 0.75rem 0.8rem;

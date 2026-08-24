@@ -271,14 +271,89 @@
       });
   }
 
-  function speakListenText(text, btn) {
+  var FEMALE_VOICE_RX =
+    /(samantha|victoria|karen|zira|jenny|aria|moira|susan|salli|kate|fiona|tessa|allison|ava|serena|veena|raveena|heera|female|woman|girl|grandma)/i;
+  var MALE_VOICE_RX =
+    /(daniel|alex|fred|david|guy|davis|matthew|tom|thomas|nathan|james|arthur|oliver|reed|george|gordon|malcolm|ralph|albert|bruce|aaron|andrew|brian|christopher|ryan|mark|lee|eddie|eddy|ravi|nicky|junior|grandpa|uk english male|english male|male|man)/i;
+  var NATURAL_VOICE_RX = /(natural|neural|premium|enhanced|siri|google uk english male)/i;
+
+  function pickMaleStoryVoice(synth) {
+    var voices = (synth && synth.getVoices && synth.getVoices()) || [];
+    if (!voices.length) return null;
+    var best = null;
+    var bestScore = -1;
+    for (var i = 0; i < voices.length; i++) {
+      var v = voices[i];
+      var name = String((v && v.name) || '');
+      var lang = String((v && v.lang) || '').toLowerCase();
+      if (lang.indexOf('en') !== 0) continue;
+      if (FEMALE_VOICE_RX.test(name)) continue;
+      var score = 0;
+      if (MALE_VOICE_RX.test(name)) score += 10;
+      if (NATURAL_VOICE_RX.test(name)) score += 8;
+      if (/en-gb|en_gb/.test(lang) || /daniel|uk english male/i.test(name)) score += 4;
+      if (v.localService) score += 2;
+      if (score > bestScore) {
+        bestScore = score;
+        best = v;
+      }
+    }
+    if (best && bestScore >= 10) return best;
+    return (
+      best ||
+      voices.filter(function (v) {
+        return ((v.lang || '').toLowerCase().indexOf('en') === 0) && !FEMALE_VOICE_RX.test(v.name || '');
+      })[0] ||
+      null
+    );
+  }
+
+  function voiceSoundsNatural(voice) {
+    return !!(voice && NATURAL_VOICE_RX.test(String(voice.name || '')));
+  }
+
+  function waitForVoices(done) {
+    var synth = window.speechSynthesis;
+    if (!synth) {
+      done(null);
+      return;
+    }
+    var finished = false;
+    function finish() {
+      if (finished) return;
+      finished = true;
+      done(pickMaleStoryVoice(synth));
+    }
+    if ((synth.getVoices() || []).length) {
+      finish();
+      return;
+    }
+    var onChange = function () {
+      try {
+        synth.removeEventListener('voiceschanged', onChange);
+      } catch (eR) {}
+      finish();
+    };
+    try {
+      synth.addEventListener('voiceschanged', onChange);
+    } catch (eA) {}
+    setTimeout(finish, 700);
+  }
+
+  function speakListenText(text, btn, voice) {
     if (!text || !window.speechSynthesis || typeof window.SpeechSynthesisUtterance === 'undefined') {
       stopStoryListen();
       return;
     }
     var u = new window.SpeechSynthesisUtterance(text);
-    u.rate = 0.92;
-    u.pitch = 1;
+    if (voice) {
+      u.voice = voice;
+      u.lang = voice.lang || 'en-GB';
+    } else {
+      u.lang = 'en-GB';
+    }
+    u.rate = 0.88;
+    u.pitch = 0.82;
     u.onend = function () {
       if (listenBtnActive === btn) stopStoryListen();
     };
@@ -286,6 +361,35 @@
       if (listenBtnActive === btn) stopStoryListen();
     };
     window.speechSynthesis.speak(u);
+  }
+
+  function playRecordedThenMaleSpeech(story, btn, voice) {
+    var url = shepherdAudioUrl(story);
+    if (!url) {
+      loadListenText(story, function (text) {
+        speakListenText(text, btn, voice);
+      });
+      return;
+    }
+    var audio = new Audio(url);
+    audio.preload = 'auto';
+    listenAudio = audio;
+    audio.addEventListener('ended', function () {
+      if (listenBtnActive === btn) stopStoryListen();
+    });
+    audio.addEventListener('error', function () {
+      loadListenText(story, function (text) {
+        speakListenText(text, btn, voice);
+      });
+    });
+    var p = audio.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(function () {
+        loadListenText(story, function (text) {
+          speakListenText(text, btn, voice);
+        });
+      });
+    }
   }
 
   function playStoryListen(story, btn) {
@@ -297,31 +401,16 @@
     listenBtnActive = btn;
     btn.setAttribute('aria-pressed', 'true');
     btn.textContent = 'Stop story';
-    var url = shepherdAudioUrl(story);
-    if (url) {
-      var audio = new Audio(url);
-      audio.preload = 'auto';
-      listenAudio = audio;
-      audio.addEventListener('ended', function () {
-        if (listenBtnActive === btn) stopStoryListen();
-      });
-      audio.addEventListener('error', function () {
+    waitForVoices(function (maleVoice) {
+      if (listenBtnActive !== btn) return;
+      /* Neural/premium male voices sound more human than the recorded say-clips. */
+      if (voiceSoundsNatural(maleVoice)) {
         loadListenText(story, function (text) {
-          speakListenText(text, btn);
+          speakListenText(text, btn, maleVoice);
         });
-      });
-      var p = audio.play();
-      if (p && typeof p.catch === 'function') {
-        p.catch(function () {
-          loadListenText(story, function (text) {
-            speakListenText(text, btn);
-          });
-        });
+        return;
       }
-      return;
-    }
-    loadListenText(story, function (text) {
-      speakListenText(text, btn);
+      playRecordedThenMaleSpeech(story, btn, maleVoice);
     });
   }
 

@@ -150,6 +150,10 @@
     try {
       var pre = new URLSearchParams(window.location.search || '').get('group') || '';
       if (pre && !input.value) input.value = String(pre).trim();
+      if (pre) {
+        var fold = document.querySelector('.church-join-fold');
+        if (fold) fold.open = true;
+      }
     } catch (ePrefill) { /* non-fatal */ }
 
     form.addEventListener('submit', function (e) {

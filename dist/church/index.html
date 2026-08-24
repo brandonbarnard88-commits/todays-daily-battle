@@ -9,20 +9,25 @@
   <script defer src="../analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Church group join — Enter Member Code | Today's Daily Battle</title>
-  <meta name="description" content="Enter the code your pastor shared to join your church group on Today's Daily Battle. Shared daily verse, group reflections, and gentle rhythm together. Pastor’s Study is the tools door.">
+  <title>Church • Today's verse | Today's Daily Battle</title>
+  <meta name="description" content="Today’s official KJV verse for the church porch. Same Word as the homepage. Join a group only if you have a code.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/church/">
-  <meta property="og:title" content="Church group join | Today's Daily Battle">
-  <meta property="og:description" content="Enter your pastor&rsquo;s code to join your church group — shared daily KJV verse and gentle rhythm. Tools live in Pastor’s Study.">
+  <meta property="og:title" content="Church • Today's verse | Today's Daily Battle">
+  <meta property="og:description" content="Today’s official KJV verse for the church porch. Same Word as the homepage.">
   <meta property="og:url" content="https://todaysdailybattle.com/church/">
   <meta property="og:type" content="website">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="../styles.css?v=20260816-brightgold" as="style">
-  <link rel="stylesheet" href="../styles.css?v=20260816-brightgold">
-  <link rel="preload" href="church.css?v=1" as="style">
-  <link rel="stylesheet" href="church.css?v=1">
+  <link rel="preload" href="../styles.css?v=20260823desk51" as="style">
+  <link rel="stylesheet" href="../styles.css?v=20260823desk51">
+  <link rel="preload" href="church.css?v=20260823desk51" as="style">
+  <link rel="stylesheet" href="church.css?v=20260823desk51">
+  <style id="tdb-church-quiet-desk">
+    .site-footer-hint, #header-auth-links, .tdb-header-account-nudge, .tdb-nav-more-panel a[href="/login.html"] { display: none !important; }
+    .church-verse-card { border-left: 4px solid #f2dc98; }
+    .church-verse-card strong { color: #f2dc98; }
+  </style>
   <link rel="manifest" href="../manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="../inline-bootstrap.js"></script>
@@ -97,10 +102,10 @@
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
-        <span class="brand-subtitle church-hub-subtitle">Member Join</span>
+        <span class="brand-subtitle church-hub-subtitle">Church</span>
       </div>
-      <nav class="church-hub-nav" aria-label="Church group join navigation">
-        <a href="/church/" aria-current="page">Group join</a>
+      <nav class="church-hub-nav" aria-label="Church porch">
+        <a href="/church/" aria-current="page">Today</a>
         <a href="daily.html">Daily</a>
         <a href="/church-hub.html">Pastor&rsquo;s Study &rarr;</a>
       </nav>
@@ -108,12 +113,19 @@
 
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner church-hub-inner">
-        <header class="church-join-hero">
-          <h1>Join a church or ministry group</h1>
-          <p class="section-note topic-mood-porch">The code is a door, not a test. Today&rsquo;s verse is the same official KJV as the homepage.</p>
-          <p class="section-note">If someone handed you a code or a <code>?group=</code> link, enter it here. Pastors and outreach: create a group below, then share the invite. Tools and bulletin copy: <a href="/for-pastors.html">For pastors &amp; outreach</a>.</p>
+        <header class="church-daily-hero">
+          <h1>Today's Verse: <span class="church-daily-ref">Psalm 100:1</span></h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;the same official KJV as the homepage. No code required to read it.</p>
         </header>
 
+        <section class="church-verse-card glass tdb-porch-paper-glass" role="region" aria-label="Today’s official verse">
+          <strong>Psalm 100:1 (KJV)</strong>
+          <p>“Make a joyful noise unto the LORD, all ye lands.”</p>
+        </section>
+
+        <details class="church-create-details church-join-fold">
+          <summary>Have a church code?</summary>
+          <p class="section-note">The code is a door, not a test. If someone handed you a code or a <code>?group=</code> link, enter it here.</p>
         <section class="church-join-card glass tdb-porch-paper-glass" role="region" aria-label="Join church">
           <form id="church-join-form" class="church-join-form">
             <label for="church-code-input">Church code</label>
@@ -131,11 +143,11 @@
           </form>
           <p id="church-join-error" class="church-join-error hidden" aria-live="polite"></p>
         </section>
+        </details>
 
-        <section class="glass tdb-porch-paper-glass church-create-section" id="create">
-          <h2 class="church-section-title">Start a group</h2>
-          <p>Create a code, copy the invite, and hand it to your people. They will see today&rsquo;s official KJV verse together. This is not a church directory or a member roster.</p>
-          <details class="church-create-details" open>
+        <details class="church-create-details church-join-fold" id="create">
+          <summary>Start a group</summary>
+          <p class="section-note">Create a code, copy the invite, and hand it to your people. They will see today&rsquo;s official KJV verse together. This is not a church directory or a member roster.</p>
             <form id="church-create-form" class="church-create-form">
               <label for="church-create-code">Code (e.g. GRACE2025)</label>
               <input type="text" id="church-create-code" class="church-code-input" placeholder="GRACE2025" maxlength="24" required>
@@ -144,11 +156,8 @@
               <button type="submit" class="btn btn-church-join" id="church-create-btn">Create</button>
             </form>
             <p id="church-create-result" class="church-create-result hidden" aria-live="polite"></p>
-          </details>
-        </section>
-
-        <section id="church-roundup-index-section" class="church-roundup glass tdb-porch-paper-glass" role="region" aria-label="Weekly roundup email">
-          <h2 class="church-section-title">📬 Get weekly roundup</h2>
+          <section id="church-roundup-index-section" class="church-roundup" role="region" aria-label="Weekly roundup email">
+          <h2 class="church-section-title">Weekly roundup</h2>
           <p class="church-roundup-note">Optional Monday note with this week&rsquo;s verse. Not required to use the group.</p>
           <form id="church-roundup-index-form" class="church-roundup-form">
             <label for="church-roundup-index-email">Email</label>
@@ -164,6 +173,7 @@
           </form>
           <p id="church-roundup-index-result" class="church-roundup-result hidden" aria-live="polite"></p>
         </section>
+        </details>
       </div>
     </main>
 
@@ -302,6 +312,6 @@
   </div>
 
   <script type="module" src="../script.js?v=20260816-brightgold" defer></script>
-  <script src="church.js?v=20260817-quietdaily" defer></script>
+  <script src="church.js?v=20260823desk51" defer></script>
 </body>
 </html>

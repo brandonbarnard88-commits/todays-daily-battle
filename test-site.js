@@ -355,7 +355,7 @@ const pages = [
   { path: '/zh/kuanshu.html', name: 'ZH forgiveness pilot', mustInclude: ['lang="zh-CN"', 'zh/kuanshu.html', '以弗所书', 'topic-forgiveness.html', 'data-tdb-lang-switcher'] },
   { path: '/ru/proshchenie.html', name: 'RU forgiveness pilot', mustInclude: ['lang="ru"', '/ru/proshchenie.html', 'Ефесянам', 'topic-forgiveness.html', 'data-tdb-lang-switcher'] },
   { path: '/hi/kshama.html', name: 'HI forgiveness pilot', mustInclude: ['lang="hi"', '/hi/kshama.html', 'एफिसियों', 'topic-forgiveness.html', 'data-tdb-lang-switcher'] },
-  { path: '/church/index.html', name: 'Church group join', mustInclude: ['Church group join', 'Group join', 'Pastor&rsquo;s Study'] },
+  { path: '/church/index.html', name: 'Church porch', mustInclude: ['Psalm 100:1', 'Make a joyful noise unto the LORD', 'Have a church code?', 'Pastor&rsquo;s Study'] },
 ];
 
 for (const page of pages) {

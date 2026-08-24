@@ -253,6 +253,71 @@
       "permanent": false
     },
     {
+      "source": "/prayer",
+      "destination": "/prayer-wall.html",
+      "permanent": true
+    },
+    {
+      "source": "/prayer/",
+      "destination": "/prayer-wall.html",
+      "permanent": true
+    },
+    {
+      "source": "/security.txt",
+      "destination": "/.well-known/security.txt",
+      "permanent": true
+    },
+    {
+      "source": "/pastor.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/church/join",
+      "destination": "/church/",
+      "permanent": true
+    },
+    {
+      "source": "/church/join/",
+      "destination": "/church/",
+      "permanent": true
+    },
+    {
+      "source": "/church/share",
+      "destination": "/church/",
+      "permanent": true
+    },
+    {
+      "source": "/church/share/",
+      "destination": "/church/",
+      "permanent": true
+    },
+    {
+      "source": "/logo.png",
+      "destination": "/logo-shield-600.png",
+      "permanent": true
+    },
+    {
+      "source": "/logo.svg",
+      "destination": "/icon.svg",
+      "permanent": true
+    },
+    {
+      "source": "/logo-shield.png",
+      "destination": "/logo-shield-600.png",
+      "permanent": true
+    },
+    {
+      "source": "/purify.min.js",
+      "destination": "/vendor/dompurify.min.js",
+      "permanent": true
+    },
+    {
+      "source": "/dompurify.min.js",
+      "destination": "/vendor/dompurify.min.js",
+      "permanent": true
+    },
+    {
       "source": "/church-hub",
       "destination": "/church-hub.html",
       "permanent": true

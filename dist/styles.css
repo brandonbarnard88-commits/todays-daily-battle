@@ -2039,22 +2039,37 @@ button.download-btn:focus-visible {
 }
 
 .skip-link {
-  position: absolute;
-  top: -3rem;
-  left: var(--spacing-sm);
-  z-index: 100;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  background: var(--primary);
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: var(--border-radius);
-  transition: top 0.2s ease;
-  /* Visually hidden until focused so keyboard/screen reader users can skip nav */
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
 }
 .skip-link:focus,
 .skip-link:focus-visible {
-  top: 0.75rem;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  clip: auto !important;
+  clip-path: none !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  top: 0.75rem !important;
+  left: 1rem !important;
+  z-index: 10000 !important;
+  padding: 0.5rem 0.75rem !important;
+  background: #f2dc98 !important;
+  color: #141922 !important;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
   outline: 2px solid #fff;
   outline-offset: 2px;
 }

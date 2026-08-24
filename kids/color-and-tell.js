@@ -151,41 +151,10 @@
     llcommandments: 'll-commandments'
   };
 
-  /** Color & Tell story id → recorded Little Shepherd narration key (kids/audio/shepherd/*.m4a). */
-  var STORY_LISTEN_KEYS = {
-    noah: 'noah',
-    david: 'david',
-    'daniel-lions': 'daniel',
-    'jesus-children': 'jesus',
-    'jesus-storm': 'jesusCalmsStorm',
-    'feeding-5000': 'jesusFeeds5000',
-    'good-samaritan': 'goodSamaritan',
-    'lost-sheep': 'lostSheep',
-    creation: 'creation',
-    'empty-tomb': 'resurrection',
-    'prodigal-son': 'prodigalSon',
-    zacchaeus: 'zacchaeus',
-    esther: 'esther',
-    jonah: 'jonah',
-    'moses-red-sea': 'redSea',
-    nativity: 'jesusBirth',
-    'paul-shipwreck': 'paulShipwreck',
-    'rahab-spies': 'rahab',
-    jericho: 'joshuaJericho',
-    'gideon-fleece': 'gideon',
-    lazarus: 'lazarus',
-    'walks-on-water': 'jesusWalksWater',
-    'good-shepherd': 'goodShepherdParable',
-    'burning-bush': 'mosesBush',
-    'ruth-naomi': 'ruthBoaz',
-    'healing-paralytic': 'jesusHealsParalytic',
-    'triumphal-entry': 'palmSunday',
-    'the-sower': 'parableSower'
-  };
+  var LISTEN_AUDIO_VERSION = '20260823desk49';
 
   var listenAudio = null;
   var listenBtnActive = null;
-  var listenTtsCache = null;
 
   function stopStoryListen() {
     if (listenAudio) {
@@ -208,188 +177,14 @@
     listenBtnActive = null;
   }
 
-  function shepherdAudioUrl(story) {
-    var key = story && STORY_LISTEN_KEYS[story.id];
-    if (!key) return '';
-    if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getShepherdNarrationAudioUrl === 'function') {
-      try {
-        return window.tdbLittleShepherd.getShepherdNarrationAudioUrl(key) || '';
-      } catch (eU) {}
-    }
-    return '/kids/audio/shepherd/' + encodeURIComponent(key) + '.m4a';
-  }
-
-  function composeListenScript(story) {
-    if (!story) return '';
-    var parts = [];
-    if (story.title) parts.push(story.title + '.');
-    if (story.verse) parts.push(String(story.verse).replace(/\s+/g, ' ').trim());
-    if (story.scenes && story.scenes.length) {
-      for (var i = 0; i < story.scenes.length; i++) {
-        var sc = story.scenes[i];
-        if (sc.caption) parts.push(String(sc.caption).replace(/\s+/g, ' ').trim());
-        if (sc.verse) parts.push(String(sc.verse).replace(/\s+/g, ' ').trim());
-      }
-    }
-    if (story.idea) parts.push('One big idea: ' + story.idea);
-    return parts.join(' ');
-  }
-
-  function loadListenText(story, done) {
-    var key = story && STORY_LISTEN_KEYS[story.id];
-    if (key && window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getBriefNarration === 'function') {
-      try {
-        var brief = window.tdbLittleShepherd.getBriefNarration(key);
-        if (brief && String(brief).trim()) {
-          done(String(brief).trim());
-          return;
-        }
-      } catch (eB) {}
-    }
-    if (!key) {
-      done(composeListenScript(story));
-      return;
-    }
-    function fromCache() {
-      if (listenTtsCache && listenTtsCache.stories && listenTtsCache.stories[key]) {
-        done(String(listenTtsCache.stories[key]));
-        return true;
-      }
-      return false;
-    }
-    if (fromCache()) return;
-    fetch('/kids/data/shepherd-narration-tts.json', { cache: 'force-cache' })
-      .then(function (res) {
-        return res.ok ? res.json() : null;
-      })
-      .then(function (json) {
-        if (json) listenTtsCache = json;
-        if (!fromCache()) done(composeListenScript(story));
-      })
-      .catch(function () {
-        done(composeListenScript(story));
-      });
-  }
-
-  var FEMALE_VOICE_RX =
-    /(samantha|victoria|karen|zira|jenny|aria|moira|susan|salli|kate|fiona|tessa|allison|ava|serena|veena|raveena|heera|female|woman|girl|grandma)/i;
-  var MALE_VOICE_RX =
-    /(daniel|alex|fred|david|guy|davis|matthew|tom|thomas|nathan|james|arthur|oliver|reed|george|gordon|malcolm|ralph|albert|bruce|aaron|andrew|brian|christopher|ryan|mark|lee|eddie|eddy|ravi|nicky|junior|grandpa|uk english male|english male|male|man)/i;
-  var NATURAL_VOICE_RX = /(natural|neural|premium|enhanced|siri|google uk english male)/i;
-
-  function pickMaleStoryVoice(synth) {
-    var voices = (synth && synth.getVoices && synth.getVoices()) || [];
-    if (!voices.length) return null;
-    var best = null;
-    var bestScore = -1;
-    for (var i = 0; i < voices.length; i++) {
-      var v = voices[i];
-      var name = String((v && v.name) || '');
-      var lang = String((v && v.lang) || '').toLowerCase();
-      if (lang.indexOf('en') !== 0) continue;
-      if (FEMALE_VOICE_RX.test(name)) continue;
-      var score = 0;
-      if (MALE_VOICE_RX.test(name)) score += 10;
-      if (NATURAL_VOICE_RX.test(name)) score += 8;
-      if (/en-gb|en_gb/.test(lang) || /daniel|uk english male/i.test(name)) score += 4;
-      if (v.localService) score += 2;
-      if (score > bestScore) {
-        bestScore = score;
-        best = v;
-      }
-    }
-    if (best && bestScore >= 10) return best;
+  function humanStoryAudioUrl(story) {
+    if (!story || !story.id) return '';
     return (
-      best ||
-      voices.filter(function (v) {
-        return ((v.lang || '').toLowerCase().indexOf('en') === 0) && !FEMALE_VOICE_RX.test(v.name || '');
-      })[0] ||
-      null
+      '/kids/audio/coloring/' +
+      encodeURIComponent(story.id) +
+      '.mp3?v=' +
+      LISTEN_AUDIO_VERSION
     );
-  }
-
-  function voiceSoundsNatural(voice) {
-    return !!(voice && NATURAL_VOICE_RX.test(String(voice.name || '')));
-  }
-
-  function waitForVoices(done) {
-    var synth = window.speechSynthesis;
-    if (!synth) {
-      done(null);
-      return;
-    }
-    var finished = false;
-    function finish() {
-      if (finished) return;
-      finished = true;
-      done(pickMaleStoryVoice(synth));
-    }
-    if ((synth.getVoices() || []).length) {
-      finish();
-      return;
-    }
-    var onChange = function () {
-      try {
-        synth.removeEventListener('voiceschanged', onChange);
-      } catch (eR) {}
-      finish();
-    };
-    try {
-      synth.addEventListener('voiceschanged', onChange);
-    } catch (eA) {}
-    setTimeout(finish, 700);
-  }
-
-  function speakListenText(text, btn, voice) {
-    if (!text || !window.speechSynthesis || typeof window.SpeechSynthesisUtterance === 'undefined') {
-      stopStoryListen();
-      return;
-    }
-    var u = new window.SpeechSynthesisUtterance(text);
-    if (voice) {
-      u.voice = voice;
-      u.lang = voice.lang || 'en-GB';
-    } else {
-      u.lang = 'en-GB';
-    }
-    u.rate = 0.88;
-    u.pitch = 0.82;
-    u.onend = function () {
-      if (listenBtnActive === btn) stopStoryListen();
-    };
-    u.onerror = function () {
-      if (listenBtnActive === btn) stopStoryListen();
-    };
-    window.speechSynthesis.speak(u);
-  }
-
-  function playRecordedThenMaleSpeech(story, btn, voice) {
-    var url = shepherdAudioUrl(story);
-    if (!url) {
-      loadListenText(story, function (text) {
-        speakListenText(text, btn, voice);
-      });
-      return;
-    }
-    var audio = new Audio(url);
-    audio.preload = 'auto';
-    listenAudio = audio;
-    audio.addEventListener('ended', function () {
-      if (listenBtnActive === btn) stopStoryListen();
-    });
-    audio.addEventListener('error', function () {
-      loadListenText(story, function (text) {
-        speakListenText(text, btn, voice);
-      });
-    });
-    var p = audio.play();
-    if (p && typeof p.catch === 'function') {
-      p.catch(function () {
-        loadListenText(story, function (text) {
-          speakListenText(text, btn, voice);
-        });
-      });
-    }
   }
 
   function playStoryListen(story, btn) {
@@ -398,20 +193,26 @@
       return;
     }
     stopStoryListen();
+    var url = humanStoryAudioUrl(story);
+    if (!url) return;
     listenBtnActive = btn;
     btn.setAttribute('aria-pressed', 'true');
     btn.textContent = 'Stop story';
-    waitForVoices(function (maleVoice) {
-      if (listenBtnActive !== btn) return;
-      /* Neural/premium male voices sound more human than the recorded say-clips. */
-      if (voiceSoundsNatural(maleVoice)) {
-        loadListenText(story, function (text) {
-          speakListenText(text, btn, maleVoice);
-        });
-        return;
-      }
-      playRecordedThenMaleSpeech(story, btn, maleVoice);
+    var audio = new Audio(url);
+    audio.preload = 'auto';
+    listenAudio = audio;
+    audio.addEventListener('ended', function () {
+      if (listenBtnActive === btn) stopStoryListen();
     });
+    audio.addEventListener('error', function () {
+      if (listenBtnActive === btn) stopStoryListen();
+    });
+    var p = audio.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(function () {
+        if (listenBtnActive === btn) stopStoryListen();
+      });
+    }
   }
 
   if (typeof document !== 'undefined') {
@@ -4734,7 +4535,7 @@
         hearBtn.setAttribute('aria-pressed', 'false');
         hearBtn.setAttribute(
           'aria-label',
-          'Hear the story of ' + story.title + ' while you color. Nothing is uploaded.'
+          'Hear the story of ' + story.title + ' while you color, read by a male storyteller. Nothing is uploaded.'
         );
         hearBtn.addEventListener('click', function () {
           playStoryListen(story, hearBtn);

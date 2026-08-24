@@ -50,8 +50,8 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Calm page?","acceptedAnswer":{"@type":"Answer","text":"Calm is a quiet page with one KJV Bible verse — no ads, no account, no noise. It's a place to breathe and rest in Scripture when life is heavy. Works offline after first visit."}},{"@type":"Question","name":"Do I need an account to use Calm?","acceptedAnswer":{"@type":"Answer","text":"No account or sign-up is needed. Open it, breathe, receive the verse, and go. Verse text stays on your device; optional analytics never include your private prayer text. See Privacy for the short version."}},{"@type":"Question","name":"Does Calm work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. After your first visit, Calm works without an internet connection — built for hard moments at 3am or anywhere you have no signal."}}]}
   </script>
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260823desk30" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260823desk30">
+  <link rel="preload" href="styles.css?v=20260823desk31" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk31">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
@@ -167,6 +167,9 @@
     body.tdb-calm-shelf-page #desktop-verse,
     body.tdb-calm-shelf-page #calm-gospel-door,
     body.tdb-calm-shelf-page .tdb-verse-breakdown-inline,
+    body.tdb-calm-shelf-page .tdb-verse-breakdown-inline.is-open,
+    body.tdb-calm-shelf-page .tdb-vb-inline-toggle,
+    body.tdb-calm-shelf-page .tdb-vb-inline-panel,
     body.tdb-calm-shelf-page .tdb-vb-share-row,
     body.tdb-calm-shelf-page .tdb-vb-extra,
     body.tdb-calm-shelf-page .tdb-vb-inline-next-step,
@@ -217,6 +220,26 @@
     }
     body.calm-rest-kit-open {
       overflow: visible !important;
+    }
+    body.tdb-calm-shelf-page .tdb-bbe-simple,
+    body.tdb-calm-shelf-page .tdb-bbe-simple--always-open {
+      display: block !important;
+      text-align: left;
+      margin: 0 0 0.85rem;
+    }
+    body.tdb-calm-shelf-page .tdb-bbe-simple__heading {
+      color: #f2dc98 !important;
+      margin: 0 0 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    body.tdb-calm-shelf-page .tdb-bbe-simple__text {
+      color: #f4efe3 !important;
+      font-size: 1.02rem;
+      line-height: 1.55;
+      margin: 0;
     }
     body.tdb-calm-shelf-page .calm-daily-verse-surface {
       border-left: 4px solid #f2dc98;
@@ -619,7 +642,7 @@
           <button type="button" class="calm-btn" data-category="grief" aria-label="Grief or sadness">Grief / Sadness</button>
         </div>
         </section>
-        <details class="tdb-hub-disclosure calm-gospel-door" id="calm-gospel-door">
+        <details class="tdb-hub-disclosure calm-gospel-door" id="calm-gospel-door" hidden>
           <summary class="tdb-hub-disclosure__summary">If you want Jesus&mdash;not only a calmer minute</summary>
           <div class="tdb-hub-disclosure__inner">
           <p class="section-note" style="margin:0 0 0.5rem;">This page helps when the day is heavy. Deeper still: God loved the world and gave His Son so you might have life.</p>
@@ -662,6 +685,13 @@
             </blockquote>
           </div>
           <div class="verse-breakdown-container calm-verse-porch" data-calm-verse-porch="1" hidden>
+            <div class="tdb-bbe-simple tdb-bbe-simple--always-open" data-bbe-simple="1" data-bbe-always-open="1">
+              <h4 class="tdb-bbe-simple__heading">In simpler words (BBE)</h4>
+              <div class="tdb-bbe-simple__body">
+                <p class="tdb-bbe-simple__status section-note" data-bbe-status="1" aria-live="polite" hidden></p>
+                <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
+              </div>
+            </div>
             <div class="verse-breakdown">
               <h4>What it means</h4>
               <p class="calm-vbd-plain"></p>
@@ -695,6 +725,13 @@
             </blockquote>
           </div>
           <div class="verse-breakdown-container calm-verse-porch" data-calm-verse-porch="1" hidden>
+            <div class="tdb-bbe-simple tdb-bbe-simple--always-open" data-bbe-simple="1" data-bbe-always-open="1">
+              <h4 class="tdb-bbe-simple__heading">In simpler words (BBE)</h4>
+              <div class="tdb-bbe-simple__body">
+                <p class="tdb-bbe-simple__status section-note" data-bbe-status="1" aria-live="polite" hidden></p>
+                <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
+              </div>
+            </div>
             <div class="verse-breakdown">
               <h4>What it means</h4>
               <p class="calm-vbd-plain"></p>
@@ -945,10 +982,11 @@
       }
     })();
   </script>
+  <script nonce="tdb2025s" src="bbe-simple.js?v=20260823desk31" data-tdb-bbe-simple="1"></script>
   <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260520-att-ask" data-tdb-verse-breakdown-standard="1"></script>
   <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260805-audit-focus-lock" data-tdb-verse-breakdown-overrides="1"></script>
   <script nonce="tdb2025s" src="tdb-verse-accuracy.js?v=20260815-accuracy" data-tdb-verse-accuracy="1"></script>
-  <script nonce="tdb2025s" src="verse-breakdown.js?v=20260823desk30" data-tdb-verse-breakdown="1"></script>
+  <script nonce="tdb2025s" src="verse-breakdown.js?v=20260823desk31" data-tdb-verse-breakdown="1"></script>
   <script nonce="tdb2025s">
     (function () {
       'use strict';
@@ -1058,6 +1096,16 @@
         } catch (eBd) { /* non-fatal */ }
         if (!plain || isLeftoverCalmLine(plain)) {
           plain = kjv;
+        }
+        document.querySelectorAll('#verse-container .tdb-verse-breakdown-inline, #desktop-verse .tdb-verse-breakdown-inline').forEach(function (el) {
+          if (el && el.parentNode) el.parentNode.removeChild(el);
+        });
+        if (window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === 'function' && ref) {
+          var bbeRoot = document.querySelector('#verse-container [data-bbe-simple]');
+          if (bbeRoot) {
+            bbeRoot.setAttribute('data-bbe-ref', ref);
+            window.TDBBbeSimple.fillHost(bbeRoot.querySelector('.tdb-bbe-simple__body') || bbeRoot, ref);
+          }
         }
         for (var i = 0; i < porches.length; i++) {
           var porch = porches[i];

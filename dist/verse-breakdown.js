@@ -2145,6 +2145,13 @@
         if (el.id === 'verse-container' || el.id === 'desktop-verse' || el.closest('#verse-container, #desktop-verse, .calm-verse-container, [data-calm-verse-porch]')) return true;
       }
     } catch (eCalmSkip) {}
+    /* Family hub stamps THIS day's KJV on the card. Auto-inject mixed leftover Isaiah 26:4 under Psalm 100:1. */
+    try {
+      var pathFam = String((window.location && window.location.pathname) || '').toLowerCase();
+      if (pathFam.indexOf('family') !== -1) {
+        if (el.id === 'family-daily-verse-root' || el.closest('#family-daily-verse-root, .family-verse-card, #tdbPorchVerseWidget')) return true;
+      }
+    } catch (eFamSkip) {}
     if (el.closest('.home-search-detail-panel')) return true;
     if (el.classList && el.classList.contains('tdb-verse-breakdown-inline')) return true;
     if (el.closest('.tdb-verse-breakdown-inline')) return true;

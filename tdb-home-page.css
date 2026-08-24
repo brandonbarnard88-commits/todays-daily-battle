@@ -13273,6 +13273,7 @@ nav.tdb-bottom-dock:has(.sos-btn) {
 .site-top-links #header-auth-links + span[aria-hidden],
 .tdb-nav-more-panel a[href="/login.html"],
 #heroVbdRowCtx,
+#heroVbdRowAud,
 #heroVbdRowYou,
 #heroVotdNextStep,
 #heroVotdPrayerBlock,

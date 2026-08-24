@@ -188,14 +188,25 @@
 
 .church-verse-card {
   background: var(--church-card);
-  border: 1px solid var(--church-blue-dim);
+  border: 1px solid rgba(242, 220, 152, 0.28);
+  border-left: 4px solid #f2dc98;
   border-radius: 12px;
   padding: 1.25rem;
   margin-bottom: 1.5rem;
 }
 
 .church-verse-card strong {
-  color: var(--church-blue);
+  color: #f2dc98;
+}
+
+.church-join-fold {
+  margin: 0 0 1.25rem;
+}
+
+.church-join-fold > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #f4efe3;
 }
 
 /* The card already shows the KJV — do not print it again inside the breakdown. */

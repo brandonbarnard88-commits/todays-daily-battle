@@ -9545,10 +9545,12 @@ body:has(.pricing-grid) .section-divider {
   color: rgba(148, 163, 184, 0.88);
 }
 .site-footer-hint {
-  font-size: 0.8rem;
-  color: var(--muted, #94a3b8);
-  opacity: 0.5;
-  margin: 0.25rem 0 0;
+  display: none !important;
+}
+#header-auth-links,
+.tdb-header-account-nudge,
+.tdb-nav-more-panel a[href="/login.html"] {
+  display: none !important;
 }
 .easter-footer-dove-trigger {
   cursor: default;

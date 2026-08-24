@@ -50,8 +50,8 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Calm page?","acceptedAnswer":{"@type":"Answer","text":"Calm is a quiet page with one KJV Bible verse — no ads, no account, no noise. It's a place to breathe and rest in Scripture when life is heavy. Works offline after first visit."}},{"@type":"Question","name":"Do I need an account to use Calm?","acceptedAnswer":{"@type":"Answer","text":"No account or sign-up is needed. Open it, breathe, receive the verse, and go. Verse text stays on your device; optional analytics never include your private prayer text. See Privacy for the short version."}},{"@type":"Question","name":"Does Calm work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. After your first visit, Calm works without an internet connection — built for hard moments at 3am or anywhere you have no signal."}}]}
   </script>
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260823desk35" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260823desk35">
+  <link rel="preload" href="styles.css?v=20260823desk36" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk36">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
@@ -178,7 +178,9 @@
     body.tdb-calm-shelf-page .tdb-easter-egg,
     body.tdb-calm-shelf-page #hidden-moments-badge,
     body.tdb-calm-shelf-page .family-armor-stories-btn,
-    body.tdb-calm-shelf-page .calm-crisis-chain {
+    body.tdb-calm-shelf-page .calm-crisis-chain,
+    body.tdb-calm-shelf-page #easter-egg-badge,
+    body.tdb-calm-shelf-page .easter-egg-badge {
       display: none !important;
     }
     /* Teaching, rest kit, and hero grow with the page — no inner scroll box */
@@ -459,6 +461,57 @@
     }
     body.tdb-calm-shelf-page .tdb-porch-discover-foot a {
       color: #f2dc98 !important;
+    }
+    body.tdb-calm-shelf-page .tdb-return-quiet,
+    body.tdb-calm-shelf-page .tdb-return-quiet .section-note,
+    body.tdb-calm-shelf-page .tdb-return-quiet p {
+      color: #f4efe3 !important;
+      background: #141922 !important;
+      border-color: rgba(242, 220, 152, 0.35) !important;
+    }
+    body.tdb-calm-shelf-page .tdb-return-quiet strong,
+    body.tdb-calm-shelf-page .tdb-return-quiet a {
+      color: #f2dc98 !important;
+    }
+    body.tdb-calm-shelf-page .site-footer,
+    body.tdb-calm-shelf-page .site-footer p,
+    body.tdb-calm-shelf-page .site-footer .section-note,
+    body.tdb-calm-shelf-page .site-footer-copy,
+    body.tdb-calm-shelf-page .site-footer-story,
+    body.tdb-calm-shelf-page .footer-humility,
+    body.tdb-calm-shelf-page .site-footer-updated,
+    body.tdb-calm-shelf-page .site-footer-mood-insight,
+    body.tdb-calm-shelf-page .footer-friday-signup-label,
+    body.tdb-calm-shelf-page .tdb-site-footer-finale p,
+    body.tdb-calm-shelf-page .tdb-lang-switcher,
+    body.tdb-calm-shelf-page .tdb-lang-switcher-eyebrow,
+    body.tdb-calm-shelf-page .footer-sitemap summary,
+    body.tdb-calm-shelf-page .footer-sitemap-col h3 {
+      color: #f4efe3 !important;
+      opacity: 1 !important;
+    }
+    body.tdb-calm-shelf-page .site-footer {
+      background: #0c1018 !important;
+    }
+    body.tdb-calm-shelf-page .site-footer a,
+    body.tdb-calm-shelf-page .site-footer-nav a,
+    body.tdb-calm-shelf-page .site-footer-essentials a,
+    body.tdb-calm-shelf-page .footer-sitemap-col a,
+    body.tdb-calm-shelf-page .tdb-lang-opt,
+    body.tdb-calm-shelf-page .footer-appearance-link,
+    body.tdb-calm-shelf-page .site-footer-ess-support {
+      color: #f2dc98 !important;
+    }
+    body.tdb-calm-shelf-page .footer-friday-email {
+      color: #f4efe3 !important;
+      background: #1a2234 !important;
+      border-color: rgba(242, 220, 152, 0.4) !important;
+    }
+    body.tdb-calm-shelf-page #easter-egg-badge,
+    body.tdb-calm-shelf-page .easter-egg-badge,
+    body.tdb-calm-shelf-page .toast-gold,
+    body.tdb-calm-shelf-page #daily-nudge-open-armor {
+      display: none !important;
     }
     html[data-theme="light"] body.tdb-calm-shelf-page .calm-hero--soar-dawn,
     html[data-theme="light"] body.tdb-calm-shelf-page .calm-hero--soar-dawn.glass,
@@ -1153,11 +1206,11 @@
       }
     })();
   </script>
-  <script nonce="tdb2025s" src="bbe-simple.js?v=20260823desk35" data-tdb-bbe-simple="1"></script>
+  <script nonce="tdb2025s" src="bbe-simple.js?v=20260823desk36" data-tdb-bbe-simple="1"></script>
   <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260520-att-ask" data-tdb-verse-breakdown-standard="1"></script>
   <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260805-audit-focus-lock" data-tdb-verse-breakdown-overrides="1"></script>
   <script nonce="tdb2025s" src="tdb-verse-accuracy.js?v=20260815-accuracy" data-tdb-verse-accuracy="1"></script>
-  <script nonce="tdb2025s" src="verse-breakdown.js?v=20260823desk35" data-tdb-verse-breakdown="1"></script>
+  <script nonce="tdb2025s" src="verse-breakdown.js?v=20260823desk36" data-tdb-verse-breakdown="1"></script>
   <script nonce="tdb2025s">
     (function () {
       'use strict';

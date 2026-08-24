@@ -45,11 +45,23 @@
     if (ref && b[ref]) text = b[ref];
     else if (getText && ref) text = getText(ref);
 
-    var fb = { ref: 'Philippians 4:6', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.' };
     if (!ref || !text) {
-      ref = fb.ref;
-      text = fb.text;
+      try {
+        var arr = window.__TDB_HERO_DAILY_YEAR;
+        if (arr && arr.length) {
+          var d = new Date();
+          var todayUtc = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+          var epoch = Date.UTC(2026, 0, 1);
+          var days = Math.floor((todayUtc - epoch) / 86400000);
+          var q = arr[((days % arr.length) + arr.length) % arr.length];
+          if (q && q.ref && q.text) {
+            ref = q.ref;
+            text = q.text;
+          }
+        }
+      } catch (eQ) {}
     }
+    if (!ref || !text) return;
 
     if (refEl) refEl.textContent = ref;
     card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(text) + '</p>';

@@ -13306,6 +13306,59 @@ nav.tdb-bottom-dock:has(.sos-btn) {
 #verseCard {
   border-left: 4px solid #f2dc98;
 }
+.tdb-another-verse {
+  margin: 1.15rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid rgba(242, 220, 152, 0.22);
+}
+.tdb-another-verse__note {
+  margin: 0.45rem 0 0;
+  color: #f4efe3;
+}
+.tdb-another-verse__desk {
+  margin-top: 0.85rem;
+  padding: 1rem 1.1rem 1.1rem;
+  background: #141922;
+  border: 1px solid rgba(242, 220, 152, 0.28);
+  border-left: 4px solid #f2dc98;
+}
+.tdb-another-verse__ref {
+  color: #f2dc98 !important;
+  font-weight: 600;
+  margin: 0 0 0.45rem;
+}
+.tdb-another-verse__text {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  font-style: italic;
+  line-height: 1.42;
+  color: #f4efe3 !important;
+  margin: 0 0 0.75rem;
+}
+.tdb-another-verse .tdb-vbd-label,
+.tdb-another-verse .tdb-bbe-simple__heading {
+  color: #f2dc98;
+}
+.tdb-another-verse .tdb-vbd-body,
+.tdb-another-verse .tdb-bbe-simple__text {
+  color: #f4efe3;
+}
+html[data-theme="light"] .tdb-another-verse__desk,
+html[data-theme="sepia"] .tdb-another-verse__desk {
+  background: #fbf6ea;
+}
+html[data-theme="light"] .tdb-another-verse__text,
+html[data-theme="sepia"] .tdb-another-verse__text,
+html[data-theme="light"] .tdb-another-verse .tdb-vbd-body,
+html[data-theme="sepia"] .tdb-another-verse .tdb-vbd-body {
+  color: #1a1610 !important;
+}
+html[data-theme="light"] .tdb-another-verse__ref,
+html[data-theme="sepia"] .tdb-another-verse__ref,
+html[data-theme="light"] .tdb-another-verse .tdb-vbd-label,
+html[data-theme="sepia"] .tdb-another-verse .tdb-vbd-label {
+  color: #7a5410 !important;
+}
 #hero-verse-wrap #heroVerse,
 #heroVerse.hero-verse.verse-body {
   font-size: clamp(1.45rem, 3.4vw, 1.95rem);

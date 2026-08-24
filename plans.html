@@ -42,8 +42,8 @@
   </script>
   <link rel="preload" href="/plans-data.js" as="script" fetchpriority="low">
   <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
-  <link rel="preload" href="styles.css?v=20260822desk17" as="style" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260822desk17" media="all">
+  <link rel="preload" href="styles.css?v=20260823desk52" as="style" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20260823desk52" media="all">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase2a" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase2a">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
@@ -126,7 +126,7 @@
 
     .skip-link { position: absolute; left: -9999px; }
     .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; }
-    /* Quiet desk: Sign in/Saved strip off; plan titles that quote the verse stay */
+    /* Quiet desk: Word first; leftover catalog stays in HTML but off the greeting */
     .tdb-header-account-nudge,
     #plansAccountStripDetails,
     .tdb-shell-account-strip,
@@ -138,9 +138,42 @@
     #plansBibleStudiesDetails,
     #plans-editorial-picks-details,
     #plans-find-your-plan-details,
-    #plans-memory-activities-teaser {
+    #plans-memory-activities-teaser,
+    #plans-short-paths-heavy-weeks,
+    #plans-heavy-week-packs-details,
+    #plansPorchVerseDetails,
+    #plansCoreSevenDetails,
+    #plansBuilderDetails,
+    #plans-pastor-spotlight-details,
+    .plans-homeschool-banner,
+    .plans-onpage-nav,
+    .site-footer-hint {
       display: none !important;
     }
+    .plans-today-verse {
+      margin: 0.85rem 0 1.25rem;
+      padding: 1rem 1.1rem 1.1rem;
+      background: #141922;
+      border: 1px solid rgba(242, 220, 152, 0.28);
+      border-left: 4px solid #f2dc98;
+      border-radius: 12px;
+    }
+    .plans-today-verse__ref {
+      margin: 0 0 0.4rem;
+      color: #f2dc98;
+      font-weight: 600;
+    }
+    .plans-today-verse__text {
+      margin: 0;
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.2rem, 3vw, 1.65rem);
+      font-style: italic;
+      line-height: 1.42;
+      color: #f4efe3;
+    }
+    html[data-theme="light"] .plans-today-verse { background: #fbf6ea; }
+    html[data-theme="light"] .plans-today-verse__ref { color: #8a6d1f; }
+    html[data-theme="light"] .plans-today-verse__text { color: #1a1610; }
     /* critical base classes — defined here so they apply before styles.css finishes loading */
     .tdb-quiet-container {
       width: 100%; max-width: var(--tdb-inner-max);
@@ -3171,6 +3204,10 @@
       <div class="plans-hero plans-hero--soar-dawn tdb-micro-hero-dawn">
         <h1>Plans</h1>
         <p class="plans-hero-subtitle">Short, steady KJV reading plans for hard weeks, quiet weeks, and ordinary Tuesdays. You don’t have to be in crisis to start. Nothing to sign up for — just open it and sit with the Word a spell.</p>
+        <article class="plans-today-verse" aria-label="Today’s official verse">
+          <p class="plans-today-verse__ref">Psalm 100:1 (KJV)</p>
+          <p class="plans-today-verse__text">“Make a joyful noise unto the LORD, all ye lands.”</p>
+        </article>
       </div>
 
       <section class="tdb-heavy-now tdb-heavy-now--hub" id="plansHeavyNow" role="region" aria-labelledby="plansHeavyNowH">
@@ -3454,7 +3491,7 @@
       <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
         <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
         <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Psalm 100:1 (KJV)</p>
-        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“Make a joyful noise unto the Lord, all ye lands.”</p></blockquote>
+        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“Make a joyful noise unto the LORD, all ye lands.”</p></blockquote>
         <div class="tdb-porch-verse-widget__actions">
           <a class="btn btn-secondary" href="/">Read with breakdown</a>
           <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>

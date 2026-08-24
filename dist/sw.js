@@ -1,2 +1,2 @@
-// version: 20260823desk34 (keep aligned with repo SW-VERSION / service-worker CACHE_NAME)
-self.importScripts('/service-worker.js?v=20260823desk34');
+// version: 20260823desk35 (keep aligned with repo SW-VERSION / service-worker CACHE_NAME)
+self.importScripts('/service-worker.js?v=20260823desk35');

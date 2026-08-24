@@ -26864,3 +26864,185 @@ body.tdb-topic-mood-page .app-content {
   max-width: 40rem;
   margin-inline: auto;
 }
+
+/*
+ * Prayer porch — quiet desk.
+ * One private box on this device. Shared wall is the other tab.
+ * Skip-link stays clipped until Tab (global .skip-link). Language lives in the footer.
+ */
+body.prayer-wall-page .tdb-lang-switcher-header-wrap,
+body.prayer-wall-page .brand-subtitle,
+body.prayer-wall-page .hero-banner .real-talk,
+body.prayer-wall-page .hero-banner .cta-group,
+body.prayer-wall-page .prayer-wall-header-row,
+body.prayer-wall-page .prayer-wall-privacy-note,
+body.prayer-wall-page .prayer-quiet-extra,
+body.prayer-wall-page #prayer-panel-private > .tdb-offline-ready,
+body.prayer-wall-page .prayer-wall-community-line,
+body.prayer-wall-page .prayer-choice-guide,
+body.prayer-wall-page #prayerWallGraceMsg,
+body.prayer-wall-page .prayer-wall-prompt,
+body.prayer-wall-page #prayerWallNudge,
+body.prayer-wall-page .prayer-counter-row,
+body.prayer-wall-page .prayer-counter,
+body.prayer-wall-page .prayer-amen-signal,
+body.prayer-wall-page .prayer-social-proof,
+body.prayer-wall-page #prayer-echo,
+body.prayer-wall-page .prayer-private-prompt,
+body.prayer-wall-page #prayer-queue-card,
+body.prayer-wall-page #prayer-verse-echo-card,
+body.prayer-wall-page .prayer-export-row,
+body.prayer-wall-page #prayer-household-room,
+body.prayer-wall-page #featured-prayer,
+body.prayer-wall-page #prayer-wall-list,
+body.prayer-wall-page .prayer-share-row,
+body.prayer-wall-page .prayer-invite-row,
+body.prayer-wall-page #prayer-encouragement,
+body.prayer-wall-page .prayer-wall-note,
+body.prayer-wall-page #recent-prayers,
+body.prayer-wall-page .prayer-device-count-wrap,
+body.prayer-wall-page .site-footer-hint,
+body.prayer-wall-page #footerMoodInsight,
+body.prayer-wall-page .site-footer-mood-insight,
+body.prayer-wall-page .easter-egg-badge,
+body.prayer-wall-page #easter-egg-badge,
+body.prayer-wall-page .toast-gold,
+body.prayer-wall-page .tdb-easter-egg,
+body.prayer-wall-page #hidden-moments-badge,
+body.prayer-wall-page .family-armor-stories-btn,
+body.prayer-wall-page .message-toolbar .daily-encouragement,
+body.prayer-wall-page #copy-daily-encouragement,
+body.prayer-wall-page #voice-message-btn,
+body.prayer-wall-page #message-featured-wrap {
+  display: none !important;
+}
+
+body.prayer-wall-page .hero-banner.tdb-dawn-bg--mist {
+  background: #141922 !important;
+  background-image: none !important;
+  color: #f4efe3 !important;
+  box-shadow: none;
+  border: 1px solid rgba(242, 220, 152, 0.28);
+}
+body.prayer-wall-page .hero-banner.tdb-dawn-bg--mist::before,
+body.prayer-wall-page .hero-banner.tdb-dawn-bg--mist::after {
+  content: none !important;
+}
+body.prayer-wall-page .hero-banner h1,
+body.prayer-wall-page .prayer-wall-room-title,
+body.prayer-wall-page #message-board-heading {
+  color: #f8fafc !important;
+}
+body.prayer-wall-page .hero-banner .section-note,
+body.prayer-wall-page .hero-banner .topic-mood-porch,
+body.prayer-wall-page .prayer-wall-room-lead,
+body.prayer-wall-page .prayer-privacy-note,
+body.prayer-wall-page .prayer-wall-battle-q,
+body.prayer-wall-page .prayer-wall-nudge-silent,
+body.prayer-wall-page .prayer-device-quiet,
+body.prayer-wall-page #prayer-panel-with-others .section-note {
+  color: #f4efe3 !important;
+}
+body.prayer-wall-page .prayer-wall-card,
+body.prayer-wall-page #prayer-panel-with-others {
+  background: #141922 !important;
+  background-image: none !important;
+  color: #f4efe3 !important;
+  isolation: auto;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(242, 220, 152, 0.28);
+}
+body.prayer-wall-page #prayer-door-tabs {
+  margin: 1.25rem 0 1.5rem;
+  gap: 0.65rem;
+}
+body.prayer-wall-page .prayer-wall-input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: stretch;
+  margin: 0.85rem 0 1rem;
+}
+body.prayer-wall-page .prayer-wall-input,
+body.prayer-wall-page #message-text,
+body.prayer-wall-page #message-name {
+  background: #0f141c !important;
+  color: #f4efe3 !important;
+  border: 1px solid rgba(242, 220, 152, 0.55) !important;
+}
+body.prayer-wall-page .prayer-wall-input::placeholder,
+body.prayer-wall-page #message-text::placeholder,
+body.prayer-wall-page #message-name::placeholder {
+  color: rgba(244, 239, 227, 0.55);
+}
+body.prayer-wall-page .prayer-wall-add-btn,
+body.prayer-wall-page .silent-amen-btn {
+  background: transparent;
+  color: #f2dc98;
+  border: 1px solid #f2dc98;
+}
+body.prayer-wall-page a {
+  color: #f2dc98;
+}
+body.prayer-wall-page .site-footer {
+  color: #f4efe3;
+}
+body.prayer-wall-page .site-footer a {
+  color: #f2dc98;
+}
+
+html[data-theme="light"] body.prayer-wall-page .hero-banner.tdb-dawn-bg--mist,
+html[data-theme="sepia"] body.prayer-wall-page .hero-banner.tdb-dawn-bg--mist,
+html[data-theme="light"] body.prayer-wall-page .prayer-wall-card,
+html[data-theme="sepia"] body.prayer-wall-page .prayer-wall-card,
+html[data-theme="light"] body.prayer-wall-page #prayer-panel-with-others,
+html[data-theme="sepia"] body.prayer-wall-page #prayer-panel-with-others {
+  background: #f5e8c7 !important;
+  color: #0f172a !important;
+}
+html[data-theme="light"] body.prayer-wall-page .hero-banner h1,
+html[data-theme="sepia"] body.prayer-wall-page .hero-banner h1,
+html[data-theme="light"] body.prayer-wall-page .prayer-wall-room-title,
+html[data-theme="sepia"] body.prayer-wall-page .prayer-wall-room-title,
+html[data-theme="light"] body.prayer-wall-page #message-board-heading,
+html[data-theme="sepia"] body.prayer-wall-page #message-board-heading {
+  color: #0f172a !important;
+}
+html[data-theme="light"] body.prayer-wall-page .hero-banner .section-note,
+html[data-theme="sepia"] body.prayer-wall-page .hero-banner .section-note,
+html[data-theme="light"] body.prayer-wall-page .prayer-wall-room-lead,
+html[data-theme="sepia"] body.prayer-wall-page .prayer-wall-room-lead,
+html[data-theme="light"] body.prayer-wall-page .prayer-privacy-note,
+html[data-theme="sepia"] body.prayer-wall-page .prayer-privacy-note,
+html[data-theme="light"] body.prayer-wall-page .prayer-wall-battle-q,
+html[data-theme="sepia"] body.prayer-wall-page .prayer-wall-battle-q,
+html[data-theme="light"] body.prayer-wall-page .prayer-wall-nudge-silent,
+html[data-theme="sepia"] body.prayer-wall-page .prayer-wall-nudge-silent,
+html[data-theme="light"] body.prayer-wall-page .prayer-device-quiet,
+html[data-theme="sepia"] body.prayer-wall-page .prayer-device-quiet,
+html[data-theme="light"] body.prayer-wall-page #prayer-panel-with-others .section-note,
+html[data-theme="sepia"] body.prayer-wall-page #prayer-panel-with-others .section-note {
+  color: #1e293b !important;
+}
+html[data-theme="light"] body.prayer-wall-page .prayer-wall-input,
+html[data-theme="sepia"] body.prayer-wall-page .prayer-wall-input,
+html[data-theme="light"] body.prayer-wall-page #message-text,
+html[data-theme="sepia"] body.prayer-wall-page #message-text,
+html[data-theme="light"] body.prayer-wall-page #message-name,
+html[data-theme="sepia"] body.prayer-wall-page #message-name {
+  background: #fffaf0 !important;
+  color: #172230 !important;
+  border-color: rgba(122, 84, 16, 0.35) !important;
+}
+html[data-theme="light"] body.prayer-wall-page .prayer-wall-add-btn,
+html[data-theme="sepia"] body.prayer-wall-page .prayer-wall-add-btn,
+html[data-theme="light"] body.prayer-wall-page .silent-amen-btn,
+html[data-theme="sepia"] body.prayer-wall-page .silent-amen-btn {
+  color: #7a5410;
+  border-color: #7a5410;
+}
+html[data-theme="light"] body.prayer-wall-page a,
+html[data-theme="sepia"] body.prayer-wall-page a {
+  color: #7a5410;
+}

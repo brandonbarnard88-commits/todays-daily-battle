@@ -31,8 +31,8 @@
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&apos;s Verse • Deep KJV study and breakdown">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260823desk43" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260823desk43">
+  <link rel="preload" href="styles.css?v=20260823desk44" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk44">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
@@ -106,6 +106,29 @@
     body.tdb-verse-page #daily-verse-card .tdb-vbd-body {
       color: #f4efe3;
     }
+    body.tdb-verse-page .tdb-another-verse {
+      margin: 1.15rem 0 0;
+      padding: 1rem 0 0;
+      border-top: 1px solid rgba(242, 220, 152, 0.22);
+    }
+    body.tdb-verse-page .tdb-another-verse__desk {
+      margin-top: 0.85rem;
+      padding: 1rem 1.1rem;
+      background: #141922;
+      border: 1px solid rgba(242, 220, 152, 0.28);
+      border-left: 4px solid #f2dc98;
+    }
+    body.tdb-verse-page .tdb-another-verse__ref { color: #f2dc98; font-weight: 600; }
+    body.tdb-verse-page .tdb-another-verse__text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.25rem, 3vw, 1.7rem);
+      font-style: italic;
+      color: #f4efe3;
+    }
+    body.tdb-verse-page .tdb-another-verse .tdb-vbd-label,
+    body.tdb-verse-page .tdb-another-verse .tdb-bbe-simple__heading { color: #f2dc98; }
+    body.tdb-verse-page .tdb-another-verse .tdb-vbd-body,
+    body.tdb-verse-page .tdb-another-verse .tdb-bbe-simple__text { color: #f4efe3; }
     body.tdb-verse-page #daily-verse-text,
     body.tdb-verse-page .daily-verse-body {
       font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
@@ -540,6 +563,28 @@
             <button type="button" id="pray-this-with-me-verse" class="btn btn-secondary pray-this-with-me-btn" aria-label="Copy a short prayer line and link for today&apos;s verse">Pray this with me</button>
           </div>
           <p id="verse-save-hint-text" class="section-note verse-save-hint">Saved verses appear in <a href="/mystudy?tab=library#saved-verses">My Study</a>—the same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="memorize.html" id="verse-save-hint-memorize">Memorize</a> opens the same verse on a private card. All verses are from the KJV.</p>
+          <aside class="tdb-another-verse" id="tdbAnotherVerse" aria-label="Another verse">
+            <button type="button" class="btn btn-secondary" id="tdbAnotherVerseBtn">Another verse</button>
+            <p class="section-note tdb-another-verse__note">Today&rsquo;s verse stays above. This is one more KJV when you want it&mdash;not a new official verse.</p>
+            <article class="tdb-another-verse__desk" id="tdbAnotherVerseDesk" hidden data-tdb-no-verse-breakdown="1">
+              <p class="verse-ref tdb-another-verse__ref" id="tdbAnotherVerseRef"></p>
+              <p class="verse-body tdb-another-verse__text" id="tdbAnotherVerseText"></p>
+              <div class="tdb-bbe-simple tdb-bbe-simple--always-open" id="tdbAnotherVerseBbe" data-bbe-simple="1" hidden>
+                <h4 class="tdb-bbe-simple__heading">In simpler words (BBE)</h4>
+                <div class="tdb-bbe-simple__body">
+                  <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
+                </div>
+              </div>
+              <div id="tdbAnotherVerseSitWrap" hidden>
+                <h4 class="tdb-vbd-label">What was going on</h4>
+                <p class="tdb-vbd-body" id="tdbAnotherVerseSit"></p>
+              </div>
+              <div id="tdbAnotherVerseMeanWrap" hidden>
+                <h4 class="tdb-vbd-label">What it means</h4>
+                <p class="tdb-vbd-body" id="tdbAnotherVerseMean"></p>
+              </div>
+            </article>
+          </aside>
           <div class="tdb-porch-path-card" id="versePorchPathCard" role="region" aria-labelledby="versePorchPathHeading">
             <p class="tdb-porch-path-card__eyebrow" id="versePorchPathHeading">When one day is not enough</p>
             <p class="tdb-porch-path-card__invitation">Need this truth to walk with you through the week?</p>
@@ -733,6 +778,7 @@
 
   <script src="inline-bootstrap.js"></script>
   <script src="bbe-simple.js?v=20260822desk14" data-tdb-bbe-simple="1"></script>
+  <script src="tdb-another-verse.js?v=20260823desk44" defer></script>
   <script src="verse-breakdown.js?v=20260822desk17" data-tdb-verse-breakdown="1"></script>
   <script type="module" src="config.js"></script>
   <script src="tdb-offline-strip.js?v=20260421pwa1"></script>

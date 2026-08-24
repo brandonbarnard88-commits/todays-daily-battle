@@ -2160,6 +2160,7 @@
       }
     } catch (eVerseSkip) {}
     if (el.id === 'kids-daily-verse-card' || el.closest('#kids-daily-verse-root, #kids-daily-verse-card')) return true;
+    if (el.id === 'tdbAnotherVerseDesk' || el.closest('#tdbAnotherVerseDesk, #tdbAnotherVerse')) return true;
     if (el.id === 'church-daily-verse-card' || el.closest('#church-daily-verse-card')) return true;
     if (el.closest('.home-search-detail-panel')) return true;
     if (el.classList && el.classList.contains('tdb-verse-breakdown-inline')) return true;

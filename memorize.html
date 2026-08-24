@@ -27,17 +27,17 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="preload" href="tdb-quiet-luxury.css?v=20260816-brightgold" as="style">
   <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260816-brightgold">
-  <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260816-brightgold">
+  <link rel="preload" href="styles.css?v=20260823desk40" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk40">
   <link rel="preload" href="tdb-calm-hubs.css?v=20260331edge" as="style">
   <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260331edge">
   <style>
     :root {
-      --bg:#0d1117;
-      --card:#161c26;
-      --text:#f5f7fb;
-      --muted:#8896b0;
-      --gold:#e3bc67;
+      --bg:#141922;
+      --card:#141922;
+      --text:#f4efe3;
+      --muted:#d8d0c0;
+      --gold:#f2dc98;
       --line:#242d3d;
       --tdb-surface-veil-subtle: var(--tdb-lux-guilloche);
       --tdb-surface-card-bg: color-mix(in srgb, var(--card) 93%, rgba(227, 188, 103, 0.09));
@@ -54,8 +54,36 @@
     }
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 1rem; }
-    .skip-link { position: absolute; left: -9999px; }
-    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; padding: 0.5rem 0.75rem; background: var(--gold); color: #111; }
+    .skip-link {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      clip-path: inset(50%) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+      top: 0 !important;
+      left: 0 !important;
+    }
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      width: auto !important;
+      height: auto !important;
+      margin: 0 !important;
+      clip: auto !important;
+      clip-path: none !important;
+      overflow: visible !important;
+      white-space: normal !important;
+      top: 0.75rem !important;
+      left: 1rem !important;
+      z-index: 10000 !important;
+      padding: 0.5rem 0.75rem !important;
+      background: #f2dc98 !important;
+      color: #141922 !important;
+    }
     .tdb-global-nav {
       display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
       padding: 0.35rem 0.75rem; min-height: 52px;
@@ -460,6 +488,40 @@
   padding: 0 1rem;
   font-size: 0.95rem;
 }
+
+/* Quiet desk: one verse to load, review, and practice. Leftover mall off. */
+body.memorize-page .tdb-global-subnav,
+body.memorize-page .memorize-hero > .lead,
+body.memorize-page .memorize-hero-lead,
+body.memorize-page .memorize-pills,
+body.memorize-page .memorize-reassurance,
+body.memorize-page .memorize-quickstart-card,
+body.memorize-page .mem-year-round-bridge,
+body.memorize-page .memorize-onpage-nav,
+body.memorize-page #mem-snooze-legend,
+body.memorize-page .mem-print-reassurance,
+body.memorize-page .mem-context-link,
+body.memorize-page section[aria-labelledby="mem-remind-h2"],
+body.memorize-page .mem-pastor-bridge,
+body.memorize-page .mem-hub-cluster,
+body.memorize-page .mem-final-reassurance,
+body.memorize-page .site-footer-hint,
+body.memorize-page #footerMoodInsight,
+body.memorize-page .site-footer-mood-insight,
+body.memorize-page .easter-egg-badge,
+body.memorize-page #easter-egg-badge,
+body.memorize-page .toast-gold,
+body.memorize-page .tdb-easter-egg,
+body.memorize-page #hidden-moments-badge,
+body.memorize-page .family-armor-stories-btn {
+  display: none !important;
+}
+body.memorize-page .site-footer {
+  color: #f4efe3;
+}
+body.memorize-page .site-footer a {
+  color: #f2dc98;
+}
 </style>
   <script type="application/ld+json" nonce="tdb2025s">
   {
@@ -816,6 +878,7 @@
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
   <script defer src="/language-switcher.js?v=20260816-brightgold"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260823desk40"></script>
 </footer>
   <script src="bible-study-companion.js?v=20260328mem"></script>
   <script src="tdb-offline-strip.js?v=20260712-pickup"></script>

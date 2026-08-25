@@ -1544,20 +1544,23 @@
       if (isThinRelatesTodayPaint(audience)) audience = '';
     }
     if (relYou && isThinRelatesTodayPaint(relYou)) relYou = '';
+    if (relYou && /hold this verse in the hour you are in/i.test(relYou)) relYou = '';
     if (relatesToday && isThinRelatesTodayPaint(relatesToday)) relatesToday = '';
     setVotdRowVisible(document.getElementById('heroVbdRowSit'), document.getElementById('heroDeepSituation'), '');
     setVotdRowVisible(document.getElementById('heroVbdRowWho'), document.getElementById('heroDeepWho'), who);
     setVotdRowVisible(document.getElementById('heroVbdRowAud'), document.getElementById('heroDeepAudience'), audience);
     setVotdRowVisible(document.getElementById('heroVbdRowCtx'), document.getElementById('heroDeepContext'), '');
-    setVotdRowVisible(document.getElementById('heroVbdRowYou'), document.getElementById('heroDeepYou'), '');
+    setVotdRowVisible(document.getElementById('heroVbdRowYou'), document.getElementById('heroDeepYou'), relYou);
     var stepOut = document.getElementById('heroVotdOneStep');
     var stepWrap = document.getElementById('heroVotdNextStep');
-    if (stepOut) stepOut.textContent = sanitizeText(oneStep).replace(/^\s*So do this:\s*/i, '');
-    if (stepWrap) stepWrap.hidden = true;
+    var stepText = sanitizeText(oneStep).replace(/^\s*So do this:\s*/i, '');
+    if (stepOut) stepOut.textContent = stepText;
+    if (stepWrap) stepWrap.hidden = !stepText;
     var prayerTarget = document.getElementById('heroVotdPrayer');
     var prayerWrap = document.getElementById('heroVotdPrayerBlock');
-    if (prayerTarget) prayerTarget.textContent = prayer;
-    if (prayerWrap) prayerWrap.hidden = true;
+    var prayerText = sanitizeText(prayer);
+    if (prayerTarget) prayerTarget.textContent = prayerText;
+    if (prayerWrap) prayerWrap.hidden = !prayerText;
     try {
       var yrChip = document.getElementById('heroVotdBreakdownYear');
       if (yrChip) yrChip.textContent = String(yr);

@@ -333,10 +333,10 @@
   "/coloring-pages/noah-s2.svg": "/coloring-pages/noah-s2.jpg",
   "/coloring-pages/noah-s3.svg": "/coloring-pages/noah-s3.jpg",
   "/coloring-pages/noah-s4.svg": "/coloring-pages/noah-s4.jpg",
-  "/coloring-pages/david-s1.svg": "/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg",
-  "/coloring-pages/david-s2.svg": "/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg",
-  "/coloring-pages/david-s3.svg": "/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg",
-  "/coloring-pages/david-s4.svg": "/coloring-pages/bible-stories/david-and-goliath-coloring-page.jpg",
+  "/coloring-pages/david-s1.svg": "/coloring-pages/bible-stories/david-and-goliath-blank.jpg",
+  "/coloring-pages/david-s2.svg": "/coloring-pages/bible-stories/david-and-goliath-blank.jpg",
+  "/coloring-pages/david-s3.svg": "/coloring-pages/bible-stories/david-and-goliath-blank.jpg",
+  "/coloring-pages/david-s4.svg": "/coloring-pages/bible-stories/david-and-goliath-blank.jpg",
   "/coloring-pages/daniel-lions-s1.svg": "/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg",
   "/coloring-pages/daniel-lions-s2.svg": "/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg",
   "/coloring-pages/daniel-lions-s3.svg": "/coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg",
@@ -601,10 +601,10 @@
   "/coloring-pages/paul-silas-prison-s2.svg": "/coloring-pages/paul-silas-prison.jpg",
   "/coloring-pages/paul-silas-prison-s3.svg": "/coloring-pages/paul-silas-prison.jpg",
   "/coloring-pages/paul-silas-prison-s4.svg": "/coloring-pages/paul-silas-prison.jpg",
-  "/coloring-pages/lydia-purple-s1.svg": "/coloring-pages/lydia-purple-line.jpg",
-  "/coloring-pages/lydia-purple-s2.svg": "/coloring-pages/lydia-purple-line.jpg",
-  "/coloring-pages/lydia-purple-s3.svg": "/coloring-pages/lydia-purple-line.jpg",
-  "/coloring-pages/lydia-purple-s4.svg": "/coloring-pages/lydia-purple-line.jpg",
+  "/coloring-pages/lydia-purple-s1.svg": "/coloring-pages/lydia-believes-coloring.jpg",
+  "/coloring-pages/lydia-purple-s2.svg": "/coloring-pages/lydia-believes-coloring.jpg",
+  "/coloring-pages/lydia-purple-s3.svg": "/coloring-pages/lydia-believes-coloring.jpg",
+  "/coloring-pages/lydia-purple-s4.svg": "/coloring-pages/lydia-believes-coloring.jpg",
   "/coloring-pages/tabitha-dorcas-s1.svg": "/coloring-pages/tabitha-dorcas.jpg",
   "/coloring-pages/tabitha-dorcas-s2.svg": "/coloring-pages/tabitha-dorcas.jpg",
   "/coloring-pages/tabitha-dorcas-s3.svg": "/coloring-pages/tabitha-dorcas.jpg",
@@ -617,10 +617,10 @@
   "/coloring-pages/paul-shipwreck-s2.svg": "/coloring-pages/paul-shipwreck.jpg",
   "/coloring-pages/paul-shipwreck-s3.svg": "/coloring-pages/paul-shipwreck.jpg",
   "/coloring-pages/paul-shipwreck-s4.svg": "/coloring-pages/paul-shipwreck.jpg",
-  "/coloring-pages/rahab-spies-s1.svg": "/coloring-pages/rahab-spies-line.jpg",
-  "/coloring-pages/rahab-spies-s2.svg": "/coloring-pages/rahab-spies-line.jpg",
-  "/coloring-pages/rahab-spies-s3.svg": "/coloring-pages/rahab-spies-line.jpg",
-  "/coloring-pages/rahab-spies-s4.svg": "/coloring-pages/rahab-spies-line.jpg",
+  "/coloring-pages/rahab-spies-s1.svg": "/coloring-pages/rahab-spies-coloring.jpg",
+  "/coloring-pages/rahab-spies-s2.svg": "/coloring-pages/rahab-spies-coloring.jpg",
+  "/coloring-pages/rahab-spies-s3.svg": "/coloring-pages/rahab-spies-coloring.jpg",
+  "/coloring-pages/rahab-spies-s4.svg": "/coloring-pages/rahab-spies-coloring.jpg",
   "/coloring-pages/elijah-widow-s1.svg": "/coloring-pages/elijah-widow.jpg",
   "/coloring-pages/elijah-widow-s2.svg": "/coloring-pages/elijah-widow.jpg",
   "/coloring-pages/elijah-widow-s3.svg": "/coloring-pages/elijah-widow.jpg",
@@ -641,9 +641,12 @@
   // TDB_SCENE_ART_END
 
   /** Returns the best available line-art src for a scene (raster preferred). */
+  var ART_CACHE = '20260825desk61';
   function bestSceneSrc(scene) {
     if (!scene || !scene.src) return '';
-    return (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;
+    var src = (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;
+    if (src && /\.(jpe?g|png|webp)$/i.test(src)) src += '?v=' + ART_CACHE;
+    return src;
   }
 
   /**

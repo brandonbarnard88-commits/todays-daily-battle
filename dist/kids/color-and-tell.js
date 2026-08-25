@@ -641,7 +641,7 @@
   // TDB_SCENE_ART_END
 
   /** Returns the best available line-art src for a scene (raster preferred). */
-  var ART_CACHE = '20260825desk64';
+  var ART_CACHE = '20260825desk65';
   function bestSceneSrc(scene) {
     if (!scene || !scene.src) return '';
     var src = (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;
@@ -862,16 +862,16 @@
         {
           id: '1',
           src: '/coloring-pages/baby-moses-s1.svg',
-          alt: 'Moses’ mother hiding baby Moses',
-          caption: 'A mother hides her baby boy.',
-          verse: '“And the woman conceived, and bare a son: and when she saw him that he was a goodly child, she hid him three months.” — Exodus 2:2 (KJV)'
+          alt: 'Moses’ mother and Miriam lay the ark of bulrushes in the flags by the river',
+          caption: 'And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein; and she laid it in the flags by the river’s brink.',
+          verse: '“And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein; and she laid it in the flags by the river’s brink.” — Exodus 2:3 (KJV)'
         },
         {
           id: '2',
           src: '/coloring-pages/baby-moses-s2.svg',
-          alt: 'Baby Moses in a basket by the river',
-          caption: 'The ark of bulrushes is laid by the river.',
-          verse: '“And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein; and she laid it in the flags by the river’s brink.” — Exodus 2:3 (KJV)'
+          alt: 'Pharaoh’s daughter finds the ark of bulrushes by the river',
+          caption: 'And when she had opened it, she saw the child: and, behold, the babe wept. And she had compassion on him, and said, This is one of the Hebrews’ children.',
+          verse: '“And when she had opened it, she saw the child: and, behold, the babe wept. And she had compassion on him, and said, This is one of the Hebrews’ children.” — Exodus 2:6 (KJV)'
         },
         {
           id: '3',
@@ -943,9 +943,9 @@
         {
           id: '2',
           src: '/coloring-pages/jonah-s2.svg',
-          alt: 'Jonah cast into the stormy sea',
-          caption: 'A great storm; Jonah is cast into the sea.',
-          verse: '“So they took up Jonah, and cast him forth into the sea: and the sea ceased from her raging.” — Jonah 1:15 (KJV)'
+          alt: 'A mighty tempest on the sea; Jonah is still in the ship',
+          caption: 'But the LORD sent out a great wind into the sea, and there was a mighty tempest in the sea, so that the ship was like to be broken.',
+          verse: '“But the LORD sent out a great wind into the sea, and there was a mighty tempest in the sea, so that the ship was like to be broken.” — Jonah 1:4 (KJV)'
         },
         {
           id: '3',
@@ -957,9 +957,9 @@
         {
           id: '4',
           src: '/coloring-pages/jonah-s4.svg',
-          alt: 'Jonah on dry land after the great fish',
-          caption: 'Jonah prays; God brings him to dry land.',
-          verse: '“And the LORD spake unto the fish, and it vomited out Jonah upon the dry land.” — Jonah 2:10 (KJV)'
+          alt: 'Jonah preaches in Nineveh; the king and people put on sackcloth',
+          caption: 'So the people of Nineveh believed God, and proclaimed a fast, and put on sackcloth, from the greatest of them even to the least of them. For word came unto the king of Nineveh, and he arose from his throne, and he laid his robe from him, and covered him with sackcloth, and sat in ashes.',
+          verse: '“So the people of Nineveh believed God, and proclaimed a fast, and put on sackcloth, from the greatest of them even to the least of them. For word came unto the king of Nineveh, and he arose from his throne, and he laid his robe from him, and covered him with sackcloth, and sat in ashes.” — Jonah 3:5-6 (KJV)'
         }
       ]
     },
@@ -1091,16 +1091,16 @@
         {
           id: '2',
           src: '/coloring-pages/feeding-5000-s2.svg',
-          alt: 'A boy offering loaves and fishes',
-          caption: 'A boy’s five loaves and two fishes.',
-          verse: '“There is a lad here, which hath five barley loaves, and two small fishes: but what are they among so many?” — John 6:9 (KJV)'
+          alt: 'Jesus tells the disciples, Give ye them to eat',
+          caption: 'He answered and said unto them, Give ye them to eat. And they say unto him, Shall we go and buy two hundred pennyworth of bread, and give them to eat?',
+          verse: '“He answered and said unto them, Give ye them to eat. And they say unto him, Shall we go and buy two hundred pennyworth of bread, and give them to eat?” — Mark 6:37 (KJV)'
         },
         {
           id: '3',
           src: '/coloring-pages/feeding-5000-s3.svg',
-          alt: 'Jesus blessing the loaves and fishes',
-          caption: 'Jesus blesses the bread and fish.',
-          verse: '“And he commanded the multitude to sit down on the grass, and took the five loaves, and the two fishes, and looking up to heaven, he blessed, and brake, and gave the loaves to his disciples, and the disciples to the multitude.” — Matthew 14:19 (KJV)'
+          alt: 'A lad brings five barley loaves and two small fishes',
+          caption: 'There is a lad here, which hath five barley loaves, and two small fishes: but what are they among so many?',
+          verse: '“There is a lad here, which hath five barley loaves, and two small fishes: but what are they among so many?” — John 6:9 (KJV)'
         },
         {
           id: '4',
@@ -1128,9 +1128,9 @@
         {
           id: '2',
           src: '/coloring-pages/jesus-storm-s2.svg',
-          alt: 'Disciples waking Jesus in the storm',
-          caption: 'The disciples wake Jesus in fear.',
-          verse: '“And he was in the hinder part of the ship, asleep on a pillow: and they awake him, and say unto him, Master, carest thou not that we perish?” — Mark 4:38 (KJV)'
+          alt: 'A great storm of wind; the waves beat into the ship',
+          caption: 'And there arose a great storm of wind, and the waves beat into the ship, so that it was now full.',
+          verse: '“And there arose a great storm of wind, and the waves beat into the ship, so that it was now full.” — Mark 4:37 (KJV)'
         },
         {
           id: '3',
@@ -1195,9 +1195,9 @@
         {
           id: '1',
           src: '/coloring-pages/good-samaritan-s1.svg',
-          alt: 'A wounded traveler on the roadside',
-          caption: 'A man is hurt on the road.',
-          verse: '“And Jesus answering said, A certain man went down from Jerusalem to Jericho, and fell among thieves, which stripped him of his raiment, and wounded him, and departed, leaving him half dead.” — Luke 10:30 (KJV)'
+          alt: 'The Samaritan binds up the wounded man’s wounds',
+          caption: 'And went to him, and bound up his wounds, pouring in oil and wine, and set him on his own beast, and brought him to an inn, and took care of him.',
+          verse: '“And went to him, and bound up his wounds, pouring in oil and wine, and set him on his own beast, and brought him to an inn, and took care of him.” — Luke 10:34 (KJV)'
         },
         {
           id: '2',
@@ -3563,9 +3563,9 @@
         {
           id: '1',
           src: '/coloring-pages/nativity-s1.svg',
-          alt: 'Mary and Joseph seeking a place to stay',
-          caption: 'Mary and Joseph find no room in the inn.',
-          verse: '“And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger; because there was no room for them in the inn.” — Luke 2:7 (KJV)'
+          alt: 'Joseph and Mary go up to Bethlehem, the city of David',
+          caption: 'And Joseph also went up from Galilee, out of the city of Nazareth, into Judaea, unto the city of David, which is called Bethlehem; (because he was of the house and lineage of David:)',
+          verse: '“And Joseph also went up from Galilee, out of the city of Nazareth, into Judaea, unto the city of David, which is called Bethlehem; (because he was of the house and lineage of David:)” — Luke 2:4 (KJV)'
         },
         {
           id: '2',

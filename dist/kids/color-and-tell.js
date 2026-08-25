@@ -641,7 +641,7 @@
   // TDB_SCENE_ART_END
 
   /** Returns the best available line-art src for a scene (raster preferred). */
-  var ART_CACHE = '20260825desk65';
+  var ART_CACHE = '20260825desk66';
   function bestSceneSrc(scene) {
     if (!scene || !scene.src) return '';
     var src = (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;
@@ -876,16 +876,16 @@
         {
           id: '3',
           src: '/coloring-pages/baby-moses-s3.svg',
-          alt: 'Pharaoh’s daughter finding baby Moses',
-          caption: 'Pharaoh’s daughter finds the child.',
-          verse: '“And when she had opened it, she saw the child: and, behold, the babe wept. And she had compassion on him, and said, This is one of the Hebrews’ children.” — Exodus 2:6 (KJV)'
+          alt: 'Miriam asks Pharaoh’s daughter if she should call a Hebrew nurse',
+          caption: 'Then said his sister to Pharaoh’s daughter, Shall I go and call to thee a nurse of the Hebrew women, that she may nurse the child for thee?',
+          verse: '“Then said his sister to Pharaoh’s daughter, Shall I go and call to thee a nurse of the Hebrew women, that she may nurse the child for thee?” — Exodus 2:7 (KJV)'
         },
         {
           id: '4',
           src: '/coloring-pages/baby-moses-s4.svg',
-          alt: 'Young Moses under Pharaoh’s daughter’s care',
-          caption: 'Moses grows in Pharaoh’s house.',
-          verse: '“And the child grew, and she brought him unto Pharaoh’s daughter, and he became her son. And she called his name Moses: and she said, Because I drew him out of the water.” — Exodus 2:10 (KJV)'
+          alt: 'Pharaoh’s daughter gives the child to his mother to nurse',
+          caption: 'And Pharaoh’s daughter said unto her, Take this child away, and nurse it for me, and I will give thee thy wages. And the woman took the child, and nursed it.',
+          verse: '“And Pharaoh’s daughter said unto her, Take this child away, and nurse it for me, and I will give thee thy wages. And the woman took the child, and nursed it.” — Exodus 2:9 (KJV)'
         }
       ]
     },
@@ -1121,9 +1121,9 @@
         {
           id: '1',
           src: '/coloring-pages/jesus-storm-s1.svg',
-          alt: 'Disciples in a boat in a great storm',
-          caption: 'A great storm rises on the sea.',
-          verse: '“And there arose a great storm of wind, and the waves beat into the ship, so that it was now full.” — Mark 4:37 (KJV)'
+          alt: 'Jesus asleep on a pillow in the hinder part of the ship in a great storm',
+          caption: 'And he was in the hinder part of the ship, asleep on a pillow: and they awake him, and say unto him, Master, carest thou not that we perish?',
+          verse: '“And he was in the hinder part of the ship, asleep on a pillow: and they awake him, and say unto him, Master, carest thou not that we perish?” — Mark 4:38 (KJV)'
         },
         {
           id: '2',
@@ -1209,9 +1209,9 @@
         {
           id: '3',
           src: '/coloring-pages/good-samaritan-s3.svg',
-          alt: 'The good Samaritan helping the wounded man',
-          caption: 'A Samaritan has compassion.',
-          verse: '“But a certain Samaritan, as he journeyed, came where he was: and when he saw him, he had compassion on him,” — Luke 10:33 (KJV)'
+          alt: 'The Samaritan brings the wounded man to the inn',
+          caption: 'And went to him, and bound up his wounds, pouring in oil and wine, and set him on his own beast, and brought him to an inn, and took care of him.',
+          verse: '“And went to him, and bound up his wounds, pouring in oil and wine, and set him on his own beast, and brought him to an inn, and took care of him.” — Luke 10:34 (KJV)'
         },
         {
           id: '4',
@@ -3408,14 +3408,14 @@
     {
       id: 'jesus-tempted',
       title: 'Jesus Tempted in the Wilderness',
-      verse: 'But he answered and said, It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God. — Matthew 4:4 (KJV)',
+      verse: 'Then was Jesus led up of the Spirit into the wilderness to be tempted of the devil. — Matthew 4:1 (KJV)',
       lead: 'Four gentle panels that walk through Jesus Tempted in the Wilderness. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Answer temptation with God’s Word.',
       idea: 'Answer temptation with God’s Word.',
       scenes: [
         {
           id: '1',
           src: '/coloring-pages/jesus-tempted-s1.svg',
-          alt: 'Jesus fasts in the wilderness',
+          alt: 'Jesus is led of the Spirit into the wilderness to be tempted of the devil',
           caption: 'Then was Jesus led up of the Spirit into the wilderness to be tempted of the devil. And when he had fasted forty days and forty nights, he was afterward an hungred.',
           verse: '“Then was Jesus led up of the Spirit into the wilderness to be tempted of the devil. And when he had fasted forty days and forty nights, he was afterward an hungred.” — Matthew 4:1-2 (KJV)'
         },

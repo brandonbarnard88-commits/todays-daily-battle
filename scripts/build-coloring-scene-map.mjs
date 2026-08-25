@@ -31,7 +31,7 @@ const outPath = path.join(root, 'kids', 'coloring-scene-art-map.json');
 const HERO = {
   'daniel-lions': 'bible-stories/daniel-in-the-lions-den-coloring-page.jpg',
   creation: 'bible-stories/creation-six-days-coloring-page.jpg',
-  david: 'bible-stories/david-and-goliath-coloring-page.jpg',
+  david: 'bible-stories/david-and-goliath-blank.jpg',
   'jesus-children': 'bible-stories/jesus-and-the-children-coloring-page.jpg',
   'empty-tomb': 'bible-stories/empty-tomb-coloring-page.jpg',
   jonah: 'jonah-and-the-great-fish.jpg',
@@ -42,8 +42,8 @@ const HERO = {
   'good-samaritan': 'good-samaritan.jpg',
   nativity: 'nativity.jpg',
   'prodigal-son': 'prodigal-son.jpg',
-  'lydia-purple': 'lydia-purple-line.jpg',
-  'rahab-spies': 'rahab-spies-line.jpg',
+  'lydia-purple': 'lydia-believes-coloring.jpg',
+  'rahab-spies': 'rahab-spies-coloring.jpg',
 };
 
 /** Always prefer full-page hero over multi-panel detailed SVGs. */

@@ -1025,9 +1025,7 @@
   }
 
   function hookOfVerse(text) {
-    var t = sanitizeText(text).replace(/\s+/g, ' ').trim().replace(/[.!?]$/, '');
-    if (t.length > 64) t = t.slice(0, 61).replace(/\s+\S*$/, '');
-    return t;
+    return sanitizeText(text).replace(/\s+/g, ' ').trim().replace(/[.!?]$/, '');
   }
 
   function isHoleTeachingField(s, field) {

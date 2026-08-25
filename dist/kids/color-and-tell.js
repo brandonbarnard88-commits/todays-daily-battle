@@ -641,7 +641,7 @@
   // TDB_SCENE_ART_END
 
   /** Returns the best available line-art src for a scene (raster preferred). */
-  var ART_CACHE = '20260825desk61';
+  var ART_CACHE = '20260825desk62';
   function bestSceneSrc(scene) {
     if (!scene || !scene.src) return '';
     var src = (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;
@@ -825,8 +825,8 @@
         {
           id: '1',
           src: '/coloring-pages/creation-s1.svg',
-          alt: 'God speaks light into the dark on the first day of Creation',
-          caption: 'God speaks light into the dark.',
+          alt: 'The world God made — people, animals, trees, and the sun',
+          caption: 'God made the heavens and the earth, and it was very good.',
           verse: '“Let there be light.” — Genesis 1:3 (KJV)'
         },
         {
@@ -1232,8 +1232,8 @@
         {
           id: '1',
           src: '/coloring-pages/empty-tomb-s1.svg',
-          alt: 'The sealed tomb with guards',
-          caption: 'The tomb is sealed; soldiers keep watch.',
+          alt: 'The empty tomb, the rolled stone, and the folded grave clothes',
+          caption: 'He is not here: for he is risen, as he said.',
           verse: '“So they went, and made the sepulchre sure.” — Matthew 27:66 (KJV)'
         },
         {
@@ -1276,23 +1276,23 @@
         {
           id: '2',
           src: '/coloring-pages/prodigal-son-s2.svg',
-          alt: 'The prodigal son in hunger among swine',
-          caption: 'He wastes all and is in want.',
-          verse: '“He began to be in want.” — Luke 15:14 (KJV)'
+          alt: 'The younger son wasting his substance in a far country',
+          caption: 'He took his journey into a far country, and there wasted his substance with riotous living.',
+          verse: '“And not many days after the younger son gathered all together, and took his journey into a far country, and there wasted his substance with riotous living.” — Luke 15:13 (KJV)'
         },
         {
           id: '3',
           src: '/coloring-pages/prodigal-son-s3.svg',
-          alt: 'The father running to welcome his son',
-          caption: 'He comes home; the father runs to him.',
-          verse: '“His father saw him, and had compassion, and ran.” — Luke 15:20 (KJV)'
+          alt: 'The prodigal son in hunger among the swine',
+          caption: 'He would fain have filled his belly with the husks that the swine did eat.',
+          verse: '“And he would fain have filled his belly with the husks that the swine did eat: and no man gave unto him.” — Luke 15:16 (KJV)'
         },
         {
           id: '4',
           src: '/coloring-pages/prodigal-son-s4.svg',
-          alt: 'A joyful welcome feast for the returned son',
-          caption: 'Lost, and is found — celebrate mercy.',
-          verse: '“This my son was dead, and is alive again.” — Luke 15:24 (KJV)'
+          alt: 'The father runs and welcomes his son home',
+          caption: 'When he was yet a great way off, his father saw him, and had compassion, and ran.',
+          verse: '“And he arose, and came to his father. But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him.” — Luke 15:20 (KJV)'
         }
       ]
     },
@@ -1313,23 +1313,23 @@
         {
           id: '2',
           src: '/coloring-pages/walks-on-water-s2.svg',
-          alt: 'Peter stepping out of the boat',
-          caption: 'Peter steps out toward Jesus.',
-          verse: '“Lord, if it be thou, bid me come unto thee.” — Matthew 14:28 (KJV)'
+          alt: 'The disciples see Jesus walking on the sea',
+          caption: 'Be of good cheer; it is I; be not afraid.',
+          verse: '“Be of good cheer; it is I; be not afraid.” — Matthew 14:27 (KJV)'
         },
         {
           id: '3',
           src: '/coloring-pages/walks-on-water-s3.svg',
-          alt: 'Jesus catching Peter on the water',
-          caption: 'Fear rises; Jesus reaches for him.',
-          verse: '“O thou of little faith, wherefore didst thou doubt?” — Matthew 14:31 (KJV)'
+          alt: 'Peter stepping out of the boat toward Jesus',
+          caption: 'Peter walks on the water to go to Jesus.',
+          verse: '“And when Peter was come down out of the ship, he walked on the water, to go to Jesus.” — Matthew 14:29 (KJV)'
         },
         {
           id: '4',
           src: '/coloring-pages/walks-on-water-s4.svg',
-          alt: 'Jesus and Peter safe in the boat',
-          caption: 'They worship Him in the boat.',
-          verse: '“Of a truth thou art the Son of God.” — Matthew 14:33 (KJV)'
+          alt: 'Jesus stretching forth his hand and catching Peter',
+          caption: 'Jesus stretched forth his hand, and caught him.',
+          verse: '“And immediately Jesus stretched forth his hand, and caught him, and said unto him, O thou of little faith, wherefore didst thou doubt?” — Matthew 14:31 (KJV)'
         }
       ]
     },
@@ -2379,9 +2379,9 @@
         {
           id: '1',
           src: '/coloring-pages/abraham-isaac-s1.svg',
-          alt: 'God calls Abraham',
-          caption: 'Take now thy son, thine only son Isaac, whom thou.',
-          verse: '“And Abraham called the name of that place Jehovahjireh.” — Genesis 22:2 (KJV)'
+          alt: 'Abraham and Isaac walk with the wood; a ram waits in the thicket',
+          caption: 'Abraham took the wood of the burnt offering, and laid it upon Isaac his son.',
+          verse: '“And Abraham took the wood of the burnt offering, and laid it upon Isaac his son; and he took the fire in his hand, and a knife; and they went both of them together.” — Genesis 22:6 (KJV)'
         },
         {
           id: '2',
@@ -2675,9 +2675,9 @@
         {
           id: '1',
           src: '/coloring-pages/abraham-sarah-s1.svg',
-          alt: 'Three visitors promise a son',
-          caption: 'I will certainly return unto thee according to the.',
-          verse: '“Sarah laughed within herself, saying, After I am waxed old shall.” — Genesis 18:10 (KJV)'
+          alt: 'Abraham and Sarah by their tent under the stars',
+          caption: 'Look now toward heaven, and tell the stars: so shall thy seed be.',
+          verse: '“And he brought him forth abroad, and said, Look now toward heaven, and tell the stars, if thou be able to number them: and he said unto him, So shall thy seed be.” — Genesis 15:5 (KJV)'
         },
         {
           id: '2',
@@ -2749,9 +2749,9 @@
         {
           id: '1',
           src: '/coloring-pages/hannah-samuel-s1.svg',
-          alt: 'Hannah prays in bitterness of soul',
-          caption: 'She was in bitterness of soul.',
-          verse: '“1.” — 1 Samuel 1:10-11 (KJV)'
+          alt: 'Hannah brings young Samuel to Eli at the house of the LORD',
+          caption: 'For this child I prayed; and the LORD hath given me my petition which I asked of him.',
+          verse: '“For this child I prayed; and the LORD hath given me my petition which I asked of him.” — 1 Samuel 1:27 (KJV)'
         },
         {
           id: '2',
@@ -2971,9 +2971,9 @@
         {
           id: '1',
           src: '/coloring-pages/boy-david-s1.svg',
-          alt: 'Samuel comes to Jesse\'s house',
-          caption: 'Samuel came to Bethlehem and sanctified Jesse and.',
-          verse: '“1.” — 1 Samuel 16:4-5 (KJV)'
+          alt: 'Young David keeps sheep and plays the harp',
+          caption: 'There remaineth yet the youngest, and, behold, he keepeth the sheep.',
+          verse: '“And Samuel said unto Jesse, Are here all thy children? And he said, There remaineth yet the youngest, and, behold, he keepeth the sheep.” — 1 Samuel 16:11 (KJV)'
         },
         {
           id: '2',
@@ -3526,9 +3526,9 @@
         {
           id: '1',
           src: '/coloring-pages/tabitha-dorcas-s1.svg',
-          alt: 'Dorcas helps the poor with coats',
-          caption: 'This woman was full of good works and almsdeeds.',
-          verse: '“Acts 9.” — Acts 9:36 (KJV)'
+          alt: 'Peter prays and Tabitha sits up; the widows show the coats she made',
+          caption: 'Peter kneeled down, and prayed; and turning him to the body said, Tabitha, arise.',
+          verse: '“But Peter put them all forth, and kneeled down, and prayed; and turning him to the body said, Tabitha, arise.” — Acts 9:40 (KJV)'
         },
         {
           id: '2',

@@ -21,6 +21,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
         this.drawMode = 'fill'; // kids default: pick color, tap area to fill between lines
         this._lineArtData = null;
         this._lineArtKey = '';
+        this._lineArtCache = {};
 
         // Default colors
         this.paletteColors = [
@@ -775,16 +776,16 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
 
     /**
      * Cache a binary barrier mask for flood-fill walls.
-     * Soft gray shading is treated as open paper; only real dark ink
-     * becomes a wall, then walls are dilated so thin/anti-aliased
-     * outlines seal (fixes shaded coloring JPGs like Jesus & children).
+     * Dark ink is a wall. Tiny gaps in outlines are closed so sky/grass
+     * do not leak into the next region. Soft gray washes stay open.
      */
-    ensureLineArtData() {
+    ensureLineArtData(strict) {
         if (!this.img || !this.img.naturalWidth) return null;
-        const key = this.src + '|' + this.img.naturalWidth + 'x' + this.img.naturalHeight + '|mask-v2';
-        if (this._lineArtData && this._lineArtKey === key) return this._lineArtData;
         const w = this.img.naturalWidth;
         const h = this.img.naturalHeight;
+        const mode = strict ? 's' : 'n';
+        const key = this.src + '|' + w + 'x' + h + '|mask-v3|' + mode;
+        if (this._lineArtCache && this._lineArtCache[key]) return this._lineArtCache[key];
         const c = document.createElement('canvas');
         c.width = w;
         c.height = h;
@@ -799,9 +800,8 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
         const src = ctx.getImageData(0, 0, w, h);
         const sd = src.data;
         const n = w * h;
-        // Pass 1: mark true ink (dark lines only — ignore soft gray washes)
         const ink = new Uint8Array(n);
-        const INK_LUMA = 105; // stricter than paint gray (was 148)
+        const INK_LUMA = strict ? 158 : 122;
         for (let p = 0, i = 0; p < n; p++, i += 4) {
             const a = sd[i + 3];
             if (a < 28) {
@@ -811,7 +811,6 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
             const lum = sd[i] * 0.299 + sd[i + 1] * 0.587 + sd[i + 2] * 0.114;
             ink[p] = lum < INK_LUMA ? 1 : 0;
         }
-        // Pass 2: light despeckle — drop isolated single-pixel ink
         const cleaned = new Uint8Array(n);
         for (let y = 1; y < h - 1; y++) {
             for (let x = 1; x < w - 1; x++) {
@@ -832,7 +831,6 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
                 cleaned[p] = neighbors >= 1 ? 1 : 0;
             }
         }
-        // copy edges
         for (let x = 0; x < w; x++) {
             cleaned[x] = ink[x];
             cleaned[(h - 1) * w + x] = ink[(h - 1) * w + x];
@@ -841,40 +839,66 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
             cleaned[y * w] = ink[y * w];
             cleaned[y * w + w - 1] = ink[y * w + w - 1];
         }
-        // Pass 3: dilate ink 1px (plus corners) so thin strokes seal closed regions
-        const dilated = new Uint8Array(n);
-        for (let y = 0; y < h; y++) {
-            for (let x = 0; x < w; x++) {
+        // Close 1px holes in outlines so a sky tap cannot walk through a broken horizon.
+        const closed = new Uint8Array(cleaned);
+        for (let y = 1; y < h - 1; y++) {
+            for (let x = 1; x < w - 1; x++) {
                 const p = y * w + x;
-                if (cleaned[p]) {
-                    dilated[p] = 1;
-                    continue;
-                }
-                let wall = 0;
-                if (x > 0) wall |= cleaned[p - 1];
-                if (x + 1 < w) wall |= cleaned[p + 1];
-                if (y > 0) wall |= cleaned[p - w];
-                if (y + 1 < h) wall |= cleaned[p + w];
-                if (x > 0 && y > 0) wall |= cleaned[p - w - 1];
-                if (x + 1 < w && y > 0) wall |= cleaned[p - w + 1];
-                if (x > 0 && y + 1 < h) wall |= cleaned[p + w - 1];
-                if (x + 1 < w && y + 1 < h) wall |= cleaned[p + w + 1];
-                dilated[p] = wall ? 1 : 0;
+                if (cleaned[p]) continue;
+                let neighbors = 0;
+                neighbors += cleaned[p - 1];
+                neighbors += cleaned[p + 1];
+                neighbors += cleaned[p - w];
+                neighbors += cleaned[p + w];
+                neighbors += cleaned[p - w - 1];
+                neighbors += cleaned[p - w + 1];
+                neighbors += cleaned[p + w - 1];
+                neighbors += cleaned[p + w + 1];
+                if (neighbors >= 5) closed[p] = 1;
             }
         }
-        // Write binary mask into ImageData (black = wall, white = open)
+        let walls = closed;
+        const dilatePasses = strict ? 2 : 1;
+        for (let pass = 0; pass < dilatePasses; pass++) {
+            const dilated = new Uint8Array(n);
+            for (let y = 0; y < h; y++) {
+                for (let x = 0; x < w; x++) {
+                    const p = y * w + x;
+                    if (walls[p]) {
+                        dilated[p] = 1;
+                        continue;
+                    }
+                    let wall = 0;
+                    if (x > 0) wall |= walls[p - 1];
+                    if (x + 1 < w) wall |= walls[p + 1];
+                    if (y > 0) wall |= walls[p - w];
+                    if (y + 1 < h) wall |= walls[p + w];
+                    if (x > 0 && y > 0) wall |= walls[p - w - 1];
+                    if (x + 1 < w && y > 0) wall |= walls[p - w + 1];
+                    if (x > 0 && y + 1 < h) wall |= walls[p + w - 1];
+                    if (x + 1 < w && y + 1 < h) wall |= walls[p + w + 1];
+                    dilated[p] = wall ? 1 : 0;
+                }
+            }
+            walls = dilated;
+        }
         const out = ctx.createImageData(w, h);
         const od = out.data;
+        let open = 0;
         for (let p = 0, i = 0; p < n; p++, i += 4) {
-            const v = dilated[p] ? 0 : 255;
+            const v = walls[p] ? 0 : 255;
+            if (!walls[p]) open++;
             od[i] = v;
             od[i + 1] = v;
             od[i + 2] = v;
             od[i + 3] = 255;
         }
+        out._tdbOpen = open;
+        if (!this._lineArtCache) this._lineArtCache = {};
+        this._lineArtCache[key] = out;
         this._lineArtData = out;
         this._lineArtKey = key;
-        return this._lineArtData;
+        return out;
     }
 
     isLineBarrier(data, idx) {
@@ -924,70 +948,106 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
 
     /**
      * Flood-fill paint canvas inside closed line-art regions.
+     * Only paints pixels that match the tapped color, so grass stays grass
+     * when you fill the sky. If a tap would flood most of the page, retry
+     * with tighter line walls (broken outlines).
      * Returns true if any pixels changed.
      */
     floodFillAt(x, y, colorIndex) {
-        const line = this.ensureLineArtData();
-        if (!line || !this.ctx) return false;
-        const w = line.width;
-        const h = line.height;
+        if (!this.ctx) return false;
+        const loose = this.ensureLineArtData(false);
+        if (!loose) return false;
+        const w = loose.width;
+        const h = loose.height;
         const ix = Math.max(0, Math.min(w - 1, x | 0));
         const iy = Math.max(0, Math.min(h - 1, y | 0));
-        const start = (iy * w + ix) * 4;
-        if (this.isLineBarrier(line.data, start)) return false;
-
         const isEraser = colorIndex === (this.paletteColors.length - 1);
         const rgba = isEraser ? [0, 0, 0, 0] : this.parseCssColor(this.paletteColors[colorIndex]);
+        const snapshot = this.ctx.getImageData(0, 0, w, h);
 
-        const paint = this.ctx.getImageData(0, 0, w, h);
-        const pd = paint.data;
-        const ld = line.data;
-        const visited = new Uint8Array(w * h);
-        const stack = [ix, iy];
-        visited[iy * w + ix] = 1;
-        let count = 0;
-        const maxPx = w * h;
+        const run = (line) => {
+            const start = (iy * w + ix) * 4;
+            if (this.isLineBarrier(line.data, start)) return 0;
+            const pd = new Uint8ClampedArray(snapshot.data);
+            const ld = line.data;
+            const sr = snapshot.data[start];
+            const sg = snapshot.data[start + 1];
+            const sb = snapshot.data[start + 2];
+            const sa = snapshot.data[start + 3];
+            const seedEmpty = sa < 18;
+            const samePaint = (i) => {
+                if (seedEmpty) return pd[i + 3] < 18;
+                return (
+                    Math.abs(pd[i] - sr) <= 28 &&
+                    Math.abs(pd[i + 1] - sg) <= 28 &&
+                    Math.abs(pd[i + 2] - sb) <= 28 &&
+                    Math.abs(pd[i + 3] - sa) <= 28
+                );
+            };
+            if (!seedEmpty &&
+                Math.abs(sr - rgba[0]) <= 4 &&
+                Math.abs(sg - rgba[1]) <= 4 &&
+                Math.abs(sb - rgba[2]) <= 4 &&
+                Math.abs(sa - rgba[3]) <= 4) {
+                return 0;
+            }
+            const visited = new Uint8Array(w * h);
+            const stack = [ix, iy];
+            visited[iy * w + ix] = 1;
+            let count = 0;
+            const maxPx = w * h;
+            while (stack.length) {
+                const cy = stack.pop();
+                const cx = stack.pop();
+                const p = cy * w + cx;
+                const i = p * 4;
+                if (this.isLineBarrier(ld, i)) continue;
+                if (!samePaint(i)) continue;
+                if (isEraser) {
+                    pd[i] = 0; pd[i + 1] = 0; pd[i + 2] = 0; pd[i + 3] = 0;
+                } else {
+                    pd[i] = rgba[0];
+                    pd[i + 1] = rgba[1];
+                    pd[i + 2] = rgba[2];
+                    pd[i + 3] = rgba[3];
+                }
+                count++;
+                if (count > maxPx) break;
+                if (cx > 0) {
+                    const np = p - 1;
+                    if (!visited[np]) { visited[np] = 1; stack.push(cx - 1, cy); }
+                }
+                if (cx + 1 < w) {
+                    const np = p + 1;
+                    if (!visited[np]) { visited[np] = 1; stack.push(cx + 1, cy); }
+                }
+                if (cy > 0) {
+                    const np = p - w;
+                    if (!visited[np]) { visited[np] = 1; stack.push(cx, cy - 1); }
+                }
+                if (cy + 1 < h) {
+                    const np = p + w;
+                    if (!visited[np]) { visited[np] = 1; stack.push(cx, cy + 1); }
+                }
+            }
+            if (count >= 8) {
+                snapshot.data.set(pd);
+            }
+            return count;
+        };
 
-        while (stack.length) {
-            const cy = stack.pop();
-            const cx = stack.pop();
-            const p = cy * w + cx;
-            const i = p * 4;
-            if (this.isLineBarrier(ld, i)) continue;
-
-            if (isEraser) {
-                pd[i] = 0; pd[i + 1] = 0; pd[i + 2] = 0; pd[i + 3] = 0;
-            } else {
-                pd[i] = rgba[0];
-                pd[i + 1] = rgba[1];
-                pd[i + 2] = rgba[2];
-                pd[i + 3] = rgba[3];
-            }
-            count++;
-            if (count > maxPx) break;
-
-            if (cx > 0) {
-                const np = p - 1;
-                if (!visited[np]) { visited[np] = 1; stack.push(cx - 1, cy); }
-            }
-            if (cx + 1 < w) {
-                const np = p + 1;
-                if (!visited[np]) { visited[np] = 1; stack.push(cx + 1, cy); }
-            }
-            if (cy > 0) {
-                const np = p - w;
-                if (!visited[np]) { visited[np] = 1; stack.push(cx, cy - 1); }
-            }
-            if (cy + 1 < h) {
-                const np = p + w;
-                if (!visited[np]) { visited[np] = 1; stack.push(cx, cy + 1); }
+        let count = run(loose);
+        const open = loose._tdbOpen || (w * h);
+        if (count > open * 0.48) {
+            const tight = this.ensureLineArtData(true);
+            if (tight) {
+                snapshot.data.set(this.ctx.getImageData(0, 0, w, h).data);
+                const retry = run(tight);
+                if (retry >= 8) count = retry;
             }
         }
-
-        // Ignore tiny accidental taps on anti-aliased edge
         if (count < 8) return false;
-
-        this.ctx.putImageData(paint, 0, 0);
+        this.ctx.putImageData(snapshot, 0, 0);
         this.ctx.globalCompositeOperation = 'source-over';
         return true;
     }

@@ -5236,9 +5236,12 @@ function initSkyMoon() {
     shadow.style.setProperty('--shadow-scale', shadowScale.toFixed(3));
     shadow.style.setProperty('--shadow-origin', waxing ? '100% 50%' : '0% 50%');
     var pct = Math.round(frac * 100);
-    if (label) label.textContent = name + ' · ' + pct + '%';
+    if (label) label.textContent = '';
     var moonEl = document.getElementById('sky-moon');
-    if (moonEl) moonEl.setAttribute('aria-label', 'Moon phase: ' + name + ', ' + pct + '% illuminated');
+    if (moonEl) {
+      moonEl.setAttribute('aria-hidden', 'true');
+      moonEl.removeAttribute('aria-label');
+    }
   }
 
   updateMoon();

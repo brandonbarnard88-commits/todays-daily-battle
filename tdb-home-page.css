@@ -13373,3 +13373,14 @@ html[data-theme="sepia"] .tdb-another-verse .tdb-vbd-label {
   max-height: none !important;
   overflow: visible !important;
 }
+/* Today’s verse context stays on the card — JS leftover filters must not hide it. */
+#verseCard #heroVbdRowAud,
+#verseCard #heroVbdRowYou,
+#verseCard #heroVotdNextStep,
+#verseCard #heroVotdPrayerBlock {
+  display: block !important;
+}
+#sky-moon-label,
+.sky-moon-label {
+  display: none !important;
+}

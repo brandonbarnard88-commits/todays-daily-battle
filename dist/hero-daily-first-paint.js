@@ -1555,12 +1555,24 @@
     var stepWrap = document.getElementById('heroVotdNextStep');
     var stepText = sanitizeText(oneStep).replace(/^\s*So do this:\s*/i, '');
     if (stepOut) stepOut.textContent = stepText;
-    if (stepWrap) stepWrap.hidden = !stepText;
+    if (stepWrap) {
+      stepWrap.hidden = false;
+      stepWrap.removeAttribute('hidden');
+    }
     var prayerTarget = document.getElementById('heroVotdPrayer');
     var prayerWrap = document.getElementById('heroVotdPrayerBlock');
     var prayerText = sanitizeText(prayer);
     if (prayerTarget) prayerTarget.textContent = prayerText;
-    if (prayerWrap) prayerWrap.hidden = !prayerText;
+    if (prayerWrap) {
+      prayerWrap.hidden = false;
+      prayerWrap.removeAttribute('hidden');
+    }
+    ['heroVbdRowAud', 'heroVbdRowYou'].forEach(function (id) {
+      var row = document.getElementById(id);
+      if (!row) return;
+      row.hidden = false;
+      row.removeAttribute('hidden');
+    });
     try {
       var yrChip = document.getElementById('heroVotdBreakdownYear');
       if (yrChip) yrChip.textContent = String(yr);

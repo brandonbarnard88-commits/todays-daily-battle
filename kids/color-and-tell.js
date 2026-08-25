@@ -641,7 +641,7 @@
   // TDB_SCENE_ART_END
 
   /** Returns the best available line-art src for a scene (raster preferred). */
-  var ART_CACHE = '20260825desk63';
+  var ART_CACHE = '20260825desk64';
   function bestSceneSrc(scene) {
     if (!scene || !scene.src) return '';
     var src = (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;
@@ -1381,7 +1381,7 @@
           id: '1',
           src: '/coloring-pages/woman-at-well-s1.svg',
           alt: 'Jesus sits weary by Jacob’s well at noon in Samaria',
-          caption: 'Jesus, being wearied with his journey, sat thus on.',
+          caption: 'Now Jacob’s well was there. Jesus therefore, being wearied with his journey, sat thus on the well: and it was about the sixth hour.',
           verse: '“Now Jacob’s well was there. Jesus therefore, being wearied with his journey, sat thus on the well: and it was about the sixth hour.” — John 4:6 (KJV)'
         },
         {
@@ -1395,7 +1395,7 @@
           id: '3',
           src: '/coloring-pages/woman-at-well-s3.svg',
           alt: 'Jesus speaks with the woman about living water',
-          caption: 'Jesus answered and said unto her, Whosoever drinketh.',
+          caption: 'But whosoever drinketh of the water that I shall give him shall never thirst; but the water that I shall give him shall be in him a well of water springing up into everlasting life.',
           verse: '“But whosoever drinketh of the water that I shall give him shall never thirst; but the water that I shall give him shall be in him a well of water springing up into everlasting life.” — John 4:14 (KJV)'
         },
         {
@@ -2882,7 +2882,7 @@
           id: '4',
           src: '/coloring-pages/pearl-great-price-s4.svg',
           alt: 'The kingdom is worth everything',
-          caption: 'When he had found one pearl of great price, he went.',
+          caption: 'Who, when he had found one pearl of great price, went and sold all that he had, and bought it.',
           verse: '“Who, when he had found one pearl of great price, went and sold all that he had, and bought it.” — Matthew 13:46 (KJV)'
         }
       ]
@@ -3238,7 +3238,7 @@
           id: '2',
           src: '/coloring-pages/transfiguration-s2.svg',
           alt: 'Jesus shines with Moses and Elijah',
-          caption: 'He was transfigured before them.',
+          caption: 'And was transfigured before them: and his face did shine as the sun, and his raiment was white as the light. And, behold, there appeared unto them Moses and Elias talking with him.',
           verse: '“And was transfigured before them: and his face did shine as the sun, and his raiment was white as the light. And, behold, there appeared unto them Moses and Elias talking with him.” — Matthew 17:2-3 (KJV)'
         },
         {
@@ -3638,7 +3638,7 @@
           id: '1',
           src: '/coloring-pages/rahab-spies-s1.svg',
           alt: 'Two men come to the city wall',
-          caption: 'Joshua sent two men to spy secretly, saying, Go view.',
+          caption: 'And Joshua the son of Nun sent out of Shittim two men to spy secretly, saying, Go view the land, even Jericho. And they went, and came into an harlot’s house, named Rahab, and lodged there.',
           verse: '“And Joshua the son of Nun sent out of Shittim two men to spy secretly, saying, Go view the land, even Jericho. And they went, and came into an harlot’s house, named Rahab, and lodged there.” — Joshua 2:1 (KJV)'
         },
         {
@@ -3659,7 +3659,7 @@
           id: '4',
           src: '/coloring-pages/rahab-spies-s4.svg',
           alt: 'The men return safely to Joshua',
-          caption: 'The men went.',
+          caption: 'So the two men returned, and descended from the mountain, and passed over, and came to Joshua the son of Nun, and told him all things that befell them: And they said unto Joshua, Truly the LORD hath delivered into our hands all the land; for even all the inhabitants of the country do faint because of us.',
           verse: '“So the two men returned, and descended from the mountain, and passed over, and came to Joshua the son of Nun, and told him all things that befell them: And they said unto Joshua, Truly the LORD hath delivered into our hands all the land; for even all the inhabitants of the country do faint because of us.” — Joshua 2:23-24 (KJV)'
         }
       ]

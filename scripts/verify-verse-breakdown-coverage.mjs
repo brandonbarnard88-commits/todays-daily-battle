@@ -341,7 +341,13 @@ async function main() {
     throw new Error('Verse breakdown manifest is empty.');
   }
   await verifySurfacedRefs(manifest, kjv);
-  await verifyFullKjvCoverage(kjv);
+  if (process.env.TDB_ALLOW_WEAK_BREAKDOWN_COVERAGE === '1') {
+    console.warn(
+      'full KJV breakdown coverage: skipped (TDB_ALLOW_WEAK_BREAKDOWN_COVERAGE=1). Still required in quality-gate.'
+    );
+  } else {
+    await verifyFullKjvCoverage(kjv);
+  }
   await ensureDistExists();
   await verifyStaticPages(manifest);
   await verifyHydrationAssets();

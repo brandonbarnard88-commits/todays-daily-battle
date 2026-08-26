@@ -95,6 +95,12 @@ if (!headersForCsp.includes('Content-Security-Policy')) {
 } else {
   ok('CSP present in _headers (HTTP header — correct)');
 }
+const scriptJsForCsp = read('script.js');
+if (!scriptJsForCsp.includes("e.disposition === 'report'") || !scriptJsForCsp.includes("script-src 'none'")) {
+  fail("script.js: CSP listener must ignore report-only / Page Shield (script-src 'none') events");
+} else {
+  ok('script.js: CSP listener skips report-only Page Shield noise');
+}
 // require-trusted-types-for 'script' removed: strict sink enforcement breaks third-party scripts (e.g. GA/gtag)
 // that assign plain strings to HTML sinks; tt-bootstrap still wraps innerHTML via default + dompurify policies.
 if (headersForCsp.includes("require-trusted-types-for 'script'")) {

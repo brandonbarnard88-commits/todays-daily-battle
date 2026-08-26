@@ -95,6 +95,12 @@ if (!headersForCsp.includes('Content-Security-Policy')) {
 } else {
   ok('CSP present in _headers (HTTP header — correct)');
 }
+const vbdSrc = read('verse-breakdown.js');
+if (vbdSrc.indexOf("el.classList.contains('context-line')") === -1 || vbdSrc.indexOf('isPollutedVerseChrome') === -1) {
+  fail('verse-breakdown.js: must skip chapter-reader context-line inject and reject nested breakdown as KJV text');
+} else {
+  ok('verse-breakdown.js: chapter reader verses stay KJV-only (no nested breakdown UI)');
+}
 const scriptJsForCsp = read('script.js');
 if (!scriptJsForCsp.includes("e.disposition === 'report'") || !scriptJsForCsp.includes("script-src 'none'")) {
   fail("script.js: CSP listener must ignore report-only / Page Shield (script-src 'none') events");

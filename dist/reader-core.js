@@ -74,7 +74,7 @@
           var v = verses[vi] || {};
           var ref = (v.book_name || safeBook) + ' ' + (v.chapter || safeChapter) + ':' + (v.verse || '');
           var text = String(v.text || '').trim();
-          html += '<div class="context-line"><strong>' + esc(ref) + '</strong> ' + esc(text) + '</div>';
+          html += '<div class="context-line" data-ref="' + esc(ref) + '" data-verse-text="' + esc(text) + '"><strong>' + esc(ref) + '</strong> ' + esc(text) + '</div>';
         }
         output.innerHTML = html;
       })
@@ -96,7 +96,7 @@
             var vv = fromCache.verses[ci] || {};
             var ref = (vv.book_name || safeBook) + ' ' + (vv.chapter || safeChapter) + ':' + (vv.verse || '');
             var t = String(vv.text || '').trim();
-            html += '<div class="context-line"><strong>' + esc(ref) + '</strong> ' + esc(t) + '</div>';
+            html += '<div class="context-line" data-ref="' + esc(ref) + '" data-verse-text="' + esc(t) + '"><strong>' + esc(ref) + '</strong> ' + esc(t) + '</div>';
           }
           output.innerHTML = html;
           return;
@@ -368,7 +368,7 @@
     hasLoadedReaderAppModule = true;
     var s = document.createElement('script');
     s.type = 'module';
-    s.src = 'script.js?v=20260503-consent-persist-fix';
+    s.src = 'script.js?v=20260826desk70';
     s.setAttribute('data-cfasync', 'false');
     s.setAttribute('data-tdb-reader-app', '1');
     document.head.appendChild(s);

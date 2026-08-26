@@ -110,7 +110,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260823desk43';
+    s.src = '/verse-breakdown.js?v=20260826desk70';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2846,7 +2846,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260822desk10');
   var trustedCtx = trustedScriptURL('/verse-context.js?v=20260808-situation-every');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260823desk43');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260826desk70');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -28519,6 +28519,7 @@ function appendReaderVerseLine(container, ref, text, useRedLetter) {
   const line = document.createElement('div');
   line.className = 'context-line context-line--reader-virtual';
   line.dataset.ref = ref;
+  line.setAttribute('data-verse-text', String(text || '').trim());
   line.setAttribute('tabindex', '0');
   line.setAttribute('role', 'button');
   line.setAttribute('aria-label', 'Show breakdown for ' + ref);
@@ -28539,6 +28540,14 @@ function fillReaderVerseBreakdown(ref, text) {
   if (!cleanRef) {
     wrap.hidden = true;
     return;
+  }
+  if (!cleanText || /Verse breakdown|Pick your style:|Sit with This Verse/i.test(cleanText)) {
+    try {
+      if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.canonVerseText === 'function') {
+        var canon = window.TDBVerseBreakdown.canonVerseText(cleanRef);
+        if (canon) cleanText = canon;
+      }
+    } catch (eCanon) { /* ignore */ }
   }
   var refEl = document.getElementById('reader-vbd-ref');
   var textEl = document.getElementById('reader-vbd-text');
@@ -28604,11 +28613,28 @@ function wireReaderVerseBreakdownClicks() {
   function fromLine(line) {
     if (!line) return;
     var ref = line.dataset.ref || '';
-    var strong = line.querySelector('strong');
-    var raw = line.textContent || '';
-    var text = raw;
-    if (strong && strong.textContent) {
-      text = raw.replace(strong.textContent, '').trim();
+    var stored = (line.getAttribute('data-verse-text') || '').trim();
+    var text = stored;
+    if (!text || /Verse breakdown|Pick your style:/i.test(text)) {
+      try {
+        var clone = line.cloneNode(true);
+        var kill = clone.querySelectorAll('.tdb-verse-breakdown-inline, .reader-verse-xref-btn, .reader-verse-wordstudy-btn');
+        for (var ki = 0; ki < kill.length; ki++) {
+          if (kill[ki].parentNode) kill[ki].parentNode.removeChild(kill[ki]);
+        }
+        var strong = clone.querySelector('strong');
+        var raw = String(clone.textContent || '').replace(/\s+/g, ' ').trim();
+        if (strong && strong.textContent) {
+          raw = raw.replace(String(strong.textContent).trim(), '').trim();
+        }
+        if (raw && !/Verse breakdown|Pick your style:/i.test(raw)) text = raw;
+      } catch (eFrom) {
+        text = stored;
+      }
+    }
+    if (!ref) {
+      var st = line.querySelector('strong');
+      if (st) ref = String(st.textContent || '').trim();
     }
     fillReaderVerseBreakdown(ref, text);
   }
@@ -28642,6 +28668,7 @@ function renderReaderVersesProgressively(container, rows, onDone) {
       const line = document.createElement('div');
       line.className = 'context-line context-line--reader-virtual';
       line.dataset.ref = row.ref || '';
+      line.setAttribute('data-verse-text', String(row.text || '').trim());
       line.setAttribute('tabindex', '0');
       line.setAttribute('role', 'button');
       if (row.ref) line.setAttribute('aria-label', 'Show breakdown for ' + row.ref);
@@ -28703,10 +28730,19 @@ function queueReaderChapterEnhancements(book, chapter) {
         try { refRaw = decodeURIComponent(refRaw); } catch (eDec) { /* ignore */ }
         var line = document.querySelector('#reader-output .context-line[data-ref="' + CSS.escape(String(refRaw).trim()) + '"]');
         if (line) {
-          var strong = line.querySelector('strong');
-          var raw = line.textContent || '';
-          var text = strong && strong.textContent ? raw.replace(strong.textContent, '').trim() : raw;
-          fillReaderVerseBreakdown(refRaw, text);
+          var storedRef = line.dataset.ref || refRaw;
+          var storedText = (line.getAttribute('data-verse-text') || '').trim();
+          if (!storedText || /Verse breakdown|Pick your style:/i.test(storedText)) {
+            var clone = line.cloneNode(true);
+            clone.querySelectorAll('.tdb-verse-breakdown-inline, .reader-verse-xref-btn, .reader-verse-wordstudy-btn').forEach(function (n) {
+              if (n.parentNode) n.parentNode.removeChild(n);
+            });
+            var strong = clone.querySelector('strong');
+            var raw = String(clone.textContent || '').replace(/\s+/g, ' ').trim();
+            if (strong && strong.textContent) raw = raw.replace(String(strong.textContent).trim(), '').trim();
+            if (raw && !/Verse breakdown|Pick your style:/i.test(raw)) storedText = raw;
+          }
+          fillReaderVerseBreakdown(storedRef, storedText);
         }
       }
     } catch (eRefVbd) { /* ignore */ }

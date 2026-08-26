@@ -1801,11 +1801,15 @@
     details.setAttribute('data-age-mode', ageMode);
 
     var resolvedText = cleanVerseText(text || '');
+    if (isPollutedVerseChrome(resolvedText)) resolvedText = '';
+    /* Official KJV for this ref — never a DOM scrape that swallowed the breakdown UI. */
+    var canonText = getBibleVerseText(ref);
+    if (canonText) resolvedText = canonText;
     /* Never treat the reference string as verse body (e.g. “Isaiah 24:2”). */
     if (!resolvedText || normalizeRef(resolvedText) === normalizeRef(ref) || resolvedText === String(ref || '').trim()) {
-      resolvedText = getBibleVerseText(ref);
+      resolvedText = canonText || getBibleVerseText(ref);
     }
-    if (!resolvedText) resolvedText = cleanVerseText(text || '');
+    if (!resolvedText) resolvedText = isPollutedVerseChrome(text) ? '' : cleanVerseText(text || '');
 
     var breakdown = getBreakdown(ref, resolvedText, { group: ageMode, host: details });
     var topic = inferRelationTopic(ref, resolvedText);
@@ -1950,8 +1954,9 @@
     if (!host) return null;
 
     if (host.classList && host.classList.contains('context-line')) {
-      var firstTool = host.querySelector('.reader-verse-xref-btn, .reader-verse-wordstudy-btn');
-      return { parent: host, before: firstTool || null };
+      if (host.parentNode) {
+        return { parent: host.parentNode, before: host.nextSibling };
+      }
     }
 
     if (host.querySelector('#daily-ref') && host.querySelector('#daily-text')) {
@@ -2132,6 +2137,8 @@
       if (path.indexOf('coloring.html') !== -1) return true;
     } catch (e0) {}
     if (el.closest('#tdb-cat-root')) return true;
+    if (el.classList && el.classList.contains('context-line')) return true;
+    if (el.closest('#reader-output, .chapter-output, #reader-verse-breakdown')) return true;
     if (el.closest('[data-tdb-no-verse-breakdown="1"]')) return true;
     /* KISS cards already show KJV → BBE → context — never pile on heavy inline breakdown. */
     if (el.classList && el.classList.contains('tdb-kiss-verse')) return true;
@@ -2227,6 +2234,22 @@
 
   function cleanVerseText(text) {
     return tdbPlainTextForUi(String(text || '').replace(/\s+/g, ' ').trim());
+  }
+
+  function isPollutedVerseChrome(text) {
+    var t = String(text || '');
+    if (!t) return false;
+    if (/Verse breakdown/i.test(t) && /Pick your style:/i.test(t)) return true;
+    if (/Sit with This Verse/i.test(t)) return true;
+    if (/Hide breakdown/i.test(t) && /Reading level \(Kid/i.test(t)) return true;
+    return t.length > 900 && /Verse breakdown/i.test(t);
+  }
+
+  function stripInlineBreakdownFromReaderLines(root) {
+    var host = root && root.querySelectorAll ? root : document;
+    host.querySelectorAll('#reader-output .tdb-verse-breakdown-inline, .chapter-output .tdb-verse-breakdown-inline, .context-line > .tdb-verse-breakdown-inline').forEach(function (el) {
+      if (el && el.parentNode) el.parentNode.removeChild(el);
+    });
   }
 
   function resolveRangeVerseText(ref, dict) {
@@ -2492,6 +2515,9 @@
     if (!text && ref) text = getBibleVerseText(ref);
     var refClean = cleanVerseText(ref);
     var textClean = cleanVerseText(text);
+    if (isPollutedVerseChrome(textClean) && refClean) {
+      textClean = getBibleVerseText(refClean) || '';
+    }
     /* Never treat the reference string as verse body (e.g. “Psalms 68:6”). */
     if (textClean && refClean) {
       var tNorm = textClean.replace(/[“”"']/g, '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
@@ -2505,6 +2531,7 @@
 
   function enhanceVerseContainers(root) {
     var host = root && root.querySelectorAll ? root : document;
+    stripInlineBreakdownFromReaderLines(host);
     /* IDs before .verse-card so #daily-verse-card is not consumed first as a generic .verse-card */
     var selectors = [
       '#daily-verse-card',
@@ -2537,7 +2564,6 @@
       '.verse-of-week-panel',
       '.verse-maps-verse-item',
       '.concordance-ref-item',
-      '.context-line',
       '.mystudy-result'
     ];
     var seen = new Set();
@@ -2695,6 +2721,7 @@
     prefetchBookBreakdown: prefetchBookBreakdown,
     frameVerseTeaching: frameVerseTeaching,
     enhanceVisibleVerseContainers: enhanceVerseContainers,
+    canonVerseText: getBibleVerseText,
     getMissingVisibleBreakdowns: getMissingVisibleBreakdowns,
     countMissingVisibleBreakdowns: countMissingVisibleBreakdowns,
     getAgeMode: getAgeMode,

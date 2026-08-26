@@ -641,7 +641,7 @@
   // TDB_SCENE_ART_END
 
   /** Returns the best available line-art src for a scene (raster preferred). */
-  var ART_CACHE = '20260825desk66';
+  var ART_CACHE = '20260825desk67';
   function bestSceneSrc(scene) {
     if (!scene || !scene.src) return '';
     var src = (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;
@@ -4409,6 +4409,11 @@
     progressWrap.setAttribute('aria-label', 'Coloring story pictures');
     progressWrap.tabIndex = 0;
 
+    var gridLead = document.createElement('p');
+    gridLead.className = 'section-note tdb-cat-story-grid-lead';
+    gridLead.textContent = STORIES.length + ' Bible stories to color.';
+
+    progressOuter.appendChild(gridLead);
     progressOuter.appendChild(progressWrap);
     mount.appendChild(progressOuter);
     if (requestedStoryId) {

@@ -95,6 +95,20 @@ if (!headersForCsp.includes('Content-Security-Policy')) {
 } else {
   ok('CSP present in _headers (HTTP header — correct)');
 }
+const heroPaint = read('hero-daily-first-paint.js');
+if (heroPaint.indexOf('completeTheVerseTail') === -1 || heroPaint.indexOf('collapseRepeatKjvQuote') === -1) {
+  fail('hero-daily-first-paint.js: must complete chopped “The verse:” and collapse duplicated KJV quotes');
+} else {
+  ok('hero-daily-first-paint.js: Home teaching restates the full KJV, not a chopped duplicate');
+}
+const heroSit = read('index.html');
+if (/heroSimpleSituation">[^<]*shall not walk\.<\/p>/.test(heroSit) && !/shall not walk in darkness, but shall have the light of life/.test(heroSit)) {
+  fail('index.html: John 8:12 situation must include “in darkness, but shall have the light of life”');
+} else if (heroSit.indexOf('shall not walk in darkness, but shall have the light of life') === -1) {
+  fail('index.html: today’s John 8:12 teaching must restate the complete KJV');
+} else {
+  ok('index.html: John 8:12 teaching includes the complete KJV');
+}
 if (!fs.existsSync(path.join(__dirname, 'tdb-continue-surface.js')) || !fs.existsSync(path.join(__dirname, 'js', 'tdb-plan-progress.js'))) {
   fail('source missing tdb-continue-surface.js or js/tdb-plan-progress.js');
 } else {

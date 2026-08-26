@@ -1028,6 +1028,71 @@
     return sanitizeText(text).replace(/\s+/g, ' ').trim().replace(/[.!?]$/, '');
   }
 
+  function kjvNormLine(t) {
+    return sanitizeText(t)
+      .replace(/[“”"']/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/[.]+$/, '')
+      .toLowerCase();
+  }
+
+  function isChoppedKjvFrag(frag, full) {
+    var f = kjvNormLine(frag);
+    var k = kjvNormLine(full);
+    if (!f || !k || f === k) return false;
+    if (f.length < 18) return false;
+    if (k.indexOf(f) === 0) return true;
+    if (k.indexOf(f) !== -1 && f.length < k.length - 8) return true;
+    return false;
+  }
+
+  function completeTheVerseTail(s, full) {
+    var line = sanitizeText(s);
+    var body = sanitizeText(full).replace(/\s+/g, ' ').trim();
+    if (!line || !body || !/The verse:/i.test(line)) return line;
+    return line.replace(/The verse:\s*[\s\S]*$/i, 'The verse: ' + body);
+  }
+
+  function completeQuotesWithFullKjv(s, full) {
+    var line = sanitizeText(s);
+    var body = sanitizeText(full).replace(/\s+/g, ' ').trim();
+    if (!line || !body) return line;
+    return line.replace(/[“"]([^”"]{12,})[”"]/g, function (m, inner) {
+      if (isChoppedKjvFrag(inner, body)) return '\u201c' + body + '\u201d';
+      return m;
+    });
+  }
+
+  function collapseRepeatKjvQuote(s, full) {
+    var line = sanitizeText(s);
+    var body = sanitizeText(full).replace(/\s+/g, ' ').trim();
+    if (!line) return line;
+    line = line.replace(/\s*[—–-]\s*and you in the hour this verse is for:\s*[“"][^”"]+[”"]\.?/i, '');
+    line = line.replace(/\s*[—–-]\s*that is for the hour you are actually in\.?/i, '');
+    if (!body) return line.replace(/\s{2,}/g, ' ').trim();
+    var q = '\u201c' + body + '\u201d';
+    var first = line.indexOf(q);
+    if (first < 0) return line.replace(/\s{2,}/g, ' ').trim();
+    var before = line.slice(0, first + q.length);
+    var after = line.slice(first + q.length).split(q).join('');
+    return (before + after).replace(/\s{2,}/g, ' ').replace(/\s+\./g, '.').trim();
+  }
+
+  function restatedHeroTeaching(row, fullKjv) {
+    var out = row ? Object.assign({}, row) : {};
+    var full = sanitizeText(fullKjv || out.text).replace(/\s+/g, ' ').trim();
+    if (!full) return out;
+    out.text = full;
+    out.setting = completeTheVerseTail(out.setting, full);
+    out.to = collapseRepeatKjvQuote(completeQuotesWithFullKjv(out.to, full), full);
+    out.step = completeQuotesWithFullKjv(out.step, full);
+    out.prayer = completeQuotesWithFullKjv(out.prayer, full);
+    out.today = collapseRepeatKjvQuote(completeQuotesWithFullKjv(out.today, full), full);
+    out.modernApplication = completeQuotesWithFullKjv(out.modernApplication, full);
+    return out;
+  }
+
   function isHoleTeachingField(s, field) {
     var t = sanitizeText(s).replace(/\s+/g, ' ').trim();
     if (!t) return true;
@@ -1096,7 +1161,7 @@
     }
     out.ref = out.ref || r;
     out.text = out.text || body;
-    return out;
+    return restatedHeroTeaching(out, body);
   }
 
   function wrapHeroExplanationGetter() {
@@ -1105,15 +1170,16 @@
     window.TDB_GET_HERO_EXPLANATION_BY_REF = function (ref) {
       var row = orig(ref);
       var text = sanitizeText(row && row.text);
-      if (!text) {
-        try {
-          var el = document.getElementById('heroVerse');
-          var refEl = document.getElementById('heroRef');
-          if (el && refEl && normalizeRefBare(refEl.textContent) === normalizeRefBare(ref)) {
-            text = sanitizeText(el.textContent).replace(/^[\u201c"'\s]+|[\u201d"'\s]+$/g, '');
+      try {
+        var el = document.getElementById('heroVerse');
+        var refEl = document.getElementById('heroRef');
+        if (el && refEl && normalizeRefBare(refEl.textContent) === normalizeRefBare(ref)) {
+          var painted = sanitizeText(el.textContent).replace(/^[\u201c"'\s]+|[\u201d"'\s]+$/g, '');
+          if (painted && (!text || painted.length > text.length || isChoppedKjvFrag(text, painted))) {
+            text = painted;
           }
-        } catch (eTxt) { /* non-fatal */ }
-      }
+        }
+      } catch (eTxt) { /* non-fatal */ }
       return floorHeroTeaching(ref, text, row);
     };
     window.TDB_GET_HERO_EXPLANATION_BY_REF.__tdbCatalogFloor = true;
@@ -1533,7 +1599,20 @@
     var sitPrimary = document.getElementById('heroSimpleSituation');
     var meanPrimary = document.getElementById('heroSimpleMeaning');
     /* Primary split owns situation/meaning; dig-deeper situation row stays hidden (no duplicate). */
-    if (sitPrimary) sitPrimary.textContent = situation || '';
+    var paintedKjv = sanitizeText(v && v.text).replace(/\s+/g, ' ').trim();
+    try {
+      var hvEl = document.getElementById('heroVerse');
+      if (hvEl) {
+        var shownKjv = sanitizeText(hvEl.textContent)
+          .replace(/^[\u201c"'\s]+|[\u201d"'\s]+$/g, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+        if (shownKjv && (shownKjv.length > paintedKjv.length || isChoppedKjvFrag(paintedKjv, shownKjv))) {
+          paintedKjv = shownKjv;
+        }
+      }
+    } catch (ePainted) { /* non-fatal */ }
+    if (sitPrimary) sitPrimary.textContent = completeTheVerseTail(situation || '', paintedKjv) || '';
     if (meanPrimary) meanPrimary.textContent = meaningOnly || '';
     if (audience && isThinRelatesTodayPaint(audience)) {
       audience = String(audience)
@@ -1546,13 +1625,21 @@
     if (relatesToday && isThinRelatesTodayPaint(relatesToday)) relatesToday = '';
     setVotdRowVisible(document.getElementById('heroVbdRowSit'), document.getElementById('heroDeepSituation'), '');
     setVotdRowVisible(document.getElementById('heroVbdRowWho'), document.getElementById('heroDeepWho'), who);
-    setVotdRowVisible(document.getElementById('heroVbdRowAud'), document.getElementById('heroDeepAudience'), audience);
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowAud'),
+      document.getElementById('heroDeepAudience'),
+      collapseRepeatKjvQuote(completeQuotesWithFullKjv(audience, paintedKjv), paintedKjv)
+    );
     setVotdRowVisible(document.getElementById('heroVbdRowCtx'), document.getElementById('heroDeepContext'), '');
-    setVotdRowVisible(document.getElementById('heroVbdRowYou'), document.getElementById('heroDeepYou'), relYou);
+    setVotdRowVisible(
+      document.getElementById('heroVbdRowYou'),
+      document.getElementById('heroDeepYou'),
+      collapseRepeatKjvQuote(relYou, paintedKjv)
+    );
     var stepOut = document.getElementById('heroVotdOneStep');
     var stepWrap = document.getElementById('heroVotdNextStep');
     var stepText = sanitizeText(oneStep).replace(/^\s*So do this:\s*/i, '');
-    if (stepOut) stepOut.textContent = stepText;
+    if (stepOut) stepOut.textContent = completeQuotesWithFullKjv(stepText, paintedKjv);
     if (stepWrap) {
       stepWrap.hidden = false;
       stepWrap.removeAttribute('hidden');
@@ -1560,7 +1647,7 @@
     var prayerTarget = document.getElementById('heroVotdPrayer');
     var prayerWrap = document.getElementById('heroVotdPrayerBlock');
     var prayerText = sanitizeText(prayer);
-    if (prayerTarget) prayerTarget.textContent = prayerText;
+    if (prayerTarget) prayerTarget.textContent = completeQuotesWithFullKjv(prayerText, paintedKjv);
     if (prayerWrap) {
       prayerWrap.hidden = false;
       prayerWrap.removeAttribute('hidden');

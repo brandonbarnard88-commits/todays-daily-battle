@@ -2851,15 +2851,15 @@
   },
   {
     "ref": "John 8:12",
-    "text": "I am the light of the world: he that followeth me shall not walk in darkness.",
+    "text": "Then spake Jesus again unto them, saying, I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life.",
     "plain": "God brings light into dark places—and that light is for you too.",
-    "step": "Stop once today and return to these words: “I am the light of the world: he that followeth me shall not walk in darkness.”",
+    "step": "Stop once today and return to these words: “Then spake Jesus again unto them, saying, I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life.”",
     "about": "Jesus (through John)",
-    "to": "The people in front of Jesus when He said “I am the light of the world: he that followeth me shall not walk in darkness.” — and you in the hour this verse is for: “I am the light of the world: he that followeth me shall not walk in darkness.”",
-    "setting": "Jesus — Conflict at feasts in Jerusalem. The verse: I am the light of the world: he that followeth me shall not walk.",
-    "prayer": "Lord, light the next step: “I am the light of the world: he that followeth me shall not walk in darkness.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, God brings light into dark places—and that light is for you too. The verse still says: “I am the light of the world: he that followeth me shall not walk in darkness.”",
-    "today": "God brings light into dark places—and that light is for you too — that is for the hour you are actually in."
+    "to": "The people in front of Jesus when He spoke these words, and you in the hour this verse is for.",
+    "setting": "Jesus — Conflict at feasts in Jerusalem. The verse: Then spake Jesus again unto them, saying, I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life.",
+    "prayer": "Lord, light the next step: “Then spake Jesus again unto them, saying, I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, God brings light into dark places—and that light is for you too. The verse still says: “Then spake Jesus again unto them, saying, I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life.”",
+    "today": "God brings light into dark places—and that light is for you too."
   },
   {
     "ref": "Psalm 100:3",

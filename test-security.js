@@ -95,6 +95,11 @@ if (!headersForCsp.includes('Content-Security-Policy')) {
 } else {
   ok('CSP present in _headers (HTTP header — correct)');
 }
+if (!fs.existsSync(path.join(__dirname, 'tdb-continue-surface.js')) || !fs.existsSync(path.join(__dirname, 'js', 'tdb-plan-progress.js'))) {
+  fail('source missing tdb-continue-surface.js or js/tdb-plan-progress.js');
+} else {
+  ok('continue-surface and plan-progress scripts exist in source');
+}
 const vbdSrc = read('verse-breakdown.js');
 if (vbdSrc.indexOf("el.classList.contains('context-line')") === -1 || vbdSrc.indexOf('isPollutedVerseChrome') === -1) {
   fail('verse-breakdown.js: must skip chapter-reader context-line inject and reject nested breakdown as KJV text');

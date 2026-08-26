@@ -626,8 +626,11 @@ try {
     if (typeof console !== 'undefined' && console.warn) console.warn('TDB: config has placeholder values — replace with real Supabase URL/anon key before production.');
   }
 } catch (_) {}
-// CSP violation reporting — warn in console for debugging
+// CSP: log enforced violations only. Page Shield report-only (script-src 'none') is noise.
 document.addEventListener('securitypolicyviolation', function (e) {
+  if (!e || e.disposition === 'report') return;
+  var pol = String(e.originalPolicy || '');
+  if (pol.indexOf("script-src 'none'") !== -1) return;
   if (typeof console !== 'undefined' && console.warn) {
     console.warn('TDB CSP violation:', e.violatedDirective, e.blockedURI || e.sourceFile);
   }

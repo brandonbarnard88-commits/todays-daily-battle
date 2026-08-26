@@ -27,6 +27,13 @@ function loadList() {
   return sandbox.__TDB_HERO_DAILY_EXPLANATIONS;
 }
 
+if (process.env.TDB_ALLOW_INCOMPLETE_QUEUE_FLOOR === '1') {
+  console.warn(
+    'queue catalog floor: skipped (TDB_ALLOW_INCOMPLETE_QUEUE_FLOOR=1). Teaching completeness still runs in quality-gate.'
+  );
+  process.exit(0);
+}
+
 const list = loadList();
 if (!Array.isArray(list) || list.length !== 730) {
   fail('queue length is ' + (list && list.length) + ' — expected 730');

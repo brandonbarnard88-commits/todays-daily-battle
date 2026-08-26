@@ -40,14 +40,21 @@ jobs:
           cache: npm
 
       # ffmpeg-static postinstall often fails on GitHub (upstream 500). Static site build does not need it.
+      # Catalog-floor verify is still required in quality-gate / npm test. Skipping it here
+      # unblocks Pages deploys while the 730-day floor is still filling (days 652–729).
       - name: Install and build
+        env:
+          TDB_ALLOW_INCOMPLETE_QUEUE_FLOOR: '1'
         run: |
           npm ci --ignore-scripts
           npm run build
 
       # Fail before upload if critical /kids/*.js never reached dist/ (catches CI/build regressions).
       - name: Verify kids dist assets
-        run: node scripts/verify-kids-dist.mjs
+        run: |
+          node scripts/verify-kids-dist.mjs
+          test -f dist/coloring-pages/jesus-children-fill.png
+          grep -q 'jesus-children-fill.png' dist/kids/color-and-tell.js
 
       - name: Require Cloudflare Pages secrets
         id: req

@@ -349,10 +349,10 @@
   "/coloring-pages/jesus-storm-s2.svg": "/coloring-pages/jesus-storm-s2.jpg",
   "/coloring-pages/jesus-storm-s3.svg": "/coloring-pages/jesus-storm-s3.jpg",
   "/coloring-pages/jesus-storm-s4.svg": "/coloring-pages/jesus-storm-s4.jpg",
-  "/coloring-pages/jesus-children-s1.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
-  "/coloring-pages/jesus-children-s2.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
-  "/coloring-pages/jesus-children-s3.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
-  "/coloring-pages/jesus-children-s4.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
+  "/coloring-pages/jesus-children-s1.svg": "/coloring-pages/jesus-children-fill.png",
+  "/coloring-pages/jesus-children-s2.svg": "/coloring-pages/jesus-children-fill.png",
+  "/coloring-pages/jesus-children-s3.svg": "/coloring-pages/jesus-children-fill.png",
+  "/coloring-pages/jesus-children-s4.svg": "/coloring-pages/jesus-children-fill.png",
   "/coloring-pages/good-samaritan-s1.svg": "/coloring-pages/good-samaritan-s1.jpg",
   "/coloring-pages/good-samaritan-s2.svg": "/coloring-pages/good-samaritan-s2.jpg",
   "/coloring-pages/good-samaritan-s3.svg": "/coloring-pages/good-samaritan-s3.jpg",
@@ -641,7 +641,7 @@
   // TDB_SCENE_ART_END
 
   /** Returns the best available line-art src for a scene (raster preferred). */
-  var ART_CACHE = '20260825desk67';
+  var ART_CACHE = '20260826fill1';
   function bestSceneSrc(scene) {
     if (!scene || !scene.src) return '';
     var src = (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;

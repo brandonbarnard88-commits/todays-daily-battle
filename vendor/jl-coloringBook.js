@@ -784,7 +784,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
         const w = this.img.naturalWidth;
         const h = this.img.naturalHeight;
         const mode = strict ? 's' : 'n';
-        const key = this.src + '|' + w + 'x' + h + '|mask-v3|' + mode;
+        const key = this.src + '|' + w + 'x' + h + '|mask-v4|' + mode;
         if (this._lineArtCache && this._lineArtCache[key]) return this._lineArtCache[key];
         const c = document.createElement('canvas');
         c.width = w;
@@ -857,7 +857,37 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
                 if (neighbors >= 5) closed[p] = 1;
             }
         }
+        // Bridge 1–2px tunnels (hair, grass, JPEG gaps) without filling open shapes.
         let walls = closed;
+        for (let pass = 0; pass < 2; pass++) {
+            const bridged = new Uint8Array(walls);
+            for (let y = 1; y < h - 1; y++) {
+                for (let x = 1; x < w - 1; x++) {
+                    const p = y * w + x;
+                    if (walls[p]) continue;
+                    const lr = walls[p - 1] && walls[p + 1];
+                    const ud = walls[p - w] && walls[p + w];
+                    if (lr || ud) {
+                        bridged[p] = 1;
+                        continue;
+                    }
+                    if (x > 1 && walls[p - 2] && walls[p + 1]) bridged[p] = 1;
+                    else if (x + 2 < w && walls[p - 1] && walls[p + 2]) bridged[p] = 1;
+                    else if (y > 1 && walls[p - 2 * w] && walls[p + w]) bridged[p] = 1;
+                    else if (y + 2 < h && walls[p - w] && walls[p + 2 * w]) bridged[p] = 1;
+                }
+            }
+            walls = bridged;
+        }
+        // Keep paint from walking around a drawing via the empty margin.
+        for (let x = 0; x < w; x++) {
+            walls[x] = 1;
+            walls[(h - 1) * w + x] = 1;
+        }
+        for (let y = 0; y < h; y++) {
+            walls[y * w] = 1;
+            walls[y * w + w - 1] = 1;
+        }
         const dilatePasses = strict ? 2 : 1;
         for (let pass = 0; pass < dilatePasses; pass++) {
             const dilated = new Uint8Array(n);
@@ -1038,7 +1068,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
 
         let count = run(loose);
         const open = loose._tdbOpen || (w * h);
-        if (count > open * 0.48) {
+        if (count > open * 0.42) {
             const tight = this.ensureLineArtData(true);
             if (tight) {
                 snapshot.data.set(this.ctx.getImageData(0, 0, w, h).data);
@@ -1046,6 +1076,8 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
                 if (retry >= 8) count = retry;
             }
         }
+        // A true whole-page leak — do not dump one tap across the picture.
+        if (count > open * 0.72) return false;
         if (count < 8) return false;
         this.ctx.putImageData(snapshot, 0, 0);
         this.ctx.globalCompositeOperation = 'source-over';

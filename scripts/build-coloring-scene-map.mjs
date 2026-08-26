@@ -32,7 +32,7 @@ const HERO = {
   'daniel-lions': 'bible-stories/daniel-in-the-lions-den-coloring-page.jpg',
   creation: 'bible-stories/creation-six-days-coloring-page.jpg',
   david: 'bible-stories/david-and-goliath-blank.jpg',
-  'jesus-children': 'bible-stories/jesus-and-the-children-coloring-page.jpg',
+  'jesus-children': 'jesus-children-fill.png',
   'empty-tomb': 'bible-stories/empty-tomb-coloring-page.jpg',
   jonah: 'jonah-and-the-great-fish.jpg',
   noah: 'noahs-ark.jpg',

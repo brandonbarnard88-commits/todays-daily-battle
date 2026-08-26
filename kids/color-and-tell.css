@@ -18,16 +18,19 @@ body.tdb-kids-coloring-page .app-content {
 .tdb-cat-hear-story {
   min-height: 44px;
   margin: 0.35rem 0 0.75rem;
-  color: #7a5410;
-  border: 1px solid #f2dc98;
-  background: transparent;
+  color: #0f172a;
+  border: 2px solid #8a6a12;
+  background: #f2dc98;
+  font-weight: 800;
 }
 .dark-mode .tdb-cat-hear-story {
-  color: #f2dc98;
-  border-color: #f2dc98;
+  color: #0f172a;
+  border-color: #8a6a12;
+  background: #f2dc98;
 }
 .tdb-cat-hear-story[aria-pressed="true"] {
-  background: rgba(242, 220, 152, 0.18);
+  background: #e6c56a;
+  color: #0f172a;
 }
 
 .tdb-cat-parent-tip {
@@ -1038,6 +1041,36 @@ body.tdb-kids-coloring-page .tdb-cat-story-title {
 
 .dark-mode .tdb-cat-story-lead {
   color: #1e293b !important;
+}
+
+/* Cream story cards: gold type on gold paper disappears. Ink on night-gold. */
+body.tdb-kids-coloring-page .btn.btn-secondary.tdb-cat-hear-story,
+body.tdb-kids-coloring-page.dark-mode .btn.btn-secondary.tdb-cat-hear-story {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  background: #f2dc98 !important;
+  border: 2px solid #8a6a12 !important;
+  font-weight: 800;
+  box-shadow: 0 2px 0 rgba(15, 23, 42, 0.12);
+}
+body.tdb-kids-coloring-page .btn.btn-secondary.tdb-cat-hear-story[aria-pressed="true"],
+body.tdb-kids-coloring-page.dark-mode .btn.btn-secondary.tdb-cat-hear-story[aria-pressed="true"] {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  background: #e6c56a !important;
+  border-color: #7a5410 !important;
+}
+body.tdb-kids-coloring-page .tdb-cat-story > .section-note,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-story > .section-note,
+body.tdb-kids-coloring-page .tdb-cat-story-idea {
+  color: #1e293b !important;
+  opacity: 1;
+}
+body.tdb-kids-coloring-page .tdb-cat-story .btn-secondary:not(.tdb-cat-hear-story),
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-story .btn-secondary:not(.tdb-cat-hear-story) {
+  color: #0f172a !important;
+  background: #fffef8 !important;
+  border: 2px solid #b45309 !important;
 }
 
 .dark-mode .tdb-cat-story-celebrate {

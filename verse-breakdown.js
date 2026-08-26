@@ -2075,20 +2075,23 @@
     return { parent: host, before: null };
   }
 
-  function injectInlineBreakdown(host, ref, text) {
+  function injectInlineBreakdown(host, ref, text, opts) {
     if (!host || !ref || !text) return;
     if (!parseBook(ref)) return;
     if (shouldSkipVerseBreakdownHost(host)) return;
+    var open = !(opts && opts.open === false);
     var existing = findExistingInline(host);
     if (existing) {
       wireInlineDetailsEvents(existing);
       populateInlineDetails(existing, ref, text);
-      setInlineBreakdownOpen(existing, true);
-      try {
-        requestAnimationFrame(function () {
-          setInlineBreakdownOpen(existing, true);
-        });
-      } catch (eRaf) {}
+      if (open) {
+        setInlineBreakdownOpen(existing, true);
+        try {
+          requestAnimationFrame(function () {
+            setInlineBreakdownOpen(existing, true);
+          });
+        } catch (eRaf) {}
+      }
       return;
     }
 
@@ -2107,12 +2110,14 @@
     if (host.id === 'church-daily-verse-card' || host.id === 'lookup-text' || host.id === 'lookup-result') {
       details.classList.add('tdb-vb-inline--host-has-kjv');
     }
-    setInlineBreakdownOpen(details, true);
-    try {
-      requestAnimationFrame(function () {
-        setInlineBreakdownOpen(details, true);
-      });
-    } catch (eRaf2) {}
+    if (open) {
+      setInlineBreakdownOpen(details, true);
+      try {
+        requestAnimationFrame(function () {
+          setInlineBreakdownOpen(details, true);
+        });
+      } catch (eRaf2) {}
+    }
   }
 
   function open(ref, text) {
@@ -2145,6 +2150,18 @@
     if (el.closest('.tdb-kiss-verse, [data-tdb-kiss-verse="1"]')) return true;
     if (el.closest('[data-home-result-card="verse"], .home-search-card--verse')) return true;
     if (el.closest('#feelCards, .feel-verse-card, #feel-results')) return true;
+    if (el.classList && (
+      el.classList.contains('verse-item') ||
+      el.classList.contains('mystudy-result') ||
+      el.classList.contains('bible-study-verse-card') ||
+      el.classList.contains('verse-of-week-panel') ||
+      el.classList.contains('ab-card') ||
+      el.classList.contains('curriculum-verse') ||
+      el.classList.contains('verse-maps-verse-item') ||
+      el.classList.contains('qa-verse-card') ||
+      el.classList.contains('kids-battle-verse')
+    )) return true;
+    if (el.closest('.verse-maps-verse-item, .mystudy-result, .bible-study-verse-card, .ab-card, .curriculum-verse, .qa-verse-card, .verse-of-week-panel')) return true;
     /* Calm has its own porch for THIS verse. Auto-inject here mixed in leftover Matthew 11:28. */
     try {
       var pathCalm = String((window.location && window.location.pathname) || '').toLowerCase();
@@ -2169,6 +2186,12 @@
     if (el.id === 'kids-daily-verse-card' || el.closest('#kids-daily-verse-root, #kids-daily-verse-card')) return true;
     if (el.id === 'tdbAnotherVerseDesk' || el.closest('#tdbAnotherVerseDesk, #tdbAnotherVerse')) return true;
     if (el.id === 'church-daily-verse-card' || el.closest('#church-daily-verse-card')) return true;
+    try {
+      var pathHub = String((window.location && window.location.pathname) || '').toLowerCase();
+      if (pathHub.indexOf('bible-tool') === -1 && (/\/bible(\/|\.html|$)/.test(pathHub) || pathHub.indexOf('/bible/') !== -1)) {
+        if (el.id === 'daily-verse-card' || el.closest('#daily-verse-card, .bible-hub-verse-card, .verse-of-week-panel')) return true;
+      }
+    } catch (eHubSkip) {}
     if (el.closest('.home-search-detail-panel')) return true;
     if (el.classList && el.classList.contains('tdb-verse-breakdown-inline')) return true;
     if (el.closest('.tdb-verse-breakdown-inline')) return true;
@@ -2556,15 +2579,7 @@
       '#mystudy-highlight-detail',
       '.verse-card',
       '.smart-card',
-      '.verse-item',
-      '.ab-card',
-      '.curriculum-verse',
-      '.kids-battle-verse',
-      '.bible-study-verse-card',
-      '.verse-of-week-panel',
-      '.verse-maps-verse-item',
-      '.concordance-ref-item',
-      '.mystudy-result'
+      '.concordance-ref-item'
     ];
     var seen = new Set();
     selectors.forEach(function (sel) {
@@ -2586,7 +2601,7 @@
           el.removeAttribute('data-tdb-breakdown-attached');
           return;
         }
-        injectInlineBreakdown(el, pair.ref, pair.text);
+        injectInlineBreakdown(el, pair.ref, pair.text, { open: false });
         if (findExistingInline(el)) {
           el.removeAttribute('data-tdb-breakdown-missing');
           el.setAttribute('data-tdb-breakdown-attached', '1');

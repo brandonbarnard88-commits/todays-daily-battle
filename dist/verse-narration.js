@@ -453,10 +453,20 @@
     var segs = [];
     for (var j = 0; j < lineElements.length; j++) {
       var line = lineElements[j];
-      var clone = line.cloneNode(true);
-      var strong = clone.querySelector('strong');
-      if (strong) strong.remove();
-      var body = (clone.textContent || '').replace(/\s+/g, ' ').trim();
+      var stored = '';
+      try { stored = String(line.getAttribute && line.getAttribute('data-verse-text') || '').trim(); } catch (eSt) { stored = ''; }
+      var body = stored;
+      if (!body || /Verse breakdown|Pick your style:/i.test(body)) {
+        var clone = line.cloneNode(true);
+        var kill = clone.querySelectorAll('.tdb-verse-breakdown-inline, .reader-verse-xref-btn, .reader-verse-wordstudy-btn, .tdb-breakdown-btn');
+        for (var ki = 0; ki < kill.length; ki++) {
+          if (kill[ki].parentNode) kill[ki].parentNode.removeChild(kill[ki]);
+        }
+        var strong = clone.querySelector('strong');
+        if (strong) strong.remove();
+        body = (clone.textContent || '').replace(/\s+/g, ' ').trim();
+      }
+      if (body && /Verse breakdown|Pick your style:/i.test(body)) continue;
       if (!body) continue;
       if (phrasePause) {
         var phrases = splitPhrases(body);

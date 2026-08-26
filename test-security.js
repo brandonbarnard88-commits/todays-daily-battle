@@ -120,6 +120,17 @@ if (vbdSrc.indexOf("el.classList.contains('context-line')") === -1 || vbdSrc.ind
 } else {
   ok('verse-breakdown.js: chapter reader verses stay KJV-only (no nested breakdown UI)');
 }
+if (vbdSrc.indexOf("el.classList.contains('mystudy-result')") === -1 || vbdSrc.indexOf("opts.open === false") === -1) {
+  fail('verse-breakdown.js: must skip list auto-open and not force Hide open on enhance');
+} else {
+  ok('verse-breakdown.js: list hosts skip auto-open; Hide can stick');
+}
+const narrSrc = read('verse-narration.js');
+if (narrSrc.indexOf('data-verse-text') === -1 || narrSrc.indexOf('tdb-verse-breakdown-inline') === -1) {
+  fail('verse-narration.js: Listen must read data-verse-text / strip breakdown chrome');
+} else {
+  ok('verse-narration.js: Listen reads the KJV line only');
+}
 const scriptJsForCsp = read('script.js');
 if (!scriptJsForCsp.includes("e.disposition === 'report'") || !scriptJsForCsp.includes("script-src 'none'")) {
   fail("script.js: CSP listener must ignore report-only / Page Shield (script-src 'none') events");

@@ -110,7 +110,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260826desk70';
+    s.src = '/verse-breakdown.js?v=20260826desk73';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2846,7 +2846,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260822desk10');
   var trustedCtx = trustedScriptURL('/verse-context.js?v=20260808-situation-every');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260826desk70');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260826desk73');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -2901,7 +2901,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var isReader = tdbIsChapterReaderPage();
   var isHome = tdbIsHomePage();
   var wordStudyUrl = isVod ? 'word-study.js?v=20260331vodcard' : 'word-study.js?v=20260329pass2off';
-  var narrUrl = 'verse-narration.js?v=20260329narr12';
+  var narrUrl = 'verse-narration.js?v=20260826desk73';
   var verseStudyUrl = 'verse-study.js?v=20260328pass4vs';
   var mobiusUrl = 'tdb-mobius-journal.js?v=20260330mlj1';
   var companionUrl = 'bible-study-companion.js?v=20260328reader-study';
@@ -23626,10 +23626,20 @@ function getReaderChapterPlainTextFromDom(output) {
   var parts = [];
   for (var i = 0; i < lines.length; i++) {
     var el = lines[i];
-    var clone = el.cloneNode(true);
-    var strong = clone.querySelector('strong');
-    if (strong) strong.remove();
-    var t = (clone.textContent || '').replace(/\s+/g, ' ').trim();
+    var stored = '';
+    try { stored = String(el.getAttribute && el.getAttribute('data-verse-text') || '').trim(); } catch (eSt) { stored = ''; }
+    var t = stored;
+    if (!t || /Verse breakdown|Pick your style:/i.test(t)) {
+      var clone = el.cloneNode(true);
+      var kill = clone.querySelectorAll('.tdb-verse-breakdown-inline, .reader-verse-xref-btn, .reader-verse-wordstudy-btn, .tdb-breakdown-btn');
+      for (var ki = 0; ki < kill.length; ki++) {
+        if (kill[ki].parentNode) kill[ki].parentNode.removeChild(kill[ki]);
+      }
+      var strong = clone.querySelector('strong');
+      if (strong) strong.remove();
+      t = (clone.textContent || '').replace(/\s+/g, ' ').trim();
+    }
+    if (t && /Verse breakdown|Pick your style:/i.test(t)) t = '';
     if (t) parts.push(t);
   }
   return parts.join(' ');
@@ -25593,8 +25603,10 @@ function getVerseSnippetForXrefRef(ref) {
 
 function getVerseSnippetFromContextLine(line) {
   if (!line) return '';
+  const stored = String((line.getAttribute && line.getAttribute('data-verse-text')) || '').trim();
+  if (stored && !/Verse breakdown|Pick your style:/i.test(stored)) return stored;
   const clone = line.cloneNode(true);
-  clone.querySelectorAll('.reader-verse-xref-btn, .reader-verse-wordstudy-btn').forEach((n) => n.remove());
+  clone.querySelectorAll('.tdb-verse-breakdown-inline, .reader-verse-xref-btn, .reader-verse-wordstudy-btn, .tdb-breakdown-btn').forEach((n) => n.remove());
   const strong = clone.querySelector('strong');
   if (strong) strong.remove();
   return String(clone.textContent || '')

@@ -120,6 +120,8 @@ const CRITICAL_DIST_JS = [
   'tdb-backup-reminder.js',
   'hero-daily-first-paint.js',
   'tdb-another-verse.js',
+  'tdb-continue-surface.js',
+  'js/tdb-plan-progress.js',
   'js/surfaces/home.js',
   'js/surfaces/plans.js',
   'plans-app.js',

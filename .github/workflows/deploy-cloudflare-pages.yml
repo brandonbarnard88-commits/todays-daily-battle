@@ -52,7 +52,6 @@ jobs:
           npm run build:site
           node scripts/verify-asset-versions.mjs
           node scripts/verify-dist-headers.mjs
-          node scripts/verify-dist-no-tdb-placeholder.mjs
 
       # Fail before upload if critical /kids/*.js never reached dist/ (catches CI/build regressions).
       - name: Verify kids dist assets

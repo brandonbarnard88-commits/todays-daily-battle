@@ -368,7 +368,7 @@
     hasLoadedReaderAppModule = true;
     var s = document.createElement('script');
     s.type = 'module';
-    s.src = 'script.js?v=20260826desk70';
+    s.src = 'script.js?v=20260826desk73';
     s.setAttribute('data-cfasync', 'false');
     s.setAttribute('data-tdb-reader-app', '1');
     document.head.appendChild(s);

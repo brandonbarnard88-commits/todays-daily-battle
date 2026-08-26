@@ -16,8 +16,8 @@
       "svgContentExcludes": []
     },
     "jesus-children": {
-      "resolvedPathIncludesAny": ["jesus", "children"],
-      "resolvedPathExcludes": ["empty-tomb", "goliath"]
+      "resolvedPathIncludesAny": ["jesus-children-fill"],
+      "resolvedPathExcludes": ["empty-tomb", "goliath", "jesus-and-the-children-coloring-page"]
     },
     "empty-tomb": {
       "resolvedPathIncludesAny": ["empty-tomb", "tomb"],

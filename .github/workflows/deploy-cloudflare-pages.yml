@@ -40,18 +40,12 @@ jobs:
           cache: npm
 
       # ffmpeg-static postinstall often fails on GitHub (upstream 500). Static site build does not need it.
-      # Teaching completeness verifies still run in `npm run build` / quality-gate.
-      # Pages uploads the static artifact from `build:site` (through minify) plus
-      # dist header/placeholder checks — not the 31k-verse weak-echo sweep.
+      # Artifact build (through minify + dist header checks). Teaching completeness
+      # stays in quality-gate (`verify:teaching`), not in the host build.
       - name: Install and build
-        env:
-          TDB_ALLOW_INCOMPLETE_QUEUE_FLOOR: '1'
-          TDB_ALLOW_WEAK_BREAKDOWN_COVERAGE: '1'
         run: |
           npm ci --ignore-scripts
-          npm run build:site
-          node scripts/verify-asset-versions.mjs
-          node scripts/verify-dist-headers.mjs
+          npm run build
 
       # Fail before upload if critical /kids/*.js never reached dist/ (catches CI/build regressions).
       - name: Verify kids dist assets

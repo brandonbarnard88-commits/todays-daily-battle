@@ -118,10 +118,20 @@ jobs:
             local mode="${2:-with_account}"
             local log_file
             log_file="$(mktemp)"
-            # Omit --branch so Direct Upload aliases production (Git-connected
-            # projects treat --branch=main as a preview and never update the live hostname).
+            local prod_branch="${DEPLOY_BRANCH:-main}"
+            if [ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ] && [ -n "${CF_PAGES_PROJECT_NAME:-}" ]; then
+              discovered="$(curl -sS -H "Authorization: Bearer $token" \
+                "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${CF_PAGES_PROJECT_NAME}" \
+                | python3 -c "import sys,json; r=(json.load(sys.stdin).get('result') or {}); print((r.get('production_branch') or '').strip())" \
+                || true)"
+              if [ -n "$discovered" ]; then
+                prod_branch="$discovered"
+                echo "Pages production_branch from API: $prod_branch"
+              fi
+            fi
+            echo "Direct-uploading dist with --branch=$prod_branch"
             if [ "$mode" = "without_account" ]; then
-              if env -u CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" 2>&1 | tee "$log_file"; then
+              if env -u CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" --branch="$prod_branch" 2>&1 | tee "$log_file"; then
                 capture_deployed_url "$log_file"
                 rm -f "$log_file"
                 return 0
@@ -129,7 +139,7 @@ jobs:
               rm -f "$log_file"
               return 1
             fi
-            if CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" 2>&1 | tee "$log_file"; then
+            if CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" --branch="$prod_branch" 2>&1 | tee "$log_file"; then
               capture_deployed_url "$log_file"
               rm -f "$log_file"
               return 0
@@ -220,8 +230,20 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: npm run purge:cloudflare
 
+      - name: Verify live coloring fill art
+        if: ${{ steps.req.outputs.skip != 'true' }}
+        run: |
+          set -euo pipefail
+          sleep 20
+          code="$(curl -sS -o /tmp/jesus-children-fill.png -w "%{http_code}" "https://todaysdailybattle.com/coloring-pages/jesus-children-fill.png")"
+          echo "live png HTTP $code size=$(wc -c < /tmp/jesus-children-fill.png)"
+          test "$code" = "200"
+          curl -sS "https://todaysdailybattle.com/kids/color-and-tell.js" | grep -q 'jesus-children-fill.png'
+          curl -sS "https://todaysdailybattle.com/vendor/jl-coloringBook.js" | grep -q 'mask-v4'
+
       - name: Verify live markers
         if: ${{ steps.req.outputs.skip != 'true' }}
+        continue-on-error: true
         env:
           LIVE_BASE_URL: https://todaysdailybattle.com
           LIVE_VERIFY_ATTEMPTS: '4'

@@ -230,6 +230,30 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: npm run purge:cloudflare
 
+      - name: Trigger Git Pages production rebuild
+        if: ${{ steps.req.outputs.skip != 'true' }}
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_PAGES_PROJECT_NAME: ${{ secrets.CF_PAGES_PROJECT_NAME }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          TOKEN="${CLOUDFLARE_API_TOKEN:-${CF_API_TOKEN:-}}"
+          if [ -z "$TOKEN" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ] || [ -z "${CF_PAGES_PROJECT_NAME:-}" ]; then
+            echo "::warning::Skip Git Pages rebuild — missing account/project/token."
+            exit 0
+          fi
+          echo "Creating a Git-backed Pages deployment on main (this is what the custom domain follows)."
+          curl -sS -X POST \
+            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${CF_PAGES_PROJECT_NAME}/deployments" \
+            -H "Authorization: Bearer ${TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data '{"branch":"main"}' \
+            | python3 -c "import sys,json; d=json.load(sys.stdin); print('success', d.get('success')); print('url', (d.get('result') or {}).get('url')); print('env', (d.get('result') or {}).get('environment')); print('errors', d.get('errors'))"
+          echo "Waiting for Git Pages build to finish..."
+          sleep 90
+
       - name: Verify live coloring fill art
         if: ${{ steps.req.outputs.skip != 'true' }}
         run: |

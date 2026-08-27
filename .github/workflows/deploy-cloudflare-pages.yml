@@ -118,8 +118,10 @@ jobs:
             local mode="${2:-with_account}"
             local log_file
             log_file="$(mktemp)"
+            # Omit --branch so Direct Upload aliases production (Git-connected
+            # projects treat --branch=main as a preview and never update the live hostname).
             if [ "$mode" = "without_account" ]; then
-              if env -u CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" --branch="${DEPLOY_BRANCH:-main}" 2>&1 | tee "$log_file"; then
+              if env -u CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" 2>&1 | tee "$log_file"; then
                 capture_deployed_url "$log_file"
                 rm -f "$log_file"
                 return 0
@@ -127,7 +129,7 @@ jobs:
               rm -f "$log_file"
               return 1
             fi
-            if CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" --branch="${DEPLOY_BRANCH:-main}" 2>&1 | tee "$log_file"; then
+            if CLOUDFLARE_API_TOKEN="$token" npx --yes wrangler@latest pages deploy dist --project-name="$CF_PAGES_PROJECT_NAME" 2>&1 | tee "$log_file"; then
               capture_deployed_url "$log_file"
               rm -f "$log_file"
               return 0

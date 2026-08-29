@@ -58,11 +58,13 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 5, thru: 11, situation: 'Moses repeats the Ten Commandments and presses love for the Lord with the whole heart.', about: 'Moses', to: 'Israel about to enter the land' },
     { from: 12, thru: 26, situation: 'Moses lays out laws for worship, justice, and life in the land.', about: 'Moses', to: 'Israel preparing to live under God’s rule' },
     { from: 27, thru: 30, situation: 'Blessings and curses are set before Israel; Moses urges them to choose life.', about: 'Moses', to: 'Israel choosing covenant faithfulness' },
-    { from: 31, thru: 34, situation: 'Joshua is commissioned; Moses sings, blesses the tribes, and dies on Mount Nebo.', about: 'Moses (and the narrator)', to: 'Israel at the death of their leader' }
+    { from: 31, thru: 31, situation: 'Moses commissions Joshua: be strong and of a good courage; the Lord goes with you and will not fail you.', about: 'Moses', to: 'Joshua — and Israel at the death of their leader' },
+    { from: 32, thru: 34, situation: 'Moses sings, blesses the tribes, and dies on Mount Nebo.', about: 'Moses (and the narrator)', to: 'Israel at the death of their leader' }
   ],
   Joshua: [
-    { from: 1, thru: 5, situation: 'Joshua takes command; Israel crosses the Jordan; Jericho falls by faith.', about: 'The Lord to Joshua (and the narrator)', to: 'Joshua — and anyone stepping into a hard new season' },
-    { from: 6, thru: 12, situation: 'Israel conquers key cities in Canaan; sin at Ai is judged; southern and northern kings fall.', about: 'The narrator of Joshua', to: 'Israel taking the land God promised' },
+    { from: 1, thru: 5, situation: 'Joshua takes command; Israel crosses the Jordan and prepares for the land.', about: 'The Lord to Joshua (and the narrator)', to: 'Joshua — and anyone stepping into a hard new season' },
+    { from: 6, thru: 6, situation: 'Jericho falls as Israel marches around the city in obedience.', about: 'The narrator of Joshua', to: 'Israel taking the land God promised' },
+    { from: 7, thru: 12, situation: 'Israel conquers key cities in Canaan; sin at Ai is judged; southern and northern kings fall.', about: 'The narrator of Joshua', to: 'Israel taking the land God promised' },
     { from: 13, thru: 22, situation: 'The land is divided among the tribes; some settle east of Jordan.', about: 'Joshua (and the narrator)', to: 'The tribes receiving their inheritance' },
     { from: 23, thru: 24, situation: 'Joshua’s farewell: choose whom you will serve; Israel renews the covenant at Shechem.', about: 'Joshua', to: 'Israel after the conquest' }
   ],
@@ -84,7 +86,8 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 4, thru: 7, situation: 'The ark is captured and returned; Samuel judges Israel and calls them back to the Lord.', about: 'The narrator of Samuel', to: 'Israel after defeat and recovery' },
     { from: 8, thru: 12, situation: 'Israel demands a king; Saul is anointed, confirmed in battle, and warned to obey.', about: 'Samuel, Saul, and the Lord', to: 'Israel choosing a king' },
     { from: 13, thru: 15, situation: 'Saul disobeys; God rejects him as king; the kingdom will pass to another.', about: 'Samuel and Saul', to: 'Saul — and all who put image before obedience' },
-    { from: 16, thru: 17, situation: 'David is anointed; he fights Goliath while Saul’s army freezes in fear.', about: 'The narrator of Samuel (with David and Goliath)', to: 'Israel facing a giant — and anyone facing what feels too big' },
+    { from: 16, thru: 16, situation: 'Samuel is sent to anoint a king among Jesse’s sons; the Lord refuses Eliab’s looks and looks on the heart.', about: 'Samuel and the Lord (with Jesse’s sons)', to: 'Samuel — and all who judge by appearance' },
+    { from: 17, thru: 17, situation: 'David faces Goliath while Saul’s army freezes in fear.', about: 'The narrator of Samuel (with David and Goliath)', to: 'Israel facing a giant — and anyone facing what feels too big' },
     { from: 18, thru: 20, situation: 'Saul envies David; Jonathan covenants with David; David flees for his life.', about: 'David, Jonathan, and Saul (through the narrator)', to: 'The hunted and the loyal friend' },
     { from: 21, thru: 27, situation: 'David lives as a fugitive; Saul pursues him; David spares Saul’s life more than once.', about: 'David and Saul (through the narrator)', to: 'Anyone running while still choosing mercy' },
     { from: 28, thru: 31, situation: 'Saul consults a medium; Philistines press hard; Saul and Jonathan die in battle.', about: 'The narrator of Samuel', to: 'Israel at the end of Saul’s reign' }
@@ -94,7 +97,9 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 6, thru: 10, situation: 'David brings the ark with joy and fear; God covenants an everlasting house with David; wars expand the kingdom.', about: 'David and the Lord (through the narrator)', to: 'David’s court — and all who long for a lasting kingdom' },
     { from: 11, thru: 12, situation: 'David commits adultery with Bathsheba and arranges Uriah’s death; Nathan confronts him.', about: 'David, Bathsheba, Uriah, and Nathan', to: 'A fallen king — and all who need to repent' },
     { from: 13, thru: 18, situation: 'Absalom’s violence and rebellion tear David’s house; David flees, then grieves his son’s death.', about: 'David and Absalom (through the narrator)', to: 'A broken royal family' },
-    { from: 19, thru: 24, situation: 'David returns to rule; further trouble and a census bring plague; David buys a threshing floor for an altar.', about: 'David (through the narrator)', to: 'Israel at the close of David’s wars' }
+    { from: 19, thru: 21, situation: 'David returns to rule after Absalom; further trouble and a famine test the kingdom.', about: 'David (through the narrator)', to: 'Israel after civil war' },
+    { from: 22, thru: 22, situation: 'David sings a song of deliverance: God is his rock, fortress, and shield after the Lord saved him from all his enemies.', about: 'David', to: 'Anyone delivered after a long fight' },
+    { from: 23, thru: 24, situation: 'David’s last words and mighty men; a census brings plague; he buys a threshing floor for an altar.', about: 'David (through the narrator)', to: 'Israel at the close of David’s wars' }
   ],
   '1 Kings': [
     { from: 1, thru: 2, situation: 'Solomon is made king after court intrigue; David dies; Solomon asks for wisdom.', about: 'The narrator of Kings (with David and Solomon)', to: 'Israel at the transfer of the throne' },
@@ -152,7 +157,9 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 2, thru: 2, situation: 'The nations rage against the Lord’s anointed; God sets His King on Zion.', about: 'David — Acts names him as the voice of this psalm (Acts 4:25)', to: 'The nations — and all who take refuge in the Son' },
     { from: 3, thru: 7, situation: 'David cries out while hunted or opposed; he flees enemies and asks God to rise and judge.', about: 'David', to: 'Anyone under attack who still prays' },
     { from: 8, thru: 8, situation: 'A night-sky hymn: human frailty set beside God’s majesty and care for people.', about: 'David', to: 'Anyone who feels small under the heavens' },
-    { from: 9, thru: 14, situation: 'David sings of God’s justice against oppressors and of the fool who says there is no God.', about: 'David', to: 'The oppressed and those tempted to forget God' },
+    { from: 9, thru: 9, situation: 'David thanks God who judges righteously and is a refuge for the oppressed.', about: 'David', to: 'The oppressed who need a just judge' },
+    { from: 10, thru: 10, situation: 'The psalmist asks why the Lord stands afar off while the wicked hunt the poor, then trusts that God hears the desire of the humble.', about: 'David', to: 'The poor and the hunted who still pray' },
+    { from: 11, thru: 14, situation: 'David sings of God’s justice against oppressors and of the fool who says there is no God.', about: 'David', to: 'The oppressed and those tempted to forget God' },
     { from: 15, thru: 17, situation: 'Who may dwell with God; trust when the world shakes; a plea for protection from the violent.', about: 'David', to: 'Anyone seeking integrity and refuge' },
     { from: 18, thru: 18, situation: 'David’s great victory song after the Lord delivered him from Saul and all enemies.', about: 'David', to: 'Anyone delivered after a long fight' },
     { from: 19, thru: 19, situation: 'Creation declares God’s glory; His law revives the soul; David prays to be kept from secret faults.', about: 'David', to: 'Anyone hearing God in sky and Scripture' },
@@ -162,13 +169,19 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 25, thru: 28, situation: 'David seeks guidance, forgiveness, and help against false friends; the Lord is his light and strength.', about: 'David', to: 'Anyone fighting fear with faith' },
     { from: 29, thru: 30, situation: 'The voice of the Lord over the waters; David thanks God for lifting him from the pit.', about: 'David', to: 'Worshipers hearing God’s power and mercy' },
     { from: 31, thru: 33, situation: 'David commits his spirit to God under pressure; confession and instruction; a new song of praise.', about: 'David', to: 'The pressured and the repentant' },
-    { from: 34, thru: 34, situation: 'David, after escaping Abimelech, teaches: taste and see that the Lord is good.', about: 'David', to: 'Anyone tasting that the Lord is good' },
+    { from: 34, thru: 34, situation: 'David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit; taste and see that the Lord is good.', about: 'David', to: 'The brokenhearted — and anyone tasting that the Lord is good' },
     { from: 35, thru: 37, situation: 'David prays against unjust attackers; wicked prosperity is temporary; delight in the Lord.', about: 'David', to: 'Anyone watching the wicked prosper for a season' },
     { from: 38, thru: 41, situation: 'David in sickness, sin-awareness, and waiting; Book I closes with the blessedness of the one who considers the poor.', about: 'David', to: 'The sick, the guilty, and the waiting' },
     { from: 42, thru: 43, situation: 'Sons of Korah: a downcast soul thirsts for God and talks itself back toward hope.', about: 'The sons of Korah', to: 'Anyone whose soul is cast down' },
-    { from: 44, thru: 49, situation: 'National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches.', about: 'The sons of Korah', to: 'Worshipers in joy and national distress' },
+    { from: 44, thru: 45, situation: 'National lament after defeat; then a royal wedding song for the king.', about: 'The sons of Korah', to: 'Worshipers in distress and in celebration' },
+    { from: 46, thru: 46, situation: 'When the earth shakes and nations rage, this psalm declares God is a present refuge and strength — “be still, and know that I am God.”', about: 'The sons of Korah', to: 'Anyone in trouble who needs a refuge' },
+    { from: 47, thru: 49, situation: 'God is King over the nations; Zion’s beauty; the vanity of trusting riches.', about: 'The sons of Korah', to: 'Worshipers in joy and those tempted to trust wealth' },
     { from: 50, thru: 51, situation: 'God summons His people to true worship; David confesses after Nathan confronts him about Bathsheba.', about: 'Asaph and David', to: 'God — and any heart needing mercy after failure' },
-    { from: 52, thru: 60, situation: 'David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules.', about: 'David', to: 'The hunted and the betrayed' },
+    { from: 52, thru: 52, situation: 'David answers Doeg’s betrayal: the wicked boast, but those who trust in God’s mercy are like a green olive tree.', about: 'David', to: 'The betrayed who still trust God’s mercy' },
+    { from: 53, thru: 54, situation: 'The fool says there is no God; David, when the Ziphites betray him, calls God his helper.', about: 'David', to: 'Anyone needing help when people turn on them' },
+    { from: 55, thru: 55, situation: 'David is crushed by a friend’s treachery and casts his burden on the Lord, who will sustain him.', about: 'David', to: 'Anyone whose friend has turned against them' },
+    { from: 56, thru: 56, situation: 'When the Philistines took David in Gath, he says: what time I am afraid, I will trust in Thee — God bottles every tear.', about: 'David', to: 'Anyone afraid in enemy territory' },
+    { from: 57, thru: 60, situation: 'David cries from caves and defeat while Saul hunts him; God still rules.', about: 'David', to: 'The hunted who still praise God' },
     { from: 61, thru: 68, situation: 'David seeks higher rock, waits on God alone, and leads joyful processions of praise.', about: 'David', to: 'Worshipers needing a rock higher than themselves' },
     { from: 69, thru: 71, situation: 'Deep waters of reproach and aging faith: David cries for rescue and keeps hoping in the Lord.', about: 'David', to: 'The reproached and the aging who still hope' },
     { from: 72, thru: 72, situation: 'Book II closes with a royal prayer for the king’s justice and blessing — “Amen, and Amen.”', about: 'Solomon (or a prayer for Solomon)', to: 'Those praying for a just king' },
@@ -191,7 +204,9 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 98, thru: 98, situation: 'A new song because the Lord has done marvellous things — His salvation made known.', about: 'Israel’s congregation singing because He has already acted', to: 'Anyone who needs praise to answer what God has done' },
     { from: 99, thru: 99, situation: 'The Lord reigns in Zion, holy and high above the people.', about: 'Israel’s congregation before the Holy One in Zion', to: 'Worshipers who need to know who is actually high' },
     { from: 100, thru: 100, situation: 'Make a joyful noise, all lands; serve the Lord with gladness; enter His gates with thanksgiving.', about: 'Israel’s congregation calling all lands to glad worship', to: 'All lands called to joyful thanksgiving' },
-    { from: 101, thru: 103, situation: 'A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy.', about: 'David', to: 'Leaders and all who need mercy remembered' },
+    { from: 101, thru: 101, situation: 'A king’s vow of integrity: David will walk with a perfect heart in his house and refuse the wicked.', about: 'David', to: 'Leaders vowing a clean house before God' },
+    { from: 102, thru: 102, situation: 'An afflicted cry that becomes hope: the psalmist pours out his trouble, then trusts God will arise and build Zion.', about: 'An afflicted psalmist', to: 'Anyone whose days are like a shadow' },
+    { from: 103, thru: 103, situation: 'David blesses the Lord who forgives all iniquity, heals, and removes transgressions as far as the east is from the west.', about: 'David', to: 'Every soul that needs mercy remembered' },
     { from: 104, thru: 106, situation: 'Creation praise; retelling of God’s faithfulness and Israel’s failures; Book IV ends in “Hallelujah.”', about: 'Israel remembering — creation praise and the story of God’s faithfulness', to: 'A people remembering creation and covenant' },
     { from: 107, thru: 107, situation: 'Book V opens: the redeemed from trouble give thanks — desert, prison, sickness, and storm.', about: 'The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm', to: 'The redeemed telling what God has done' },
     { from: 108, thru: 110, situation: 'David’s confidence in battle; curses on the wicked; the Lord says to my Lord, “Sit at my right hand.”', about: 'David', to: 'God’s people under the Messiah’s reign' },
@@ -200,7 +215,9 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 120, thru: 134, situation: 'Songs of Ascents: pilgrims going up to Jerusalem sing of help, peace, and blessing.', about: 'Pilgrim songs of ascent — Israel going up to Jerusalem', to: 'Travelers and worshipers going up to God’s house' },
     { from: 135, thru: 137, situation: 'Praise for the living God versus idols; by the rivers of Babylon, exiles weep for Zion.', about: 'Israel in exile and return — praise of the living God, and weeping by Babylon’s rivers', to: 'Exiles and all who refuse false gods' },
     { from: 138, thru: 145, situation: 'David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom.', about: 'David', to: 'Anyone fully known and still loved by God' },
-    { from: 146, thru: 150, situation: 'Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord.', about: 'Israel’s closing Hallelujah — everything that has breath, praise the Lord', to: 'All creation called to praise' }
+    { from: 146, thru: 146, situation: 'Hallelujah: trust not in princes; the Lord keeps truth forever and raises those who are bowed down.', about: 'Israel’s closing Hallelujah', to: 'Anyone tempted to trust princes instead of the Lord' },
+    { from: 147, thru: 147, situation: 'Hallelujah: the Lord heals the broken in heart and binds up their wounds; He counts the stars and feeds His people.', about: 'Israel’s closing Hallelujah', to: 'The brokenhearted — and all creation called to praise' },
+    { from: 148, thru: 150, situation: 'Final Hallelujah chorus: everything that has breath, praise the Lord.', about: 'Israel’s closing Hallelujah — everything that has breath, praise the Lord', to: 'All creation called to praise' }
   ],
   Proverbs: [
     { from: 1, thru: 9, situation: 'Solomon (and the wise) urge a son to choose wisdom over the path of fools.', about: 'Solomon giving wisdom', to: 'Everyone seeking guidance' },
@@ -220,9 +237,17 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 13, thru: 23, situation: 'Oracles against the nations around Judah.', about: 'Isaiah', to: 'Judah watching the nations under God' },
     { from: 24, thru: 35, situation: 'Judgment and joy; a highway of holiness; God defends Zion.', about: 'Isaiah', to: 'A people under threat who need God to reign' },
     { from: 36, thru: 39, situation: 'Assyria threatens Jerusalem in Hezekiah’s day; God delivers; then Babylon’s future rise is hinted.', about: 'Isaiah (with Hezekiah’s story)', to: 'Judah under Assyrian siege' },
-    { from: 40, thru: 48, situation: 'Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice.', about: 'Isaiah (comfort from God)', to: 'Weary Judah — and anyone waiting on the Lord' },
-    { from: 49, thru: 55, situation: 'The Servant suffers for sins; free pardon is offered; the word of God stands forever.', about: 'Isaiah', to: 'Israel — and all who look to the Suffering Servant' },
-    { from: 56, thru: 66, situation: 'Promises of a new heavens and new earth; a call to true fasting and hope for the nations.', about: 'Isaiah', to: 'Exiles and returnees longing for full restoration' }
+    { from: 40, thru: 40, situation: 'Comfort ye my people: the Lord comes as a shepherd who gathers the lambs, and they that wait on Him renew their strength.', about: 'Isaiah (comfort from God)', to: 'Weary Judah — and anyone waiting on the Lord' },
+    { from: 41, thru: 41, situation: 'The Lord comforts fearful Israel in exile: Fear thou not; for I am with thee — strength and help from His right hand.', about: 'Isaiah (the Lord speaking)', to: 'Fearful people — and you when fear is loud' },
+    { from: 42, thru: 42, situation: 'The Lord’s servant will bring justice to the nations; God will not break the bruised reed.', about: 'Isaiah (comfort from God)', to: 'Exiles who need a gentle servant-king' },
+    { from: 43, thru: 43, situation: 'The Lord names and redeems His people: Fear not, for I have redeemed thee; I have called thee by thy name; thou art mine.', about: 'Isaiah (the Lord speaking)', to: 'Exiles who need to know they belong to God' },
+    { from: 44, thru: 48, situation: 'God is incomparable; idols are nothing; He names Cyrus and says there is no God beside Him.', about: 'Isaiah (comfort from God)', to: 'Exiles tempted to trust idols' },
+    { from: 49, thru: 52, situation: 'The Lord’s servant is a light to the nations; Zion feels forgotten, yet God says He will not forget His people.', about: 'Isaiah', to: 'Zion feeling forgotten — and all who need to know they are named' },
+    { from: 53, thru: 53, situation: 'The Servant suffers for sins; He is wounded for our transgressions.', about: 'Isaiah', to: 'Israel — and all who look to the Suffering Servant' },
+    { from: 54, thru: 55, situation: 'Free pardon is offered; the word of God stands forever; come, buy wine and milk without money.', about: 'Isaiah', to: 'The thirsty and the poor who cannot pay' },
+    { from: 56, thru: 59, situation: 'A call to true fasting and justice; sin has separated the people from God.', about: 'Isaiah', to: 'Returnees tempted to empty religion' },
+    { from: 60, thru: 62, situation: 'Zion’s light and the Spirit of the Lord on the anointed to bind up the brokenhearted and proclaim liberty.', about: 'Isaiah', to: 'The brokenhearted and captives waiting for good news' },
+    { from: 63, thru: 66, situation: 'Promises of a new heavens and new earth; the Lord comes to save and to judge.', about: 'Isaiah', to: 'Exiles and returnees longing for full restoration' }
   ],
   Jeremiah: [
     { from: 1, thru: 10, situation: 'Jeremiah is called as a youth to warn Judah before Babylon comes.', about: 'Jeremiah', to: 'Judah and the exiles' },
@@ -297,9 +322,13 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 8, thru: 10, situation: 'Miracles of healing and authority; the Twelve are sent out.', about: 'Jesus (through Matthew)', to: 'Crowds and disciples seeing the kingdom’s power' },
     { from: 11, thru: 12, situation: 'Jesus invites the weary to rest; conflict with Pharisees grows.', about: 'Jesus', to: 'The weary and heavy laden (and you today)' },
     { from: 13, thru: 13, situation: 'By the sea, Jesus teaches parables of the kingdom — sower, weeds, mustard seed, treasure — so crowds and disciples learn how the kingdom grows.', about: 'Jesus (through Matthew)', to: 'Crowds and disciples learning how the kingdom grows' },
-    { from: 14, thru: 17, situation: 'John is killed; Jesus feeds multitudes, walks on water, and predicts the cross; Peter confesses Him as Christ.', about: 'Jesus (through Matthew)', to: 'Disciples learning who He is' },
+    { from: 14, thru: 14, situation: 'John the Baptist is beheaded; Jesus feeds the five thousand and walks on the sea.', about: 'Jesus (through Matthew)', to: 'Disciples learning who He is' },
+    { from: 15, thru: 15, situation: 'Jesus confronts tradition, heals, and feeds the four thousand.', about: 'Jesus (through Matthew)', to: 'Crowds and disciples seeing His mercy' },
+    { from: 16, thru: 16, situation: 'Peter confesses Jesus as the Christ; Jesus begins to speak of the cross.', about: 'Jesus (through Matthew)', to: 'Disciples learning who He is' },
+    { from: 17, thru: 17, situation: 'Jesus is transfigured; the disciples cannot heal a boy, and He teaches that faith as a grain of mustard seed is enough.', about: 'Jesus (through Matthew)', to: 'The disciples who could not heal the boy (and you today)' },
     { from: 18, thru: 18, situation: 'Jesus teaches about little ones, humility, seeking the lost sheep, and forgiving brothers seventy times seven.', about: 'Jesus', to: 'His disciples — and all who guard the vulnerable and practice forgiveness' },
-    { from: 19, thru: 20, situation: 'Teaching on marriage, riches, and greatness; Jesus sets His face toward Jerusalem.', about: 'Jesus (through Matthew)', to: 'Disciples on the road to the cross' },
+    { from: 19, thru: 19, situation: 'Jesus teaches on marriage, blesses little children, and meets the rich young man.', about: 'Jesus (through Matthew)', to: 'Disciples — and parents bringing children to Him' },
+    { from: 20, thru: 20, situation: 'The vineyard laborers; greatness as service; Jesus sets His face toward Jerusalem.', about: 'Jesus (through Matthew)', to: 'Disciples on the road to the cross' },
     { from: 21, thru: 23, situation: 'Triumphal entry; cleansing the temple; debates with leaders in Jerusalem.', about: 'Jesus (through Matthew)', to: 'Jerusalem in Passion Week' },
     { from: 24, thru: 25, situation: 'Jesus speaks of the end and the call to watchful faithfulness.', about: 'Jesus (through Matthew)', to: 'Disciples needing endurance' },
     { from: 26, thru: 28, situation: 'Last Supper, Gethsemane, trial, cross, and resurrection.', about: 'Jesus (through Matthew)', to: 'Disciples — and all who need a risen Savior' }
@@ -316,7 +345,13 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 1, thru: 2, situation: 'Births of John and Jesus; shepherds hear good news; the child grows in favor with God and man.', about: 'Jesus (through Luke)', to: 'His disciples and those listening (and you today)' },
     { from: 3, thru: 4, situation: 'John’s preaching; Jesus’ baptism, genealogy, temptation, and rejection at Nazareth.', about: 'Jesus (through Luke)', to: 'Israel hearing the kingdom announced' },
     { from: 5, thru: 9, situation: 'Calling disciples; healings; the Twelve sent; the Transfiguration; the turn toward Jerusalem.', about: 'Jesus (through Luke)', to: 'Disciples learning to follow' },
-    { from: 10, thru: 19, situation: 'On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus.', about: 'Jesus (through Luke)', to: 'Sinners and seekers (and you today)' },
+    { from: 10, thru: 10, situation: 'Jesus sends the seventy; the Good Samaritan; Martha and Mary.', about: 'Jesus (through Luke)', to: 'Sinners and seekers (and you today)' },
+    { from: 11, thru: 11, situation: 'Jesus teaches His disciples to pray; He warns against empty religion.', about: 'Jesus (through Luke)', to: 'Disciples learning to pray' },
+    { from: 12, thru: 12, situation: 'Jesus tells the rich fool parable and says, Fear not, little flock — do not be anxious; your Father knows your need.', about: 'Jesus (through Luke)', to: 'Disciples tempted to fear and to store up treasure' },
+    { from: 13, thru: 14, situation: 'Healings on the Sabbath; parables of the kingdom and of the great supper.', about: 'Jesus (through Luke)', to: 'Guests and outcasts hearing the kingdom invitation' },
+    { from: 15, thru: 15, situation: 'Lost sheep, lost coin, and the prodigal son — heaven’s joy over one sinner who repents.', about: 'Jesus (through Luke)', to: 'Sinners and seekers (and you today)' },
+    { from: 16, thru: 18, situation: 'The rich man and Lazarus; ten lepers; persistent prayer; the Pharisee and the publican.', about: 'Jesus (through Luke)', to: 'The proud and the humble who pray' },
+    { from: 19, thru: 19, situation: 'Zacchaeus is found; Jesus enters Jerusalem as King.', about: 'Jesus (through Luke)', to: 'The lost whom the Son of man came to seek' },
     { from: 20, thru: 21, situation: 'Teaching in the temple; widow’s mites; signs of the end.', about: 'Jesus (through Luke)', to: 'Jerusalem’s final days of teaching' },
     { from: 22, thru: 24, situation: 'Last Supper, arrest, cross, Emmaus road, and resurrection appearances.', about: 'Jesus (through Luke)', to: 'Disciples — and all who need opened Scriptures and a risen Lord' }
   ],
@@ -324,7 +359,10 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 1, thru: 2, situation: 'The Word becomes flesh; first disciples follow; water becomes wine at Cana.', about: 'Jesus (through John)', to: 'His disciples and those listening (and you today)' },
     { from: 3, thru: 4, situation: 'Jesus teaches Nicodemus about new birth; speaks with a Samaritan woman at the well.', about: 'Jesus', to: 'Nicodemus — and anyone needing new birth' },
     { from: 5, thru: 6, situation: 'Healing at Bethesda; feeding the five thousand; Bread of Life discourse.', about: 'Jesus (through John)', to: 'Crowds seeking signs — and disciples needing real food' },
-    { from: 7, thru: 10, situation: 'Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd.', about: 'Jesus (through John)', to: 'Jerusalem under debate about who Jesus is' },
+    { from: 7, thru: 7, situation: 'At the feast of tabernacles, debate rises over who Jesus is.', about: 'Jesus (through John)', to: 'Jerusalem under debate about who Jesus is' },
+    { from: 8, thru: 8, situation: 'Jesus speaks in the temple: I am the light of the world; He tells the truth that sets people free.', about: 'Jesus (through John)', to: 'Those in the temple hearing His claim' },
+    { from: 9, thru: 9, situation: 'Jesus heals a man born blind; the Pharisees investigate and the man worships Him.', about: 'Jesus (through John)', to: 'The man born blind — and all who need sight' },
+    { from: 10, thru: 10, situation: 'Jesus is the Good Shepherd who gives His life for the sheep.', about: 'Jesus (through John)', to: 'His sheep who hear His voice' },
     { from: 11, thru: 12, situation: 'Lazarus is raised; Mary anoints Jesus; the triumphal entry approaches the cross.', about: 'Jesus (through John)', to: 'Friends of Jesus facing death and glory' },
     { from: 13, thru: 17, situation: 'Upper room: footwashing, comfort, true vine, and high priestly prayer the night before the cross.', about: 'Jesus', to: 'His disciples the night before the cross' },
     { from: 18, thru: 19, situation: 'Arrest, trials, crucifixion; “It is finished.”', about: 'Jesus (through John)', to: 'All who need the finished work of the cross' },
@@ -341,7 +379,9 @@ export const BOOK_CHAPTER_SITUATIONS = {
   Romans: [
     { from: 1, thru: 3, situation: 'Paul writes to Rome: all have sinned; justification is by faith like Abraham’s.', about: 'Paul', to: 'Believers in Rome (and you today)' },
     { from: 4, thru: 5, situation: 'Abraham believed God; peace with God comes through Christ, not law-keeping.', about: 'Paul', to: 'Believers justified by faith (and you today)' },
-    { from: 6, thru: 8, situation: 'Dead to sin, alive to God; struggle and Spirit; no condemnation for those in Christ.', about: 'Paul', to: 'Believers in the Spirit (and you today)' },
+    { from: 6, thru: 6, situation: 'Dead to sin, alive to God: do not let sin reign; the wages of sin is death, but the gift of God is eternal life.', about: 'Paul', to: 'Believers in the Spirit (and you today)' },
+    { from: 7, thru: 7, situation: 'Paul describes the struggle with the law: the good I would, I do not; who shall deliver me?', about: 'Paul', to: 'Believers in the Spirit (and you today)' },
+    { from: 8, thru: 8, situation: 'No condemnation for those in Christ; the Spirit of adoption; nothing can separate us from the love of God.', about: 'Paul', to: 'Believers in the Spirit (and you today)' },
     { from: 9, thru: 11, situation: 'Paul wrestles with Israel’s unbelief and God’s mercy to Jew and Gentile.', about: 'Paul', to: 'Roman believers needing a big view of God’s plan' },
     { from: 12, thru: 16, situation: 'Living sacrifices: renewed minds, love, and unity in the Roman house churches.', about: 'Paul', to: 'Believers offering their lives (and you today)' }
   ],
@@ -364,7 +404,9 @@ export const BOOK_CHAPTER_SITUATIONS = {
   ],
   Ephesians: [
     { from: 1, thru: 3, situation: 'Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and Gentile.', about: 'Paul', to: 'believers in Ephesus (and you today)' },
-    { from: 4, thru: 6, situation: 'Walk worthy: unity, purity, marriage, and the armor of God against spiritual war.', about: 'Paul', to: 'Believers in spiritual battle (and you today)' }
+    { from: 4, thru: 4, situation: 'Paul calls the church to walk worthy: one body, one Spirit, put off the old man and speak truth in love.', about: 'Paul', to: 'believers in Ephesus (and you today)' },
+    { from: 5, thru: 5, situation: 'Walk in love and light; husbands and wives are taught Christlike marriage.', about: 'Paul', to: 'believers in Ephesus (and you today)' },
+    { from: 6, thru: 6, situation: 'Paul turns to the household — children, fathers, servants — then arms the church with the whole armor of God.', about: 'Paul', to: 'Believers in spiritual battle (and you today)' }
   ],
   Philippians: [
     { from: 1, thru: 2, situation: 'Paul writes from prison with joy; Christ is preached; the mind of Christ is humility.', about: 'Paul', to: 'the church at Philippi (and you today)' },
@@ -373,7 +415,8 @@ export const BOOK_CHAPTER_SITUATIONS = {
   ],
   Colossians: [
     { from: 1, thru: 2, situation: 'Paul exalts Christ’s supremacy against hollow philosophy in Colosse.', about: 'Paul', to: 'believers in Colosse (and you today)' },
-    { from: 3, thru: 4, situation: 'Set minds above; put on love; household codes; prayer and gracious speech.', about: 'Paul', to: 'Believers setting minds above (and you today)' }
+    { from: 3, thru: 3, situation: 'Set minds above; put on love; wives, husbands, children, and fathers are taught a new household life in Christ.', about: 'Paul', to: 'Believers setting minds above (and you today)' },
+    { from: 4, thru: 4, situation: 'Continue in prayer; walk in wisdom toward outsiders; speech seasoned with grace.', about: 'Paul', to: 'believers in Colosse (and you today)' }
   ],
   '1 Thessalonians': [
     { from: 1, thru: 3, situation: 'Paul thanks God for a young church under persecution and urges holy living.', about: 'Paul', to: 'believers in Thessalonica (and you today)' },
@@ -386,7 +429,8 @@ export const BOOK_CHAPTER_SITUATIONS = {
     { from: 1, thru: 6, situation: 'Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus.', about: 'Paul', to: 'Timothy (and every young believer)' }
   ],
   '2 Timothy': [
-    { from: 1, thru: 4, situation: 'Paul’s last letter from prison: fan the gift; endure hardship; preach the word.', about: 'Paul', to: 'Timothy (and every timid heart)' }
+    { from: 1, thru: 1, situation: 'Paul, from prison, tells Timothy to fan the gift of God: God has not given a spirit of fear, but of power, of love, and of a sound mind.', about: 'Paul', to: 'Timothy (and every timid heart)' },
+    { from: 2, thru: 4, situation: 'Endure hardness as a good soldier; preach the word; Paul finishes his course.', about: 'Paul', to: 'Timothy (and every timid heart)' }
   ],
   Titus: [
     { from: 1, thru: 3, situation: 'Paul instructs Titus to appoint elders and teach sound living on Crete.', about: 'Paul', to: 'Titus (and church leaders)' }
@@ -397,7 +441,9 @@ export const BOOK_CHAPTER_SITUATIONS = {
   Hebrews: [
     { from: 1, thru: 4, situation: 'A sermon-letter to pressured Hebrew believers: Jesus is better than angels, Moses, and the old priesthood.', about: 'The writer of Hebrews', to: 'Hebrew believers holding fast to Christ' },
     { from: 5, thru: 10, situation: 'Jesus the high priest after Melchizedek; a better covenant; draw near with boldness.', about: 'The writer of Hebrews', to: 'Believers tempted to shrink back' },
-    { from: 11, thru: 13, situation: 'Hall of faith; run with patience; practical holiness and praise.', about: 'The writer of Hebrews', to: 'Hebrew believers holding faith' }
+    { from: 11, thru: 11, situation: 'The hall of faith: elders who believed God when they could not yet see the promise.', about: 'The writer of Hebrews', to: 'Hebrew believers holding faith' },
+    { from: 12, thru: 12, situation: 'Run with patience the race set before you, looking unto Jesus; the Father chastens sons He loves.', about: 'The writer of Hebrews', to: 'Believers running with patience' },
+    { from: 13, thru: 13, situation: 'Let brotherly love continue; be content; He hath said, I will never leave thee nor forsake thee.', about: 'The writer of Hebrews', to: 'Hebrew believers holding fast to Christ' }
   ],
   James: [
     { from: 1, thru: 5, situation: 'James writes scattered believers under trial about real faith that works in speech, mercy, and patience.', about: 'James', to: 'scattered believers under trial' }
@@ -405,7 +451,8 @@ export const BOOK_CHAPTER_SITUATIONS = {
   '1 Peter': [
     { from: 1, thru: 1, situation: 'Peter writes to elect exiles and blesses God for new birth and living hope through Christ’s resurrection.', about: 'Peter', to: 'elect exiles in suffering and hope' },
     { from: 2, thru: 2, situation: 'Peter calls elect exiles to holy living and names Christ the living cornerstone.', about: 'Peter', to: 'believers in suffering and hope' },
-    { from: 3, thru: 5, situation: 'Household life, suffering for righteousness, casting care on God, resisting the devil.', about: 'Peter', to: 'Believers casting care on God' }
+    { from: 3, thru: 4, situation: 'Household life and suffering for righteousness; live unto God and love one another fervently.', about: 'Peter', to: 'Believers in suffering and hope' },
+    { from: 5, thru: 5, situation: 'Peter closes: humble yourselves under God’s hand, cast all your care on Him, for He cares for you, and resist the devil.', about: 'Peter', to: 'Believers casting care on God' }
   ],
   '2 Peter': [
     { from: 1, thru: 3, situation: 'Peter warns against false teachers and points to the Lord’s coming and sure word.', about: 'Peter', to: 'believers growing in grace and knowledge' }

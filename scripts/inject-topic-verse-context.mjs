@@ -192,9 +192,14 @@ function buildVbdHtml(refLabel, verseText, plainMap, resolve) {
   return html;
 }
 
+function openTagHasClass(openTag, className) {
+  const m = String(openTag || '').match(/\bclass\s*=\s*["']([^"']*)["']/i);
+  if (!m) return false;
+  return m[1].split(/\s+/).includes(className);
+}
+
 /** Remove every <div class="tdb-topic-vbd"…>…</div> with balanced tags. */
 function stripAllTopicVbd(html) {
-  const marker = 'class="tdb-topic-vbd"';
   let out = '';
   let i = 0;
   while (i < html.length) {
@@ -209,7 +214,7 @@ function stripAllTopicVbd(html) {
       break;
     }
     const openTag = html.slice(start, openEnd + 1);
-    if (!openTag.includes(marker) && !openTag.includes("class='tdb-topic-vbd'")) {
+    if (!openTagHasClass(openTag, 'tdb-topic-vbd')) {
       out += html.slice(i, openEnd + 1);
       i = openEnd + 1;
       continue;
@@ -242,8 +247,15 @@ function stripAllTopicVbd(html) {
  * Process one list-item inner HTML (content inside the wrapper div).
  * Pattern: <strong>Ref</strong><p>KJV</p>[optional note]
  */
+function unwrapKjvBlock(html) {
+  return String(html || '').replace(
+    /<div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv">\s*<h4[^>]*>KJV<\/h4>\s*<p([^>]*)>([\s\S]*?)<\/p>\s*<\/div>/gi,
+    '<p$1>$2</p>'
+  );
+}
+
 function injectIntoListItemInner(inner, plainMap, resolve) {
-  const body = stripAllTopicVbd(inner);
+  const body = unwrapKjvBlock(stripAllTopicVbd(inner));
 
   const strongM = body.match(/<strong>([^<]+)<\/strong>/i);
   if (!strongM || !/\d+:\d+/.test(strongM[1])) return inner;

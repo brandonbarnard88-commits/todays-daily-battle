@@ -915,54 +915,54 @@
     "setting": "Blessings and curses are set before Israel; Moses urges them to choose life."
   },
   "Deuteronomy:31": {
-    "about": "Moses (and the narrator)",
-    "to": "Israel at the death of their leader",
-    "setting": "Joshua is commissioned; Moses sings, blesses the tribes, and dies on Mount Nebo."
+    "about": "Moses",
+    "to": "Joshua — and Israel at the death of their leader",
+    "setting": "Moses commissions Joshua: be strong and of a good courage; the Lord goes with you and will not fail you."
   },
   "Deuteronomy:32": {
     "about": "Moses (and the narrator)",
     "to": "Israel at the death of their leader",
-    "setting": "Joshua is commissioned; Moses sings, blesses the tribes, and dies on Mount Nebo."
+    "setting": "Moses sings, blesses the tribes, and dies on Mount Nebo."
   },
   "Deuteronomy:33": {
     "about": "Moses (and the narrator)",
     "to": "Israel at the death of their leader",
-    "setting": "Joshua is commissioned; Moses sings, blesses the tribes, and dies on Mount Nebo."
+    "setting": "Moses sings, blesses the tribes, and dies on Mount Nebo."
   },
   "Deuteronomy:34": {
     "about": "Moses (and the narrator)",
     "to": "Israel at the death of their leader",
-    "setting": "Joshua is commissioned; Moses sings, blesses the tribes, and dies on Mount Nebo."
+    "setting": "Moses sings, blesses the tribes, and dies on Mount Nebo."
   },
   "Joshua:1": {
     "about": "The Lord to Joshua",
     "to": "Joshua — and anyone stepping into a hard new season",
-    "setting": "Joshua takes command; Israel crosses the Jordan; Jericho falls by faith."
+    "setting": "Joshua takes command; Israel crosses the Jordan and prepares for the land."
   },
   "Joshua:2": {
     "about": "The Lord to Joshua (and the narrator)",
     "to": "Joshua — and anyone stepping into a hard new season",
-    "setting": "Joshua takes command; Israel crosses the Jordan; Jericho falls by faith."
+    "setting": "Joshua takes command; Israel crosses the Jordan and prepares for the land."
   },
   "Joshua:3": {
     "about": "The Lord to Joshua (and the narrator)",
     "to": "Joshua — and anyone stepping into a hard new season",
-    "setting": "Joshua takes command; Israel crosses the Jordan; Jericho falls by faith."
+    "setting": "Joshua takes command; Israel crosses the Jordan and prepares for the land."
   },
   "Joshua:4": {
     "about": "The Lord to Joshua (and the narrator)",
     "to": "Joshua — and anyone stepping into a hard new season",
-    "setting": "Joshua takes command; Israel crosses the Jordan; Jericho falls by faith."
+    "setting": "Joshua takes command; Israel crosses the Jordan and prepares for the land."
   },
   "Joshua:5": {
     "about": "The Lord to Joshua (and the narrator)",
     "to": "Joshua — and anyone stepping into a hard new season",
-    "setting": "Joshua takes command; Israel crosses the Jordan; Jericho falls by faith."
+    "setting": "Joshua takes command; Israel crosses the Jordan and prepares for the land."
   },
   "Joshua:6": {
     "about": "The narrator of Joshua",
     "to": "Israel taking the land God promised",
-    "setting": "Israel conquers key cities in Canaan; sin at Ai is judged; southern and northern kings fall."
+    "setting": "Jericho falls as Israel marches around the city in obedience."
   },
   "Joshua:7": {
     "about": "The narrator of Joshua",
@@ -1255,14 +1255,14 @@
     "setting": "Saul disobeys; God rejects him as king; the kingdom will pass to another."
   },
   "1 Samuel:16": {
-    "about": "The narrator of Samuel (with David and Goliath)",
-    "to": "Israel facing a giant — and anyone facing what feels too big",
-    "setting": "David is anointed; he fights Goliath while Saul’s army freezes in fear."
+    "about": "Samuel and the Lord (with Jesse’s sons)",
+    "to": "Samuel — and all who judge by appearance",
+    "setting": "Samuel is sent to anoint a king among Jesse’s sons; the Lord refuses Eliab’s looks and looks on the heart."
   },
   "1 Samuel:17": {
     "about": "The narrator of Samuel (with David and Goliath)",
     "to": "Israel facing a giant — and anyone facing what feels too big",
-    "setting": "David is anointed; he fights Goliath while Saul’s army freezes in fear."
+    "setting": "David faces Goliath while Saul’s army freezes in fear."
   },
   "1 Samuel:18": {
     "about": "David, Jonathan, and Saul (through the narrator)",
@@ -1426,33 +1426,33 @@
   },
   "2 Samuel:19": {
     "about": "David (through the narrator)",
-    "to": "Israel at the close of David’s wars",
-    "setting": "David returns to rule; further trouble and a census bring plague; David buys a threshing floor for an altar."
+    "to": "Israel after civil war",
+    "setting": "David returns to rule after Absalom; further trouble and a famine test the kingdom."
   },
   "2 Samuel:20": {
     "about": "David (through the narrator)",
-    "to": "Israel at the close of David’s wars",
-    "setting": "David returns to rule; further trouble and a census bring plague; David buys a threshing floor for an altar."
+    "to": "Israel after civil war",
+    "setting": "David returns to rule after Absalom; further trouble and a famine test the kingdom."
   },
   "2 Samuel:21": {
     "about": "David (through the narrator)",
-    "to": "Israel at the close of David’s wars",
-    "setting": "David returns to rule; further trouble and a census bring plague; David buys a threshing floor for an altar."
+    "to": "Israel after civil war",
+    "setting": "David returns to rule after Absalom; further trouble and a famine test the kingdom."
   },
   "2 Samuel:22": {
-    "about": "David (through the narrator)",
-    "to": "Israel at the close of David’s wars",
-    "setting": "David returns to rule; further trouble and a census bring plague; David buys a threshing floor for an altar."
+    "about": "David",
+    "to": "Anyone delivered after a long fight",
+    "setting": "David sings a song of deliverance: God is his rock, fortress, and shield after the Lord saved him from all his enemies."
   },
   "2 Samuel:23": {
     "about": "David (through the narrator)",
     "to": "Israel at the close of David’s wars",
-    "setting": "David returns to rule; further trouble and a census bring plague; David buys a threshing floor for an altar."
+    "setting": "David’s last words and mighty men; a census brings plague; he buys a threshing floor for an altar."
   },
   "2 Samuel:24": {
     "about": "David (through the narrator)",
     "to": "Israel at the close of David’s wars",
-    "setting": "David returns to rule; further trouble and a census bring plague; David buys a threshing floor for an altar."
+    "setting": "David’s last words and mighty men; a census brings plague; he buys a threshing floor for an altar."
   },
   "1 Kings:1": {
     "about": "The narrator of Kings (with David and Solomon)",
@@ -2431,13 +2431,13 @@
   },
   "Psalm:9": {
     "about": "David",
-    "to": "The oppressed and those tempted to forget God",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God."
+    "to": "The oppressed who need a just judge",
+    "setting": "David thanks God who judges righteously and is a refuge for the oppressed."
   },
   "Psalm:10": {
     "about": "David",
-    "to": "The oppressed and those tempted to forget God",
-    "setting": "David sings of God’s justice against oppressors and of the fool who says there is no God."
+    "to": "The poor and the hunted who still pray",
+    "setting": "The psalmist asks why the Lord stands afar off while the wicked hunt the poor, then trusts that God hears the desire of the humble."
   },
   "Psalm:11": {
     "about": "David",
@@ -2557,7 +2557,7 @@
   "Psalm:34": {
     "about": "David",
     "to": "Anyone tasting that the Lord is good",
-    "setting": "David, after escaping Abimelech, teaches: taste and see that the Lord is good."
+    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit; taste and see that the Lord is good."
   },
   "Psalm:35": {
     "about": "David",
@@ -2606,33 +2606,33 @@
   },
   "Psalm:44": {
     "about": "The sons of Korah",
-    "to": "Worshipers in joy and national distress",
-    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
+    "to": "Worshipers in distress and in celebration",
+    "setting": "National lament after defeat; then a royal wedding song for the king."
   },
   "Psalm:45": {
     "about": "The sons of Korah",
-    "to": "Worshipers in joy and national distress",
-    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
+    "to": "Worshipers in distress and in celebration",
+    "setting": "National lament after defeat; then a royal wedding song for the king."
   },
   "Psalm:46": {
     "about": "A psalm writer",
     "to": "Anyone in trouble who needs a refuge",
-    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
+    "setting": "When the earth shakes and nations rage, this psalm declares God is a present refuge and strength — “be still, and know that I am God.”"
   },
   "Psalm:47": {
     "about": "The sons of Korah",
-    "to": "Worshipers in joy and national distress",
-    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
+    "to": "Worshipers in joy and those tempted to trust wealth",
+    "setting": "God is King over the nations; Zion’s beauty; the vanity of trusting riches."
   },
   "Psalm:48": {
     "about": "The sons of Korah",
-    "to": "Worshipers in joy and national distress",
-    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
+    "to": "Worshipers in joy and those tempted to trust wealth",
+    "setting": "God is King over the nations; Zion’s beauty; the vanity of trusting riches."
   },
   "Psalm:49": {
     "about": "The sons of Korah",
-    "to": "Worshipers in joy and national distress",
-    "setting": "National lament, a royal wedding song, God as refuge in trouble, and the vanity of trusting riches."
+    "to": "Worshipers in joy and those tempted to trust wealth",
+    "setting": "God is King over the nations; Zion’s beauty; the vanity of trusting riches."
   },
   "Psalm:50": {
     "about": "Asaph and David",
@@ -2646,48 +2646,48 @@
   },
   "Psalm:52": {
     "about": "David",
-    "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "to": "The betrayed who still trust God’s mercy",
+    "setting": "David answers Doeg’s betrayal: the wicked boast, but those who trust in God’s mercy are like a green olive tree."
   },
   "Psalm:53": {
     "about": "David",
-    "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "to": "Anyone needing help when people turn on them",
+    "setting": "The fool says there is no God; David, when the Ziphites betray him, calls God his helper."
   },
   "Psalm:54": {
     "about": "David",
-    "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "to": "Anyone needing help when people turn on them",
+    "setting": "The fool says there is no God; David, when the Ziphites betray him, calls God his helper."
   },
   "Psalm:55": {
     "about": "David",
-    "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "to": "Anyone whose friend has turned against them",
+    "setting": "David is crushed by a friend’s treachery and casts his burden on the Lord, who will sustain him."
   },
   "Psalm:56": {
     "about": "David",
-    "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "to": "Anyone afraid in enemy territory",
+    "setting": "When the Philistines took David in Gath, he says: what time I am afraid, I will trust in Thee — God bottles every tear."
   },
   "Psalm:57": {
     "about": "David",
-    "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "to": "The hunted who still praise God",
+    "setting": "David cries from caves and defeat while Saul hunts him; God still rules."
   },
   "Psalm:58": {
     "about": "David",
-    "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "to": "The hunted who still praise God",
+    "setting": "David cries from caves and defeat while Saul hunts him; God still rules."
   },
   "Psalm:59": {
     "about": "David",
-    "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "to": "The hunted who still praise God",
+    "setting": "David cries from caves and defeat while Saul hunts him; God still rules."
   },
   "Psalm:60": {
     "about": "David",
-    "to": "The hunted and the betrayed",
-    "setting": "David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules."
+    "to": "The hunted who still praise God",
+    "setting": "David cries from caves and defeat while Saul hunts him; God still rules."
   },
   "Psalm:61": {
     "about": "David",
@@ -2891,18 +2891,18 @@
   },
   "Psalm:101": {
     "about": "David",
-    "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "to": "Leaders vowing a clean house before God",
+    "setting": "A king’s vow of integrity: David will walk with a perfect heart in his house and refuse the wicked."
   },
   "Psalm:102": {
-    "about": "David",
-    "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "about": "An afflicted psalmist",
+    "to": "Anyone whose days are like a shadow",
+    "setting": "An afflicted cry that becomes hope: the psalmist pours out his trouble, then trusts God will arise and build Zion."
   },
   "Psalm:103": {
     "about": "David",
-    "to": "Leaders and all who need mercy remembered",
-    "setting": "A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy."
+    "to": "Every soul that needs mercy remembered",
+    "setting": "David blesses the Lord who forgives all iniquity, heals, and removes transgressions as far as the east is from the west."
   },
   "Psalm:104": {
     "about": "Israel remembering — creation praise and the story of God’s faithfulness",
@@ -3115,29 +3115,29 @@
     "setting": "David’s personal thanksgiving, God’s searching knowledge, protection in battle, and a forever kingdom."
   },
   "Psalm:146": {
-    "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
-    "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "about": "Israel’s closing Hallelujah",
+    "to": "Anyone tempted to trust princes instead of the Lord",
+    "setting": "Hallelujah: trust not in princes; the Lord keeps truth forever and raises those who are bowed down."
   },
   "Psalm:147": {
-    "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
-    "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "about": "Israel’s closing Hallelujah",
+    "to": "The brokenhearted — and all creation called to praise",
+    "setting": "Hallelujah: the Lord heals the broken in heart and binds up their wounds; He counts the stars and feeds His people."
   },
   "Psalm:148": {
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "setting": "Final Hallelujah chorus: everything that has breath, praise the Lord."
   },
   "Psalm:149": {
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "setting": "Final Hallelujah chorus: everything that has breath, praise the Lord."
   },
   "Psalm:150": {
     "about": "Israel’s closing Hallelujah — everything that has breath, praise the Lord",
     "to": "All creation called to praise",
-    "setting": "Final Hallelujah chorus: trust not in princes; everything that has breath praise the Lord."
+    "setting": "Final Hallelujah chorus: everything that has breath, praise the Lord."
   },
   "Proverbs:1": {
     "about": "Solomon giving wisdom",
@@ -3592,137 +3592,137 @@
   "Isaiah:40": {
     "about": "Isaiah (comfort from God)",
     "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "Comfort ye my people: the Lord comes as a shepherd who gathers the lambs, and they that wait on Him renew their strength."
   },
   "Isaiah:41": {
     "about": "Isaiah (the Lord speaking)",
     "to": "Fearful people — and you when fear is loud",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "setting": "The Lord comforts fearful Israel in exile: Fear thou not; for I am with thee — strength and help from His right hand."
   },
   "Isaiah:42": {
     "about": "Isaiah (comfort from God)",
-    "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "to": "Exiles who need a gentle servant-king",
+    "setting": "The Lord’s servant will bring justice to the nations; God will not break the bruised reed."
   },
   "Isaiah:43": {
-    "about": "Isaiah (comfort from God)",
-    "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "about": "Isaiah (the Lord speaking)",
+    "to": "Exiles who need to know they belong to God",
+    "setting": "The Lord names and redeems His people: Fear not, for I have redeemed thee; I have called thee by thy name; thou art mine."
   },
   "Isaiah:44": {
     "about": "Isaiah (comfort from God)",
-    "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "to": "Exiles tempted to trust idols",
+    "setting": "God is incomparable; idols are nothing; He names Cyrus and says there is no God beside Him."
   },
   "Isaiah:45": {
     "about": "Isaiah (comfort from God)",
-    "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "to": "Exiles tempted to trust idols",
+    "setting": "God is incomparable; idols are nothing; He names Cyrus and says there is no God beside Him."
   },
   "Isaiah:46": {
     "about": "Isaiah (comfort from God)",
-    "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "to": "Exiles tempted to trust idols",
+    "setting": "God is incomparable; idols are nothing; He names Cyrus and says there is no God beside Him."
   },
   "Isaiah:47": {
     "about": "Isaiah (comfort from God)",
-    "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "to": "Exiles tempted to trust idols",
+    "setting": "God is incomparable; idols are nothing; He names Cyrus and says there is no God beside Him."
   },
   "Isaiah:48": {
     "about": "Isaiah (comfort from God)",
-    "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice."
+    "to": "Exiles tempted to trust idols",
+    "setting": "God is incomparable; idols are nothing; He names Cyrus and says there is no God beside Him."
   },
   "Isaiah:49": {
     "about": "Isaiah",
-    "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "to": "Zion feeling forgotten — and all who need to know they are named",
+    "setting": "The Lord’s servant is a light to the nations; Zion feels forgotten, yet God says He will not forget His people."
   },
   "Isaiah:50": {
     "about": "Isaiah",
-    "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "to": "Zion feeling forgotten — and all who need to know they are named",
+    "setting": "The Lord’s servant is a light to the nations; Zion feels forgotten, yet God says He will not forget His people."
   },
   "Isaiah:51": {
     "about": "Isaiah",
-    "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "to": "Zion feeling forgotten — and all who need to know they are named",
+    "setting": "The Lord’s servant is a light to the nations; Zion feels forgotten, yet God says He will not forget His people."
   },
   "Isaiah:52": {
     "about": "Isaiah",
-    "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "to": "Zion feeling forgotten — and all who need to know they are named",
+    "setting": "The Lord’s servant is a light to the nations; Zion feels forgotten, yet God says He will not forget His people."
   },
   "Isaiah:53": {
     "about": "Isaiah",
     "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "setting": "The Servant suffers for sins; He is wounded for our transgressions."
   },
   "Isaiah:54": {
     "about": "Isaiah",
-    "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "to": "The thirsty and the poor who cannot pay",
+    "setting": "Free pardon is offered; the word of God stands forever; come, buy wine and milk without money."
   },
   "Isaiah:55": {
     "about": "Isaiah",
-    "to": "Israel — and all who look to the Suffering Servant",
-    "setting": "The Servant suffers for sins; free pardon is offered; the word of God stands forever."
+    "to": "The thirsty and the poor who cannot pay",
+    "setting": "Free pardon is offered; the word of God stands forever; come, buy wine and milk without money."
   },
   "Isaiah:56": {
     "about": "Isaiah",
-    "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "to": "Returnees tempted to empty religion",
+    "setting": "A call to true fasting and justice; sin has separated the people from God."
   },
   "Isaiah:57": {
     "about": "Isaiah",
-    "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "to": "Returnees tempted to empty religion",
+    "setting": "A call to true fasting and justice; sin has separated the people from God."
   },
   "Isaiah:58": {
     "about": "Isaiah",
-    "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "to": "Returnees tempted to empty religion",
+    "setting": "A call to true fasting and justice; sin has separated the people from God."
   },
   "Isaiah:59": {
     "about": "Isaiah",
-    "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "to": "Returnees tempted to empty religion",
+    "setting": "A call to true fasting and justice; sin has separated the people from God."
   },
   "Isaiah:60": {
     "about": "Isaiah",
-    "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "to": "The brokenhearted and captives waiting for good news",
+    "setting": "Zion’s light and the Spirit of the Lord on the anointed to bind up the brokenhearted and proclaim liberty."
   },
   "Isaiah:61": {
     "about": "Isaiah",
-    "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "to": "The brokenhearted and captives waiting for good news",
+    "setting": "Zion’s light and the Spirit of the Lord on the anointed to bind up the brokenhearted and proclaim liberty."
   },
   "Isaiah:62": {
     "about": "Isaiah",
-    "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "to": "The brokenhearted and captives waiting for good news",
+    "setting": "Zion’s light and the Spirit of the Lord on the anointed to bind up the brokenhearted and proclaim liberty."
   },
   "Isaiah:63": {
     "about": "Isaiah",
     "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "setting": "Promises of a new heavens and new earth; the Lord comes to save and to judge."
   },
   "Isaiah:64": {
     "about": "Isaiah",
     "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "setting": "Promises of a new heavens and new earth; the Lord comes to save and to judge."
   },
   "Isaiah:65": {
     "about": "Isaiah",
     "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "setting": "Promises of a new heavens and new earth; the Lord comes to save and to judge."
   },
   "Isaiah:66": {
     "about": "Isaiah",
     "to": "Exiles and returnees longing for full restoration",
-    "setting": "Promises of a new heavens and new earth; a call to true fasting and hope for the nations."
+    "setting": "Promises of a new heavens and new earth; the Lord comes to save and to judge."
   },
   "Jeremiah:1": {
     "about": "Jeremiah",
@@ -4712,22 +4712,22 @@
   "Matthew:14": {
     "about": "Jesus (through Matthew)",
     "to": "Disciples learning who He is",
-    "setting": "John is killed; Jesus feeds multitudes, walks on water, and predicts the cross; Peter confesses Him as Christ."
+    "setting": "John the Baptist is beheaded; Jesus feeds the five thousand and walks on the sea."
   },
   "Matthew:15": {
     "about": "Jesus (through Matthew)",
-    "to": "Disciples learning who He is",
-    "setting": "John is killed; Jesus feeds multitudes, walks on water, and predicts the cross; Peter confesses Him as Christ."
+    "to": "Crowds and disciples seeing His mercy",
+    "setting": "Jesus confronts tradition, heals, and feeds the four thousand."
   },
   "Matthew:16": {
     "about": "Jesus (through Matthew)",
     "to": "Disciples learning who He is",
-    "setting": "John is killed; Jesus feeds multitudes, walks on water, and predicts the cross; Peter confesses Him as Christ."
+    "setting": "Peter confesses Jesus as the Christ; Jesus begins to speak of the cross."
   },
   "Matthew:17": {
     "about": "Jesus (through Matthew)",
-    "to": "Disciples learning who He is",
-    "setting": "John is killed; Jesus feeds multitudes, walks on water, and predicts the cross; Peter confesses Him as Christ."
+    "to": "The disciples who could not heal the boy (and you today)",
+    "setting": "Jesus is transfigured; the disciples cannot heal a boy, and He teaches that faith as a grain of mustard seed is enough."
   },
   "Matthew:18": {
     "about": "Jesus",
@@ -4736,13 +4736,13 @@
   },
   "Matthew:19": {
     "about": "Jesus (through Matthew)",
-    "to": "Disciples on the road to the cross",
-    "setting": "Teaching on marriage, riches, and greatness; Jesus sets His face toward Jerusalem."
+    "to": "Disciples — and parents bringing children to Him",
+    "setting": "Jesus teaches on marriage, blesses little children, and meets the rich young man."
   },
   "Matthew:20": {
     "about": "Jesus (through Matthew)",
     "to": "Disciples on the road to the cross",
-    "setting": "Teaching on marriage, riches, and greatness; Jesus sets His face toward Jerusalem."
+    "setting": "The vineyard laborers; greatness as service; Jesus sets His face toward Jerusalem."
   },
   "Matthew:21": {
     "about": "Jesus (through Matthew)",
@@ -4912,52 +4912,52 @@
   "Luke:10": {
     "about": "Jesus (through Luke)",
     "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "setting": "Jesus sends the seventy; the Good Samaritan; Martha and Mary."
   },
   "Luke:11": {
     "about": "Jesus (through Luke)",
-    "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "to": "Disciples learning to pray",
+    "setting": "Jesus teaches His disciples to pray; He warns against empty religion."
   },
   "Luke:12": {
     "about": "Jesus (through Luke)",
-    "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "to": "Disciples tempted to fear and to store up treasure",
+    "setting": "Jesus tells the rich fool parable and says, Fear not, little flock — do not be anxious; your Father knows your need."
   },
   "Luke:13": {
     "about": "Jesus (through Luke)",
-    "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "to": "Guests and outcasts hearing the kingdom invitation",
+    "setting": "Healings on the Sabbath; parables of the kingdom and of the great supper."
   },
   "Luke:14": {
     "about": "Jesus (through Luke)",
-    "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "to": "Guests and outcasts hearing the kingdom invitation",
+    "setting": "Healings on the Sabbath; parables of the kingdom and of the great supper."
   },
   "Luke:15": {
     "about": "Jesus (through Luke)",
     "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "setting": "Lost sheep, lost coin, and the prodigal son — heaven’s joy over one sinner who repents."
   },
   "Luke:16": {
     "about": "Jesus (through Luke)",
-    "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "to": "The proud and the humble who pray",
+    "setting": "The rich man and Lazarus; ten lepers; persistent prayer; the Pharisee and the publican."
   },
   "Luke:17": {
     "about": "Jesus (through Luke)",
-    "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "to": "The proud and the humble who pray",
+    "setting": "The rich man and Lazarus; ten lepers; persistent prayer; the Pharisee and the publican."
   },
   "Luke:18": {
     "about": "Jesus (through Luke)",
-    "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "to": "The proud and the humble who pray",
+    "setting": "The rich man and Lazarus; ten lepers; persistent prayer; the Pharisee and the publican."
   },
   "Luke:19": {
     "about": "Jesus (through Luke)",
-    "to": "Sinners and seekers (and you today)",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "to": "The lost whom the Son of man came to seek",
+    "setting": "Zacchaeus is found; Jesus enters Jerusalem as King."
   },
   "Luke:20": {
     "about": "Jesus (through Luke)",
@@ -5017,22 +5017,22 @@
   "John:7": {
     "about": "Jesus (through John)",
     "to": "Jerusalem under debate about who Jesus is",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "setting": "At the feast of tabernacles, debate rises over who Jesus is."
   },
   "John:8": {
     "about": "Jesus (through John)",
-    "to": "Jerusalem under debate about who Jesus is",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "to": "Those in the temple hearing His claim",
+    "setting": "Jesus speaks in the temple: I am the light of the world; He tells the truth that sets people free."
   },
   "John:9": {
     "about": "Jesus (through John)",
-    "to": "Jerusalem under debate about who Jesus is",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "to": "The man born blind — and all who need sight",
+    "setting": "Jesus heals a man born blind; the Pharisees investigate and the man worships Him."
   },
   "John:10": {
     "about": "Jesus (through John)",
-    "to": "Jerusalem under debate about who Jesus is",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "to": "His sheep who hear His voice",
+    "setting": "Jesus is the Good Shepherd who gives His life for the sheep."
   },
   "John:11": {
     "about": "Jesus (through John)",
@@ -5257,17 +5257,17 @@
   "Romans:6": {
     "about": "Paul",
     "to": "Believers in the Spirit (and you today)",
-    "setting": "Dead to sin, alive to God; struggle and Spirit; no condemnation for those in Christ."
+    "setting": "Dead to sin, alive to God: do not let sin reign; the wages of sin is death, but the gift of God is eternal life."
   },
   "Romans:7": {
     "about": "Paul",
     "to": "Believers in the Spirit (and you today)",
-    "setting": "Dead to sin, alive to God; struggle and Spirit; no condemnation for those in Christ."
+    "setting": "Paul describes the struggle with the law: the good I would, I do not; who shall deliver me?"
   },
   "Romans:8": {
     "about": "Paul",
     "to": "Believers learning life in the Spirit",
-    "setting": "Dead to sin, alive to God; struggle and Spirit; no condemnation for those in Christ."
+    "setting": "No condemnation for those in Christ; the Spirit of adoption; nothing can separate us from the love of God."
   },
   "Romans:9": {
     "about": "Paul",
@@ -5501,18 +5501,18 @@
   },
   "Ephesians:4": {
     "about": "Paul",
-    "to": "Believers in spiritual battle (and you today)",
-    "setting": "Walk worthy: unity, purity, marriage, and the armor of God against spiritual war."
+    "to": "believers in Ephesus (and you today)",
+    "setting": "Paul calls the church to walk worthy: one body, one Spirit, put off the old man and speak truth in love."
   },
   "Ephesians:5": {
     "about": "Paul",
-    "to": "Believers in spiritual battle (and you today)",
-    "setting": "Walk worthy: unity, purity, marriage, and the armor of God against spiritual war."
+    "to": "believers in Ephesus (and you today)",
+    "setting": "Walk in love and light; husbands and wives are taught Christlike marriage."
   },
   "Ephesians:6": {
     "about": "Paul",
     "to": "Believers in spiritual battle (and you today)",
-    "setting": "Walk worthy: unity, purity, marriage, and the armor of God against spiritual war."
+    "setting": "Paul turns to the household — children, fathers, servants — then arms the church with the whole armor of God."
   },
   "Philippians:1": {
     "about": "Paul",
@@ -5547,12 +5547,12 @@
   "Colossians:3": {
     "about": "Paul",
     "to": "Believers setting minds above (and you today)",
-    "setting": "Set minds above; put on love; household codes; prayer and gracious speech."
+    "setting": "Set minds above; put on love; wives, husbands, children, and fathers are taught a new household life in Christ."
   },
   "Colossians:4": {
     "about": "Paul",
-    "to": "Believers setting minds above (and you today)",
-    "setting": "Set minds above; put on love; household codes; prayer and gracious speech."
+    "to": "believers in Colosse (and you today)",
+    "setting": "Continue in prayer; walk in wisdom toward outsiders; speech seasoned with grace."
   },
   "1 Thessalonians:1": {
     "about": "Paul",
@@ -5627,22 +5627,22 @@
   "2 Timothy:1": {
     "about": "Paul",
     "to": "Timothy — and every timid heart",
-    "setting": "Paul’s last letter from prison: fan the gift; endure hardship; preach the word."
+    "setting": "Paul, from prison, tells Timothy to fan the gift of God: God has not given a spirit of fear, but of power, of love, and of a sound mind."
   },
   "2 Timothy:2": {
     "about": "Paul",
     "to": "Timothy (and every timid heart)",
-    "setting": "Paul’s last letter from prison: fan the gift; endure hardship; preach the word."
+    "setting": "Endure hardness as a good soldier; preach the word; Paul finishes his course."
   },
   "2 Timothy:3": {
     "about": "Paul",
     "to": "Timothy (and every timid heart)",
-    "setting": "Paul’s last letter from prison: fan the gift; endure hardship; preach the word."
+    "setting": "Endure hardness as a good soldier; preach the word; Paul finishes his course."
   },
   "2 Timothy:4": {
     "about": "Paul",
     "to": "Timothy (and every timid heart)",
-    "setting": "Paul’s last letter from prison: fan the gift; endure hardship; preach the word."
+    "setting": "Endure hardness as a good soldier; preach the word; Paul finishes his course."
   },
   "Titus:1": {
     "about": "Paul",
@@ -5717,17 +5717,17 @@
   "Hebrews:11": {
     "about": "The writer of Hebrews",
     "to": "Hebrew believers holding faith",
-    "setting": "Hall of faith; run with patience; practical holiness and praise."
+    "setting": "The hall of faith: elders who believed God when they could not yet see the promise."
   },
   "Hebrews:12": {
     "about": "The writer of Hebrews",
     "to": "Believers running with patience",
-    "setting": "Hall of faith; run with patience; practical holiness and praise."
+    "setting": "Run with patience the race set before you, looking unto Jesus; the Father chastens sons He loves."
   },
   "Hebrews:13": {
     "about": "The writer of Hebrews",
-    "to": "Hebrew believers holding faith",
-    "setting": "Hall of faith; run with patience; practical holiness and praise."
+    "to": "Hebrew believers holding fast to Christ",
+    "setting": "Let brotherly love continue; be content; He hath said, I will never leave thee nor forsake thee."
   },
   "James:1": {
     "about": "James",
@@ -5766,18 +5766,18 @@
   },
   "1 Peter:3": {
     "about": "Peter",
-    "to": "Believers casting care on God",
-    "setting": "Household life, suffering for righteousness, casting care on God, resisting the devil."
+    "to": "Believers in suffering and hope",
+    "setting": "Household life and suffering for righteousness; live unto God and love one another fervently."
   },
   "1 Peter:4": {
     "about": "Peter",
-    "to": "Believers casting care on God",
-    "setting": "Household life, suffering for righteousness, casting care on God, resisting the devil."
+    "to": "Believers in suffering and hope",
+    "setting": "Household life and suffering for righteousness; live unto God and love one another fervently."
   },
   "1 Peter:5": {
     "about": "Peter",
     "to": "Believers casting care on God",
-    "setting": "Household life, suffering for righteousness, casting care on God, resisting the devil."
+    "setting": "Peter closes: humble yourselves under God’s hand, cast all your care on Him, for He cares for you, and resist the devil."
   },
   "2 Peter:1": {
     "about": "Peter",

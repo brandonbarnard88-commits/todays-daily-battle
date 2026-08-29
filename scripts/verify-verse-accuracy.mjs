@@ -242,6 +242,51 @@ function auditRegressionLocks() {
       sit: 'Paul writes from prison to Philippi: rejoice, do not be anxious, the peace of God guards hearts.',
       bad: false
     },
+    {
+      ref: 'Matthew 17:20',
+      sit: 'John is killed; Jesus feeds multitudes, walks on water, and predicts the cross; Peter confesses Him as Christ.',
+      bad: true
+    },
+    {
+      ref: 'Matthew 17:20',
+      sit: 'Jesus is transfigured; the disciples cannot heal a boy, and He teaches that faith as a grain of mustard seed is enough.',
+      bad: false
+    },
+    {
+      ref: '1 Samuel 16:7',
+      sit: 'David is anointed; he fights Goliath while Saul’s army freezes in fear.',
+      bad: true
+    },
+    {
+      ref: '1 Samuel 16:7',
+      sit: 'Samuel is sent to anoint a king among Jesse’s sons; the Lord refuses Eliab’s looks and looks on the heart.',
+      bad: false
+    },
+    {
+      ref: 'Ephesians 6:4',
+      sit: 'Walk worthy: unity, purity, marriage, and the armor of God against spiritual war.',
+      bad: true
+    },
+    {
+      ref: 'Psalm 56:3',
+      sit: 'David under Saul’s pursuit and Doeg’s betrayal; cries from caves and defeat; God still rules.',
+      bad: true
+    },
+    {
+      ref: 'Hebrews 13:5',
+      sit: 'Hall of faith; run with patience; practical holiness and praise.',
+      bad: true
+    },
+    {
+      ref: 'Isaiah 43:1',
+      sit: 'Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice.',
+      bad: true
+    },
+    {
+      ref: 'Psalm 103:12',
+      sit: 'A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy.',
+      bad: true
+    },
     { ref: '1 John 4:7', about: 'Solomon', bad: true },
     { ref: '1 John 4:7', about: 'David', bad: true },
     { ref: '1 John 4:7', about: 'Paul', bad: true },

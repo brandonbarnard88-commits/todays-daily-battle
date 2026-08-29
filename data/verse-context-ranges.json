@@ -165,7 +165,7 @@
     "thru": "40:31",
     "about": "Isaiah (comfort from God)",
     "audience": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Isaiah (comfort from God) said this to Weary Judah — and anyone waiting on the Lord: Comfort and renewed strength."
+    "setting": "Comfort ye my people: the Lord comes as a shepherd who gathers the lambs, and they that wait on Him renew their strength."
   },
   {
     "book": "Isaiah",
@@ -173,7 +173,7 @@
     "thru": "53:12",
     "about": "Isaiah",
     "audience": "Israel — and all who look to the Suffering Servant",
-    "setting": "Isaiah said this to Israel — and all who look to the Suffering Servant: Suffering Servant."
+    "setting": "The Servant suffers for sins; He is wounded for our transgressions."
   },
   {
     "book": "Jeremiah",
@@ -293,7 +293,7 @@
     "thru": "10:37",
     "about": "Jesus",
     "audience": "A lawyer testing Him — and every neighbor-watcher",
-    "setting": "On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus."
+    "setting": "A lawyer asks who is my neighbor; Jesus tells the parable of the Good Samaritan."
   },
   {
     "book": "Luke",
@@ -341,7 +341,7 @@
     "thru": "10:18",
     "about": "Jesus",
     "audience": "His hearers — sheep who know His voice",
-    "setting": "Conflict at feasts in Jerusalem; the man born blind; the Good Shepherd."
+    "setting": "Jesus is the Good Shepherd who gives His life for the sheep; His own know His voice."
   },
   {
     "book": "John",
@@ -477,7 +477,7 @@
     "thru": "6:20",
     "about": "Paul",
     "audience": "Believers putting on God’s armor",
-    "setting": "Walk worthy: unity, purity, marriage, and the armor of God against spiritual war."
+    "setting": "Finally, be strong in the Lord: put on the whole armor of God against the wiles of the devil."
   },
   {
     "book": "Philippians",
@@ -525,7 +525,7 @@
     "thru": "11:40",
     "about": "The writer of Hebrews",
     "audience": "Hebrew believers holding faith",
-    "setting": "Hall of faith; run with patience; practical holiness and praise."
+    "setting": "The hall of faith: elders who believed God when they could not yet see the promise."
   },
   {
     "book": "Hebrews",
@@ -533,7 +533,7 @@
     "thru": "12:13",
     "about": "The writer of Hebrews",
     "audience": "Believers running with patience",
-    "setting": "The writer of Hebrews said this to Believers running with patience: Cloud of witnesses."
+    "setting": "Run with patience the race set before you, looking unto Jesus; the Father chastens sons He loves."
   },
   {
     "book": "James",
@@ -718,5 +718,85 @@
     "about": "Solomon giving wisdom",
     "audience": "Anyone learning a straight path for work and plans",
     "setting": "Solomon’s proverbs on plans and work: commit your works to the Lord so your thoughts rest on Him, not only on your own scheming."
+  },
+  {
+    "book": "Ephesians",
+    "from": "6:1",
+    "thru": "6:9",
+    "about": "Paul",
+    "audience": "Fathers, children, and households in the church",
+    "setting": "Paul turns to the household: children obey, fathers do not provoke their children to wrath, but bring them up in the nurture and admonition of the Lord."
+  },
+  {
+    "book": "Ephesians",
+    "from": "6:10",
+    "thru": "6:24",
+    "about": "Paul",
+    "audience": "Believers in spiritual battle (and you today)",
+    "setting": "Finally, be strong in the Lord: put on the whole armor of God against the wiles of the devil."
+  },
+  {
+    "book": "Colossians",
+    "from": "3:18",
+    "thru": "3:21",
+    "about": "Paul",
+    "audience": "Wives, husbands, children, and fathers in Christ",
+    "setting": "Paul addresses the household: fathers, provoke not your children to anger, lest they be discouraged."
+  },
+  {
+    "book": "Matthew",
+    "from": "19:13",
+    "thru": "19:15",
+    "about": "Jesus",
+    "audience": "Disciples who were keeping children away, and the children themselves",
+    "setting": "Parents bring little children to Jesus; the disciples rebuke them; Jesus says, Suffer little children, and forbid them not, to come unto me."
+  },
+  {
+    "book": "Isaiah",
+    "from": "40:9",
+    "thru": "40:11",
+    "about": "Isaiah (comfort from God)",
+    "audience": "Weary Judah — and anyone waiting on the Lord",
+    "setting": "Comfort ye my people: the Lord comes as a shepherd who feeds His flock, gathers the lambs, and gently leads those that are with young."
+  },
+  {
+    "book": "Isaiah",
+    "from": "43:1",
+    "thru": "43:7",
+    "about": "Isaiah (the Lord speaking)",
+    "audience": "Exiles who need to know they belong to God",
+    "setting": "The Lord names and redeems His people: Fear not, for I have redeemed thee; I have called thee by thy name; thou art mine."
+  },
+  {
+    "book": "Psalm",
+    "from": "56:1",
+    "thru": "56:13",
+    "about": "David",
+    "audience": "Anyone afraid in enemy territory",
+    "setting": "When the Philistines took David in Gath, he says: what time I am afraid, I will trust in Thee — God bottles every tear."
+  },
+  {
+    "book": "Psalm",
+    "from": "103:1",
+    "thru": "103:22",
+    "about": "David",
+    "audience": "Every soul that needs mercy remembered",
+    "setting": "David blesses the Lord who forgives all iniquity, heals, and removes transgressions as far as the east is from the west."
+  },
+  {
+    "book": "Hebrews",
+    "from": "13:5",
+    "thru": "13:6",
+    "about": "The writer of Hebrews",
+    "audience": "Hebrew believers holding fast to Christ",
+    "setting": "Be content with such things as ye have: He hath said, I will never leave thee, nor forsake thee."
+  },
+  {
+    "book": "2 Timothy",
+    "from": "1:6",
+    "thru": "1:8",
+    "about": "Paul",
+    "audience": "Timothy (and every timid heart)",
+    "setting": "Paul, from prison, tells Timothy to fan the gift of God: God has not given a spirit of fear, but of power, of love, and of a sound mind."
   }
 ]

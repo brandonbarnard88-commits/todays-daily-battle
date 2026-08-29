@@ -1133,10 +1133,8 @@
     var out = row ? Object.assign({}, row) : { ref: r, text: body };
     if (isHoleTeachingField(out.plain, 'plain')) out.plain = plain;
     if (isHoleTeachingField(out.about, 'about') && ctxAbout) out.about = ctxAbout;
-    if (isHoleTeachingField(out.to, 'to')) {
-      var hear = ctxTo || 'The first hearers of this verse';
-      if (/and you when|and you in the hour/i.test(hear)) out.to = hear;
-      else out.to = hear.replace(/[.]$/, '') + (hook ? ' — and you in the hour this verse is for: “' + hook + '.”' : '');
+    if (isHoleTeachingField(out.to, 'to') || /needed to hear|in the hour this verse is for|first hearers of\s*[“"]|when He said\s*[“"]/.test(String(out.to || ''))) {
+      out.to = ctxTo || 'The first hearers of this verse (and you today)';
     }
     if (isHoleTeachingField(out.setting, 'setting')) {
       var sit = ctxSit || ctxAbout;

@@ -137,6 +137,69 @@
     "flags": "i",
     "allow": null,
     "allowFlags": ""
+  },
+  {
+    "id": "leftover-way-good",
+    "re": "His way is for your good",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "matt-john-killed",
+    "re": "John is killed|John the Baptist is beheaded",
+    "flags": "i",
+    "allow": "^Matthew\\s+14:|^Mark\\s+6:",
+    "allowFlags": "i"
+  },
+  {
+    "id": "goliath-fight",
+    "re": "fights Goliath|faces Goliath",
+    "flags": "i",
+    "allow": "^1 Samuel\\s+17:",
+    "allowFlags": "i"
+  },
+  {
+    "id": "isaiah-servant-sins",
+    "re": "Servant suffers for sins",
+    "flags": "i",
+    "allow": "^Isaiah\\s+53:",
+    "allowFlags": "i"
+  },
+  {
+    "id": "doeg-betrayal",
+    "re": "Doeg[’']s betrayal",
+    "flags": "i",
+    "allow": "^Psalm(s)?\\s+52:",
+    "allowFlags": "i"
+  },
+  {
+    "id": "hall-of-faith-lump",
+    "re": "Hall of faith;\\s*run with patience",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "eph-armor-lump",
+    "re": "unity, purity, marriage, and the armor of God",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "isaiah-idols-servant-lump",
+    "re": "idols are nothing;\\s*a servant will bring justice",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "psalm-101-103-mash",
+    "re": "king[’']s vow of integrity;\\s*an afflicted cry",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
   }
 ];
   var SPEAKERS = [

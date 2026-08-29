@@ -193,7 +193,15 @@ export const PHRASE_LOCKS = [
   { id: 'leftover-ps100-gates', re: /enter His gates with thanksgiving/i, allow: /^Psalm(s)?\s+100:/i },
   { id: 'leftover-relate-reprint', re: /hold this verse as written/i, allow: null },
   { id: 'leftover-lived-heard', re: /has to be lived, not only heard/i, allow: null },
-  { id: 'leftover-way-good', re: /His way is for your good/i, allow: null }
+  { id: 'leftover-way-good', re: /His way is for your good/i, allow: null },
+  { id: 'matt-john-killed', re: /John is killed|John the Baptist is beheaded/i, allow: /^Matthew\s+14:|^Mark\s+6:/i },
+  { id: 'goliath-fight', re: /fights Goliath|faces Goliath/i, allow: /^1 Samuel\s+17:/i },
+  { id: 'isaiah-servant-sins', re: /Servant suffers for sins/i, allow: /^Isaiah\s+53:/i },
+  { id: 'doeg-betrayal', re: /Doeg[’']s betrayal/i, allow: /^Psalm(s)?\s+52:/i },
+  { id: 'hall-of-faith-lump', re: /Hall of faith;\s*run with patience/i, allow: null },
+  { id: 'eph-armor-lump', re: /unity, purity, marriage, and the armor of God/i, allow: null },
+  { id: 'isaiah-idols-servant-lump', re: /idols are nothing;\s*a servant will bring justice/i, allow: null },
+  { id: 'psalm-101-103-mash', re: /king[’']s vow of integrity;\s*an afflicted cry/i, allow: null }
 ];
 
 export function refAllowsLock(ref, lock) {

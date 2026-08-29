@@ -16,6 +16,14 @@ import {
 import { teachingForRef, kjvTextForRef } from './lib/verse-teaching-floor.mjs';
 import { isLeftoverRelateLine } from './lib/teaching-quality.mjs';
 import { injectLocaleHubHero } from './inject-locale-hub-hero.mjs';
+import { BOOK_CHAPTER_SITUATIONS } from './lib/bible-situation-map.mjs';
+import {
+  buildBandFingerprints,
+  evaluateTeachingFields,
+  situationLooksWrongForRef,
+} from './lib/verse-teaching-guard.mjs';
+
+const SIT_FINGERPRINTS = buildBandFingerprints(BOOK_CHAPTER_SITUATIONS);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -56,6 +64,33 @@ function loadVerseContextResolver() {
   } catch (e) {
     return null;
   }
+}
+
+function pickSituationForRef(ref, expl, resolveCtx) {
+  const candidates = [];
+  const fromExpl = expl && expl.setting ? String(expl.setting).replace(/\s+/g, ' ').trim() : '';
+  if (fromExpl) candidates.push(fromExpl);
+  if (typeof resolveCtx === 'function') {
+    try {
+      const hit = resolveCtx(ref) || {};
+      const fromMap = String(hit.situation || hit.setting || '').replace(/\s+/g, ' ').trim();
+      if (fromMap && fromMap !== fromExpl) candidates.push(fromMap);
+    } catch (eCtx) {
+      /* non-fatal */
+    }
+  }
+  for (let i = 0; i < candidates.length; i++) {
+    const sit = candidates[i];
+    if (!sit) continue;
+    if (situationLooksWrongForRef(sit, ref)) continue;
+    const judged = evaluateTeachingFields({
+      ref,
+      setting: sit,
+      fingerprints: SIT_FINGERPRINTS,
+    });
+    if (judged && judged.ok) return sit;
+  }
+  return '';
 }
 
 function composeInjectedCombined(situation, plain) {
@@ -255,15 +290,7 @@ function buildInjectedHeroLesson(refPlain, textPlain, plainMap, explMap, resolve
     meaningOnly = buildHeroLaymanPlain(ref, text, plainMap);
   }
 
-  let situation = expl && expl.setting ? String(expl.setting).replace(/\s+/g, ' ').trim() : '';
-  if (!situation && typeof resolveCtx === 'function') {
-    try {
-      const hit = resolveCtx(ref) || {};
-      situation = String(hit.situation || hit.setting || '').replace(/\s+/g, ' ').trim();
-    } catch (eCtx) {
-      /* non-fatal */
-    }
-  }
+  let situation = pickSituationForRef(ref, expl, resolveCtx);
   const combined = composeInjectedCombined(situation, meaningOnly);
   return {
     plain: combined || meaningOnly,

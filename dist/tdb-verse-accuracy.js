@@ -200,6 +200,13 @@
     "flags": "i",
     "allow": null,
     "allowFlags": ""
+  },
+  {
+    "id": "luke-10-19-mash",
+    "re": "On the road to Jerusalem: Good Samaritan|Good Samaritan,.+lost sheep\\/coin\\/son",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
   }
 ];
   var SPEAKERS = [

@@ -133,8 +133,10 @@ function auditVerseContextMap() {
   });
 }
 
-function auditHomepageInject(kjv) {
-  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+function auditHomepageFile(kjv, rel) {
+  const full = path.join(root, rel);
+  if (!fs.existsSync(full)) return;
+  const html = fs.readFileSync(full, 'utf8');
   const today = pickVerseForToday(loadYear365(root));
   const expect = normalizeRef(today && today.ref);
   const refM =
@@ -142,18 +144,23 @@ function auditHomepageInject(kjv) {
     html.match(/id="heroRef"[^>]*>([\s\S]*?)<\/p>/i);
   const shown = normalizeRef(String(refM ? refM[1] : '').replace(/\(KJV\)/i, ''));
   if (expect && shown && shown !== expect) {
-    fail('homepage inject shows "' + shown + '" but calendar today is "' + expect + '"');
+    fail(rel + ' inject shows "' + shown + '" but calendar today is "' + expect + '"');
   }
   const sitM = html.match(/id="heroSimpleSituation"[^>]*>([^<]*)/i);
   const whoM = html.match(/id="heroDeepWho"[^>]*>([^<]*)/i);
   const meanM = html.match(/id="heroSimpleMeaning"[^>]*>([^<]*)/i);
-  judge('homepage inject ' + (shown || expect), {
+  judge(rel + ' inject ' + (shown || expect), {
     ref: shown || expect,
     about: whoM ? whoM[1] : '',
     setting: sitM ? sitM[1] : '',
     plain: meanM ? meanM[1] : '',
     verseText: kjvText(kjv, shown || expect)
   });
+}
+
+function auditHomepageInject(kjv) {
+  auditHomepageFile(kjv, 'index.html');
+  auditHomepageFile(kjv, 'dist/index.html');
 }
 
 function auditTopicPages() {
@@ -281,6 +288,16 @@ function auditRegressionLocks() {
       ref: 'Isaiah 43:1',
       sit: 'Comfort for exiles: God is incomparable; idols are nothing; a servant will bring justice.',
       bad: true
+    },
+    {
+      ref: 'Luke 12:32',
+      sit: 'Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus. The verse: Fear not, little flock; for it is your Father’s good pleasure to give you the kingdom.',
+      bad: true
+    },
+    {
+      ref: 'Luke 12:32',
+      sit: 'Jesus tells the rich fool parable and says, Fear not, little flock — do not be anxious; your Father knows your need.',
+      bad: false
     },
     {
       ref: 'Psalm 103:12',

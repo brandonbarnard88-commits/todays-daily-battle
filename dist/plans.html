@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260404plans-bible-studies -->
+<!-- tdb build 20260829plans-desk-width -->
 <html lang="en">
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
@@ -62,7 +62,7 @@
       --line:     #242d3d;
       --shadow:   0 2px 16px rgba(0,0,0,0.32);
       --green:    #4ade80;
-      /* critical layout tokens (styles.css follows in head; defined here for first paint) */
+      /* First paint matches phones; desk widths are set in the media queries below. */
       --tdb-inner-max: min(46rem, 100%);
       --tdb-quiet-pad-x: clamp(0.9rem, 2.4vw, 1.9rem);
       --tdb-quiet-pad-b: clamp(2.5rem, 4.5vw, 3.75rem);
@@ -225,10 +225,12 @@
       .tdb-global-nav a { flex-shrink: 0; padding: 0.35rem 0.55rem; }
     }
 
-    /* ── Page shell: .tdb-quiet-container (styles.css) → --tdb-inner-max + fluid side/bottom pad; long page gets extra bottom */
-    main.plans-page.tdb-quiet-container {
+    /* Beat .porch-section’s 768px 3.5rem/2rem pad so desk is not a phone sheet in empty space */
+    main.plans-page.tdb-quiet-container.porch-section {
       padding-top: clamp(1rem, 2.1vw, 1.55rem);
       padding-bottom: clamp(4rem, 5.5vw, 6.25rem);
+      padding-left: var(--tdb-quiet-pad-x);
+      padding-right: var(--tdb-quiet-pad-x);
     }
     @media (max-width: 420px) {
       main.plans-page.tdb-quiet-container {
@@ -242,13 +244,6 @@
       .plans-all-heading { margin-top: 3.5rem; }
     }
     @media (min-width: 1280px) {
-      main.plans-page.tdb-quiet-container {
-        position: relative;
-        border-radius: 0 0 20px 20px;
-        box-shadow:
-          0 0 0 1px rgba(227, 188, 103, 0.07),
-          0 24px 80px rgba(0, 0, 0, 0.22);
-      }
       .plans-hero { margin-bottom: 2.35rem; }
     }
 
@@ -802,6 +797,18 @@
     @media (min-width: 980px) {
       .plans-door-chooser__grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1100px) {
+      .plans-door-chooser__grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.7rem;
+      }
+      .plans-door__summary {
+        font-size: 0.92rem;
+        min-height: 3.5rem;
+        align-items: center;
+        line-height: 1.35;
       }
     }
     .plans-door {
@@ -3139,6 +3146,67 @@
         transform: none !important;
       }
     }
+
+    /* Desk: use the extra width. Phone stack stays the same under 1024. */
+    @media (min-width: 1024px) {
+      main#main.plans-page.tdb-quiet-container {
+        width: min(72rem, calc(100vw - 4.5rem));
+        max-width: min(72rem, calc(100vw - 4.5rem));
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+      }
+      .plan-index {
+        display: grid;
+        width: 100%;
+        grid-template-columns: minmax(18rem, 1.2fr) minmax(16rem, 1fr);
+        column-gap: 1.5rem;
+        row-gap: 1.35rem;
+        align-items: stretch;
+      }
+      .plan-index > .plans-back {
+        grid-column: 1 / -1;
+        margin-bottom: 0;
+      }
+      .plan-index > .plans-hero,
+      .plan-index > .tdb-heavy-now {
+        margin-bottom: 0;
+        min-width: 0;
+        width: 100%;
+        height: 100%;
+      }
+      main.plans-page .plans-hero--soar-dawn {
+        max-width: none;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      main.plans-page .tdb-heavy-now {
+        max-width: none;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        box-sizing: border-box;
+      }
+      main.plans-page .tdb-heavy-now__actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .plan-index > .plans-door-chooser,
+      .plan-index > .plans-short-paths,
+      .plan-index > details,
+      .plan-index > section:not(.tdb-heavy-now) {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+      }
+      .plans-hero-subtitle {
+        max-width: 42rem;
+      }
+    }
   </style>
   </head>
   <body class="tdb-inner-page">
@@ -3196,7 +3264,7 @@
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="plans-quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
   </div>
 
-  <main id="main" class="plans-page tdb-quiet-container porch-section">
+  <main id="main" class="plans-page tdb-quiet-container tdb-quiet-container--wide porch-section">
 
     <!-- ── Index view ── -->
     <div class="plan-index" id="planIndex">
@@ -3220,7 +3288,7 @@
         </div>
       </section>
 
-      <section class="plans-door-chooser tdb-quiet-container" id="plansDoorChooser" aria-labelledby="plansDoorChooserH">
+      <section class="plans-door-chooser" id="plansDoorChooser" aria-labelledby="plansDoorChooserH">
         <h2 class="plans-find-your-plan-h" id="plansDoorChooserH">What are you carrying?</h2>
         <p class="plans-situation-jump__lead">Five quiet doors. Open one. The full list stays below whenever you want it.</p>
         <div class="plans-door-chooser__grid" role="list">
@@ -3456,7 +3524,7 @@
       <details class="tdb-hub-disclosure" id="plansCoreSevenDetails">
         <summary class="tdb-hub-disclosure__summary">Also useful</summary>
         <div class="tdb-hub-disclosure__inner">
-      <nav class="tdb-core-seven tdb-quiet-container" aria-label="Also useful">
+      <nav class="tdb-core-seven" aria-label="Also useful">
           <p class="tdb-core-seven__label">Also useful</p>
           <ul class="tdb-core-seven__grid">
             <li><a class="tdb-core-seven__link" href="/"><span>Home</span><span class="tdb-core-seven__desc">Today&rsquo;s verse</span></a></li>

@@ -61,7 +61,8 @@ function main() {
     'hero-daily-first-paint.js',
     'tdb-verse-accuracy.js',
     'hero-daily-365-data.js',
-    'hero-daily-365-explanations.js'
+    'hero-daily-365-explanations.js',
+    'verse-context.js'
   ];
   files.forEach((file) => {
     const srcTok = scriptToken(srcIndex, file);
@@ -99,6 +100,29 @@ function main() {
   if (kidRefs.length !== 365) {
     fail('Kids calendar must have 365 days (has ' + kidRefs.length + ')');
   }
+  const teachingFiles = [
+    'verse-context.js',
+    'hero-daily-365-explanations.js',
+    'tdb-verse-accuracy.js'
+  ];
+  teachingFiles.forEach((rel) => {
+    const distRel = path.join('dist', rel);
+    if (!fs.existsSync(path.join(root, distRel))) {
+      fail('dist/' + rel + ' missing — Git Pages can ship leftover context');
+      return;
+    }
+    if (read(rel) !== read(distRel)) {
+      fail('dist/' + rel + ' does not match source — leftover “What was going on” can reach production');
+    }
+  });
+  if (distIndex) {
+    const srcSit = (srcIndex.match(/id="heroSimpleSituation"[^>]*>([^<]*)/i) || [])[1] || '';
+    const distSit = (distIndex.match(/id="heroSimpleSituation"[^>]*>([^<]*)/i) || [])[1] || '';
+    if (srcSit.trim() !== distSit.trim()) {
+      fail('dist/index.html situation does not match source index.html');
+    }
+  }
+
   if (year.length !== 365 && year.length !== 730) {
     fail('Hero queue must have 365 or 730 days (has ' + year.length + ')');
   } else {

@@ -108,16 +108,26 @@ function auditLeftoverCases() {
   if (!situationLooksWrongForRef('and you when “Rejoice evermore” has to be lived, not only heard', '1 Thessalonians 5:16')) {
     fail('Leftover lived-not-heard audience must be rejected');
   }
+  if (
+    !situationLooksWrongForRef(
+      'Jesus — On the road to Jerusalem: Good Samaritan, Lord’s Prayer, lost sheep/coin/son, rich fool, Zacchaeus.',
+      'Luke 12:32'
+    )
+  ) {
+    fail('Luke 10–19 mash must be rejected under Luke 12:32');
+  }
 }
 
-function auditInjectedHtml() {
-  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+function auditInjectedHtmlFile(rel) {
+  const full = path.join(root, rel);
+  if (!fs.existsSync(full)) return;
+  const html = fs.readFileSync(full, 'utf8');
   const today = pickVerseForToday(loadYear365(root));
   const expect = String(today && today.ref ? today.ref : '').replace(/\s*\(KJV\)\s*$/i, '').trim();
   const sitM = html.match(/id="heroSimpleSituation"[^>]*>([^<]*)/i);
   const sit = stripHtml(sitM ? sitM[1] : '');
   if (sit && situationLooksWrongForRef(sit, expect)) {
-    fail('Injected homepage situation does not belong to ' + expect + ': "' + sit.slice(0, 120) + '"');
+    fail(rel + ' situation does not belong to ' + expect + ': "' + sit.slice(0, 120) + '"');
   }
   const boundIds = ['heroVbdPrimary', 'heroSimpleBreakdown', 'heroDigDeeper'];
   boundIds.forEach((id) => {
@@ -125,7 +135,7 @@ function auditInjectedHtml() {
     const m = html.match(re) || html.match(new RegExp('data-tdb-bound-ref="([^"]+)"[^>]*id="' + id + '"'));
     const bound = m ? String(m[1]).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
     if (bound !== expect) {
-      fail('#' + id + ' data-tdb-bound-ref is "' + bound + '" but today is ' + expect);
+      fail(rel + ' #' + id + ' data-tdb-bound-ref is "' + bound + '" but today is ' + expect);
     }
   });
   const bbeM =
@@ -133,30 +143,38 @@ function auditInjectedHtml() {
     html.match(/data-bbe-ref="([^"]+)"[^>]*id="heroBbeSimple"/);
   const bbeRef = bbeM ? String(bbeM[1]).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
   if (bbeRef !== expect) {
-    fail('#heroBbeSimple data-bbe-ref is "' + bbeRef + '" but today is ' + expect);
+    fail(rel + ' #heroBbeSimple data-bbe-ref is "' + bbeRef + '" but today is ' + expect);
   }
   const ymd = new Date().toISOString().slice(0, 10);
   const ymdM = html.match(/id="verseCard"[^>]*data-tdb-hero-ymd="([^"]+)"/) ||
     html.match(/data-tdb-hero-ymd="([^"]+)"[^>]*id="verseCard"/);
   const stamped = ymdM ? ymdM[1] : '';
   if (stamped !== ymd) {
-    fail('#verseCard data-tdb-hero-ymd is "' + stamped + '" but UTC today is ' + ymd);
+    fail(rel + ' #verseCard data-tdb-hero-ymd is "' + stamped + '" but UTC today is ' + ymd);
   }
   if (/hold this verse as written/i.test(html)) {
-    fail('homepage HTML still contains leftover relate reprint');
+    fail(rel + ' still contains leftover relate reprint');
   }
   if (/has to be lived, not only heard/i.test(html)) {
-    fail('homepage HTML still contains leftover lived-not-heard teaching');
+    fail(rel + ' still contains leftover lived-not-heard teaching');
   }
   if (/platforms make people look tall/i.test(html)) {
-    fail('homepage HTML still contains leftover 2026 platforms relate');
+    fail(rel + ' still contains leftover 2026 platforms relate');
   }
   if (/filling your screen/i.test(html) || /look taller than God/i.test(html)) {
-    fail('homepage HTML still contains leftover screen-taller relate');
+    fail(rel + ' still contains leftover screen-taller relate');
+  }
+  if (/On the road to Jerusalem: Good Samaritan/i.test(html) && /Luke 12:32/i.test(html)) {
+    fail(rel + ' still paints the Luke 10–19 mash on Luke 12:32');
   }
   if (!html.includes("stamp !== utc")) {
-    fail('index.html must hide a yesterday inject when data-tdb-hero-ymd is not UTC today');
+    fail(rel + ' must hide a yesterday inject when data-tdb-hero-ymd is not UTC today');
   }
+}
+
+function auditInjectedHtml() {
+  auditInjectedHtmlFile('index.html');
+  auditInjectedHtmlFile('dist/index.html');
 }
 
 auditSourceContracts();

@@ -201,7 +201,8 @@ export const PHRASE_LOCKS = [
   { id: 'hall-of-faith-lump', re: /Hall of faith;\s*run with patience/i, allow: null },
   { id: 'eph-armor-lump', re: /unity, purity, marriage, and the armor of God/i, allow: null },
   { id: 'isaiah-idols-servant-lump', re: /idols are nothing;\s*a servant will bring justice/i, allow: null },
-  { id: 'psalm-101-103-mash', re: /king[’']s vow of integrity;\s*an afflicted cry/i, allow: null }
+  { id: 'psalm-101-103-mash', re: /king[’']s vow of integrity;\s*an afflicted cry/i, allow: null },
+  { id: 'luke-10-19-mash', re: /On the road to Jerusalem: Good Samaritan|Good Samaritan,.+lost sheep\/coin\/son/i, allow: null }
 ];
 
 export function refAllowsLock(ref, lock) {

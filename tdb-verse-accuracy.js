@@ -149,7 +149,7 @@
     "id": "matt-john-killed",
     "re": "John is killed|John the Baptist is beheaded",
     "flags": "i",
-    "allow": "^Matthew\\s+14:|^Mark\\s+6:",
+    "allow": "^Matthew\\s+14:([1-9]|1[0-2])\\b|^Mark\\s+6:(1[4-9]|2[0-9])\\b",
     "allowFlags": "i"
   },
   {
@@ -332,6 +332,27 @@
     "re": "Kings reject the word;\\s*false prophets promise peace;\\s*Jeremiah sends a letter",
     "flags": "i",
     "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "isaiah-24-35-mash",
+    "re": "Judgment and joy;\\s*a highway of holiness",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "luke-10-mash",
+    "re": "sends the seventy;\\s*the Good Samaritan;\\s*Martha and Mary",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "gen-1-from-nothing",
+    "re": "creating the heavens and the earth from nothing",
+    "flags": "i",
+    "allow": "^Genesis\\s+1:([1-9]|1\\d|2[0-5])\\b",
     "allowFlags": ""
   }
 ];

@@ -360,6 +360,31 @@ function auditRegressionLocks() {
       bad: true
     },
     {
+      ref: 'Genesis 1:27',
+      sit: 'God is creating the heavens and the earth from nothing — speaking light, order, and life into being.',
+      bad: true
+    },
+    {
+      ref: 'Genesis 1:27',
+      sit: 'On the sixth day God makes man in His own image, male and female, and blesses them to be fruitful.',
+      bad: false
+    },
+    {
+      ref: 'Isaiah 33:2',
+      sit: 'Judgment and joy; a highway of holiness; God defends Zion.',
+      bad: true
+    },
+    {
+      ref: 'Matthew 14:19',
+      sit: 'John the Baptist is beheaded; Jesus feeds the five thousand and walks on the sea.',
+      bad: true
+    },
+    {
+      ref: 'Luke 10:42',
+      sit: 'Jesus sends the seventy; the Good Samaritan; Martha and Mary.',
+      bad: true
+    },
+    {
       ref: 'Psalm 103:12',
       sit: 'A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy.',
       bad: true

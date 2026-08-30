@@ -2,10 +2,26 @@
   {
     "book": "Genesis",
     "from": "1:1",
-    "thru": "2:3",
+    "thru": "1:25",
     "about": "Moses (recording God’s Word)",
     "audience": "Israel — and anyone hearing creation’s beginning",
     "setting": "God is creating the heavens and the earth from nothing — speaking light, order, and life into being."
+  },
+  {
+    "book": "Genesis",
+    "from": "1:26",
+    "thru": "1:31",
+    "about": "Moses (recording God’s Word)",
+    "audience": "Israel — and anyone hearing that people are made in God’s image",
+    "setting": "On the sixth day God makes man in His own image, male and female, and blesses them to be fruitful."
+  },
+  {
+    "book": "Genesis",
+    "from": "2:1",
+    "thru": "2:3",
+    "about": "Moses (recording God’s Word)",
+    "audience": "Israel learning the seventh day",
+    "setting": "The heavens and the earth are finished; God rests on the seventh day and blesses it."
   },
   {
     "book": "Genesis",
@@ -234,7 +250,7 @@
   {
     "book": "Matthew",
     "from": "14:22",
-    "thru": "14:33",
+    "thru": "14:36",
     "about": "Jesus (and Matthew’s account)",
     "audience": "The disciples in the boat",
     "setting": "Jesus (and Matthew’s account) said this to the disciples in the boat: Walking on the water."
@@ -245,7 +261,55 @@
     "thru": "28:20",
     "about": "The risen Jesus (through Matthew)",
     "audience": "The disciples — and all nations",
-    "setting": "The risen Jesus (through Matthew) said this to the disciples — and all nations: Last Supper, Gethsemane, trial, cross, and resurrection."
+    "setting": "The tomb is empty; Jesus meets the women and the eleven, and sends them to teach all nations."
+  },
+  {
+    "book": "Matthew",
+    "from": "14:1",
+    "thru": "14:12",
+    "about": "Matthew (with Herod’s court)",
+    "audience": "Readers hearing why John is dead — and disciples who come to bury him",
+    "setting": "Herod has John the Baptist beheaded; John’s disciples bury him and go tell Jesus."
+  },
+  {
+    "book": "Matthew",
+    "from": "14:13",
+    "thru": "14:21",
+    "about": "Jesus (through Matthew)",
+    "audience": "The hungry crowd — and the disciples who thought five loaves were not enough",
+    "setting": "Jesus withdraws, then feeds about five thousand men with five loaves and two fishes."
+  },
+  {
+    "book": "Mark",
+    "from": "6:1",
+    "thru": "6:6",
+    "about": "Jesus (through Mark)",
+    "audience": "His own country that stumbled at Him",
+    "setting": "Jesus is rejected at Nazareth: a prophet is not without honour, but in his own country."
+  },
+  {
+    "book": "Mark",
+    "from": "6:14",
+    "thru": "6:29",
+    "about": "Mark (with Herod’s court)",
+    "audience": "Readers hearing why John is dead",
+    "setting": "Herod has John the Baptist beheaded after the daughter of Herodias asks for his head."
+  },
+  {
+    "book": "Mark",
+    "from": "6:30",
+    "thru": "6:44",
+    "about": "Jesus (through Mark)",
+    "audience": "The hungry multitude — and the apostles just returned",
+    "setting": "Jesus feeds about five thousand with five loaves and two fishes in a desert place."
+  },
+  {
+    "book": "Mark",
+    "from": "6:45",
+    "thru": "6:56",
+    "about": "Jesus (through Mark)",
+    "audience": "The disciples in the boat, toiling in rowing",
+    "setting": "Jesus walks on the sea to the disciples, and they are sore amazed."
   },
   {
     "book": "Mark",
@@ -289,11 +353,43 @@
   },
   {
     "book": "Luke",
+    "from": "10:1",
+    "thru": "10:24",
+    "about": "Jesus",
+    "audience": "The seventy being sent",
+    "setting": "Jesus sends seventy others; they return with joy that even the spirits are subject through His name."
+  },
+  {
+    "book": "Luke",
     "from": "10:25",
     "thru": "10:37",
     "about": "Jesus",
     "audience": "A lawyer testing Him — and every neighbor-watcher",
     "setting": "A lawyer asks who is my neighbor; Jesus tells the parable of the Good Samaritan."
+  },
+  {
+    "book": "Luke",
+    "from": "10:38",
+    "thru": "10:42",
+    "about": "Jesus",
+    "audience": "Martha and Mary",
+    "setting": "Martha is cumbered with serving; Mary sits at Jesus’ feet, and He says one thing is needful."
+  },
+  {
+    "book": "Luke",
+    "from": "19:1",
+    "thru": "19:10",
+    "about": "Jesus",
+    "audience": "Zacchaeus — and all who murmur that He is gone to be guest with a sinner",
+    "setting": "In Jericho Jesus calls Zacchaeus down from the sycamore: the Son of man is come to seek and to save that which was lost."
+  },
+  {
+    "book": "Luke",
+    "from": "19:28",
+    "thru": "19:48",
+    "about": "Jesus (through Luke)",
+    "audience": "Jerusalem as the King draws near",
+    "setting": "Jesus rides toward Jerusalem; the multitude praises God, and He weeps over the city, then cleanses the temple."
   },
   {
     "book": "Luke",

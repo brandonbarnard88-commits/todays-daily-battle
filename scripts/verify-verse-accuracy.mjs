@@ -300,6 +300,36 @@ function auditRegressionLocks() {
       bad: false
     },
     {
+      ref: 'Psalm 33:1',
+      sit: 'David commits his spirit to God under pressure; confession and instruction; a new song of praise.',
+      bad: true
+    },
+    {
+      ref: 'Psalm 31:24',
+      sit: 'David commits his spirit to God under pressure; confession and instruction; a new song of praise.',
+      bad: true
+    },
+    {
+      ref: 'Psalm 31:24',
+      sit: 'David, hunted and pressed, commits his spirit into God’s hand; the Lord is his fortress.',
+      bad: false
+    },
+    {
+      ref: 'Psalm 33:1',
+      sit: 'A new song of praise: Rejoice in the Lord, O ye righteous; praise is comely for the upright, for His word is right.',
+      bad: false
+    },
+    {
+      ref: 'Psalm 33:1',
+      to: 'The pressured and the repentant',
+      bad: true
+    },
+    {
+      ref: 'Psalm 33:1',
+      to: 'The righteous called to rejoice — and you when praise is due',
+      bad: false
+    },
+    {
       ref: 'Psalm 103:12',
       sit: 'A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy.',
       bad: true
@@ -318,9 +348,11 @@ function auditRegressionLocks() {
   cases.forEach((c) => {
     const sitWrong = c.sit ? situationLooksWrongForRef(c.sit, c.ref) : false;
     const speakerWrong = c.about ? !speakerBelongsToBook(c.about, c.ref) : false;
-    const blocked = sitWrong || speakerWrong;
-    if (c.bad && !blocked) fail('regression: should reject mismatched teaching on ' + c.ref + (c.about ? ' / ' + c.about : ''));
-    if (!c.bad && blocked) fail('regression: should allow matching teaching on ' + c.ref + (c.about ? ' / ' + c.about : ''));
+    const audienceWrong = c.to ? situationLooksWrongForRef(c.to, c.ref) : false;
+    const blocked = sitWrong || speakerWrong || audienceWrong;
+    const extra = c.about ? ' / ' + c.about : c.to ? ' / ' + c.to : '';
+    if (c.bad && !blocked) fail('regression: should reject mismatched teaching on ' + c.ref + extra);
+    if (!c.bad && blocked) fail('regression: should allow matching teaching on ' + c.ref + extra);
   });
 }
 

@@ -207,6 +207,20 @@
     "flags": "i",
     "allow": null,
     "allowFlags": ""
+  },
+  {
+    "id": "psalm-31-33-mash",
+    "re": "commits his spirit to God under pressure",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "psalm-31-33-audience",
+    "re": "The pressured and the repentant",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
   }
 ];
   var SPEAKERS = [

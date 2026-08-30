@@ -105,7 +105,7 @@ const CHAPTER_OVERRIDES = {
   'Ruth:1': { about: 'The narrator of Ruth (with Naomi and Ruth)', to: 'Families under loss — and all who choose loyal love', setting: 'Ruth stays with Naomi' },
   '1 Samuel:16': { about: 'Samuel and the Lord (with Jesse’s sons)', to: 'Samuel — and all who judge by appearance', setting: 'Samuel is sent to anoint a king among Jesse’s sons; the Lord refuses Eliab’s looks and looks on the heart.' },
   '1 Samuel:17': { about: 'The narrator of Samuel (with David and Goliath)', to: 'Israel facing a giant — and anyone facing what feels too big', setting: 'David faces Goliath while Saul’s army freezes in fear.' },
-  'Matthew:14': { about: 'Jesus (through Matthew)', to: 'Disciples learning who He is', setting: 'John the Baptist is beheaded; Jesus feeds the five thousand and walks on the sea.' },
+  'Matthew:14': { about: 'Jesus (through Matthew)', to: 'Disciples learning who He is', setting: 'After John’s death, Jesus feeds the five thousand and walks on the sea — the crowds still come.' },
   'Matthew:16': { about: 'Jesus (through Matthew)', to: 'Disciples learning who He is', setting: 'Peter confesses Jesus as the Christ; Jesus begins to speak of the cross.' },
   'Matthew:17': { about: 'Jesus (through Matthew)', to: 'The disciples who could not heal the boy (and you today)', setting: 'Jesus is transfigured; the disciples cannot heal a boy, and He teaches that faith as a grain of mustard seed is enough.' },
   'Psalm:1': { about: 'A psalm writer', to: 'Anyone choosing a path for life', setting: 'Two ways' },

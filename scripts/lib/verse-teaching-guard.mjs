@@ -194,7 +194,7 @@ export const PHRASE_LOCKS = [
   { id: 'leftover-relate-reprint', re: /hold this verse as written/i, allow: null },
   { id: 'leftover-lived-heard', re: /has to be lived, not only heard/i, allow: null },
   { id: 'leftover-way-good', re: /His way is for your good/i, allow: null },
-  { id: 'matt-john-killed', re: /John is killed|John the Baptist is beheaded/i, allow: /^Matthew\s+14:|^Mark\s+6:/i },
+  { id: 'matt-john-killed', re: /John is killed|John the Baptist is beheaded/i, allow: /^Matthew\s+14:([1-9]|1[0-2])\b|^Mark\s+6:(1[4-9]|2[0-9])\b/i },
   { id: 'goliath-fight', re: /fights Goliath|faces Goliath/i, allow: /^1 Samuel\s+17:/i },
   { id: 'isaiah-servant-sins', re: /Servant suffers for sins/i, allow: /^Isaiah\s+53:/i },
   { id: 'doeg-betrayal', re: /Doeg[’']s betrayal/i, allow: /^Psalm(s)?\s+52:/i },
@@ -220,7 +220,10 @@ export const PHRASE_LOCKS = [
   { id: 'ps138-145-mash', re: /searching knowledge, protection in battle, and a forever kingdom/i, allow: null },
   { id: 'john-3-4-mash', re: /Nicodemus about new birth;\s*speaks with a Samaritan woman/i, allow: null },
   { id: 'luke-19-old-mash', re: /Zacchaeus is found;\s*Jesus enters Jerusalem as King/i, allow: null },
-  { id: 'jer-21-29-mash', re: /Kings reject the word;\s*false prophets promise peace;\s*Jeremiah sends a letter/i, allow: null }
+  { id: 'jer-21-29-mash', re: /Kings reject the word;\s*false prophets promise peace;\s*Jeremiah sends a letter/i, allow: null },
+  { id: 'isaiah-24-35-mash', re: /Judgment and joy;\s*a highway of holiness/i, allow: null },
+  { id: 'luke-10-mash', re: /sends the seventy;\s*the Good Samaritan;\s*Martha and Mary/i, allow: null },
+  { id: 'gen-1-from-nothing', re: /creating the heavens and the earth from nothing/i, allow: /^Genesis\s+1:([1-9]|1\d|2[0-5])\b/ }
 ];
 
 export function refAllowsLock(ref, lock) {

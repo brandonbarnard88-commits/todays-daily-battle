@@ -221,6 +221,118 @@
     "flags": "i",
     "allow": null,
     "allowFlags": ""
+  },
+  {
+    "id": "ps23-24-mash",
+    "re": "shepherd and host;\\s*the King of glory",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps29-30-mash",
+    "re": "voice of the Lord over the waters;\\s*David thanks God for lifting",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps35-37-mash",
+    "re": "prays against unjust attackers;\\s*wicked prosperity is temporary",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps44-45-mash",
+    "re": "National lament after defeat;\\s*then a royal wedding",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps50-51-mash",
+    "re": "God summons His people to true worship;\\s*David confesses",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps53-54-mash",
+    "re": "The fool says there is no God;\\s*David, when the Ziphites",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps61-68-mash",
+    "re": "seeks higher rock, waits on God alone, and leads joyful processions",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps104-106-mash",
+    "re": "Creation praise;\\s*retelling of God.?s faithfulness and Israel.?s failures",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps108-110-mash",
+    "re": "confidence in battle;\\s*curses on the wicked;\\s*the Lord says to my Lord",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps111-118-mash",
+    "re": "Hallelujah psalms:\\s*fear of the Lord, the righteous lifted",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps120-134-mash",
+    "re": "Songs of Ascents:\\s*pilgrims going up to Jerusalem",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps135-137-mash",
+    "re": "living God versus idols;\\s*by the rivers of Babylon",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps138-145-mash",
+    "re": "searching knowledge, protection in battle, and a forever kingdom",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "john-3-4-mash",
+    "re": "Nicodemus about new birth;\\s*speaks with a Samaritan woman",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "luke-19-old-mash",
+    "re": "Zacchaeus is found;\\s*Jesus enters Jerusalem as King",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "jer-21-29-mash",
+    "re": "Kings reject the word;\\s*false prophets promise peace;\\s*Jeremiah sends a letter",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
   }
 ];
   var SPEAKERS = [

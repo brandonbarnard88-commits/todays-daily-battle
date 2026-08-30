@@ -330,6 +330,36 @@ function auditRegressionLocks() {
       bad: false
     },
     {
+      ref: 'Psalm 23:1',
+      sit: 'The Lord as shepherd and host; the King of glory enters; trust in green pastures and still waters.',
+      bad: true
+    },
+    {
+      ref: 'Psalm 23:1',
+      sit: 'David sings of the Lord as his own shepherd: green pastures, still waters, a table, and a house forever.',
+      bad: false
+    },
+    {
+      ref: 'Psalm 110:1',
+      sit: 'David’s confidence in battle; curses on the wicked; the Lord says to my Lord, “Sit at my right hand.”',
+      bad: true
+    },
+    {
+      ref: 'John 3:16',
+      sit: 'Jesus teaches Nicodemus about new birth; speaks with a Samaritan woman at the well.',
+      bad: true
+    },
+    {
+      ref: 'John 3:16',
+      sit: 'Jesus teaches Nicodemus at night about new birth: God so loved the world that He gave His only begotten Son.',
+      bad: false
+    },
+    {
+      ref: 'Jeremiah 29:11',
+      sit: 'Kings reject the word; false prophets promise peace; Jeremiah sends a letter to the first exiles.',
+      bad: true
+    },
+    {
       ref: 'Psalm 103:12',
       sit: 'A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy.',
       bad: true

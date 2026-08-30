@@ -204,7 +204,23 @@ export const PHRASE_LOCKS = [
   { id: 'psalm-101-103-mash', re: /king[’']s vow of integrity;\s*an afflicted cry/i, allow: null },
   { id: 'luke-10-19-mash', re: /On the road to Jerusalem: Good Samaritan|Good Samaritan,.+lost sheep\/coin\/son/i, allow: null },
   { id: 'psalm-31-33-mash', re: /commits his spirit to God under pressure/i, allow: null },
-  { id: 'psalm-31-33-audience', re: /The pressured and the repentant/i, allow: null }
+  { id: 'psalm-31-33-audience', re: /The pressured and the repentant/i, allow: null },
+  { id: 'ps23-24-mash', re: /shepherd and host;\s*the King of glory/i, allow: null },
+  { id: 'ps29-30-mash', re: /voice of the Lord over the waters;\s*David thanks God for lifting/i, allow: null },
+  { id: 'ps35-37-mash', re: /prays against unjust attackers;\s*wicked prosperity is temporary/i, allow: null },
+  { id: 'ps44-45-mash', re: /National lament after defeat;\s*then a royal wedding/i, allow: null },
+  { id: 'ps50-51-mash', re: /God summons His people to true worship;\s*David confesses/i, allow: null },
+  { id: 'ps53-54-mash', re: /The fool says there is no God;\s*David, when the Ziphites/i, allow: null },
+  { id: 'ps61-68-mash', re: /seeks higher rock, waits on God alone, and leads joyful processions/i, allow: null },
+  { id: 'ps104-106-mash', re: /Creation praise;\s*retelling of God.?s faithfulness and Israel.?s failures/i, allow: null },
+  { id: 'ps108-110-mash', re: /confidence in battle;\s*curses on the wicked;\s*the Lord says to my Lord/i, allow: null },
+  { id: 'ps111-118-mash', re: /Hallelujah psalms:\s*fear of the Lord, the righteous lifted/i, allow: null },
+  { id: 'ps120-134-mash', re: /Songs of Ascents:\s*pilgrims going up to Jerusalem/i, allow: null },
+  { id: 'ps135-137-mash', re: /living God versus idols;\s*by the rivers of Babylon/i, allow: null },
+  { id: 'ps138-145-mash', re: /searching knowledge, protection in battle, and a forever kingdom/i, allow: null },
+  { id: 'john-3-4-mash', re: /Nicodemus about new birth;\s*speaks with a Samaritan woman/i, allow: null },
+  { id: 'luke-19-old-mash', re: /Zacchaeus is found;\s*Jesus enters Jerusalem as King/i, allow: null },
+  { id: 'jer-21-29-mash', re: /Kings reject the word;\s*false prophets promise peace;\s*Jeremiah sends a letter/i, allow: null }
 ];
 
 export function refAllowsLock(ref, lock) {

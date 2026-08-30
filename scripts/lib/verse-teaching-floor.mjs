@@ -26,6 +26,14 @@ export function hookOf(text, maxLen) {
   return t;
 }
 
+/** Full KJV line for “The verse:” / step / prayer — never a chopped tail. */
+export function verseQuoteFull(text) {
+  return String(text || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/[.!?]$/, '');
+}
+
 export function bookSlug(book) {
   return String(book || '')
     .replace(/^Psalms$/i, 'Psalm')
@@ -115,6 +123,7 @@ export function loadContextResolver(root) {
 export function floorFromParts({ ref, text, plain, about, to, setting, year }) {
   const r = normalizeHeroRef(ref);
   const body = String(text || '').replace(/\s+/g, ' ').trim();
+  const full = verseQuoteFull(body);
   const hook = hookOf(body);
   const yr = year || new Date().getUTCFullYear() || 2026;
   let meaning = String(plain || '')
@@ -130,16 +139,13 @@ export function floorFromParts({ ref, text, plain, about, to, setting, year }) {
     .replace(/\s+/g, ' ')
     .trim();
   if (!hear) hear = 'The first hearers of this verse';
-  if (!/and you when|and you in the hour/i.test(hear) && hook) {
-    hear = hear.replace(/[.]$/, '') + ' — and you in the hour this verse is for: “' + hook + '.”';
-  } else if (hook && hear.toLowerCase().indexOf(hook.slice(0, 18).toLowerCase()) < 0) {
-    hear = hear.replace(/[.]$/, '') + ' — “' + hook + '.”';
-  }
   let sit = String(setting || '')
     .replace(/\s+/g, ' ')
     .trim();
-  if (hook && (!sit || sit.toLowerCase().indexOf(hook.slice(0, 18).toLowerCase()) < 0)) {
-    sit = (sit ? sit.replace(/[.]$/, '') + '. ' : '') + 'The verse: ' + hook + '.';
+  if (full && (!sit || !/The verse:/i.test(sit))) {
+    sit = (sit ? sit.replace(/[.]$/, '') + '. ' : '') + 'The verse: ' + full + '.';
+  } else if (full && /The verse:/i.test(sit)) {
+    sit = sit.replace(/The verse:[\s\S]*$/, 'The verse: ' + full + '.').trim();
   } else if (sit && !/[.!?]$/.test(sit)) {
     sit += '.';
   }
@@ -151,13 +157,15 @@ export function floorFromParts({ ref, text, plain, about, to, setting, year }) {
     about: who,
     to: hear,
     setting: sit,
-    today: hook ? 'This word is for you in the hour this verse is for: “' + hook + '.”' : meaning,
-    modernApplication: hook
-      ? 'In ' + yr + ', ' + meaningBare + '. The verse still says: “' + hook + '.”'
+    today: meaning || (hook ? 'This word is for you in the hour this verse is for: “' + hook + '.”' : ''),
+    modernApplication: full
+      ? 'In ' + yr + ', ' + (meaningBare || hook) + '. The verse still says: “' + full + '.”'
       : meaning,
-    step: hook ? 'Write this where you will see it: “' + hook + '.”' : 'Read this verse once more, then take the next small step it names.',
-    prayer: hook
-      ? 'Lord, let this word be true in me today: “' + hook + '”. In Jesus’ name, Amen.'
+    step: full
+      ? 'Write this where you will see it: “' + full + '.”'
+      : 'Read this verse once more, then take the next small step it names.',
+    prayer: full
+      ? 'Lord, let this word be true in me today: “' + full + '.” In Jesus’ name, Amen.'
       : 'Lord, let this word be true in me today. In Jesus’ name, Amen.'
   };
 }

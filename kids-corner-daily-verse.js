@@ -66,6 +66,56 @@
     return FAMILY_QUESTIONS[n % FAMILY_QUESTIONS.length];
   }
 
+  function normalizeBoundRef(ref) {
+    return String(ref || '')
+      .replace(/\s*\(KJV\)\s*$/i, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function sitLooksWrong(sit, ref) {
+    try {
+      if (window.TDB_verseAccuracy && typeof window.TDB_verseAccuracy.situationLooksWrongForRef === 'function') {
+        return window.TDB_verseAccuracy.situationLooksWrongForRef(sit, ref);
+      }
+    } catch (eAcc) { /* ignore */ }
+    return false;
+  }
+
+  /** Bind sit / meaning to THIS day's verse so leftover first-paint cannot stay. */
+  function fillBoundTeaching(ref, verseText) {
+    var key = normalizeBoundRef(ref);
+    if (!key) return;
+    var wrap = byId('familyVbdPrimary') || byId('versePageVbdPrimary');
+    var sitEl = byId('familySimpleSituation') || byId('versePageSimpleSituation');
+    var meanEl = byId('familySimpleMeaning') || byId('versePageSimpleMeaning');
+    if (!wrap && !sitEl && !meanEl) return;
+    var expl = null;
+    try {
+      if (typeof window.TDB_GET_HERO_EXPLANATION_BY_REF === 'function') {
+        expl = window.TDB_GET_HERO_EXPLANATION_BY_REF(key);
+      }
+    } catch (eExpl) { /* ignore */ }
+    var sit = expl && expl.setting ? String(expl.setting).replace(/\s+/g, ' ').trim() : '';
+    if (!sit || sitLooksWrong(sit, key)) {
+      try {
+        if (typeof window.TDB_resolveVerseContext === 'function') {
+          var hit = window.TDB_resolveVerseContext(key) || {};
+          var fromMap = String(hit.situation || hit.setting || '').replace(/\s+/g, ' ').trim();
+          if (fromMap && !sitLooksWrong(fromMap, key)) sit = fromMap;
+        }
+      } catch (eCtx) { /* ignore */ }
+    }
+    if (sit && sitLooksWrong(sit, key)) sit = '';
+    var mean = expl && expl.plain ? String(expl.plain).replace(/\s+/g, ' ').trim() : '';
+    if (sitEl && sit) sitEl.textContent = sit;
+    if (meanEl && mean) meanEl.textContent = mean;
+    if (wrap) {
+      wrap.setAttribute('data-tdb-bound-ref', key);
+      wrap.hidden = !sit;
+    }
+  }
+
   /** Short on-screen line for family hub (full text still lives in the card below). */
   function clipVerseSnippet(raw, maxLen) {
     var s = plainVerse(raw);
@@ -170,14 +220,16 @@
           r.textContent = battle.ref + ' (KJV)';
         }
       }
+      fillBoundTeaching(battle.ref, verse);
       /* Optional BBE simpler English on kids corner / family hub */
       try {
         var bbeEl = byId('kidsBbeSimple') || byId('familyBbeSimple') || byId('littleOnesBbeSimple');
         if (bbeEl && battle.ref) {
           bbeEl.setAttribute('data-bbe-ref', String(battle.ref).replace(/\s*\(KJV\)\s*$/i, '').trim());
-          if (bbeEl.open && window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === 'function') {
+          if (window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === 'function') {
             window.TDBBbeSimple.fillHost(bbeEl.querySelector('.tdb-bbe-simple__body') || bbeEl, battle.ref);
           }
+          bbeEl.hidden = false;
         }
       } catch (eBbe) { /* ignore */ }
       fillFamilyQuickStart(battle.ref, verse ? clipVerseSnippet(verse, 200) : '');

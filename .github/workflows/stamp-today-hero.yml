@@ -36,8 +36,10 @@ jobs:
           cp -f hero-daily-365-explanations.js dist/hero-daily-365-explanations.js
           cp -f tdb-verse-accuracy.js dist/tdb-verse-accuracy.js
           node scripts/inject-home-hero.mjs
+          node scripts/inject-porch-verse-widget.mjs
           node scripts/verify-verse-accuracy.mjs
           node scripts/verify-hero-no-leftover.mjs
+          node scripts/verify-porch-verse-widget.mjs
           node scripts/verify-dist-hero-lock.mjs
 
       - name: Commit if the stamp changed
@@ -46,7 +48,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html dist/index.html dist/today-kjv-verse.json dist/yesterday-kjv-verse.json \
-            dist/verse-context.js dist/hero-daily-365-explanations.js dist/tdb-verse-accuracy.js || true
+            dist/verse-context.js dist/hero-daily-365-explanations.js dist/tdb-verse-accuracy.js \
+            family.html dist/family.html verse.html dist/verse.html explore.html dist/explore.html \
+            plans.html dist/plans.html kids-corner.html dist/kids-corner.html \
+            kids/corner.html dist/kids/corner.html church/daily.html dist/church/daily.html || true
           if git diff --cached --quiet; then
             echo "Today already stamped."
             exit 0

@@ -125,6 +125,20 @@
     "allowFlags": "i"
   },
   {
+    "id": "ps100-opens-earth",
+    "re": "Psalm 100 opens with a call to the whole earth",
+    "flags": "i",
+    "allow": "^Psalm(s)?\\s+100:",
+    "allowFlags": "i"
+  },
+  {
+    "id": "ps100-glad-noise-plain",
+    "re": "whole earth is called to make a glad noise",
+    "flags": "i",
+    "allow": "^Psalm(s)?\\s+100:",
+    "allowFlags": "i"
+  },
+  {
     "id": "leftover-relate-reprint",
     "re": "hold this verse as written",
     "flags": "i",

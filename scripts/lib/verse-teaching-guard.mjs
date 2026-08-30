@@ -191,6 +191,8 @@ export const PHRASE_LOCKS = [
   { id: 'leftover-pet1-cornerstone', re: /Christ the cornerstone/i, allow: /^1 Peter\s+2:/i },
   { id: 'leftover-ps96-newsong', re: /new song for all (the )?(earth|lands)/i, allow: /^Psalm(s)?\s+96:/i },
   { id: 'leftover-ps100-gates', re: /enter His gates with thanksgiving/i, allow: /^Psalm(s)?\s+100:/i },
+  { id: 'ps100-opens-earth', re: /Psalm 100 opens with a call to the whole earth/i, allow: /^Psalm(s)?\s+100:/i },
+  { id: 'ps100-glad-noise-plain', re: /whole earth is called to make a glad noise/i, allow: /^Psalm(s)?\s+100:/i },
   { id: 'leftover-relate-reprint', re: /hold this verse as written/i, allow: null },
   { id: 'leftover-lived-heard', re: /has to be lived, not only heard/i, allow: null },
   { id: 'leftover-way-good', re: /His way is for your good/i, allow: null },

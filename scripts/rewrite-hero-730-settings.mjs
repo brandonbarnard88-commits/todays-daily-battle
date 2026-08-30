@@ -386,7 +386,7 @@ const HARD = {
   'Psalm 31:3':
     'David is committing himself to God under pressure. The verse: You are my rock and my fortress; therefore for Your name’s sake lead me and guide me.',
   'Psalm 33:4':
-    'David is calling for a new song of praise. This verse is why: the word of the Lord is right, and all His works are done in truth.',
+    'This untitled psalm calls for a new song of praise. This verse is why: the word of the Lord is right, and all His works are done in truth.',
   'Psalm 37:5':
     'David is teaching people not to fret when the wicked prosper. The verse: commit your way unto the Lord; trust also in Him, and He shall bring it to pass.',
   'Psalm 59:16':

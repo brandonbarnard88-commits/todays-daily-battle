@@ -94,7 +94,7 @@ function tdbIsHomePage() {
     }
     if (!document.querySelector('script[data-tdb-verse-context]') && !window.__TDB_VERSE_CONTEXT_READY) {
       var ctxScr = document.createElement('script');
-      ctxScr.src = '/verse-context.js?v=20260829-truth';
+      ctxScr.src = '/verse-context.js?v=20260830-truth';
       ctxScr.defer = true;
       ctxScr.setAttribute('data-tdb-verse-context', '1');
       (document.head || document.documentElement).appendChild(ctxScr);
@@ -2845,7 +2845,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260822desk10');
-  var trustedCtx = trustedScriptURL('/verse-context.js?v=20260829-truth');
+  var trustedCtx = trustedScriptURL('/verse-context.js?v=20260830-truth');
   var trusted = trustedScriptURL('/verse-breakdown.js?v=20260826desk73');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');

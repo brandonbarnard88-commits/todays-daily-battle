@@ -1,11 +1,22 @@
 #!/usr/bin/env node
 /**
  * Inject UTC day-of-year KJV verse into porch widget shells (Explore, Plans, Family).
+ * Family / Verse-of-the-Day teaching (sit, meaning, simpler English) must belong to
+ * this day's reference — never leftover Psalm 100 first-paint.
  */
 import fs from 'fs';
 import path from 'path';
+import vm from 'vm';
 import { fileURLToPath } from 'url';
 import { loadYear365, pickVerseForToday, utcDayOfYear } from './lib/hero-daily-verse-pick.mjs';
+import { teachingForRef } from './lib/verse-teaching-floor.mjs';
+import { BOOK_CHAPTER_SITUATIONS } from './lib/bible-situation-map.mjs';
+import {
+  buildBandFingerprints,
+  evaluateTeachingFields,
+  situationLooksWrongForRef,
+} from './lib/verse-teaching-guard.mjs';
+import { buildHeroLaymanPlain, loadVersePlainMeanings } from './lib/hero-layman-plain.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -30,8 +41,122 @@ const DAILY_DESKS = [
   { file: 'dist/church/daily.html', ids: { ref: 'church-daily-ref', text: 'church-daily-verse-text', refAlt: 'church-daily-verse-ref' } }
 ];
 
+const SIT_FINGERPRINTS = buildBandFingerprints(BOOK_CHAPTER_SITUATIONS);
+
 function escapeHtmlText(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function escapeHtmlAttr(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function normalizeRefBare(ref) {
+  return String(ref || '')
+    .replace(/\s*\(KJV\)\s*$/i, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function loadHeroExplanationsMap() {
+  try {
+    const code = fs.readFileSync(path.join(root, 'hero-daily-365-explanations.js'), 'utf8');
+    const sandbox = { console };
+    sandbox.window = sandbox;
+    sandbox.globalThis = sandbox;
+    vm.runInNewContext(code, sandbox, { filename: 'hero-daily-365-explanations.js' });
+    const list = sandbox.__TDB_HERO_DAILY_EXPLANATIONS;
+    const map = Object.create(null);
+    if (Array.isArray(list)) {
+      for (const row of list) {
+        if (!row || !row.ref) continue;
+        map[normalizeRefBare(row.ref)] = row;
+      }
+    }
+    return map;
+  } catch (e) {
+    return Object.create(null);
+  }
+}
+
+function loadVerseContextResolver() {
+  try {
+    const code = fs.readFileSync(path.join(root, 'verse-context.js'), 'utf8');
+    const sandbox = { console };
+    sandbox.window = sandbox;
+    sandbox.globalThis = sandbox;
+    vm.runInNewContext(code, sandbox, { filename: 'verse-context.js' });
+    return typeof sandbox.TDB_resolveVerseContext === 'function'
+      ? sandbox.TDB_resolveVerseContext
+      : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function pickSituationForRef(ref, expl, resolveCtx) {
+  const candidates = [];
+  const fromExpl = expl && expl.setting ? String(expl.setting).replace(/\s+/g, ' ').trim() : '';
+  if (fromExpl) candidates.push(fromExpl);
+  if (typeof resolveCtx === 'function') {
+    try {
+      const hit = resolveCtx(ref) || {};
+      const fromMap = String(hit.situation || hit.setting || '').replace(/\s+/g, ' ').trim();
+      if (fromMap && fromMap !== fromExpl) candidates.push(fromMap);
+    } catch (eCtx) {
+      /* non-fatal */
+    }
+  }
+  for (let i = 0; i < candidates.length; i++) {
+    const sit = candidates[i];
+    if (!sit) continue;
+    if (situationLooksWrongForRef(sit, ref)) continue;
+    const judged = evaluateTeachingFields({ ref, setting: sit, fingerprints: SIT_FINGERPRINTS });
+    if (judged && judged.ok) return sit;
+  }
+  return '';
+}
+
+function loadBbeMap() {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(root, 'data', 'bbe-full.json'), 'utf8'));
+  } catch (e) {
+    return null;
+  }
+}
+
+function officialBbeText(map, ref) {
+  if (!map) return '';
+  const n = normalizeRefBare(ref);
+  const raw = map[n] || map[n.replace(/^Psalm /i, 'Psalms ')] || map[n.replace(/^Psalms /i, 'Psalm ')] || '';
+  return String(raw || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/^\s*-\s*(?:A Psalm|Of David|A Song)[^.]*\.\s*-\s*/i, '')
+    .trim();
+}
+
+function injectBoundTeaching(html, ids, ref, sit, meaning, bbe) {
+  if (ids.bbeHost) {
+    html = html.replace(
+      new RegExp('(<[^>]*\\bid="' + ids.bbeHost + '"[^>]*data-bbe-ref=")[^"]*(")'),
+      '$1' + escapeHtmlAttr(ref) + '$2'
+    );
+  }
+  if (ids.vbdHost) {
+    html = html.replace(
+      new RegExp('(<[^>]*\\bid="' + ids.vbdHost + '"[^>]*data-tdb-bound-ref=")[^"]*(")'),
+      '$1' + escapeHtmlAttr(ref) + '$2'
+    );
+  }
+  if (ids.bbeText && bbe) html = injectIdInner(html, ids.bbeText, escapeHtmlText(bbe));
+  if (ids.sit && sit) html = injectIdInner(html, ids.sit, escapeHtmlText(sit));
+  if (ids.mean && meaning) html = injectIdInner(html, ids.mean, escapeHtmlText(meaning));
+  return html;
 }
 
 function fail(msg) {
@@ -97,6 +222,17 @@ if (!verse || !verse.ref || !verse.text) {
 const refPlain = verse.ref.replace(/\s*\(KJV\)\s*$/i, '').trim();
 const refHtml = escapeHtmlText(refPlain + ' (KJV)');
 const textHtml = escapeHtmlText('\u201c' + verse.text + '\u201d');
+const explMap = loadHeroExplanationsMap();
+const resolveCtx = loadVerseContextResolver();
+const expl = teachingForRef(root, refPlain, verse.text, explMap[normalizeRefBare(refPlain)] || null);
+const sit = pickSituationForRef(refPlain, expl, resolveCtx);
+const meaning = String((expl && expl.plain) || buildHeroLaymanPlain(refPlain, verse.text, loadVersePlainMeanings(root)) || '')
+  .replace(/\s+/g, ' ')
+  .trim();
+const bbe = officialBbeText(loadBbeMap(), refPlain);
+if (sit && situationLooksWrongForRef(sit, refPlain)) {
+  fail('refused leftover situation for ' + refPlain);
+}
 
 for (const target of TARGETS) {
   const filePath = path.join(root, target.file);
@@ -113,6 +249,20 @@ for (const target of TARGETS) {
   }
   if (/family\.html$/.test(target.file)) {
     updated = injectFamilyDailyVerse(updated, refHtml, textHtml);
+    updated = injectBoundTeaching(
+      updated,
+      {
+        bbeHost: 'familyBbeSimple',
+        vbdHost: 'familyVbdPrimary',
+        bbeText: 'familyBbeText',
+        sit: 'familySimpleSituation',
+        mean: 'familySimpleMeaning'
+      },
+      refPlain,
+      sit,
+      meaning,
+      bbe
+    );
   }
   fs.writeFileSync(filePath, updated);
 }
@@ -124,7 +274,23 @@ for (const desk of DAILY_DESKS) {
     fail(desk.file + ' missing');
   }
   const original = fs.readFileSync(filePath, 'utf8');
-  const updated = injectDailyDesk(original, desk.ids, refHtml, textHtml, refPlain);
+  let updated = injectDailyDesk(original, desk.ids, refHtml, textHtml, refPlain);
+  if (/verse\.html$/.test(desk.file)) {
+    updated = injectBoundTeaching(
+      updated,
+      {
+        bbeHost: 'versePageBbeSimple',
+        vbdHost: 'versePageVbdPrimary',
+        bbeText: 'versePageBbeText',
+        sit: 'versePageSimpleSituation',
+        mean: 'versePageSimpleMeaning'
+      },
+      refPlain,
+      sit,
+      meaning,
+      bbe
+    );
+  }
   if (original === updated && !original.includes(refPlain)) {
     fail('could not stamp today into ' + desk.file);
   }

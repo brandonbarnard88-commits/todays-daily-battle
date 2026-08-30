@@ -1370,8 +1370,8 @@
     <section class="family-parent-quick-start family-hub-animate family-hub-d2" aria-labelledby="family-quick-start-heading">
       <h2 class="family-parent-quick-start__title" id="family-quick-start-heading">Today&rsquo;s family quick start</h2>
       <p class="family-parent-quick-start__lead">A one-glance line: today&rsquo;s reference, a short KJV line from the same pick as home, then one gentle question. No quiz; just listening.</p>
-      <p class="family-parent-quick-start__ref" id="family-quick-start-ref" aria-live="polite">Psalm 100:1 (KJV)</p>
-      <p class="family-parent-quick-start__verse" id="family-quick-start-verse" aria-live="polite">“Make a joyful noise unto the Lord, all ye lands.”</p>
+      <p class="family-parent-quick-start__ref" id="family-quick-start-ref" aria-live="polite">Psalm 33:1 (KJV)</p>
+      <p class="family-parent-quick-start__verse" id="family-quick-start-verse" aria-live="polite">“Rejoice in the Lord, O ye righteous: for praise is comely for the upright.”</p>
       <p class="family-parent-quick-start__question" id="family-quick-start-question" aria-live="polite">What one word from this verse do we want to carry into tonight?</p>
     </section>
 
@@ -1451,21 +1451,36 @@
     <section class="family-verse-card family-hub-animate family-hub-d2" id="family-daily-verse-root" aria-labelledby="family-daily-verse-heading" data-tdb-no-verse-breakdown="1">
       <h2 id="family-daily-verse-heading">Today&rsquo;s family verse</h2>
       <div class="family-verse-frame">
-        <p class="family-verse-ref daily-verse-ref" id="family-daily-verse-ref">Psalm 100:1 (KJV)</p>
+        <p class="family-verse-ref daily-verse-ref" id="family-daily-verse-ref">Psalm 33:1 (KJV)</p>
         <blockquote class="daily-verse-body family-daily-verse-body" aria-labelledby="family-daily-verse-ref">
-          <p class="family-verse-quote daily-verse-text" id="family-daily-verse-text" aria-live="polite">“Make a joyful noise unto the Lord, all ye lands.”</p>
+          <p class="family-verse-quote daily-verse-text" id="family-daily-verse-text" aria-live="polite">“Rejoice in the Lord, O ye righteous: for praise is comely for the upright.”</p>
         </blockquote>
       </div>
-      <div class="tdb-bbe-simple tdb-bbe-simple--always-open" data-bbe-simple="1" data-bbe-ref="Psalm 100:1" data-bbe-always-open="1">
+      <div class="tdb-bbe-simple tdb-bbe-simple--always-open" id="familyBbeSimple" data-bbe-simple="1" data-bbe-ref="Psalm 33:1" data-bbe-always-open="1">
         <h4 class="tdb-bbe-simple__heading">In simpler words (BBE)</h4>
-        <p class="tdb-bbe-simple__text" lang="en">Make a glad sound to the Lord, all the earth.</p>
+        <p class="tdb-bbe-simple__text" id="familyBbeText" lang="en">Be glad in the Lord, O doers of righteousness; for praise is beautiful for the upright.</p>
       </div>
-      <div class="hero-vbd-primary tdb-layman-always-open" role="group" aria-label="What was going on and what it means" data-tdb-bound-ref="Psalm 100:1">
+      <div class="hero-vbd-primary tdb-layman-always-open" id="familyVbdPrimary" role="group" aria-label="What was going on and what it means" data-tdb-bound-ref="Psalm 33:1">
         <h4 class="tdb-vbd-label">What was going on</h4>
-        <p class="tdb-vbd-body">Psalm 100 opens with a call to the whole earth: make a joyful noise unto the Lord, all ye lands. The verse: Make a joyful noise unto the Lord, all ye lands.</p>
+        <p class="tdb-vbd-body" id="familySimpleSituation">A new song of praise: Rejoice in the Lord, O ye righteous; praise is comely for the upright, for His word is right. The verse: Rejoice in the Lord, O ye righteous: for praise is comely for the upright.</p>
         <h4 class="tdb-vbd-label">What it means</h4>
-        <p class="tdb-vbd-body">The whole earth is called to make a glad noise to the Lord — not a private whisper only.</p>
+        <p class="tdb-vbd-body" id="familySimpleMeaning">Rejoice in the Lord. For the upright, praise is fitting — not extra, but right.</p>
       </div>
+      <script nonce="tdb2025s">
+      (function () {
+        var wrap = document.getElementById('familyVbdPrimary');
+        var refEl = document.getElementById('family-daily-verse-ref');
+        var bbe = document.getElementById('familyBbeSimple');
+        if (!refEl || !wrap) return;
+        var shown = String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
+        var bound = String(wrap.getAttribute('data-tdb-bound-ref') || '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
+        if (!bound || !shown || bound !== shown) wrap.hidden = true;
+        if (bbe) {
+          var bbeRef = String(bbe.getAttribute('data-bbe-ref') || '').replace(/\s*\(KJV\)\s*$/i, '').replace(/\s+/g, ' ').trim();
+          if (!bbeRef || !shown || bbeRef !== shown) bbe.hidden = true;
+        }
+      })();
+      </script>
       <p class="family-verse-print-delight">
         <button type="button" id="tdb-family-print-verse-btn" class="btn btn-secondary tdb-print-delight" aria-label="Print today&apos;s family KJV verse on a simple sheet">Print this verse (sheet)</button>
       </p>
@@ -1476,8 +1491,8 @@
     <aside class="tdb-porch-verse-widget tdb-surface-card family-hub-animate family-hub-d2" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
       <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
       <p class="tdb-porch-verse-widget__hint">Same daily KJV as Home&mdash;a quiet household anchor when you want the porch verse here too.</p>
-      <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Psalm 100:1 (KJV)</p>
-      <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“Make a joyful noise unto the Lord, all ye lands.”</p></blockquote>
+      <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Psalm 33:1 (KJV)</p>
+      <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“Rejoice in the Lord, O ye righteous: for praise is comely for the upright.”</p></blockquote>
       <div class="tdb-porch-verse-widget__actions">
         <a class="btn btn-secondary" href="/">Read with breakdown</a>
         <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
@@ -2246,9 +2261,13 @@
   </script>
   <script src="tdb-offline-strip.js?v=20260421pwa1"></script>
   <script defer src="hero-daily-365-data.js?v=20260820-heb"></script>
+  <script defer src="verse-context.js?v=20260830-split3" data-tdb-verse-context="1"></script>
+  <script defer src="hero-daily-365-explanations.js?v=20260830desk78"></script>
+  <script defer src="tdb-verse-accuracy.js?v=20260830-acc3" data-tdb-verse-accuracy="1"></script>
+  <script defer src="bbe-simple.js?v=20260820-ref" data-tdb-bbe-simple="1"></script>
   <script defer src="tdb-porch-verse-widget.js?v=20260823desk42"></script>
   <script type="module" src="script.js?v=20260823desk41" data-cfasync="false"></script>
-  <script src="kids-corner-daily-verse.js?v=20260822desk18" defer></script>
+  <script src="kids-corner-daily-verse.js?v=20260830fam1" defer></script>
   <script src="family-dashboard.js?v=20260405familydash1" defer></script>
 </body>
 </html>

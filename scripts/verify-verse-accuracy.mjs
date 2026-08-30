@@ -385,6 +385,11 @@ function auditRegressionLocks() {
       bad: true
     },
     {
+      ref: 'Psalm 33:1',
+      sit: 'Psalm 100 opens with a call to the whole earth: make a joyful noise unto the Lord, all ye lands.',
+      bad: true
+    },
+    {
       ref: 'Psalm 103:12',
       sit: 'A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy.',
       bad: true

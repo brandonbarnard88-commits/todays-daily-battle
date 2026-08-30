@@ -172,9 +172,36 @@ function auditInjectedHtmlFile(rel) {
   }
 }
 
+function auditDeskTeaching(rel, ids) {
+  const full = path.join(root, rel);
+  if (!fs.existsSync(full)) return;
+  const html = fs.readFileSync(full, 'utf8');
+  const today = pickVerseForToday(loadYear365(root));
+  const expect = String(today && today.ref ? today.ref : '').replace(/\s*\(KJV\)\s*$/i, '').trim();
+  const sitRe = new RegExp('id="' + ids.sit + '"[^>]*>([^<]*)');
+  const sitM = html.match(sitRe);
+  const sit = stripHtml(sitM ? sitM[1] : '');
+  if (sit && situationLooksWrongForRef(sit, expect)) {
+    fail(rel + ' situation does not belong to ' + expect + ': "' + sit.slice(0, 120) + '"');
+  }
+  if (/Psalm 100 opens with a call to the whole earth/i.test(html) && !/^Psalm 100:/i.test(expect)) {
+    fail(rel + ' still paints Psalm 100 leftover teaching under ' + expect);
+  }
+  const wrapRe = new RegExp('id="' + ids.wrap + '"[^>]*data-tdb-bound-ref="([^"]+)"');
+  const wrapM = html.match(wrapRe) || html.match(new RegExp('data-tdb-bound-ref="([^"]+)"[^>]*id="' + ids.wrap + '"'));
+  const bound = wrapM ? String(wrapM[1]).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+  if (bound !== expect) {
+    fail(rel + ' #' + ids.wrap + ' data-tdb-bound-ref is "' + bound + '" but today is ' + expect);
+  }
+}
+
 function auditInjectedHtml() {
   auditInjectedHtmlFile('index.html');
   auditInjectedHtmlFile('dist/index.html');
+  auditDeskTeaching('family.html', { sit: 'familySimpleSituation', wrap: 'familyVbdPrimary' });
+  auditDeskTeaching('dist/family.html', { sit: 'familySimpleSituation', wrap: 'familyVbdPrimary' });
+  auditDeskTeaching('verse.html', { sit: 'versePageSimpleSituation', wrap: 'versePageVbdPrimary' });
+  auditDeskTeaching('dist/verse.html', { sit: 'versePageSimpleSituation', wrap: 'versePageVbdPrimary' });
 }
 
 auditSourceContracts();

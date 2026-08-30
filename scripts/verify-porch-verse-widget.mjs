@@ -57,6 +57,10 @@ for (const hub of HUB_PAGES) {
   }
 }
 
+if (!injectSrc.includes('injectBoundTeaching') || !injectSrc.includes('familySimpleSituation')) {
+  fail('inject-porch-verse-widget.mjs must stamp Family sit/meaning for today, not leftover Psalm 100');
+}
+
 console.log(
   'verify-porch-verse-widget: OK — shared hide key + ' +
     HUB_PAGES.map((h) => h.label).join(', ') +

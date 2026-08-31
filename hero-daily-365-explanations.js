@@ -2918,7 +2918,7 @@
     "plain": "He hears the prayer of the destitute. He does not despise the cry of the one who has nothing to bargain with.",
     "step": "Ask once more with these words before you try to fix it: “He will regard the prayer of the destitute, and not despise their prayer.”",
     "about": "An afflicted psalmist — a prayer of the overwhelmed (untitled in the KJV)",
-    "to": "Anyone whose days are like a shadow",
+    "to": "The destitute who still pray — and you when you have nothing to bargain with",
     "setting": "An afflicted cry that becomes hope: the psalmist pours out his trouble, then trusts God will arise and build Zion. The verse: He will regard the prayer of the destitute, and not despise their prayer.",
     "prayer": "Lord, hear this as my whole request: “He will regard the prayer of the destitute, and not despise their prayer.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, He hears the prayer of the destitute. He does not despise the cry of the one who has nothing to bargain with. The verse still says: “He will regard the prayer of the destitute, and not despise their prayer.”",

@@ -146,7 +146,7 @@
     if (window.__TDB_HERO_DAILY_EXPLANATIONS) return Promise.resolve();
     return new Promise(function (resolve) {
       var s = document.createElement('script');
-      s.src = '/hero-daily-365-explanations.js?v=20260831desk79';
+      s.src = '/hero-daily-365-explanations.js?v=20260831desk80';
       s.onload = function () {
         resolve();
       };

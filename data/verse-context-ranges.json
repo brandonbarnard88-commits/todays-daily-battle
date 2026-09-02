@@ -874,10 +874,50 @@
   {
     "book": "Psalm",
     "from": "103:1",
+    "thru": "103:1",
+    "about": "David",
+    "audience": "His own soul — and you when all that is within you has not yet blessed His name",
+    "setting": "David opens this psalm by commanding his own soul: Bless the Lord, O my soul, and all that is within me, bless His holy name."
+  },
+  {
+    "book": "Psalm",
+    "from": "103:2",
+    "thru": "103:2",
+    "about": "David",
+    "audience": "His own soul — and you when His benefits are easy to forget",
+    "setting": "Still speaking to his soul, David says: forget not all His benefits."
+  },
+  {
+    "book": "Psalm",
+    "from": "103:3",
+    "thru": "103:5",
+    "about": "David",
+    "audience": "The soul that needs forgiveness, healing, and renewal",
+    "setting": "David names why the soul should bless the Lord: He forgives iniquity, heals diseases, redeems from destruction, and satisfies with good things."
+  },
+  {
+    "book": "Psalm",
+    "from": "103:8",
+    "thru": "103:12",
+    "about": "David",
+    "audience": "Them that fear Him — and you when you need mercy that actually removes the sin",
+    "setting": "David measures the Lord’s mercy: merciful and gracious, slow to anger; as far as the east is from the west He has removed our transgressions."
+  },
+  {
+    "book": "Psalm",
+    "from": "103:13",
+    "thru": "103:18",
+    "about": "David",
+    "audience": "Them that fear Him — and you when you need a Father who knows you are dust",
+    "setting": "Like as a father pitieth his children, so the Lord pitieth them that fear Him; He knows our frame."
+  },
+  {
+    "book": "Psalm",
+    "from": "103:19",
     "thru": "103:22",
     "about": "David",
-    "audience": "Every soul that needs mercy remembered",
-    "setting": "David blesses the Lord who forgives all iniquity, heals, and removes transgressions as far as the east is from the west."
+    "audience": "All His works in all places of His dominion",
+    "setting": "The Lord has prepared His throne in the heavens; David calls angels and all His works to bless the Lord."
   },
   {
     "book": "Hebrews",

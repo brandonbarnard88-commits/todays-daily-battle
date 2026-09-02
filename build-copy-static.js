@@ -355,7 +355,13 @@ const topics = [
   'topic-parenting.html',
   'topic-strength.html',
   'topic-worthless.html',
-  'topic-worry.html'
+  'topic-worry.html',
+  'topic-cancer.html',
+  'topic-addiction.html',
+  'topic-pain.html',
+  'topic-caregiver.html',
+  'topic-spiritual-warfare.html',
+  'topic-depression.html'
 ];
 mkdir(dist);
 const removedDistDuplicates = removeDistDuplicateArtifacts(dist);

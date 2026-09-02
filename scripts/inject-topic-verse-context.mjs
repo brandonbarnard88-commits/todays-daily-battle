@@ -382,6 +382,9 @@ function main() {
   for (const file of files) {
     const full = path.join(root, file);
     const before = fs.readFileSync(full, 'utf8');
+    if (/\bdata-tdb-vbd-lock\s*=/.test(before)) {
+      continue;
+    }
     const { html, count } = processTopicHtml(before, plainMap, resolve);
     if (html !== before) {
       fs.writeFileSync(full, html, 'utf8');

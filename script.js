@@ -32620,6 +32620,54 @@ var HOME_SEARCH_RESOURCE_LIBRARY = [
     topics: ['family', 'parenting', 'relationships']
   },
   {
+    id: 'topic-cancer',
+    kind: 'Topic',
+    title: 'Cancer topic page',
+    href: 'topic-cancer.html',
+    description: 'KJV verses when cancer is in the room — Scripture beside you, not treatment.',
+    topics: ['cancer', 'illness', 'pain', 'caregiver', 'hope']
+  },
+  {
+    id: 'topic-addiction',
+    kind: 'Topic',
+    title: 'Addiction topic page',
+    href: 'topic-addiction.html',
+    description: 'KJV verses when a craving or a chain is loud — Scripture, not a treatment plan.',
+    topics: ['addiction', 'temptation', 'shame', 'guilt', 'freedom']
+  },
+  {
+    id: 'topic-pain',
+    kind: 'Topic',
+    title: 'Pain topic page',
+    href: 'topic-pain.html',
+    description: 'KJV verses when pain will not quit — body, grief, or a long hurt.',
+    topics: ['pain', 'suffering', 'hurt', 'cancer', 'grief']
+  },
+  {
+    id: 'topic-caregiver',
+    kind: 'Topic',
+    title: 'Caregiver topic page',
+    href: 'topic-caregiver.html',
+    description: 'KJV verses for the one who never clocks out — rest for the labourer.',
+    topics: ['caregiver', 'family', 'exhaustion', 'rest', 'parenting']
+  },
+  {
+    id: 'topic-spiritual-warfare',
+    kind: 'Topic',
+    title: 'Spiritual warfare topic page',
+    href: 'topic-spiritual-warfare.html',
+    description: 'KJV verses when the fight is not flesh and blood — stand, resist, greater is He in you.',
+    topics: ['spiritualwarfare', 'spiritual warfare', 'armor', 'fear', 'temptation']
+  },
+  {
+    id: 'topic-depression',
+    kind: 'Topic',
+    title: 'Depression topic page',
+    href: 'topic-depression.html',
+    description: 'KJV verses when the soul is cast down — Scripture beside you, not treatment.',
+    topics: ['depression', 'hopeless', 'downcast', 'heavy', 'hope']
+  },
+  {
     id: 'journal-anxiety-before-tomorrow',
     kind: 'Journal',
     title: 'Anxiety before tomorrow',

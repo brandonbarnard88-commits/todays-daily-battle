@@ -1400,6 +1400,8 @@ const FEEL_MORE = {
   const noMatch  = document.getElementById("feelNoMatch");
   const planCta = document.getElementById("tdbFeelPlanCta");
   const planCtaLink = document.getElementById("tdbFeelPlanCtaLink");
+  const topicPageCta = document.getElementById("tdbFeelTopicPageCta");
+  const topicPageCtaLink = document.getElementById("tdbFeelTopicPageCtaLink");
   const nextStepWrap = document.getElementById("tdbSearchNextStep");
   const nextStepSave = document.getElementById("tdbSearchNextStepSave");
   const nextStepPray = document.getElementById("tdbSearchNextStepPray");
@@ -1419,7 +1421,36 @@ const FEEL_MORE = {
     heartache: "griefhope", overwhelmed: "overwhelmedburnout", burnout: "overwhelmedburnout",
     worth: "selfworth", worthless: "selfworth", prayer: "universitysecretprayer",
     doubt: "universitydoubt", waiting: "universitywaiting", depression: "heavyhope", worry: "worrytrust",
-    shame: "shamelift", temptation: "standfirm", caregiver: "caregiverrest", suffering: "sufferendure"
+    shame: "shamelift", temptation: "standfirm", caregiver: "caregiverrest", suffering: "sufferendure",
+    pain: "sufferendure", spiritualwarfare: "armorofgod", "spiritual warfare": "armorofgod",
+    "jesus said": "hisownwords"
+  };
+  const TDB_TOPIC_TO_PAGE = {
+    anxiety: { href: "/topic-anxiety.html", name: "Anxiety" },
+    fear: { href: "/topic-fear.html", name: "Fear" },
+    grief: { href: "/topic-grief.html", name: "Grief" },
+    hope: { href: "/topic-hope.html", name: "Hope" },
+    strength: { href: "/topic-strength.html", name: "Strength" },
+    loneliness: { href: "/topic-loneliness.html", name: "Loneliness" },
+    forgiveness: { href: "/topic-forgiveness.html", name: "Forgiveness" },
+    guilt: { href: "/topic-guilt.html", name: "Guilt" },
+    overwhelmed: { href: "/topic-overwhelmed.html", name: "Overwhelmed" },
+    parenting: { href: "/topic-parenting.html", name: "Parenting" },
+    worry: { href: "/topic-worry.html", name: "Worry" },
+    worthless: { href: "/topic-worthless.html", name: "Worth" },
+    trauma: { href: "/topic-trauma.html", name: "When Trust Was Broken" },
+    cancer: { href: "/topic-cancer.html", name: "Cancer" },
+    addiction: { href: "/topic-addiction.html", name: "Addiction" },
+    suffering: { href: "/topic-pain.html", name: "Pain" },
+    pain: { href: "/topic-pain.html", name: "Pain" },
+    caregiver: { href: "/topic-caregiver.html", name: "Caregiver" },
+    spiritualwarfare: { href: "/topic-spiritual-warfare.html", name: "Spiritual warfare" },
+    "spiritual warfare": { href: "/topic-spiritual-warfare.html", name: "Spiritual warfare" },
+    depression: { href: "/topic-depression.html", name: "Depression" },
+    prayer: { href: "/prayer-wall.html", name: "Prayer" },
+    family: { href: "/family", name: "Family" },
+    identity: { href: "/identity-in-christ.html", name: "Identity in Christ" },
+    "jesus said": { href: "/red-letters.html", name: "what Jesus said" }
   };
   const FEEL_MOOD_TO_PLAN = {
     anxious: "worrytrust",
@@ -1725,10 +1756,40 @@ const FEEL_MORE = {
     return null;
   }
 
+  function hideFeelTopicPageCta() {
+    if (!topicPageCta) return;
+    topicPageCta.classList.add("hidden");
+    topicPageCta.setAttribute("hidden", "");
+  }
+  function resolveFeelTopicPage(topicOrQuery) {
+    const t = String(topicOrQuery || "").trim().toLowerCase();
+    if (!t) return null;
+    if (TDB_TOPIC_TO_PAGE[t]) return TDB_TOPIC_TO_PAGE[t];
+    const padded = " " + t.replace(/[_-]+/g, " ") + " ";
+    const keys = Object.keys(TDB_TOPIC_TO_PAGE).sort(function (a, b) { return b.length - a.length; });
+    for (let i = 0; i < keys.length; i++) {
+      if (padded.indexOf(" " + keys[i] + " ") !== -1) return TDB_TOPIC_TO_PAGE[keys[i]];
+    }
+    return null;
+  }
+  function updateFeelTopicPageCta(topicOrQuery) {
+    if (!topicPageCta || !topicPageCtaLink) return;
+    const page = resolveFeelTopicPage(topicOrQuery);
+    if (!page) {
+      hideFeelTopicPageCta();
+      return;
+    }
+    topicPageCtaLink.href = page.href;
+    topicPageCtaLink.textContent = "Read the full page on " + page.name + " \u2192";
+    topicPageCta.classList.remove("hidden");
+    topicPageCta.removeAttribute("hidden");
+  }
   function hideFeelPlanCta() {
-    if (!planCta) return;
-    planCta.classList.add("hidden");
-    planCta.setAttribute("hidden", "");
+    if (planCta) {
+      planCta.classList.add("hidden");
+      planCta.setAttribute("hidden", "");
+    }
+    hideFeelTopicPageCta();
   }
   function hideSearchNextStep() {
     currentFeelEntry = null;
@@ -1786,6 +1847,7 @@ const FEEL_MORE = {
   }
 
   function updateFeelPlanCta(topicOrQuery) {
+    updateFeelTopicPageCta(topicOrQuery);
     if (!planCta || !planCtaLink) return;
     const t = String(topicOrQuery || "").trim().toLowerCase();
     let planId = TDB_TOPIC_TO_PLAN[t];
@@ -1795,7 +1857,10 @@ const FEEL_MORE = {
     }
     renderFeelPathCard(topicOrQuery);
     if (!planId) {
-      hideFeelPlanCta();
+      if (planCta) {
+        planCta.classList.add("hidden");
+        planCta.setAttribute("hidden", "");
+      }
       return;
     }
     planCtaLink.href = "plans.html?plan=" + encodeURIComponent(planId);

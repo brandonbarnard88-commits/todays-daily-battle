@@ -3237,7 +3237,7 @@
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family</span>
               <a href="/family.html">Family</a>
-              <a href="/coloring.html">Kids coloring</a>
+              <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
               <a href="/printables.html" aria-label="Print pages">Print</a>
             </div>
             <div class="tdb-nav-more-group">
@@ -3258,7 +3258,7 @@
   </div>
   <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="plans"><p class="offline-msg"></p></div>
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_plans_quiet_update_dismiss')==='2026-05-11-plans')document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');}catch(e){}})();</script>
-  <script nonce="tdb2025s">(function(){function openPlansDisclosureForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-hero-more','plansAllLibrary','plans-find-your-plan-details','plansCoreSevenDetails','plansAccountStripDetails','plansPorchVerseDetails','plansSermonIntroDetails','plansBibleStudiesDetails','plansBuilderDetails'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openPlansDisclosureForHash);else openPlansDisclosureForHash();window.addEventListener('hashchange',openPlansDisclosureForHash);})();</script>
+  <script nonce="tdb2025s">(function(){function openPlansDisclosureForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-short-paths-details','plans-hero-more','plansAllLibrary','plans-find-your-plan-details','plansCoreSevenDetails','plansAccountStripDetails','plansPorchVerseDetails','plansSermonIntroDetails','plansBibleStudiesDetails','plansBuilderDetails'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openPlansDisclosureForHash);else openPlansDisclosureForHash();window.addEventListener('hashchange',openPlansDisclosureForHash);})();</script>
   <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-05-11-plans" role="status" aria-live="polite" hidden>
     <p class="tdb-quiet-update-strip__text">Short KJV reading tracks—open any day.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="plans-quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
@@ -3297,7 +3297,7 @@
             <ul class="plans-door__list">
               <li><a href="/plans?plan=anxiety7">Anxiety &mdash; 7-day peace</a></li>
               <li><a href="/plans?plan=worrytrust">Worry to Trust</a></li>
-              <li><a href="/plans?plan=universityanxiety">University of Anxiety &amp; Fear</a></li>
+              <li><a href="/plans?plan=universityanxiety">Anxiety &amp; Fear</a></li>
               <li><a href="/plans?plan=fearpressesin">When Fear Presses In</a></li>
               <li><a href="#plan-row-universityanxiety">Jump to anxiety in the full list</a></li>
             </ul>
@@ -3306,7 +3306,7 @@
             <summary class="plans-door__summary">Grief or loneliness</summary>
             <ul class="plans-door__list">
               <li><a href="/plans?plan=griefhope">Grief to Hope</a></li>
-              <li><a href="/plans?plan=universityloneliness">University of Loneliness</a></li>
+              <li><a href="/plans?plan=universityloneliness">Loneliness</a></li>
               <li><a href="/plans?plan=heartalone">When the Heart Feels Alone</a></li>
               <li><a href="/plans?plan=aftergrief">After grief</a></li>
               <li><a href="#plan-row-griefhope">Jump to grief in the full list</a></li>
@@ -3317,7 +3317,7 @@
             <ul class="plans-door__list">
               <li><a href="/plans?plan=overwhelmedburnout">Overwhelmed / Burnout</a></li>
               <li><a href="/plans?plan=comeuntome">Come Unto Me</a></li>
-              <li><a href="/plans?plan=universityexhaustion">University of Exhaustion</a></li>
+              <li><a href="/plans?plan=universityexhaustion">Exhaustion</a></li>
               <li><a href="/plans?plan=wearyhands">Grace for Weary Hands</a></li>
               <li><a href="#plan-row-overwhelmedburnout">Jump to overwhelm in the full list</a></li>
             </ul>
@@ -3346,6 +3346,9 @@
         <p class="section-note util-mb-0 util-mt-0_75" style="text-align:center;">Prefer the long list? <a href="#all-plans">Browse every plan</a> &middot; <a href="#find-your-plan">More situations</a></p>
       </section>
 
+      <details class="tdb-hub-disclosure" id="plans-short-paths-details">
+        <summary class="tdb-hub-disclosure__summary">Short paths for heavy weeks</summary>
+        <div class="tdb-hub-disclosure__inner">
       <section class="plans-short-paths" id="plans-short-paths-heavy-weeks" aria-labelledby="plans-short-paths-h">
         <p class="plans-continue-line" id="plansContinueLine" hidden>
           Continue: <a id="plansContinueLineLink" href="/plans">a quiet plan</a>
@@ -3410,6 +3413,8 @@
           Everything linked above is ready today.
         </p>
       </section>
+        </div>
+      </details>
 
       <details class="tdb-hub-disclosure" id="plans-find-your-plan-details">
         <summary class="tdb-hub-disclosure__summary" id="find-your-plan">More situations — find your plan</summary>
@@ -5141,7 +5146,7 @@
         <a href="/calm">When it’s hard</a>
         <a href="/plans">Plans</a>
         <a href="/memorize.html">Memorize</a>
-        <a href="/coloring.html">Kids coloring</a>
+        <a href="/kids/">Kids</a>
       </div>
       <div class="footer-sitemap-col">
         <h3>About</h3>

@@ -668,7 +668,7 @@ for (const f of otherHtml) {
       ['prayer-wall.html', 'Prayer link'],
       ['coloring.html', 'Kids Coloring link'],
       ['plans.html', 'Plans link'],
-      ['calm.html', 'When it’s hard link'],
+      ['href="/calm"', 'When it’s hard link'],
       ['id="main-search"', 'main-search section (core search anchor)'],
       ['id="nav-site-guide"', 'All pages link in primary flyout'],
       ['id="nav-site-search"', 'Site search link in primary flyout'],

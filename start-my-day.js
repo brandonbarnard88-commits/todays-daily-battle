@@ -319,6 +319,7 @@
   }
 
   function wire() {
+    hydrateStep1();
     var openBtn = byId("tdbStartMyDayBtn");
     if (!openBtn || !byId(DIALOG_ID)) return;
 

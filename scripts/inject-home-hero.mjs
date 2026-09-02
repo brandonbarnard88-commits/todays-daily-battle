@@ -320,6 +320,21 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap,
     '<p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>' + escapeHtmlText(refPlain) + ' (KJV)</strong></p>'
   );
 
+  const smdRefRe = /<p[^>]*\bid="tdbSmdStep1Ref"[^>]*>[\s\S]*?<\/p>/;
+  if (smdRefRe.test(html)) {
+    html = html.replace(
+      smdRefRe,
+      '<p class="tdb-smd-ref" id="tdbSmdStep1Ref">' + escapeHtmlText(refPlain) + ' (KJV)</p>'
+    );
+  }
+  const smdTextRe = /<p[^>]*\bid="tdbSmdStep1Text"[^>]*>[\s\S]*?<\/p>/;
+  if (smdTextRe.test(html) && textPlain) {
+    html = html.replace(
+      smdTextRe,
+      '<p class="tdb-smd-verse" id="tdbSmdStep1Text">\u201c' + escapeHtmlText(textPlain) + '\u201d</p>'
+    );
+  }
+
   const stamp = String(ymd || utcYmdStamp());
   const verseCardRe = /<section\b[^>]*\bid="verseCard"[^>]*>/;
   if (!verseCardRe.test(html)) fail('could not find #verseCard <section> in ' + label);

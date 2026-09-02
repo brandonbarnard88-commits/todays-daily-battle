@@ -34,7 +34,10 @@
   <style>
     /* Easy kids home — three big doors only (no second nav stack) */
     .kids-easy-home { max-width: 28rem; margin: 0 auto; padding: 0.75rem 0 2.5rem; text-align: center; }
-    .kids-easy-home h1 { font-size: clamp(1.5rem, 5vw, 1.85rem); margin: 0.5rem 0 1rem; color: #0f172a; }
+    .kids-easy-home h1 { font-size: clamp(1.5rem, 5vw, 1.85rem); margin: 0.5rem 0 0.45rem; color: #0f172a; }
+    .kids-easy-first-html { margin: 0 0 0.85rem; font-size: 1.05rem; font-weight: 800; }
+    .kids-easy-first-html a { color: #0f172a; text-decoration: underline; text-underline-offset: 0.12em; }
+    .dark-mode .kids-easy-first-html a { color: #f8fafc; }
     .dark-mode .kids-easy-home h1 { color: #f8fafc; }
     .dark-mode .kg-today-mix { color: #f2dc98 !important; }
     .kids-easy-doors { display: flex; flex-direction: column; gap: 0.85rem; }
@@ -153,6 +156,16 @@
         <div class="kids-easy-home">
           <img class="kids-easy-mascot" src="shepherd-mascot-welcome.png?v=20260820polish" width="120" height="132" alt="Little Shepherd waves hello" decoding="async" onerror="this.onerror=null;this.src='shepherd-mascot-welcome.svg'">
           <h1 id="kids-hub-play-h">What sounds fun?</h1>
+          <p class="kids-easy-first-html" id="kids-first-doors">
+            <a href="corner.html?choose=1">Stories</a>
+            <span aria-hidden="true"> · </span>
+            <a href="../coloring.html">Color</a>
+            <span aria-hidden="true"> · </span>
+            <a href="#kids-easy-games-h">Play</a>
+          </p>
+          <noscript>
+            <p>Stories, color, and play work as links above — no extra script required.</p>
+          </noscript>
           <p class="kg-today-mix" id="kg-today-mix"></p>
 
           <div class="kids-easy-doors" role="navigation" aria-label="Story, color, or play">

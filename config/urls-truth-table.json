@@ -63,24 +63,28 @@
     },
     {
       "id": "quiet-morning-clean",
+      "note": "Quiet morning folded into Plans.",
       "aliases": [
         "/quiet-morning",
-        "/quiet-morning/"
+        "/quiet-morning/",
+        "/quiet-morning.html"
       ],
-      "rewrite": {
-        "to": "/quiet-morning.html",
-        "status": 200
+      "redirect": {
+        "to": "/plans",
+        "status": 301
       }
     },
     {
       "id": "quiet-evening-clean",
+      "note": "Quiet evening folded into Plans.",
       "aliases": [
         "/quiet-evening",
-        "/quiet-evening/"
+        "/quiet-evening/",
+        "/quiet-evening.html"
       ],
-      "rewrite": {
-        "to": "/quiet-evening.html",
-        "status": 200
+      "redirect": {
+        "to": "/plans",
+        "status": 301
       }
     },
     {
@@ -103,7 +107,7 @@
         "/site-guide.html"
       ],
       "redirect": {
-        "to": "/explore.html#start-here",
+        "to": "/explore#start-here",
         "status": 301
       }
     },
@@ -116,7 +120,7 @@
         "/campus.html"
       ],
       "redirect": {
-        "to": "/explore.html#start-here",
+        "to": "/explore#start-here",
         "status": 301
       }
     },
@@ -128,7 +132,7 @@
         "/start.html"
       ],
       "redirect": {
-        "to": "/explore.html#start-here",
+        "to": "/explore#start-here",
         "status": 301
       }
     },
@@ -140,7 +144,7 @@
         "/find-a-path.html"
       ],
       "redirect": {
-        "to": "/explore.html#start-here",
+        "to": "/explore#start-here",
         "status": 301
       }
     },
@@ -171,14 +175,15 @@
     },
     {
       "id": "university-clean",
-      "note": "Quiet University of God anchor-verses map.",
+      "note": "University map folded into About. Keep the phrase on About only.",
       "aliases": [
         "/university",
-        "/university/"
+        "/university/",
+        "/university.html"
       ],
-      "rewrite": {
-        "to": "/university.html",
-        "status": 200
+      "redirect": {
+        "to": "/about.html",
+        "status": 301
       }
     },
     {
@@ -213,6 +218,154 @@
       "rewrite": {
         "to": "/about.html",
         "status": 200
+      }
+    },
+    {
+      "id": "reading-plan-to-plans",
+      "note": "Old 7-day reading plan is a Plans alias.",
+      "aliases": [
+        "/reading-plan",
+        "/reading-plan/",
+        "/reading-plan.html"
+      ],
+      "redirect": {
+        "to": "/plans",
+        "status": 301
+      }
+    },
+    {
+      "id": "daily-quiet-time-to-plans",
+      "aliases": [
+        "/daily-quiet-time",
+        "/daily-quiet-time/",
+        "/daily-quiet-time.html"
+      ],
+      "redirect": {
+        "to": "/plans",
+        "status": 301
+      }
+    },
+    {
+      "id": "daily-rhythm-to-plans",
+      "aliases": [
+        "/daily-rhythm",
+        "/daily-rhythm/",
+        "/daily-rhythm.html"
+      ],
+      "redirect": {
+        "to": "/plans",
+        "status": 301
+      }
+    },
+    {
+      "id": "family-home-to-family",
+      "note": "Force 301 \u2014 live was a 200 with meta refresh.",
+      "aliases": [
+        "/family-home",
+        "/family-home/",
+        "/family-home.html"
+      ],
+      "redirect": {
+        "to": "/family",
+        "status": 301
+      }
+    },
+    {
+      "id": "family-rhythm-to-family",
+      "aliases": [
+        "/family-rhythm",
+        "/family-rhythm/",
+        "/family-rhythm.html"
+      ],
+      "redirect": {
+        "to": "/family",
+        "status": 301
+      }
+    },
+    {
+      "id": "bible-hub-to-bible-tool",
+      "note": "Bible hub + study desk fold into Look up. /bible/tools.html stays as the workshop.",
+      "aliases": [
+        "/bible",
+        "/bible/",
+        "/bible/index.html",
+        "/bible/study",
+        "/bible/study/",
+        "/bible/study.html"
+      ],
+      "redirect": {
+        "to": "/bible-tool.html",
+        "status": 301
+      }
+    },
+    {
+      "id": "bible-study-to-plans",
+      "aliases": [
+        "/bible-study",
+        "/bible-study/",
+        "/bible-study.html"
+      ],
+      "redirect": {
+        "to": "/plans",
+        "status": 301
+      }
+    },
+    {
+      "id": "study-to-mystudy",
+      "aliases": [
+        "/study",
+        "/study/",
+        "/study.html"
+      ],
+      "redirect": {
+        "to": "/mystudy",
+        "status": 301
+      }
+    },
+    {
+      "id": "gods-university-to-about",
+      "aliases": [
+        "/gods-university-of-life",
+        "/gods-university-of-life/",
+        "/gods-university-of-life.html"
+      ],
+      "redirect": {
+        "to": "/about.html",
+        "status": 301
+      }
+    },
+    {
+      "id": "curriculum-to-plans",
+      "aliases": [
+        "/curriculum",
+        "/curriculum/",
+        "/curriculum.html"
+      ],
+      "redirect": {
+        "to": "/plans",
+        "status": 301
+      }
+    },
+    {
+      "id": "explore-html-to-clean",
+      "note": "Same map as /explore; one spelling.",
+      "aliases": [
+        "/explore.html"
+      ],
+      "redirect": {
+        "to": "/explore",
+        "status": 301
+      }
+    },
+    {
+      "id": "plans-html-to-clean",
+      "note": "Same plans library as /plans; one spelling.",
+      "aliases": [
+        "/plans.html"
+      ],
+      "redirect": {
+        "to": "/plans",
+        "status": 301
       }
     }
   ]

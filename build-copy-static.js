@@ -622,7 +622,7 @@ for (const f of otherHtml) {
   if (f === 'find-a-path.html') {
     // Alias now redirects to Explore start-here; keep a calm redirect stub (not a second lobby).
     if (
-      !content.includes('explore.html#start-here') ||
+      (!content.includes('/explore#start-here') && !content.includes('explore.html#start-here')) ||
       !content.includes('Find a path moved') ||
       !content.includes('location.replace')
     ) {
@@ -633,7 +633,7 @@ for (const f of otherHtml) {
   }
   if (f === 'site-guide.html') {
     if (
-      !content.includes('explore.html#start-here') ||
+      (!content.includes('/explore#start-here') && !content.includes('explore.html#start-here')) ||
       !content.includes('Start here moved') ||
       !content.includes('location.replace')
     ) {
@@ -667,8 +667,8 @@ for (const f of otherHtml) {
       ['/kids/', 'Kids link'],
       ['prayer-wall.html', 'Prayer link'],
       ['coloring.html', 'Kids Coloring link'],
-      ['plans.html', 'Plans link'],
-      ['calm.html', 'When it’s hard link'],
+      ['href="/plans"', 'Plans link'],
+      ['href="/calm"', 'When it’s hard link'],
       ['id="main-search"', 'main-search section (core search anchor)'],
       ['id="nav-site-guide"', 'All pages link in primary flyout'],
       ['id="nav-site-search"', 'Site search link in primary flyout'],

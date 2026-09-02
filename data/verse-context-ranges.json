@@ -794,10 +794,50 @@
   {
     "book": "Isaiah",
     "from": "41:8",
-    "thru": "41:14",
+    "thru": "41:9",
     "about": "Isaiah (the Lord speaking)",
-    "audience": "Fearful people — and you when fear is loud",
-    "setting": "The Lord comforts fearful Israel in exile: “Fear thou not; for I am with thee” — strength and help from His right hand."
+    "audience": "Israel, Abraham’s seed whom He chose from the ends of the earth",
+    "setting": "The Lord names Israel His servant, the seed of Abraham His friend, taken from the ends of the earth."
+  },
+  {
+    "book": "Isaiah",
+    "from": "41:10",
+    "thru": "41:10",
+    "about": "Isaiah (the Lord speaking)",
+    "audience": "Israel in exile whom He told Fear thou not — and you when you need to hear I am with thee",
+    "setting": "Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness."
+  },
+  {
+    "book": "Isaiah",
+    "from": "41:11",
+    "thru": "41:12",
+    "about": "Isaiah (the Lord speaking)",
+    "audience": "Israel watching those incensed against them come to nothing",
+    "setting": "They that were incensed against Israel shall be ashamed; they that strive with them shall perish and become as nothing."
+  },
+  {
+    "book": "Isaiah",
+    "from": "41:13",
+    "thru": "41:13",
+    "about": "Isaiah (the Lord speaking)",
+    "audience": "The one whose right hand the Lord holds — Israel then, and you when you cannot hold yourself up",
+    "setting": "For I the LORD thy God will hold thy right hand, saying unto thee, Fear not; I will help thee."
+  },
+  {
+    "book": "Isaiah",
+    "from": "41:14",
+    "thru": "41:16",
+    "about": "Isaiah (the Lord speaking)",
+    "audience": "Jacob called a worm — and you when you feel small in the threshing",
+    "setting": "Fear not, thou worm Jacob: the Lord will help, and Israel shall thresh the mountains."
+  },
+  {
+    "book": "Isaiah",
+    "from": "41:17",
+    "thru": "41:20",
+    "about": "Isaiah (the Lord speaking)",
+    "audience": "The poor and needy who seek water and find none — and you when your tongue fails for thirst",
+    "setting": "When the poor and needy seek water, and there is none, and their tongue faileth for thirst, I the LORD will hear them, I the God of Israel will not forsake them."
   },
   {
     "book": "1 Peter",

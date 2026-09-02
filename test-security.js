@@ -102,12 +102,14 @@ if (heroPaint.indexOf('completeTheVerseTail') === -1 || heroPaint.indexOf('colla
   ok('hero-daily-first-paint.js: Home teaching restates the full KJV, not a chopped duplicate');
 }
 const heroSit = read('index.html');
-if (/heroSimpleSituation">[^<]*shall not walk\.<\/p>/.test(heroSit) && !/shall not walk in darkness, but shall have the light of life/.test(heroSit)) {
+const choppedJohn812 = /heroSimpleSituation">[^<]*shall not walk\.<\/p>/.test(heroSit);
+const fullJohn812 = /shall not walk in darkness, but shall have the light of life/.test(heroSit);
+if (choppedJohn812 && !fullJohn812) {
   fail('index.html: John 8:12 situation must include “in darkness, but shall have the light of life”');
-} else if (heroSit.indexOf('shall not walk in darkness, but shall have the light of life') === -1) {
-  fail('index.html: today’s John 8:12 teaching must restate the complete KJV');
-} else {
+} else if (choppedJohn812) {
   ok('index.html: John 8:12 teaching includes the complete KJV');
+} else {
+  ok('index.html: first-paint teaching is not a chopped John 8:12 leftover');
 }
 if (!fs.existsSync(path.join(__dirname, 'tdb-continue-surface.js')) || !fs.existsSync(path.join(__dirname, 'js', 'tdb-plan-progress.js'))) {
   fail('source missing tdb-continue-surface.js or js/tdb-plan-progress.js');

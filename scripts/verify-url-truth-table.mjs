@@ -29,7 +29,13 @@ function parseRedirectLines(raw) {
 }
 
 function hasRule(lines, from, to, expectedCode) {
-  return lines.some((r) => r.from === from && r.to === to && r.code === expectedCode);
+  return lines.some((r) => {
+    if (r.from !== from || r.to !== to) return false;
+    if (r.code === expectedCode) return true;
+    // Cloudflare force flag: 301! still satisfies a 301 truth-table entry.
+    if (r.code === `${expectedCode}!`) return true;
+    return false;
+  });
 }
 
 function main() {

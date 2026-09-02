@@ -8,7 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
-import { leftoverTemplateIssues, isWeakPlainStamp, isLeftoverRelateLine } from './teaching-quality.mjs';
+import { leftoverTemplateIssues, leftoverAudienceSuffix, isWeakPlainStamp, isLeftoverRelateLine } from './teaching-quality.mjs';
 import { normalizeHeroRef } from './hero-layman-plain.mjs';
 
 const FIELDS = ['plain', 'step', 'about', 'to', 'setting', 'prayer', 'modernApplication', 'today'];
@@ -65,6 +65,7 @@ export function fieldNeedsFloor(value, field) {
   if (field === 'plain' && isWeakPlainStamp(t)) return true;
   if (field === 'prayer' && /sink .+ into my heart/i.test(t)) return true;
   if ((field === 'setting' || field === 'plain') && t.length < 12) return true;
+  if (field === 'to' && leftoverAudienceSuffix(t).length) return true;
   return false;
 }
 

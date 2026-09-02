@@ -622,7 +622,7 @@ for (const f of otherHtml) {
   if (f === 'find-a-path.html') {
     // Alias now redirects to Explore start-here; keep a calm redirect stub (not a second lobby).
     if (
-      !content.includes('explore.html#start-here') ||
+      (!content.includes('/explore#start-here') && !content.includes('explore.html#start-here')) ||
       !content.includes('Find a path moved') ||
       !content.includes('location.replace')
     ) {
@@ -633,7 +633,7 @@ for (const f of otherHtml) {
   }
   if (f === 'site-guide.html') {
     if (
-      !content.includes('explore.html#start-here') ||
+      (!content.includes('/explore#start-here') && !content.includes('explore.html#start-here')) ||
       !content.includes('Start here moved') ||
       !content.includes('location.replace')
     ) {

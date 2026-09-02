@@ -361,6 +361,216 @@
       "source": "/pastor/",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/quiet-morning",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/quiet-morning/",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/quiet-morning.html",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/quiet-evening",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/quiet-evening/",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/quiet-evening.html",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/university",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/university/",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/university.html",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/reading-plan",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/reading-plan/",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/reading-plan.html",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/daily-quiet-time",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/daily-quiet-time/",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/daily-quiet-time.html",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/daily-rhythm",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/daily-rhythm/",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/daily-rhythm.html",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/family-home",
+      "destination": "/family",
+      "permanent": true
+    },
+    {
+      "source": "/family-home/",
+      "destination": "/family",
+      "permanent": true
+    },
+    {
+      "source": "/family-home.html",
+      "destination": "/family",
+      "permanent": true
+    },
+    {
+      "source": "/family-rhythm",
+      "destination": "/family",
+      "permanent": true
+    },
+    {
+      "source": "/family-rhythm/",
+      "destination": "/family",
+      "permanent": true
+    },
+    {
+      "source": "/family-rhythm.html",
+      "destination": "/family",
+      "permanent": true
+    },
+    {
+      "source": "/bible",
+      "destination": "/bible-tool.html",
+      "permanent": true
+    },
+    {
+      "source": "/bible/",
+      "destination": "/bible-tool.html",
+      "permanent": true
+    },
+    {
+      "source": "/bible/index.html",
+      "destination": "/bible-tool.html",
+      "permanent": true
+    },
+    {
+      "source": "/bible/study",
+      "destination": "/bible-tool.html",
+      "permanent": true
+    },
+    {
+      "source": "/bible/study/",
+      "destination": "/bible-tool.html",
+      "permanent": true
+    },
+    {
+      "source": "/bible/study.html",
+      "destination": "/bible-tool.html",
+      "permanent": true
+    },
+    {
+      "source": "/bible-study",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/bible-study/",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/bible-study.html",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/study",
+      "destination": "/mystudy",
+      "permanent": true
+    },
+    {
+      "source": "/study/",
+      "destination": "/mystudy",
+      "permanent": true
+    },
+    {
+      "source": "/study.html",
+      "destination": "/mystudy",
+      "permanent": true
+    },
+    {
+      "source": "/gods-university-of-life",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/gods-university-of-life/",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/gods-university-of-life.html",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum.html",
+      "destination": "/plans",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -381,36 +591,12 @@
       "destination": "/memorize.html"
     },
     {
-      "source": "/quiet-morning",
-      "destination": "/quiet-morning.html"
-    },
-    {
-      "source": "/quiet-morning/",
-      "destination": "/quiet-morning.html"
-    },
-    {
-      "source": "/quiet-evening",
-      "destination": "/quiet-evening.html"
-    },
-    {
-      "source": "/quiet-evening/",
-      "destination": "/quiet-evening.html"
-    },
-    {
       "source": "/explore",
       "destination": "/explore.html"
     },
     {
       "source": "/explore/",
       "destination": "/explore.html"
-    },
-    {
-      "source": "/university",
-      "destination": "/university.html"
-    },
-    {
-      "source": "/university/",
-      "destination": "/university.html"
     },
     {
       "source": "/family",

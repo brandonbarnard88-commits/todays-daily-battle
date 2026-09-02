@@ -204,9 +204,13 @@
 /pt/terms /pt/terms.html 200!
 /pt/terms/ /pt/terms.html 200!
 
-# Bible Hub (combined Bible Study + Tools)
-/bible /bible/index.html 200!
-/bible/ /bible/index.html 200!
+# Bible Hub → Look up a verse (workshop at /bible/tools.html stays)
+/bible /bible-tool.html 301!
+/bible/ /bible-tool.html 301!
+/bible/index.html /bible-tool.html 301!
+/bible/study /bible-tool.html 301!
+/bible/study/ /bible-tool.html 301!
+/bible/study.html /bible-tool.html 301!
 
 # Pastor Hub
 # /pastor lobby → Pastor’s Study (keep pastor/library, builder, tools as nested desks)
@@ -227,6 +231,36 @@
 /church-starter-pack /church-starter-pack.html 200!
 /church-starter-pack/ /church-starter-pack.html 200!
 
+
+# P0 one-door consolidations (force: leftover HTML is a noindex bounce stub)
+/reading-plan /plans 301!
+/reading-plan/ /plans 301!
+/reading-plan.html /plans 301!
+/daily-quiet-time /plans 301!
+/daily-quiet-time/ /plans 301!
+/daily-quiet-time.html /plans 301!
+/daily-rhythm /plans 301!
+/daily-rhythm/ /plans 301!
+/daily-rhythm.html /plans 301!
+/family-home /family 301!
+/family-home/ /family 301!
+/family-home.html /family 301!
+/family-rhythm /family 301!
+/family-rhythm/ /family 301!
+/family-rhythm.html /family 301!
+/bible-study /plans 301!
+/bible-study/ /plans 301!
+/bible-study.html /plans 301!
+/study /mystudy 301!
+/study/ /mystudy 301!
+/study.html /mystudy 301!
+/gods-university-of-life /about.html 301!
+/gods-university-of-life/ /about.html 301!
+/gods-university-of-life.html /about.html 301!
+/curriculum /plans 301!
+/curriculum/ /plans 301!
+/curriculum.html /plans 301!
+
 # URL truth table (see config/urls-truth-table.json) — guessed slugs + clean paths
 /ask-the-word /bible-tool.html?tdb_focus=ask 301
 /ask-the-word/ /bible-tool.html?tdb_focus=ask 301
@@ -239,16 +273,19 @@
 /my-study/ /mystudy 301
 /memorize /memorize.html 200!
 /memorize/ /memorize.html 200!
-/quiet-morning /quiet-morning.html 200!
-/quiet-morning/ /quiet-morning.html 200!
-/quiet-evening /quiet-evening.html 200!
-/quiet-evening/ /quiet-evening.html 200!
+/quiet-morning /plans 301!
+/quiet-morning/ /plans 301!
+/quiet-morning.html /plans 301!
+/quiet-evening /plans 301!
+/quiet-evening/ /plans 301!
+/quiet-evening.html /plans 301!
 /explore /explore.html 200!
 /explore/ /explore.html 200!
 /learn-the-word /learn-the-word.html 200!
 /learn-the-word/ /learn-the-word.html 200!
-/university /university.html 200!
-/university/ /university.html 200!
+/university /about.html 301!
+/university/ /about.html 301!
+/university.html /about.html 301!
 /family /family.html 200!
 /family/ /family.html 200!
 /family.html /family 301

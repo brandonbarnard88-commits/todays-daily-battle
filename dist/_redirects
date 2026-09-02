@@ -32,6 +32,50 @@
 /site-guide/ /explore#start-here 301
 /site-guide.html /explore#start-here 301
 
+# Folded doors — same pattern as /start.html (plain 301 at the top beats Pages 308)
+/family-home /family 301
+/family-home/ /family 301
+/family-home.html /family 301
+/family-rhythm /family 301
+/family-rhythm/ /family 301
+/family-rhythm.html /family 301
+/reading-plan /plans 301
+/reading-plan/ /plans 301
+/reading-plan.html /plans 301
+/daily-quiet-time /plans 301
+/daily-quiet-time/ /plans 301
+/daily-quiet-time.html /plans 301
+/daily-rhythm /plans 301
+/daily-rhythm/ /plans 301
+/daily-rhythm.html /plans 301
+/quiet-morning /plans 301
+/quiet-morning/ /plans 301
+/quiet-morning.html /plans 301
+/quiet-evening /plans 301
+/quiet-evening/ /plans 301
+/quiet-evening.html /plans 301
+/university /about.html 301
+/university/ /about.html 301
+/university.html /about.html 301
+/gods-university-of-life /about.html 301
+/gods-university-of-life/ /about.html 301
+/gods-university-of-life.html /about.html 301
+/bible-study /plans 301
+/bible-study/ /plans 301
+/bible-study.html /plans 301
+/study /mystudy 301
+/study/ /mystudy 301
+/study.html /mystudy 301
+/curriculum /plans 301
+/curriculum/ /plans 301
+/curriculum.html /plans 301
+/bible /bible-tool.html 301
+/bible/ /bible-tool.html 301
+/bible/index.html /bible-tool.html 301
+/bible/study /bible-tool.html 301
+/bible/study/ /bible-tool.html 301
+/bible/study.html /bible-tool.html 301
+
 # Campus building clean URLs
 /bible-tool /bible-tool.html 200!
 /bible-tool/ /bible-tool.html 200!

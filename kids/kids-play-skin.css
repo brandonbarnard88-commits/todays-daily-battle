@@ -219,13 +219,10 @@ body.kids-kiss-play-home .tdb-site-humility {
   font-weight: 800;
   color: #14532d !important;
 }
-body.kids-mini-game.is-won .match-board,
-body.kids-mini-game.is-won .match-teach,
-body.kids-mini-game.is-won .mf-board,
-body.kids-mini-game.is-won .mf-teach,
 body.kids-mini-game.is-won .kg-how,
 body.kids-mini-game.is-won .kg-timer-row,
-body.kids-mini-game.is-won .kg-family-row {
+body.kids-mini-game.is-won .kg-family-row,
+body.kids-mini-game.is-won .kg-more {
   display: none !important;
 }
 .kg-next-doors a,
@@ -303,10 +300,9 @@ body.kids-mini-game.is-little .match-btn {
   font-size: 1.15rem !important;
 }
 body.kids-mini-game.is-little .match-avatar {
-  width: 3.2rem;
-  height: 3.2rem;
-  flex-basis: 3.2rem;
-  font-size: 1.7rem;
+  width: 5rem;
+  height: 5rem;
+  flex-basis: 5rem;
 }
 body.kids-mini-game.is-little .match-who { display: none; }
 body.kids-mini-game.is-bigger .match-who { display: none; }
@@ -682,19 +678,30 @@ body.kids-mini-game button.match-btn,
   background: #fee2e2 !important;
 }
 .match-avatar {
-  flex: 0 0 2.75rem;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
+  flex: 0 0 4.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
-  background: linear-gradient(160deg, #fef3c7, #f59e0b);
+  overflow: hidden;
+  padding: 0;
+  background: #fffef8;
   border: 3px solid #0f172a;
 }
+.match-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.match-avatar.is-mascot img {
+  object-fit: contain;
+  padding: 0.12rem;
+}
 .match-btn.match-kjv .match-avatar {
-  background: linear-gradient(160deg, #dbeafe, #3b82f6);
+  display: none;
 }
 .match-who {
   display: block;
@@ -716,8 +723,8 @@ body.kids-mini-game button.match-btn,
   max-width: 26rem;
   margin: 0.75rem auto;
 }
-@media (min-width: 420px) {
-  .mf-board { grid-template-columns: repeat(4, 1fr); }
+@media (min-width: 720px) {
+  .mf-board { grid-template-columns: repeat(4, 1fr); max-width: 38rem; }
 }
 body.kids-mini-game button.mf-card,
 .mf-card {
@@ -746,7 +753,7 @@ body.kids-mini-game button.mf-card,
   color: #0f172a !important;
   background: #fffef8 !important;
   border-color: #d97706;
-  font-size: 0.78rem !important;
+  font-size: 0.85rem !important;
   text-align: left;
   align-items: flex-start;
 }
@@ -756,7 +763,25 @@ body.kids-mini-game button.mf-card,
   border-color: #16a34a;
   background: #dcfce7 !important;
   color: #14532d !important;
-  font-size: 0.78rem !important;
+  font-size: 0.85rem !important;
+}
+.mf-card.mf-pic[aria-pressed="true"],
+.mf-card.mf-pic.is-peek,
+.mf-card.mf-pic.mf-match {
+  padding: 0.2rem !important;
+  font-size: 0 !important;
+  line-height: 0;
+}
+.mf-card.mf-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+.mf-card.mf-pic.is-mascot img {
+  object-fit: contain;
+  background: #fffef8;
 }
 
 /* —— Find the sheep —— */
@@ -811,23 +836,102 @@ body.kids-mini-game button.ls-tile,
   margin: 0 auto;
   pointer-events: none;
 }
+.ls-flock {
+  margin: 0.35rem 0 0.7rem;
+  padding: 0.55rem 0.7rem 0.65rem;
+  border-radius: 18px;
+  background: #fffef8;
+  border: 3px solid #16a34a;
+  text-align: center;
+}
+.ls-flock-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.25rem 0.35rem;
+  margin: 0 0 0.35rem;
+}
+.ls-flock-row img {
+  width: 28px;
+  height: auto;
+  display: block;
+}
+.ls-flock-gap {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 2px dashed #b45309;
+  background: rgba(254, 243, 199, 0.7);
+}
+.ls-flock.is-found .ls-flock-gap {
+  border-style: solid;
+  border-color: #16a34a;
+  background: #dcfce7;
+}
+.ls-flock-line {
+  margin: 0;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #14532d !important;
+}
+.ls-found-kjv {
+  display: none;
+  margin: 0.65rem 0 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 16px;
+  background: #fffef8;
+  border: 3px solid #d97706;
+  font-family: Nunito, system-ui, sans-serif;
+  color: #0f172a !important;
+}
+.ls-found-kjv.show { display: block; }
+.ls-found-kjv strong {
+  display: block;
+  margin: 0 0 0.35rem;
+  color: #0f172a !important;
+}
+.ls-found-kjv p {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.45;
+}
 
 /* —— Shepherd's Path —— */
 .sp-page { max-width: 28rem; margin: 0 auto; padding: 0.5rem 0.75rem 2rem; }
+.sp-trail {
+  position: relative;
+  margin: 1rem 0;
+  padding: 2.2rem 0.65rem 1.1rem;
+  border-radius: 28px;
+  overflow: visible;
+  background:
+    linear-gradient(180deg, #93c5fd 0%, #bfdbfe 26%, #fde68a 52%, #86efac 100%);
+  border: 4px solid #d97706;
+  box-shadow: 4px 4px 0 rgba(15, 23, 42, 0.12);
+}
+.sp-start {
+  position: relative;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin: 0 auto 0.55rem;
+}
 .sp-path {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.55rem 0.65rem;
-  margin: 1rem 0;
-  padding: 0.85rem 0.6rem;
-  border-radius: 22px;
-  background: linear-gradient(180deg, #fef3c7, #fde68a 40%, #86efac 100%);
-  border: 4px solid #d97706;
-  box-shadow: 4px 4px 0 rgba(15, 23, 42, 0.12);
+  gap: 0.7rem 0.75rem;
+  margin: 0;
+  padding: 0.35rem 0.2rem 0.5rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 body.kids-mini-game button.sp-stone,
 .sp-stone {
+  position: relative;
+  overflow: visible;
   min-width: 76px;
   min-height: 52px !important;
   padding: 0.35rem 0.6rem;
@@ -845,12 +949,27 @@ body.kids-mini-game button.sp-stone,
 .sp-stone:nth-child(even) { transform: translateY(8px); }
 .sp-stone:nth-child(3n) { transform: translateY(-4px); }
 .sp-stone.is-done {
-  opacity: 0.55;
+  opacity: 0.85;
   pointer-events: none;
   border-color: #166534;
   background: #bbf7d0;
   box-shadow: none;
   transform: none;
+}
+.sp-stone.is-next {
+  box-shadow: 0 0 0 4px #f2dc98, 0 4px 0 #78350f;
+  transform: translateY(-6px) scale(1.05);
+}
+.sp-walker {
+  position: absolute;
+  left: 50%;
+  top: -34px;
+  width: 40px;
+  height: auto;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(1px 2px 0 rgba(15, 23, 42, 0.25));
 }
 .sp-teach { font-size: 0.9rem; font-weight: 600; color: #334155; margin: 0.35rem 0 0; }
 

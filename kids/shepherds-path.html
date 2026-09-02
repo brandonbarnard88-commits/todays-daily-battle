@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260902play2">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260902verse1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -49,11 +49,16 @@
           </button>
           <p class="kg-buddy-line" id="kids-little-shepherd-line" aria-live="polite">I will step with you.</p>
         </div>
-        <div class="sp-path" id="sp-path" role="group" aria-label="Stepping stones"></div>
+        <div class="sp-trail">
+          <div class="sp-start" id="sp-start" aria-hidden="true">
+            <img class="sp-walker" id="sp-walker" src="shepherd-mascot-point.png?v=20260820polish" width="40" height="44" alt="" decoding="async">
+          </div>
+          <div class="sp-path" id="sp-path" role="group" aria-label="Stepping stones"></div>
+        </div>
         <div class="sp-kjv" id="sp-kjv-box">
           <strong>KJV:</strong> <span id="sp-kjv-text">The Lord is my shepherd; I shall not want.</span>
           <cite id="sp-kjv-ref" style="font-style:normal;display:block;margin-top:0.35rem;color:#64748b">Psalm 23:1</cite>
-          <p class="sp-teach" id="sp-teach">Remember: the Shepherd leads; we take the next right step.</p>
+          <p class="sp-teach" id="sp-teach">Tap the next word of this verse.</p>
         </div>
         <div class="sp-win" id="sp-win" hidden>
           <p id="sp-win-line" style="margin:0;font-size:1.05rem;"></p>
@@ -61,8 +66,6 @@
             <button type="button" id="sp-next">Next level</button>
             <button type="button" id="sp-again">Replay level</button>
             <span class="kg-next-doors" id="kg-next-doors"></span>
-            <a href="corner.html?choose=1#kids-library-grid">Pick a story</a>
-            <a href="my-pasture.html">My pasture</a>
           </div>
         </div>
         <details class="kg-how">
@@ -81,12 +84,12 @@
             <a href="memory-flock.html">Memory flock</a>
           </p>
         </nav>
-        <p class="kg-home"><a href="/kids/">← Kids home</a></p>
+        <p class="kg-home"><a href="my-pasture.html">My pasture</a> · <a href="/kids/">← Kids home</a></p>
       </div>
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260902play1"></script>
+  <script src="kids-play-helpers.js?v=20260902verse1"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -103,19 +106,13 @@
       var cfg = kitEarly && kitEarly.sizeConfig ? kitEarly.sizeConfig(playSize) : null;
       return (cfg && cfg.path) || LEVELS;
     }
-    var TEACH = [
-      'Remember: the Shepherd leads; we take the next right step.',
-      'Remember: following Jesus is one obedient step after another.',
-      'Remember: you do not have to see the whole path—just the next stone.',
-      'Remember: when you misstep, try again—grace helps us keep walking.'
-    ];
     var levelIndex = 0;
     var expect = 1;
     var missStreak = 0;
 
     function pathHint() {
       if (playSize === 'little') {
-        return expect === 1 ? 'Start at the first word.' : 'Count the green stones. Next is the next word.';
+        return expect === 1 ? 'Tap the glowing word.' : 'The glowing stone is next.';
       }
       if (playSize === 'bigger') {
         if (missStreak < 2) return 'Not next.';
@@ -142,6 +139,7 @@
     var kjvRef = document.getElementById('sp-kjv-ref');
     var teach = document.getElementById('sp-teach');
     var kit = window.tdbKidsGameKit;
+    var currentVerse = { ref: 'Psalm 23:1', text: 'The Lord is my shepherd; I shall not want.' };
 
     function paintBest() {
       if (!bestLabel || !kit) return;
@@ -165,22 +163,40 @@
       return { ref: 'Psalm 23:1', text: 'The Lord is my shepherd; I shall not want.' };
     }
 
+    function placeWalker(host) {
+      var w = document.getElementById('sp-walker');
+      if (!w || !host) return;
+      host.appendChild(w);
+    }
+
+    function markNext() {
+      if (!path) return;
+      [].forEach.call(path.querySelectorAll('.sp-stone'), function (stn) {
+        var step = Number(stn.getAttribute('data-step'));
+        stn.classList.toggle('is-next', playSize === 'little' && step === expect && !stn.classList.contains('is-done'));
+      });
+    }
+
     function build() {
       expect = 1;
       missStreak = 0;
       var levels = sizeLevels();
       var N = levels[Math.min(levelIndex, levels.length - 1)];
       if (win) { win.classList.remove('show'); win.hidden = true; }
+      document.body.classList.remove('is-won');
       var doors = document.getElementById('kg-next-doors');
       if (doors) doors.textContent = '';
+      var startPad = document.getElementById('sp-start');
+      placeWalker(startPad);
       if (path) {
         path.textContent = '';
         path.classList.remove('is-trail');
       }
       var v = dailyVerse();
+      currentVerse = v;
       if (kjvText) kjvText.textContent = v.text;
       if (kjvRef) kjvRef.textContent = v.ref + ' (KJV)';
-      if (teach) teach.textContent = TEACH[levelIndex % TEACH.length];
+      if (teach) teach.textContent = 'Tap the next word of this verse.';
       var hearBox = document.getElementById('sp-kjv-box');
       if (hearBox && kit && kit.fillHearButton) {
         kit.fillHearButton(hearBox, { plain: '', kjv: v.text, shortKjv: v.text });
@@ -194,7 +210,7 @@
       if (levelLabel) levelLabel.textContent = 'Level ' + (levelIndex + 1) + ' · ' + useN + ' words';
       if (st) {
         st.textContent = playSize === 'little'
-          ? 'Start at the first word on the path.'
+          ? 'Tap the glowing word. Walk with the Shepherd.'
           : 'Tap the next word of the verse.';
       }
       var stones = [];
@@ -204,6 +220,7 @@
           var b = document.createElement('button');
           b.type = 'button';
           b.className = 'sp-stone';
+          b.setAttribute('data-step', String(n));
           b.setAttribute('aria-label', 'Stepping stone ' + n + ', ' + word);
           b.textContent = word;
           b.addEventListener('click', function () {
@@ -211,20 +228,23 @@
             if (n === expect) {
               b.classList.add('is-done');
               expect += 1;
+              placeWalker(b);
+              markNext();
               if (expect > useN) {
                 if (st) st.textContent = 'You finished the path!';
                 if (path) path.classList.add('is-trail');
+                document.body.classList.add('is-won');
                 if (winL) {
                   winL.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin)
                     ? tdbLittleShepherd.pickMatchWin()
-                    : 'Well walked! Jesus goes with you on every step.';
+                    : 'Well walked. This verse is the path.';
                 }
                 if (win) { win.classList.add('show'); win.hidden = false; }
                 if (kit && kit.fillWinDoors) {
                   kit.fillWinDoors(document.getElementById('kg-next-doors'), {
-                    story: 'psalm23Shepherd',
-                    color: 'good-shepherd',
-                    label: 'the Good Shepherd'
+                    ref: currentVerse.ref,
+                    kjv: currentVerse.text,
+                    plain: currentVerse.text
                   });
                 }
                 if (kit) kit.recordScore('path', { wins: 1, level: levelIndex + 1 });
@@ -234,7 +254,7 @@
                 }
               } else if (st) {
                 missStreak = 0;
-                st.textContent = 'Nice! Keep going in order.';
+                st.textContent = playSize === 'little' ? 'Yes. Now the glowing word.' : 'Yes. The next word of the verse.';
                 if (window.tdbLittleShepherd && tdbLittleShepherd.notify) {
                   try { window.tdbLittleShepherd.notify('pathStep'); } catch (eS) {}
                 }
@@ -258,6 +278,7 @@
       stones.forEach(function (stone) {
         if (path) path.appendChild(stone);
       });
+      markNext();
     }
 
     var next = document.getElementById('sp-next');

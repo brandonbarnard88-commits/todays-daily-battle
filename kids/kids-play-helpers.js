@@ -246,6 +246,9 @@
     if (/joshua 1:9|good courage|jericho/.test(hay)) {
       return { story: 'joshuaJericho', color: 'jericho', label: 'Joshua' };
     }
+    if (/john 3:16|so loved the world/.test(hay)) {
+      return { story: 'jesusBirth', color: 'nativity', label: 'the birth of Jesus' };
+    }
     return null;
   }
 
@@ -256,7 +259,7 @@
     { id: 'strong', plain: 'Be brave—God is with you', short: 'Be brave', shortKjv: 'Be strong and of a good courage', kjv: 'Be strong and of a good courage; be not afraid.', ref: 'Joshua 1:9', icon: '🛡️', who: 'Joshua', clue: 'being brave, not afraid', teach: 'Courage means trusting God is with you, not that you never feel small.', story: 'joshuaJericho', color: 'jericho', door: 'Joshua' },
     { id: 'care', plain: 'Give your worries to God', short: 'Give worries', shortKjv: 'He careth for you', kjv: 'Casting all your care upon him; for he careth for you.', ref: '1 Peter 5:7', icon: '🙏', who: 'Friend', clue: 'giving God your worries', teach: 'You do not have to carry every worry alone—God cares.' },
     { id: 'light', plain: 'God’s Word shows the way', short: 'Word shows way', shortKjv: 'Thy word is a lamp', kjv: 'Thy word is a lamp unto my feet, and a light unto my path.', ref: 'Psalm 119:105', icon: '💡', who: 'Light', clue: 'a lamp on a path', teach: 'Reading the Bible helps us know the next right step.' },
-    { id: 'love', plain: 'God loved the world', short: 'God loved us', shortKjv: 'God so loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', who: 'Love', clue: 'God loving the world', teach: 'God’s love is a gift—Jesus came for us.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' },
+    { id: 'love', plain: 'God loved the world', short: 'God loved us', shortKjv: 'God so loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', who: 'Love', clue: 'God loving the world', teach: 'God’s love is a gift—Jesus came for us.', story: 'jesusBirth', color: 'nativity', door: 'the birth of Jesus' },
     { id: 'peace', plain: 'Jesus can calm the storm', short: 'Storm, be still', shortKjv: 'Peace, be still', kjv: 'Peace, be still. And the wind ceased, and there was a great calm.', ref: 'Mark 4:39', icon: '🌊', who: 'Jesus', clue: 'a storm going still', teach: 'When life feels stormy, Jesus still speaks peace.', story: 'jesusCalmsStorm', color: 'jesus-storm', door: 'Jesus calms the storm' },
     { id: 'pray', plain: 'Ask God—He hears you', short: 'Ask God', shortKjv: 'Ask, and it shall be given you', kjv: 'Ask, and it shall be given you; seek, and ye shall find.', ref: 'Matthew 7:7', icon: '🙏', who: 'Pray', clue: 'asking and seeking', teach: 'Prayer is talking with God—He invites you to ask and seek.' },
     { id: 'kind', plain: 'Treat others kindly', short: 'Be kind', shortKjv: 'Do ye even so to them', kjv: 'All things whatsoever ye would that men should do to you, do ye even so to them.', ref: 'Matthew 7:12', icon: '🤝', who: 'Kind', clue: 'treating others the way you want', teach: 'The Golden Rule: treat others the way you want to be treated.' },
@@ -266,8 +269,38 @@
     { id: 'battle', plain: 'The battle is the Lord’s', short: 'God fights', shortKjv: 'The battle is the Lord\'s', kjv: 'The battle is the Lord\'s.', ref: '1 Samuel 17:47', icon: '⚔️', who: 'David', clue: 'whose battle it really is', teach: 'David faced Goliath trusting God—not his own size.', story: 'davidGoliath', color: 'david', door: 'David and Goliath' },
     { id: 'refuge', plain: 'God is my safe place', short: 'Safe place', shortKjv: 'God is our refuge', kjv: 'God is our refuge and strength, a very present help.', ref: 'Psalm 46:1', icon: '🏰', who: 'Safe', clue: 'a safe place and present help', teach: 'When you need help now, God is a present help.' },
     { id: 'rejoice', plain: 'Rejoice in the Lord', short: 'Be glad', shortKjv: 'Rejoice in the Lord alway', kjv: 'Rejoice in the Lord alway: and again I say, Rejoice.', ref: 'Philippians 4:4', icon: '☀️', who: 'Joy', clue: 'rejoicing in the Lord', teach: 'Joy can grow even on hard days because the Lord is near.' },
-    { id: 'still', plain: 'Be still—know God', short: 'Be still', shortKjv: 'Be still, and know', kjv: 'Be still, and know that I am God.', ref: 'Psalm 46:10', icon: '🤫', who: 'Still', clue: 'being still and knowing God', teach: 'Quiet moments help us remember who God is.', story: 'psalm23Shepherd', color: 'good-shepherd', door: 'the Good Shepherd' }
+    { id: 'still', plain: 'Be still—know God', short: 'Be still', shortKjv: 'Be still, and know', kjv: 'Be still, and know that I am God.', ref: 'Psalm 46:10', icon: '🤫', who: 'Still', clue: 'being still and knowing God', teach: 'Quiet moments help us remember who God is.' }
   ];
+
+  var ART_BY_REF = [
+    { re: /^psalm\s*23\b/i, src: '/coloring-pages/colored/good-shepherd-s1.jpg' },
+    { re: /^mark\s*10:14/i, src: '/coloring-pages/colored/jesus-and-the-children.jpg' },
+    { re: /^joshua\s*1:9/i, src: '/coloring-pages/colored/jericho.jpg' },
+    { re: /^mark\s*4:39/i, src: '/coloring-pages/colored/jesus-storm-s1.jpg' },
+    { re: /^1\s*samuel\s*17/i, src: '/coloring-pages/colored/david-and-goliath.jpg' },
+    { re: /^luke\s*15\b/i, src: '/coloring-pages/colored/lost-sheep-s1.jpg' },
+    { re: /^john\s*3:16/i, src: '/coloring-pages/colored/nativity.jpg' }
+  ];
+
+  function pairArt(pair) {
+    var ref = String((pair && pair.ref) || '');
+    var alt = String((pair && (pair.plain || pair.door || pair.ref)) || 'Bible picture');
+    var i;
+    for (i = 0; i < ART_BY_REF.length; i++) {
+      if (ART_BY_REF[i].re.test(ref)) {
+        return { src: ART_BY_REF[i].src, alt: alt, mascot: false };
+      }
+    }
+    var who = String((pair && (pair.who || pair.plain || '')) || '').toLowerCase();
+    var src = '/kids/shepherd-mascot-welcome.png?v=20260820polish';
+    if (/shepherd|sheep/.test(who)) src = '/kids/shepherd-mascot-sheep.png?v=20260820polish';
+    else if (/pray|care|worry/.test(who)) src = '/kids/shepherd-mascot-pray.png?v=20260820polish';
+    else if (/light|lamp|word|read|bible/.test(who)) src = '/kids/shepherd-mascot-read.png?v=20260820polish';
+    else if (/brave|strong|joshua|trust|david/.test(who)) src = '/kids/shepherd-mascot-proud.png?v=20260820polish';
+    else if (/peace|still|safe|refuge/.test(who)) src = '/kids/shepherd-mascot-comfort.png?v=20260820polish';
+    else if (/joy|glad|rejoice/.test(who)) src = '/kids/shepherd-mascot-cheer.png?v=20260820polish';
+    return { src: src, alt: alt, mascot: true };
+  }
 
   function facePlain(pair, size) {
     if (!pair) return '';
@@ -307,47 +340,33 @@
     if (!el) return;
     el.textContent = '';
     var d;
-    if (pairsOrDoor && !Array.isArray(pairsOrDoor) && (pairsOrDoor.story || pairsOrDoor.color || pairsOrDoor.label)) {
+    if (pairsOrDoor && !Array.isArray(pairsOrDoor) && (pairsOrDoor.story || pairsOrDoor.color || pairsOrDoor.label || pairsOrDoor.ref)) {
       d = {
         story: pairsOrDoor.story || '',
         color: pairsOrDoor.color || '',
-        label: pairsOrDoor.label || pairsOrDoor.door || 'this story'
+        label: pairsOrDoor.label || pairsOrDoor.door || ''
       };
+      if (!d.story && !d.color) {
+        d = doorForPair(pairsOrDoor) || d;
+      }
     } else {
       d = pickWinDoor(pairsOrDoor);
     }
-    var prompt = document.createElement('p');
-    prompt.className = 'kg-next-prompt';
-    prompt.textContent = d && (d.story || d.color) ? 'A door is open:' : 'Keep going:';
-    el.appendChild(prompt);
     var a = document.createElement('a');
-    a.className = 'kg-next-story';
     if (d && d.story) {
+      a.className = 'kg-next-story';
       a.href = '/kids/corner.html?story=' + encodeURIComponent(d.story);
       a.textContent = 'Read ' + (d.label || 'this story');
+    } else if (d && d.color) {
+      a.className = 'kg-next-color';
+      a.href = '/coloring.html?story=' + encodeURIComponent(d.color);
+      a.textContent = 'Color ' + (d.label || 'this story');
     } else {
+      a.className = 'kg-next-story';
       a.href = '/kids/corner.html?choose=1#kids-library-grid';
       a.textContent = 'Read a story';
     }
     el.appendChild(a);
-    var c = document.createElement('a');
-    c.className = 'kg-next-color';
-    if (d && d.color) {
-      c.href = '/coloring.html?story=' + encodeURIComponent(d.color);
-      c.textContent = 'Color ' + (d.label || 'this story');
-    } else {
-      c.href = '/coloring.html';
-      c.textContent = 'Color a page';
-    }
-    el.appendChild(c);
-    var game = gameDoorFor(d);
-    if (game) {
-      var g = document.createElement('a');
-      g.className = 'kg-next-game';
-      g.href = game.href;
-      g.textContent = game.label;
-      el.appendChild(g);
-    }
   }
 
   function gameDoorFor(d) {
@@ -689,6 +708,7 @@
     bindSizePicker: bindSizePicker,
     facePlain: facePlain,
     faceKjv: faceKjv,
+    pairArt: pairArt,
     doorForPair: doorForPair,
     pickWinDoor: pickWinDoor,
     fillWinDoors: fillWinDoors,

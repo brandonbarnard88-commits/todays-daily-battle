@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-together">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260902play2">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -29,20 +29,13 @@
       </div>
       <nav class="kids-header-nav" aria-label="Kids navigation">
         <a href="/kids/">Kids home</a>
-        <a href="corner.html">Stories</a>
+        <a href="corner.html?choose=1">Stories</a>
       </nav>
     </header>
     <main class="app-content" id="main" role="main">
       <div class="content-inner ls-page">
-        <div class="kg-sizes" role="group" aria-label="How big a game">
-          <button type="button" data-kg-size="little">Little</button>
-          <button type="button" data-kg-size="middle">Middle</button>
-          <button type="button" data-kg-size="bigger">Bigger</button>
-        </div>
         <div class="ls-hud">
           <span id="ls-level">Level 1</span>
-          <span class="kg-seal" id="kg-seal" hidden>3-day seal</span>
-          <span id="ls-best">Best find: —</span>
         </div>
         <p class="section-note topic-mood-porch kids-site-porch" lang="en">Jesus told this story—He comes looking for the one who is lost.</p>
         <div class="ls-hero" data-kg-ico="🐑">
@@ -58,7 +51,7 @@
         </div>
         <div class="ls-grid cols3" id="ls-grid" role="group" aria-label="Grass squares"></div>
         <div class="kg-carry" id="kg-carry">
-          <div class="kg-carry-art" aria-hidden="true">🧑‍🌾🐑</div>
+          <div class="kg-carry-art" aria-hidden="true"><img src="shepherd-mascot-sheep.png?v=20260820polish" width="88" height="88" alt="" decoding="async"></div>
           <p>On His shoulders—rejoicing.</p>
         </div>
         <p id="ls-win" class="ls-win" hidden></p>
@@ -66,13 +59,19 @@
         <details class="kg-how">
           <summary>How to play</summary>
           <p>Tap the grass. One sheep is hidden. The Good Shepherd never loses count.</p>
+          <div class="kg-sizes" role="group" aria-label="How big a game">
+            <button type="button" data-kg-size="little">Little</button>
+            <button type="button" data-kg-size="middle">Middle</button>
+            <button type="button" data-kg-size="bigger">Bigger</button>
+          </div>
           <div class="ls-kjv" id="ls-kjv">
-            <strong>KJV (Luke 15:4–6 idea):</strong> What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine… and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing.
+            <strong>Luke 15:4–6 (KJV)</strong>
+            <p>What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing. And when he cometh home, he calleth together his friends and neighbours, saying unto them, Rejoice with me; for I have found my sheep which was lost.</p>
           </div>
         </details>
         <div class="ls-actions">
           <button type="button" id="ls-again" hidden>Play again (same level)</button>
-          <button type="button" id="ls-harder" hidden>Harder field</button>
+          <button type="button" id="ls-harder" hidden>Bigger field</button>
         </div>
         <nav class="kg-more" aria-label="More games">
           <p>
@@ -85,7 +84,7 @@
       </div>
     </main>
   </div>
-  <script src="kids-play-helpers.js?v=20260816-together"></script>
+  <script src="kids-play-helpers.js?v=20260902play1"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -209,15 +208,23 @@
           b.addEventListener('click', function () {
             if (done || b.classList.contains('reveal')) return;
             tries += 1;
-            b.classList.add('reveal');
-            b.textContent = idx === win ? '\uD83D\uDC11' : '\uD83C\uDF3F';
             if (idx === win) {
+              b.classList.add('reveal', 'is-found');
+              b.setAttribute('aria-label', 'The lost sheep');
+              b.textContent = '';
+              var sheepImg = document.createElement('img');
+              sheepImg.src = 'shepherd-mascot-sheep.png?v=20260820polish';
+              sheepImg.alt = '';
+              sheepImg.width = 44;
+              sheepImg.height = 44;
+              sheepImg.decoding = 'async';
+              b.appendChild(sheepImg);
               done = true;
               if (w) {
                 w.hidden = false;
                 w.innerHTML =
                   'Found in <strong>' + tries + '</strong> ' + (tries === 1 ? 'tap' : 'taps') + '!<br>' +
-                  'Jesus is the Good Shepherd—He rejoices when the lost sheep is found (Luke 15).';
+                  'Jesus is the Good Shepherd—He rejoices when the lost sheep is found (Luke 15:4–6).';
               }
               if (st) {
                 st.textContent = 'You found the sheep! ' +
@@ -239,10 +246,12 @@
               if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
                 try { window.tdbLittleShepherd.notify('gameWin'); } catch (eN) {}
               }
-            } else if (st) {
+            } else {
+              b.classList.add('reveal', 'is-miss');
+              b.setAttribute('aria-label', 'Empty grass');
               missStreak += 1;
               var hint = sheepHint(idx, L.n);
-              st.textContent = hint;
+              if (st) st.textContent = hint;
               if (/[Ww]armer/.test(hint) && window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
                 try { window.tdbLittleShepherd.notify('warmer'); } catch (eW) {}
               }

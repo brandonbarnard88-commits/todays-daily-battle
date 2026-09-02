@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-together">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260902play2">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -29,20 +29,13 @@
       </div>
       <nav class="kids-header-nav" aria-label="Kids navigation">
         <a href="/kids/">Kids home</a>
-        <a href="corner.html">Stories</a>
+        <a href="corner.html?choose=1">Stories</a>
       </nav>
     </header>
     <main class="app-content" id="main" role="main">
       <div class="content-inner sp-page">
-        <div class="kg-sizes" role="group" aria-label="How big a game">
-          <button type="button" data-kg-size="little">Little</button>
-          <button type="button" data-kg-size="middle">Middle</button>
-          <button type="button" data-kg-size="bigger">Bigger</button>
-        </div>
         <div class="sp-hud">
           <span id="sp-level-label">Level 1 · 5 stones</span>
-          <span class="kg-seal" id="kg-seal" hidden>3-day seal</span>
-          <span id="sp-best-label">Best level: —</span>
         </div>
         <p class="section-note topic-mood-porch kids-site-porch" lang="en">Follow one step at a time—like walking with the Shepherd.</p>
         <div class="sp-hero mini-game-hero" data-kg-ico="🪨">
@@ -75,6 +68,11 @@
         <details class="kg-how">
           <summary>How to play</summary>
           <p>Step the path. Tap the words in verse order. Jesus is the Good Shepherd—we follow one step at a time.</p>
+          <div class="kg-sizes" role="group" aria-label="How big a game">
+            <button type="button" data-kg-size="little">Little</button>
+            <button type="button" data-kg-size="middle">Middle</button>
+            <button type="button" data-kg-size="bigger">Bigger</button>
+          </div>
         </details>
         <nav class="kg-more" aria-label="More games">
           <p>
@@ -88,7 +86,7 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-together"></script>
+  <script src="kids-play-helpers.js?v=20260902play1"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -172,11 +170,9 @@
       missStreak = 0;
       var levels = sizeLevels();
       var N = levels[Math.min(levelIndex, levels.length - 1)];
-      if (levelLabel) levelLabel.textContent = 'Level ' + (levelIndex + 1) + ' · ' + N + ' words';
       if (win) { win.classList.remove('show'); win.hidden = true; }
       var doors = document.getElementById('kg-next-doors');
       if (doors) doors.textContent = '';
-      if (st) st.textContent = 'Start at the first word on the path.';
       if (path) {
         path.textContent = '';
         path.classList.remove('is-trail');
@@ -193,7 +189,16 @@
       }
       paintBest();
       var words = (kit && kit.verseWords) ? kit.verseWords(v.text, N) : [];
-      for (var s = 1; s <= N; s++) {
+      if (!words.length) words = ['The', 'Lord', 'is', 'my', 'shepherd'];
+      var useN = words.length;
+      if (levelLabel) levelLabel.textContent = 'Level ' + (levelIndex + 1) + ' · ' + useN + ' words';
+      if (st) {
+        st.textContent = playSize === 'little'
+          ? 'Start at the first word on the path.'
+          : 'Tap the next word of the verse.';
+      }
+      var stones = [];
+      for (var s = 1; s <= useN; s++) {
         (function (n) {
           var word = words[n - 1] || String(n);
           var b = document.createElement('button');
@@ -206,7 +211,7 @@
             if (n === expect) {
               b.classList.add('is-done');
               expect += 1;
-              if (expect > N) {
+              if (expect > useN) {
                 if (st) st.textContent = 'You finished the path!';
                 if (path) path.classList.add('is-trail');
                 if (winL) {
@@ -244,9 +249,15 @@
               }
             }
           });
-          path.appendChild(b);
+          stones.push(b);
         })(s);
       }
+      if (playSize !== 'little' && kit && kit.seededShuffle) {
+        stones = kit.seededShuffle(stones, Date.now() % 99991);
+      }
+      stones.forEach(function (stone) {
+        if (path) path.appendChild(stone);
+      });
     }
 
     var next = document.getElementById('sp-next');

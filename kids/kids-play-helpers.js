@@ -445,18 +445,12 @@
 
   function verseWords(text, count) {
     var want = count || 5;
-    var PSALM23 = 'The Lord is my shepherd I shall not want He maketh me to lie down in green pastures He leadeth me beside the still waters';
     function split(s) {
       return String(s || '').replace(/[;:,.!?]/g, ' ').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
     }
     var words = split(text);
-    var extra = split(PSALM23);
-    var i = 0;
-    while (words.length < want && extra.length) {
-      var w = extra[i % extra.length];
-      if (words[words.length - 1] !== w) words.push(w);
-      i += 1;
-      if (i > 80) break;
+    if (!words.length) {
+      return split('The Lord is my shepherd I shall not want').slice(0, want);
     }
     return words.slice(0, want);
   }

@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260902verse1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260902deep1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -89,7 +89,7 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260902verse1"></script>
+  <script src="kids-play-helpers.js?v=20260902deep1"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -194,9 +194,10 @@
       }
       var v = dailyVerse();
       currentVerse = v;
-      if (kjvText) kjvText.textContent = v.text;
       if (kjvRef) kjvRef.textContent = v.ref + ' (KJV)';
       if (teach) teach.textContent = 'Tap the next word of this verse.';
+      if (kit && kit.fillVerseWalk && kjvText) kit.fillVerseWalk(kjvText, v.text, 0);
+      else if (kjvText) kjvText.textContent = v.text;
       var hearBox = document.getElementById('sp-kjv-box');
       if (hearBox && kit && kit.fillHearButton) {
         kit.fillHearButton(hearBox, { plain: '', kjv: v.text, shortKjv: v.text });
@@ -230,6 +231,9 @@
               expect += 1;
               placeWalker(b);
               markNext();
+              if (kit && kit.fillVerseWalk && kjvText) {
+                kit.fillVerseWalk(kjvText, currentVerse.text, expect > useN ? 999 : expect - 1);
+              }
               if (expect > useN) {
                 if (st) st.textContent = 'You finished the path!';
                 if (path) path.classList.add('is-trail');

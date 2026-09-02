@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260902play2">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260902verse1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -42,7 +42,7 @@
         <p class="section-note topic-mood-porch kids-site-porch" lang="en">Short matches. Real KJV. No rush.</p>
         <div class="match-hero" data-kg-ico="⭐">
           <h1>Match the Verse</h1>
-          <p>Match the buddy pairs. Tap a <strong>character card</strong>, then the <strong>KJV line</strong>.</p>
+          <p>Match the buddy pairs. Tap a <strong>picture</strong>, then the <strong>KJV line</strong>.</p>
         </div>
         <p id="match-status" class="match-status" role="status" aria-live="polite">Pick a character card.</p>
         <div class="kg-buddy">
@@ -54,7 +54,7 @@
 
         <div class="match-board" id="match-board">
           <div class="match-col" aria-label="Kid phrases with characters">
-            <h2>Character · kid phrase</h2>
+            <h2>Picture · kid phrase</h2>
             <div id="match-plain" role="group"></div>
           </div>
           <div class="match-col" aria-label="KJV lines">
@@ -75,7 +75,7 @@
         </div>
         <details class="kg-how">
           <summary>How to play</summary>
-          <p>Match the buddy pairs. Tap a character card, then the KJV line. Learn a short truth each match.</p>
+          <p>Match the buddy pairs. Tap a picture, then the KJV line. Learn a short truth each match.</p>
           <div class="kg-sizes" role="group" aria-label="How big a game">
             <button type="button" data-kg-size="little">Little</button>
             <button type="button" data-kg-size="middle">Middle</button>
@@ -100,7 +100,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260902play1"></script>
+  <script src="kids-play-helpers.js?v=20260902verse1"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -119,7 +119,7 @@
       { id: 'p23', plain: 'God is my caring shepherd', short: 'God cares', shortKjv: 'The Lord is my shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', who: 'Shepherd', teach: 'Jesus cares for you the way a good shepherd cares for sheep.', story: 'psalm23Shepherd', color: 'good-shepherd', door: 'the Good Shepherd' },
       { id: 'kids', plain: 'Jesus says kids can come', short: 'Kids can come', shortKjv: 'Suffer the little children to come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', who: 'Jesus', teach: 'You are welcome with Jesus—kids matter to Him.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' },
       { id: 'strong', plain: 'Be brave—God is with you', short: 'Be brave', shortKjv: 'Be strong and of a good courage', kjv: 'Be strong and of a good courage; be not afraid.', ref: 'Joshua 1:9', icon: '🛡️', who: 'Joshua', teach: 'Courage means trusting God is with you, not that you never feel small.', story: 'joshuaJericho', color: 'jericho', door: 'Joshua' },
-      { id: 'love', plain: 'God loved the world', short: 'God loved us', shortKjv: 'God so loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', who: 'Love', teach: 'God’s love is a gift—Jesus came for us.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' },
+      { id: 'love', plain: 'God loved the world', short: 'God loved us', shortKjv: 'God so loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', who: 'Love', teach: 'God’s love is a gift—Jesus came for us.', story: 'jesusBirth', color: 'nativity', door: 'the birth of Jesus' },
       { id: 'light', plain: 'God’s Word shows the way', short: 'Word shows way', shortKjv: 'Thy word is a lamp', kjv: 'Thy word is a lamp unto my feet, and a light unto my path.', ref: 'Psalm 119:105', icon: '💡', who: 'Light', teach: 'Reading the Bible helps us know the next right step.' },
       { id: 'peace', plain: 'Jesus can calm the storm', short: 'Storm, be still', shortKjv: 'Peace, be still', kjv: 'Peace, be still. And the wind ceased, and there was a great calm.', ref: 'Mark 4:39', icon: '🌊', who: 'Jesus', teach: 'When life feels stormy, Jesus still speaks peace.', story: 'jesusCalmsStorm', color: 'jesus-storm', door: 'Jesus calms the storm' }
     ];
@@ -273,10 +273,6 @@
       b.setAttribute('data-pair', p.id);
       b.setAttribute('data-side', side);
       b.setAttribute('aria-pressed', 'false');
-      var av = document.createElement('span');
-      av.className = 'match-avatar';
-      av.setAttribute('aria-hidden', 'true');
-      av.textContent = p.icon || '📖';
       var body = document.createElement('span');
       body.className = 'match-btn-body';
       var who = document.createElement('span');
@@ -287,7 +283,25 @@
         ? (kit && kit.facePlain ? kit.facePlain(p, playSize) : p.plain)
         : (kit && kit.faceKjv ? kit.faceKjv(p, playSize) : p.kjv);
       body.appendChild(document.createTextNode(line));
-      b.appendChild(av);
+      if (side === 'plain') {
+        var av = document.createElement('span');
+        av.className = 'match-avatar';
+        av.setAttribute('aria-hidden', 'true');
+        var art = kit && kit.pairArt ? kit.pairArt(p) : null;
+        if (art && art.src) {
+          if (art.mascot) av.classList.add('is-mascot');
+          var img = document.createElement('img');
+          img.src = art.src;
+          img.alt = '';
+          img.width = 72;
+          img.height = 72;
+          img.decoding = 'async';
+          av.appendChild(img);
+        } else {
+          av.textContent = p.icon || '📖';
+        }
+        b.appendChild(av);
+      }
       b.appendChild(body);
       return b;
     }

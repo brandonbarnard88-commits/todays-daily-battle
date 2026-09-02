@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260902play2">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260902verse1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -40,7 +40,7 @@
         <p class="section-note topic-mood-porch kids-site-porch" lang="en">Flip two cards. Match a kid line to a KJV line.</p>
         <div class="mf-hero" data-kg-ico="🃏">
           <h1>Memory flock</h1>
-          <p>Tap a card, then its pair—<strong>character phrase</strong> to <strong>KJV line</strong>.</p>
+          <p>Flip a <strong>picture</strong>, then the <strong>KJV line</strong> that belongs with it.</p>
         </div>
         <p id="mf-st" class="mf-st" role="status">Find two that go together—tap a card!</p>
         <div class="kg-buddy">
@@ -60,7 +60,7 @@
         </p>
         <details class="kg-how">
           <summary>How to play</summary>
-          <p>Tap a card, then its pair—character phrase to KJV line.</p>
+          <p>Flip a picture, then the KJV line that belongs with it.</p>
           <div class="kg-sizes" role="group" aria-label="How big a game">
             <button type="button" data-kg-size="little">Little</button>
             <button type="button" data-kg-size="middle">Middle</button>
@@ -79,7 +79,7 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260902play1"></script>
+  <script src="kids-play-helpers.js?v=20260902verse1"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -96,7 +96,7 @@
       { id: 'p23', plain: 'God is my caring shepherd', short: 'God cares', shortKjv: 'The Lord is my shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', teach: 'Jesus cares for you the way a good shepherd cares for sheep.', story: 'psalm23Shepherd', color: 'good-shepherd', door: 'the Good Shepherd' },
       { id: 'kids', plain: 'Jesus says kids can come', short: 'Kids can come', shortKjv: 'Suffer the little children to come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', teach: 'You are welcome with Jesus—kids matter to Him.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' },
       { id: 'strong', plain: 'Be brave—God is with you', short: 'Be brave', shortKjv: 'Be strong and of a good courage', kjv: 'Be strong and of a good courage; be not afraid.', ref: 'Joshua 1:9', icon: '🛡️', teach: 'Courage means trusting God is with you.', story: 'joshuaJericho', color: 'jericho', door: 'Joshua' },
-      { id: 'love', plain: 'God loved the world', short: 'God loved us', shortKjv: 'God so loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', teach: 'God’s love is a gift—Jesus came for us.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' }
+      { id: 'love', plain: 'God loved the world', short: 'God loved us', shortKjv: 'God so loved the world', kjv: 'For God so loved the world, that he gave his only begotten Son.', ref: 'John 3:16', icon: '❤️', teach: 'God’s love is a gift—Jesus came for us.', story: 'jesusBirth', color: 'nativity', door: 'the birth of Jesus' }
     ];
     var peekTimer = null;
     var board = document.getElementById('mf-board');
@@ -157,10 +157,15 @@
       });
       var cards = [];
       usePairs.forEach(function (p) {
-        var kid = kit && kit.facePlain ? kit.facePlain(p, playSize) : p.plain;
         var verse = kit && kit.faceKjv ? kit.faceKjv(p, playSize) : p.kjv;
-        cards.push({ pair: p.id, text: (p.icon || '📖') + ' ' + kid, kind: 'plain' });
-        cards.push({ pair: p.id, text: verse, kind: 'kjv' });
+        var art = kit && kit.pairArt ? kit.pairArt(p) : null;
+        cards.push({
+          pair: p.id,
+          kind: 'pic',
+          text: kit && kit.facePlain ? kit.facePlain(p, playSize) : p.plain,
+          art: art
+        });
+        cards.push({ pair: p.id, kind: 'kjv', text: verse });
       });
       cards = kit && kit.seededShuffle ? kit.seededShuffle(cards, Date.now() % 99991) : cards;
       function faceDown(card) {
@@ -173,16 +178,33 @@
       function faceUp(card) {
         if (!card) return;
         card.setAttribute('aria-pressed', 'true');
-        card.textContent = card.getAttribute('data-text') || '';
-        card.setAttribute('aria-label', card.getAttribute('data-text') || 'Card');
+        card.textContent = '';
+        var artSrc = card.getAttribute('data-art');
+        if (artSrc) {
+          var img = document.createElement('img');
+          img.src = artSrc;
+          img.alt = card.getAttribute('data-text') || '';
+          img.width = 120;
+          img.height = 120;
+          img.decoding = 'async';
+          card.appendChild(img);
+          card.setAttribute('aria-label', card.getAttribute('data-text') || 'Picture');
+        } else {
+          card.textContent = card.getAttribute('data-text') || '';
+          card.setAttribute('aria-label', card.getAttribute('data-text') || 'KJV line');
+        }
       }
       cards.forEach(function (c) {
         var b = document.createElement('button');
         b.type = 'button';
-        b.className = 'mf-card';
+        b.className = 'mf-card' + (c.kind === 'pic' ? ' mf-pic' : '');
         b.setAttribute('data-pair', c.pair);
         b.setAttribute('aria-pressed', 'false');
-        b.setAttribute('data-text', c.text);
+        b.setAttribute('data-text', c.text || '');
+        if (c.kind === 'pic' && c.art && c.art.src) {
+          b.setAttribute('data-art', c.art.src);
+          if (c.art.mascot) b.classList.add('is-mascot');
+        }
         b.setAttribute('aria-label', 'Face-down card');
         b.textContent = '';
         b.addEventListener('click', function () {
@@ -191,7 +213,11 @@
           if (!first) {
             first = b;
             missStreak = 0;
-            if (st) st.textContent = 'Pick the matching line.';
+            if (st) {
+              st.textContent = b.getAttribute('data-art')
+                ? 'Now the KJV line that belongs with this picture.'
+                : 'Now the picture that belongs with this line.';
+            }
             return;
           }
           if (first === b) return;
@@ -296,7 +322,7 @@
         lock = true;
         var peekCards = [].slice.call(board.querySelectorAll('.mf-card'));
         peekCards.forEach(function (card) {
-          card.textContent = card.getAttribute('data-text') || '';
+          faceUp(card);
           card.classList.add('is-peek');
         });
         if (st) st.textContent = 'Peek… then remember.';

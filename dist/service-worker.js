@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260902kids2';
+const CACHE_NAME = 'tdb-cache-v20260902play1';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -832,6 +832,44 @@ self.addEventListener('fetch', (event) => {
               if (hit && !hit.redirected) return hit;
               return cache.match('/kids/index.html').then(function (idx) {
                 return (idx && !idx.redirected) ? idx : cache.match(OFFLINE_URL);
+              });
+            });
+          });
+        })
+    );
+    return;
+  }
+
+  /* Kids play HTML must be network-first so game copy cannot stick in SW cache. */
+  if (
+    event.request.mode === 'navigate' &&
+    (
+      url.pathname === '/kids/match-buddies.html' ||
+      url.pathname === '/kids/lost-sheep.html' ||
+      url.pathname === '/kids/memory-flock.html' ||
+      url.pathname === '/kids/shepherds-path.html'
+    )
+  ) {
+    event.respondWith(
+      fetch(event.request)
+        .then(function (res) {
+          if (res && res.ok && !res.redirected) {
+            var clone = res.clone();
+            caches.open(CACHE_NAME).then(function (cache) {
+              cache.put(event.request, clone).catch(function () {});
+              try {
+                cache.put(url.pathname, res.clone()).catch(function () {});
+              } catch (_ePlay) {}
+            });
+          }
+          return res;
+        })
+        .catch(function () {
+          return caches.open(CACHE_NAME).then(function (cache) {
+            return cache.match(event.request).then(function (hit) {
+              if (hit && !hit.redirected) return hit;
+              return cache.match(url.pathname).then(function (pathHit) {
+                return (pathHit && !pathHit.redirected) ? pathHit : cache.match(OFFLINE_URL);
               });
             });
           });

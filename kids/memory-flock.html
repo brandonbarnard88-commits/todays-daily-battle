@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://todaysdailybattle.com/kids/memory-flock.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Memory flock • Kids</title>
-  <meta name="description" content="Flip cards to match character phrases with KJV lines. Daily mix, teach tips, device scores.">
+  <meta name="description" content="Flip cards to match a kid line with a KJV line. Short rounds, real verses, no rush.">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="preload" href="../styles.css?v=20260816-brightgold" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260816-brightgold">
@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-together">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260902play2">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -29,26 +29,18 @@
       </div>
       <nav class="kids-header-nav" aria-label="Kids navigation">
         <a href="/kids/">Kids home</a>
-        <a href="corner.html">Stories</a>
+        <a href="corner.html?choose=1">Stories</a>
       </nav>
     </header>
     <main class="app-content" id="main" role="main">
       <div class="content-inner mf-page">
-        <div class="kg-sizes" role="group" aria-label="How big a game">
-          <button type="button" data-kg-size="little">Little</button>
-          <button type="button" data-kg-size="middle">Middle</button>
-          <button type="button" data-kg-size="bigger">Bigger</button>
-        </div>
         <div class="mf-hud">
-          <span id="mf-hud-left">Today’s flock</span>
-          <span class="kg-mix" id="kg-mix-name"></span>
-          <span class="kg-seal" id="kg-seal" hidden>3-day seal</span>
-          <span id="mf-hud-right">This device: —</span>
+          <span id="mf-hud-left">Round 1</span>
         </div>
-        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Flip, match, remember—KJV lines stick when we play.</p>
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Flip two cards. Match a kid line to a KJV line.</p>
         <div class="mf-hero" data-kg-ico="🃏">
-          <h1>Harder memory mode</h1>
-          <p>Tap a card, then its pair—<strong>character phrase</strong> to <strong>KJV line</strong>. A short Remember tip appears each time you match.</p>
+          <h1>Memory flock</h1>
+          <p>Tap a card, then its pair—<strong>character phrase</strong> to <strong>KJV line</strong>.</p>
         </div>
         <p id="mf-st" class="mf-st" role="status">Find two that go together—tap a card!</p>
         <div class="kg-buddy">
@@ -63,12 +55,17 @@
         <p id="mf-win" class="section-note" style="text-align:center;margin:0.75rem 0;font-weight:800;color:#14532d" hidden>All pairs found!</p>
         <p class="kg-next-doors" id="kg-next-doors"></p>
         <p style="text-align:center">
-          <button type="button" id="mf-next" class="mf-again">Next round (harder)</button>
+          <button type="button" id="mf-next" class="mf-again">Next round</button>
           <button type="button" id="mf-again" class="mf-again">Play again (same size)</button>
         </p>
         <details class="kg-how">
           <summary>How to play</summary>
           <p>Tap a card, then its pair—character phrase to KJV line.</p>
+          <div class="kg-sizes" role="group" aria-label="How big a game">
+            <button type="button" data-kg-size="little">Little</button>
+            <button type="button" data-kg-size="middle">Middle</button>
+            <button type="button" data-kg-size="bigger">Bigger</button>
+          </div>
         </details>
         <nav class="kg-more" aria-label="More games">
           <p>
@@ -82,7 +79,7 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-together"></script>
+  <script src="kids-play-helpers.js?v=20260902play1"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -166,6 +163,19 @@
         cards.push({ pair: p.id, text: verse, kind: 'kjv' });
       });
       cards = kit && kit.seededShuffle ? kit.seededShuffle(cards, Date.now() % 99991) : cards;
+      function faceDown(card) {
+        if (!card) return;
+        card.setAttribute('aria-pressed', 'false');
+        card.textContent = '';
+        card.classList.remove('is-peek', 'mf-wrong');
+        card.setAttribute('aria-label', 'Face-down card');
+      }
+      function faceUp(card) {
+        if (!card) return;
+        card.setAttribute('aria-pressed', 'true');
+        card.textContent = card.getAttribute('data-text') || '';
+        card.setAttribute('aria-label', card.getAttribute('data-text') || 'Card');
+      }
       cards.forEach(function (c) {
         var b = document.createElement('button');
         b.type = 'button';
@@ -173,11 +183,11 @@
         b.setAttribute('data-pair', c.pair);
         b.setAttribute('aria-pressed', 'false');
         b.setAttribute('data-text', c.text);
-        b.textContent = '?';
+        b.setAttribute('aria-label', 'Face-down card');
+        b.textContent = '';
         b.addEventListener('click', function () {
           if (lock || b.getAttribute('aria-pressed') === 'true' || b.classList.contains('mf-match')) return;
-          b.setAttribute('aria-pressed', 'true');
-          b.textContent = b.getAttribute('data-text') || '';
+          faceUp(b);
           if (!first) {
             first = b;
             missStreak = 0;
@@ -228,8 +238,8 @@
               if (nextBtnWin) {
                 nextBtnWin.classList.add('show');
                 nextBtnWin.textContent = roundIndex + 1 < ((kit && kit.sizeConfig(playSize).pairRounds) || [4]).length
-                  ? 'Next round (harder)'
-                  : 'Play a new mix';
+                  ? 'Next round'
+                  : 'Play again';
               }
               paintHud();
               if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
@@ -270,10 +280,11 @@
             if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
               try { window.tdbLittleShepherd.notify('wrongMatch'); } catch (e4) {}
             }
+            var prev = first;
+            first = null;
             setTimeout(function () {
-              b.classList.remove('mf-wrong');
-              b.setAttribute('aria-pressed', 'false');
-              b.textContent = '?';
+              faceDown(b);
+              faceDown(prev);
               lock = false;
             }, 700);
           }
@@ -285,16 +296,14 @@
         lock = true;
         var peekCards = [].slice.call(board.querySelectorAll('.mf-card'));
         peekCards.forEach(function (card) {
-          card.textContent = card.getAttribute('data-text') || '?';
+          card.textContent = card.getAttribute('data-text') || '';
           card.classList.add('is-peek');
         });
         if (st) st.textContent = 'Peek… then remember.';
         peekTimer = setTimeout(function () {
           peekCards.forEach(function (card) {
             if (!card.classList.contains('mf-match')) {
-              card.textContent = '?';
-              card.classList.remove('is-peek');
-              card.setAttribute('aria-pressed', 'false');
+              faceDown(card);
             }
           });
           lock = false;

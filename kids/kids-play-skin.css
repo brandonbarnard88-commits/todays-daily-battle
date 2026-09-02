@@ -54,10 +54,13 @@ body.kids-kiss-play-home .tdb-site-humility {
 }
 
 .kg-sizes {
-  display: flex;
+  display: none;
   justify-content: center;
   gap: 0.4rem;
-  margin: 0 0 0.65rem;
+  margin: 0.5rem 0 0.35rem;
+}
+.kg-how .kg-sizes {
+  display: flex;
 }
 .kg-sizes button {
   min-height: 40px !important;
@@ -76,22 +79,21 @@ body.kids-kiss-play-home .tdb-site-humility {
   color: #f2dc98 !important;
   border-color: #f2dc98;
 }
-.kg-seal {
-  display: none;
-  margin-left: 0.25rem;
-  padding: 0.1rem 0.5rem;
-  border-radius: 999px;
-  background: #f2dc98;
-  color: #0f172a !important;
-  font-size: 0.75rem;
-  font-weight: 800;
+.kg-seal,
+.kg-seal.on {
+  display: none !important;
 }
-.kg-seal.on { display: inline-block; }
-.kg-mix {
-  font-family: Nunito, system-ui, sans-serif;
-  font-weight: 800;
-  font-size: 0.82rem;
-  color: #f2dc98;
+.kg-mix,
+.match-score-pill,
+.match-daily,
+.match-best,
+#ls-best,
+#sp-best-label,
+#mf-hud-right,
+.kg-family-row,
+.kg-timer-row,
+.kg-timer-row.show {
+  display: none !important;
 }
 .kg-buddy {
   display: flex;
@@ -176,6 +178,12 @@ body.kids-kiss-play-home .tdb-site-humility {
   font-size: 2.4rem;
   line-height: 1;
   margin: 0 0 0.35rem;
+}
+.kg-carry-art img {
+  width: 88px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 .kg-carry p {
   margin: 0;
@@ -322,12 +330,7 @@ body.kids-mini-game .match-btn.kg-look,
 body.kids-mini-game .mf-card.kg-look {
   animation: kgLook 0.4s ease 2 !important;
 }
-body.kids-mini-game .kids-site-porch,
-body.kids-mini-game .match-hero,
-body.kids-mini-game .ls-hero,
-body.kids-mini-game .mf-hero,
-body.kids-mini-game .sp-hero,
-body.kids-mini-game .match-daily {
+body.kids-mini-game .kids-site-porch {
   display: none !important;
 }
 
@@ -732,8 +735,10 @@ body.kids-mini-game button.mf-card,
   box-shadow: 3px 3px 0 rgba(49, 46, 129, 0.35);
 }
 .mf-card[aria-pressed="false"] {
-  color: #f2dc98 !important;
-  background: linear-gradient(180deg, #6366f1, #3730a3);
+  color: transparent !important;
+  background:
+    url("shepherd-mascot-sit.png?v=20260820polish") center 62% / 58% auto no-repeat,
+    linear-gradient(180deg, #6366f1, #3730a3);
   border-color: #1e1b4b;
 }
 .mf-card[aria-pressed="true"],
@@ -782,9 +787,29 @@ body.kids-mini-game button.ls-tile,
   cursor: pointer;
   box-shadow: 0 3px 0 #166534;
 }
-.ls-tile.reveal {
+.ls-tile::after {
+  content: "🌿";
+  display: block;
+  font-size: 1.45rem;
+  line-height: 1;
+  filter: grayscale(0.15);
+}
+.ls-tile.reveal::after { display: none; }
+.ls-tile.is-miss {
+  opacity: 0.45;
+  pointer-events: none;
+  background: linear-gradient(180deg, #86efac, #22c55e);
+}
+.ls-tile.is-found {
   background: linear-gradient(180deg, #fef9c3, #fbbf24);
   border-color: #b45309;
+}
+.ls-tile.is-found img {
+  width: 44px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  pointer-events: none;
 }
 
 /* —— Shepherd's Path —— */

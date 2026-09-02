@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Match the Verse • Kids • Today&rsquo;s Daily Battle</title>
-  <meta name="description" content="Match kid phrases to KJV lines with character cards, daily verses, stars, and device-only high scores. Fun and educational.">
+  <meta name="description" content="Match kid phrases to KJV lines. Short rounds, real verses, no rush.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids/match-buddies.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-together">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260902play2">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -30,32 +30,20 @@
       </div>
       <nav class="kids-header-nav" aria-label="Kids navigation">
         <a href="/kids/">Kids home</a>
-        <a href="corner.html">Stories</a>
+        <a href="corner.html?choose=1">Stories</a>
       </nav>
     </header>
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner match-page">
-        <div class="kg-sizes" role="group" aria-label="How big a game">
-          <button type="button" data-kg-size="little">Little</button>
-          <button type="button" data-kg-size="middle">Middle</button>
-          <button type="button" data-kg-size="bigger">Bigger</button>
-        </div>
         <div class="match-hud" aria-label="Round progress">
           <span class="match-hud-round" id="match-round-label">Round 1</span>
-          <span class="kg-mix" id="kg-mix-name">Today&rsquo;s mix</span>
-          <span class="kg-seal" id="kg-seal" hidden>3-day seal</span>
-          <span class="match-score-pill" id="match-score-pill" title="Saved on this device only">This device: —</span>
           <div class="match-stars" id="match-stars" role="img" aria-label="Pairs found"></div>
         </div>
-        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Fun + God&rsquo;s Word—short matches, real KJV. No rush.</p>
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Short matches. Real KJV. No rush.</p>
         <div class="match-hero" data-kg-ico="⭐">
-          <h1>Match verse friends</h1>
+          <h1>Match the Verse</h1>
           <p>Match the buddy pairs. Tap a <strong>character card</strong>, then the <strong>KJV line</strong>.</p>
         </div>
-        <p class="match-daily" id="match-daily-note">Today&rsquo;s mix includes verses from the kids 365 list when available.</p>
-        <label class="kg-family-row">
-          <input type="checkbox" id="kg-family-turn"> Family turn — I read the KJV, you tap the buddy
-        </label>
         <p id="match-status" class="match-status" role="status" aria-live="polite">Pick a character card.</p>
         <div class="kg-buddy">
           <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a line">
@@ -81,23 +69,23 @@
           <div class="kg-next-doors" id="kg-next-doors"></div>
           <div class="kg-verse-friends" id="kg-verse-friends"></div>
           <div class="match-actions">
-            <button type="button" class="match-next" id="match-next-round">Next round (harder)</button>
+            <button type="button" class="match-next" id="match-next-round">Next round</button>
             <button type="button" id="match-shuffle">Play again (same level)</button>
           </div>
         </div>
-        <label class="kg-timer-row" id="kg-timer-row">
-          <input type="checkbox" id="kg-timer"> Race the clock
-          <span id="kg-timer-face"></span>
-        </label>
         <details class="kg-how">
           <summary>How to play</summary>
           <p>Match the buddy pairs. Tap a character card, then the KJV line. Learn a short truth each match.</p>
+          <div class="kg-sizes" role="group" aria-label="How big a game">
+            <button type="button" data-kg-size="little">Little</button>
+            <button type="button" data-kg-size="middle">Middle</button>
+            <button type="button" data-kg-size="bigger">Bigger</button>
+          </div>
           <label class="match-sound-row">
             <input type="checkbox" id="match-sound" checked>
             Soft game sounds (this tab only)
           </label>
         </details>
-        <p class="match-best" id="match-best-line">Scores stay on this device only—no public leaderboard.</p>
 
         <nav class="kg-more" aria-label="More games">
           <p>
@@ -112,7 +100,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-together"></script>
+  <script src="kids-play-helpers.js?v=20260902play1"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -127,7 +115,6 @@
 
     var kit = window.tdbKidsGameKit;
     var playSize = kit && kit.getSize ? kit.getSize() : 'middle';
-    var timerId = null;
     var FALLBACK_PAIRS = [
       { id: 'p23', plain: 'God is my caring shepherd', short: 'God cares', shortKjv: 'The Lord is my shepherd', kjv: 'The Lord is my shepherd; I shall not want.', ref: 'Psalm 23:1', icon: '🐑', who: 'Shepherd', teach: 'Jesus cares for you the way a good shepherd cares for sheep.', story: 'psalm23Shepherd', color: 'good-shepherd', door: 'the Good Shepherd' },
       { id: 'kids', plain: 'Jesus says kids can come', short: 'Kids can come', shortKjv: 'Suffer the little children to come', kjv: 'Suffer the little children to come unto me.', ref: 'Mark 10:14', icon: '⭐', who: 'Jesus', teach: 'You are welcome with Jesus—kids matter to Him.', story: 'jesusBlessKids', color: 'jesus-children', door: 'Jesus and the children' },
@@ -348,16 +335,7 @@
       shuffle(pairsThisRound).forEach(function (p) { plainEl.appendChild(makeBtn(p, 'plain')); });
       unalign(pairsThisRound, pairIds([].slice.call(plainEl.children), 'data-pair'), function (p) { return p.id; })
         .forEach(function (p) { kjvEl.appendChild(makeBtn(p, 'kjv')); });
-      var timerRow = document.getElementById('kg-timer-row');
-      var cfg = kit && kit.sizeConfig ? kit.sizeConfig(playSize) : {};
-      if (timerRow) timerRow.classList.toggle('show', !!cfg.timer);
       beep(520, 0.08);
-    }
-
-    function setStatus(msg, kind) {
-      if (!statusEl) return;
-      statusEl.textContent = msg;
-      statusEl.className = 'match-status' + (kind ? ' ' + kind : '');
     }
 
     function celebrateWin() {
@@ -403,7 +381,7 @@
       }
       var nextBtn = document.getElementById('match-next-round');
       if (nextBtn) {
-        nextBtn.textContent = roundIndex + 1 < pairRounds().length ? 'Next round (harder)' : 'Play a new daily mix';
+        nextBtn.textContent = roundIndex + 1 < pairRounds().length ? 'Next round' : 'Play again';
       }
     }
 
@@ -502,12 +480,6 @@
       }
     }
 
-    function clearPressed() {
-      [].forEach.call(document.querySelectorAll('.match-btn[aria-pressed="true"]'), function (b) {
-        b.setAttribute('aria-pressed', 'false');
-      });
-    }
-
     var board = document.getElementById('match-board');
     if (board) board.addEventListener('click', onBoardClick);
     var sh = document.getElementById('match-shuffle');
@@ -526,31 +498,6 @@
         playSize = next;
         roundIndex = 0;
         render();
-      });
-    }
-    if (kit && kit.bindFamilyTurn) {
-      familyOn = kit.bindFamilyTurn(function (on) {
-        familyOn = on;
-        if (!firstPick) setStatus(startPrompt(), '');
-      });
-    }
-    var timerBox = document.getElementById('kg-timer');
-    var timerFace = document.getElementById('kg-timer-face');
-    if (timerBox) {
-      timerBox.addEventListener('change', function () {
-        if (timerId) { clearInterval(timerId); timerId = null; }
-        if (!timerBox.checked) { if (timerFace) timerFace.textContent = ''; return; }
-        var left = 90;
-        if (timerFace) timerFace.textContent = '90s';
-        timerId = setInterval(function () {
-          left -= 1;
-          if (timerFace) timerFace.textContent = left + 's';
-          if (left <= 0) {
-            clearInterval(timerId);
-            timerId = null;
-            setStatus('Time’s up—try again, no rush.', 'try');
-          }
-        }, 1000);
       });
     }
     render();

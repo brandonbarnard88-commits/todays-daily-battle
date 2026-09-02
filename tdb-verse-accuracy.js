@@ -216,6 +216,13 @@
     "allowFlags": ""
   },
   {
+    "id": "ps103-east-west-on-opening",
+    "re": "forgives all iniquity, heals, and removes transgressions as far as the east is from the west",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
     "id": "luke-10-19-mash",
     "re": "On the road to Jerusalem: Good Samaritan|Good Samaritan,.+lost sheep\\/coin\\/son",
     "flags": "i",

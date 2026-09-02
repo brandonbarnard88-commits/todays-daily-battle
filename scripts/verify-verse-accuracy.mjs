@@ -394,6 +394,16 @@ function auditRegressionLocks() {
       sit: 'A king’s vow of integrity; an afflicted cry that becomes hope; David blesses the Lord who forgives and crowns with mercy.',
       bad: true
     },
+    {
+      ref: 'Psalm 103:1',
+      sit: 'David blesses the Lord who forgives all iniquity, heals, and removes transgressions as far as the east is from the west.',
+      bad: true
+    },
+    {
+      ref: 'Psalm 103:1',
+      sit: 'David opens this psalm by commanding his own soul: Bless the Lord, O my soul, and all that is within me, bless His holy name.',
+      bad: false
+    },
     { ref: '1 John 4:7', about: 'Solomon', bad: true },
     { ref: '1 John 4:7', about: 'David', bad: true },
     { ref: '1 John 4:7', about: 'Paul', bad: true },

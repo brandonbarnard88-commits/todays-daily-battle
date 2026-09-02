@@ -972,6 +972,115 @@ body.kids-mini-game button.sp-stone,
   filter: drop-shadow(1px 2px 0 rgba(15, 23, 42, 0.25));
 }
 .sp-teach { font-size: 0.9rem; font-weight: 600; color: #334155; margin: 0.35rem 0 0; }
+.sp-w {
+  opacity: 0.38;
+  color: #0f172a;
+}
+.sp-w.is-now {
+  opacity: 1;
+  color: #b45309;
+  box-shadow: 0 2px 0 #f2dc98;
+}
+.sp-w.is-walked {
+  opacity: 1;
+  color: #14532d;
+  font-weight: 800;
+}
+.kg-full-kjv,
+.kg-kept-item blockquote {
+  margin: 0 0 0.35rem;
+  padding: 0;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  color: #fff8dc !important;
+}
+.kg-kept-item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 0.55rem 0.7rem;
+  align-items: start;
+  margin: 0 0 0.65rem;
+  padding: 0.55rem 0 0.55rem;
+  border-bottom: 2px dashed rgba(217, 119, 6, 0.35);
+}
+.kg-kept-item:last-child { border-bottom: 0; margin-bottom: 0; }
+.kg-kept-item img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #0f172a;
+  background: #fffef8;
+}
+.kg-kept-item.is-mascot img { object-fit: contain; }
+.kg-kept-item blockquote {
+  grid-column: 2;
+  color: #0f172a !important;
+  font-size: 0.95rem;
+}
+.kg-kept-item cite {
+  grid-column: 2;
+  font-style: normal;
+  font-weight: 800;
+  color: #b45309;
+  font-size: 0.82rem;
+}
+.match-teach .kg-full-kjv,
+.mf-teach .kg-full-kjv {
+  color: #fff8dc !important;
+}
+.match-teach cite,
+.mf-teach cite {
+  display: block;
+  margin: 0.2rem 0 0.45rem;
+  font-style: normal;
+  color: #fde68a;
+}
+.ls-home {
+  display: none;
+  margin: 0.75rem 0 0;
+  padding: 0.75rem 0.8rem;
+  border-radius: 18px;
+  background: #fffef8;
+  border: 3px solid #d97706;
+  text-align: center;
+}
+.ls-home.show { display: block; }
+.ls-home-prompt {
+  margin: 0 0 0.55rem;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  color: #0f172a !important;
+}
+.ls-friends {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.ls-friend {
+  min-height: 52px;
+  min-width: 6.5rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 14px;
+  border: 3px solid #d97706;
+  background: #fffbeb;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  color: #0f172a !important;
+  cursor: pointer;
+}
+.ls-friend.is-in {
+  border-color: #16a34a;
+  background: #dcfce7;
+  pointer-events: none;
+}
+body.ls-at-home .ls-grid {
+  opacity: 0.45;
+  pointer-events: none;
+}
 
 /* —— Kids home Play cards —— */
 .kids-easy-games h2 {

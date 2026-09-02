@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260902verse1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260902deep1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -64,10 +64,10 @@
         </div>
 
         <div id="match-teach" class="match-teach" role="status" aria-live="polite"></div>
+        <div class="kg-verse-friends" id="kg-verse-friends"></div>
         <div id="match-win" class="match-win" hidden>
           <p id="match-win-line"></p>
           <div class="kg-next-doors" id="kg-next-doors"></div>
-          <div class="kg-verse-friends" id="kg-verse-friends"></div>
           <div class="match-actions">
             <button type="button" class="match-next" id="match-next-round">Next round</button>
             <button type="button" id="match-shuffle">Play again (same level)</button>
@@ -100,7 +100,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260902verse1"></script>
+  <script src="kids-play-helpers.js?v=20260902deep1"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -213,17 +213,37 @@
 
     function showTeach(pair) {
       if (!teachEl || !pair) return;
-      teachEl.innerHTML =
-        '<strong>Remember:</strong> ' + (pair.teach || 'God’s Word is true.') +
-        (pair.ref ? '<cite>' + pair.ref + ' (KJV)</cite>' : '');
+      teachEl.textContent = '';
+      if (pair.kjv) {
+        var q = document.createElement('blockquote');
+        q.className = 'kg-full-kjv';
+        q.textContent = pair.kjv;
+        teachEl.appendChild(q);
+      }
+      if (pair.ref) {
+        var c = document.createElement('cite');
+        c.textContent = pair.ref + ' (KJV)';
+        teachEl.appendChild(c);
+      }
+      var rem = document.createElement('p');
+      rem.className = 'kg-remember';
+      var stg = document.createElement('strong');
+      stg.textContent = 'Remember: ';
+      rem.appendChild(stg);
+      rem.appendChild(document.createTextNode(pair.teach || "God's Word is true."));
+      teachEl.appendChild(rem);
       teachEl.classList.add('show');
-      if (kit && kit.fillHearButton) kit.fillHearButton(teachEl, pair);
+      if (kit && kit.fillHearButton) {
+        kit.fillHearButton(teachEl, pair);
+        var hearBtn = teachEl.querySelector('.kg-hear-pair');
+        if (hearBtn) hearBtn.textContent = 'Hear this verse';
+      }
     }
 
     function startPrompt() {
       return familyOn
         ? 'Grown-up: tap a KJV line and read it out loud.'
-        : 'Pick a character card.';
+        : 'Pick a picture.';
     }
 
     function paintStars() {
@@ -334,7 +354,7 @@
       var mixEl = document.getElementById('kg-mix-name');
       if (mixEl && kit && kit.mixName) mixEl.textContent = kit.mixName(pairsThisRound);
       var friends = document.getElementById('kg-verse-friends');
-      if (friends) { friends.classList.remove('show'); friends.textContent = ''; }
+      if (friends) { friends.classList.remove('show'); friends.textContent = ''; friends.hidden = true; }
       winEl.classList.remove('show');
       winEl.hidden = true;
       document.body.classList.remove('is-little', 'is-middle', 'is-bigger', 'is-won');
@@ -365,21 +385,6 @@
       winEl.classList.add('show');
       winEl.hidden = false;
       document.body.classList.add('is-won');
-      var friends = document.getElementById('kg-verse-friends');
-      if (friends) {
-        friends.textContent = '';
-        var fh = document.createElement('h3');
-        fh.textContent = 'Your verse friends';
-        friends.appendChild(fh);
-        var ul = document.createElement('ul');
-        pairsThisRound.forEach(function (p) {
-          var li = document.createElement('li');
-          li.textContent = (p.icon ? p.icon + ' ' : '') + p.plain + (p.ref ? ' — ' + p.ref : '');
-          ul.appendChild(li);
-        });
-        friends.appendChild(ul);
-        friends.classList.add('show');
-      }
       if (kit && kit.fillWinDoors) kit.fillWinDoors(document.getElementById('kg-next-doors'), pairsThisRound);
       if (kit) kit.recordScore('match', { pairs: pairsThisRound.length, wins: 1, round: roundIndex + 1 });
       paintScores();
@@ -441,13 +446,14 @@
         matched[a] = true;
         paintStars();
         showTeach(pairMap[a]);
+        if (kit && kit.appendKeptVerse) kit.appendKeptVerse(document.getElementById('kg-verse-friends'), pairMap[a]);
         beep(720, 0.1, 'triangle');
         if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
           try { window.tdbLittleShepherd.notify('pairFound'); } catch (eP) {}
         }
         if (Object.keys(matched).length === pairsThisRound.length) celebrateWin();
         else {
-          setStatus('Yes! Tap Hear this pair if you want—then next pair. ⭐', 'good');
+          setStatus('Read this verse—then the next pair.', 'good');
           function leftoverBtns(el) {
             if (!el) return [];
             return [].slice.call(el.children).filter(function (n) {

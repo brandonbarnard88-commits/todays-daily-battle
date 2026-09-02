@@ -462,6 +462,61 @@
     container.appendChild(b);
   }
 
+  function fillVerseWalk(el, text, walkedCount) {
+    if (!el) return;
+    el.textContent = '';
+    var walked = walkedCount || 0;
+    var tokens = String(text || '').split(/(\s+)/);
+    var wordI = 0;
+    var i;
+    for (i = 0; i < tokens.length; i++) {
+      var tok = tokens[i];
+      if (!tok) continue;
+      if (/^\s+$/.test(tok)) {
+        el.appendChild(document.createTextNode(tok));
+        continue;
+      }
+      wordI += 1;
+      var sp = document.createElement('span');
+      sp.className = 'sp-w' + (wordI <= walked ? ' is-walked' : (wordI === walked + 1 ? ' is-now' : ''));
+      sp.textContent = tok;
+      el.appendChild(sp);
+    }
+  }
+
+  function appendKeptVerse(el, pair) {
+    if (!el || !pair) return;
+    el.hidden = false;
+    el.classList.add('show');
+    if (!el.querySelector('h3')) {
+      var h = document.createElement('h3');
+      h.textContent = 'These verses';
+      el.appendChild(h);
+    }
+    var item = document.createElement('article');
+    item.className = 'kg-kept-item';
+    var art = pairArt(pair);
+    if (art && art.src) {
+      var img = document.createElement('img');
+      img.src = art.src;
+      img.alt = pair.plain || '';
+      img.width = 72;
+      img.height = 72;
+      img.decoding = 'async';
+      if (art.mascot) item.classList.add('is-mascot');
+      item.appendChild(img);
+    }
+    var q = document.createElement('blockquote');
+    q.textContent = pair.kjv || pair.shortKjv || '';
+    item.appendChild(q);
+    if (pair.ref) {
+      var c = document.createElement('cite');
+      c.textContent = pair.ref + ' (KJV)';
+      item.appendChild(c);
+    }
+    el.appendChild(item);
+  }
+
   function verseWords(text, count) {
     var want = count || 5;
     function split(s) {
@@ -717,6 +772,8 @@
     speakPair: speakPair,
     fillHearButton: fillHearButton,
     verseWords: verseWords,
+    fillVerseWalk: fillVerseWalk,
+    appendKeptVerse: appendKeptVerse,
     getFamilyTurn: getFamilyTurn,
     setFamilyTurn: setFamilyTurn,
     bindFamilyTurn: bindFamilyTurn,

@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260902verse1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260902deep1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -79,7 +79,7 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260902verse1"></script>
+  <script src="kids-play-helpers.js?v=20260902deep1"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -135,6 +135,8 @@
       if (winEl) winEl.hidden = true;
       if (again) again.classList.remove('show');
       if (teach) { teach.classList.remove('show'); teach.textContent = ''; }
+      var kept = document.getElementById('kg-verse-friends');
+      if (kept) { kept.classList.remove('show'); kept.textContent = ''; kept.hidden = true; }
       if (st) st.textContent = 'Find two that go together—tap a card!';
       if (board) board.textContent = '';
       document.body.classList.remove('is-little', 'is-middle', 'is-bigger', 'is-won');
@@ -150,8 +152,6 @@
       if (mixEl && kit && kit.mixName) mixEl.textContent = kit.mixName(usePairs);
       var hudL = document.getElementById('mf-hud-left');
       if (hudL) hudL.textContent = 'Round ' + (roundIndex + 1) + ' · ' + usePairs.length + ' pairs';
-      var friends = document.getElementById('kg-verse-friends');
-      if (friends) { friends.classList.remove('show'); friends.textContent = ''; }
       usePairs.forEach(function (p) {
         pairTeach[p.id] = p;
       });
@@ -231,31 +231,37 @@
             missStreak = 0;
             var p = pairTeach[a];
             if (teach && p) {
-              teach.innerHTML = '<strong>Remember:</strong> ' + (p.teach || 'God’s Word is true.') +
-                (p.ref ? ' <span style="color:#64748b">(' + p.ref + ')</span>' : '');
+              teach.textContent = '';
+              if (p.kjv) {
+                var q = document.createElement('blockquote');
+                q.className = 'kg-full-kjv';
+                q.textContent = p.kjv;
+                teach.appendChild(q);
+              }
+              if (p.ref) {
+                var c = document.createElement('cite');
+                c.textContent = p.ref + ' (KJV)';
+                teach.appendChild(c);
+              }
+              var rem = document.createElement('p');
+              var stg = document.createElement('strong');
+              stg.textContent = 'Remember: ';
+              rem.appendChild(stg);
+              rem.appendChild(document.createTextNode(p.teach || "God's Word is true."));
+              teach.appendChild(rem);
               teach.classList.add('show');
-              if (kit && kit.fillHearButton) kit.fillHearButton(teach, p);
+              if (kit && kit.fillHearButton) {
+                kit.fillHearButton(teach, p);
+                var hearBtn = teach.querySelector('.kg-hear-pair');
+                if (hearBtn) hearBtn.textContent = 'Hear this verse';
+              }
             }
+            if (kit && kit.appendKeptVerse) kit.appendKeptVerse(document.getElementById('kg-verse-friends'), p);
             if (Object.keys(matched).length === usePairs.length) {
               winEl.hidden = false;
               if (again) again.classList.add('show');
               if (st) {
                 st.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin) ? tdbLittleShepherd.pickMatchWin() : 'You matched the flock!';
-              }
-              var box = document.getElementById('kg-verse-friends');
-              if (box) {
-                box.textContent = '';
-                var h3 = document.createElement('h3');
-                h3.textContent = 'Your verse friends';
-                box.appendChild(h3);
-                var ul = document.createElement('ul');
-                usePairs.forEach(function (p) {
-                  var li = document.createElement('li');
-                  li.textContent = (p.icon ? p.icon + ' ' : '') + p.plain + (p.ref ? ' — ' + p.ref : '');
-                  ul.appendChild(li);
-                });
-                box.appendChild(ul);
-                box.classList.add('show');
               }
               if (kit) kit.recordScore('memory', { pairs: usePairs.length, wins: 1 });
               if (kit && kit.fillWinDoors) kit.fillWinDoors(document.getElementById('kg-next-doors'), usePairs);
@@ -272,7 +278,7 @@
                 try { window.tdbLittleShepherd.notify('gameWin'); } catch (e3) {}
               }
             } else if (st) {
-              st.textContent = 'Nice! Read the tip—then keep going.';
+              st.textContent = 'Read this verse—then keep going.';
               if (board) {
                 var leftover = [].slice.call(board.children).filter(function (n) {
                   return n.classList && !n.classList.contains('mf-match') && n.getAttribute('aria-pressed') !== 'true';

@@ -74,47 +74,47 @@
     },
     {
       "source": "/campus",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
       "source": "/campus/",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
       "source": "/campus.html",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
       "source": "/start",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
       "source": "/start/",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
       "source": "/start.html",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
       "source": "/find-a-path",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
       "source": "/find-a-path/",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
       "source": "/find-a-path.html",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
@@ -339,17 +339,17 @@
     },
     {
       "source": "/site-guide",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
       "source": "/site-guide/",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
       "source": "/site-guide.html",
-      "destination": "/explore.html#start-here",
+      "destination": "/explore#start-here",
       "permanent": true
     },
     {
@@ -569,6 +569,16 @@
     },
     {
       "source": "/curriculum.html",
+      "destination": "/plans",
+      "permanent": true
+    },
+    {
+      "source": "/explore.html",
+      "destination": "/explore",
+      "permanent": true
+    },
+    {
+      "source": "/plans.html",
       "destination": "/plans",
       "permanent": true
     }

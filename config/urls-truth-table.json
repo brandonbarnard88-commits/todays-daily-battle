@@ -107,7 +107,7 @@
         "/site-guide.html"
       ],
       "redirect": {
-        "to": "/explore.html#start-here",
+        "to": "/explore#start-here",
         "status": 301
       }
     },
@@ -120,7 +120,7 @@
         "/campus.html"
       ],
       "redirect": {
-        "to": "/explore.html#start-here",
+        "to": "/explore#start-here",
         "status": 301
       }
     },
@@ -132,7 +132,7 @@
         "/start.html"
       ],
       "redirect": {
-        "to": "/explore.html#start-here",
+        "to": "/explore#start-here",
         "status": 301
       }
     },
@@ -144,7 +144,7 @@
         "/find-a-path.html"
       ],
       "redirect": {
-        "to": "/explore.html#start-here",
+        "to": "/explore#start-here",
         "status": 301
       }
     },
@@ -340,6 +340,28 @@
         "/curriculum",
         "/curriculum/",
         "/curriculum.html"
+      ],
+      "redirect": {
+        "to": "/plans",
+        "status": 301
+      }
+    },
+    {
+      "id": "explore-html-to-clean",
+      "note": "Same map as /explore; one spelling.",
+      "aliases": [
+        "/explore.html"
+      ],
+      "redirect": {
+        "to": "/explore",
+        "status": 301
+      }
+    },
+    {
+      "id": "plans-html-to-clean",
+      "note": "Same plans library as /plans; one spelling.",
+      "aliases": [
+        "/plans.html"
       ],
       "redirect": {
         "to": "/plans",

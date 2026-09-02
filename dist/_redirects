@@ -15,22 +15,22 @@
 /mystudy.html /mystudy 301
 
 # Campus / start / find-a-path → one Explore map (aliases kept as redirects)
-/campus /explore.html#start-here 301
-/campus/ /explore.html#start-here 301
-/campus.html /explore.html#start-here 301
-/start.html /explore.html#start-here 301
-/start /explore.html#start-here 301
-/start/ /explore.html#start-here 301
-/find-a-path /explore.html#start-here 301
-/find-a-path/ /explore.html#start-here 301
-/find-a-path.html /explore.html#start-here 301
+/campus /explore#start-here 301
+/campus/ /explore#start-here 301
+/campus.html /explore#start-here 301
+/start.html /explore#start-here 301
+/start /explore#start-here 301
+/start/ /explore#start-here 301
+/find-a-path /explore#start-here 301
+/find-a-path/ /explore#start-here 301
+/find-a-path.html /explore#start-here 301
 # Pastors alias → Pastor’s Study hub (Sermon is the real desk)
 /pastors / 301
 /pastors/ / 301
 # Site guide alias → Explore start-here (same door as campus/start/find-a-path)
-/site-guide /explore.html#start-here 301
-/site-guide/ /explore.html#start-here 301
-/site-guide.html /explore.html#start-here 301
+/site-guide /explore#start-here 301
+/site-guide/ /explore#start-here 301
+/site-guide.html /explore#start-here 301
 
 # Campus building clean URLs
 /bible-tool /bible-tool.html 200!
@@ -225,9 +225,10 @@
 /family-armor /family-armor.html 200!
 /family-armor/ /family-armor.html 200!
 
-# Battle Plans
+# Battle Plans (clean URL is canonical; .html 301s in)
 /plans /plans.html 200!
 /plans/ /plans.html 200!
+/plans.html /plans 301!
 /church-starter-pack /church-starter-pack.html 200!
 /church-starter-pack/ /church-starter-pack.html 200!
 
@@ -281,6 +282,7 @@
 /quiet-evening.html /plans 301!
 /explore /explore.html 200!
 /explore/ /explore.html 200!
+/explore.html /explore 301!
 /learn-the-word /learn-the-word.html 200!
 /learn-the-word/ /learn-the-word.html 200!
 /university /about.html 301!

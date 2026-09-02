@@ -5484,6 +5484,18 @@
     }
     .tdb-feel-plan-cta.hidden { display: none !important; }
     .tdb-feel-plan-cta .btn { min-height: 44px; }
+    .tdb-feel-topic-page-cta {
+      margin-top: 0.55rem;
+      text-align: center;
+    }
+    .tdb-feel-topic-page-cta.hidden { display: none !important; }
+    .tdb-feel-topic-page-cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      font-weight: 600;
+    }
     .tdb-search-next-step {
       margin-top: 0.85rem;
       padding: 0.72rem 0.82rem 0.8rem;

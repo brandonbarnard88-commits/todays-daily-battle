@@ -127,6 +127,14 @@
 /topic-worthless /topic-worthless.html 200!
 /topic-guilt /topic-guilt.html 200!
 /topic-overwhelmed /topic-overwhelmed.html 200!
+/topic-worry /topic-worry.html 200!
+/topic-trauma /topic-trauma.html 200!
+/topic-cancer /topic-cancer.html 200!
+/topic-addiction /topic-addiction.html 200!
+/topic-pain /topic-pain.html 200!
+/topic-caregiver /topic-caregiver.html 200!
+/topic-spiritual-warfare /topic-spiritual-warfare.html 200!
+/topic-depression /topic-depression.html 200!
 # Spanish topical: 302 → .html?tdb_cb=… (nuclear cache-bust at edge; canonical in HTML stays bare .html)
 /ansiedad /ansiedad.html?tdb_cb=20260328esNav 302
 /ansiedad/ /ansiedad.html?tdb_cb=20260328esNav 302

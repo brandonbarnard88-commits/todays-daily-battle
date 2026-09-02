@@ -49,6 +49,12 @@ const PAGES = [
   '/topic-strength.html',
   '/topic-forgiveness.html',
   '/topic-parenting.html',
+  '/topic-cancer.html',
+  '/topic-addiction.html',
+  '/topic-pain.html',
+  '/topic-caregiver.html',
+  '/topic-spiritual-warfare.html',
+  '/topic-depression.html',
   '/gods-university-of-life.html',
 ];
 

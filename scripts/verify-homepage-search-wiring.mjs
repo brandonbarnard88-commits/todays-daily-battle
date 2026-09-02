@@ -42,6 +42,30 @@ if (!index.includes('id="feel-results"')) {
   fail('index.html must contain id="feel-results" (visible search results host).');
 }
 
+if (!index.includes('id="tdbFeelTopicPageCta"') || !index.includes('id="tdbFeelTopicPageCtaLink"')) {
+  fail('index.html must contain the topic-page helper after chip search.');
+}
+if (!homeFeel.includes('TDB_TOPIC_TO_PAGE') || !homeFeel.includes('Read the full page on')) {
+  fail('tdb-home-feel.js must map chips to topic pages with Read the full page on.');
+}
+const topicPageNeedles = [
+  'topic-cancer.html',
+  'topic-addiction.html',
+  'topic-pain.html',
+  'topic-caregiver.html',
+  'topic-spiritual-warfare.html',
+  'topic-depression.html',
+  '/prayer-wall.html',
+  'href: "/family"',
+  'identity-in-christ.html',
+  'red-letters.html',
+];
+for (const needle of topicPageNeedles) {
+  if (!homeFeel.includes(needle)) {
+    fail('tdb-home-feel.js topic page map missing ' + needle);
+  }
+}
+
 // sr-only #main-search must not contain a real #output (breaks getElementById + hides results).
 const mainSearchStart = index.indexOf('id="main-search"');
 if (mainSearchStart === -1) fail('index.html missing id="main-search" (required for tooling/tests).');

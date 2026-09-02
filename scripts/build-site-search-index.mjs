@@ -93,6 +93,12 @@ const ENTRIES = [
   { t: 'First steps', u: '/first-steps.html', k: 'new beginner' },
   { t: 'Identity in Christ', u: '/identity-in-christ.html', k: 'who am i worth' },
   { t: 'Topic: Worry', u: '/topic-worry.html', k: 'anxiety what if' },
+  { t: 'Topic: Cancer', u: '/topic-cancer.html', k: 'illness diagnosis chemo radiation' },
+  { t: 'Topic: Addiction', u: '/topic-addiction.html', k: 'craving chain stronghold recovery' },
+  { t: 'Topic: Pain', u: '/topic-pain.html', k: 'suffering hurt body chronic' },
+  { t: 'Topic: Caregiver', u: '/topic-caregiver.html', k: 'caring rest burden heavy laden' },
+  { t: 'Topic: Spiritual warfare', u: '/topic-spiritual-warfare.html', k: 'armor devil resist stand' },
+  { t: 'Topic: Depression', u: '/topic-depression.html', k: 'downcast heavy hopeless soul' },
   { t: 'Need a verse now', u: '/v.html', k: 'quick' },
   { t: 'He is risen (Easter)', u: '/he-is-risen.html', k: 'easter resurrection' },
 

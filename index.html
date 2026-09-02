@@ -140,8 +140,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260825desk56" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260825desk56">
+  <link rel="preload" href="tdb-home-page.css?v=20260902chip1" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260902chip1">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260812unstick-nav" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260812unstick-nav">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -1051,6 +1051,9 @@
         <div id="tdbFeelPlanCta" class="tdb-feel-plan-cta hidden" role="region" aria-label="Related Battle Plan" hidden>
           <a href="/plans?plan=peace" class="btn btn-secondary" id="tdbFeelPlanCtaLink">Start related Battle Plan</a>
         </div>
+        <div id="tdbFeelTopicPageCta" class="tdb-feel-topic-page-cta hidden" role="region" aria-label="Full topic page" hidden>
+          <a href="/topic-anxiety.html" id="tdbFeelTopicPageCtaLink">Read the full page on Anxiety →</a>
+        </div>
         <div id="tdbSearchNextStep" class="tdb-search-next-step hidden" role="region" aria-label="Choose a next step" hidden>
           <p class="tdb-search-next-step-lead" id="tdbSearchNextStepLead">Choose one small next step: save this verse, read the full chapter, or keep walking with a short plan.</p>
           <div class="tdb-search-next-step-actions">
@@ -1322,6 +1325,12 @@
         <a href="/topic-parenting.html">Parenting</a>
         <a href="/topic-loneliness.html">Loneliness</a>
         <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-cancer.html">Cancer</a>
+        <a href="/topic-addiction.html">Addiction</a>
+        <a href="/topic-pain.html">Pain</a>
+        <a href="/topic-caregiver.html">Caregiver</a>
+        <a href="/topic-spiritual-warfare.html">Spiritual warfare</a>
+        <a href="/topic-depression.html">Depression</a>
         <a href="/explore#topics">All topics</a>
       </div>
       <div class="footer-sitemap-col footer-sitemap-col--es-links">
@@ -1443,6 +1452,12 @@
         <li><a href="topic-forgiveness.html">Forgiveness</a></li>
         <li><a href="topic-loneliness.html">Loneliness</a></li>
         <li><a href="topic-parenting.html">Parenting</a></li>
+        <li><a href="topic-cancer.html">Cancer</a></li>
+        <li><a href="topic-addiction.html">Addiction</a></li>
+        <li><a href="topic-pain.html">Pain</a></li>
+        <li><a href="topic-caregiver.html">Caregiver</a></li>
+        <li><a href="topic-spiritual-warfare.html">Spiritual warfare</a></li>
+        <li><a href="topic-depression.html">Depression</a></li>
       </ul>
       <h2 class="nav-more-title" style="margin-top:1.2rem;">Spanish</h2>
       <ul class="nav-more-list">
@@ -1716,7 +1731,7 @@
   <script nonce="tdb2025s" defer src="tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
-  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260825desk56"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260902chip1"></script>
   <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260712-first-doors"></script>
   <script nonce="tdb2025s" defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script nonce="tdb2025s" defer src="/js/feel-combo-presets.js"></script>

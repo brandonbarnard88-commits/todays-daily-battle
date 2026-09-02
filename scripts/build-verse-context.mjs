@@ -119,7 +119,7 @@ const CHAPTER_OVERRIDES = {
   'Psalm:139': { about: 'David', to: 'Anyone who needs to know they are known by God', setting: 'Wonderfully made' },
   'Proverbs:3': { about: 'Solomon giving wisdom', to: 'Anyone learning to trust the Lord with the whole heart', setting: 'Trust and acknowledge Him' },
   'Isaiah:40': { about: 'Isaiah (comfort from God)', to: 'Weary Judah — and anyone waiting on the Lord', setting: 'Comfort' },
-  'Isaiah:41': { about: 'Isaiah (the Lord speaking)', to: 'Fearful people — and you when fear is loud', setting: 'Fear not; I am with you' },
+  'Isaiah:41': { about: 'Isaiah (the Lord speaking)', to: 'Israel in exile whom He will not forsake', setting: 'Fear thou not; I am with thee' },
   'Isaiah:53': { about: 'Isaiah', to: 'Israel — and all who look to the Suffering Servant', setting: 'Suffering Servant' },
   'Jeremiah:29': { about: 'Jeremiah (letter from the Lord)', to: 'Exiles in Babylon — and all waiting for hope', setting: 'Plans for peace and a future' },
   'Lamentations:3': { about: 'Jeremiah', to: 'Exiles in grief — and anyone whose mercies need renewing', setting: 'New every morning' },

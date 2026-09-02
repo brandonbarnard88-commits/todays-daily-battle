@@ -69,6 +69,37 @@ export function isWeakPlainStamp(plain) {
   return false;
 }
 
+const LEFTOVER_AUDIENCE_SUFFIXES = [
+  'praise has to last past the morning',
+  'love feels like a mood you cannot make',
+  'you need somewhere that will hold',
+  'you only have light for the next step',
+  'gladness feels like a command you cannot feel',
+  'you have no more push left',
+  'your mind will not sit down',
+  'hope has worn thin',
+  'the Father feels hidden',
+  'you are tired of forcing the next thing',
+  'you need to be tended, not driven',
+  'you need a path, not a feeling',
+  'you need rescue that is still good today',
+  'the request is still in your chest',
+  'your own mind looks smarter than trust',
+  'the heart is still broken',
+  'you cannot sleep',
+  'the day has not started clean',
+  'you have forgotten who you are',
+  'the next person will get your sharp edge',
+  'the tears are still here',
+  'you need someone else to hold you steady',
+  'fear is loud'
+];
+
+export function leftoverAudienceSuffix(to) {
+  const toLow = String(to || '').toLowerCase();
+  return LEFTOVER_AUDIENCE_SUFFIXES.filter((w) => toLow.indexOf(w) !== -1);
+}
+
 /**
  * Leftover Grove templates that sneak past exact-string uniqueness
  * by appending a unique verse snippet. Hard-fail these in the 730 gate.
@@ -124,34 +155,8 @@ export function leftoverTemplateIssues(row) {
   if (/has to be lived, not only heard/i.test(to + ' ' + youLine)) {
     issues.push('leftover lived-not-heard audience');
   }
-  const leftoverWhen = [
-    'praise has to last past the morning',
-    'love feels like a mood you cannot make',
-    'you need somewhere that will hold',
-    'you only have light for the next step',
-    'gladness feels like a command you cannot feel',
-    'you have no more push left',
-    'your mind will not sit down',
-    'hope has worn thin',
-    'the Father feels hidden',
-    'you are tired of forcing the next thing',
-    'you need to be tended, not driven',
-    'you need a path, not a feeling',
-    'you need rescue that is still good today',
-    'the request is still in your chest',
-    'your own mind looks smarter than trust',
-    'the heart is still broken',
-    'you cannot sleep',
-    'the day has not started clean',
-    'you have forgotten who you are',
-    'the next person will get your sharp edge',
-    'the tears are still here',
-    'you need someone else to hold you steady',
-    'fear is loud'
-  ];
-  const toLow = to.toLowerCase();
-  leftoverWhen.forEach((w) => {
-    if (toLow.indexOf(w) !== -1) issues.push('leftover audience suffix: ' + w);
+  leftoverAudienceSuffix(to).forEach((w) => {
+    issues.push('leftover audience suffix: ' + w);
   });
   const taut = to.match(/needed to hear “([^”]+)”[\s\S]*you when you need to hear “([^”]+)”/i);
   if (taut && taut[1] && taut[2] && taut[1].slice(0, 18) === taut[2].slice(0, 18)) {

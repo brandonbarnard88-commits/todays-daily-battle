@@ -80,7 +80,7 @@ const pages = [
   'prayer-wall.html',
 ], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
 
-  { path: '/ask.html', name: 'Ask the Word', mustInclude: ['Ask the Word', 'id="feel-section"', 'id="feel-search"', 'id="tdbFeelAllChips"', 'When it feels heavy', 'When you need steadiness', 'Home and relationships', 'Faith and calling', 'data-topic="anxiety"', 'data-topic="forgiveness"', 'Tap a feeling'], mustNotInclude: ['Example questions', 'Combine two feelings', 'Common feeling pairs'] },
+  { path: '/ask.html', name: 'Ask the Word', mustInclude: ['Ask the Word', 'id="feel-section"', 'tdb-ask-porch', 'In your own words', 'id="feel-search"', 'id="tdbFeelAllChips"', 'When it feels heavy', 'When you need steadiness', 'Home and relationships', 'Faith and calling', 'data-topic="anxiety"', 'data-topic="forgiveness"', 'Tap a feeling'], mustNotInclude: ['Example questions', 'Combine two feelings', 'Common feeling pairs'] },
   { path: '/updates.html', name: 'Monthly updates', mustInclude: ['September 2026', 'Last updated:</strong> September 3, 2026', 'Quieter porch'] },
   { path: '/give.html', name: 'Give', mustInclude: ['/create-donation-session', 'Preparing a quiet checkout'] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance', 'hreflang="pt" href="https://todaysdailybattle.com/pt/terms.html"'] },

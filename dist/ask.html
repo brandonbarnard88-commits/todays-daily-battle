@@ -17,29 +17,170 @@
   <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
   <script defer src="analytics-loader.js"></script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260822quiet"></script>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-garamond-hero-latin.woff2" crossorigin>
   <link rel="preload" href="styles.css?v=20260823desk51" as="style">
   <link rel="stylesheet" href="styles.css?v=20260823desk51">
-  <link rel="preload" href="tdb-home-page.css?v=20260903ask1" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260903ask1">
+  <link rel="preload" href="tdb-home-page.css?v=20260903ask4" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260903ask4">
   <style>
-    body.tdb-ask-page { margin: 0; }
-    .tdb-ask-page .app-content { max-width: 52rem; margin: 0 auto; padding: 1rem 1rem 4.5rem; }
-    .tdb-ask-page .mood-title { margin: 0 0 0.35rem; }
-    .tdb-ask-page .tdb-feel-all-chips,
-    .tdb-ask-page .tdb-feel-all-chips .feel-band-panel { display: block; }
-    .tdb-ask-page .quick-topic-group-chips {
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/fonts/cormorant-garamond-hero-latin.woff2') format('woff2');
+    }
+    body.tdb-ask-page { margin: 0; background: var(--bg, #080c14); color: var(--text, #f5f7fb); }
+    body.tdb-ask-page .app-content {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.15rem 1rem 5rem;
+    }
+    body.tdb-ask-page .tdb-header-heartbeat { font-size: 0.82rem; opacity: 0.82; }
+    body.tdb-ask-page #feel-section.tdb-ask-porch {
+      margin: 0;
+      padding: 1.2rem 1.1rem 1.45rem;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 42%, transparent);
+      border-left: 4px solid var(--gold, #e3bc67);
+      background: color-mix(in srgb, var(--card, #161c26) 92%, rgba(227, 188, 103, 0.09));
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+    body.tdb-ask-page .tdb-ask-eyebrow {
+      margin: 0 0 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted, #94a3b8);
+    }
+    body.tdb-ask-page #quick-search-hero #feel-section .mood-title,
+    body.tdb-ask-page #feel-section .mood-title {
+      margin: 0 0 0.4rem;
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.85rem, 6vw, 2.45rem);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.15;
+      color: var(--gold, #e3bc67);
+    }
+    body.tdb-ask-page #feel-section .mood-subtitle {
+      margin: 0 0 1.05rem;
+      max-width: 32rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: color-mix(in srgb, var(--text, #f5f7fb) 82%, var(--muted, #94a3b8));
+    }
+    body.tdb-ask-page .feel-search-wrap {
       display: flex;
       flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    body.tdb-ask-page .feel-search-wrap #feel-search {
+      flex: 1 1 100%;
+      width: 100%;
+      min-height: 52px;
+      font-size: 1.05rem;
+      border-radius: 14px;
+    }
+    body.tdb-ask-page #feel-section #feel-search-btn {
+      flex: 1 1 auto;
+      min-width: 0;
+      min-height: 52px;
+      padding: 0.55rem 1.2rem;
+      border-radius: 14px;
+      border: 1px solid #e3bc67;
+      background: linear-gradient(180deg, #e3bc67 0%, #d4a63a 100%);
+      color: #120e18;
+      font-weight: 700;
+    }
+    body.tdb-ask-page .feel-search-wrap .mic-btn {
+      flex: 0 0 52px;
+      width: 52px;
+      min-width: 52px;
+      min-height: 52px;
+      border-radius: 14px;
+    }
+    @media (min-width: 640px) {
+      body.tdb-ask-page .feel-search-wrap #feel-search {
+        flex: 1 1 18rem;
+        width: auto;
+      }
+      body.tdb-ask-page #feel-section #feel-search-btn {
+        flex: 0 0 auto;
+      }
+    }
+    body.tdb-ask-page .tdb-feel-trust-line {
+      margin: 0.65rem 0 1.15rem;
+    }
+    body.tdb-ask-page .tdb-feel-all-chips,
+    body.tdb-ask-page .tdb-feel-all-chips .feel-band-panel { display: block; }
+    body.tdb-ask-page .feel-band-panel { margin: 0 0 0.85rem; }
+    body.tdb-ask-page .feel-band-panel:last-child { margin-bottom: 0; }
+    body.tdb-ask-page #feel-section .quick-topic-group {
+      margin: 0;
+      padding: 0.85rem 0.85rem 0.95rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line, #242d3d) 78%, var(--gold, #e3bc67) 22%);
+      background: color-mix(in srgb, var(--bg, #080c14) 55%, var(--card, #161c26) 45%);
+      box-shadow: none;
+    }
+    body.tdb-ask-page #feel-section .quick-topic-group-title {
+      display: block;
+      margin: 0 0 0.65rem;
+      padding: 0;
+      min-height: 0;
+      justify-content: flex-start;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted, #94a3b8);
+      background: none;
+      border: 0;
+      box-shadow: none;
+    }
+    body.tdb-ask-page #feel-section .quick-topic-group-chips {
+      display: flex !important;
+      flex-wrap: wrap;
       gap: 0.45rem;
+      grid-template-columns: none !important;
     }
-    .tdb-ask-page .quick-topic-group-chips .quick-topic,
-    .tdb-ask-page .quick-topic {
+    body.tdb-ask-page #feel-section .quick-topic-group-chips .quick-topic,
+    body.tdb-ask-page #feel-section .quick-topic {
+      flex: 0 0 auto !important;
+      width: auto !important;
       min-height: 44px;
+      padding: 0.55rem 0.9rem !important;
+      border-radius: 999px;
+      font-size: 0.92rem !important;
+      font-weight: 600;
+      text-align: center;
+      background: color-mix(in srgb, var(--card, #161c26) 70%, transparent);
+      border: 1px solid color-mix(in srgb, var(--line, #242d3d) 70%, var(--gold, #e3bc67) 18%);
     }
+    body.tdb-ask-page #feel-section .quick-topic:hover,
+    body.tdb-ask-page #feel-section .quick-topic:focus-visible {
+      border-color: color-mix(in srgb, var(--gold, #e3bc67) 58%, transparent);
+      background: color-mix(in srgb, var(--gold, #e3bc67) 12%, transparent);
+      color: var(--gold, #e3bc67);
+    }
+    body.tdb-ask-page .tdb-ask-back {
+      margin: 1.35rem 0 0;
+      text-align: center;
+    }
+    html[data-theme="light"] body.tdb-ask-page #feel-section.tdb-ask-porch,
+    html[data-theme="sepia"] body.tdb-ask-page #feel-section.tdb-ask-porch {
+      background: color-mix(in srgb, var(--card, #fffdf7) 96%, rgba(201, 162, 39, 0.08));
+      box-shadow: 0 10px 28px rgba(64, 41, 8, 0.08);
+    }
+    html[data-theme="light"] body.tdb-ask-page #feel-section .mood-title,
+    html[data-theme="sepia"] body.tdb-ask-page #feel-section .mood-title { color: #8a6d1f; }
     /* Dedicated page: keep every topic visible after a search. */
     body.tdb-ask-page #quick-search-hero.tdb-ask-has-results .feel-quick-topics-root,
-    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results #tdbFeelAllChips,
-    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results #topicPlansHint {
+    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results #tdbFeelAllChips {
       display: revert;
     }
   </style>
@@ -50,7 +191,7 @@
     <header class="top-bar">
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <p class="tdb-header-heartbeat site-tagline">Today’s verse stays on Home. This page is only Ask the Word.</p>
+        <p class="tdb-header-heartbeat site-tagline">A feeling, a name, a question.</p>
       </div>
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
         <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
@@ -94,7 +235,8 @@
 
     <main class="app-content" id="main-content">
       <div id="quick-search-hero" class="tdb-quiet-container">
-        <section class="card" id="feel-section" aria-label="Ask the Word search">
+        <section class="card tdb-ask-porch" id="feel-section" aria-label="Ask the Word search">
+          <p class="tdb-ask-eyebrow">In your own words</p>
           <h1 class="mood-title">Ask the Word</h1>
           <p class="mood-subtitle section-note" id="feelSectionSubtitle">You don&rsquo;t need church words. Honest is enough. Tap a feeling, or type your own.</p>
           <div class="feel-search-wrap">
@@ -107,12 +249,12 @@
               spellcheck="false"
               placeholder="A feeling, a name, a verse, or a question&hellip;"
               aria-label="Ask the Word by feeling, name, question, or verse"
-              aria-describedby="feelTrustLine topicPlansHint"
+              aria-describedby="feelTrustLine"
               aria-autocomplete="list"
               aria-controls="feelSuggestDropdown"
               aria-haspopup="listbox"
             >
-            <button type="button" class="feel-search-btn" id="feel-search-btn" aria-label="Search verses">Search</button>
+            <button type="button" class="btn btn-primary feel-search-btn" id="feel-search-btn" aria-label="Search verses">Search</button>
             <button type="button" class="mic-btn" id="micBtn" aria-label="Voice search — speak a feeling">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="9" y="2" width="6" height="12" rx="3"></rect>
@@ -123,12 +265,11 @@
             </button>
             <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions"></div>
           </div>
-          <p class="tdb-feel-trust-line" id="feelTrustLine">Results stay on this device.</p>
-          <p class="section-note util-mt-0_5 util-mb-0" id="topicPlansHint">Tap a feeling below. Type only if you want something more specific.</p>
+          <p class="tdb-feel-trust-line" id="feelTrustLine">Results stay on this device. Tap a feeling below, or type if you want something more specific.</p>
+          <p class="sr-only" id="topicPlansHint">Tap a feeling below. Type only if you want something more specific.</p>
 
           <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Every feeling topic. Tap searches. Alt-click or long-press opens a matching reading plan.">
             <div class="tdb-feel-all-chips feel-topic-expanded" id="tdbFeelAllChips" role="region" aria-label="All feeling topics">
-              <p class="section-note util-mb-0_5" id="feelTopicExpandedHint"><strong>Tap</strong> a feeling for verses. Or <a href="/plans">open a short plan</a>.</p>
               <div class="feel-band-panel" data-feel-band="heavy">
                 <div class="quick-topic-group" role="group" aria-labelledby="qtg-heavy">
                   <h2 class="quick-topic-group-title" id="qtg-heavy">When it feels heavy</h2>
@@ -236,7 +377,7 @@
             </div>
           </div>
           <p class="feel-no-match" id="feelNoMatch">Try it the way you’d say it — “peace,” “scared at night,” “who was Ruth,” or a name. The Word will meet you there.</p>
-          <p class="section-note" style="margin-top:1.25rem;text-align:center;"><a href="/">Back to today’s verse</a></p>
+          <p class="section-note tdb-ask-back"><a href="/">Back to today’s verse</a></p>
         </section>
       </div>
     </main>

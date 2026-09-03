@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260903sheep1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260903sheep2">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -71,6 +71,10 @@
         <div class="kg-carry" id="kg-carry">
           <div class="kg-carry-art" aria-hidden="true"><img src="shepherd-mascot-sheep.png?v=20260820polish" width="88" height="88" alt="" decoding="async"></div>
           <p>Rejoice with me; for I have found my sheep which was lost.</p>
+          <div class="ls-actions">
+            <button type="button" id="ls-harder" hidden>Next round</button>
+            <button type="button" id="ls-again" hidden>Play again</button>
+          </div>
         </div>
         <p id="ls-win" class="ls-win" hidden></p>
         <details class="ls-found-kjv" id="ls-found-kjv">
@@ -86,10 +90,6 @@
             <p>What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing. And when he cometh home, he calleth together his friends and neighbours, saying unto them, Rejoice with me; for I have found my sheep which was lost.</p>
           </div>
         </details>
-        <div class="ls-actions">
-          <button type="button" id="ls-again" hidden>Play again (same level)</button>
-          <button type="button" id="ls-harder" hidden>Bigger field</button>
-        </div>
         <nav class="kg-more" aria-label="More games">
           <p>
             <a href="match-buddies.html">Match the Verse</a>
@@ -258,7 +258,7 @@
               var flockLineWin = document.getElementById('ls-flock-line');
               if (flockLineWin) flockLineWin.textContent = 'The lost sheep is found.';
               if (again) again.hidden = false;
-              if (harder) harder.hidden = levelIndex + 1 >= sizeLevels().length;
+              if (harder) harder.hidden = false;
               document.body.classList.add('is-won');
               if (kit && kit.fillWinDoors) {
                 kit.fillWinDoors(document.getElementById('kg-next-doors'), {
@@ -291,6 +291,7 @@
     if (harder) {
       harder.addEventListener('click', function () {
         if (levelIndex + 1 < sizeLevels().length) levelIndex += 1;
+        else levelIndex = 0;
         build();
       });
     }

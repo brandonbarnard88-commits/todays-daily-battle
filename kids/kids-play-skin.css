@@ -196,6 +196,18 @@ body.kids-kiss-play-home .tdb-site-humility {
   font-weight: 800;
   color: #14532d !important;
 }
+.kg-carry .ls-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.kg-carry .ls-actions button:not([hidden]) {
+  display: inline-block;
+  min-height: 48px;
+  padding: 0.55rem 1.1rem;
+}
 .sp-path.is-trail {
   box-shadow: 0 0 0 4px #f2dc98, 4px 4px 0 rgba(15, 23, 42, 0.12);
 }

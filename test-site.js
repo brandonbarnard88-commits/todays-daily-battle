@@ -81,7 +81,7 @@ const pages = [
 ], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
 
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance', 'hreflang="pt" href="https://todaysdailybattle.com/pt/terms.html"'] },
-  { path: '/pricing.html', name: 'Support', mustInclude: ['Support', 'free forever', 'Giving is completely optional', 'You&rsquo;re already welcome here', 'terms.html', 'pricing-verse-preview-strip', 'Verse cards (free for everyone)', 'pricing-card-verse-thumbs', 'pricing-verse-preview-water.svg', 'Six stylized moods', '/give', '/shop.html', 'styles.css?v=20260807-dig-always-open'] },
+  { path: '/pricing.html', name: 'Support', mustInclude: ['No paid plan', 'free forever', 'Giving is completely optional', 'You&rsquo;re already welcome here', '/give', '/shop.html', '/where-support-goes.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html', 'Privacy is simple here', 'Friday email list', 'hreflang="pt" href="https://todaysdailybattle.com/pt/privacy.html"'] },
   { path: '/study.html', name: 'Study alias', mustInclude: ['Study moved', 'noindex', "canonical\" href=\"https://todaysdailybattle.com/mystudy\"", 'location.replace'] },
   { path: '/my-verses.html', name: 'My Verses', mustInclude: ['My Study', 'my-verses-hero--soar-dawn', 'id="my-verses-hero-heading"', 'id="saved-verses"', 'id="my-verses-panel"', 'id="my-verses-export-json"', 'memorize.html', 'bible-tool.html', '/mystudy?tab=library#saved-verses', 'styles.css?v=20260412launch', 'forwards there automatically', 'footer-humility', 'We battle. He wins.', 'tdb-cache-hygiene:'] },

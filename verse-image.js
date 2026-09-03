@@ -1,5 +1,5 @@
 /**
- * Verse image generator — Supporter-gated canvas export (PNG) + share.
+ * Verse image generator — canvas export (PNG) + share. Free for everyone.
  * IndexedDB recents (verseGens). Analytics: verse_image_* , supporter_upgrade_prompted
  */
 (function () {

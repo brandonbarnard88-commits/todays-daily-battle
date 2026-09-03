@@ -222,7 +222,9 @@ body.kids-kiss-play-home .tdb-site-humility {
 body.kids-mini-game.is-won .kg-how,
 body.kids-mini-game.is-won .kg-timer-row,
 body.kids-mini-game.is-won .kg-family-row,
-body.kids-mini-game.is-won .kg-more {
+body.kids-mini-game.is-won .kg-more,
+body.kids-mini-game.is-won .mf-board,
+body.kids-mini-game.is-won .mf-teach {
   display: none !important;
 }
 .kg-next-doors a,
@@ -768,20 +770,44 @@ body.kids-mini-game button.mf-card,
 .mf-card.mf-pic[aria-pressed="true"],
 .mf-card.mf-pic.is-peek,
 .mf-card.mf-pic.mf-match {
-  padding: 0.2rem !important;
-  font-size: 0 !important;
-  line-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.2rem;
+  padding: 0.3rem !important;
+  font-size: 0.78rem !important;
+  line-height: 1.25;
+  text-align: center;
 }
 .mf-card.mf-pic img {
   width: 100%;
-  height: 100%;
+  height: 4.1rem;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 10px;
   display: block;
+  flex: 0 0 auto;
 }
 .mf-card.mf-pic.is-mascot img {
   object-fit: contain;
   background: #fffef8;
+}
+.mf-kind {
+  display: block;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #b45309;
+  line-height: 1.2;
+}
+.mf-pic-line,
+.mf-kjv-line {
+  display: block;
+  font-size: 0.8rem !important;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #0f172a !important;
 }
 
 /* —— Find the sheep —— */

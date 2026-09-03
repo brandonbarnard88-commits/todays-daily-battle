@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260902deep1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260902sense1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -40,9 +40,9 @@
         <p class="section-note topic-mood-porch kids-site-porch" lang="en">Flip two cards. Match a kid line to a KJV line.</p>
         <div class="mf-hero" data-kg-ico="🃏">
           <h1>Memory flock</h1>
-          <p>Flip a <strong>picture</strong>, then the <strong>KJV line</strong> that belongs with it.</p>
+          <p>Each pair is a <strong>kid line</strong> and a <strong>KJV line</strong>. Flip one, then the other.</p>
         </div>
-        <p id="mf-st" class="mf-st" role="status">Find two that go together—tap a card!</p>
+        <p id="mf-st" class="mf-st" role="status">Flip a kid line, then the KJV line that says the same thing.</p>
         <div class="kg-buddy">
           <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a line">
             <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.png?v=20260820polish" width="72" height="80" alt="Little Shepherd" decoding="async"/>
@@ -60,7 +60,7 @@
         </p>
         <details class="kg-how">
           <summary>How to play</summary>
-          <p>Flip a picture, then the KJV line that belongs with it.</p>
+          <p>Each pair is a kid line and a KJV line. Flip one, then the matching other. The picture is only a hint.</p>
           <div class="kg-sizes" role="group" aria-label="How big a game">
             <button type="button" data-kg-size="little">Little</button>
             <button type="button" data-kg-size="middle">Middle</button>
@@ -137,7 +137,7 @@
       if (teach) { teach.classList.remove('show'); teach.textContent = ''; }
       var kept = document.getElementById('kg-verse-friends');
       if (kept) { kept.classList.remove('show'); kept.textContent = ''; kept.hidden = true; }
-      if (st) st.textContent = 'Find two that go together—tap a card!';
+      if (st) st.textContent = 'Flip a kid line, then the KJV line that says the same thing.';
       if (board) board.textContent = '';
       document.body.classList.remove('is-little', 'is-middle', 'is-bigger', 'is-won');
       document.body.classList.add('is-' + playSize);
@@ -179,26 +179,34 @@
         if (!card) return;
         card.setAttribute('aria-pressed', 'true');
         card.textContent = '';
+        var kind = card.getAttribute('data-kind') || (card.classList.contains('mf-pic') ? 'pic' : 'kjv');
+        var lab = document.createElement('span');
+        lab.className = 'mf-kind';
+        lab.textContent = kind === 'pic' ? 'Kid line' : 'KJV';
+        card.appendChild(lab);
         var artSrc = card.getAttribute('data-art');
+        var lineTxt = card.getAttribute('data-text') || '';
         if (artSrc) {
           var img = document.createElement('img');
           img.src = artSrc;
-          img.alt = card.getAttribute('data-text') || '';
+          img.alt = '';
           img.width = 120;
           img.height = 120;
           img.decoding = 'async';
           card.appendChild(img);
-          card.setAttribute('aria-label', card.getAttribute('data-text') || 'Picture');
-        } else {
-          card.textContent = card.getAttribute('data-text') || '';
-          card.setAttribute('aria-label', card.getAttribute('data-text') || 'KJV line');
         }
+        var line = document.createElement('span');
+        line.className = kind === 'pic' ? 'mf-pic-line' : 'mf-kjv-line';
+        line.textContent = lineTxt;
+        card.appendChild(line);
+        card.setAttribute('aria-label', (kind === 'pic' ? 'Kid line: ' : 'KJV: ') + lineTxt);
       }
       cards.forEach(function (c) {
         var b = document.createElement('button');
         b.type = 'button';
         b.className = 'mf-card' + (c.kind === 'pic' ? ' mf-pic' : '');
         b.setAttribute('data-pair', c.pair);
+        b.setAttribute('data-kind', c.kind === 'pic' ? 'pic' : 'kjv');
         b.setAttribute('aria-pressed', 'false');
         b.setAttribute('data-text', c.text || '');
         if (c.kind === 'pic' && c.art && c.art.src) {
@@ -214,9 +222,9 @@
             first = b;
             missStreak = 0;
             if (st) {
-              st.textContent = b.getAttribute('data-art')
-                ? 'Now the KJV line that belongs with this picture.'
-                : 'Now the picture that belongs with this line.';
+              st.textContent = b.getAttribute('data-kind') === 'pic'
+                ? 'Now flip the KJV line that says the same thing.'
+                : 'Now flip the kid line that says the same thing.';
             }
             return;
           }
@@ -305,9 +313,16 @@
             lock = true;
             b.classList.add('mf-wrong');
             if (st) {
-              st.textContent = kit && kit.missHint
-                ? kit.missHint(pairTeach[a], missStreak, playSize)
-                : 'Not that pair. Think about the idea on the first card—then try another leftover card.';
+              var sameKind = first.classList.contains('mf-pic') === b.classList.contains('mf-pic');
+              if (sameKind) {
+                st.textContent = first.classList.contains('mf-pic')
+                  ? 'That is two kid lines. Flip the KJV line that says the same thing.'
+                  : 'That is two KJV lines. Flip the kid line that says the same thing.';
+              } else if (kit && kit.missHint) {
+                st.textContent = kit.missHint(pairTeach[a], missStreak, playSize);
+              } else {
+                st.textContent = 'Not that pair. The kid line and the KJV line should say the same thing.';
+              }
             }
             if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
               try { window.tdbLittleShepherd.notify('wrongMatch'); } catch (e4) {}
@@ -341,7 +356,7 @@
           lock = false;
           first = null;
           peekTimer = null;
-          if (st) st.textContent = 'Find two that go together—tap a card!';
+          if (st) st.textContent = 'Flip a kid line, then the KJV line that says the same thing.';
         }, 2200);
       }
     }

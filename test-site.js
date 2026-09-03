@@ -31,6 +31,7 @@ const pages = [
   'id="tdbHeavyNow"',
   'id="tdbCapacityDoor"',
   'How much room do you have?',
+  'defer src="tdb-home-experience.js',
   'href="/ask"',
   'id="tdb-home-pickup"',
   'id="tdbGrovePaths"',
@@ -51,7 +52,7 @@ const pages = [
   'id="armor-builder-btn"',
   'id="hero-save-my-verses"',
   'id="tdbAnotherVerseBtn"',
-  'core-home.js?v=20260903porch1',
+  'core-home.js?v=20260903porch3',
   'tdb-verse-accuracy.js',
   'tdb-home-page.css',
   'id="tdbHeroQuietEyebrow"',
@@ -79,7 +80,9 @@ const pages = [
   'prayer-wall.html',
 ], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
 
-  { path: '/ask.html', name: 'Ask the Word', mustInclude: ['Ask the Word', 'id="feel-section"', 'id="feel-search"', 'id="tdbFeelAllChips"', 'When it feels heavy', 'When you need steadiness', 'Home and relationships', 'Faith and calling', 'data-topic="anxiety"', 'data-topic="forgiveness"', 'Every feeling is in the open'] },
+  { path: '/ask.html', name: 'Ask the Word', mustInclude: ['Ask the Word', 'id="feel-section"', 'id="feel-search"', 'id="tdbFeelAllChips"', 'When it feels heavy', 'When you need steadiness', 'Home and relationships', 'Faith and calling', 'data-topic="anxiety"', 'data-topic="forgiveness"', 'Tap a feeling'], mustNotInclude: ['Example questions', 'Combine two feelings', 'Common feeling pairs'] },
+  { path: '/updates.html', name: 'Monthly updates', mustInclude: ['September 2026', 'Last updated:</strong> September 3, 2026', 'Quieter porch'] },
+  { path: '/give.html', name: 'Give', mustInclude: ['/create-donation-session', 'Preparing a quiet checkout'] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance', 'hreflang="pt" href="https://todaysdailybattle.com/pt/terms.html"'] },
   { path: '/pricing.html', name: 'Support', mustInclude: ['No paid plan', 'free forever', 'Giving is completely optional', 'You&rsquo;re already welcome here', '/give', '/shop.html', '/where-support-goes.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html', 'Privacy is simple here', 'Friday email list', 'hreflang="pt" href="https://todaysdailybattle.com/pt/privacy.html"'] },
@@ -444,9 +447,11 @@ function run() {
           if (app.statusCode === 200) content += app.body;
         }
         const missing = (p.mustInclude || []).filter(s => !content.includes(s));
+        const extra = (p.mustNotInclude || []).filter(s => content.includes(s));
         const oneOfOk = !p.mustIncludeOneOf || p.mustIncludeOneOf.every(opt => opt.some(s => content.includes(s)));
-        if (missing.length || !oneOfOk) {
+        if (missing.length || extra.length || !oneOfOk) {
           if (missing.length) console.log('FAIL', p.name, 'missing:', missing.join(', '));
+          if (extra.length) console.log('FAIL', p.name, 'must not include:', extra.join(', '));
           if (!oneOfOk) console.log('FAIL', p.name, 'must include one of:', p.mustIncludeOneOf.map(o => o.join('|')).join('; '));
           failed++;
         } else {

@@ -16,7 +16,7 @@ const stripeSecret = Deno.env.get("STRIPE_SECRET_KEY") ?? Deno.env.get("STRIPE_S
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization, apikey",
 };
 
 function jsonResponse(body: unknown, status: number) {
@@ -60,8 +60,8 @@ Deno.serve(async (req) => {
   }
 
   const origin = req.headers.get("origin") || "https://todaysdailybattle.com";
-  const successUrl = `${origin}/index.html?donation=success`;
-  const cancelUrl = `${origin}/index.html?donation=cancel`;
+  const successUrl = `${origin.replace(/\/$/, "")}/give?donation=success`;
+  const cancelUrl = `${origin.replace(/\/$/, "")}/give?donation=cancel`;
 
   const stripe = new Stripe(stripeSecret, { apiVersion: "2024-11-20.acacia" });
 

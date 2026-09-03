@@ -37,11 +37,8 @@
       min-height: 44px;
     }
     /* Dedicated page: keep every topic visible after a search. */
-    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results .tdb-ask-examples-open,
     body.tdb-ask-page #quick-search-hero.tdb-ask-has-results .feel-quick-topics-root,
     body.tdb-ask-page #quick-search-hero.tdb-ask-has-results #tdbFeelAllChips,
-    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results .tdb-feel-combo-toggle-wrap,
-    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results #tdbFeelComboPresets,
     body.tdb-ask-page #quick-search-hero.tdb-ask-has-results #topicPlansHint {
       display: revert;
     }
@@ -99,7 +96,7 @@
       <div id="quick-search-hero" class="tdb-quiet-container">
         <section class="card" id="feel-section" aria-label="Ask the Word search">
           <h1 class="mood-title">Ask the Word</h1>
-          <p class="mood-subtitle section-note" id="feelSectionSubtitle">You don&rsquo;t need church words. Honest is enough. Every feeling is in the open.</p>
+          <p class="mood-subtitle section-note" id="feelSectionSubtitle">You don&rsquo;t need church words. Honest is enough. Tap a feeling, or type your own.</p>
           <div class="feel-search-wrap">
             <label for="feel-search" class="sr-only">Ask the Word</label>
             <input
@@ -127,36 +124,7 @@
             <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions"></div>
           </div>
           <p class="tdb-feel-trust-line" id="feelTrustLine">Results stay on this device.</p>
-          <p class="section-note util-mt-0_5 util-mb-0" id="topicPlansHint">Type it however it comes. Then Search, or tap a feeling below.</p>
-          <div class="tdb-ask-examples-open tdb-kb-examples" id="tdbKbExamples">
-            <p class="tdb-kb-examples__label">Example questions</p>
-            <p class="tdb-kb-examples-row" aria-label="Example questions">
-              <button class="tdb-kb-chip" data-query="How do I forgive someone?" type="button">How do I forgive someone?</button>
-              <button class="tdb-kb-chip" data-query="Does God still want me?" type="button">Does God still want me?</button>
-              <button class="tdb-kb-chip" data-query="Why am I so tired?" type="button">Why am I so tired?</button>
-              <button class="tdb-kb-chip" data-query="Who was Ruth?" type="button">Who was Ruth?</button>
-            </p>
-          </div>
-
-          <div class="tdb-feel-combo-bar" id="tdbFeelComboBar" data-combo-on="0" hidden role="region" aria-label="Combine two feelings">
-            <p class="tdb-feel-combo-lead">Pick up to two feelings, then search both together.</p>
-            <div class="tdb-feel-combo-slots" id="tdbFeelComboSlots"></div>
-            <div class="tdb-feel-combo-actions">
-              <button type="button" class="btn btn-primary" id="tdbFeelComboRun" disabled>Search combined feelings</button>
-            </div>
-          </div>
-          <p class="tdb-feel-combo-toggle-wrap">
-            <button type="button" class="btn btn-secondary tdb-feel-combo-toggle" id="tdbFeelComboToggle" aria-pressed="false" aria-controls="tdbFeelComboBar">Combine two feelings</button>
-          </p>
-          <div class="feel-combo-presets-wrap tdb-ask-examples-open" id="tdbFeelComboPresets">
-            <p class="feel-combo-presets-heading" id="tdbFeelComboPresetsHeading">Common feeling pairs</p>
-            <div class="feel-combo-presets" role="group" aria-labelledby="tdbFeelComboPresetsHeading">
-              <button type="button" class="feel-preset-btn" data-topics="anxiety,parenting">Anxious + parenting</button>
-              <button type="button" class="feel-preset-btn" data-topics="grief,exhaustion">Grief + exhausted</button>
-              <button type="button" class="feel-preset-btn" data-topics="anger,forgiveness">Angry + need forgiveness</button>
-              <button type="button" class="feel-preset-btn" data-topics="loneliness,hope">Lonely + need hope</button>
-            </div>
-          </div>
+          <p class="section-note util-mt-0_5 util-mb-0" id="topicPlansHint">Tap a feeling below. Type only if you want something more specific.</p>
 
           <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Every feeling topic. Tap searches. Alt-click or long-press opens a matching reading plan.">
             <div class="tdb-feel-all-chips feel-topic-expanded" id="tdbFeelAllChips" role="region" aria-label="All feeling topics">
@@ -277,10 +245,8 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
   <script nonce="tdb2025s" defer src="ask-the-word-core.js?v=20260820-askwalk"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260903ask1"></script>
-  <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260712-first-doors"></script>
-  <script nonce="tdb2025s" defer src="/js/feel-combo-presets.js"></script>
-  <script nonce="tdb2025s" defer src="core-home.js?v=20260903ask1" data-cfasync="false"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260903ask3"></script>
+  <script nonce="tdb2025s" defer src="core-home.js?v=20260903porch3" data-cfasync="false"></script>
   <script nonce="tdb2025s" defer src="/language-switcher.js?v=20260816-brightgold"></script>
 </body>
 </html>

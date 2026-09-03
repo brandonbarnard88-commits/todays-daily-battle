@@ -800,19 +800,13 @@ body.kids-mini-game button.mf-card,
   border-color: #1e3a8a;
   color: #eff6ff !important;
 }
-.mf-back {
-  display: block;
-  font-size: 1.05rem !important;
-  letter-spacing: 0.04em;
-  font-weight: 800;
-  line-height: 1.2;
-}
 .mf-card[aria-pressed="true"],
 .mf-card.is-peek {
   background: #fffef8 !important;
   border-color: #d97706;
   color: #0f172a !important;
   text-align: center;
+  font-size: 1.12rem !important;
 }
 .mf-card.mf-match {
   opacity: 0.85;
@@ -820,28 +814,6 @@ body.kids-mini-game button.mf-card,
   border-color: #16a34a;
   background: #dcfce7 !important;
   color: #14532d !important;
-}
-.mf-kind {
-  display: block;
-  font-size: 0.68rem !important;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  font-weight: 800;
-  color: #b45309 !important;
-  line-height: 1.2;
-}
-.mf-card.mf-kjv[aria-pressed="true"] .mf-kind,
-.mf-card.mf-kjv.is-peek .mf-kind { color: #1d4ed8 !important; }
-body.kids-mini-game button.mf-card .mf-words {
-  display: block !important;
-  width: 100%;
-  font-size: 1.12rem !important;
-  font-weight: 800 !important;
-  line-height: 1.3 !important;
-  color: #0f172a !important;
-  white-space: normal !important;
-  overflow: visible !important;
-  text-align: center;
 }
 .mf-sheet {
   display: none;

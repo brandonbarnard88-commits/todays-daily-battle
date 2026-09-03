@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260903words1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260903faces1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game mf-focus">
@@ -43,7 +43,7 @@
             <button type="button" data-kg-size="bigger">Bigger</button>
           </div>
         </div>
-        <p id="mf-st" class="mf-st" role="status">Flip a kid line, then the KJV line that says the same thing.</p>
+        <p id="mf-st" class="mf-st" role="status">Flip a gold card and a blue card that say the same thing.</p>
         <div class="mf-board" id="mf-board" role="group" aria-label="Memory cards"></div>
         <div class="kg-verse-friends" id="kg-verse-friends" hidden></div>
         <p id="mf-win" class="section-note" style="text-align:center;margin:0.75rem 0;font-weight:800;color:#14532d" hidden>All pairs found!</p>
@@ -54,7 +54,7 @@
         </p>
         <details class="kg-how">
           <summary>How to play</summary>
-          <p>Gold cards are kid lines. Blue cards are KJV. Flip one of each that say the same thing.</p>
+          <p>Gold cards hide a kid line. Blue cards hide a KJV line. Flip one of each that say the same thing.</p>
         </details>
         <nav class="kg-more" aria-label="More games">
           <p>
@@ -122,14 +122,15 @@
       if (p) s = p.short || p.plain || p.clue || '';
       if (!s && kit && kit.facePlain) s = kit.facePlain(p, 'middle') || '';
       s = String(s).replace(/\s+/g, ' ').trim();
-      return s || 'Kid line';
+      return s;
     }
     function shortKjv(p) {
       var s = '';
       if (p) s = p.shortKjv || p.kjv || '';
       if (!s && kit && kit.faceKjv) s = kit.faceKjv(p, 'little') || '';
       s = String(s).replace(/\s+/g, ' ').trim();
-      return s || 'KJV';
+      if (!s && p && p.ref) s = String(p.ref);
+      return s;
     }
 
     function paintHud() {
@@ -230,7 +231,7 @@
       closeSheet();
       var kept = document.getElementById('kg-verse-friends');
       if (kept) { kept.classList.remove('show'); kept.textContent = ''; kept.hidden = true; }
-      if (st) st.textContent = 'Flip a kid line, then the KJV line that says the same thing.';
+      if (st) st.textContent = 'Flip a gold card and a blue card that say the same thing.';
       if (board) board.textContent = '';
       document.body.classList.remove('is-little', 'is-middle', 'is-bigger', 'is-won');
       document.body.classList.add('is-' + playSize, 'mf-focus');
@@ -245,8 +246,11 @@
       paintHud();
       var cards = [];
       usePairs.forEach(function (p) {
-        cards.push({ pair: p.id, kind: 'pic', text: shortKid(p) });
-        cards.push({ pair: p.id, kind: 'kjv', text: shortKjv(p) });
+        var kid = shortKid(p);
+        var kjv = shortKjv(p);
+        if (!kid || !kjv) return;
+        cards.push({ pair: p.id, kind: 'pic', text: kid });
+        cards.push({ pair: p.id, kind: 'kjv', text: kjv });
       });
       cards = kit && kit.seededShuffle ? kit.seededShuffle(cards, Date.now() % 99991) : cards;
 
@@ -256,27 +260,19 @@
         card.textContent = '';
         card.classList.remove('is-peek', 'mf-wrong');
         var kind = card.getAttribute('data-kind') || 'kjv';
-        var back = document.createElement('span');
-        back.className = 'mf-back';
-        back.textContent = kind === 'pic' ? 'Kid' : 'KJV';
-        card.appendChild(back);
-        card.setAttribute('aria-label', kind === 'pic' ? 'Face-down kid line' : 'Face-down KJV line');
+        card.setAttribute('aria-label', kind === 'pic' ? 'Hidden kid line' : 'Hidden KJV line');
       }
       function faceUp(card) {
         if (!card) return;
-        card.setAttribute('aria-pressed', 'true');
-        card.textContent = '';
         var kind = card.getAttribute('data-kind') || 'kjv';
         var words = card.getAttribute('data-text') || '';
-        var lab = document.createElement('span');
-        lab.className = 'mf-kind';
-        lab.textContent = kind === 'pic' ? 'Kid line' : 'KJV';
-        card.appendChild(lab);
-        var line = document.createElement('span');
-        line.className = 'mf-words';
-        line.textContent = words;
-        card.appendChild(line);
-        card.setAttribute('aria-label', (kind === 'pic' ? 'Kid line: ' : 'KJV: ') + words);
+        if (!words) {
+          var p = pairTeach[card.getAttribute('data-pair')];
+          words = kind === 'pic' ? shortKid(p) : shortKjv(p);
+        }
+        card.setAttribute('aria-pressed', 'true');
+        card.textContent = words;
+        card.setAttribute('aria-label', words);
       }
 
       cards.forEach(function (c) {
@@ -297,8 +293,8 @@
             missStreak = 0;
             if (st) {
               st.textContent = b.getAttribute('data-kind') === 'pic'
-                ? 'Now the KJV line that says the same thing.'
-                : 'Now the kid line that says the same thing.';
+                ? 'Now flip a blue card that says the same thing.'
+                : 'Now flip a gold card that says the same thing.';
             }
             return;
           }
@@ -328,8 +324,8 @@
               var sameKind = first.classList.contains('mf-pic') === b.classList.contains('mf-pic');
               if (sameKind) {
                 st.textContent = first.classList.contains('mf-pic')
-                  ? 'That is two kid lines. Flip a KJV line.'
-                  : 'That is two KJV lines. Flip a kid line.';
+                  ? 'That is two gold cards. Flip a blue one.'
+                  : 'That is two blue cards. Flip a gold one.';
               } else {
                 st.textContent = 'Not that pair. The two cards should say the same thing.';
               }
@@ -372,7 +368,7 @@
           lock = false;
           first = null;
           peekTimer = null;
-          if (st) st.textContent = 'Flip a kid line, then the KJV line that says the same thing.';
+          if (st) st.textContent = 'Flip a gold card and a blue card that say the same thing.';
         }, 3200);
       }
       if (peekBtn && !peekBtn.getAttribute('data-bound')) {

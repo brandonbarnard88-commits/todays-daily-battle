@@ -134,7 +134,7 @@ async function run() {
     failed++;
   } else {
     const pricing = fs.readFileSync(pricingPath, 'utf8');
-    const hasFreeModel = /Everything is free|Giving is completely optional/i.test(pricing);
+    const hasFreeModel = /No paid plan|Everything is free|Giving is completely optional/i.test(pricing);
     const hasGive = /\/give/.test(pricing);
     const hasTerms = /terms\.html|Terms/i.test(pricing);
     const hasSubscribeUpsell = /Subscribe \$|Join Battle Pro|Unlock with/i.test(pricing);

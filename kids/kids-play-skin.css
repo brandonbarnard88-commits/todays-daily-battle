@@ -1185,9 +1185,8 @@ body.kids-mini-game button.sp-stone,
   background: #dcfce7;
   pointer-events: none;
 }
-body.ls-at-home .ls-grid {
-  opacity: 0.45;
-  pointer-events: none;
+body.kids-mini-game.is-won .ls-grid {
+  display: none !important;
 }
 
 /* —— Kids home Play cards —— */

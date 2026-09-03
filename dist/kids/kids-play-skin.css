@@ -39,7 +39,7 @@ body.kids-mini-game .mf-card.mf-match {
   animation: kg-pop 0.4s ease !important;
 }
 body.kids-mini-game .mf-card[aria-pressed="true"] {
-  animation: kg-flip-in 0.28s ease !important;
+  animation: none !important;
 }
 body.kids-mini-game .ls-tile.reveal {
   animation: kg-found 0.4s ease !important;
@@ -770,23 +770,25 @@ body.kids-mini-game button.match-btn,
 }
 body.kids-mini-game button.mf-card,
 .mf-card {
-  min-height: 108px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-height: 118px !important;
   border-radius: 16px;
   border: 3px solid #4f46e5;
   background: linear-gradient(180deg, #818cf8, #4f46e5);
-  color: #f2dc98 !important;
-  font-size: 1.5rem !important;
+  color: #0f172a !important;
+  font-size: 1.05rem !important;
   font-weight: 800;
-  padding: 0.45rem 0.5rem;
+  padding: 0.5rem 0.55rem;
   cursor: pointer;
-  line-height: 1.25;
+  line-height: 1.3;
   font-family: Nunito, system-ui, sans-serif;
+  white-space: normal;
+  overflow: visible;
   box-shadow: 3px 3px 0 rgba(49, 46, 129, 0.35);
-}
-.mf-card[aria-pressed="false"] {
-  color: #f2dc98 !important;
-  background: linear-gradient(180deg, #6366f1, #3730a3);
-  border-color: #1e1b4b;
 }
 .mf-card.mf-pic[aria-pressed="false"] {
   background: linear-gradient(180deg, #fde68a, #f59e0b);
@@ -798,30 +800,22 @@ body.kids-mini-game button.mf-card,
   border-color: #1e3a8a;
   color: #eff6ff !important;
 }
-.mf-card[aria-pressed="false"]::after {
-  content: "Kid";
+.mf-back {
   display: block;
-  font-size: 0.95rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  line-height: 1.2;
+  font-size: 1.05rem !important;
+  letter-spacing: 0.04em;
   font-weight: 800;
+  line-height: 1.2;
 }
-.mf-card.mf-kjv[aria-pressed="false"]::after {
-  content: "KJV";
-}
-.mf-card[aria-pressed="true"]::after,
-.mf-card.mf-match::after { content: none; }
 .mf-card[aria-pressed="true"],
 .mf-card.is-peek {
-  color: #0f172a !important;
   background: #fffef8 !important;
   border-color: #d97706;
-  font-size: 0.95rem !important;
+  color: #0f172a !important;
   text-align: center;
 }
 .mf-card.mf-match {
-  opacity: 0.72;
+  opacity: 0.85;
   pointer-events: none;
   border-color: #16a34a;
   background: #dcfce7 !important;
@@ -829,22 +823,25 @@ body.kids-mini-game button.mf-card,
 }
 .mf-kind {
   display: block;
-  font-size: 0.62rem !important;
+  font-size: 0.68rem !important;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   font-weight: 800;
-  color: #b45309;
+  color: #b45309 !important;
   line-height: 1.2;
-  margin-bottom: 0.15rem;
 }
-.mf-card.mf-kjv .mf-kind { color: #1d4ed8; }
-.mf-pic-line,
-.mf-kjv-line {
-  display: block;
-  font-size: 0.95rem !important;
-  font-weight: 800;
-  line-height: 1.3;
+.mf-card.mf-kjv[aria-pressed="true"] .mf-kind,
+.mf-card.mf-kjv.is-peek .mf-kind { color: #1d4ed8 !important; }
+body.kids-mini-game button.mf-card .mf-words {
+  display: block !important;
+  width: 100%;
+  font-size: 1.12rem !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
   color: #0f172a !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-align: center;
 }
 .mf-sheet {
   display: none;

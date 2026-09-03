@@ -1005,17 +1005,25 @@ body.kids-mini-game button.ls-tile,
   color: #0f172a !important;
 }
 .ls-found-kjv.show { display: block; }
-.ls-found-kjv summary {
-  cursor: pointer;
+.ls-found-kjv cite {
+  display: block;
+  font-style: normal;
   font-weight: 800;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
+  margin: 0 0 0.45rem;
+  color: #b45309 !important;
 }
 .ls-found-kjv p {
   margin: 0;
   font-weight: 700;
-  line-height: 1.45;
+  line-height: 1.5;
+  font-size: 1.02rem;
+}
+.ls-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0.35rem;
 }
 
 /* —— Shepherd's Path —— */

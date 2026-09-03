@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260903faces1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260903sheep1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -47,7 +47,7 @@
           <h1>Where is the sheep?</h1>
           <p>Tap the grass. One sheep is hidden. The Good Shepherd never loses count of His sheep—and He is glad when the lost one is found.</p>
         </div>
-        <p id="ls-status" class="ls-status" role="status">Tap the grass—find the one that is lost.</p>
+        <p id="ls-status" class="ls-status" role="status">Tap a grass square. One sheep is hiding.</p>
         <div class="ls-grid cols3" id="ls-grid" role="group" aria-label="Grass squares"></div>
         <div class="ls-flock" id="ls-flock">
           <div class="ls-flock-row" aria-hidden="true">
@@ -70,15 +70,7 @@
         </div>
         <div class="kg-carry" id="kg-carry">
           <div class="kg-carry-art" aria-hidden="true"><img src="shepherd-mascot-sheep.png?v=20260820polish" width="88" height="88" alt="" decoding="async"></div>
-          <p>And when he hath found it, he layeth it on his shoulders, rejoicing.</p>
-        </div>
-        <div class="ls-home" id="ls-home">
-          <p class="ls-home-prompt">And when he cometh home, he calleth together his friends and neighbours.</p>
-          <div class="ls-friends" id="ls-friends" role="group" aria-label="Friends and neighbours">
-            <button type="button" class="ls-friend" data-friend>Friend</button>
-            <button type="button" class="ls-friend" data-friend>Neighbour</button>
-            <button type="button" class="ls-friend" data-friend>Friend</button>
-          </div>
+          <p>Rejoice with me; for I have found my sheep which was lost.</p>
         </div>
         <p id="ls-win" class="ls-win" hidden></p>
         <details class="ls-found-kjv" id="ls-found-kjv">
@@ -88,7 +80,7 @@
         <p class="kg-next-doors" id="kg-next-doors"></p>
         <details class="kg-how">
           <summary>How to play</summary>
-          <p>Tap the grass. One sheep is hidden. The Good Shepherd never loses count.</p>
+          <p>Tap the grass squares. One sheep is hiding. When you find it, the Shepherd is glad—that is Luke 15.</p>
           <div class="ls-kjv" id="ls-kjv">
             <strong>Luke 15:4–6 (KJV)</strong>
             <p>What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing. And when he cometh home, he calleth together his friends and neighbours, saying unto them, Rejoice with me; for I have found my sheep which was lost.</p>
@@ -213,11 +205,6 @@
       if (w) { w.hidden = true; w.textContent = ''; }
       var foundKjv = document.getElementById('ls-found-kjv');
       if (foundKjv) foundKjv.classList.remove('show');
-      var home = document.getElementById('ls-home');
-      if (home) home.classList.remove('show');
-      [].forEach.call(document.querySelectorAll('.ls-friend'), function (f) {
-        f.classList.remove('is-in');
-      });
       var flock = document.getElementById('ls-flock');
       if (flock) flock.classList.remove('is-found');
       var flockLine = document.getElementById('ls-flock-line');
@@ -227,7 +214,7 @@
       if (doors) doors.textContent = '';
       if (again) again.hidden = true;
       if (harder) harder.hidden = true;
-      if (st) st.textContent = 'Tap the grass—find the one that is lost.';
+      if (st) st.textContent = 'Tap a grass square. One sheep is hiding.';
       if (grid) {
         grid.textContent = '';
         grid.className = 'ls-grid ' + L.cols;
@@ -257,22 +244,31 @@
               sheepImg.decoding = 'async';
               b.appendChild(sheepImg);
               done = true;
+              if (st) st.textContent = 'You found the sheep!';
               if (w) {
                 w.hidden = false;
-                w.innerHTML =
-                  'Found in <strong>' + tries + '</strong> ' + (tries === 1 ? 'tap' : 'taps') + '.<br>' +
-                  'And when he hath found it, he layeth it on his shoulders, rejoicing.';
+                w.textContent = 'You found the sheep!';
               }
-              if (st) st.textContent = 'Come home. Call his friends and neighbours.';
               var carryWin = document.getElementById('kg-carry');
               if (carryWin) carryWin.classList.add('show');
-              var homeShow = document.getElementById('ls-home');
-              if (homeShow) homeShow.classList.add('show');
-              document.body.classList.add('ls-at-home');
+              var foundShow = document.getElementById('ls-found-kjv');
+              if (foundShow) foundShow.classList.add('show');
               var flockWin = document.getElementById('ls-flock');
               if (flockWin) flockWin.classList.add('is-found');
               var flockLineWin = document.getElementById('ls-flock-line');
-              if (flockLineWin) flockLineWin.textContent = 'He layeth it on his shoulders, rejoicing.';
+              if (flockLineWin) flockLineWin.textContent = 'The lost sheep is found.';
+              if (again) again.hidden = false;
+              if (harder) harder.hidden = levelIndex + 1 >= sizeLevels().length;
+              document.body.classList.add('is-won');
+              if (kit && kit.fillWinDoors) {
+                kit.fillWinDoors(document.getElementById('kg-next-doors'), {
+                  story: 'lostSheep',
+                  color: 'lost-sheep',
+                  label: 'the lost sheep'
+                });
+              }
+              if (kit) kit.recordScore('sheep', { wins: 1, tries: tries, level: levelIndex + 1 });
+              paintBest();
               if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
                 try { window.tdbLittleShepherd.notify('gameWin'); } catch (eN) {}
               }
@@ -290,35 +286,6 @@
           if (grid) grid.appendChild(b);
         })(i);
       }
-    }
-    function finishHome() {
-      var foundShow = document.getElementById('ls-found-kjv');
-      if (foundShow) foundShow.classList.add('show');
-      if (again) again.hidden = false;
-      if (harder) harder.hidden = levelIndex + 1 >= sizeLevels().length;
-      if (st) st.textContent = 'Rejoice with me; for I have found my sheep which was lost.';
-      var flockLineEnd = document.getElementById('ls-flock-line');
-      if (flockLineEnd) flockLineEnd.textContent = 'Rejoice with me; for I have found my sheep which was lost.';
-      document.body.classList.add('is-won');
-      if (kit && kit.fillWinDoors) {
-        kit.fillWinDoors(document.getElementById('kg-next-doors'), {
-          story: 'lostSheep',
-          color: 'lost-sheep',
-          label: 'the lost sheep'
-        });
-      }
-      if (kit) kit.recordScore('sheep', { wins: 1, tries: tries, level: levelIndex + 1 });
-      paintBest();
-    }
-    var friendsBox = document.getElementById('ls-friends');
-    if (friendsBox) {
-      friendsBox.addEventListener('click', function (ev) {
-        var t = ev.target.closest ? ev.target.closest('[data-friend]') : null;
-        if (!t || t.classList.contains('is-in')) return;
-        if (!document.body.classList.contains('ls-at-home')) return;
-        t.classList.add('is-in');
-        if (!document.querySelector('.ls-friend:not(.is-in)')) finishHome();
-      });
     }
     if (again) again.addEventListener('click', build);
     if (harder) {

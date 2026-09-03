@@ -120,7 +120,8 @@
     return details;
   }
 
-  /** FT2: any one completion key means returning — sync siblings so chrome stays gone. */
+  /** FT2: any one completion key means returning — sync siblings so chrome stays gone.
+   *  Do not write these on first paint. wireReturningTriggers() writes only after a door click. */
   function syncReturningKeys() {
     try {
       localStorage.setItem(RETURNING_KEY, '1');
@@ -131,6 +132,7 @@
 
   function isReturningVisitor() {
     try {
+      /* Primary flag: set only after a first-visit door is chosen (or an older key is already present). */
       if (localStorage.getItem(RETURNING_KEY) === '1') return true;
       if (
         localStorage.getItem(FIRST_VISIT_KEY) === '1' ||
@@ -615,12 +617,18 @@
   }
 
   function init() {
+    var returning = false;
+    try {
+      returning = isReturningVisitor();
+      document.documentElement.setAttribute('data-tdb-home-experience', returning ? 'returning' : 'first');
+    } catch (eAttr) { /* ignore */ }
     if (!document.getElementById('home-primary-flow')) return;
-    reorderPrimaryFlow();
-    collapseDuplicateFeel();
-    collapseHeroExtras();
-
-    if (isReturningVisitor()) {
+    try {
+      reorderPrimaryFlow();
+      collapseDuplicateFeel();
+      collapseHeroExtras();
+    } catch (eReorder) { /* keep first-visit paint even if later chrome throws */ }
+    if (returning) {
       applyReturningLayout();
     } else {
       applyFirstVisitSurface();

@@ -3365,7 +3365,21 @@ function writeTdbCookieConsentState(status) {
   dispatchTdbAnalyticsConsentChange(normalized);
 }
 
+function isTdbQuietPorchPath() {
+  try {
+    var p = String(location.pathname || '/').replace(/\/index\.html$/i, '/').replace(/\/+$/, '') || '/';
+    if (p === '/' || p === '') return true;
+    if (p === '/plans' || p === '/plans.html') return true;
+    if (p === '/ask' || p === '/ask.html') return true;
+    if (p === '/calm' || p === '/calm.html') return true;
+    return false;
+  } catch (ePath) {
+    return false;
+  }
+}
+
 function shouldShowTdbCookieNotice() {
+  if (isTdbQuietPorchPath()) return false;
   var windowState = readTdbWindowConsentState();
   if (windowState && (windowState.privacyAccepted === true || windowState.status === 'accepted' || windowState.status === 'later')) {
     return false;
@@ -3445,6 +3459,7 @@ function ensureTdbCookieNotice() {
     banner = document.createElement('aside');
     banner.id = 'tdb-cookie-notice';
     banner.className = 'tdb-cookie-notice';
+    banner.hidden = true;
     banner.setAttribute('role', 'region');
     banner.setAttribute('aria-label', 'Privacy and cookies notice');
     banner.setAttribute('aria-live', 'polite');

@@ -268,6 +268,31 @@
       }
     }
 
+    function donationHeaders() {
+      var headers = { 'Content-Type': 'application/json' };
+      try {
+        var cfg = window.TDB_CONFIG || {};
+        var anon = cfg.SUPABASE_ANON_KEY || '';
+        if (anon) {
+          headers.Authorization = 'Bearer ' + anon;
+          headers.apikey = anon;
+        }
+      } catch (eHdr) {}
+      return headers;
+    }
+
+    function isStripeCheckoutUrl(url) {
+      return /^https:\/\/(checkout|pay)\.stripe\.com\//i.test(String(url || ''));
+    }
+
+    async function postDonation(endpoint, payload) {
+      return fetch(endpoint, {
+        method: 'POST',
+        headers: donationHeaders(),
+        body: JSON.stringify(payload)
+      });
+    }
+
     async function startDonation(amountCents, mode, metadata = {}) {
       const statusMsg = 'Preparing a quiet checkout…';
       showDonationStatus(statusMsg);
@@ -277,24 +302,34 @@
           interval: mode,
           ...metadata
         };
-        var endpoint = '/functions/create-donation-session';
+        var endpoints = ['/create-donation-session'];
         try {
           if (window.TDB_CONFIG && window.TDB_CONFIG.CREATE_DONATION_SESSION_URL) {
-            endpoint = window.TDB_CONFIG.CREATE_DONATION_SESSION_URL;
+            endpoints.push(window.TDB_CONFIG.CREATE_DONATION_SESSION_URL);
           }
         } catch (eCfg) {}
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(payload)
-        });
-        if (!res.ok) throw new Error('Session creation failed');
-        const data = await res.json();
-        if (data.url) {
+        var data = null;
+        var lastErr = '';
+        for (var i = 0; i < endpoints.length; i++) {
+          try {
+            const res = await postDonation(endpoints[i], payload);
+            const parsed = await res.json().catch(function () { return {}; });
+            if (res.ok && parsed && isStripeCheckoutUrl(parsed.url)) {
+              data = parsed;
+              break;
+            }
+            lastErr = (parsed && parsed.error) ? String(parsed.error) : ('HTTP ' + res.status);
+          } catch (eTry) {
+            lastErr = eTry && eTry.message ? eTry.message : 'network';
+          }
+        }
+        if (data && data.url) {
           showDonationStatus('Redirecting to secure checkout...');
           window.location.href = data.url;
+        } else if (lastErr === 'Stripe not configured') {
+          showDonationStatus('Gifts are not taking charges on this porch yet. You can try again later — or not. The Word stays free either way.', true);
         } else {
-          showDonationStatus('Thank you. The porch stays free for the next person.', false);
+          showDonationStatus('Connection issue. You can try again later — or not. The porch remains free either way.', true);
         }
       } catch (e) {
         console.error(e);
@@ -327,10 +362,20 @@
 
     var giveForm = document.getElementById('tdbGiveForm');
     if (giveForm) giveForm.addEventListener('submit', handleOpenDonation);
+
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      var donation = params.get('donation');
+      if (donation === 'success') {
+        showDonationStatus('Received, if the card went through. Thank you. The porch stays free for the next person.', false);
+      } else if (donation === 'cancel') {
+        showDonationStatus('No gift was taken. You can walk on — this visit is already complete.', false);
+      }
+    } catch (eDon) {}
   </script>
 
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260816-brightgold"></script>
+  <script type="module" src="script.js?v=20260903porch3"></script>
 </body>
 </html>

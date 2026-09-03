@@ -145,6 +145,15 @@ export function leftoverTemplateIssues(row) {
   if (/enter His gates with thanksgiving/i.test(setting + ' ' + about) && !/^Psalm 100:/i.test(ref)) {
     issues.push('Psalm 100 leftover gates band on a non-100 verse');
   }
+  if (/forgives iniquity, heals diseases, redeems from destruction/i.test(setting)) {
+    issues.push('Psalm 103:3–5 leftover benefits lump');
+  }
+  if (/^Psalm 103:3\b/.test(ref) && /renewal/i.test(to + ' ' + today + ' ' + plain)) {
+    issues.push('Psalm 103:5 leftover renewal on 103:3');
+  }
+  if (/^Psalm 103:3\b/.test(ref) && /redeem/i.test(setting)) {
+    issues.push('Psalm 103:4 leftover redeem on 103:3');
+  }
   const modern = String((row && row.modernApplication) || '');
   const youLine = String((row && row.today) || '');
   if (!modern.trim()) issues.push('missing relate-today');

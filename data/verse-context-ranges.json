@@ -930,10 +930,26 @@
   {
     "book": "Psalm",
     "from": "103:3",
+    "thru": "103:3",
+    "about": "David",
+    "audience": "The soul that needs forgiveness and healing",
+    "setting": "David names why the soul should bless the Lord: He forgives all iniquities and heals all diseases."
+  },
+  {
+    "book": "Psalm",
+    "from": "103:4",
+    "thru": "103:4",
+    "about": "David",
+    "audience": "The soul that needs to be redeemed from destruction and crowned with lovingkindness",
+    "setting": "Still naming the Lord’s benefits, David says He redeems your life from destruction and crowns you with lovingkindness and tender mercies."
+  },
+  {
+    "book": "Psalm",
+    "from": "103:5",
     "thru": "103:5",
     "about": "David",
-    "audience": "The soul that needs forgiveness, healing, and renewal",
-    "setting": "David names why the soul should bless the Lord: He forgives iniquity, heals diseases, redeems from destruction, and satisfies with good things."
+    "audience": "The soul that needs to be filled with good things and renewed",
+    "setting": "Still naming the Lord’s benefits, David says He satisfies your mouth with good things so that your youth is renewed like the eagle’s."
   },
   {
     "book": "Psalm",

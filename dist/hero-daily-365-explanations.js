@@ -806,8 +806,8 @@
     "plain": "Who redeemeth your life from destruction; — He redeems your life from the pit.",
     "step": "Do one concrete kindness today because of this: “Who redeemeth thy life from destruction; who crowneth thee with lovingkindness and tender mercies;.”",
     "about": "David",
-    "to": "The soul that needs forgiveness, healing, and renewal",
-    "setting": "David names why the soul should bless the Lord: He forgives iniquity, heals diseases, redeems from destruction, and satisfies with good things. The verse: Who redeemeth thy life from destruction; who crowneth thee with lovingkindness and tender mercies;",
+    "to": "The soul that needs to be redeemed from destruction and crowned with lovingkindness",
+    "setting": "Still naming the Lord’s benefits, David says He redeems your life from destruction and crowns you with lovingkindness and tender mercies. The verse: Who redeemeth thy life from destruction; who crowneth thee with lovingkindness and tender mercies;",
     "prayer": "Lord, show me Your salvation again today: “Who redeemeth thy life from destruction; who crowneth thee with lovingkindness and tender mercies;.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Who redeemeth your life from destruction; — He redeems your life from the pit. The verse still says: “Who redeemeth thy life from destruction; who crowneth thee with lovingkindness and tender mercies;”",
     "today": "Who redeemeth your life from destruction; — He redeems your life from the pit"
@@ -2954,8 +2954,8 @@
     "plain": "He forgives your sins and heals your diseases — mercy that deals with the real wound.",
     "step": "Read this once out loud, then do the next honest thing it names: “Who forgiveth all thine iniquities; who healeth all thy diseases;.”",
     "about": "David",
-    "to": "The soul that needs forgiveness, healing, and renewal",
-    "setting": "David names why the soul should bless the Lord: He forgives iniquity, heals diseases, redeems from destruction, and satisfies with good things. The verse: Who forgiveth all thine iniquities; who healeth all thy diseases;",
+    "to": "The soul that needs forgiveness and healing",
+    "setting": "David names why the soul should bless the Lord: He forgives all iniquities and heals all diseases. The verse: Who forgiveth all thine iniquities; who healeth all thy diseases;",
     "prayer": "Lord, let this mercy reach me, then go out from me: “Who forgiveth all thine iniquities; who healeth all thy diseases;.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, He forgives your sins and heals your diseases — mercy that deals with the real wound. The verse still says: “Who forgiveth all thine iniquities; who healeth all thy diseases;”",
     "today": "This word is for you when you need the One who forgives all your iniquities."
@@ -2978,8 +2978,8 @@
     "plain": "He fills you with good things and renews your strength like the eagle — life given, not squeezed out.",
     "step": "Stop once today and return to these words: “Who satisfieth thy mouth with good things; so that thy youth is renewed like the eagle's.”",
     "about": "David",
-    "to": "The soul that needs forgiveness, healing, and renewal",
-    "setting": "David names why the soul should bless the Lord: He forgives iniquity, heals diseases, redeems from destruction, and satisfies with good things. The verse: Who satisfieth thy mouth with good things; so that thy youth is renewed like the eagle's.",
+    "to": "The soul that needs to be filled with good things and renewed",
+    "setting": "Still naming the Lord’s benefits, David says He satisfies your mouth with good things so that your youth is renewed like the eagle’s. The verse: Who satisfieth thy mouth with good things; so that thy youth is renewed like the eagle's.",
     "prayer": "Lord, let this word be true in me today: “Who satisfieth thy mouth with good things; so that thy youth is renewed like the eagle's.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, He fills you with good things and renews your strength like the eagle — life given, not squeezed out. The verse still says: “Who satisfieth thy mouth with good things; so that thy youth is renewed like the eagle's.”",
     "today": "He fills you with good things and renews your strength like the eagle — life given, not squeezed out"

@@ -1197,7 +1197,8 @@ body.kids-mini-game button.sp-stone,
   background: #dcfce7;
   pointer-events: none;
 }
-body.kids-mini-game.is-won .ls-grid {
+body.kids-mini-game.is-won .ls-grid,
+body.kids-mini-game.is-won .ls-flock {
   display: none !important;
 }
 

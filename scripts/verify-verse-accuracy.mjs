@@ -404,6 +404,26 @@ function auditRegressionLocks() {
       sit: 'David opens this psalm by commanding his own soul: Bless the Lord, O my soul, and all that is within me, bless His holy name.',
       bad: false
     },
+    {
+      ref: 'Psalm 103:3',
+      sit: 'David names why the soul should bless the Lord: He forgives iniquity, heals diseases, redeems from destruction, and satisfies with good things.',
+      bad: true
+    },
+    {
+      ref: 'Psalm 103:3',
+      sit: 'David names why the soul should bless the Lord: He forgives all iniquities and heals all diseases.',
+      bad: false
+    },
+    {
+      ref: 'Psalm 103:3',
+      to: 'The soul that needs forgiveness, healing, and renewal',
+      bad: true
+    },
+    {
+      ref: 'Psalm 103:3',
+      to: 'The soul that needs forgiveness and healing',
+      bad: false
+    },
     { ref: '1 John 4:7', about: 'Solomon', bad: true },
     { ref: '1 John 4:7', about: 'David', bad: true },
     { ref: '1 John 4:7', about: 'Paul', bad: true },
@@ -462,7 +482,8 @@ function auditResolverSamples(kjv) {
     'Psalm 92:1',
     'Proverbs 16:3',
     'Romans 5:5',
-    'John 3:16'
+    'John 3:16',
+    'Psalm 103:3'
   ];
   samples.forEach((ref) => {
     const ctx = resolve(ref) || {};

@@ -223,6 +223,34 @@
     "allowFlags": ""
   },
   {
+    "id": "ps103-benefits-lump",
+    "re": "forgives iniquity, heals diseases, redeems from destruction",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
+    "id": "ps103-redeem-on-wrong",
+    "re": "redeem(?:s|eth)?(?: (?:thy|your|the) life)? from destruction",
+    "flags": "i",
+    "allow": "^Psalm(s)?\\s+103:4\\b",
+    "allowFlags": "i"
+  },
+  {
+    "id": "ps103-satisfy-on-wrong",
+    "re": "satisf(?:y|ies|ieth)(?: (?:thy|your) mouth)? with good things",
+    "flags": "i",
+    "allow": "^Psalm(s)?\\s+103:5\\b",
+    "allowFlags": "i"
+  },
+  {
+    "id": "ps103-renewal-audience-lump",
+    "re": "forgiveness, healing, and renewal",
+    "flags": "i",
+    "allow": null,
+    "allowFlags": ""
+  },
+  {
     "id": "luke-10-19-mash",
     "re": "On the road to Jerusalem: Good Samaritan|Good Samaritan,.+lost sheep\\/coin\\/son",
     "flags": "i",

@@ -169,14 +169,13 @@
         if (d.open) fire(EVENTS.SECONDARY_OPEN, { surface: 'home' });
       });
     });
-    // capacity door is always visible; count first scroll into view
     var cap = document.getElementById('tdbCapacityDoor');
     if (cap && 'IntersectionObserver' in global) {
       var io = new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-              fire('home_secondary_seen', { surface: 'home' }, 'secondary_seen');
+              fire(EVENTS.CAPACITY_CLICK, { surface: 'home', action: 'seen' }, 'capacity_seen');
               try {
                 io.disconnect();
               } catch (e2) {}
@@ -186,6 +185,13 @@
         { threshold: 0.2 }
       );
       io.observe(cap);
+    }
+    if (cap) {
+      cap.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (!a || !cap.contains(a)) return;
+        fire(EVENTS.CAPACITY_CLICK, { surface: 'home' });
+      });
     }
   }
 

@@ -66,6 +66,7 @@
     ].filter(Boolean);
     roots.forEach(function (root) {
       Array.prototype.slice.call(root.querySelectorAll('details')).forEach(function (d) {
+        if (d.hasAttribute('data-tdb-keep-details')) return;
         d.open = true;
         d.setAttribute('open', '');
         d.classList.add('tdb-no-dropdown');
@@ -77,6 +78,24 @@
         d.replaceChild(label, sum);
       });
     });
+  }
+
+  function placeCapacityDoor(show) {
+    var cap = document.getElementById('tdbCapacityDoor');
+    var main = document.getElementById('home-primary-flow');
+    if (!cap) return;
+    if (show && main && cap.parentNode !== main) {
+      try { main.insertBefore(cap, main.firstChild); } catch (e) { /* keep static order */ }
+    } else if (show && main && main.firstElementChild !== cap) {
+      try { main.insertBefore(cap, main.firstChild); } catch (e2) { /* keep static order */ }
+    }
+    if (show) {
+      cap.removeAttribute('hidden');
+      cap.removeAttribute('aria-hidden');
+    } else {
+      cap.setAttribute('hidden', '');
+      cap.setAttribute('aria-hidden', 'true');
+    }
   }
 
   function wrapInDetails(id, summaryText, nodes, extraClass) {
@@ -415,6 +434,7 @@
 
   function applyReturningLayout() {
     document.documentElement.classList.add('tdb-home-calm-hero');
+    placeCapacityDoor(false);
     hideFirstVisitStrip();
     var legacyNext = document.getElementById('tdbFirstVisitNextStep');
     if (legacyNext) legacyNext.setAttribute('hidden', '');
@@ -471,6 +491,15 @@
     var heavyCalm = document.getElementById('tdbHeavyNowCalm');
     if (heavyCalm) heavyCalm.addEventListener('click', go);
 
+    var capTooMuch = document.getElementById('tdbCapacityTooMuch');
+    if (capTooMuch) capTooMuch.addEventListener('click', go);
+    var capOneVerse = document.getElementById('tdbCapacityOneVerse');
+    if (capOneVerse) capOneVerse.addEventListener('click', go);
+    var capLittleMore = document.getElementById('tdbCapacityLittleMore');
+    if (capLittleMore) capLittleMore.addEventListener('click', go);
+    var capAsk = document.getElementById('tdbCapacityAskWord');
+    if (capAsk) capAsk.addEventListener('click', go);
+
     var primaryPlan = document.getElementById('tdbHomeHeroPrimaryPlan');
     if (primaryPlan) primaryPlan.addEventListener('click', go);
 
@@ -481,25 +510,29 @@
   function hideFirstVisitStrip() {
     var strip = document.getElementById('tdbFirstVisitStrip');
     if (strip) strip.setAttribute('hidden', '');
+    placeCapacityDoor(false);
   }
 
   function revealFirstVisitStrip() {
     var strip = document.getElementById('tdbFirstVisitStrip');
-    if (!strip) return;
     if (isReturningVisitor()) {
-      strip.setAttribute('hidden', '');
+      if (strip) strip.setAttribute('hidden', '');
+      placeCapacityDoor(false);
       placeStartMyDayForReturning();
       return;
     }
     try {
       if (localStorage.getItem(FIRST_VISIT_KEY) === '1' || localStorage.getItem(NEW_HERE_KEY) === '1') {
-        strip.setAttribute('hidden', '');
+        if (strip) strip.setAttribute('hidden', '');
+        placeCapacityDoor(false);
         placeStartMyDayForReturning();
         return;
       }
     } catch (e) { /* ignore */ }
-    strip.removeAttribute('hidden');
-    placeStartMyDayInStrip();
+    /* Capacity door is the first-visit surface; welcome strip stays in DOM for tests. */
+    if (strip) strip.setAttribute('hidden', '');
+    placeCapacityDoor(true);
+    placeStartMyDayForReturning();
   }
 
   function initFirstVisitStrip() {

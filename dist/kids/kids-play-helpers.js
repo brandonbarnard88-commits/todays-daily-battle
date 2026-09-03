@@ -597,9 +597,9 @@
 
   var SIZE_KEY = 'tdbKidsPlaySize';
   var SIZES = {
-    little: { id: 'little', label: 'Little', pairs: 2, pairRounds: [2, 2, 3], sheep: [6, 9], sheepCols: ['cols3', 'cols3'], path: [4, 5], timer: false },
-    middle: { id: 'middle', label: 'Middle', pairs: 4, pairRounds: [4, 5, 6], sheep: [9, 12, 16], sheepCols: ['cols3', 'cols4', 'cols4'], path: [5, 7, 9], timer: false },
-    bigger: { id: 'bigger', label: 'Bigger', pairs: 6, pairRounds: [6, 7, 8], sheep: [16, 20], sheepCols: ['cols4', 'cols5'], path: [9, 12], timer: true }
+    little: { id: 'little', label: 'Little', pairs: 2, pairRounds: [2, 2, 3], memory: [2, 2, 3], sheep: [6, 9], sheepCols: ['cols3', 'cols3'], path: [4, 5], timer: false },
+    middle: { id: 'middle', label: 'Middle', pairs: 4, pairRounds: [4, 5, 6], memory: [3, 3, 4], sheep: [9, 12, 16], sheepCols: ['cols3', 'cols4', 'cols4'], path: [5, 7, 9], timer: false },
+    bigger: { id: 'bigger', label: 'Bigger', pairs: 6, pairRounds: [6, 7, 8], memory: [4, 4, 4], sheep: [16, 20], sheepCols: ['cols4', 'cols5'], path: [9, 12], timer: true }
   };
 
   function getSize() {

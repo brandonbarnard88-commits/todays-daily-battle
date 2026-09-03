@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260902sense1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260903first1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -38,13 +38,18 @@
         <div class="match-hud" aria-label="Round progress">
           <span class="match-hud-round" id="match-round-label">Round 1</span>
           <div class="match-stars" id="match-stars" role="img" aria-label="Pairs found"></div>
+          <div class="kg-sizes" role="group" aria-label="How big a game">
+            <button type="button" data-kg-size="little">Little</button>
+            <button type="button" data-kg-size="middle">Middle</button>
+            <button type="button" data-kg-size="bigger">Bigger</button>
+          </div>
         </div>
         <p class="section-note topic-mood-porch kids-site-porch" lang="en">Short matches. Real KJV. No rush.</p>
         <div class="match-hero" data-kg-ico="⭐">
           <h1>Match the Verse</h1>
           <p>Match the buddy pairs. Tap a <strong>picture</strong>, then the <strong>KJV line</strong>.</p>
         </div>
-        <p id="match-status" class="match-status" role="status" aria-live="polite">Pick a character card.</p>
+        <p id="match-status" class="match-status" role="status" aria-live="polite">Tap a kid line or a KJV line, then the one that matches.</p>
         <div class="kg-buddy">
           <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a line">
             <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.png?v=20260820polish" width="72" height="80" alt="Little Shepherd" decoding="async"/>
@@ -75,12 +80,7 @@
         </div>
         <details class="kg-how">
           <summary>How to play</summary>
-          <p>Match the buddy pairs. Tap a picture, then the KJV line. Learn a short truth each match.</p>
-          <div class="kg-sizes" role="group" aria-label="How big a game">
-            <button type="button" data-kg-size="little">Little</button>
-            <button type="button" data-kg-size="middle">Middle</button>
-            <button type="button" data-kg-size="bigger">Bigger</button>
-          </div>
+          <p>Match the buddy pairs. Tap a kid line or a KJV line, then the one that matches.</p>
           <label class="match-sound-row">
             <input type="checkbox" id="match-sound" checked>
             Soft game sounds (this tab only)
@@ -243,7 +243,7 @@
     function startPrompt() {
       return familyOn
         ? 'Grown-up: tap a KJV line and read it out loud.'
-        : 'Pick a picture.';
+        : 'Tap a kid line or a KJV line, then the one that matches.';
     }
 
     function paintStars() {
@@ -452,32 +452,7 @@
           try { window.tdbLittleShepherd.notify('pairFound'); } catch (eP) {}
         }
         if (Object.keys(matched).length === pairsThisRound.length) celebrateWin();
-        else {
-          setStatus('Read this verse—then the next pair.', 'good');
-          function leftoverBtns(el) {
-            if (!el) return [];
-            return [].slice.call(el.children).filter(function (n) {
-              return n.classList && !n.classList.contains('matched');
-            });
-          }
-          if (playSize === 'bigger') {
-            shuffle(leftoverBtns(plainEl)).forEach(function (n) { plainEl.appendChild(n); });
-            unalign(
-              leftoverBtns(kjvEl),
-              pairIds(leftoverBtns(plainEl), 'data-pair'),
-              function (n) { return n.getAttribute('data-pair'); }
-            ).forEach(function (n) { kjvEl.appendChild(n); });
-          }
-          var left = leftoverBtns(plainEl).concat(leftoverBtns(kjvEl));
-          left.forEach(function (n) {
-            n.classList.remove('kg-look');
-            void n.offsetWidth;
-            n.classList.add('kg-look');
-          });
-          setTimeout(function () {
-            left.forEach(function (n) { n.classList.remove('kg-look'); });
-          }, 900);
-        }
+        else setStatus('Read this verse—then the next pair.', 'good');
       } else {
         missStreak += 1;
         t.classList.add('match-wrong');

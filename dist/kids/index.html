@@ -29,18 +29,18 @@
   <link rel="stylesheet" href="../styles.css?v=20260816-brightgold">
   <link rel="stylesheet" href="kids-hub-play.css?v=20260820polish">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260816-together">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260903first1">
   <link rel="manifest" href="../manifest.json">
   <style>
     /* Easy kids home — three big doors only (no second nav stack) */
-    .kids-easy-home { max-width: 28rem; margin: 0 auto; padding: 0.75rem 0 2.5rem; text-align: center; }
-    .kids-easy-home h1 { font-size: clamp(1.5rem, 5vw, 1.85rem); margin: 0.5rem 0 1rem; color: #0f172a; }
+    .kids-easy-home { max-width: 46rem; margin: 0 auto; padding: 0.35rem 0 2rem; text-align: center; }
+    .kids-easy-home h1 { font-size: clamp(1.35rem, 4.5vw, 1.75rem); margin: 0.15rem 0 0.65rem; color: #0f172a; }
     .dark-mode .kids-easy-home h1 { color: #f8fafc; }
 
-    .kids-easy-doors { display: flex; flex-direction: column; gap: 0.85rem; }
+    .kids-easy-doors { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
     .kids-easy-door {
-      display: block; text-decoration: none; border-radius: 1.1rem; padding: 1.15rem 1.25rem;
-      font-weight: 800; font-size: 1.35rem; line-height: 1.25; color: #0f172a;
+      display: block; text-decoration: none; border-radius: 1.1rem; padding: 0.7rem 0.65rem 0.75rem;
+      font-weight: 800; font-size: 1.15rem; line-height: 1.2; color: #0f172a;
       box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1); border: 3px solid transparent;
     }
     .kids-easy-door-pic {
@@ -52,17 +52,17 @@
     .kids-easy-door--story { background: linear-gradient(145deg, #fef3c7, #fde68a); border-color: #f59e0b; }
     .kids-easy-door--color { background: linear-gradient(145deg, #dbeafe, #93c5fd); border-color: #3b82f6; }
     .kids-easy-door--play { background: linear-gradient(145deg, #dcfce7, #86efac); border-color: #22c55e; }
-    .kids-easy-games { margin-top: 1.35rem; text-align: left; }
+    .kids-easy-games { margin-top: 0.85rem; text-align: left; }
     .kids-easy-games h2 {
-      margin: 0 0 0.65rem; text-align: center; font-size: 1.2rem; font-weight: 800; color: #0f172a;
+      margin: 0 0 0.5rem; text-align: center; font-size: 1.15rem; font-weight: 800; color: #0f172a;
     }
     .dark-mode .kids-easy-games h2 { color: #0f172a; }
-    .kids-easy-game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    .kids-easy-game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
     .kids-easy-game {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-decoration: none; border-radius: 1.15rem; padding: 0.95rem 0.65rem 0.85rem;
+      text-decoration: none; border-radius: 1.15rem; padding: 0.7rem 0.5rem 0.65rem;
       font-weight: 800; font-size: 1.02rem; line-height: 1.2; color: #0f172a; text-align: center;
-      border: 3px solid #d97706; box-shadow: 3px 3px 0 rgba(15, 23, 42, 0.12); min-height: 118px;
+      border: 3px solid #d97706; box-shadow: 3px 3px 0 rgba(15, 23, 42, 0.12); min-height: 104px;
     }
     .kids-easy-game-ico {
       display: flex; align-items: center; justify-content: center;
@@ -81,7 +81,7 @@
     .kids-easy-game--path { background: linear-gradient(165deg, #fff7ed, #fdba74); border-color: #ea580c; }
     .kids-easy-game:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
     .kids-easy-door:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
-    .kids-easy-mascot { width: 120px; height: auto; margin: 0.25rem auto 0.35rem; display: block; }
+    .kids-easy-mascot { width: 84px; height: auto; margin: 0 auto 0.15rem; display: block; }
     .kids-easy-more { margin-top: 1.5rem; text-align: left; }
     .kids-easy-more summary { cursor: pointer; font-weight: 700; text-align: center; padding: 0.75rem 0.5rem; min-height: 44px; display: flex; align-items: center; justify-content: center; list-style: none; }
     .kids-easy-more summary::-webkit-details-marker { display: none; }
@@ -91,7 +91,7 @@
     .dark-mode .kids-easy-header .brand-title { color: #e2e8f0; }
     .kids-easy-header .kids-subtitle { display: block; font-size: 0.8rem; font-weight: 700; color: #92400e; margin-top: 0.15rem; }
     .kids-easy-footer {
-      max-width: 28rem; margin: 0 auto; padding: 1rem 1rem 2rem; text-align: center;
+      max-width: 46rem; margin: 0 auto; padding: 1rem 1rem 2rem; text-align: center;
       font-size: 0.9rem; color: #64748b;
     }
     .kids-easy-footer-legal { margin: 0.85rem 0 0; font-size: 0.78rem; }
@@ -153,7 +153,16 @@
         <div class="kids-easy-home">
           <img class="kids-easy-mascot" src="shepherd-mascot-welcome.png?v=20260820polish" width="120" height="132" alt="Little Shepherd waves hello" decoding="async" onerror="this.onerror=null;this.src='shepherd-mascot-welcome.svg'">
           <h1 id="kids-hub-play-h">What sounds fun?</h1>
-          <div class="kids-easy-doors" role="navigation" aria-label="Story, color, or play">
+          <section class="kids-easy-games" aria-labelledby="kids-easy-games-h">
+            <h2 id="kids-easy-games-h">Play</h2>
+            <div class="kids-easy-game-grid">
+              <a class="kids-easy-game kids-easy-game--match" data-kg-game="match" href="match-buddies.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-read.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Match the Verse<small>pair a kid line to KJV</small></a>
+              <a class="kids-easy-game kids-easy-game--sheep" data-kg-game="sheep" href="lost-sheep.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sheep.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Find the sheep<small>tap the grass</small></a>
+              <a class="kids-easy-game kids-easy-game--memory" data-kg-game="memory" href="memory-flock.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sit.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Memory flock<small>flip and match</small></a>
+              <a class="kids-easy-game kids-easy-game--path" data-kg-game="path" href="shepherds-path.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-point.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Shepherd&rsquo;s Path<small>step the stones</small></a>
+            </div>
+          </section>
+          <div class="kids-easy-doors" role="navigation" aria-label="Story or color">
             <a class="kids-easy-door kids-easy-door--story" href="corner.html?choose=1#kids-library-grid">
               <img class="kids-easy-door-pic" src="../coloring-pages/colored/creation.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async">
               Story
@@ -165,16 +174,6 @@
               <small>Paint a Bible picture</small>
             </a>
           </div>
-
-          <section class="kids-easy-games" aria-labelledby="kids-easy-games-h">
-            <h2 id="kids-easy-games-h">Play</h2>
-            <div class="kids-easy-game-grid">
-              <a class="kids-easy-game kids-easy-game--match" data-kg-game="match" href="match-buddies.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-read.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Match the Verse<small>pair a kid line to KJV</small></a>
-              <a class="kids-easy-game kids-easy-game--sheep" data-kg-game="sheep" href="lost-sheep.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sheep.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Find the sheep<small>tap the grass</small></a>
-              <a class="kids-easy-game kids-easy-game--memory" data-kg-game="memory" href="memory-flock.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sit.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Memory flock<small>flip and match</small></a>
-              <a class="kids-easy-game kids-easy-game--path" data-kg-game="path" href="shepherds-path.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-point.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Shepherd&rsquo;s Path<small>step the stones</small></a>
-            </div>
-          </section>
 
           <details class="kids-easy-more">
             <summary>More</summary>

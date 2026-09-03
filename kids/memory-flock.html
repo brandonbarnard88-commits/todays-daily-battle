@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260903mem1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260903first1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game mf-focus">
@@ -36,6 +36,12 @@
       <div class="content-inner mf-page">
         <div class="mf-hud">
           <span id="mf-hud-left">0 of 3 pairs</span>
+          <button type="button" class="mf-peek" id="mf-peek">Show me once</button>
+          <div class="kg-sizes" role="group" aria-label="How big a game">
+            <button type="button" data-kg-size="little">Little</button>
+            <button type="button" data-kg-size="middle">Middle</button>
+            <button type="button" data-kg-size="bigger">Bigger</button>
+          </div>
         </div>
         <p id="mf-st" class="mf-st" role="status">Flip a kid line, then the KJV line that says the same thing.</p>
         <div class="mf-board" id="mf-board" role="group" aria-label="Memory cards"></div>
@@ -48,12 +54,7 @@
         </p>
         <details class="kg-how">
           <summary>How to play</summary>
-          <p>Cards stay put. Flip two: a kid line and the KJV line that says the same thing. After a match, read the full verse, then keep looking.</p>
-          <div class="kg-sizes" role="group" aria-label="How big a game">
-            <button type="button" data-kg-size="little">Little</button>
-            <button type="button" data-kg-size="middle">Middle</button>
-            <button type="button" data-kg-size="bigger">Bigger</button>
-          </div>
+          <p>Gold cards are kid lines. Blue cards are KJV. Flip one of each that say the same thing.</p>
         </details>
         <nav class="kg-more" aria-label="More games">
           <p>
@@ -336,12 +337,20 @@
         if (board) board.appendChild(b);
       });
 
-      if (playSize === 'little' && board) {
+      var peekBtn = document.getElementById('mf-peek');
+      if (peekBtn) {
+        peekBtn.hidden = playSize === 'little';
+        peekBtn.disabled = false;
+      }
+      function peekOnce() {
+        if (!board || peekTimer) return;
         lock = true;
         var peekCards = [].slice.call(board.querySelectorAll('.mf-card'));
         peekCards.forEach(function (card) {
-          faceUp(card);
-          card.classList.add('is-peek');
+          if (card.getAttribute('aria-pressed') !== 'true') {
+            faceUp(card);
+            card.classList.add('is-peek');
+          }
         });
         if (st) st.textContent = 'Peek—then the cards hide.';
         peekTimer = setTimeout(function () {
@@ -354,6 +363,14 @@
           if (st) st.textContent = 'Flip a kid line, then the KJV line that says the same thing.';
         }, 3200);
       }
+      if (peekBtn && !peekBtn.getAttribute('data-bound')) {
+        peekBtn.setAttribute('data-bound', '1');
+        peekBtn.addEventListener('click', function () {
+          peekOnce();
+          peekBtn.disabled = true;
+        });
+      }
+      if (playSize === 'little') peekOnce();
     }
 
     if (sheetGo) sheetGo.addEventListener('click', closeSheet);

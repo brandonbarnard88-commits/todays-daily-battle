@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260902sense1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260903first1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -36,6 +36,11 @@
       <div class="content-inner ls-page">
         <div class="ls-hud">
           <span id="ls-level">Level 1</span>
+          <div class="kg-sizes" role="group" aria-label="How big a game">
+            <button type="button" data-kg-size="little">Little</button>
+            <button type="button" data-kg-size="middle">Middle</button>
+            <button type="button" data-kg-size="bigger">Bigger</button>
+          </div>
         </div>
         <p class="section-note topic-mood-porch kids-site-porch" lang="en">Jesus told this story—He comes looking for the one who is lost.</p>
         <div class="ls-hero" data-kg-ico="🐑">
@@ -43,6 +48,7 @@
           <p>Tap the grass. One sheep is hidden. The Good Shepherd never loses count of His sheep—and He is glad when the lost one is found.</p>
         </div>
         <p id="ls-status" class="ls-status" role="status">Tap the grass—find the one that is lost.</p>
+        <div class="ls-grid cols3" id="ls-grid" role="group" aria-label="Grass squares"></div>
         <div class="ls-flock" id="ls-flock">
           <div class="ls-flock-row" aria-hidden="true">
             <img src="shepherd-mascot-sheep.png?v=20260820polish" width="28" height="28" alt="" decoding="async">
@@ -62,7 +68,6 @@
           </button>
           <p class="kg-buddy-line" id="kids-little-shepherd-line" aria-live="polite">I will peek when you get warmer.</p>
         </div>
-        <div class="ls-grid cols3" id="ls-grid" role="group" aria-label="Grass squares"></div>
         <div class="kg-carry" id="kg-carry">
           <div class="kg-carry-art" aria-hidden="true"><img src="shepherd-mascot-sheep.png?v=20260820polish" width="88" height="88" alt="" decoding="async"></div>
           <p>And when he hath found it, he layeth it on his shoulders, rejoicing.</p>
@@ -76,19 +81,14 @@
           </div>
         </div>
         <p id="ls-win" class="ls-win" hidden></p>
-        <div class="ls-found-kjv" id="ls-found-kjv">
-          <strong>Luke 15:4–6 (KJV)</strong>
+        <details class="ls-found-kjv" id="ls-found-kjv">
+          <summary>Read Luke 15:4–6 (KJV)</summary>
           <p>What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing. And when he cometh home, he calleth together his friends and neighbours, saying unto them, Rejoice with me; for I have found my sheep which was lost.</p>
-        </div>
+        </details>
         <p class="kg-next-doors" id="kg-next-doors"></p>
         <details class="kg-how">
           <summary>How to play</summary>
           <p>Tap the grass. One sheep is hidden. The Good Shepherd never loses count.</p>
-          <div class="kg-sizes" role="group" aria-label="How big a game">
-            <button type="button" data-kg-size="little">Little</button>
-            <button type="button" data-kg-size="middle">Middle</button>
-            <button type="button" data-kg-size="bigger">Bigger</button>
-          </div>
           <div class="ls-kjv" id="ls-kjv">
             <strong>Luke 15:4–6 (KJV)</strong>
             <p>What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing. And when he cometh home, he calleth together his friends and neighbours, saying unto them, Rejoice with me; for I have found my sheep which was lost.</p>

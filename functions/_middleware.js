@@ -15,6 +15,44 @@ const FALLBACK_SECURITY_HEADERS = {
 
 const BLOCKED_PATHS = new Set(['/stats', '/stats/', '/stats.html']);
 
+/** Pretty-URL .html and trailing-slash aliases. Pages would 308 these; 301 is the public contract. */
+const PRETTY_HTML_TO_CLEAN = {
+  '/plans.html': '/plans',
+  '/calm.html': '/calm',
+  '/explore.html': '/explore',
+  '/family.html': '/family',
+  '/memorize.html': '/memorize',
+  '/coloring.html': '/coloring',
+  '/reader.html': '/reader'
+};
+
+const TRAILING_SLASH_TO_BARE = new Set([
+  '/plans/',
+  '/calm/',
+  '/explore/',
+  '/family/',
+  '/memorize/',
+  '/coloring/',
+  '/reader/'
+]);
+
+function canonicalPublicRedirect(url) {
+  const path = url.pathname || '/';
+  if (PRETTY_HTML_TO_CLEAN[path]) {
+    url.pathname = PRETTY_HTML_TO_CLEAN[path];
+    return url;
+  }
+  if (TRAILING_SLASH_TO_BARE.has(path)) {
+    url.pathname = path.slice(0, -1);
+    return url;
+  }
+  if (path === '/kids') {
+    url.pathname = '/kids/';
+    return url;
+  }
+  return null;
+}
+
 /** Retired stick-figure art — never serve even if a ghost asset remains at the edge. */
 function isRetiredStickPanelPath(path) {
   return (
@@ -41,6 +79,14 @@ const BLOCKED_HTML = `<!DOCTYPE html>
 export async function onRequest(context) {
   const url = new URL(context.request.url);
   const path = url.pathname || '/';
+  const method = String(context.request.method || 'GET').toUpperCase();
+
+  if (method === 'GET' || method === 'HEAD') {
+    const dest = canonicalPublicRedirect(url);
+    if (dest && dest.pathname !== path) {
+      return Response.redirect(dest.toString(), 301);
+    }
+  }
 
   // Owner stats: never serve public HTML (static file would otherwise win over _redirects).
   // Stick panels: retired Color & Tell era — block at the edge worker so ghost cache/origin cannot show sticks.

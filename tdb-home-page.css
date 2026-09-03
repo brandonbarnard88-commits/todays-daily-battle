@@ -9080,6 +9080,25 @@
     .tdb-feel-more-open {
       margin: 0.15rem 0 0.35rem;
     }
+    .tdb-feel-more-toggle-wrap {
+      margin: 0.15rem 0 0.45rem;
+      text-align: center;
+    }
+    .tdb-feel-more-toggle-wrap .btn {
+      min-height: 44px;
+    }
+    #quick-search-hero.tdb-ask-has-results .tdb-ask-examples-open,
+    #quick-search-hero.tdb-ask-has-results .tdb-feel-quick-strip,
+    #quick-search-hero.tdb-ask-has-results .tdb-feel-more-toggle-wrap,
+    #quick-search-hero.tdb-ask-has-results #tdbFeelMoreDetails,
+    #quick-search-hero.tdb-ask-has-results .tdb-feel-combo-toggle-wrap,
+    #quick-search-hero.tdb-ask-has-results #tdbFeelComboBar,
+    #quick-search-hero.tdb-ask-has-results #tdbFeelComboPresets,
+    #quick-search-hero.tdb-ask-has-results #topicPlansHint,
+    #quick-search-hero.tdb-ask-has-results #tdbFeelStripIntro,
+    #quick-search-hero.tdb-ask-has-results #feelTopicActionStrip {
+      display: none;
+    }
     .tdb-feel-quick-strip .btn {
       min-height: 44px;
       font-size: 0.9rem;
@@ -12332,7 +12351,10 @@ a.plan-category-chip:focus-visible,
 }
 
 
-/* Mercy front door — capacity chooser (before verse) */
+/* Mercy front door — capacity chooser (before verse, first visit only) */
+#tdbCapacityDoor[hidden] {
+  display: none !important;
+}
 .tdb-capacity-door {
   margin: 0.75rem auto 1.15rem;
   max-width: 40rem;

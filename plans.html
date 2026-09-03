@@ -3258,7 +3258,7 @@
   </div>
   <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="plans"><p class="offline-msg"></p></div>
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_plans_quiet_update_dismiss')==='2026-05-11-plans')document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');}catch(e){}})();</script>
-  <script nonce="tdb2025s">(function(){function openPlansDisclosureForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-short-paths-details','plans-hero-more','plansAllLibrary','plans-find-your-plan-details','plansCoreSevenDetails','plansAccountStripDetails','plansPorchVerseDetails','plansSermonIntroDetails','plansBibleStudiesDetails','plansBuilderDetails'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openPlansDisclosureForHash);else openPlansDisclosureForHash();window.addEventListener('hashchange',openPlansDisclosureForHash);})();</script>
+  <script nonce="tdb2025s">(function(){function openPlansDisclosureForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansMoreWaysIn','plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-short-paths-details','plans-hero-more','plansAllLibrary','plans-find-your-plan-details','plansCoreSevenDetails','plansAccountStripDetails','plansPorchVerseDetails','plansSermonIntroDetails','plansBibleStudiesDetails','plansBuilderDetails'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openPlansDisclosureForHash);else openPlansDisclosureForHash();window.addEventListener('hashchange',openPlansDisclosureForHash);})();</script>
   <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-05-11-plans" role="status" aria-live="polite" hidden>
     <p class="tdb-quiet-update-strip__text">Short KJV reading tracks—open any day.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="plans-quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
@@ -3346,6 +3346,9 @@
         <p class="section-note util-mb-0 util-mt-0_75" style="text-align:center;">Prefer the long list? <a href="#all-plans">Browse every plan</a> &middot; <a href="#find-your-plan">More situations</a></p>
       </section>
 
+      <details class="tdb-hub-disclosure" id="plansMoreWaysIn">
+        <summary class="tdb-hub-disclosure__summary">More ways in</summary>
+        <div class="tdb-hub-disclosure__inner">
       <details class="tdb-hub-disclosure" id="plans-short-paths-details">
         <summary class="tdb-hub-disclosure__summary">Short paths for heavy weeks</summary>
         <div class="tdb-hub-disclosure__inner">
@@ -4191,6 +4194,8 @@
         </form>
         <p id="plan-suggest-status" class="section-note" style="margin-top:0.6rem;min-height:1.5em;" aria-live="polite"></p>
       </section>
+        </div>
+      </details>
         </div>
       </details>
       <div class="recent-plans-carousel" id="recentPlansCarousel" role="region" aria-label="Recently viewed plans" style="display:none;"></div>

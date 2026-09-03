@@ -34755,6 +34755,11 @@ function isQuietHomeTopicSearch(queryText, results, askProfile) {
 }
 
 function setHomeAskChromeForResults(hasResults) {
+  var hero = document.getElementById('quick-search-hero');
+  if (hero) {
+    if (hasResults) hero.classList.add('tdb-ask-has-results');
+    else hero.classList.remove('tdb-ask-has-results');
+  }
   var welcome = document.getElementById('feelWelcome');
   if (welcome && hasResults) {
     welcome.textContent = '';

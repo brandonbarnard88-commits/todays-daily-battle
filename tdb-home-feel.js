@@ -1797,11 +1797,20 @@ const FEEL_MORE = {
     nextStepWrap.classList.add("hidden");
     nextStepWrap.setAttribute("hidden", "");
   }
+  function setAskSurfaceForResults(hasResults) {
+    var hero = document.getElementById("quick-search-hero");
+    if (hero) {
+      if (hasResults) hero.classList.add("tdb-ask-has-results");
+      else hero.classList.remove("tdb-ask-has-results");
+    }
+  }
+
   function clearFullResults() {
     if (!fullResults) return;
     fullResults.innerHTML = "";
     fullResults.setAttribute("hidden", "");
     fullResults.classList.remove("results");
+    setAskSurfaceForResults(false);
     try {
       if (typeof window.setHomeAskChromeForResults === "function") window.setHomeAskChromeForResults(false);
     } catch (eChrome) { /* non-fatal */ }
@@ -2145,6 +2154,7 @@ const FEEL_MORE = {
       cards.appendChild(wrap);
     }
     cards.classList.add("has-results");
+    setAskSurfaceForResults(true);
   }
 
   function showNoMatch() {
@@ -2156,6 +2166,7 @@ const FEEL_MORE = {
     cards.classList.remove("has-results");
     if (welcome) { welcome.classList.remove("show"); welcome.textContent = ""; }
     noMatch.classList.add("visible");
+    setAskSurfaceForResults(false);
   }
 
   function clearResult() {
@@ -2167,6 +2178,7 @@ const FEEL_MORE = {
     cards.classList.remove("has-results");
     if (welcome) { welcome.classList.remove("show"); welcome.textContent = ""; }
     noMatch.classList.remove("visible");
+    setAskSurfaceForResults(false);
   }
 
   function closeSuggest() {
@@ -5361,6 +5373,22 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(function () { refCopy.textContent = 'Copy my link'; }, 2000);
     }).catch(function () {});
   });
+  var moreToggle = document.getElementById('tdbFeelMoreToggle');
+  var morePanel = document.getElementById('tdbFeelMoreDetails');
+  if (moreToggle && morePanel) {
+    moreToggle.addEventListener('click', function () {
+      var open = morePanel.hasAttribute('hidden');
+      if (open) {
+        morePanel.removeAttribute('hidden');
+        moreToggle.setAttribute('aria-expanded', 'true');
+        moreToggle.textContent = 'Fewer feelings';
+      } else {
+        morePanel.setAttribute('hidden', '');
+        moreToggle.setAttribute('aria-expanded', 'false');
+        moreToggle.textContent = 'More feelings';
+      }
+    });
+  }
   // First-visit hint
   var firstHint = document.getElementById('firstVisitHint');
   var firstDismiss = document.getElementById('firstVisitDismiss');

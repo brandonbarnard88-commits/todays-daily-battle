@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260903first1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260903words1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game mf-focus">
@@ -118,12 +118,18 @@
     }
 
     function shortKid(p) {
-      if (kit && kit.facePlain) return kit.facePlain(p, 'little');
-      return p.short || p.plain;
+      var s = '';
+      if (p) s = p.short || p.plain || p.clue || '';
+      if (!s && kit && kit.facePlain) s = kit.facePlain(p, 'middle') || '';
+      s = String(s).replace(/\s+/g, ' ').trim();
+      return s || 'Kid line';
     }
     function shortKjv(p) {
-      if (kit && kit.faceKjv) return kit.faceKjv(p, 'little');
-      return p.shortKjv || p.kjv;
+      var s = '';
+      if (p) s = p.shortKjv || p.kjv || '';
+      if (!s && kit && kit.faceKjv) s = kit.faceKjv(p, 'little') || '';
+      s = String(s).replace(/\s+/g, ' ').trim();
+      return s || 'KJV';
     }
 
     function paintHud() {
@@ -249,22 +255,28 @@
         card.setAttribute('aria-pressed', 'false');
         card.textContent = '';
         card.classList.remove('is-peek', 'mf-wrong');
-        card.setAttribute('aria-label', 'Face-down card');
+        var kind = card.getAttribute('data-kind') || 'kjv';
+        var back = document.createElement('span');
+        back.className = 'mf-back';
+        back.textContent = kind === 'pic' ? 'Kid' : 'KJV';
+        card.appendChild(back);
+        card.setAttribute('aria-label', kind === 'pic' ? 'Face-down kid line' : 'Face-down KJV line');
       }
       function faceUp(card) {
         if (!card) return;
         card.setAttribute('aria-pressed', 'true');
         card.textContent = '';
         var kind = card.getAttribute('data-kind') || 'kjv';
+        var words = card.getAttribute('data-text') || '';
         var lab = document.createElement('span');
         lab.className = 'mf-kind';
         lab.textContent = kind === 'pic' ? 'Kid line' : 'KJV';
         card.appendChild(lab);
         var line = document.createElement('span');
-        line.className = kind === 'pic' ? 'mf-pic-line' : 'mf-kjv-line';
-        line.textContent = card.getAttribute('data-text') || '';
+        line.className = 'mf-words';
+        line.textContent = words;
         card.appendChild(line);
-        card.setAttribute('aria-label', (kind === 'pic' ? 'Kid line: ' : 'KJV: ') + (card.getAttribute('data-text') || ''));
+        card.setAttribute('aria-label', (kind === 'pic' ? 'Kid line: ' : 'KJV: ') + words);
       }
 
       cards.forEach(function (c) {
@@ -276,7 +288,7 @@
         b.setAttribute('aria-pressed', 'false');
         b.setAttribute('data-text', c.text || '');
         b.setAttribute('aria-label', 'Face-down card');
-        b.textContent = '';
+        faceDown(b);
         b.addEventListener('click', function () {
           if (lock || b.getAttribute('aria-pressed') === 'true' || b.classList.contains('mf-match')) return;
           faceUp(b);

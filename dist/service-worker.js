@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260902deep1';
+const CACHE_NAME = 'tdb-cache-v20260903sheep2';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -845,9 +845,13 @@ self.addEventListener('fetch', (event) => {
     event.request.mode === 'navigate' &&
     (
       url.pathname === '/kids/match-buddies.html' ||
+      url.pathname === '/kids/match-buddies' ||
       url.pathname === '/kids/lost-sheep.html' ||
+      url.pathname === '/kids/lost-sheep' ||
       url.pathname === '/kids/memory-flock.html' ||
-      url.pathname === '/kids/shepherds-path.html'
+      url.pathname === '/kids/memory-flock' ||
+      url.pathname === '/kids/shepherds-path.html' ||
+      url.pathname === '/kids/shepherds-path'
     )
   ) {
     event.respondWith(

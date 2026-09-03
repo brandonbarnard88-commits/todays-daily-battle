@@ -140,8 +140,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260902chip1" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260902chip1">
+  <link rel="preload" href="tdb-home-page.css?v=20260903porch1" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260903porch1">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260812unstick-nav" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260812unstick-nav">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -599,6 +599,37 @@
 
     <main id="home-primary-flow" class="porch-section">
 
+      <!-- First-visit only: three doors. Returning visitors skip this and land on today’s verse. -->
+      <section class="tdb-capacity-door tdb-quiet-container" id="tdbCapacityDoor" role="region" aria-labelledby="tdbCapacityDoorH" hidden>
+        <p class="tdb-capacity-door__eyebrow">Start where you are</p>
+        <h2 class="tdb-capacity-door__title" id="tdbCapacityDoorH">How much room do you have?</h2>
+        <p class="tdb-capacity-door__lead">Pick one. You do not need the whole porch today.</p>
+        <ul class="tdb-capacity-door__list">
+          <li>
+            <a class="tdb-capacity-door__btn tdb-capacity-door__btn--primary" href="/calm" id="tdbCapacityTooMuch">
+              <strong>Too much</strong>
+              <span>One verse + a quiet breath</span>
+            </a>
+          </li>
+          <li>
+            <a class="tdb-capacity-door__btn" href="#hero-verse-wrap" id="tdbCapacityOneVerse">
+              <strong>One verse is enough</strong>
+              <span>Today&rsquo;s KJV lesson below</span>
+            </a>
+          </li>
+          <li>
+            <a class="tdb-capacity-door__btn" href="/explore#start-here" id="tdbCapacityLittleMore">
+              <strong>A little more room</strong>
+              <span>One feeling, one existing door</span>
+            </a>
+          </li>
+        </ul>
+        <p class="tdb-capacity-door__find section-note">
+          Or name it in your own words:
+          <a href="#feel-section" id="tdbCapacityAskWord">Ask the Word</a>
+        </p>
+      </section>
+
       <!-- Primary: verse + plain words + Ask -->
       <div class="tdb-home-primary-pair tdb-grove" id="tdbHomePrimaryPair" data-tdb-grove="1">
       <!-- ══ Primary: Today's verse (first screen) ══ -->
@@ -920,28 +951,9 @@
           </p>
         </div>
         <p class="feel-topic-action-strip sr-only" id="feelTopicActionStrip">Tap a feeling below. On phone, hold a chip to open the matching Battle Plan lane.</p>
-        <p class="tdb-feel-strip-intro sr-only" id="tdbFeelStripIntro">Eight common picks, then every feeling in the open below.</p>
-        <p class="tdb-discover-quiet-tools sr-only" id="tdbDiscoverQuietTools">When the day feels mixed, try Combine two feelings below.</p>
-        <div class="tdb-feel-combo-bar" id="tdbFeelComboBar" data-combo-on="0" hidden role="region" aria-label="Combine two feelings">
-          <p class="tdb-feel-combo-lead">Pick up to two feelings, then search both together.</p>
-          <div class="tdb-feel-combo-slots" id="tdbFeelComboSlots"></div>
-          <div class="tdb-feel-combo-actions">
-            <button type="button" class="btn btn-primary" id="tdbFeelComboRun" disabled>Search combined feelings</button>
-          </div>
-        </div>
-        <p class="tdb-feel-combo-toggle-wrap">
-          <button type="button" class="btn btn-secondary tdb-feel-combo-toggle" id="tdbFeelComboToggle" aria-pressed="false" aria-controls="tdbFeelComboBar">Combine two feelings</button>
-        </p>
-        <div class="feel-combo-presets-wrap tdb-ask-examples-open" id="tdbFeelComboPresets">
-          <p class="feel-combo-presets-heading" id="tdbFeelComboPresetsHeading">Common feeling pairs</p>
-          <div class="feel-combo-presets" role="group" aria-labelledby="tdbFeelComboPresetsHeading">
-            <button type="button" class="feel-preset-btn" data-topics="anxiety,parenting">Anxious + parenting</button>
-            <button type="button" class="feel-preset-btn" data-topics="grief,exhaustion">Grief + exhausted</button>
-            <button type="button" class="feel-preset-btn" data-topics="anger,forgiveness">Angry + need forgiveness</button>
-            <button type="button" class="feel-preset-btn" data-topics="loneliness,hope">Lonely + need hope</button>
-          </div>
-        </div>
-        <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Eight common feelings first, then every feeling in the open. Tap searches; Alt-click or long-press opens a matching reading plan lane. Combine mode: pick two then search.">
+        <p class="tdb-feel-strip-intro sr-only" id="tdbFeelStripIntro">Eight common picks. More feelings stay closed until you ask.</p>
+        <p class="tdb-discover-quiet-tools sr-only" id="tdbDiscoverQuietTools">When the day feels mixed, try Combine two feelings under More feelings.</p>
+        <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Eight common feelings first. More feelings stay closed until you ask. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
           <div class="tdb-feel-quick-strip" id="tdbFeelQuickStrip" role="group" aria-label="Eight common feeling shortcuts">
             <button type="button" class="btn btn-secondary quick-topic" data-topic="anxiety" aria-label="Restless or anxious">Restless</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="fear" aria-label="Fear">Fear</button>
@@ -952,7 +964,29 @@
             <button type="button" class="btn btn-secondary quick-topic" data-topic="worry" aria-label="Worry">Worry</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="hope" aria-label="Hope">Hope</button>
           </div>
-          <div class="tdb-feel-more-open tdb-feel-more-details" id="tdbFeelMoreDetails">
+          <p class="tdb-feel-more-toggle-wrap">
+            <button type="button" class="btn btn-secondary" id="tdbFeelMoreToggle" aria-expanded="false" aria-controls="tdbFeelMoreDetails">More feelings</button>
+          </p>
+          <div class="tdb-feel-more-details" id="tdbFeelMoreDetails" hidden>
+          <div class="tdb-feel-combo-bar" id="tdbFeelComboBar" data-combo-on="0" hidden role="region" aria-label="Combine two feelings">
+            <p class="tdb-feel-combo-lead">Pick up to two feelings, then search both together.</p>
+            <div class="tdb-feel-combo-slots" id="tdbFeelComboSlots"></div>
+            <div class="tdb-feel-combo-actions">
+              <button type="button" class="btn btn-primary" id="tdbFeelComboRun" disabled>Search combined feelings</button>
+            </div>
+          </div>
+          <p class="tdb-feel-combo-toggle-wrap">
+            <button type="button" class="btn btn-secondary tdb-feel-combo-toggle" id="tdbFeelComboToggle" aria-pressed="false" aria-controls="tdbFeelComboBar">Combine two feelings</button>
+          </p>
+          <div class="feel-combo-presets-wrap tdb-ask-examples-open" id="tdbFeelComboPresets">
+            <p class="feel-combo-presets-heading" id="tdbFeelComboPresetsHeading">Common feeling pairs</p>
+            <div class="feel-combo-presets" role="group" aria-labelledby="tdbFeelComboPresetsHeading">
+              <button type="button" class="feel-preset-btn" data-topics="anxiety,parenting">Anxious + parenting</button>
+              <button type="button" class="feel-preset-btn" data-topics="grief,exhaustion">Grief + exhausted</button>
+              <button type="button" class="feel-preset-btn" data-topics="anger,forgiveness">Angry + need forgiveness</button>
+              <button type="button" class="feel-preset-btn" data-topics="loneliness,hope">Lonely + need hope</button>
+            </div>
+          </div>
           <p class="tdb-kb-examples__label">Every feeling</p>
           <div class="tdb-feel-all-chips feel-topic-expanded" id="tdbFeelAllChips" role="region" aria-label="All feeling topics">
             <p class="section-note util-mb-0_5" id="feelTopicExpandedHint"><strong>Tap</strong> a feeling for verses. Or <a href="/plans">open a short plan</a>.</p>
@@ -1153,7 +1187,6 @@
       </section>
 
       <!-- Hidden hosts kept for progressive-disclosure / test anchors -->
-      <div id="tdbCapacityDoor" hidden aria-hidden="true"></div>
       <div id="tdbCampusMapHome" hidden aria-hidden="true"></div>
       <div id="tdbHomeMoreWhenReady" hidden aria-hidden="true"></div>
       <div id="tdbHomeFirstDoors" hidden aria-hidden="true"></div>
@@ -1726,12 +1759,12 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260809-kjv-text-fix"tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260807-dig-always-open"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-funnel.js?v=20260807-dig-always-open"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260903porch1"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-funnel.js?v=20260903porch1"></script>
   <script nonce="tdb2025s" defer src="tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260902todayverse"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
-  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260902chip1"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260903porch1"></script>
   <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260712-first-doors"></script>
   <script nonce="tdb2025s" defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script nonce="tdb2025s" defer src="/js/feel-combo-presets.js"></script>
@@ -1739,7 +1772,7 @@
   <!-- Unified Ask the Word brain (curated + full KJV) — same as bible-tool; before core-home/script.js -->
   <script nonce="tdb2025s" defer src="ask-the-word-core.js?v=20260820-askwalk"></script>
   <!-- Home core first: load script.js interaction stack on user intent/idle (core-home.js). -->
-  <script nonce="tdb2025s" defer src="core-home.js?v=20260820-askwalk" data-cfasync="false" fetchpriority="low"></script>
+  <script nonce="tdb2025s" defer src="core-home.js?v=20260903porch1" data-cfasync="false" fetchpriority="low"></script>
   <script nonce="tdb2025s">
     (function () {
       var loadPorchEffects = function () {

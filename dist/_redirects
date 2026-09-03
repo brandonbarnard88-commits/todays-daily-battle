@@ -14,6 +14,10 @@
 /mystudy/ /mystudy.html 200!
 /mystudy.html /mystudy 301
 
+# Calm — 200! rewrite so /calm is the public door (Pages 308 on /calm.html is 301'd in functions/_middleware.js)
+/calm /calm.html 200!
+/calm/ /calm.html 200!
+
 # Campus / start / find-a-path → one Explore map (aliases kept as redirects)
 /campus /explore#start-here 301
 /campus/ /explore#start-here 301

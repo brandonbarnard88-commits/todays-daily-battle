@@ -184,7 +184,7 @@
     var core7 = document.getElementById('tdb-home-core-seven');
     var strip = document.getElementById('tdbFirstVisitStrip');
     var startBand = document.getElementById('tdbStartMyDayBand') || document.querySelector('.tdb-start-my-day-band');
-    if (!main || !verse || !search) return;
+    if (!main || !verse) return;
 
     /* Grove wrapper: verse + teaching first, Ask directly after #hero-verse-wrap. */
     if (grove && grove.parentNode === main) {
@@ -198,8 +198,8 @@
       var groveAnchor = strip || heavyNow;
       if (groveAnchor && groveAnchor.parentNode === main) after(grove, groveAnchor);
       else main.insertBefore(grove, main.firstChild);
-      /* Pin Ask after the verse wrap so stale SW HTML / old movers cannot bury The Grove. */
-      if (search && verse) {
+      /* Ask the Word is its own page. Do not pin a leftover search host under the verse. */
+      if (search && verse && !search.hasAttribute('hidden')) {
         try {
           if (search.parentNode !== grove) grove.appendChild(search);
           if (verse.nextSibling !== search) after(search, verse);

@@ -32,7 +32,6 @@ const pages = [
   'id="tdbCapacityDoor"',
   'How much room do you have?',
   'href="/ask"',
-  'id="tdbHomeAskDoor"',
   'id="tdb-home-pickup"',
   'id="tdbGrovePaths"',
   'id="tdbCampusMapHome"',

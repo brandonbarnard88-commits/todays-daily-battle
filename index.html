@@ -587,7 +587,7 @@
     </header>
 
 
-    <a href="#quick-search-hero" id="nav-search-btn" class="sr-only tdb-bottom-dock-sr-tool" tabindex="-1" aria-hidden="true">Search Scripture</a>
+    <a href="/ask" id="nav-search-btn" class="sr-only tdb-bottom-dock-sr-tool" tabindex="-1" aria-hidden="true">Search Scripture</a>
 
     <!-- Hidden search plumbing for script.js compatibility (not a screen-reader destination) -->
     <!-- DO NOT REMOVE: #main-search, #quick-actions-hero are protected core tools — build fails if missing -->
@@ -896,23 +896,13 @@
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" hidden aria-hidden="true" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
 
-      <!-- Ask the Word lives on /ask so today’s verse stays the porch. -->
-      <nav id="quick-search-hero" class="tdb-quiet-container tdb-ask-home-door" aria-label="Ask the Word">
-        <p class="tdb-verse-ask-bridge" id="tdbVerseAskBridge">A feeling, a name, a question, or just a word.</p>
-        <p class="tdb-ask-home-door__actions">
-          <a class="btn btn-primary" href="/ask" id="tdbHomeAskDoor">Ask the Word</a>
-        </p>
-        <p class="section-note">Every feeling is on that page. Today&rsquo;s verse stays here.</p>
-      </nav>
+      <div id="quick-search-hero" hidden></div>
       <div id="feel-section" hidden>
         <div id="tdbFeelTopicPageCta" hidden></div>
-        <div id="feel-results" hidden></div>
-        <div id="feelCards" hidden></div>
-        <p id="feelNoMatch" hidden></p>
       </div>
 
-      <!-- Optional next steps stay collapsed so the porch is verse + Ask -->
-      <details class="tdb-hub-disclosure tdb-quiet-container" id="tdbHomeAfterAsk">
+      <!-- Extra doors stay in the DOM for tests; Home shows only today’s verse. -->
+      <details class="tdb-hub-disclosure tdb-quiet-container" id="tdbHomeAfterAsk" hidden>
         <summary class="tdb-hub-disclosure__summary">Want a little more?</summary>
         <div class="tdb-hub-disclosure__inner">
         <nav class="tdb-grove-paths tdb-quiet-container" id="tdbGrovePaths" aria-label="What do you need?">
@@ -954,7 +944,7 @@
         <h3 id="new-here-steps-heading" class="tdb-first-visit-strip__steps-h">Best next step</h3>
         <ol class="tdb-first-visit-strip__steps" aria-labelledby="new-here-steps-heading">
           <li>Read <a href="#hero-verse-wrap">today&rsquo;s verse</a> slowly.</li>
-          <li>Name how you feel in <a href="/ask">Ask the Word</a>.</li>
+          <li>If you need more than one verse, <a href="/ask">Ask the Word</a> is in the menu.</li>
           <li>That&rsquo;s enough for today.</li>
         </ol>
         <div class="tdb-first-visit-strip__actions">
@@ -1256,7 +1246,7 @@
       </div>
       <h2 class="nav-more-title">Tools</h2>
       <ul class="nav-more-list">
-        <li><a href="#quick-search-hero" aria-label="Search Scripture on this page">🔍 Search</a></li>
+        <li><a href="/ask" aria-label="Ask the Word">🔍 Ask the Word</a></li>
         <li><a href="bible-tool.html">📖 Look up a verse</a></li>
         <li><a href="/mystudy">📌 Saved verses</a></li>
         <li><a href="memorize.html">🧠 Memorize</a></li>
@@ -1567,7 +1557,7 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260809-kjv-text-fix"tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260903porch1"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260903ask2"></script>
   <script nonce="tdb2025s" defer src="tdb-home-funnel.js?v=20260903porch1"></script>
   <script nonce="tdb2025s" defer src="tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260902todayverse"></script>

@@ -31,8 +31,8 @@ const pages = [
   'id="tdbHeavyNow"',
   'id="tdbCapacityDoor"',
   'How much room do you have?',
-  'More feelings',
-  'id="tdbFeelMoreToggle"',
+  'href="/ask"',
+  'id="tdbHomeAskDoor"',
   'id="tdb-home-pickup"',
   'id="tdbGrovePaths"',
   'id="tdbCampusMapHome"',
@@ -80,6 +80,7 @@ const pages = [
   'prayer-wall.html',
 ], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
 
+  { path: '/ask.html', name: 'Ask the Word', mustInclude: ['Ask the Word', 'id="feel-section"', 'id="feel-search"', 'id="tdbFeelAllChips"', 'When it feels heavy', 'When you need steadiness', 'Home and relationships', 'Faith and calling', 'data-topic="anxiety"', 'data-topic="forgiveness"', 'Every feeling is in the open'] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance', 'hreflang="pt" href="https://todaysdailybattle.com/pt/terms.html"'] },
   { path: '/pricing.html', name: 'Support', mustInclude: ['No paid plan', 'free forever', 'Giving is completely optional', 'You&rsquo;re already welcome here', '/give', '/shop.html', '/where-support-goes.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html', 'Privacy is simple here', 'Friday email list', 'hreflang="pt" href="https://todaysdailybattle.com/pt/privacy.html"'] },

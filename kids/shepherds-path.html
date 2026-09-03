@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260902sense1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260903first1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -36,13 +36,18 @@
       <div class="content-inner sp-page">
         <div class="sp-hud">
           <span id="sp-level-label">Level 1 · 5 stones</span>
+          <div class="kg-sizes" role="group" aria-label="How big a game">
+            <button type="button" data-kg-size="little">Little</button>
+            <button type="button" data-kg-size="middle">Middle</button>
+            <button type="button" data-kg-size="bigger">Bigger</button>
+          </div>
         </div>
         <p class="section-note topic-mood-porch kids-site-porch" lang="en">Follow one step at a time—like walking with the Shepherd.</p>
         <div class="sp-hero mini-game-hero" data-kg-ico="🪨">
           <h1>Step the path</h1>
-          <p>Tap the <strong>words in order</strong>, like walking the verse. Jesus is the Good Shepherd—we follow one step at a time.</p>
+          <p>Tap the <strong>words in order</strong>. Jesus is the Good Shepherd. We follow one step at a time.</p>
         </div>
-        <p id="sp-status" class="sp-status" role="status" aria-live="polite">Start at the first number on the path.</p>
+        <p id="sp-status" class="sp-status" role="status" aria-live="polite">Tap the next word of the verse.</p>
         <div class="kg-buddy">
           <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a line">
             <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.png?v=20260820polish" width="72" height="80" alt="Little Shepherd" decoding="async"/>
@@ -70,12 +75,7 @@
         </div>
         <details class="kg-how">
           <summary>How to play</summary>
-          <p>Step the path. Tap the words in verse order. Jesus is the Good Shepherd—we follow one step at a time.</p>
-          <div class="kg-sizes" role="group" aria-label="How big a game">
-            <button type="button" data-kg-size="little">Little</button>
-            <button type="button" data-kg-size="middle">Middle</button>
-            <button type="button" data-kg-size="bigger">Bigger</button>
-          </div>
+          <p>Step the path. Tap the words in verse order.</p>
         </details>
         <nav class="kg-more" aria-label="More games">
           <p>
@@ -119,7 +119,7 @@
         return 'Count the green stones. Next is the next word.';
       }
       if (expect === 1) {
-        return 'Not that stone. The path starts at the first word.';
+        return 'Not that stone. Tap the first word of the verse.';
       }
       if (missStreak <= 1) {
         return 'Not next. Count the green stones. The next word is the one after the last green stone.';
@@ -169,11 +169,18 @@
       host.appendChild(w);
     }
 
-    function markNext() {
+    function paintStones() {
       if (!path) return;
       [].forEach.call(path.querySelectorAll('.sp-stone'), function (stn) {
         var step = Number(stn.getAttribute('data-step'));
-        stn.classList.toggle('is-next', playSize === 'little' && step === expect && !stn.classList.contains('is-done'));
+        var word = stn.getAttribute('data-word') || '';
+        var done = stn.classList.contains('is-done');
+        var next = step === expect && !done;
+        stn.classList.toggle('is-next', next);
+        var lab = stn.querySelector('.sp-stone-word');
+        if (!lab) return;
+        if (playSize === 'little' || done || next) lab.textContent = word;
+        else lab.textContent = '·';
       });
     }
 
@@ -209,11 +216,7 @@
       if (!words.length) words = ['The', 'Lord', 'is', 'my', 'shepherd'];
       var useN = words.length;
       if (levelLabel) levelLabel.textContent = 'Level ' + (levelIndex + 1) + ' · ' + useN + ' words';
-      if (st) {
-        st.textContent = playSize === 'little'
-          ? 'Tap the glowing word. Walk with the Shepherd.'
-          : 'Tap the next word of the verse.';
-      }
+      if (st) st.textContent = 'Tap the next word of the verse.';
       var stones = [];
       for (var s = 1; s <= useN; s++) {
         (function (n) {
@@ -222,15 +225,19 @@
           b.type = 'button';
           b.className = 'sp-stone';
           b.setAttribute('data-step', String(n));
+          b.setAttribute('data-word', word);
           b.setAttribute('aria-label', 'Stepping stone ' + n + ', ' + word);
-          b.textContent = word;
+          var lab = document.createElement('span');
+          lab.className = 'sp-stone-word';
+          lab.textContent = word;
+          b.appendChild(lab);
           b.addEventListener('click', function () {
             if (b.classList.contains('is-done')) return;
             if (n === expect) {
               b.classList.add('is-done');
               expect += 1;
               placeWalker(b);
-              markNext();
+              paintStones();
               if (kit && kit.fillVerseWalk && kjvText) {
                 kit.fillVerseWalk(kjvText, currentVerse.text, expect > useN ? 999 : expect - 1);
               }
@@ -258,7 +265,7 @@
                 }
               } else if (st) {
                 missStreak = 0;
-                st.textContent = playSize === 'little' ? 'Yes. Now the glowing word.' : 'Yes. The next word of the verse.';
+                st.textContent = 'Yes. The next word of the verse.';
                 if (window.tdbLittleShepherd && tdbLittleShepherd.notify) {
                   try { window.tdbLittleShepherd.notify('pathStep'); } catch (eS) {}
                 }
@@ -282,7 +289,7 @@
       stones.forEach(function (stone) {
         if (path) path.appendChild(stone);
       });
-      markNext();
+      paintStones();
     }
 
     var next = document.getElementById('sp-next');

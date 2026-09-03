@@ -8,6 +8,8 @@ test.describe('Ask the Word porch', () => {
     await expect(page.getByText('In your own words')).toBeVisible();
     await expect(page.locator('#feel-search')).toBeVisible();
     await expect(page.getByRole('button', { name: 'Restless' })).toBeVisible();
+    await expect(page.locator('.quick-topic[data-topic="anxiety"] span[aria-hidden="true"]')).toHaveText('🌊');
+    await expect(page.locator('.quick-topic[data-topic="prayer"] span[aria-hidden="true"]')).toHaveText('🙏');
     await expect(page.getByRole('heading', { name: 'When it feels heavy' })).toBeVisible();
     await expect(page.getByText('Example questions')).toHaveCount(0);
     await page.screenshot({ path: 'test-results/ask-porch-mobile.png', fullPage: false });

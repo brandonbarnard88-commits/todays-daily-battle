@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ask the Word · Today’s Daily Battle</title>
+  <meta name="description" content="Ask the Word in your own words. Every feeling is in the open. KJV verses stay on this device.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/ask">
+  <meta property="og:title" content="Ask the Word · Today’s Daily Battle">
+  <meta property="og:description" content="A feeling, a name, a question, or just a word. Every topic is visible. No dropdown.">
+  <meta property="og:url" content="https://todaysdailybattle.com/ask">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
+  <script defer src="analytics-loader.js"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260822quiet"></script>
+  <link rel="preload" href="styles.css?v=20260823desk51" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260823desk51">
+  <link rel="preload" href="tdb-home-page.css?v=20260903ask1" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260903ask1">
+  <style>
+    body.tdb-ask-page { margin: 0; }
+    .tdb-ask-page .app-content { max-width: 52rem; margin: 0 auto; padding: 1rem 1rem 4.5rem; }
+    .tdb-ask-page .mood-title { margin: 0 0 0.35rem; }
+    .tdb-ask-page .tdb-feel-all-chips,
+    .tdb-ask-page .tdb-feel-all-chips .feel-band-panel { display: block; }
+    .tdb-ask-page .quick-topic-group-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .tdb-ask-page .quick-topic-group-chips .quick-topic,
+    .tdb-ask-page .quick-topic {
+      min-height: 44px;
+    }
+    /* Dedicated page: keep every topic visible after a search. */
+    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results .tdb-ask-examples-open,
+    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results .feel-quick-topics-root,
+    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results #tdbFeelAllChips,
+    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results .tdb-feel-combo-toggle-wrap,
+    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results #tdbFeelComboPresets,
+    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results #topicPlansHint {
+      display: revert;
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page tdb-ask-page">
+  <a href="#feel-section" class="skip-link">Skip to Ask the Word</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline">Today’s verse stays on Home. This page is only Ask the Word.</p>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+        <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+          <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+          <span class="tdb-nav-flyout-toggle__label">Menu</span>
+        </button>
+        <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+          <a href="/" aria-label="Home — today’s verse">Today</a>
+          <a href="/ask" aria-current="page">Ask the Word</a>
+          <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
+          <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
+          <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
+          <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
+          <details class="tdb-nav-more">
+            <summary aria-haspopup="true">More</summary>
+            <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+              <div class="tdb-nav-more-group">
+                <span class="tdb-nav-more-group-label">Scripture</span>
+                <a href="/verse.html">Today’s verse</a>
+                <a href="/bible-tool.html" aria-label="Look up a verse">Look up</a>
+                <a href="/memorize.html">Memorize</a>
+                <a href="/mystudy">Saved on this device</a>
+                <a href="/prayer-wall.html">Prayer</a>
+              </div>
+              <div class="tdb-nav-more-group">
+                <span class="tdb-nav-more-group-label">Family</span>
+                <a href="/family.html">Family</a>
+                <a href="/printables.html" aria-label="Print pages">Print</a>
+              </div>
+              <div class="tdb-nav-more-group">
+                <span class="tdb-nav-more-group-label">Site</span>
+                <a href="/about.html">About</a>
+                <a href="/faq.html">FAQ</a>
+                <a href="/give" aria-label="Optional support">Support</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div id="quick-search-hero" class="tdb-quiet-container">
+        <section class="card" id="feel-section" aria-label="Ask the Word search">
+          <h1 class="mood-title">Ask the Word</h1>
+          <p class="mood-subtitle section-note" id="feelSectionSubtitle">You don&rsquo;t need church words. Honest is enough. Every feeling is in the open.</p>
+          <div class="feel-search-wrap">
+            <label for="feel-search" class="sr-only">Ask the Word</label>
+            <input
+              id="feel-search"
+              type="search"
+              autocomplete="off"
+              autocorrect="off"
+              spellcheck="false"
+              placeholder="A feeling, a name, a verse, or a question&hellip;"
+              aria-label="Ask the Word by feeling, name, question, or verse"
+              aria-describedby="feelTrustLine topicPlansHint"
+              aria-autocomplete="list"
+              aria-controls="feelSuggestDropdown"
+              aria-haspopup="listbox"
+            >
+            <button type="button" class="feel-search-btn" id="feel-search-btn" aria-label="Search verses">Search</button>
+            <button type="button" class="mic-btn" id="micBtn" aria-label="Voice search — speak a feeling">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="2" width="6" height="12" rx="3"></rect>
+                <path d="M19 10a7 7 0 0 1-14 0"></path>
+                <line x1="12" y1="19" x2="12" y2="22"></line>
+                <line x1="9" y1="22" x2="15" y2="22"></line>
+              </svg>
+            </button>
+            <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions"></div>
+          </div>
+          <p class="tdb-feel-trust-line" id="feelTrustLine">Results stay on this device.</p>
+          <p class="section-note util-mt-0_5 util-mb-0" id="topicPlansHint">Type it however it comes. Then Search, or tap a feeling below.</p>
+          <div class="tdb-ask-examples-open tdb-kb-examples" id="tdbKbExamples">
+            <p class="tdb-kb-examples__label">Example questions</p>
+            <p class="tdb-kb-examples-row" aria-label="Example questions">
+              <button class="tdb-kb-chip" data-query="How do I forgive someone?" type="button">How do I forgive someone?</button>
+              <button class="tdb-kb-chip" data-query="Does God still want me?" type="button">Does God still want me?</button>
+              <button class="tdb-kb-chip" data-query="Why am I so tired?" type="button">Why am I so tired?</button>
+              <button class="tdb-kb-chip" data-query="Who was Ruth?" type="button">Who was Ruth?</button>
+            </p>
+          </div>
+
+          <div class="tdb-feel-combo-bar" id="tdbFeelComboBar" data-combo-on="0" hidden role="region" aria-label="Combine two feelings">
+            <p class="tdb-feel-combo-lead">Pick up to two feelings, then search both together.</p>
+            <div class="tdb-feel-combo-slots" id="tdbFeelComboSlots"></div>
+            <div class="tdb-feel-combo-actions">
+              <button type="button" class="btn btn-primary" id="tdbFeelComboRun" disabled>Search combined feelings</button>
+            </div>
+          </div>
+          <p class="tdb-feel-combo-toggle-wrap">
+            <button type="button" class="btn btn-secondary tdb-feel-combo-toggle" id="tdbFeelComboToggle" aria-pressed="false" aria-controls="tdbFeelComboBar">Combine two feelings</button>
+          </p>
+          <div class="feel-combo-presets-wrap tdb-ask-examples-open" id="tdbFeelComboPresets">
+            <p class="feel-combo-presets-heading" id="tdbFeelComboPresetsHeading">Common feeling pairs</p>
+            <div class="feel-combo-presets" role="group" aria-labelledby="tdbFeelComboPresetsHeading">
+              <button type="button" class="feel-preset-btn" data-topics="anxiety,parenting">Anxious + parenting</button>
+              <button type="button" class="feel-preset-btn" data-topics="grief,exhaustion">Grief + exhausted</button>
+              <button type="button" class="feel-preset-btn" data-topics="anger,forgiveness">Angry + need forgiveness</button>
+              <button type="button" class="feel-preset-btn" data-topics="loneliness,hope">Lonely + need hope</button>
+            </div>
+          </div>
+
+          <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Every feeling topic. Tap searches. Alt-click or long-press opens a matching reading plan.">
+            <div class="tdb-feel-all-chips feel-topic-expanded" id="tdbFeelAllChips" role="region" aria-label="All feeling topics">
+              <p class="section-note util-mb-0_5" id="feelTopicExpandedHint"><strong>Tap</strong> a feeling for verses. Or <a href="/plans">open a short plan</a>.</p>
+              <div class="feel-band-panel" data-feel-band="heavy">
+                <div class="quick-topic-group" role="group" aria-labelledby="qtg-heavy">
+                  <h2 class="quick-topic-group-title" id="qtg-heavy">When it feels heavy</h2>
+                  <div class="quick-topic-group-chips">
+                    <button type="button" class="quick-topic" data-topic="anxiety" aria-label="Restless">Restless</button>
+                    <button type="button" class="quick-topic" data-topic="worry" aria-label="Worry">Worry</button>
+                    <button type="button" class="quick-topic" data-topic="overwhelmed" aria-label="Heavy">Heavy</button>
+                    <button type="button" class="quick-topic" data-topic="fear" aria-label="Fear">Fear</button>
+                    <button type="button" class="quick-topic" data-topic="grief" aria-label="Grief">Grief</button>
+                    <button type="button" class="quick-topic" data-topic="heartache" aria-label="Heartache">Heartache</button>
+                    <button type="button" class="quick-topic" data-topic="depression" aria-label="Down">Down</button>
+                    <button type="button" class="quick-topic" data-topic="worthless" aria-label="Worthless">Worthless</button>
+                    <button type="button" class="quick-topic" data-topic="anger" aria-label="Anger">Anger</button>
+                    <button type="button" class="quick-topic" data-topic="difficult person" aria-label="Toxic people">Toxic People</button>
+                    <button type="button" class="quick-topic" data-topic="difficult boss" aria-label="Anger at work">Anger at Work</button>
+                    <button type="button" class="quick-topic" data-topic="guilt" aria-label="Guilt">Guilt</button>
+                    <button type="button" class="quick-topic" data-topic="shame" aria-label="Shame">Shame</button>
+                    <button type="button" class="quick-topic" data-topic="loneliness" aria-label="Loneliness">Loneliness</button>
+                    <button type="button" class="quick-topic" data-topic="trauma" aria-label="Trauma">Trauma</button>
+                    <button type="button" class="quick-topic" data-topic="addiction" aria-label="Addiction">Addiction</button>
+                    <button type="button" class="quick-topic" data-topic="temptation" aria-label="Temptation">Temptation</button>
+                    <button type="button" class="quick-topic" data-topic="cancer" aria-label="Cancer">Cancer</button>
+                    <button type="button" class="quick-topic" data-topic="suffering" aria-label="Pain">Pain</button>
+                  </div>
+                </div>
+              </div>
+              <div class="feel-band-panel" data-feel-band="steady">
+                <div class="quick-topic-group" role="group" aria-labelledby="qtg-steady">
+                  <h2 class="quick-topic-group-title" id="qtg-steady">When you need steadiness</h2>
+                  <div class="quick-topic-group-chips">
+                    <button type="button" class="quick-topic" data-topic="peace" aria-label="Peace">Peace</button>
+                    <button type="button" class="quick-topic" data-topic="gratitude" aria-label="Gratitude">Gratitude</button>
+                    <button type="button" class="quick-topic" data-topic="wonder" aria-label="Wonder">Wonder</button>
+                    <button type="button" class="quick-topic" data-topic="strength" aria-label="Tired">Tired</button>
+                    <button type="button" class="quick-topic" data-topic="exhaustion" aria-label="Exhaustion">Exhaustion</button>
+                    <button type="button" class="quick-topic" data-topic="joy" aria-label="Joy">Joy</button>
+                    <button type="button" class="quick-topic" data-topic="love" aria-label="Love">Love</button>
+                    <button type="button" class="quick-topic" data-topic="faith" aria-label="Faith">Faith</button>
+                    <button type="button" class="quick-topic" data-topic="courage" aria-label="Courage">Courage</button>
+                    <button type="button" class="quick-topic" data-topic="patience" aria-label="Patience">Patience</button>
+                    <button type="button" class="quick-topic" data-topic="waiting" aria-label="Waiting">Waiting</button>
+                    <button type="button" class="quick-topic" data-topic="wisdom" aria-label="Wisdom">Wisdom</button>
+                    <button type="button" class="quick-topic" data-topic="hope" aria-label="Hope">Hope</button>
+                    <button type="button" class="quick-topic" data-topic="rest" aria-label="Rest">Rest</button>
+                    <button type="button" class="quick-topic" data-topic="sleep" aria-label="Sleep">Sleep</button>
+                  </div>
+                </div>
+              </div>
+              <div class="feel-band-panel" data-feel-band="home">
+                <div class="quick-topic-group" role="group" aria-labelledby="qtg-home">
+                  <h2 class="quick-topic-group-title" id="qtg-home">Home and relationships</h2>
+                  <div class="quick-topic-group-chips">
+                    <button type="button" class="quick-topic" data-topic="family" aria-label="Family">Family</button>
+                    <button type="button" class="quick-topic" data-topic="parenting" aria-label="Parenting">Parenting</button>
+                    <button type="button" class="quick-topic" data-topic="marriage" aria-label="Marriage">Marriage</button>
+                    <button type="button" class="quick-topic" data-topic="relationships" aria-label="Relationships">Relationships</button>
+                    <button type="button" class="quick-topic" data-topic="finances" aria-label="Money">Money</button>
+                    <button type="button" class="quick-topic" data-topic="caregiver" aria-label="Caregiver">Caregiver</button>
+                  </div>
+                </div>
+              </div>
+              <div class="feel-band-panel" data-feel-band="faith">
+                <div class="quick-topic-group" role="group" aria-labelledby="qtg-faith">
+                  <h2 class="quick-topic-group-title" id="qtg-faith">Faith and calling</h2>
+                  <div class="quick-topic-group-chips">
+                    <button type="button" class="quick-topic" data-topic="forgiveness" aria-label="Forgiveness">Forgiveness</button>
+                    <button type="button" class="quick-topic" data-topic="prayer" aria-label="Prayer">Prayer</button>
+                    <button type="button" class="quick-topic" data-topic="doubt" aria-label="Doubt">Doubt</button>
+                    <button type="button" class="quick-topic" data-topic="obedience" aria-label="Obey">Obey</button>
+                    <button type="button" class="quick-topic" data-topic="jesus said" aria-label="Jesus said">Jesus said</button>
+                    <button type="button" class="quick-topic" data-topic="spiritualwarfare" aria-label="Spiritual warfare">Spiritual warfare</button>
+                    <button type="button" class="quick-topic" data-topic="identity" aria-label="Identity">Identity</button>
+                    <button type="button" class="quick-topic" data-topic="purpose" aria-label="Purpose">Purpose</button>
+                    <button type="button" class="quick-topic" data-topic="free will" aria-label="Free will">Free will</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="tdbFeelPathCard" class="tdb-feel-path-card" hidden role="region" aria-label="A gentle next path" aria-live="polite"></div>
+          <div id="feel-results" aria-live="polite" hidden></div>
+          <section id="homeQaResult" class="home-qa-result hidden" role="region" aria-live="polite" aria-label="Ask the Word follow-up" hidden>
+            <p class="home-qa-kicker">Answer</p>
+            <h3 class="home-qa-title">A short answer from Scripture</h3>
+            <p id="homeQaAnswer" class="home-qa-answer"></p>
+            <p id="homeQaPrayer" class="home-qa-prayer hidden" hidden></p>
+            <p id="homeQaSources" class="home-qa-sources hidden" hidden></p>
+            <div id="homeQaHelpful" class="home-qa-helpful hidden" hidden></div>
+          </section>
+          <p class="warm-intro" id="feelWelcome" aria-live="polite"></p>
+          <div class="feel-cards" id="feelCards" aria-live="polite"></div>
+          <div id="tdbFeelPlanCta" class="tdb-feel-plan-cta hidden" role="region" aria-label="Related Battle Plan" hidden>
+            <a href="/plans?plan=peace" class="btn btn-secondary" id="tdbFeelPlanCtaLink">Start related Battle Plan</a>
+          </div>
+          <div id="tdbFeelTopicPageCta" class="tdb-feel-topic-page-cta hidden" role="region" aria-label="Full topic page" hidden>
+            <a href="/topic-anxiety.html" id="tdbFeelTopicPageCtaLink">Read the full page on Anxiety →</a>
+          </div>
+          <div id="tdbSearchNextStep" class="tdb-search-next-step hidden" role="region" aria-label="Choose a next step" hidden>
+            <p class="tdb-search-next-step-lead" id="tdbSearchNextStepLead">Choose one small next step: save this verse, read the full chapter, or keep walking with a short plan.</p>
+            <div class="tdb-search-next-step-actions">
+              <button type="button" class="btn btn-secondary" id="tdbSearchNextStepSave">Save this verse</button>
+              <a href="reader.html" class="btn btn-secondary" id="tdbSearchNextStepPray">Read full chapter</a>
+              <a href="/plans" class="btn btn-primary" id="tdbSearchNextStepPlan">Start a short plan</a>
+            </div>
+          </div>
+          <p class="feel-no-match" id="feelNoMatch">Try it the way you’d say it — “peace,” “scared at night,” “who was Ruth,” or a name. The Word will meet you there.</p>
+          <p class="section-note" style="margin-top:1.25rem;text-align:center;"><a href="/">Back to today’s verse</a></p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+  <script nonce="tdb2025s" defer src="ask-the-word-core.js?v=20260820-askwalk"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260903ask1"></script>
+  <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260712-first-doors"></script>
+  <script nonce="tdb2025s" defer src="/js/feel-combo-presets.js"></script>
+  <script nonce="tdb2025s" defer src="core-home.js?v=20260903ask1" data-cfasync="false"></script>
+  <script nonce="tdb2025s" defer src="/language-switcher.js?v=20260816-brightgold"></script>
+</body>
+</html>

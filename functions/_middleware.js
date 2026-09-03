@@ -23,7 +23,8 @@ const PRETTY_HTML_TO_CLEAN = {
   '/family.html': '/family',
   '/memorize.html': '/memorize',
   '/coloring.html': '/coloring',
-  '/reader.html': '/reader'
+  '/reader.html': '/reader',
+  '/ask.html': '/ask'
 };
 
 const TRAILING_SLASH_TO_BARE = new Set([
@@ -33,7 +34,8 @@ const TRAILING_SLASH_TO_BARE = new Set([
   '/family/',
   '/memorize/',
   '/coloring/',
-  '/reader/'
+  '/reader/',
+  '/ask/'
 ]);
 
 function canonicalPublicRedirect(url) {

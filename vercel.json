@@ -168,13 +168,23 @@
       "permanent": true
     },
     {
+      "source": "/ask",
+      "destination": "/ask.html",
+      "permanent": false
+    },
+    {
+      "source": "/ask/",
+      "destination": "/ask.html",
+      "permanent": false
+    },
+    {
       "source": "/ask-the-word",
-      "destination": "/bible-tool.html?tdb_focus=ask",
+      "destination": "/ask",
       "permanent": true
     },
     {
       "source": "/ask-the-word/",
-      "destination": "/bible-tool.html?tdb_focus=ask",
+      "destination": "/ask",
       "permanent": true
     },
     {

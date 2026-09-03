@@ -318,12 +318,12 @@
 /curriculum/ /plans 301!
 /curriculum.html /plans 301!
 
-# URL truth table (see config/urls-truth-table.json) — guessed slugs + clean paths
-/ask-the-word /bible-tool.html?tdb_focus=ask 301
-/ask-the-word/ /bible-tool.html?tdb_focus=ask 301
-/ask /bible-tool.html?tdb_focus=ask 301
-/ask/ /bible-tool.html?tdb_focus=ask 301
-/ask.html /bible-tool.html?tdb_focus=ask 301
+# Ask the Word — own page (not home, not Bible Tool)
+/ask /ask.html 200!
+/ask/ /ask.html 200!
+/ask.html /ask 301
+/ask-the-word /ask 301
+/ask-the-word/ /ask 301
 /battle-plans /plans 301
 /battle-plans/ /plans 301
 /my-study /mystudy 301

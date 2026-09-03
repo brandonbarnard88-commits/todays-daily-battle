@@ -12352,6 +12352,17 @@ a.plan-category-chip:focus-visible,
 
 
 /* Mercy front door — capacity chooser (before verse, first visit only) */
+.tdb-ask-home-door {
+  margin: 0.85rem auto 1.1rem;
+  max-width: 40rem;
+  text-align: center;
+}
+.tdb-ask-home-door__actions {
+  margin: 0.55rem 0 0.45rem;
+}
+.tdb-ask-home-door .btn {
+  min-height: 44px;
+}
 #tdbCapacityDoor[hidden] {
   display: none !important;
 }

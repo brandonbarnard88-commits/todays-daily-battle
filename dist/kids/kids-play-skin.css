@@ -224,7 +224,9 @@ body.kids-mini-game.is-won .kg-timer-row,
 body.kids-mini-game.is-won .kg-family-row,
 body.kids-mini-game.is-won .kg-more,
 body.kids-mini-game.is-won .mf-board,
-body.kids-mini-game.is-won .mf-teach {
+body.kids-mini-game.is-won .mf-teach,
+body.mf-focus .mf-hero,
+body.mf-focus .kg-buddy {
   display: none !important;
 }
 .kg-next-doors a,
@@ -717,80 +719,56 @@ body.kids-mini-game button.match-btn,
 .match-btn.match-kjv .match-who { color: #1d4ed8; }
 
 /* —— Memory flock —— */
-.mf-page { max-width: 38rem; margin: 0 auto; padding: 0.5rem 0.75rem 2rem; }
+.mf-page { max-width: 28rem; margin: 0 auto; padding: 0.35rem 0.75rem 2rem; }
 .mf-board {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.6rem;
-  max-width: 26rem;
-  margin: 0.75rem auto;
-}
-@media (min-width: 720px) {
-  .mf-board { grid-template-columns: repeat(4, 1fr); max-width: 38rem; }
+  gap: 0.55rem;
+  max-width: 22rem;
+  margin: 0.5rem auto 0.85rem;
 }
 body.kids-mini-game button.mf-card,
 .mf-card {
-  min-height: 104px !important;
+  min-height: 92px !important;
   border-radius: 16px;
   border: 3px solid #4f46e5;
   background: linear-gradient(180deg, #818cf8, #4f46e5);
   color: #f2dc98 !important;
-  font-size: 1.65rem !important;
+  font-size: 1.5rem !important;
   font-weight: 800;
-  padding: 0.45rem;
+  padding: 0.45rem 0.5rem;
   cursor: pointer;
   line-height: 1.25;
   font-family: Nunito, system-ui, sans-serif;
   box-shadow: 3px 3px 0 rgba(49, 46, 129, 0.35);
 }
 .mf-card[aria-pressed="false"] {
-  color: transparent !important;
-  background:
-    url("shepherd-mascot-sit.png?v=20260820polish") center 62% / 58% auto no-repeat,
-    linear-gradient(180deg, #6366f1, #3730a3);
+  color: #f2dc98 !important;
+  background: linear-gradient(180deg, #6366f1, #3730a3);
   border-color: #1e1b4b;
 }
+.mf-card[aria-pressed="false"]::after {
+  content: "✦";
+  display: block;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+.mf-card[aria-pressed="true"]::after,
+.mf-card.mf-match::after { content: none; }
 .mf-card[aria-pressed="true"],
 .mf-card.is-peek {
   color: #0f172a !important;
   background: #fffef8 !important;
   border-color: #d97706;
-  font-size: 0.85rem !important;
-  text-align: left;
-  align-items: flex-start;
+  font-size: 0.95rem !important;
+  text-align: center;
 }
 .mf-card.mf-match {
-  opacity: 0.7;
+  opacity: 0.72;
   pointer-events: none;
   border-color: #16a34a;
   background: #dcfce7 !important;
   color: #14532d !important;
-  font-size: 0.85rem !important;
-}
-.mf-card.mf-pic[aria-pressed="true"],
-.mf-card.mf-pic.is-peek,
-.mf-card.mf-pic.mf-match {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  gap: 0.2rem;
-  padding: 0.3rem !important;
-  font-size: 0.78rem !important;
-  line-height: 1.25;
-  text-align: center;
-}
-.mf-card.mf-pic img {
-  width: 100%;
-  height: 4.1rem;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-  flex: 0 0 auto;
-}
-.mf-card.mf-pic.is-mascot img {
-  object-fit: contain;
-  background: #fffef8;
 }
 .mf-kind {
   display: block;
@@ -800,14 +778,90 @@ body.kids-mini-game button.mf-card,
   font-weight: 800;
   color: #b45309;
   line-height: 1.2;
+  margin-bottom: 0.15rem;
 }
+.mf-card.mf-kjv .mf-kind { color: #1d4ed8; }
 .mf-pic-line,
 .mf-kjv-line {
   display: block;
-  font-size: 0.8rem !important;
+  font-size: 0.95rem !important;
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.3;
   color: #0f172a !important;
+}
+.mf-sheet {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.62);
+}
+.mf-sheet.show {
+  display: flex;
+}
+.mf-sheet-card {
+  width: min(26rem, 100%);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 1rem 1.05rem 1.1rem;
+  border-radius: 20px;
+  background: #fffef8;
+  border: 4px solid #d97706;
+  box-shadow: 6px 6px 0 rgba(15, 23, 42, 0.18);
+}
+.mf-sheet-card img {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 3px solid #0f172a;
+  display: block;
+  margin: 0 auto 0.65rem;
+  background: #fff;
+}
+.mf-sheet-card img.is-mascot { object-fit: contain; }
+.mf-sheet-kid {
+  margin: 0 0 0.45rem;
+  text-align: center;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  color: #0f172a !important;
+}
+.mf-sheet-card .kg-full-kjv {
+  color: #0f172a !important;
+  font-size: 1.05rem;
+  text-align: center;
+}
+.mf-sheet-card cite {
+  display: block;
+  text-align: center;
+  font-style: normal;
+  font-weight: 800;
+  color: #b45309;
+  margin: 0.25rem 0 0.55rem;
+}
+.mf-sheet-teach {
+  margin: 0 0 0.85rem;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 700;
+  color: #1e293b !important;
+  text-align: center;
+}
+.mf-sheet-go {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  border-radius: 14px;
+  border: 3px solid #d97706;
+  background: linear-gradient(180deg, #fde68a, #fbbf24);
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #422006 !important;
+  cursor: pointer;
 }
 
 /* —— Find the sheep —— */

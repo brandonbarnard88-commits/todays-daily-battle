@@ -16,10 +16,10 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260902sense1">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260903mem1">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
+<body class="dark-mode kids-battle-page kids-world-surface kids-mini-game mf-focus">
   <a href="#main" class="skip-link">Skip to content</a>
   <div class="app-shell">
     <header class="top-bar kids-battle-header kids-header-unified">
@@ -35,32 +35,20 @@
     <main class="app-content" id="main" role="main">
       <div class="content-inner mf-page">
         <div class="mf-hud">
-          <span id="mf-hud-left">Round 1</span>
-        </div>
-        <p class="section-note topic-mood-porch kids-site-porch" lang="en">Flip two cards. Match a kid line to a KJV line.</p>
-        <div class="mf-hero" data-kg-ico="🃏">
-          <h1>Memory flock</h1>
-          <p>Each pair is a <strong>kid line</strong> and a <strong>KJV line</strong>. Flip one, then the other.</p>
+          <span id="mf-hud-left">0 of 3 pairs</span>
         </div>
         <p id="mf-st" class="mf-st" role="status">Flip a kid line, then the KJV line that says the same thing.</p>
-        <div class="kg-buddy">
-          <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a line">
-            <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.png?v=20260820polish" width="72" height="80" alt="Little Shepherd" decoding="async"/>
-          </button>
-          <p class="kg-buddy-line" id="kids-little-shepherd-line" aria-live="polite">I will cheer when two cards belong.</p>
-        </div>
-        <div id="mf-teach" class="mf-teach" role="status"></div>
         <div class="mf-board" id="mf-board" role="group" aria-label="Memory cards"></div>
-        <div class="kg-verse-friends" id="kg-verse-friends"></div>
+        <div class="kg-verse-friends" id="kg-verse-friends" hidden></div>
         <p id="mf-win" class="section-note" style="text-align:center;margin:0.75rem 0;font-weight:800;color:#14532d" hidden>All pairs found!</p>
         <p class="kg-next-doors" id="kg-next-doors"></p>
         <p style="text-align:center">
           <button type="button" id="mf-next" class="mf-again">Next round</button>
-          <button type="button" id="mf-again" class="mf-again">Play again (same size)</button>
+          <button type="button" id="mf-again" class="mf-again">Play again</button>
         </p>
         <details class="kg-how">
           <summary>How to play</summary>
-          <p>Each pair is a kid line and a KJV line. Flip one, then the matching other. The picture is only a hint.</p>
+          <p>Cards stay put. Flip two: a kid line and the KJV line that says the same thing. After a match, read the full verse, then keep looking.</p>
           <div class="kg-sizes" role="group" aria-label="How big a game">
             <button type="button" data-kg-size="little">Little</button>
             <button type="button" data-kg-size="middle">Middle</button>
@@ -78,8 +66,18 @@
       </div>
     </main>
   </div>
+  <div class="mf-sheet" id="mf-sheet" hidden>
+    <div class="mf-sheet-card" role="dialog" aria-modal="true" aria-labelledby="mf-sheet-ref">
+      <img id="mf-sheet-art" width="88" height="88" alt="" hidden>
+      <p class="mf-sheet-kid" id="mf-sheet-kid"></p>
+      <blockquote class="kg-full-kjv" id="mf-sheet-kjv"></blockquote>
+      <cite id="mf-sheet-ref"></cite>
+      <p class="mf-sheet-teach" id="mf-sheet-teach"></p>
+      <button type="button" class="mf-sheet-go" id="mf-sheet-go">Keep looking</button>
+    </div>
+  </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260902deep1"></script>
+  <script src="kids-play-helpers.js?v=20260903mem1"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -103,26 +101,113 @@
     var st = document.getElementById('mf-st');
     var winEl = document.getElementById('mf-win');
     var again = document.getElementById('mf-again');
-    var teach = document.getElementById('mf-teach');
-    var hudR = document.getElementById('mf-hud-right');
+    var sheet = document.getElementById('mf-sheet');
+    var sheetGo = document.getElementById('mf-sheet-go');
     var first = null;
     var matched = {};
     var lock = false;
     var missStreak = 0;
     var usePairs = [];
     var pairTeach = {};
+    var sheetAfter = null;
+
+    function memoryRounds() {
+      var cfg = kit && kit.sizeConfig ? kit.sizeConfig(playSize) : null;
+      return (cfg && cfg.memory) || [3];
+    }
+
+    function shortKid(p) {
+      if (kit && kit.facePlain) return kit.facePlain(p, 'little');
+      return p.short || p.plain;
+    }
+    function shortKjv(p) {
+      if (kit && kit.faceKjv) return kit.faceKjv(p, 'little');
+      return p.shortKjv || p.kjv;
+    }
 
     function paintHud() {
-      if (!hudR || !kit) return;
-      var g = kit.getScore('memory') || {};
-      hudR.textContent = 'Wins: ' + (g.totalWins || 0) + ' · Pairs: ' + (g.totalPairs || 0);
-      var sealEl = document.getElementById('kg-seal');
-      var seal = kit.sealInfo ? kit.sealInfo('memory') : { on: false };
-      if (sealEl) {
-        sealEl.hidden = !seal.on;
-        sealEl.className = 'kg-seal' + (seal.on ? ' on' : '');
-        sealEl.textContent = seal.text || '3-day seal';
+      var hudL = document.getElementById('mf-hud-left');
+      if (hudL) {
+        hudL.textContent = Object.keys(matched).length + ' of ' + (usePairs.length || 0) + ' pairs';
       }
+    }
+
+    function closeSheet() {
+      if (sheet) {
+        sheet.classList.remove('show');
+        sheet.hidden = true;
+      }
+      var fn = sheetAfter;
+      sheetAfter = null;
+      if (typeof fn === 'function') fn();
+      else lock = false;
+    }
+
+    function openSheet(pair, last) {
+      if (!sheet || !pair) { lock = false; return; }
+      lock = true;
+      var artEl = document.getElementById('mf-sheet-art');
+      var art = kit && kit.pairArt ? kit.pairArt(pair) : null;
+      if (artEl) {
+        if (art && art.src) {
+          artEl.src = art.src;
+          artEl.hidden = false;
+          artEl.classList.toggle('is-mascot', !!art.mascot);
+        } else {
+          artEl.removeAttribute('src');
+          artEl.hidden = true;
+        }
+      }
+      var kidEl = document.getElementById('mf-sheet-kid');
+      if (kidEl) kidEl.textContent = pair.plain || shortKid(pair);
+      var kjvEl = document.getElementById('mf-sheet-kjv');
+      if (kjvEl) kjvEl.textContent = pair.kjv || '';
+      var refEl = document.getElementById('mf-sheet-ref');
+      if (refEl) refEl.textContent = pair.ref ? pair.ref + ' (KJV)' : '';
+      var teachEl = document.getElementById('mf-sheet-teach');
+      if (teachEl) teachEl.textContent = pair.teach ? ('Remember: ' + pair.teach) : '';
+      if (kit && kit.fillHearButton) {
+        kit.fillHearButton(sheet.querySelector('.mf-sheet-card'), pair);
+        var hearBtn = sheet.querySelector('.kg-hear-pair');
+        if (hearBtn) {
+          hearBtn.textContent = 'Hear this verse';
+          if (sheetGo && hearBtn.parentNode) hearBtn.parentNode.insertBefore(hearBtn, sheetGo);
+        }
+      }
+      if (sheetGo) sheetGo.textContent = last ? 'See the verses' : 'Keep looking';
+      sheet.hidden = false;
+      sheet.classList.add('show');
+      try { sheetGo.focus(); } catch (eF) {}
+    }
+
+    function finishRound() {
+      var kept = document.getElementById('kg-verse-friends');
+      if (kept) {
+        kept.textContent = '';
+        kept.hidden = false;
+        usePairs.forEach(function (p) {
+          if (kit && kit.appendKeptVerse) kit.appendKeptVerse(kept, p);
+        });
+      }
+      if (winEl) winEl.hidden = false;
+      if (again) again.classList.add('show');
+      var nextBtnWin = document.getElementById('mf-next');
+      if (nextBtnWin) {
+        nextBtnWin.classList.add('show');
+        nextBtnWin.textContent = roundIndex + 1 < memoryRounds().length ? 'Next round' : 'Play again';
+      }
+      if (st) {
+        st.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin)
+          ? tdbLittleShepherd.pickMatchWin()
+          : 'You matched the flock!';
+      }
+      if (kit) kit.recordScore('memory', { pairs: usePairs.length, wins: 1 });
+      if (kit && kit.fillWinDoors) kit.fillWinDoors(document.getElementById('kg-next-doors'), usePairs);
+      document.body.classList.add('is-won');
+      if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
+        try { window.tdbLittleShepherd.notify('gameWin'); } catch (e3) {}
+      }
+      lock = false;
     }
 
     function build() {
@@ -131,43 +216,33 @@
       lock = false;
       missStreak = 0;
       pairTeach = {};
+      sheetAfter = null;
       if (peekTimer) { clearTimeout(peekTimer); peekTimer = null; }
       if (winEl) winEl.hidden = true;
       if (again) again.classList.remove('show');
-      if (teach) { teach.classList.remove('show'); teach.textContent = ''; }
+      closeSheet();
       var kept = document.getElementById('kg-verse-friends');
       if (kept) { kept.classList.remove('show'); kept.textContent = ''; kept.hidden = true; }
       if (st) st.textContent = 'Flip a kid line, then the KJV line that says the same thing.';
       if (board) board.textContent = '';
       document.body.classList.remove('is-little', 'is-middle', 'is-bigger', 'is-won');
-      document.body.classList.add('is-' + playSize);
-      var rounds = (kit && kit.sizeConfig(playSize).pairRounds) || [4];
+      document.body.classList.add('is-' + playSize, 'mf-focus');
+      var rounds = memoryRounds();
       var want = rounds[Math.min(roundIndex, rounds.length - 1)];
       usePairs = kit && kit.mixDailyAndCore ? kit.mixDailyAndCore(want) : (kit && kit.MATCH_CORE ? kit.MATCH_CORE.slice(0, want) : FALLBACK_PAIRS.slice(0, want));
       var nextDoors = document.getElementById('kg-next-doors');
       if (nextDoors) nextDoors.textContent = '';
       var nextBtn = document.getElementById('mf-next');
       if (nextBtn) nextBtn.classList.remove('show');
-      var mixEl = document.getElementById('kg-mix-name');
-      if (mixEl && kit && kit.mixName) mixEl.textContent = kit.mixName(usePairs);
-      var hudL = document.getElementById('mf-hud-left');
-      if (hudL) hudL.textContent = 'Round ' + (roundIndex + 1) + ' · ' + usePairs.length + ' pairs';
-      usePairs.forEach(function (p) {
-        pairTeach[p.id] = p;
-      });
+      usePairs.forEach(function (p) { pairTeach[p.id] = p; });
+      paintHud();
       var cards = [];
       usePairs.forEach(function (p) {
-        var verse = kit && kit.faceKjv ? kit.faceKjv(p, playSize) : p.kjv;
-        var art = kit && kit.pairArt ? kit.pairArt(p) : null;
-        cards.push({
-          pair: p.id,
-          kind: 'pic',
-          text: kit && kit.facePlain ? kit.facePlain(p, playSize) : p.plain,
-          art: art
-        });
-        cards.push({ pair: p.id, kind: 'kjv', text: verse });
+        cards.push({ pair: p.id, kind: 'pic', text: shortKid(p) });
+        cards.push({ pair: p.id, kind: 'kjv', text: shortKjv(p) });
       });
       cards = kit && kit.seededShuffle ? kit.seededShuffle(cards, Date.now() % 99991) : cards;
+
       function faceDown(card) {
         if (!card) return;
         card.setAttribute('aria-pressed', 'false');
@@ -179,40 +254,26 @@
         if (!card) return;
         card.setAttribute('aria-pressed', 'true');
         card.textContent = '';
-        var kind = card.getAttribute('data-kind') || (card.classList.contains('mf-pic') ? 'pic' : 'kjv');
+        var kind = card.getAttribute('data-kind') || 'kjv';
         var lab = document.createElement('span');
         lab.className = 'mf-kind';
         lab.textContent = kind === 'pic' ? 'Kid line' : 'KJV';
         card.appendChild(lab);
-        var artSrc = card.getAttribute('data-art');
-        var lineTxt = card.getAttribute('data-text') || '';
-        if (artSrc) {
-          var img = document.createElement('img');
-          img.src = artSrc;
-          img.alt = '';
-          img.width = 120;
-          img.height = 120;
-          img.decoding = 'async';
-          card.appendChild(img);
-        }
         var line = document.createElement('span');
         line.className = kind === 'pic' ? 'mf-pic-line' : 'mf-kjv-line';
-        line.textContent = lineTxt;
+        line.textContent = card.getAttribute('data-text') || '';
         card.appendChild(line);
-        card.setAttribute('aria-label', (kind === 'pic' ? 'Kid line: ' : 'KJV: ') + lineTxt);
+        card.setAttribute('aria-label', (kind === 'pic' ? 'Kid line: ' : 'KJV: ') + (card.getAttribute('data-text') || ''));
       }
+
       cards.forEach(function (c) {
         var b = document.createElement('button');
         b.type = 'button';
-        b.className = 'mf-card' + (c.kind === 'pic' ? ' mf-pic' : '');
+        b.className = 'mf-card' + (c.kind === 'pic' ? ' mf-pic' : ' mf-kjv');
         b.setAttribute('data-pair', c.pair);
         b.setAttribute('data-kind', c.kind === 'pic' ? 'pic' : 'kjv');
         b.setAttribute('aria-pressed', 'false');
         b.setAttribute('data-text', c.text || '');
-        if (c.kind === 'pic' && c.art && c.art.src) {
-          b.setAttribute('data-art', c.art.src);
-          if (c.art.mascot) b.classList.add('is-mascot');
-        }
         b.setAttribute('aria-label', 'Face-down card');
         b.textContent = '';
         b.addEventListener('click', function () {
@@ -223,8 +284,8 @@
             missStreak = 0;
             if (st) {
               st.textContent = b.getAttribute('data-kind') === 'pic'
-                ? 'Now flip the KJV line that says the same thing.'
-                : 'Now flip the kid line that says the same thing.';
+                ? 'Now the KJV line that says the same thing.'
+                : 'Now the kid line that says the same thing.';
             }
             return;
           }
@@ -237,77 +298,15 @@
             matched[a] = true;
             first = null;
             missStreak = 0;
+            paintHud();
             var p = pairTeach[a];
-            if (teach && p) {
-              teach.textContent = '';
-              if (p.kjv) {
-                var q = document.createElement('blockquote');
-                q.className = 'kg-full-kjv';
-                q.textContent = p.kjv;
-                teach.appendChild(q);
-              }
-              if (p.ref) {
-                var c = document.createElement('cite');
-                c.textContent = p.ref + ' (KJV)';
-                teach.appendChild(c);
-              }
-              var rem = document.createElement('p');
-              var stg = document.createElement('strong');
-              stg.textContent = 'Remember: ';
-              rem.appendChild(stg);
-              rem.appendChild(document.createTextNode(p.teach || "God's Word is true."));
-              teach.appendChild(rem);
-              teach.classList.add('show');
-              if (kit && kit.fillHearButton) {
-                kit.fillHearButton(teach, p);
-                var hearBtn = teach.querySelector('.kg-hear-pair');
-                if (hearBtn) hearBtn.textContent = 'Hear this verse';
-              }
-            }
-            if (kit && kit.appendKeptVerse) kit.appendKeptVerse(document.getElementById('kg-verse-friends'), p);
-            if (Object.keys(matched).length === usePairs.length) {
-              winEl.hidden = false;
-              if (again) again.classList.add('show');
-              if (st) {
-                st.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin) ? tdbLittleShepherd.pickMatchWin() : 'You matched the flock!';
-              }
-              if (kit) kit.recordScore('memory', { pairs: usePairs.length, wins: 1 });
-              if (kit && kit.fillWinDoors) kit.fillWinDoors(document.getElementById('kg-next-doors'), usePairs);
-              document.body.classList.add('is-won');
-              var nextBtnWin = document.getElementById('mf-next');
-              if (nextBtnWin) {
-                nextBtnWin.classList.add('show');
-                nextBtnWin.textContent = roundIndex + 1 < ((kit && kit.sizeConfig(playSize).pairRounds) || [4]).length
-                  ? 'Next round'
-                  : 'Play again';
-              }
-              paintHud();
-              if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
-                try { window.tdbLittleShepherd.notify('gameWin'); } catch (e3) {}
-              }
-            } else if (st) {
-              st.textContent = 'Read this verse—then keep going.';
-              if (board) {
-                var leftover = [].slice.call(board.children).filter(function (n) {
-                  return n.classList && !n.classList.contains('mf-match') && n.getAttribute('aria-pressed') !== 'true';
-                });
-                if (playSize === 'bigger') {
-                  leftover = kit && kit.seededShuffle ? kit.seededShuffle(leftover, Date.now() % 99991) : leftover;
-                  leftover.forEach(function (n) { board.appendChild(n); });
-                }
-                leftover.forEach(function (n) {
-                  n.classList.remove('kg-look');
-                  void n.offsetWidth;
-                  n.classList.add('kg-look');
-                });
-                setTimeout(function () {
-                  leftover.forEach(function (n) { n.classList.remove('kg-look'); });
-                }, 900);
-              }
-            }
+            var last = Object.keys(matched).length === usePairs.length;
+            if (st) st.textContent = last ? 'Last pair. Read this verse.' : 'Match. Read this verse.';
             if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
               try { window.tdbLittleShepherd.notify('pairFound'); } catch (ePf) {}
             }
+            sheetAfter = last ? finishRound : function () { lock = false; if (st) st.textContent = 'Flip another pair.'; };
+            openSheet(p, last);
           } else {
             missStreak += 1;
             lock = true;
@@ -316,12 +315,10 @@
               var sameKind = first.classList.contains('mf-pic') === b.classList.contains('mf-pic');
               if (sameKind) {
                 st.textContent = first.classList.contains('mf-pic')
-                  ? 'That is two kid lines. Flip the KJV line that says the same thing.'
-                  : 'That is two KJV lines. Flip the kid line that says the same thing.';
-              } else if (kit && kit.missHint) {
-                st.textContent = kit.missHint(pairTeach[a], missStreak, playSize);
+                  ? 'That is two kid lines. Flip a KJV line.'
+                  : 'That is two KJV lines. Flip a kid line.';
               } else {
-                st.textContent = 'Not that pair. The kid line and the KJV line should say the same thing.';
+                st.textContent = 'Not that pair. The two cards should say the same thing.';
               }
             }
             if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
@@ -333,12 +330,12 @@
               faceDown(b);
               faceDown(prev);
               lock = false;
-            }, 700);
+            }, 900);
           }
         });
         if (board) board.appendChild(b);
       });
-      paintHud();
+
       if (playSize === 'little' && board) {
         lock = true;
         var peekCards = [].slice.call(board.querySelectorAll('.mf-card'));
@@ -346,26 +343,25 @@
           faceUp(card);
           card.classList.add('is-peek');
         });
-        if (st) st.textContent = 'Peek… then remember.';
+        if (st) st.textContent = 'Peek—then the cards hide.';
         peekTimer = setTimeout(function () {
           peekCards.forEach(function (card) {
-            if (!card.classList.contains('mf-match')) {
-              faceDown(card);
-            }
+            if (!card.classList.contains('mf-match')) faceDown(card);
           });
           lock = false;
           first = null;
           peekTimer = null;
           if (st) st.textContent = 'Flip a kid line, then the KJV line that says the same thing.';
-        }, 2200);
+        }, 3200);
       }
     }
+
+    if (sheetGo) sheetGo.addEventListener('click', closeSheet);
     if (again) again.addEventListener('click', build);
     var nextRound = document.getElementById('mf-next');
     if (nextRound) {
       nextRound.addEventListener('click', function () {
-        var rounds = (kit && kit.sizeConfig(playSize).pairRounds) || [4];
-        if (roundIndex + 1 < rounds.length) roundIndex += 1;
+        if (roundIndex + 1 < memoryRounds().length) roundIndex += 1;
         else roundIndex = 0;
         build();
       });

@@ -248,11 +248,13 @@
           <p class="tdb-ask-eyebrow">In your own words</p>
           <h1 class="mood-title">Ask the Word</h1>
           <p class="mood-subtitle section-note" id="feelSectionSubtitle">You don&rsquo;t need church words. Honest is enough. Tap a feeling, or type your own.</p>
-          <div class="feel-search-wrap">
+          <form class="feel-search-wrap" id="ask-search-form" role="search" action="/ask" method="get">
             <label for="feel-search" class="sr-only">Ask the Word</label>
             <input
               id="feel-search"
+              name="q"
               type="search"
+              enterkeyhint="search"
               autocomplete="off"
               autocorrect="off"
               spellcheck="false"
@@ -263,7 +265,7 @@
               aria-controls="feelSuggestDropdown"
               aria-haspopup="listbox"
             >
-            <button type="button" class="btn btn-primary feel-search-btn" id="feel-search-btn" aria-label="Search verses">Search</button>
+            <button type="submit" class="btn btn-primary feel-search-btn" id="feel-search-btn" aria-label="Search verses">Search</button>
             <button type="button" class="mic-btn" id="micBtn" aria-label="Voice search — speak a feeling">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="9" y="2" width="6" height="12" rx="3"></rect>
@@ -273,7 +275,7 @@
               </svg>
             </button>
             <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions"></div>
-          </div>
+          </form>
           <p class="tdb-feel-trust-line" id="feelTrustLine">Results stay on this device. Tap a feeling below, or type if you want something more specific.</p>
           <p class="sr-only" id="topicPlansHint">Tap a feeling below. Type only if you want something more specific.</p>
 
@@ -395,7 +397,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
   <script nonce="tdb2025s" defer src="ask-the-word-core.js?v=20260820-askwalk"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260904ask2"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260904ask3"></script>
   <script nonce="tdb2025s" defer src="core-home.js?v=20260903porch3" data-cfasync="false"></script>
   <script nonce="tdb2025s" defer src="/language-switcher.js?v=20260816-brightgold"></script>
 </body>

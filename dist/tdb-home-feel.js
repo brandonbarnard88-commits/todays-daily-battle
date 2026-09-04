@@ -1876,10 +1876,6 @@ const FEEL_MORE = {
     setAskSurfaceForResults(!!(answerText || verses.length));
     if (verses[0]) updateSearchNextStep(query, verses[0]);
     updateFeelPlanCta(query);
-    try {
-      var jump = homeQaWrap && answerText ? homeQaWrap : cards;
-      if (jump) jump.scrollIntoView({ behavior: "smooth", block: "start" });
-    } catch (eSc) { /* non-fatal */ }
   }
 
   var askSeq = 0;
@@ -2342,9 +2338,9 @@ const FEEL_MORE = {
       if (val.trim().toLowerCase() === 'amen' && typeof window.tryAmenEaster === 'function' && window.tryAmenEaster(input)) return;
       const sugs = getSuggestions(val);
       renderSuggestions(sugs);
+      if (isAskPorch()) return;
       const group = resolveFeelGroup(val);
       if (group) { showGroup(group, val); }
-      else if (isAskPorch()) { runAskTheWord(val); }
       else if (!sugs.length) { showNoMatch(); }
       else { clearResult(); }
       if (val.trim()) updateFeelPlanCta(val);

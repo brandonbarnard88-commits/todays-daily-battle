@@ -34,6 +34,18 @@ test.describe('Ask the Word porch', () => {
     await expect(page.getByRole('button', { name: 'Show feelings again' })).toBeVisible();
   });
 
+  test('typing in the search bar does not jump the page', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto('/ask.html');
+    await page.locator('#feel-search').focus();
+    const y0 = await page.evaluate(() => window.scrollY);
+    await page.locator('#feel-search').pressSequentially('who is jesus', { delay: 40 });
+    await page.waitForTimeout(700);
+    const y1 = await page.evaluate(() => window.scrollY);
+    expect(Math.abs(y1 - y0)).toBeLessThan(40);
+    await expect(page.getByRole('button', { name: 'Restless' })).toBeVisible();
+  });
+
   test('pressing Enter in the search bar still answers', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/ask.html');

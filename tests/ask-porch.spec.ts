@@ -22,6 +22,16 @@ test.describe('Ask the Word porch', () => {
     await expect(page.locator('#feelCards.has-results')).toBeVisible({ timeout: 15000 });
   });
 
+  test('a Bible question returns an answer and verses', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/ask.html');
+    await page.locator('#feel-search').fill('who is jesus');
+    await page.locator('#feel-search-btn').click();
+    await expect(page.locator('#homeQaAnswer')).toContainText(/Jesus|Christ|Word was made flesh/i, { timeout: 20000 });
+    await expect(page.locator('#feelCards.has-results')).toBeVisible({ timeout: 20000 });
+    await expect(page.locator('#feelCards .feel-verse-card, #feelCards [data-tdb-kiss-verse]').first()).toBeVisible();
+  });
+
   test('desktop first screen keeps the same porch', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto('/ask.html');

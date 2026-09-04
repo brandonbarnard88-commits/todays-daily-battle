@@ -1876,6 +1876,17 @@ const FEEL_MORE = {
     setAskSurfaceForResults(!!(answerText || verses.length));
     if (verses[0]) updateSearchNextStep(query, verses[0]);
     updateFeelPlanCta(query);
+    try {
+      if (cards && window.TDBBbeSimple && typeof window.TDBBbeSimple.enhanceDocument === "function") {
+        window.TDBBbeSimple.enhanceDocument(cards);
+      }
+      if (cards && window.TDBBbeSimple && typeof window.TDBBbeSimple.fillKissKjvBodies === "function") {
+        window.TDBBbeSimple.fillKissKjvBodies(cards);
+      }
+      if (cards && window.TDBRedLetter && typeof window.TDBRedLetter.scanAndPaint === "function") {
+        window.TDBRedLetter.scanAndPaint(cards);
+      }
+    } catch (eAskTeach) { /* non-fatal */ }
   }
 
   var askSeq = 0;

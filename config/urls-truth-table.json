@@ -16,13 +16,13 @@
     },
     {
       "id": "ask-the-word",
-      "note": "Ask the Word lives inside Bible Tool; tdb_focus=ask scrolls to #ask-the-word-section and is replaced with the hash for sharing.",
+      "note": "Ask the Word is its own porch at /ask. Old /ask-the-word guesses follow that door.",
       "aliases": [
         "/ask-the-word",
         "/ask-the-word/"
       ],
       "redirect": {
-        "to": "/bible-tool.html?tdb_focus=ask",
+        "to": "/ask",
         "status": 301
       }
     },

@@ -1,3 +1,4 @@
+@import url("tdb-opal-tokens.css?v=20260903opal1");
 @import url("tdb-visual-tokens.css");
 @import url("tdb-heavy-now.css");
 @import url("tdb-quiet-luxury.css");
@@ -15,11 +16,12 @@
  *   tdb-quiet-luxury.css → seasonal/university pages only (imported above).
  *                          Has intentional sage --accent overrides — leave them.
  *
- * Token alignment (May 2026):
- *   --accent      #8ba6d9   periwinkle blue — matches homepage inline :root
- *   --accent-hover #a8c5e8  lighter periwinkle for hover/active states
- *   --primary      #6d28d9  purple — Easter, royalty, CTAs (separate from accent)
- *   --gold         #e3bc67  site gold (dark) / #c9b28a (light themes)
+ * Token alignment (Sep 2026 opal):
+ *   --accent       sea-glass opal #A8C3BC (light: deeper sea #4F7D78)
+ *   --accent-hover teal flash #5EAEA4
+ *   --primary      violet flash #8E7DB8
+ *   --gold         gold flash #E3BC67 (light: #C9A86A)
+ *   Named bodies/flashes live in tdb-opal-tokens.css.
  *
  * Hard-coded #a78bfa (lavender) still exists for decorative jewel/armor elements
  * (amethyst gem, armor crown) — those are intentional purple, not accent tokens.
@@ -39,12 +41,14 @@ html {
 }
 
 :root {
-  /* Purple — Easter, royalty, Jesus */
-  --primary: #6d28d9;
-  --primary-dark: #5b21b6;
-  --primary-glow: rgba(109, 40, 217, 0.42);
-  --accent: #8ba6d9;       /* periwinkle blue — matches homepage self-contained root */
-  --accent-hover: #a8c5e8; /* lighter periwinkle for hover/active states */
+  /* Opal flashes — mapped in tdb-opal-tokens.css; restated here so inner pages stay aligned */
+  --primary: var(--opal-flash-violet, #8E7DB8);
+  --primary-dark: #6F5F96;
+  --primary-glow: color-mix(in srgb, var(--opal-flash-violet, #8E7DB8) 42%, transparent);
+  --accent: var(--opal-sea, #A8C3BC);
+  --accent-hover: var(--opal-flash-teal, #5EAEA4);
+  --gold: var(--opal-flash-gold, #E3BC67);
+  --gold-soft: var(--opal-flash-gold-soft, #F2DC98);
   /* Super elite: rich gold & cream */
   --elite-gold-rgb: 255, 213, 79;
   --elite-gold: rgba(var(--elite-gold-rgb), 0.94);
@@ -52,8 +56,8 @@ html {
   --elite-gold-dim: rgba(var(--elite-gold-rgb), 0.5);
   --elite-cream: rgba(253, 252, 248, 0.2);
   --elite-cream-strong: rgba(253, 252, 248, 0.32);
-  --bg-light: #f8f9fc;
-  --bg-dark: #080c14;
+  --bg-light: var(--opal-white, #F3EEE4);
+  --bg-dark: var(--opal-black, #080C14);
   --text-light: #1a2234;
   --text-dark: #f0f2f7;
   --text-muted: rgba(240, 242, 247, 0.92);
@@ -62,9 +66,9 @@ html {
   --border-subtle: rgba(148, 163, 184, 0.14);
   --border-focus: rgba(167, 139, 250, 0.7);
   /* A11y: visible focus + prose links (see :focus-visible, .content-inner p/li a) */
-  --tdb-focus-ring: #e3bc67;
-  --link-content: #7eb8ff;
-  --link-content-hover: #b3d7ff;
+  --tdb-focus-ring: var(--opal-flash-gold, #E3BC67);
+  --link-content: var(--opal-flash-blue, #8BB4D4);
+  --link-content-hover: var(--opal-crystal, #C8D6D8);
   --verse-size: 20px;
   /* Placeholders & soft labels on dark fields — meets ~4.5:1 vs #0f141f / #0d0d0d for axe color-contrast */
   --input-placeholder-on-dark: #c4cedc;
@@ -94,8 +98,8 @@ html {
   --color-bg: var(--bg-dark);
   --color-text: var(--text-dark);
   --card-light: var(--card-dark);
-  --color-accent: #4CAF50;
-  --color-accent-hover: #43a047;
+  --color-accent: var(--opal-flash-green, #6FBF9A);
+  --color-accent-hover: var(--opal-flash-teal, #5EAEA4);
   /* Alias legacy --spacing-* to primary --space-* scale (single source of rhythm) */
   --spacing-xs: var(--space-xs);
   --spacing-sm: var(--space-sm);
@@ -1144,22 +1148,26 @@ html[data-theme="dark"] body,
 html:not([data-theme]) body,
 html[data-theme="dark"] .app-shell,
 html:not([data-theme]) .app-shell {
-  background: radial-gradient(ellipse 100% 55% at 50% -8%, rgba(201, 162, 39, 0.075), transparent 50%),
-    radial-gradient(ellipse 85% 48% at 50% 102%, rgba(201, 162, 39, 0.045), transparent 48%), #0d0d0d !important;
+  background: radial-gradient(ellipse 100% 55% at 50% -8%, color-mix(in srgb, var(--opal-flash-gold, #E3BC67) 16%, transparent), transparent 50%),
+    radial-gradient(ellipse 62% 42% at 12% 0%, color-mix(in srgb, var(--opal-sea, #A8C3BC) 12%, transparent), transparent 48%),
+    radial-gradient(ellipse 85% 48% at 50% 102%, color-mix(in srgb, var(--opal-flash-violet, #8E7DB8) 10%, transparent), transparent 48%),
+    var(--opal-black, #080C14) !important;
   color: #e5e5e5 !important;
 }
 
 html[data-theme="light"] body,
 html[data-theme="light"] .app-shell {
-  background: radial-gradient(ellipse 100% 52% at 50% -10%, rgba(201, 162, 39, 0.078), transparent 52%),
-    radial-gradient(ellipse 80% 42% at 50% 108%, rgba(154, 123, 28, 0.048), transparent 45%), #f6f1e3 !important;
+  background: radial-gradient(ellipse 100% 52% at 50% -10%, color-mix(in srgb, var(--opal-flash-gold, #E3BC67) 14%, transparent), transparent 52%),
+    radial-gradient(ellipse 70% 40% at 88% 0%, color-mix(in srgb, var(--opal-sea, #A8C3BC) 16%, transparent), transparent 46%),
+    radial-gradient(ellipse 80% 42% at 50% 108%, color-mix(in srgb, var(--opal-fire-amber, #E8A04A) 8%, transparent), transparent 45%),
+    var(--opal-white, #F3EEE4) !important;
   color: #2f2f2f !important;
 }
 
 :root[data-theme="light"] {
   --text: #2f2f2f;
   --color-text: #2f2f2f;
-  --color-bg: #f6f1e3;
+  --color-bg: var(--opal-white, #F3EEE4);
   --tdb-focus-ring: #0066cc;
   --link-content: #0066cc;
   --link-content-hover: #004a99;

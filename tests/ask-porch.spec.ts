@@ -32,6 +32,10 @@ test.describe('Ask the Word porch', () => {
     await expect(page.locator('#feelCards .feel-verse-card, #feelCards [data-tdb-kiss-verse]').first()).toBeVisible();
     await expect(page.getByRole('button', { name: 'Restless' })).toHaveCount(0);
     await expect(page.getByRole('button', { name: 'Show feelings again' })).toBeVisible();
+    await expect(page.locator('#feelCards .tdb-kiss-verse__sit').first()).toBeVisible({ timeout: 20000 });
+    await expect(page.getByText('What was going on').first()).toBeVisible();
+    await expect(page.getByText('What it means').first()).toBeVisible();
+    await expect(page.locator('#feelCards [data-bbe-text]').first()).not.toHaveText('', { timeout: 20000 });
   });
 
   test('typing in the search bar does not jump the page', async ({ page }) => {

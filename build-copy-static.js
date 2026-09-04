@@ -146,6 +146,7 @@ const rootFiles = [
   'hero-sunrise-bible.png',
   'world-map-source.svg',
   'styles.css',
+  'tdb-opal-tokens.css',
   'tdb-home-page.css',
   'cormorant-latin-subset.css',
   'tdb-quiet-luxury.css',
@@ -1052,6 +1053,20 @@ if (fs.existsSync(wellKnown)) {
   if (injected) {
     console.log('build-copy-static.js: injected tdb-backup-reminder.js in ' + injected + ' dist HTML file(s)');
   }
+})();
+
+// Bundle opal tokens into dist/styles.css first so minify can resolve the @import.
+(function bundleTdbOpalTokensCss() {
+  var MARKER = '/* tdb-opal-tokens bundled */';
+  var stylesPath = path.join(dist, 'styles.css');
+  var opalPath = path.join(dist, 'tdb-opal-tokens.css');
+  if (!fs.existsSync(stylesPath) || !fs.existsSync(opalPath)) return;
+  var styles = fs.readFileSync(stylesPath, 'utf8');
+  if (styles.indexOf(MARKER) !== -1) return;
+  styles = styles.replace(/@import url\("tdb-opal-tokens\.css(?:\?v=[^"]*)?"\);\s*/g, '');
+  var opal = fs.readFileSync(opalPath, 'utf8');
+  fs.writeFileSync(stylesPath, MARKER + '\n' + opal + '\n' + styles, 'utf8');
+  console.log('build-copy-static.js: bundled tdb-opal-tokens.css into dist/styles.css');
 })();
 
 // Bundle swoop CSS into dist/styles.css so inner pages get typography/cards (clean-css drops loose @imports).

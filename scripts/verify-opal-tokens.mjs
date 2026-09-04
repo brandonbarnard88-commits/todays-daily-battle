@@ -38,7 +38,7 @@ mustInclude('tdb-opal-tokens.css', [
 ]);
 
 mustInclude('styles.css', [
-  'tdb-opal-tokens.css?v=20260903opal1',
+  '@import url("tdb-opal-tokens.css")',
   'var(--opal-sea, #A8C3BC)',
   'var(--opal-flash-gold, #E3BC67)'
 ]);

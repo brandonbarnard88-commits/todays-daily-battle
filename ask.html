@@ -38,6 +38,12 @@
       margin: 0 auto;
       padding: 1.15rem 1rem 5rem;
     }
+    @media (min-width: 900px) {
+      body.tdb-ask-page .app-content {
+        max-width: 54rem;
+        padding: 2.1rem 2rem 5.5rem;
+      }
+    }
     body.tdb-ask-page .tdb-header-heartbeat { font-size: 0.82rem; opacity: 0.82; }
     body.tdb-ask-page #feel-section.tdb-ask-porch {
       margin: 0;
@@ -105,12 +111,34 @@
       border-radius: 14px;
     }
     @media (min-width: 640px) {
+      body.tdb-ask-page .feel-search-wrap {
+        flex-wrap: nowrap;
+      }
       body.tdb-ask-page .feel-search-wrap #feel-search {
-        flex: 1 1 18rem;
+        flex: 1 1 auto;
         width: auto;
+        min-width: 0;
       }
       body.tdb-ask-page #feel-section #feel-search-btn {
         flex: 0 0 auto;
+        min-width: 7.25rem;
+      }
+      body.tdb-ask-page .feel-search-wrap .feel-suggest {
+        flex: 1 1 100%;
+      }
+    }
+    @media (min-width: 900px) {
+      body.tdb-ask-page #feel-section.tdb-ask-porch {
+        padding: 1.75rem 1.9rem 1.95rem;
+      }
+      body.tdb-ask-page #feel-section .mood-title {
+        font-size: 2.35rem;
+      }
+      body.tdb-ask-page #feel-section .quick-topic-group-chips .quick-topic,
+      body.tdb-ask-page #feel-section .quick-topic {
+        min-height: 40px !important;
+        padding: 0.4rem 0.85rem !important;
+        font-size: 0.9rem !important;
       }
     }
     body.tdb-ask-page .tdb-feel-trust-line {
@@ -187,10 +215,31 @@
     }
     html[data-theme="light"] body.tdb-ask-page #feel-section .mood-title,
     html[data-theme="sepia"] body.tdb-ask-page #feel-section .mood-title { color: #8a6d1f; }
-    /* Dedicated page: keep every topic visible after a search. */
+    /* After a search: hide the chip wall so the answer is next. Less scroll. */
     body.tdb-ask-page #quick-search-hero.tdb-ask-has-results .feel-quick-topics-root,
     body.tdb-ask-page #quick-search-hero.tdb-ask-has-results #tdbFeelAllChips {
-      display: revert;
+      display: none !important;
+    }
+    body.tdb-ask-page #tdbAskAgain {
+      display: none;
+      margin: 0.35rem 0 0;
+    }
+    body.tdb-ask-page #quick-search-hero.tdb-ask-has-results #tdbAskAgain {
+      display: block;
+    }
+    body.tdb-ask-page #tdbAskAgainBtn {
+      background: none;
+      border: 0;
+      padding: 0;
+      color: var(--gold, #e3bc67);
+      font: inherit;
+      font-size: 0.92rem;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+    body.tdb-ask-page .tdb-kiss-verse__block--bbe:has([data-bbe-text]:empty) {
+      display: none;
     }
   </style>
 </head>
@@ -277,6 +326,9 @@
             <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions"></div>
           </form>
           <p class="tdb-feel-trust-line" id="feelTrustLine">Results stay on this device. Tap a feeling below, or type if you want something more specific.</p>
+          <p class="tdb-ask-again" id="tdbAskAgain" hidden>
+            <button type="button" id="tdbAskAgainBtn">Show feelings again</button>
+          </p>
           <p class="sr-only" id="topicPlansHint">Tap a feeling below. Type only if you want something more specific.</p>
 
           <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Every feeling topic. Tap searches. Alt-click or long-press opens a matching reading plan.">
@@ -397,7 +449,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
   <script nonce="tdb2025s" defer src="ask-the-word-core.js?v=20260820-askwalk"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260904ask3"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260904ask4"></script>
   <script nonce="tdb2025s" defer src="core-home.js?v=20260903porch3" data-cfasync="false"></script>
   <script nonce="tdb2025s" defer src="/language-switcher.js?v=20260816-brightgold"></script>
 </body>

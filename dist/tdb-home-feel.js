@@ -1810,6 +1810,16 @@ const FEEL_MORE = {
       if (hasResults) hero.classList.add("tdb-ask-has-results");
       else hero.classList.remove("tdb-ask-has-results");
     }
+    var again = document.getElementById("tdbAskAgain");
+    if (again) {
+      if (hasResults) {
+        again.hidden = false;
+        again.removeAttribute("hidden");
+      } else {
+        again.hidden = true;
+        again.setAttribute("hidden", "");
+      }
+    }
   }
 
   function paintAskCore(query, data) {
@@ -2522,6 +2532,13 @@ const FEEL_MORE = {
         e.preventDefault();
         runHeroWordSearch();
       }
+    });
+  }
+  var askAgainBtn = document.getElementById("tdbAskAgainBtn");
+  if (askAgainBtn) {
+    askAgainBtn.addEventListener("click", function () {
+      clearResult();
+      try { input.focus(); } catch (eFocus) {}
     });
   }
   if (isAskPorch() && window.TDBAskTheWord && typeof window.TDBAskTheWord.prefetch === "function") {

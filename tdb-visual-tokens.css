@@ -37,8 +37,8 @@
   --tdb-btn-primary-fg: #fff;
   --tdb-btn-primary-bg: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--accent, #8ba6d9) 85%, #fff) 0%,
-    var(--accent, #8ba6d9) 100%
+    color-mix(in srgb, var(--accent, #A8C3BC) 85%, #fff) 0%,
+    var(--accent, #A8C3BC) 100%
   );
   --tdb-btn-primary-border: color-mix(in srgb, var(--gold, #e3bc67) 32%, transparent);
   --tdb-btn-secondary-bg: color-mix(in srgb, var(--muted, #a8b3c4) 12%, var(--card, #1b212d));

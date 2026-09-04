@@ -1,0 +1,54 @@
+/*
+ * Opal palette — site-wide bodies and play-of-color flashes.
+ * Quiet on purpose: stone, not neon.
+ *
+ * Bodies: white/milk, black, crystal, sea-glass (named Opal), fire.
+ * Flashes: blue, teal, green, violet, gold.
+ *
+ * Home loads this file directly (it does not load styles.css).
+ * Inner pages get it via @import at the top of styles.css.
+ */
+
+:root {
+  --opal-white: #F3EEE4;
+  --opal-black: #080C14;
+  --opal-crystal: #C8D6D8;
+  --opal-sea: #A8C3BC;
+  --opal-fire: #D96B4C;
+  --opal-fire-amber: #E8A04A;
+  --opal-flash-blue: #8BB4D4;
+  --opal-flash-teal: #5EAEA4;
+  --opal-flash-green: #6FBF9A;
+  --opal-flash-violet: #8E7DB8;
+  --opal-flash-gold: #E3BC67;
+  --opal-flash-gold-soft: #F2DC98;
+
+  --accent: var(--opal-sea);
+  --accent-hover: var(--opal-flash-teal);
+  --gold: var(--opal-flash-gold);
+  --gold-soft: var(--opal-flash-gold-soft);
+  --primary: var(--opal-flash-violet);
+  --primary-dark: #6F5F96;
+  --primary-glow: color-mix(in srgb, var(--opal-flash-violet) 42%, transparent);
+  --bg-dark: var(--opal-black);
+  --bg-light: var(--opal-white);
+  --tdb-focus-ring: var(--opal-flash-gold);
+}
+
+:root[data-theme="light"],
+:root[data-theme="daylight"] {
+  --accent: #4F7D78;
+  --accent-hover: var(--opal-flash-teal);
+  --gold: #C9A86A;
+  --gold-soft: #D4C0A0;
+  --tdb-focus-ring: #4F7D78;
+}
+
+:root[data-theme="sepia"],
+:root[data-theme="parchment"] {
+  --accent: #7A5A38;
+  --accent-hover: #9A7348;
+  --gold: #B8893A;
+  --gold-soft: #D4B07A;
+  --tdb-focus-ring: #7C4B12;
+}

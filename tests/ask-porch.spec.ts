@@ -30,6 +30,8 @@ test.describe('Ask the Word porch', () => {
     await expect(page.locator('#homeQaAnswer')).toContainText(/Jesus|Christ|Word was made flesh/i, { timeout: 20000 });
     await expect(page.locator('#feelCards.has-results')).toBeVisible({ timeout: 20000 });
     await expect(page.locator('#feelCards .feel-verse-card, #feelCards [data-tdb-kiss-verse]').first()).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Restless' })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Show feelings again' })).toBeVisible();
   });
 
   test('pressing Enter in the search bar still answers', async ({ page }) => {

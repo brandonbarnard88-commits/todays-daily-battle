@@ -2330,7 +2330,9 @@ const FEEL_MORE = {
       renderSuggestions(sugs);
       const group = resolveFeelGroup(val);
       if (group) { showGroup(group, val); }
-      else if (!sugs.length && !isAskPorch()) { showNoMatch(); }
+      else if (isAskPorch()) {
+        /* Typed questions wait for Search so debounce cannot wipe the answer. */
+      } else if (!sugs.length) { showNoMatch(); }
       else { clearResult(); }
       if (val.trim()) updateFeelPlanCta(val);
     }, 300);
@@ -2341,6 +2343,7 @@ const FEEL_MORE = {
   });
 
   function runSearch() {
+    clearTimeout(debounceTimer);
     const val = (input.value || "").trim();
     if (!val) return;
     if (typeof window.tryStillEaster === "function" && window.tryStillEaster(input)) return;

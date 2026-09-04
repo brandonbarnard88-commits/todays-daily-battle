@@ -219,28 +219,28 @@
     "id": "ps103-east-west-on-opening",
     "re": "forgives all iniquity, heals, and removes transgressions as far as the east is from the west",
     "flags": "i",
-    "allow": null,
-    "allowFlags": ""
+    "allow": "^Psalm(s)?\\s+103:12\\b",
+    "allowFlags": "i"
   },
   {
     "id": "ps103-benefits-lump",
     "re": "forgives iniquity, heals diseases, redeems from destruction",
     "flags": "i",
-    "allow": null,
-    "allowFlags": ""
+    "allow": "^Psalm(s)?\\s+103:(?:1-5|2-5|3(?:-5)?|4(?:-5)?)\\b",
+    "allowFlags": "i"
   },
   {
     "id": "ps103-redeem-on-wrong",
     "re": "redeem(?:s|eth)?(?: (?:thy|your|the) life)? from destruction",
     "flags": "i",
-    "allow": "^Psalm(s)?\\s+103:4\\b",
+    "allow": "^Psalm(s)?\\s+103:(?:1-5|2-5|3-5|4(?:-5)?)\\b",
     "allowFlags": "i"
   },
   {
     "id": "ps103-satisfy-on-wrong",
     "re": "satisf(?:y|ies|ieth)(?: (?:thy|your) mouth)? with good things",
     "flags": "i",
-    "allow": "^Psalm(s)?\\s+103:5\\b",
+    "allow": "^Psalm(s)?\\s+103:(?:1-5|2-5|3-5|4-5|5)\\b",
     "allowFlags": "i"
   },
   {

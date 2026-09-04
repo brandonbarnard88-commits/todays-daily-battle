@@ -510,11 +510,12 @@ function auditRandomContextSample(kjv, resolve) {
 
 /* ─── 8. Home feeling chips all resolve to a curated topic or safe search path ─── */
 function auditHomeFeelingChips(kjv) {
-  const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  const chips = [...indexHtml.matchAll(/data-topic="([^"]+)"/g)].map((m) => m[1].toLowerCase().trim());
+  /* Feeling chips live on Ask the Word. Home is today’s verse. */
+  const askHtml = fs.readFileSync(path.join(root, 'ask.html'), 'utf8');
+  const chips = [...askHtml.matchAll(/data-topic="([^"]+)"/g)].map((m) => m[1].toLowerCase().trim());
   const unique = [...new Set(chips)].filter(Boolean);
   if (unique.length < 25) {
-    fail(`Expected 25+ unique home feeling chips, found ${unique.length}`);
+    fail(`Expected 25+ unique Ask the Word feeling chips, found ${unique.length}`);
   }
 
   const script = fs.readFileSync(path.join(root, 'script.js'), 'utf8');

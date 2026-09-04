@@ -89,11 +89,11 @@ function parseChipMap(feelSrc) {
 function main() {
   console.log('All-topics audit (chips + topic pages)\n');
   const kjv = loadKjv();
-  const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const ask = fs.readFileSync(path.join(root, 'ask.html'), 'utf8');
   const chips = [
-    ...new Set([...index.matchAll(/data-topic="([^"]+)"/g)].map((m) => m[1].trim().toLowerCase())),
+    ...new Set([...ask.matchAll(/data-topic="([^"]+)"/g)].map((m) => m[1].trim().toLowerCase())),
   ].sort();
-  if (chips.length < 30) fail('Expected 30+ home chips, found ' + chips.length);
+  if (chips.length < 30) fail('Expected 30+ Ask the Word chips, found ' + chips.length);
 
   const script = fs.readFileSync(path.join(root, 'script.js'), 'utf8');
   const topicsBody = extractTopicsBody(script);

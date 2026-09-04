@@ -389,9 +389,9 @@
 /contract /faq.html 301
 
 # Free forever: old "pricing" routes → optional gift page only (never a paywall).
-/pricing /give 301
-/pricing/ /give 301
-/pricing.html /give 301
+/pricing /give 301!
+/pricing/ /give 301!
+/pricing.html /give 301!
 
 # Donation/support. /give must be a rewrite (200!), never 301↔.html — CF clean-URL
 # 308 (/give.html → /give) + our 301 (/give → /give.html) caused infinite redirect.

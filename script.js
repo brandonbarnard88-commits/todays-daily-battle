@@ -3064,21 +3064,49 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   document.head.appendChild(script);
 })();
 
+/* One full-KJV fetch, one cache key. Home first paint already has today’s verse in HTML. */
+(function installSharedKjvLoader() {
+  if (typeof window === 'undefined') return;
+  if (typeof window.TDB_loadKjvFull === 'function') return;
+  var KJV_URL = '/data/kjv-full.json';
+  function verseCount(d) {
+    if (!d) return 0;
+    if (Array.isArray(d)) return d.length;
+    if (typeof d === 'object') return Object.keys(d).length;
+    return 0;
+  }
+  window.TDB_loadKjvFull = function () {
+    if (window.kjvData && verseCount(window.kjvData) >= 1000) {
+      return Promise.resolve(window.kjvData);
+    }
+    if (window.bible && verseCount(window.bible) >= 1000) {
+      window.kjvData = window.bible;
+      return Promise.resolve(window.kjvData);
+    }
+    if (window.__tdbKjvLoadPromise) return window.__tdbKjvLoadPromise;
+    window.__tdbKjvLoadPromise = fetch(KJV_URL, { credentials: 'same-origin', cache: 'force-cache' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('KJV data HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (d) {
+        if (!d || typeof d !== 'object' || verseCount(d) < 1000) throw new Error('KJV data invalid');
+        var mapped = typeof normalizeBibleData === 'function' ? normalizeBibleData(d) : d;
+        window.kjvData = mapped;
+        if (!window.bible || verseCount(window.bible) < 1000) window.bible = mapped;
+        return mapped;
+      })
+      .catch(function (err) {
+        window.__tdbKjvLoadPromise = null;
+        throw err;
+      });
+    return window.__tdbKjvLoadPromise;
+  };
+})();
+
 /* Preload full KJV after first paint/idle so startup stays fast; loadBible() still falls back normally. */
 (function preloadBibleWhenIdle() {
   if (typeof window === 'undefined') return;
-  var bust = 'v=' + encodeURIComponent('20260802fullkjv');
-  var urls = [
-    '/data/kjv-full.json',
-    '/data/kjv-full.json?' + bust,
-    '/data/kjv-verses.json',
-    '/data/kjv-verses.json?' + bust,
-    'https://todaysdailybattle.com/data/kjv-full.json',
-    'https://todaysdailybattle.com/data/kjv-full.json?' + bust,
-    /* last-resort stub only if full corpus missing from host */
-    '/kjv.json',
-    '/assets/data/kjv.json'
-  ];
   var started = false;
 
   function canPreloadNow() {
@@ -3096,28 +3124,14 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     return 0;
   }
 
-  function tryNext(i) {
-    if (i >= urls.length) return;
-    fetch(urls[i], { cache: 'force-cache' }).then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function (d) {
-        if (!d || typeof window === 'undefined') return tryNext(i + 1);
-        var n = verseCount(d);
-        /* Prefer full corpus; only accept stub if nothing better loaded yet */
-        if (n < 1000 && window.kjvData && verseCount(window.kjvData) >= 1000) return;
-        if (n < 1000 && i < urls.length - 2) return tryNext(i + 1);
-        if (!window.kjvData || verseCount(window.kjvData) < n) {
-          window.kjvData = typeof normalizeBibleData === 'function' ? normalizeBibleData(d) : d;
-        }
-      })
-      .catch(function () { tryNext(i + 1); });
-  }
-
   function startPreload() {
     if (started) return;
     started = true;
     if (!canPreloadNow()) return;
     if (window.kjvData && verseCount(window.kjvData) >= 1000) return;
-    tryNext(0);
+    if (typeof window.TDB_loadKjvFull === 'function') {
+      window.TDB_loadKjvFull().catch(function () {});
+    }
   }
 
   function schedulePreload() {
@@ -20784,8 +20798,7 @@ const BIBLE_DATA_CACHE_BUST = '20260802fullkjv';
 /** Prefer full corpus; reject stub packs (&lt;1k keys) when loading KJV. */
 const KJV_MIN_VERSE_COUNT = 1000;
 const KJV_FULL_URLS = [
-  '/data/kjv-full.json',
-  '/data/kjv-verses.json'
+  '/data/kjv-full.json'
 ];
 const KJV_STUB_URLS = [
   '/kjv.json',
@@ -24006,15 +24019,20 @@ async function loadBible(version = currentVersion) {
     }
     /* Preload only got the 44-verse stub — fall through and fetch full corpus. */
   }
+  if (version === 'KJV' && typeof window !== 'undefined' && typeof window.TDB_loadKjvFull === 'function') {
+    try {
+      var sharedMap = await window.TDB_loadKjvFull();
+      if (corpusSize(sharedMap) >= KJV_MIN_VERSE_COUNT) {
+        applyBibleMap(sharedMap, 'KJV');
+        return;
+      }
+    } catch (eShared) { /* fall through to URL list */ }
+  }
   const file = versionFiles[version] || versionFiles.KJV;
   const isFileProtocol = typeof location !== 'undefined' && location.protocol === 'file:';
   const rootPath = file.startsWith('/') ? file : '/' + file;
   const urlsToTry = [];
-  const kjvPreferred = version === 'KJV'
-    ? KJV_FULL_URLS.concat(KJV_FULL_URLS.map(function (u) {
-        return u + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST);
-      }))
-    : [];
+  const kjvPreferred = version === 'KJV' ? KJV_FULL_URLS.slice() : [];
   const kjvFallbacks = version === 'KJV'
     ? KJV_STUB_URLS.concat(KJV_STUB_URLS.map(function (u) {
         return u + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST);
@@ -37364,8 +37382,16 @@ async function tdbInitImpl() {
   /* Family hub + Kids Corner use kids-corner-daily-verse.js, which needs bible + getBibleVerseText — same as verse page. */
   var isFamilyHubPage = /family\.html$/i.test(path);
   var isKidsCornerPage = /kids-corner\.html$/i.test(path);
-  if ((isHome || isVersePage || isFamilyHubPage || isKidsCornerPage) && Object.keys(bible).length === 0 && typeof loadBible === 'function') {
+  if ((isVersePage || isFamilyHubPage || isKidsCornerPage) && Object.keys(bible).length === 0 && typeof loadBible === 'function') {
     loadBible(currentVersion).catch(function () {});
+  }
+  if (isHome && Object.keys(bible).length === 0 && typeof loadBible === 'function') {
+    var heroCard = document.getElementById('verseCard');
+    var heroStale = heroCard && heroCard.getAttribute('data-tdb-hero-stale') === '1';
+    if (heroStale) {
+      loadBible(currentVersion).catch(function () {});
+    }
+    /* Fresh home hero is already in HTML. Idle preloadBibleWhenIdle loads one full corpus. */
   }
   if (isHome && typeof URLSearchParams !== 'undefined' && window.location.search) {
     var searchParams = new URLSearchParams(window.location.search);

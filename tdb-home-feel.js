@@ -1089,7 +1089,8 @@ function dailyVerseByOffset(offsetDays) {
 }
 
 async function loadTodaysVerse() {
-  verseNote.hidden = true;
+  if (!heroVerse && !verseCard && !verseNote) return;
+  if (verseNote) verseNote.hidden = true;
   window.__tdbHeroBreakdownEngineApplied = false;
 
   const pickFn = typeof window.__TDB_pickRawHeroByUtcDay === 'function' ? window.__TDB_pickRawHeroByUtcDay : null;
@@ -1155,14 +1156,16 @@ async function loadTodaysVerse() {
   }
 
   if (!navigator.onLine) {
-    verseNote.textContent = "Offline\u2014still got you \u2022 Sync when back";
-    verseNote.hidden = false;
+    if (verseNote) {
+      verseNote.textContent = "Offline\u2014still got you \u2022 Sync when back";
+      verseNote.hidden = false;
+    }
     showOfflinePill(true);
   }
 }
 
 function loadVerse(index) {
-  verseNote.hidden = true;
+  if (verseNote) verseNote.hidden = true;
   setVerseLoadingState(false);
   renderVerseContent(VERSES[index]);
 }
@@ -1797,12 +1800,96 @@ const FEEL_MORE = {
     nextStepWrap.classList.add("hidden");
     nextStepWrap.setAttribute("hidden", "");
   }
+  function isAskPorch() {
+    return !!(document.body && document.body.classList.contains("tdb-ask-page"));
+  }
+
   function setAskSurfaceForResults(hasResults) {
     var hero = document.getElementById("quick-search-hero");
     if (hero) {
       if (hasResults) hero.classList.add("tdb-ask-has-results");
       else hero.classList.remove("tdb-ask-has-results");
     }
+  }
+
+  function paintAskCore(query, data) {
+    var verses = (data && Array.isArray(data.verses))
+      ? data.verses.filter(function (v) { return v && v.ref && v.text; })
+      : [];
+    var answerText = data && data.answer ? String(data.answer) : "";
+    if (homeQaWrap && homeQaAnswer && answerText) {
+      homeQaWrap.classList.remove("hidden");
+      homeQaWrap.removeAttribute("hidden");
+      homeQaAnswer.textContent = answerText;
+      if (homeQaPrayer && data.prayer_prompt) {
+        homeQaPrayer.textContent = "Quick Prayer: " + data.prayer_prompt;
+        homeQaPrayer.classList.remove("hidden");
+        homeQaPrayer.removeAttribute("hidden");
+      } else if (homeQaPrayer) {
+        homeQaPrayer.classList.add("hidden");
+        homeQaPrayer.setAttribute("hidden", "");
+        homeQaPrayer.textContent = "";
+      }
+      var src = (data.sources && data.sources.length)
+        ? data.sources
+        : verses.map(function (v) { return v.ref; });
+      if (homeQaSources && src.length) {
+        homeQaSources.textContent = "KJV: " + src.join(" \u00b7 ");
+        homeQaSources.classList.remove("hidden");
+        homeQaSources.removeAttribute("hidden");
+      } else if (homeQaSources) {
+        homeQaSources.classList.add("hidden");
+        homeQaSources.setAttribute("hidden", "");
+        homeQaSources.textContent = "";
+      }
+    }
+    if (cards) {
+      cards.replaceChildren();
+      verses.forEach(function (v, idx) {
+        cards.appendChild(buildVerseCard({
+          ref: v.ref,
+          text: v.text,
+          plain: v.plain || "",
+          speaker: v.speaker || "",
+          today: v.today || "",
+          action: v.action || ""
+        }, idx));
+      });
+      if (verses.length) cards.classList.add("has-results");
+      else cards.classList.remove("has-results");
+    }
+    if (noMatch) noMatch.classList.remove("visible");
+    if (welcome) {
+      welcome.textContent = "";
+      welcome.classList.remove("show");
+    }
+    setAskSurfaceForResults(!!(answerText || verses.length));
+    if (verses[0]) updateSearchNextStep(query, verses[0]);
+    updateFeelPlanCta(query);
+    try {
+      var jump = homeQaWrap && answerText ? homeQaWrap : cards;
+      if (jump) jump.scrollIntoView({ behavior: "smooth", block: "start" });
+    } catch (eSc) { /* non-fatal */ }
+  }
+
+  function runAskTheWord(val) {
+    if (!window.TDBAskTheWord || typeof window.TDBAskTheWord.answer !== "function") return false;
+    if (homeQaWrap && homeQaAnswer) {
+      homeQaWrap.classList.remove("hidden");
+      homeQaWrap.removeAttribute("hidden");
+      homeQaAnswer.textContent = "Ask the Word is searching Scripture\u2026";
+    }
+    if (noMatch) noMatch.classList.remove("visible");
+    window.TDBAskTheWord.answer(val).then(function (data) {
+      if (!data || (!data.answer && !(data.verses && data.verses.length))) {
+        showNoMatch();
+        return;
+      }
+      paintAskCore(val, data);
+    }).catch(function () {
+      showNoMatch();
+    });
+    return true;
   }
 
   function clearFullResults() {
@@ -2243,7 +2330,7 @@ const FEEL_MORE = {
       renderSuggestions(sugs);
       const group = resolveFeelGroup(val);
       if (group) { showGroup(group, val); }
-      else if (!sugs.length) { showNoMatch(); }
+      else if (!sugs.length && !isAskPorch()) { showNoMatch(); }
       else { clearResult(); }
       if (val.trim()) updateFeelPlanCta(val);
     }, 300);
@@ -2258,24 +2345,26 @@ const FEEL_MORE = {
     if (!val) return;
     if (typeof window.tryStillEaster === "function" && window.tryStillEaster(input)) return;
     if (typeof window.tryAmenEaster === "function" && window.tryAmenEaster(input)) return;
-    /* One results host: the home-search shell. A second feel-card stack doubles the chrome. */
-    if (typeof window.runSearchWithInput === "function") {
+    const group = resolveFeelGroup(val);
+    closeSuggest();
+    /* Home: full battle search. Ask: TDBAskTheWord so a question gets an answer + verses. */
+    if (typeof window.runSearchWithInput === "function" && !isAskPorch()) {
       if (cards) cards.replaceChildren();
       if (welcome) {
         welcome.textContent = "";
         welcome.classList.remove("show");
       }
-    } else {
-      const group = resolveFeelGroup(val);
-      if (group) showGroup(group, val);
-    }
-    // Always run battle search for any query — ensures results for any term
-    if (typeof window.runSearchWithInput === "function") {
       var tdb = document.getElementById("tdb-search");
       if (tdb) tdb.value = val;
       if (typeof window.tdbScrollSearchSurfaceIntoView === "function") window.tdbScrollSearchSurfaceIntoView();
       window.runSearchWithInput(val);
-    } else if (!group) showNoMatch();
+    } else if (runAskTheWord(val)) {
+      /* painted when the Word returns */
+    } else if (group) {
+      showGroup(group, val);
+    } else {
+      showNoMatch();
+    }
     updateFeelPlanCta(val);
   }
 
@@ -2424,6 +2513,9 @@ const FEEL_MORE = {
         runHeroWordSearch();
       }
     });
+  }
+  if (isAskPorch() && window.TDBAskTheWord && typeof window.TDBAskTheWord.prefetch === "function") {
+    try { window.TDBAskTheWord.prefetch(); } catch (ePrefetch) { /* non-fatal */ }
   }
 }());
 
@@ -5346,10 +5438,12 @@ wireJournalExport();
 wireWhyTooltips();
 scheduleMorningReminder();
 cacheVersesOffline();
-loadTodaysVerse().then(() => {
-  wireReadAloudTts();
-  wireMorningFlow();
-});
+if (heroVerse || verseCard || verseNote) {
+  loadTodaysVerse().then(() => {
+    wireReadAloudTts();
+    wireMorningFlow();
+  });
+}
 initPwaNudge();
 initHeaderSky();
 

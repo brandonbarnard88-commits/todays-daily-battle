@@ -20,30 +20,32 @@ function fail(msg) {
 }
 
 let index;
+let ask;
 let script;
 let homeFeel;
 try {
   index = readFileSync(join(root, 'index.html'), 'utf8');
+  ask = readFileSync(join(root, 'ask.html'), 'utf8');
   script = readFileSync(join(root, 'script.js'), 'utf8');
   homeFeel = readFileSync(join(root, 'tdb-home-feel.js'), 'utf8');
 } catch (e) {
   fail(String(e && e.message));
 }
 
-if (!index.includes('tdb-home-feel.js')) {
-  fail('index.html must load deferred tdb-home-feel.js (homepage feel-search bundle).');
+if (!index.includes('tdb-home-feel.js') && !ask.includes('tdb-home-feel.js')) {
+  fail('Ask the Word must load deferred tdb-home-feel.js (feel-search bundle).');
 }
 
 if (!homeFeel.includes('feelSuggestDropdown') || !homeFeel.includes('FEEL_GROUPS')) {
   fail('tdb-home-feel.js must wire feelSuggestDropdown + FEEL_GROUPS.');
 }
 
-if (!index.includes('id="feel-results"')) {
-  fail('index.html must contain id="feel-results" (visible search results host).');
+if (!ask.includes('id="feel-results"')) {
+  fail('ask.html must contain id="feel-results" (visible search results host).');
 }
 
-if (!index.includes('id="tdbFeelTopicPageCta"') || !index.includes('id="tdbFeelTopicPageCtaLink"')) {
-  fail('index.html must contain the topic-page helper after chip search.');
+if (!ask.includes('id="tdbFeelTopicPageCta"') || !ask.includes('id="tdbFeelTopicPageCtaLink"')) {
+  fail('ask.html must contain the topic-page helper after chip search.');
 }
 if (!homeFeel.includes('TDB_TOPIC_TO_PAGE') || !homeFeel.includes('Read the full page on')) {
   fail('tdb-home-feel.js must map chips to topic pages with Read the full page on.');

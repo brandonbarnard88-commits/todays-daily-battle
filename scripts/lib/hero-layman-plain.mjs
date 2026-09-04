@@ -433,6 +433,12 @@ export function buildFamousVersePlain(ref, text) {
   if (/psalm\s+23:1/.test(r) || /lord is my shepherd; i shall not want/.test(lower)) {
     return 'The Lord is my shepherd; with Him I will not lack what I truly need.';
   }
+  if (
+    /psalm\s+103:1-5/.test(r) ||
+    (/bless the lord, o my soul/.test(lower) && /forget not all his benefits/.test(lower) && /youth is renewed/.test(lower))
+  ) {
+    return 'Speak to your own soul: bless the Lord with everything in you, and do not forget His kindness — He pardons, He heals, He lifts you, and He fills you again.';
+  }
   if (/psalm\s+46:10/.test(r) || /^be still, and know that i am god/.test(lower)) {
     return 'Stop striving and know that God is God — He is in charge, not your panic.';
   }

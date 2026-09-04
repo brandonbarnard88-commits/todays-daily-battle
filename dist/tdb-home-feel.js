@@ -1872,8 +1872,10 @@ const FEEL_MORE = {
     } catch (eSc) { /* non-fatal */ }
   }
 
+  var askSeq = 0;
   function runAskTheWord(val) {
     if (!window.TDBAskTheWord || typeof window.TDBAskTheWord.answer !== "function") return false;
+    var seq = ++askSeq;
     if (homeQaWrap && homeQaAnswer) {
       homeQaWrap.classList.remove("hidden");
       homeQaWrap.removeAttribute("hidden");
@@ -1881,12 +1883,14 @@ const FEEL_MORE = {
     }
     if (noMatch) noMatch.classList.remove("visible");
     window.TDBAskTheWord.answer(val).then(function (data) {
+      if (seq !== askSeq) return;
       if (!data || (!data.answer && !(data.verses && data.verses.length))) {
         showNoMatch();
         return;
       }
       paintAskCore(val, data);
     }).catch(function () {
+      if (seq !== askSeq) return;
       showNoMatch();
     });
     return true;
@@ -2322,7 +2326,7 @@ const FEEL_MORE = {
     clearTimeout(debounceTimer);
     const val = input.value;
     if (!val.trim()) { clearResult(); closeSuggest(); return; }
-    clearFullResults();
+    if (!isAskPorch()) clearFullResults();
     debounceTimer = setTimeout(() => {
       if (val.trim().toLowerCase() === 'still' && typeof window.tryStillEaster === 'function' && window.tryStillEaster(input)) return;
       if (val.trim().toLowerCase() === 'amen' && typeof window.tryAmenEaster === 'function' && window.tryAmenEaster(input)) return;
@@ -2330,12 +2334,11 @@ const FEEL_MORE = {
       renderSuggestions(sugs);
       const group = resolveFeelGroup(val);
       if (group) { showGroup(group, val); }
-      else if (isAskPorch()) {
-        /* Typed questions wait for Search so debounce cannot wipe the answer. */
-      } else if (!sugs.length) { showNoMatch(); }
+      else if (isAskPorch()) { runAskTheWord(val); }
+      else if (!sugs.length) { showNoMatch(); }
       else { clearResult(); }
       if (val.trim()) updateFeelPlanCta(val);
-    }, 300);
+    }, 450);
   });
 
   document.addEventListener("click", (e) => {
@@ -2376,23 +2379,27 @@ const FEEL_MORE = {
     searchBtn.addEventListener("click", runSearch);
     searchBtn.addEventListener("touchend", function (e) { e.preventDefault(); runSearch(); }, { passive: false });
   }
+  var askForm = input.closest("form");
+  if (askForm) {
+    askForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      runSearch();
+    });
+  }
+  input.addEventListener("search", function (e) {
+    e.preventDefault();
+    runSearch();
+  });
 
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      if (dropdown.classList.contains("open")) {
-        if (activeIdx >= 0) {
-          e.preventDefault();
-          const item = dropdown.querySelectorAll(".feel-suggest-item")[activeIdx];
-          if (item) item.dispatchEvent(new MouseEvent("mousedown", { bubbles: true }));
-        }
-        closeSuggest();
-      } else {
-        const val = (input.value || "").trim();
-        if (val) {
-          e.preventDefault();
-          runSearch();
-        }
+      e.preventDefault();
+      if (dropdown.classList.contains("open") && activeIdx >= 0) {
+        const item = dropdown.querySelectorAll(".feel-suggest-item")[activeIdx];
+        if (item) item.dispatchEvent(new MouseEvent("mousedown", { bubbles: true }));
+        return;
       }
+      runSearch();
       return;
     }
     if (!dropdown.classList.contains("open")) return;
@@ -2519,6 +2526,16 @@ const FEEL_MORE = {
   }
   if (isAskPorch() && window.TDBAskTheWord && typeof window.TDBAskTheWord.prefetch === "function") {
     try { window.TDBAskTheWord.prefetch(); } catch (ePrefetch) { /* non-fatal */ }
+  }
+  if (isAskPorch()) {
+    try {
+      var params = new URLSearchParams(window.location.search || "");
+      var initialQ = (params.get("q") || "").trim();
+      if (initialQ) {
+        input.value = initialQ;
+        runSearch();
+      }
+    } catch (eQ) { /* non-fatal */ }
   }
 }());
 

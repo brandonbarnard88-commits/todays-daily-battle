@@ -20,6 +20,15 @@ test.describe('cold first visit', () => {
     await expect(page.locator('#tdbCapacityTooMuch')).toBeVisible();
     await expect(page.locator('#tdbCapacityOneVerse')).toBeVisible();
     await expect(page.locator('#tdbCapacityLittleMore')).toBeVisible();
+    await expect(page.locator('#heroVerse')).toBeVisible();
+    const order = await page.evaluate(() => {
+      const verse = document.getElementById('hero-verse-wrap');
+      const door = document.getElementById('tdbCapacityDoor');
+      if (!verse || !door) return 'missing';
+      const pos = verse.compareDocumentPosition(door);
+      return pos & Node.DOCUMENT_POSITION_FOLLOWING ? 'verse-first' : 'door-first';
+    });
+    expect(order).toBe('verse-first');
     const returning = await page.evaluate(() => {
       try {
         return localStorage.getItem('has_visited_porch') === '1';

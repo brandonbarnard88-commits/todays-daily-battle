@@ -16,6 +16,46 @@
   var kjvMap = null;
   var kjvLoadPromise = null;
 
+  function verseCountMap(d) {
+    if (!d) return 0;
+    if (Array.isArray(d)) return d.length;
+    if (typeof d === 'object') return Object.keys(d).length;
+    return 0;
+  }
+
+  function installSharedKjvLoader() {
+    if (typeof global.TDB_loadKjvFull === 'function') return;
+    global.TDB_loadKjvFull = function () {
+      if (global.kjvData && verseCountMap(global.kjvData) >= 1000) {
+        return Promise.resolve(global.kjvData);
+      }
+      if (global.bible && verseCountMap(global.bible) >= 1000) {
+        global.kjvData = global.bible;
+        return Promise.resolve(global.kjvData);
+      }
+      if (global.__tdbKjvLoadPromise) return global.__tdbKjvLoadPromise;
+      global.__tdbKjvLoadPromise = fetch(KJV_DATA_URL, { credentials: 'same-origin', cache: 'force-cache' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('KJV data HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          if (!data || typeof data !== 'object' || verseCountMap(data) < 1000) {
+            throw new Error('KJV data invalid');
+          }
+          global.kjvData = data;
+          if (!global.bible || verseCountMap(global.bible) < 1000) global.bible = data;
+          return data;
+        })
+        .catch(function (err) {
+          global.__tdbKjvLoadPromise = null;
+          throw err;
+        });
+      return global.__tdbKjvLoadPromise;
+    };
+  }
+  installSharedKjvLoader();
+
   function normalizeRef(ref) {
     var s = String(ref || '')
       .replace(/\uFEFF/g, '')
@@ -141,18 +181,10 @@
       return Promise.resolve(kjvMap);
     }
     if (kjvLoadPromise) return kjvLoadPromise;
-    kjvLoadPromise = fetch(KJV_DATA_URL, { credentials: 'same-origin', cache: 'force-cache' })
-      .then(function (res) {
-        if (!res.ok) throw new Error('KJV data HTTP ' + res.status);
-        return res.json();
-      })
+    installSharedKjvLoader();
+    kjvLoadPromise = global.TDB_loadKjvFull()
       .then(function (data) {
-        if (!data || typeof data !== 'object') throw new Error('KJV data invalid');
         kjvMap = data;
-        try {
-          if (!global.bible || Object.keys(global.bible).length < 1000) global.bible = data;
-          if (!global.kjvData || Object.keys(global.kjvData).length < 1000) global.kjvData = data;
-        } catch (eW) { /* non-fatal */ }
         return kjvMap;
       })
       .catch(function (err) {

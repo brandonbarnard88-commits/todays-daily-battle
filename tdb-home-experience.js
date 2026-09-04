@@ -82,12 +82,11 @@
 
   function placeCapacityDoor(show) {
     var cap = document.getElementById('tdbCapacityDoor');
-    var main = document.getElementById('home-primary-flow');
+    var verse = document.getElementById('hero-verse-wrap');
     if (!cap) return;
-    if (show && main && cap.parentNode !== main) {
-      try { main.insertBefore(cap, main.firstChild); } catch (e) { /* keep static order */ }
-    } else if (show && main && main.firstElementChild !== cap) {
-      try { main.insertBefore(cap, main.firstChild); } catch (e2) { /* keep static order */ }
+    if (show && verse && verse.parentNode) {
+      /* Verse first. Chooser sits under today’s card, not above it. */
+      try { verse.parentNode.insertBefore(cap, verse.nextSibling); } catch (e) { /* keep static order */ }
     }
     if (show) {
       cap.removeAttribute('hidden');

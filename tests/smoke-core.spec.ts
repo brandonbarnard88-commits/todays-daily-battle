@@ -92,12 +92,14 @@ test.describe('core smoke (dist)', () => {
     }
     await expect(mainSearch).toHaveClass(/sr-only/);
     await expect(page.locator('#hero-verse-wrap')).toBeVisible();
-    await expect(page.locator('#feel-section')).toBeVisible();
+    /* Ask the Word is its own door. Home keeps a hidden host for script hooks. */
+    await expect(page.locator('#feel-section')).toHaveCount(1);
+    await expect(page.locator('#feel-section')).toBeHidden();
     // Secondary density collapses under one disclosure after capacity.
     await expect(page.locator('#tdbHomeMoreWhenReady')).toHaveCount(1);
   });
 
-  test('home: Hope topic shows verse cards', async ({ page }) => {
+  test('ask: Hope topic shows verse cards', async ({ page }) => {
     await page.addInitScript(() => {
       try {
         localStorage.setItem('tdb_feel_category_auto_heavy_v1', '1');
@@ -105,36 +107,25 @@ test.describe('core smoke (dist)', () => {
         /* ignore */
       }
     });
-    await page.goto('/');
-    await dismissFirstVisitIfPresent(page);
-    /* Category cards live inside a closed <details>; the quick strip always exposes Hope. */
-    const hopeBtn = page.locator('#tdbFeelQuickStrip .quick-topic[data-topic="hope"]');
+    await page.goto('/ask.html');
+    const hopeBtn = page.locator('#tdbFeelQuickStrip .quick-topic[data-topic="hope"], .quick-topic[data-topic="hope"]').first();
     await hopeBtn.scrollIntoViewIfNeeded();
     await hopeBtn.click();
-    /* Inline wireFeelSearch debounces (~300ms); homepage search may render calm cards or fallback smart cards. */
     await page.waitForTimeout(450);
     const result = page.locator(
-      '#feel-results .home-search-card, #feel-results .smart-card, #feel-results .verse-card, #feelCards .feel-verse-card'
+      '#feel-results .home-search-card, #feel-results .smart-card, #feel-results .verse-card, #feelCards .feel-verse-card, #feelCards [data-tdb-kiss-verse]'
     ).first();
     await expect(result).toBeVisible({ timeout: 25000 });
-    const breakdown = page.getByRole('button', { name: /read full breakdown/i }).first();
-    if (await breakdown.isVisible().catch(() => false)) {
-      await breakdown.click({ force: true });
-      await expect(page.locator('.home-search-detail-panel')).toBeVisible({ timeout: 15000 });
-      await expect(page.getByRole('button', { name: /back to quiet place/i }).first()).toBeVisible();
-    }
   });
 
-  test('home: question search shows answer + verses', async ({ page }) => {
-    await page.goto('/');
-    await dismissFirstVisitIfPresent(page);
+  test('ask: question search shows answer + verses', async ({ page }) => {
+    await page.goto('/ask.html');
     const input = page.locator('#feel-search');
     await expect(input).toBeVisible();
     await input.fill('Who is Jesus?');
     await page.locator('#feel-search-btn').click();
-    await expect(page.locator('#homeQaResult')).toBeVisible({ timeout: 25000 });
-    await expect(page.locator('#homeQaAnswer')).not.toHaveText('', { timeout: 25000 });
-    await expect(page.locator('#feel-results .home-search-card, #feel-results .verse-card, #feel-results .smart-card').first()).toBeVisible({ timeout: 25000 });
+    await expect(page.locator('#homeQaAnswer')).toContainText(/Jesus|Christ|Word was made flesh/i, { timeout: 25000 });
+    await expect(page.locator('#feelCards.has-results, #feel-results .home-search-card, #feel-results .verse-card').first()).toBeVisible({ timeout: 25000 });
   });
 
   test('bible-tool.html loads lookup UI', async ({ page }) => {

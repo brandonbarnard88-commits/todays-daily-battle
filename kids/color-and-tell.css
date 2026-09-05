@@ -13,6 +13,17 @@ body.tdb-kids-coloring-page .app-content {
   width: 100% !important;
   max-width: 100%;
 }
+
+/* Color is cream paper even when the site theme is night.
+   Dark kids tokens make verse, print, and story words wash out on every story. */
+body.tdb-kids-coloring-page,
+body.tdb-kids-coloring-page.dark-mode {
+  --kids-text: #0f172a;
+  --kids-muted: #334155;
+  --kids-card: #fffdf7;
+  --kids-soft-bg: #fffef8;
+  --kids-line: #d6c4a8;
+}
 .tdb-quiet-update-strip--plans[hidden] { display: none !important; }
 
 .tdb-cat-hear-story {
@@ -1069,13 +1080,20 @@ body.tdb-kids-coloring-page .tdb-cat-story-title {
   color: #1e293b !important;
 }
 
-/* Cream story cards: gold type on gold paper disappears. Ink on night-gold. */
+/* Cream story cards: gold type on gold paper disappears. Ink on night-gold.
+   Beats body[class*="kids"] p { color: #1e293b } sitting on a navy card. */
+.tdb-cat-scene-story-card,
+.dark-mode .tdb-cat-scene-story-card,
 body.tdb-kids-coloring-page .tdb-cat-scene-story-card,
 body.tdb-kids-coloring-page.dark-mode .tdb-cat-scene-story-card {
   background: #fffef8 !important;
   border: 2px solid #b45309 !important;
   box-shadow: none;
+  color: #0f172a !important;
 }
+body[class*="kids"] .tdb-cat-scene-story-card p,
+body.tdb-kids-coloring-page .tdb-cat-scene-story-card p,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-scene-story-card p,
 body.tdb-kids-coloring-page .tdb-cat-scene-label,
 body.tdb-kids-coloring-page .tdb-cat-scene-caption,
 body.tdb-kids-coloring-page .tdb-cat-scene-picture-hint,
@@ -1094,6 +1112,31 @@ body.tdb-kids-coloring-page .tdb-cat-scene-idea,
 body.tdb-kids-coloring-page.dark-mode .tdb-cat-scene-idea {
   color: #7c3d12 !important;
   -webkit-text-fill-color: #7c3d12 !important;
+}
+body.tdb-kids-coloring-page .kids-verse-strip,
+body.tdb-kids-coloring-page .kids-verse-strip p,
+body.tdb-kids-coloring-page .kids-verse-strip small,
+body.tdb-kids-coloring-page.dark-mode .kids-verse-strip,
+body.tdb-kids-coloring-page.dark-mode .kids-verse-strip p,
+body.tdb-kids-coloring-page.dark-mode .kids-verse-strip small {
+  color: #0f172a !important;
+}
+body.tdb-kids-coloring-page .kids-print-btn,
+body.tdb-kids-coloring-page.dark-mode .kids-print-btn {
+  color: #0f172a !important;
+  background: #fffef8 !important;
+  border: 2px solid #b45309 !important;
+}
+body.tdb-kids-coloring-page .tdb-cat-listen-story,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-listen-story {
+  background: #fff8e7 !important;
+  border-color: #8a6a12 !important;
+}
+body.tdb-kids-coloring-page .tdb-cat-listen-story > summary,
+body.tdb-kids-coloring-page .tdb-cat-listen-story p,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-listen-story > summary,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-listen-story p {
+  color: #0f172a !important;
 }
 body.tdb-kids-coloring-page .btn.btn-secondary.tdb-cat-hear-story,
 body.tdb-kids-coloring-page.dark-mode .btn.btn-secondary.tdb-cat-hear-story {

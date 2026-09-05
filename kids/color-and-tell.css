@@ -629,8 +629,9 @@ body.tdb-kids-coloring-page .app-content {
 }
 
 .dark-mode .tdb-cat-scene-story-card {
-  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-  border-color: rgba(251, 191, 36, 0.35);
+  /* Color stays cream paper. Navy + kids-page ink (#1e293b) made the words vanish. */
+  background: #fffef8;
+  border-color: #b45309;
   box-shadow: none;
 }
 
@@ -1069,6 +1070,31 @@ body.tdb-kids-coloring-page .tdb-cat-story-title {
 }
 
 /* Cream story cards: gold type on gold paper disappears. Ink on night-gold. */
+body.tdb-kids-coloring-page .tdb-cat-scene-story-card,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-scene-story-card {
+  background: #fffef8 !important;
+  border: 2px solid #b45309 !important;
+  box-shadow: none;
+}
+body.tdb-kids-coloring-page .tdb-cat-scene-label,
+body.tdb-kids-coloring-page .tdb-cat-scene-caption,
+body.tdb-kids-coloring-page .tdb-cat-scene-picture-hint,
+body.tdb-kids-coloring-page .tdb-cat-scene-idea,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-scene-label,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-scene-caption,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-scene-picture-hint,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-scene-idea {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  opacity: 1;
+}
+body.tdb-kids-coloring-page .tdb-cat-scene-label,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-scene-label,
+body.tdb-kids-coloring-page .tdb-cat-scene-idea,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-scene-idea {
+  color: #7c3d12 !important;
+  -webkit-text-fill-color: #7c3d12 !important;
+}
 body.tdb-kids-coloring-page .btn.btn-secondary.tdb-cat-hear-story,
 body.tdb-kids-coloring-page.dark-mode .btn.btn-secondary.tdb-cat-hear-story {
   color: #0f172a !important;

@@ -146,26 +146,35 @@ async def main():
 
     shepherd_path = ROOT / "kids" / "data" / "shepherd-narration-tts.json"
     shepherd = json.loads(shepherd_path.read_text(encoding="utf-8")).get("stories") or {}
+    listen_path = ROOT / "kids" / "data" / "coloring-listen.json"
+    coloring_hear = {}
+    if listen_path.exists():
+        coloring_hear = json.loads(listen_path.read_text(encoding="utf-8")).get("hear") or {}
     stories = extract_stories()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    only = set(sys.argv[1:]) if len(sys.argv) > 1 else None
+    argv = [a for a in sys.argv[1:]]
+    force = "--force" in argv
+    only = set(a for a in argv if not a.startswith("-")) or None
     done = 0
     skipped = 0
     for st in stories:
         sid = st["id"]
         if only and sid not in only:
             continue
-        key = SHEPHERD_MAP.get(sid)
         text = ""
-        if key and shepherd.get(key):
-            text = str(shepherd[key]).strip()
+        if coloring_hear.get(sid):
+            text = str(coloring_hear[sid]).strip()
+        if not text:
+            key = SHEPHERD_MAP.get(sid)
+            if key and shepherd.get(key):
+                text = str(shepherd[key]).strip()
         if not text:
             text = compose_script(st)
         if not text:
             print("SKIP empty", sid, flush=True)
             continue
         dest = OUT_DIR / f"{sid}.mp3"
-        if dest.exists() and dest.stat().st_size > 8000:
+        if dest.exists() and dest.stat().st_size > 8000 and not force:
             skipped += 1
             print(f"HAVE {sid}", flush=True)
             continue

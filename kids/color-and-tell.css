@@ -32,6 +32,31 @@ body.tdb-kids-coloring-page .app-content {
   background: #e6c56a;
   color: #0f172a;
 }
+.tdb-cat-listen-story {
+  margin: 0 0 0.85rem;
+  padding: 0.15rem 0.15rem 0.35rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, #8a6a12 28%, transparent);
+  background: color-mix(in srgb, #fff8e7 88%, #f2dc98 12%);
+}
+.tdb-cat-listen-story > summary {
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 0.95rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  color: #0f172a;
+  list-style: none;
+}
+.tdb-cat-listen-story > summary::-webkit-details-marker { display: none; }
+.tdb-cat-listen-story p {
+  margin: 0 0.7rem 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #1e293b;
+}
 
 .tdb-cat-parent-tip {
   margin: 0 0 1.25rem;

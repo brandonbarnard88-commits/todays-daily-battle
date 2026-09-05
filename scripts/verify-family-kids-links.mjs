@@ -40,6 +40,12 @@ function main() {
   if (!/href=["']\.\.\/printables\.html["']/.test(kidsIdx)) {
     fail('dist/kids/index.html: expected href to ../printables.html');
   }
+  const gamesAt = kidsIdx.indexOf('id="kids-easy-games-h"');
+  const moreAt = kidsIdx.indexOf('class="kids-easy-more"');
+  if (gamesAt < 0) fail('dist/kids/index.html: Games heading missing');
+  if (moreAt >= 0 && gamesAt > moreAt) {
+    fail('dist/kids/index.html: Games must sit on the porch, not inside More');
+  }
 
   const printables = read('dist/printables.html');
   if (!/href=["']family\.html["']/.test(printables)) {

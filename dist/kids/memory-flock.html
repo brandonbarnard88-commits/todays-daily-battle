@@ -16,8 +16,8 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="preload" href="kids-play-skin.css?v=20260903faces1" as="style">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260903faces1">
+  <link rel="preload" href="kids-play-skin.css?v=20260905play2" as="style">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260905play2">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game mf-focus">
@@ -79,7 +79,7 @@
     </div>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260903mem1"></script>
+  <script src="kids-play-helpers.js?v=20260905play2"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -266,13 +266,30 @@
       function faceUp(card) {
         if (!card) return;
         var kind = card.getAttribute('data-kind') || 'kjv';
+        var p = pairTeach[card.getAttribute('data-pair')];
         var words = card.getAttribute('data-text') || '';
         if (!words) {
-          var p = pairTeach[card.getAttribute('data-pair')];
           words = kind === 'pic' ? shortKid(p) : shortKjv(p);
         }
         card.setAttribute('aria-pressed', 'true');
-        card.textContent = words;
+        card.textContent = '';
+        if (kind === 'pic' && kit && kit.pairArt) {
+          var art = kit.pairArt(p);
+          if (art && art.src) {
+            var img = document.createElement('img');
+            img.src = art.src;
+            img.alt = '';
+            img.width = 56;
+            img.height = 56;
+            img.decoding = 'async';
+            img.className = 'mf-card-art' + (art.mascot ? ' is-mascot' : '');
+            card.appendChild(img);
+          }
+        }
+        var lab = document.createElement('span');
+        lab.className = 'mf-card-words';
+        lab.textContent = words;
+        card.appendChild(lab);
         card.setAttribute('aria-label', words);
       }
 
@@ -312,6 +329,7 @@
             var p = pairTeach[a];
             var last = Object.keys(matched).length === usePairs.length;
             if (st) st.textContent = last ? 'Last pair. Read this verse.' : 'Match. Read this verse.';
+            if (kit && kit.playChime) kit.playChime('ok');
             if (window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
               try { window.tdbLittleShepherd.notify('pairFound'); } catch (ePf) {}
             }
@@ -399,6 +417,7 @@
         build();
       });
     }
+    if (kit && kit.fillGameChooser) kit.fillGameChooser(document.querySelector('.kg-more'), 'memory');
     build();
   });
   </script>

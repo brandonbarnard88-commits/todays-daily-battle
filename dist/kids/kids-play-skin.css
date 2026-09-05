@@ -598,6 +598,21 @@ body.kids-world-surface.kids-mini-game .match-hero p,
   border: 2px dashed rgba(217, 119, 6, 0.4);
 }
 .kg-more p { margin: 0; text-align: center; }
+.kg-more-label {
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #0f172a !important;
+  margin: 0 0 0.55rem !important;
+}
+.kg-more .kids-easy-game-grid {
+  margin: 0;
+}
+.kg-more .kids-easy-game {
+  min-height: 96px;
+  padding: 0.55rem 0.4rem 0.5rem;
+  font-size: 0.95rem;
+}
 .kg-home {
   display: block;
   text-align: center;
@@ -827,6 +842,22 @@ body.kids-mini-game button.mf-card,
   background: #dcfce7 !important;
   color: #14532d !important;
 }
+.mf-card-art {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 10px;
+  border: 2px solid #f2dc98;
+  display: block;
+}
+.mf-card-art.is-mascot {
+  object-fit: contain;
+  background: #fff8e7;
+}
+.mf-card-words {
+  display: block;
+}
 .mf-sheet {
   display: none;
   position: fixed;
@@ -953,6 +984,13 @@ body.kids-mini-game button.ls-tile,
   display: block;
   margin: 0 auto;
   pointer-events: none;
+}
+.ls-found-teach {
+  margin: 0.55rem 0 0;
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #14532d !important;
 }
 .ls-flock {
   margin: 0.35rem 0 0.7rem;
@@ -1240,13 +1278,22 @@ body.kids-mini-game.is-won .ls-flock {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.6rem;
-  height: 2.6rem;
+  width: 3.35rem;
+  height: 3.35rem;
   border-radius: 14px;
   font-size: 1.45rem;
-  background: #0f172a;
+  background: #fff8e7;
   border: 3px solid #f2dc98;
   margin-bottom: 0.25rem;
+  overflow: hidden;
+  padding: 0;
+}
+.kids-easy-game-ico img {
+  width: 3.6rem;
+  height: 3.6rem;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
 }
 .kids-easy-game small {
   display: block;

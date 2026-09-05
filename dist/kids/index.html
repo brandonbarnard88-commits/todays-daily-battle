@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260816-brightgold"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
@@ -33,15 +32,15 @@
   <link rel="stylesheet" href="kids-hub-play.css?v=20260820polish">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="preload" href="kids-play-skin.css?v=20260903words1" as="style">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260903words1">
+  <link rel="preload" href="kids-play-skin.css?v=20260905play2" as="style">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260905play2">
   <link rel="preload" href="kids-page-sky.css?v=20260817-skylife" as="style">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260817-skylife">
   <link rel="preload" href="/tdb-porch-sky.css?v=20260905porchsky1" as="style">
   <link rel="stylesheet" href="/tdb-porch-sky.css?v=20260905porchsky1">
   <link rel="manifest" href="../manifest.json">
   <style>
-    /* Easy kids home — three big doors only (no second nav stack) */
+    /* Easy kids home — three doors, then the games in the open. */
     .kids-easy-home { max-width: 46rem; margin: 0 auto; padding: 0.35rem 0 2rem; text-align: center; }
     .kids-easy-home h1 { font-size: clamp(1.35rem, 4.5vw, 1.75rem); margin: 0.15rem 0 0.65rem; color: #0f172a; }
     .dark-mode .kids-easy-home h1 { color: #f8fafc; }
@@ -179,24 +178,25 @@
               Color
               <small>Paint a Bible picture</small>
             </a>
-            <a class="kids-easy-door kids-easy-door--play" href="lost-sheep.html">
+            <a class="kids-easy-door kids-easy-door--play" href="#kids-easy-games">
               <img class="kids-easy-door-pic" src="shepherd-mascot-sheep.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy">
               Play
-              <small>A quiet Bible game</small>
+              <small>Four quiet Bible games</small>
             </a>
           </div>
 
+          <section class="kids-easy-games" aria-labelledby="kids-easy-games-h">
+            <h2 id="kids-easy-games-h">Pick a game</h2>
+            <div class="kids-easy-game-grid">
+              <a class="kids-easy-game kids-easy-game--match" data-kg-game="match" href="match-buddies.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-read.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Match the Verse<small>pair a kid line to KJV</small></a>
+              <a class="kids-easy-game kids-easy-game--sheep" data-kg-game="sheep" href="lost-sheep.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sheep.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Find the sheep<small>tap the grass</small></a>
+              <a class="kids-easy-game kids-easy-game--memory" data-kg-game="memory" href="memory-flock.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sit.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Memory flock<small>flip and match</small></a>
+              <a class="kids-easy-game kids-easy-game--path" data-kg-game="path" href="shepherds-path.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-point.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Shepherd&rsquo;s Path<small>step the stones</small></a>
+            </div>
+          </section>
+
           <details class="kids-easy-more">
             <summary>More</summary>
-            <section class="kids-easy-games" aria-labelledby="kids-easy-games-h">
-              <h2 id="kids-easy-games-h">Games</h2>
-              <div class="kids-easy-game-grid">
-                <a class="kids-easy-game kids-easy-game--match" data-kg-game="match" href="match-buddies.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-read.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Match the Verse<small>pair a kid line to KJV</small></a>
-                <a class="kids-easy-game kids-easy-game--sheep" data-kg-game="sheep" href="lost-sheep.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sheep.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Find the sheep<small>tap the grass</small></a>
-                <a class="kids-easy-game kids-easy-game--memory" data-kg-game="memory" href="memory-flock.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sit.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Memory flock<small>flip and match</small></a>
-                <a class="kids-easy-game kids-easy-game--path" data-kg-game="path" href="shepherds-path.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-point.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Shepherd&rsquo;s Path<small>step the stones</small></a>
-              </div>
-            </section>
             <ul>
               <li><a href="corner.html">All stories</a></li>
               <li><a href="good-night.html">Good night prayer</a></li>
@@ -219,7 +219,7 @@
 </footer>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260816-together"></script>
+  <script src="kids-play-helpers.js?v=20260905play2"></script>
   <script nonce="tdb2025s">
   document.addEventListener('DOMContentLoaded', function () {
     var kit = window.tdbKidsGameKit;

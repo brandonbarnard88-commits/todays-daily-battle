@@ -52,6 +52,29 @@ function main() {
     if (!block.includes('@page')) fail(`${f}: @page inside print block expected`);
   }
 
+  const colorJs = read('kids/color-and-tell.js');
+  if (!colorJs.includes('tdb-cat-storyboard-print__credit')) {
+    fail('kids/color-and-tell.js: Color print credit missing');
+  }
+  if (!colorJs.includes("Today's Daily Battle")) {
+    fail('kids/color-and-tell.js: Color print should name Today\'s Daily Battle');
+  }
+
+  const packJs = read('print-pack-generator.js');
+  if (!packJs.includes('ppg-sheet__credit') || !packJs.includes("Today's Daily Battle")) {
+    fail('print-pack-generator.js: pack sheets need a quiet Today\'s Daily Battle credit');
+  }
+
+  const honesty = read('life-lessons/walk-in-honesty-print.html');
+  if (!honesty.includes("Today&rsquo;s Daily Battle")) {
+    fail('life-lessons/walk-in-honesty-print.html: print footer should name Today\'s Daily Battle');
+  }
+
+  const kidsAct = read('kids-activities-print.html');
+  if (!kidsAct.includes('tdb-print-credit') || !kidsAct.includes("Today&rsquo;s Daily Battle")) {
+    fail('kids-activities-print.html: print credit missing');
+  }
+
   console.log('verify-print-styles: OK');
 }
 

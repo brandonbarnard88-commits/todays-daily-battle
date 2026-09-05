@@ -241,6 +241,14 @@
       margin-bottom: 0.75rem;
     }
 
+    .ppg-sheet__credit {
+      margin: 1.1rem 0 0;
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      color: #8a7a66;
+    }
+
     .ppg-verse {
       padding: 1rem 1rem 1.05rem;
       border-radius: 18px;
@@ -355,6 +363,11 @@
         border-color: #ccc !important;
       }
 
+      .ppg-sheet__credit {
+        color: #555 !important;
+        margin-top: 0.85rem !important;
+      }
+
       .ppg-lines__line {
         border-bottom-color: #999;
       }
@@ -370,16 +383,16 @@
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
       <a href="/" aria-label="Home — today’s verse">Today</a>
-      <a href="/ask">Ask the Word</a>
-      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
-      <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
+      <a href="/ask" aria-label="Ask the Word">Ask</a>
       <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More</summary>
         <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Scripture</span>
+              <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
+              <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
               <a href="/verse.html">Today’s verse</a>
               <a href="/bible-tool.html" aria-label="Look up a verse">Look up</a>
               <a href="/memorize.html">Memorize</a>
@@ -447,7 +460,7 @@
 <script src="tdb-verse-accuracy.js?v=20260902-acc4"></script>
 <script src="verse-breakdown.js"></script>
   <script defer src="script.js?v=20260816-brightgold"></script>
-  <script defer src="print-pack-generator.js?v=20260417phase2print"></script>
+  <script defer src="print-pack-generator.js?v=20260905credit1"></script>
   <script defer src="register-sw.js"></script>
 </body>
 </html>

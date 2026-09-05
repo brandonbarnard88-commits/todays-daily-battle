@@ -1251,4 +1251,11 @@ body.tdb-kids-coloring-page.dark-mode .tdb-cat-story .btn-secondary:not(.tdb-cat
     font-size: 0.78rem;
     font-family: system-ui, sans-serif;
   }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__credit {
+    margin: 0.4rem 0 0;
+    font-size: 0.62rem;
+    letter-spacing: 0.02em;
+    color: #57534e;
+  }
 }

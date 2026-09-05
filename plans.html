@@ -147,10 +147,60 @@
     #plansCoreSevenDetails,
     #plansBuilderDetails,
     #plans-pastor-spotlight-details,
+    #plansMoreWaysIn,
     .plans-homeschool-banner,
     .plans-onpage-nav,
     .site-footer-hint {
       display: none !important;
+    }
+    #plansLongerLanes {
+      margin: 1rem 0 1.15rem;
+    }
+    #plansLongerLanes > .tdb-hub-disclosure__summary {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .plans-longer-lanes__lead {
+      margin: 0 0 0.9rem;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .plans-longer-lanes__group {
+      margin: 0 0 1rem;
+    }
+    .plans-longer-lanes__label {
+      margin: 0 0 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .plans-longer-lanes__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.35rem 1.1rem;
+    }
+    @media (min-width: 720px) {
+      .plans-longer-lanes__list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .plans-longer-lanes__list a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .plans-longer-lanes__list a:hover,
+    .plans-longer-lanes__list a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+    .plans-longer-lanes__meta {
+      color: var(--muted);
+      font-size: 0.85rem;
     }
     .plans-today-verse {
       margin: 0.85rem 0 1.25rem;
@@ -3260,7 +3310,7 @@
   </div>
   <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="plans"><p class="offline-msg"></p></div>
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_plans_quiet_update_dismiss')==='2026-05-11-plans')document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');}catch(e){}})();</script>
-  <script nonce="tdb2025s">(function(){function openPlansDisclosureForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansMoreWaysIn','plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-short-paths-details','plans-hero-more','plansAllLibrary','plans-find-your-plan-details','plansCoreSevenDetails','plansAccountStripDetails','plansPorchVerseDetails','plansSermonIntroDetails','plansBibleStudiesDetails','plansBuilderDetails'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openPlansDisclosureForHash);else openPlansDisclosureForHash();window.addEventListener('hashchange',openPlansDisclosureForHash);})();</script>
+  <script nonce="tdb2025s">(function(){function openPlansDisclosureForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansMoreWaysIn','plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-short-paths-details','plans-hero-more','plansAllLibrary','plansLongerLanes','plans-find-your-plan-details','plansCoreSevenDetails','plansAccountStripDetails','plansPorchVerseDetails','plansSermonIntroDetails','plansBibleStudiesDetails','plansBuilderDetails'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openPlansDisclosureForHash);else openPlansDisclosureForHash();window.addEventListener('hashchange',openPlansDisclosureForHash);})();</script>
   <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-05-11-plans" role="status" aria-live="polite" hidden>
     <p class="tdb-quiet-update-strip__text">Short KJV reading tracks—open any day.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="plans-quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
@@ -3345,8 +3395,49 @@
             </ul>
           </details>
         </div>
-        <p class="section-note util-mb-0 util-mt-0_75" style="text-align:center;">Prefer the long list? <a href="#all-plans">Browse every plan</a> &middot; <a href="#find-your-plan">More situations</a></p>
+        <p class="section-note util-mb-0 util-mt-0_75" style="text-align:center;">Prefer a longer lane? <a href="#plansLongerLanes">Longer lanes</a> &middot; <a href="#all-plans">Every plan</a></p>
       </section>
+
+      <details class="tdb-hub-disclosure" id="plansLongerLanes">
+        <summary class="tdb-hub-disclosure__summary">Longer lanes</summary>
+        <div class="tdb-hub-disclosure__inner">
+          <p class="plans-longer-lanes__lead">University rooms and 21- or 28-day tracks. Short doors stay above. The full library is still below.</p>
+          <div class="plans-longer-lanes__group">
+            <p class="plans-longer-lanes__label">University rooms</p>
+            <ul class="plans-longer-lanes__list">
+              <li><a href="/plans?plan=universitywaiting">The University of Waiting</a> <span class="plans-longer-lanes__meta">6 days</span></li>
+              <li><a href="/plans?plan=universitygrief">The University of Grief</a> <span class="plans-longer-lanes__meta">6 days</span></li>
+              <li><a href="/plans?plan=universitysecretprayer">The University of Secret Prayer</a> <span class="plans-longer-lanes__meta">6 days</span></li>
+              <li><a href="/plans?plan=universityanxiety">The University of Anxiety &amp; Fear</a> <span class="plans-longer-lanes__meta">7 days</span></li>
+              <li><a href="/plans?plan=universitygratitude">The University of Gratitude</a> <span class="plans-longer-lanes__meta">6 days</span></li>
+              <li><a href="/plans?plan=universityforgiveness">The University of Forgiveness</a> <span class="plans-longer-lanes__meta">6 days</span></li>
+              <li><a href="/plans?plan=universitydoubt">The University of Doubt</a> <span class="plans-longer-lanes__meta">6 days</span></li>
+              <li><a href="/plans?plan=universitybitterness">The University of Bitterness</a> <span class="plans-longer-lanes__meta">6 days</span></li>
+              <li><a href="/plans?plan=universitycomparison">The University of Comparison</a> <span class="plans-longer-lanes__meta">6 days</span></li>
+              <li><a href="/plans?plan=universityanger">The University of Anger</a> <span class="plans-longer-lanes__meta">6 days</span></li>
+              <li><a href="/plans?plan=universitycontentment">The University of Contentment in Small Seasons</a> <span class="plans-longer-lanes__meta">6 days</span></li>
+              <li><a href="/plans?plan=eveninguog">Evening in the University</a> <span class="plans-longer-lanes__meta">4 days</span></li>
+              <li><a href="/plans?plan=heavyhope">The University of Depression &amp; Hopelessness</a> <span class="plans-longer-lanes__meta">7 days</span></li>
+            </ul>
+          </div>
+          <div class="plans-longer-lanes__group">
+            <p class="plans-longer-lanes__label">21- and 28-day tracks</p>
+            <ul class="plans-longer-lanes__list">
+              <li><a href="/plans?plan=universityparenting">University of Parenting Young Kids</a> <span class="plans-longer-lanes__meta">21 days</span></li>
+              <li><a href="/plans?plan=universityexhaustion">The University of Exhaustion</a> <span class="plans-longer-lanes__meta">21 days</span></li>
+              <li><a href="/plans?plan=universityloneliness">The University of Loneliness</a> <span class="plans-longer-lanes__meta">21 days</span></li>
+              <li><a href="/plans?plan=universityidentity">The University of Identity in Christ</a> <span class="plans-longer-lanes__meta">21 days</span></li>
+              <li><a href="/plans?plan=universitynewbeginnings">The University of New Beginnings</a> <span class="plans-longer-lanes__meta">21 days</span></li>
+              <li><a href="/plans?plan=universitybroken">The University of Broken Relationships</a> <span class="plans-longer-lanes__meta">21 days</span></li>
+              <li><a href="/plans?plan=universityregret">The University of Regret</a> <span class="plans-longer-lanes__meta">21 days</span></li>
+              <li><a href="/plans?plan=universityoverwhelm">The University of Overwhelm</a> <span class="plans-longer-lanes__meta">21 days</span></li>
+              <li><a href="/plans?plan=universityparentfear">The University of Fear for My Children</a> <span class="plans-longer-lanes__meta">28 days</span></li>
+              <li><a href="/plans?plan=battle21">21-Day Battle</a> <span class="plans-longer-lanes__meta">21 days</span></li>
+            </ul>
+          </div>
+          <p class="section-note">Need the whole shelf? <a href="#all-plans">Every plan</a>.</p>
+        </div>
+      </details>
 
       <details class="tdb-hub-disclosure" id="plansMoreWaysIn">
         <summary class="tdb-hub-disclosure__summary">More ways in</summary>
@@ -4202,7 +4293,7 @@
       </details>
       <div class="recent-plans-carousel" id="recentPlansCarousel" role="region" aria-label="Recently viewed plans" style="display:none;"></div>
       <details class="tdb-hub-disclosure plans-all-library" id="plansAllLibrary">
-        <summary class="tdb-hub-disclosure__summary" id="all-plans">Browse every plan (full library)</summary>
+        <summary class="tdb-hub-disclosure__summary" id="all-plans">Every plan</summary>
         <div class="tdb-hub-disclosure__inner">
       <h2 class="plans-all-heading">Every plan</h2>
       <p class="plans-all-lead">The full library is below—same gentle rhythm: one verse a day, KJV on screen, saved locally. Open only if you want to browse.</p>

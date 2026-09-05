@@ -48,12 +48,18 @@ for (const hub of HUB_PAGES) {
     fail(hub.file + ' missing in source tree');
   }
   const html = fs.readFileSync(htmlPath, 'utf8');
+  const requiredHere = html.includes('data-tdb-porch-verse-required="1"');
   for (const needle of REQUIRED) {
+    if (requiredHere && (needle === 'id="tdbPorchVerseHide"' || needle === 'Hide for today')) continue;
     if (!html.includes(needle)) {
       fail(hub.label + ' (' + hub.file + ') missing ' + needle);
     }
   }
-  if (!html.includes("localStorage.getItem('tdb-porch-verse-hidden')")) {
+  if (requiredHere) {
+    if (!widgetJs.includes("data-tdb-porch-verse-required") || !widgetJs.includes('required')) {
+      fail('tdb-porch-verse-widget.js must keep required morning cards visible');
+    }
+  } else if (!html.includes("localStorage.getItem('tdb-porch-verse-hidden')")) {
     fail(hub.label + ' missing early head dismiss script for tdb-porch-verse-hidden');
   }
 }

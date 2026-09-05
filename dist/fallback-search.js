@@ -72,13 +72,7 @@
     if (!out) return;
     out.innerHTML = '<p class="empty" style="text-align:center;padding:1.5rem;">Seeking God\'s truth…</p>';
     out.style.display = 'grid';
-    var urls = [
-      '/data/kjv-full.json',
-      '/data/kjv-verses.json',
-      '/kjv.json',
-      'https://todaysdailybattle.com/data/kjv-full.json',
-      'https://todaysdailybattle.com/kjv.json'
-    ];
+    var urls = ['/data/kjv-full.json'];
     function tryFetch(i) {
       if (i >= urls.length) return Promise.reject();
       return fetch(urls[i], { cache: 'force-cache' })

@@ -231,34 +231,20 @@
     }
     if (bibleLocal && Object.keys(bibleLocal).length > 8000) return Promise.resolve(bibleLocal);
     if (biblePromise) return biblePromise;
-    var origin = '';
-    try {
-      origin = global.location && global.location.origin ? global.location.origin : '';
-    } catch (e) {
-      origin = '';
+    function fromShared(d) {
+      bibleLocal = normalizeBibleArray(d);
+      return bibleLocal;
     }
-    var urls = ['/data/kjv-full.json', '/data/kjv-verses.json', '/kjv.json'];
-    if (origin) {
-      urls.push(origin.replace(/\/$/, '') + '/data/kjv-full.json');
-      urls.push(origin.replace(/\/$/, '') + '/kjv.json');
+    if (typeof global.TDB_loadKjvFull === 'function') {
+      biblePromise = global.TDB_loadKjvFull().then(fromShared).catch(function () { return {}; });
+      return biblePromise;
     }
-    urls.push('https://todaysdailybattle.com/data/kjv-full.json');
-    urls.push('https://todaysdailybattle.com/kjv.json');
-    biblePromise = (function tryFetch(i) {
-      if (i >= urls.length) return Promise.resolve({});
-      return fetch(urls[i], { credentials: 'same-origin' })
-        .then(function (res) {
-          return res.ok ? res.json() : Promise.reject();
-        })
-        .then(function (d) {
-          bibleLocal = normalizeBibleArray(d);
-          if (Object.keys(bibleLocal).length > 8000) return bibleLocal;
-          return tryFetch(i + 1);
-        })
-        .catch(function () {
-          return tryFetch(i + 1);
-        });
-    })(0);
+    biblePromise = fetch('/data/kjv-full.json', { credentials: 'same-origin', cache: 'force-cache' })
+      .then(function (res) {
+        return res.ok ? res.json() : Promise.reject();
+      })
+      .then(fromShared)
+      .catch(function () { return {}; });
     return biblePromise;
   }
 

@@ -24048,12 +24048,13 @@ async function loadBible(version = currentVersion) {
   }
   if (version === 'KJV') {
     kjvPreferred.forEach(pushUrl);
-    if (!isFileProtocol) {
+    /* file: pages need the hosted corpus. Live HTTPS uses one /data/kjv-full.json key. */
+    if (isFileProtocol) {
       kjvPreferred.forEach(function (u) {
         if (u.indexOf('http') !== 0) urlsToTry.push(BIBLE_DATA_ORIGIN + u);
       });
+      kjvFallbacks.forEach(pushUrl);
     }
-    kjvFallbacks.forEach(pushUrl);
   } else {
     pushUrl(rootPath);
     pushUrl(rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));

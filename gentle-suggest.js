@@ -127,17 +127,16 @@
   function ensureKjv() {
     if (KJV_LOOKUP && Object.keys(KJV_LOOKUP).length >= 1000) return Promise.resolve(KJV_LOOKUP);
     if (KJV_PROMISE) return KJV_PROMISE;
-    var urls = ['/data/kjv-full.json', '/data/kjv-verses.json', '/kjv.json', '/assets/data/kjv.json'];
-    function tryFetch(i) {
-      if (i >= urls.length) return Promise.reject(new Error('kjv'));
-      return fetch(urls[i], { cache: 'force-cache' })
-        .then(function (r) {
-          if (!r.ok) throw new Error('kjv');
-          return r.json();
-        })
-        .catch(function () { return tryFetch(i + 1); });
+    function loadRaw() {
+      if (typeof window !== 'undefined' && typeof window.TDB_loadKjvFull === 'function') {
+        return window.TDB_loadKjvFull();
+      }
+      return fetch('/data/kjv-full.json', { cache: 'force-cache', credentials: 'same-origin' }).then(function (r) {
+        if (!r.ok) throw new Error('kjv');
+        return r.json();
+      });
     }
-    KJV_PROMISE = tryFetch(0)
+    KJV_PROMISE = loadRaw()
       .then(function (raw) {
         if (Array.isArray(raw)) {
           var o = {};

@@ -399,43 +399,33 @@
       return Promise.resolve(global.bible);
     }
     if (bibleMapPromise) return bibleMapPromise;
-    var origin = '';
-    try {
-      origin = global.location && global.location.origin ? global.location.origin : '';
-    } catch (e) {
-      origin = '';
-    }
-    var urls = ['/data/kjv-full.json', '/data/kjv-verses.json', '/kjv.json'];
-    if (origin) {
-      urls.push(origin.replace(/\/$/, '') + '/data/kjv-full.json');
-      urls.push(origin.replace(/\/$/, '') + '/kjv.json');
-    }
-    urls.push('https://todaysdailybattle.com/data/kjv-full.json');
-    urls.push('https://todaysdailybattle.com/kjv.json');
-    bibleMapPromise = (function tryFetch(i) {
-      if (i >= urls.length) return Promise.resolve({});
-      return fetch(urls[i], { credentials: 'same-origin' })
-        .then(function (res) {
-          return res.ok ? res.json() : Promise.reject();
-        })
-        .then(function (d) {
-          var obj = {};
-          if (Array.isArray(d)) {
-            d.forEach(function (v) {
-              if (v && v.ref) obj[String(v.ref).replace(/\s+/g, ' ').trim()] = String(v.text || '');
-            });
-          } else if (d && typeof d === 'object') {
-            Object.keys(d).forEach(function (k) {
-              obj[k.replace(/\s+/g, ' ').trim()] = String(d[k] || '');
-            });
-          }
-          if (Object.keys(obj).length > 8000) return obj;
-          return tryFetch(i + 1);
-        })
-        .catch(function () {
-          return tryFetch(i + 1);
+    function mapData(d) {
+      var obj = {};
+      if (Array.isArray(d)) {
+        d.forEach(function (v) {
+          if (v && v.ref) obj[String(v.ref).replace(/\s+/g, ' ').trim()] = String(v.text || '');
         });
-    })(0);
+      } else if (d && typeof d === 'object') {
+        Object.keys(d).forEach(function (k) {
+          obj[k.replace(/\s+/g, ' ').trim()] = String(d[k] || '');
+        });
+      }
+      return obj;
+    }
+    if (typeof global.TDB_loadKjvFull === 'function') {
+      bibleMapPromise = global.TDB_loadKjvFull().then(mapData).catch(function () { return {}; });
+      return bibleMapPromise;
+    }
+    bibleMapPromise = fetch('/data/kjv-full.json', { credentials: 'same-origin', cache: 'force-cache' })
+      .then(function (res) {
+        return res.ok ? res.json() : Promise.reject();
+      })
+      .then(function (d) {
+        var obj = mapData(d);
+        if (Object.keys(obj).length > 8000) return obj;
+        return {};
+      })
+      .catch(function () { return {}; });
     return bibleMapPromise;
   }
 

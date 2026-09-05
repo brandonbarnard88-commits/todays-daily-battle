@@ -41,6 +41,7 @@ jobs:
           node scripts/verify-hero-no-leftover.mjs
           node scripts/verify-porch-verse-widget.mjs
           node scripts/verify-dist-hero-lock.mjs
+          node scripts/verify-locale-hub-today.mjs
 
       - name: Commit if the stamp changed
         run: |
@@ -51,7 +52,20 @@ jobs:
             dist/verse-context.js dist/hero-daily-365-explanations.js dist/tdb-verse-accuracy.js \
             family.html dist/family.html verse.html dist/verse.html explore.html dist/explore.html \
             plans.html dist/plans.html kids-corner.html dist/kids-corner.html \
-            kids/corner.html dist/kids/corner.html church/daily.html dist/church/daily.html || true
+            kids/corner.html dist/kids/corner.html church/daily.html dist/church/daily.html \
+            verso.html dist/verso.html \
+            es/index.html dist/es/index.html \
+            fr/index.html dist/fr/index.html \
+            pt/index.html dist/pt/index.html \
+            zh/index.html dist/zh/index.html \
+            ru/index.html dist/ru/index.html \
+            hi/index.html dist/hi/index.html \
+            id/index.html dist/id/index.html \
+            ar/index.html dist/ar/index.html \
+            sv/index.html dist/sv/index.html \
+            tl/index.html dist/tl/index.html \
+            sw/index.html dist/sw/index.html \
+            bn/index.html dist/bn/index.html || true
           if git diff --cached --quiet; then
             echo "Today already stamped."
             exit 0

@@ -151,7 +151,7 @@
     llcommandments: 'll-commandments'
   };
 
-  var LISTEN_AUDIO_VERSION = '20260905listen2';
+  var LISTEN_AUDIO_VERSION = '20260905listen3';
   var COLORING_LISTEN = {};
 
   var listenAudio = null;

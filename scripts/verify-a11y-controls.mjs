@@ -64,10 +64,11 @@ function main() {
   const idx = read('dist/index.html');
   assertMatch(idx, /id="heroShareBtn"[^>]*aria-label="/, 'dist/index.html: #heroShareBtn needs aria-label');
   assertMatch(idx, /id="hero-save-my-verses"[^>]*aria-label="/, 'dist/index.html: #hero-save-my-verses needs aria-label');
+  const ask = read('dist/ask.html');
   assertMatch(
-    idx,
+    ask,
     /id="tdbFeelPathCard"[^>]*aria-live="polite"/,
-    'dist/index.html: #tdbFeelPathCard needs aria-live="polite"'
+    'dist/ask.html: #tdbFeelPathCard needs aria-live="polite"'
   );
   assertMatch(
     idx,

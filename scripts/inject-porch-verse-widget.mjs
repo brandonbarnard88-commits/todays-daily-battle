@@ -25,9 +25,11 @@ const TARGETS = [
   { file: 'explore.html', label: 'explore.html' },
   { file: 'plans.html', label: 'plans.html' },
   { file: 'family.html', label: 'family.html' },
+  { file: 'daily-quiet-time.html', label: 'daily-quiet-time.html' },
   { file: 'dist/explore.html', label: 'dist/explore.html' },
   { file: 'dist/plans.html', label: 'dist/plans.html' },
-  { file: 'dist/family.html', label: 'dist/family.html' }
+  { file: 'dist/family.html', label: 'dist/family.html' },
+  { file: 'dist/daily-quiet-time.html', label: 'dist/daily-quiet-time.html' }
 ];
 
 const DAILY_DESKS = [

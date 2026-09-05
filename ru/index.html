@@ -235,6 +235,20 @@
               <a class="btn btn-secondary" href="/" hreflang="en">Открыть полное английское крыльцо</a>
             </div>
           </div>
+          <script nonce="tdb2025s">
+          (function () {
+            var wrap = document.getElementById("ru-hub-daily-verse");
+            if (!wrap) return;
+            var stamp = wrap.getAttribute("data-tdb-hero-ymd") || "";
+            var utc = "";
+            try { utc = new Date().toISOString().slice(0, 10); } catch (eY) {}
+            if (stamp && utc && stamp !== utc) {
+              wrap.setAttribute("data-tdb-hero-stale", "1");
+              var eye = wrap.querySelector(".tdb-hub-daily-eyebrow");
+              if (eye) eye.setAttribute("hidden", "");
+            }
+          })();
+          </script>
         </section>
 
         <section class="glass tdb-porch-paper-glass pt-mas-ayuda" lang="ru" aria-labelledby="ru-tools-heading">

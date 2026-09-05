@@ -26,12 +26,26 @@
   function installSharedKjvLoader() {
     if (typeof global.TDB_loadKjvFull === 'function') return;
     global.TDB_loadKjvFull = function () {
+      function expose(name, value) {
+        try {
+          global[name] = value;
+        } catch (eAssign) {
+          try {
+            Object.defineProperty(global, name, {
+              configurable: true,
+              enumerable: false,
+              writable: true,
+              value: value
+            });
+          } catch (eDef) { /* Safari readonly window binding */ }
+        }
+      }
       if (global.kjvData && verseCountMap(global.kjvData) >= 1000) {
         return Promise.resolve(global.kjvData);
       }
       if (global.bible && verseCountMap(global.bible) >= 1000) {
-        global.kjvData = global.bible;
-        return Promise.resolve(global.kjvData);
+        expose('kjvData', global.bible);
+        return Promise.resolve(global.kjvData || global.bible);
       }
       if (global.__tdbKjvLoadPromise) return global.__tdbKjvLoadPromise;
       global.__tdbKjvLoadPromise = fetch(KJV_DATA_URL, { credentials: 'same-origin', cache: 'force-cache' })
@@ -43,8 +57,8 @@
           if (!data || typeof data !== 'object' || verseCountMap(data) < 1000) {
             throw new Error('KJV data invalid');
           }
-          global.kjvData = data;
-          if (!global.bible || verseCountMap(global.bible) < 1000) global.bible = data;
+          expose('kjvData', data);
+          if (!global.bible || verseCountMap(global.bible) < 1000) expose('bible', data);
           return data;
         })
         .catch(function (err) {

@@ -15,7 +15,7 @@ const SKIP_DIRS = new Set(['node_modules', 'dist', '.git']);
 
 /** Local aux sheets only (not styles/tdb-quiet-luxury/tdb-calm-hubs/tool-pages — other scripts cover those). */
 const AUX_BASENAME =
-  /(cormorant-latin-subset|what-god-has-done|mystudy|church|pastor|bible-hub|bible-tools|bible-study|loop-player|kids-battle|kids-hub-play|kids-kids-world|kids-page-sky|kids-corner|kids-story-remember|color-and-tell|story-library-fonts|canvas)\.css(?:\?|$)/;
+  /(cormorant-latin-subset|what-god-has-done|mystudy|church|pastor|bible-hub|bible-tools|bible-study|loop-player|kids-battle|kids-hub-play|kids-kids-world|kids-play-skin|kids-page-sky|kids-corner|kids-story-remember|color-and-tell|story-library-fonts|canvas|tdb-opal-tokens)\.css(?:\?|$)/;
 
 const STYLESHEET_LINK_RE =
   /<link\s+[^>]*\brel=["']stylesheet["'][^>]*\bhref=["']([^"']+)["'][^>]*\/?>/gi;

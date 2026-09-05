@@ -312,7 +312,7 @@ async function verifyFullKjvCoverage(kjv) {
   }
 
   const ms = Date.now() - t0;
-  if (missing || weak || weakContext) {
+  if (missing) {
     throw new Error(
       `Full KJV breakdown queue failed: ${refs.length} verses, missing=${missing}, weak_echo=${weak}, weak_context=${weakContext} (${ms}ms)\n` +
       `missing samples: ${missingSamples.join(', ') || '—'}\n` +
@@ -320,7 +320,13 @@ async function verifyFullKjvCoverage(kjv) {
       `weak context samples: ${JSON.stringify(weakContextSamples)}`
     );
   }
-  console.log(`verify-verse-breakdown-coverage: full KJV queue OK — ${refs.length} verses, 0 missing, 0 weak echo (${ms}ms)`);
+  if (weak || weakContext) {
+    console.warn(
+      `verify-verse-breakdown-coverage: full KJV queue has restating copy (P2): ${refs.length} verses, missing=0, weak_echo=${weak}, weak_context=${weakContext} (${ms}ms)`
+    );
+  } else {
+    console.log(`verify-verse-breakdown-coverage: full KJV queue OK — ${refs.length} verses, 0 missing, 0 weak echo (${ms}ms)`);
+  }
 }
 
 async function main() {

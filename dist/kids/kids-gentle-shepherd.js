@@ -60,6 +60,18 @@
     "I am right where you left me. The buttons are the path—no hurry."
   ];
 
+  var COLORING = [
+    'Pick a color, then tap inside the lines.',
+    'Hear the story while you color. One picture is enough.',
+    'Save one scene when you are ready.',
+    'You can color with crayons in your hand. Jesus is glad you are here.'
+  ];
+  var COLORING_AGAIN = [
+    'Still coloring? I like that. Slow is good.',
+    'One picture is enough. Save it when you are ready.',
+    'I am right here. Hear the story again if you want.'
+  ];
+
   var FUN_FACTS = [
     'Fun fact: my job is to stay close, walk slowly, and help sheep feel safe—like a good helper on the path.',
     'Fun fact: a shepherd’s staff is for guiding and gentle lifting—not for poking at friends. Ours is for “come this way” kind of help.',
@@ -965,6 +977,25 @@
         return;
       }
     } catch (eGn) { /* no-op */ }
+
+    try {
+      if (global.document && document.body && document.body.classList.contains('kids-coloring-shepherd') && document.getElementById('kids-mascot-tap')) {
+        var coloringAgain = false;
+        try {
+          coloringAgain = global.sessionStorage.getItem(sameSessionKey()) === '1';
+        } catch (eSess) { coloringAgain = false; }
+        var coloringPool = coloringAgain ? COLORING_AGAIN : COLORING;
+        setBubbleVoice(lineEl, pickByDay(coloringPool) || pickByDay(COLORING));
+        if (document.getElementById('kids-shepherd-hero')) {
+          setShepherdPose(1);
+        }
+        markKidsVisit();
+        initShepherdMotion();
+        initMascotTap(lineEl);
+        initHearButton(lineEl);
+        return;
+      }
+    } catch (eColor) { /* no-op */ }
 
     try {
       if (global.document && document.body && document.getElementById('kids-mascot-tap')) {

@@ -3079,8 +3079,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
       return Promise.resolve(window.kjvData);
     }
     if (window.bible && verseCount(window.bible) >= 1000) {
-      window.kjvData = window.bible;
-      return Promise.resolve(window.kjvData);
+      tdbExposeWindowProp('kjvData', window.bible);
+      return Promise.resolve(window.kjvData || window.bible);
     }
     if (window.__tdbKjvLoadPromise) return window.__tdbKjvLoadPromise;
     window.__tdbKjvLoadPromise = fetch(KJV_URL, { credentials: 'same-origin', cache: 'force-cache' })
@@ -3091,8 +3091,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
       .then(function (d) {
         if (!d || typeof d !== 'object' || verseCount(d) < 1000) throw new Error('KJV data invalid');
         var mapped = typeof normalizeBibleData === 'function' ? normalizeBibleData(d) : d;
-        window.kjvData = mapped;
-        if (!window.bible || verseCount(window.bible) < 1000) window.bible = mapped;
+        tdbExposeWindowProp('kjvData', mapped);
+        if (!window.bible || verseCount(window.bible) < 1000) tdbExposeWindowProp('bible', mapped);
         return mapped;
       })
       .catch(function (err) {
@@ -23973,6 +23973,23 @@ const coloringStories = [
   }
 ];
 
+/** Safari: top-level `let bible` makes `window.bible = …` throw "Attempted to assign to readonly property." */
+function tdbExposeWindowProp(name, value) {
+  if (typeof window === 'undefined' || !name) return;
+  try {
+    window[name] = value;
+    return;
+  } catch (eAssign) { /* readonly host binding */ }
+  try {
+    Object.defineProperty(window, name, {
+      configurable: true,
+      enumerable: false,
+      writable: true,
+      value: value
+    });
+  } catch (eDef) { /* lexical binding already holds the value */ }
+}
+
 function normalizeBibleData(data) {
   if (!data) return {};
   if (Array.isArray(data)) {
@@ -23992,13 +24009,13 @@ async function loadBible(version = currentVersion) {
   function applyBibleMap(map, ver) {
     bible = normalizeBibleData(map);
     if (typeof window !== 'undefined') {
-      window.bible = bible;
-      if (ver === 'KJV') window.kjvData = bible;
+      tdbExposeWindowProp('bible', bible);
+      if (ver === 'KJV') tdbExposeWindowProp('kjvData', bible);
       try {
-        window.getBibleVerseText = getBibleVerseText;
-        window.loadBible = loadBible;
-        window.resolveBibleTextFromMap = resolveBibleTextFromMap;
-        window.normalizeBibleRef = normalizeBibleRef;
+        tdbExposeWindowProp('getBibleVerseText', getBibleVerseText);
+        tdbExposeWindowProp('loadBible', loadBible);
+        tdbExposeWindowProp('resolveBibleTextFromMap', resolveBibleTextFromMap);
+        tdbExposeWindowProp('normalizeBibleRef', normalizeBibleRef);
       } catch (eEx) { /* non-fatal */ }
     }
     bibleVersions[ver] = bible;

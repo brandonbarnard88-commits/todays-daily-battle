@@ -448,6 +448,22 @@ function buildSection(lang, ref, localeText, kjvText, bibleName, teach, ymd) {
     '</a>\n' +
     '            </div>\n' +
     '          </div>\n' +
+    '          <script nonce="tdb2025s">\n' +
+    '          (function () {\n' +
+    '            var wrap = document.getElementById(' +
+    JSON.stringify(lang + '-hub-daily-verse') +
+    ');\n' +
+    '            if (!wrap) return;\n' +
+    '            var stamp = wrap.getAttribute("data-tdb-hero-ymd") || "";\n' +
+    '            var utc = "";\n' +
+    '            try { utc = new Date().toISOString().slice(0, 10); } catch (eY) {}\n' +
+    '            if (stamp && utc && stamp !== utc) {\n' +
+    '              wrap.setAttribute("data-tdb-hero-stale", "1");\n' +
+    '              var eye = wrap.querySelector(".tdb-hub-daily-eyebrow");\n' +
+    '              if (eye) eye.setAttribute("hidden", "");\n' +
+    '            }\n' +
+    '          })();\n' +
+    '          </script>\n' +
     '        </section>'
   );
 }
@@ -495,7 +511,7 @@ export function injectLocaleHubHero() {
     }
     const bibleName = spec ? spec.name : 'King James Version';
     const teach = pickTeaching(hub.lang, ref, english);
-    leftoverTemplateIssues(teach).forEach((issue) => {
+    leftoverTemplateIssues({ ref, ...teach }).forEach((issue) => {
       fail(hub.lang + ' leftover: ' + issue);
     });
     const section = buildSection(hub.lang, ref, localeText, text, bibleName, teach, ymd);

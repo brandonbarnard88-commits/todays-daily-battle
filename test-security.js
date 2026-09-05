@@ -251,6 +251,36 @@ const cacheHygienePaths = [
   '/es/',
   '/es',
   '/es/index.html',
+  '/es/ansiedad.html',
+  '/es/ansiedad',
+  '/es/fuerza.html',
+  '/es/fuerza',
+  '/es/paz.html',
+  '/es/paz',
+  '/es/miedo.html',
+  '/es/miedo',
+  '/es/soledad.html',
+  '/es/soledad',
+  '/es/culpa.html',
+  '/es/culpa',
+  '/es/agobio.html',
+  '/es/agobio',
+  '/es/esperanza.html',
+  '/es/esperanza',
+  '/es/planes.html',
+  '/es/planes',
+  '/es/muro.html',
+  '/es/muro',
+  '/es/lector.html',
+  '/es/lector',
+  '/es/ninos.html',
+  '/es/ninos',
+  '/es/ira.html',
+  '/es/ira',
+  '/es/duelo.html',
+  '/es/duelo',
+  '/es/perdon.html',
+  '/es/perdon',
   '/id/',
   '/id',
   '/id/index.html',
@@ -459,43 +489,43 @@ if (
 }
 
 const esRewriteNeedles = [
-  '/ansiedad /ansiedad.html?tdb_cb=20260328esNav 302',
-  '/fuerza /fuerza.html?tdb_cb=20260328esNav 302',
-  '/paz /paz.html?tdb_cb=20260328esNav 302',
-  '/miedo /miedo.html?tdb_cb=20260328esNav 302',
-  '/soledad /soledad.html?tdb_cb=20260328esNav 302',
-  '/culpa /culpa.html?tdb_cb=20260328esNav 302',
-  '/agobio /agobio.html?tdb_cb=20260328esNav 302',
-  '/esperanza /esperanza.html?tdb_cb=20260328esNav 302',
-  '/planes /planes.html?tdb_cb=20260328esNav 302',
-  '/muro /muro.html?tdb_cb=20260328esNav 302',
-  '/lector /lector.html?tdb_cb=20260328esNav 302',
-  '/ninos /ninos.html?tdb_cb=20260328esNav 302',
-  '/ira /ira.html?tdb_cb=20260328esNav 302',
-  '/duelo /duelo.html?tdb_cb=20260328esNav 302',
-  '/perdon /perdon.html?tdb_cb=20260328esNav 302',
+  '/ansiedad /es/ansiedad.html 301',
+  '/fuerza /es/fuerza.html 301',
+  '/paz /es/paz.html 301',
+  '/miedo /es/miedo.html 301',
+  '/soledad /es/soledad.html 301',
+  '/culpa /es/culpa.html 301',
+  '/agobio /es/agobio.html 301',
+  '/esperanza /es/esperanza.html 301',
+  '/planes /es/planes.html 301',
+  '/muro /es/muro.html 301',
+  '/lector /es/lector.html 301',
+  '/ninos /es/ninos.html 301',
+  '/ira /es/ira.html 301',
+  '/duelo /es/duelo.html 301',
+  '/perdon /es/perdon.html 301',
 ];
 let esRewriteOk = true;
 for (const n of esRewriteNeedles) {
   if (!redirects.includes(n)) {
-    fail('_redirects: Spanish clean URL cache-bust redirect missing: ' + n);
+    fail('_redirects: Spanish clean URL 301 to /es/ missing: ' + n);
     esRewriteOk = false;
   }
 }
 if (esRewriteOk) {
-  ok('_redirects: Spanish topical clean URLs 302 to ?tdb_cb= (edge cache-bust)');
+  ok('_redirects: Spanish topical clean URLs 301 to /es/');
 }
 
-const ansiedadHtml = read('ansiedad.html');
+const ansiedadHtml = read('es/ansiedad.html');
 if (
   !ansiedadHtml.includes('es-mas-ayuda') ||
   !ansiedadHtml.includes('es-mas-ayuda-tools') ||
   !ansiedadHtml.includes('cta-group') ||
   !ansiedadHtml.includes('Biblia (EN)')
 ) {
-  fail('ansiedad.html: Más ayuda block must include es-mas-ayuda, es-mas-ayuda-tools, cta-group, and Biblia (EN) link');
+  fail('es/ansiedad.html: Más ayuda block must include es-mas-ayuda, es-mas-ayuda-tools, cta-group, and Biblia (EN) link');
 } else {
-  ok('ansiedad.html: Más ayuda tool row markup present (source guard)');
+  ok('es/ansiedad.html: Más ayuda tool row markup present (source guard)');
 }
 
 // 4. DOMPurify loaded (XSS defense)

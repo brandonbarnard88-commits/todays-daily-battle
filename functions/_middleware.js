@@ -40,10 +40,64 @@ const TRAILING_SLASH_TO_BARE = new Set([
 
 const PRICING_TO_GIVE = new Set(['/pricing', '/pricing/', '/pricing.html']);
 
+/** Spanish topics + tool covers live under /es/. Root files are stubs; Pages would otherwise serve them. */
+const SPANISH_ROOT_TO_ES = {
+  '/ansiedad': '/es/ansiedad.html',
+  '/ansiedad/': '/es/ansiedad.html',
+  '/ansiedad.html': '/es/ansiedad.html',
+  '/fuerza': '/es/fuerza.html',
+  '/fuerza/': '/es/fuerza.html',
+  '/fuerza.html': '/es/fuerza.html',
+  '/paz': '/es/paz.html',
+  '/paz/': '/es/paz.html',
+  '/paz.html': '/es/paz.html',
+  '/miedo': '/es/miedo.html',
+  '/miedo/': '/es/miedo.html',
+  '/miedo.html': '/es/miedo.html',
+  '/soledad': '/es/soledad.html',
+  '/soledad/': '/es/soledad.html',
+  '/soledad.html': '/es/soledad.html',
+  '/culpa': '/es/culpa.html',
+  '/culpa/': '/es/culpa.html',
+  '/culpa.html': '/es/culpa.html',
+  '/agobio': '/es/agobio.html',
+  '/agobio/': '/es/agobio.html',
+  '/agobio.html': '/es/agobio.html',
+  '/esperanza': '/es/esperanza.html',
+  '/esperanza/': '/es/esperanza.html',
+  '/esperanza.html': '/es/esperanza.html',
+  '/planes': '/es/planes.html',
+  '/planes/': '/es/planes.html',
+  '/planes.html': '/es/planes.html',
+  '/muro': '/es/muro.html',
+  '/muro/': '/es/muro.html',
+  '/muro.html': '/es/muro.html',
+  '/lector': '/es/lector.html',
+  '/lector/': '/es/lector.html',
+  '/lector.html': '/es/lector.html',
+  '/ninos': '/es/ninos.html',
+  '/ninos/': '/es/ninos.html',
+  '/ninos.html': '/es/ninos.html',
+  '/ira': '/es/ira.html',
+  '/ira/': '/es/ira.html',
+  '/ira.html': '/es/ira.html',
+  '/duelo': '/es/duelo.html',
+  '/duelo/': '/es/duelo.html',
+  '/duelo.html': '/es/duelo.html',
+  '/perdon': '/es/perdon.html',
+  '/perdon/': '/es/perdon.html',
+  '/perdon.html': '/es/perdon.html'
+};
+
 function canonicalPublicRedirect(url) {
   const path = url.pathname || '/';
   if (PRICING_TO_GIVE.has(path)) {
     url.pathname = '/give';
+    url.search = '';
+    return url;
+  }
+  if (SPANISH_ROOT_TO_ES[path]) {
+    url.pathname = SPANISH_ROOT_TO_ES[path];
     url.search = '';
     return url;
   }

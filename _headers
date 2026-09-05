@@ -399,6 +399,98 @@
 /es/index.html
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
+# Spanish topics under /es/ (canonical after root 301)
+/es/ansiedad.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/ansiedad
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/fuerza.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/fuerza
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/paz.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/paz
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/miedo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/miedo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/soledad.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/soledad
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/culpa.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/culpa
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/agobio.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/agobio
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/esperanza.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/esperanza
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/planes.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/planes
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/muro.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/muro
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/lector.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/lector
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/ninos.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/ninos
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/ira.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/ira
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/duelo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/duelo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/perdon.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/perdon
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 
 # French hub (fr/) — high churn like PT hub
 /fr/

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260816-brightgold"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
@@ -40,15 +41,12 @@
   <link rel="stylesheet" href="/tdb-porch-sky.css?v=20260905porchsky1">
   <link rel="manifest" href="../manifest.json">
   <style>
-    /* Easy kids home — three doors, then the games in the open. */
+    /* Easy kids home — Story and Color as doors; games sit in the open. */
     .kids-easy-home { max-width: 46rem; margin: 0 auto; padding: 0.35rem 0 2rem; text-align: center; }
     .kids-easy-home h1 { font-size: clamp(1.35rem, 4.5vw, 1.75rem); margin: 0.15rem 0 0.65rem; color: #0f172a; }
     .dark-mode .kids-easy-home h1 { color: #f8fafc; }
 
-    .kids-easy-doors { display: grid; grid-template-columns: 1fr; gap: 0.65rem; }
-    @media (min-width: 640px) {
-      .kids-easy-doors { grid-template-columns: 1fr 1fr 1fr; }
-    }
+    .kids-easy-doors { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
     .kids-easy-door {
       display: block; text-decoration: none; border-radius: 1.1rem; padding: 0.7rem 0.65rem 0.75rem;
       font-weight: 800; font-size: 1.15rem; line-height: 1.2; color: #0f172a;
@@ -62,7 +60,6 @@
     .kids-easy-door small { display: block; font-weight: 600; font-size: 0.95rem; margin-top: 0.25rem; opacity: 0.85; }
     .kids-easy-door--story { background: linear-gradient(145deg, #fef3c7, #fde68a); border-color: #f59e0b; }
     .kids-easy-door--color { background: linear-gradient(145deg, #dbeafe, #93c5fd); border-color: #3b82f6; }
-    .kids-easy-door--play { background: linear-gradient(145deg, #dcfce7, #86efac); border-color: #22c55e; }
     .kids-easy-games { margin-top: 0.85rem; text-align: left; }
     .kids-easy-games h2 {
       margin: 0 0 0.5rem; text-align: center; font-size: 1.15rem; font-weight: 800; color: #0f172a;
@@ -126,7 +123,7 @@
     }
     body.kids-kiss-play-home .app-content { padding: 0 1rem 1rem; }
     body.kids-kiss-play-home .kids-easy-footer { margin-top: auto; }
-    /* Hide sitewide kids bottom-nav if injected later — this page is three doors only */
+    /* Hide sitewide kids bottom-nav if injected later — this page is the porch */
     body.kids-kiss-play-home .kids-bottom-nav { display: none !important; }
   </style>
 </head>
@@ -167,7 +164,7 @@
         <div class="kids-easy-home">
           <img class="kids-easy-mascot" src="shepherd-mascot-welcome.png?v=20260820polish" width="120" height="132" alt="Little Shepherd waves hello" decoding="async" loading="eager" fetchpriority="high" onerror="this.onerror=null;this.src='shepherd-mascot-welcome.svg'">
           <h1 id="kids-hub-play-h">What sounds fun?</h1>
-          <div class="kids-easy-doors" role="navigation" aria-label="Story, color, or play">
+          <div class="kids-easy-doors" role="navigation" aria-label="Story or color">
             <a class="kids-easy-door kids-easy-door--story" href="corner.html?choose=1#kids-library-grid">
               <img class="kids-easy-door-pic" src="../coloring-pages/colored/creation.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy">
               Story
@@ -178,14 +175,9 @@
               Color
               <small>Paint a Bible picture</small>
             </a>
-            <a class="kids-easy-door kids-easy-door--play" href="#kids-easy-games">
-              <img class="kids-easy-door-pic" src="shepherd-mascot-sheep.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy">
-              Play
-              <small>Four quiet Bible games</small>
-            </a>
           </div>
 
-          <section class="kids-easy-games" aria-labelledby="kids-easy-games-h">
+          <section class="kids-easy-games" id="kids-easy-games" aria-labelledby="kids-easy-games-h">
             <h2 id="kids-easy-games-h">Pick a game</h2>
             <div class="kids-easy-game-grid">
               <a class="kids-easy-game kids-easy-game--match" data-kg-game="match" href="match-buddies.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-read.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Match the Verse<small>pair a kid line to KJV</small></a>

@@ -63,7 +63,7 @@
   padding: 0.35rem 0.15rem;
 }
 
-html.tdb-porch-verse-hidden #tdbPorchVerseWidget {
+html.tdb-porch-verse-hidden #tdbPorchVerseWidget:not([data-tdb-porch-verse-required="1"]) {
   display: none !important;
 }
 

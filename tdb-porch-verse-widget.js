@@ -100,7 +100,8 @@
     var root = document.getElementById('tdbPorchVerseWidget');
     if (!root) return;
 
-    if (isHiddenToday()) {
+    var required = root.getAttribute('data-tdb-porch-verse-required') === '1';
+    if (isHiddenToday() && !required) {
       root.hidden = true;
       document.documentElement.classList.add('tdb-porch-verse-hidden');
       return;

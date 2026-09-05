@@ -26,9 +26,13 @@
   <meta name="twitter:description" content="Simple KJV Bible fun for kids: story, color, or play.">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="../styles.css?v=20260816-brightgold" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260816-brightgold">
+  <link rel="preload" href="kids-hub-play.css?v=20260820polish" as="style">
   <link rel="stylesheet" href="kids-hub-play.css?v=20260820polish">
+  <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
+  <link rel="preload" href="kids-play-skin.css?v=20260903words1" as="style">
   <link rel="stylesheet" href="kids-play-skin.css?v=20260903words1">
   <link rel="manifest" href="../manifest.json">
   <style>
@@ -151,25 +155,25 @@
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner">
         <div class="kids-easy-home">
-          <img class="kids-easy-mascot" src="shepherd-mascot-welcome.png?v=20260820polish" width="120" height="132" alt="Little Shepherd waves hello" decoding="async" onerror="this.onerror=null;this.src='shepherd-mascot-welcome.svg'">
+          <img class="kids-easy-mascot" src="shepherd-mascot-welcome.png?v=20260820polish" width="120" height="132" alt="Little Shepherd waves hello" decoding="async" loading="eager" fetchpriority="high" onerror="this.onerror=null;this.src='shepherd-mascot-welcome.svg'">
           <h1 id="kids-hub-play-h">What sounds fun?</h1>
           <section class="kids-easy-games" aria-labelledby="kids-easy-games-h">
             <h2 id="kids-easy-games-h">Play</h2>
             <div class="kids-easy-game-grid">
-              <a class="kids-easy-game kids-easy-game--match" data-kg-game="match" href="match-buddies.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-read.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Match the Verse<small>pair a kid line to KJV</small></a>
-              <a class="kids-easy-game kids-easy-game--sheep" data-kg-game="sheep" href="lost-sheep.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sheep.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Find the sheep<small>tap the grass</small></a>
-              <a class="kids-easy-game kids-easy-game--memory" data-kg-game="memory" href="memory-flock.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sit.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Memory flock<small>flip and match</small></a>
-              <a class="kids-easy-game kids-easy-game--path" data-kg-game="path" href="shepherds-path.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-point.png?v=20260820polish" alt="" width="48" height="48" decoding="async"></span>Shepherd&rsquo;s Path<small>step the stones</small></a>
+              <a class="kids-easy-game kids-easy-game--match" data-kg-game="match" href="match-buddies.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-read.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Match the Verse<small>pair a kid line to KJV</small></a>
+              <a class="kids-easy-game kids-easy-game--sheep" data-kg-game="sheep" href="lost-sheep.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sheep.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Find the sheep<small>tap the grass</small></a>
+              <a class="kids-easy-game kids-easy-game--memory" data-kg-game="memory" href="memory-flock.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-sit.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Memory flock<small>flip and match</small></a>
+              <a class="kids-easy-game kids-easy-game--path" data-kg-game="path" href="shepherds-path.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-point.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Shepherd&rsquo;s Path<small>step the stones</small></a>
             </div>
           </section>
           <div class="kids-easy-doors" role="navigation" aria-label="Story or color">
             <a class="kids-easy-door kids-easy-door--story" href="corner.html?choose=1#kids-library-grid">
-              <img class="kids-easy-door-pic" src="../coloring-pages/colored/creation.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async">
+              <img class="kids-easy-door-pic" src="../coloring-pages/colored/creation.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy">
               Story
               <small>Pick a picture, then open a Bible story</small>
             </a>
             <a class="kids-easy-door kids-easy-door--color" href="../coloring.html?story=jesus-children">
-              <img class="kids-easy-door-pic" src="../coloring-pages/colored/jesus-and-the-children.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async">
+              <img class="kids-easy-door-pic" src="../coloring-pages/colored/jesus-and-the-children.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy">
               Color
               <small>Paint a Bible picture</small>
             </a>

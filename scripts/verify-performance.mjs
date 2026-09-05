@@ -103,8 +103,13 @@ function main() {
     if (!/\bdecoding=["']async["']/.test(tag)) {
       fail('kids/index.html: every <img> needs decoding="async"');
     }
-    if (!/\bloading=["']lazy["']/.test(tag)) {
-      fail('kids/index.html: every <img> needs loading="lazy"');
+    const isWelcome = /kids-easy-mascot/.test(tag);
+    if (isWelcome) {
+      if (!/\bloading=["']eager["']/.test(tag)) {
+        fail('kids/index.html: welcome mascot should load eager (first paint)');
+      }
+    } else if (!/\bloading=["']lazy["']/.test(tag)) {
+      fail('kids/index.html: below-fold <img> needs loading="lazy"');
     }
   }
 
@@ -124,8 +129,8 @@ function main() {
   }
 
   const dailyRhythm = read('daily-rhythm.html');
-  if (!/rel=["']preload["'][^>]*tdb-calm-hubs\.css/.test(dailyRhythm) || !dailyRhythm.includes('as="style"')) {
-    fail('daily-rhythm.html: expected link rel=preload for tdb-calm-hubs.css (as=style)');
+  if (!dailyRhythm.includes('Daily rhythm moved') || !dailyRhythm.includes("location.replace('/plans')")) {
+    fail('daily-rhythm.html: expected redirect stub to /plans');
   }
 
   const mobius = read('mobius.html');

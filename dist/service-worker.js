@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260904ask3';
+const CACHE_NAME = 'tdb-cache-v20260905porch1';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -562,27 +562,15 @@ self.addEventListener('fetch', (event) => {
             caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone)).catch(() => {});
             return res;
           }
-          /* Prefer full corpus alts, then stub */
-          return fetch('/data/kjv-full.json')
-            .then((fullRes) => {
-              if (fullRes && fullRes.ok) {
-                const fullClone = fullRes.clone();
-                caches.open(CACHE_NAME).then((cache) => cache.put('/data/kjv-full.json', fullClone)).catch(() => {});
-                return fullRes;
-              }
-              return fetch('/assets/data/kjv.json').then((altRes) => {
-                if (altRes && altRes.ok) {
-                  const altClone = altRes.clone();
-                  caches.open(CACHE_NAME).then((cache) => cache.put('/assets/data/kjv.json', altClone)).catch(() => {});
-                }
-                return altRes;
-              });
-            })
-            .catch(() =>
-              fetch('/assets/data/kjv.json').catch(() => fetch('/kjv.json'))
-            );
+          return fetch('/data/kjv-full.json').then((fullRes) => {
+            if (fullRes && fullRes.ok) {
+              const fullClone = fullRes.clone();
+              caches.open(CACHE_NAME).then((cache) => cache.put('/data/kjv-full.json', fullClone)).catch(() => {});
+            }
+            return fullRes;
+          });
         });
-      }).catch(() => fetch('/data/kjv-full.json').catch(() => fetch('/assets/data/kjv.json')))
+      }).catch(() => fetch('/data/kjv-full.json'))
     );
     return;
   }

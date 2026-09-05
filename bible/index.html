@@ -11,10 +11,54 @@
   <script>location.replace('/bible-tool.html');</script>
 </head>
 <body>
-  <main style="max-width:32rem;margin:2rem auto;padding:1rem;font-family:system-ui,sans-serif;line-height:1.5">
+  
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Menu</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+        <a href="/" aria-label="Home — today’s verse">Today</a>
+        <a href="/ask" aria-label="Ask the Word">Ask</a>
+        <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+              <div class="tdb-nav-more-group">
+                <span class="tdb-nav-more-group-label">Scripture</span>
+                <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
+                <a href="/reader.html" id="nav-reader" aria-current="page" aria-label="Read the Bible">Read</a>
+                <a href="/verse.html">Today’s verse</a>
+                <a href="/bible-tool.html" aria-label="Look up a verse">Look up</a>
+                <a href="/memorize.html">Memorize</a>
+                <a href="/mystudy">Saved on this device</a>
+                <a href="/prayer-wall.html">Prayer</a>
+              </div>
+              <div class="tdb-nav-more-group">
+                <span class="tdb-nav-more-group-label">Family</span>
+                <a href="/family.html">Family</a>
+                <a href="/coloring.html">Kids coloring</a>
+                <a href="/printables.html" aria-label="Print pages">Print</a>
+              </div>
+              <div class="tdb-nav-more-group">
+                <span class="tdb-nav-more-group-label">Site</span>
+                <a href="/about.html">About</a>
+                <a href="/search.html" id="nav-site-search" aria-label="Search the site">Search</a>
+                <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
+                <a href="/faq.html">FAQ</a>
+                <a href="/give" aria-label="Optional support">Support</a>
+                <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
+              </div>
+            </div>
+        </details>
+      </div>
+    </nav>
+<main style="max-width:32rem;margin:2rem auto;padding:1rem;font-family:system-ui,sans-serif;line-height:1.5">
     <h1>Bible hub moved</h1>
     <p>The Bible hub now lives on Look up a verse.</p>
     <p>Continue on <a href="/bible-tool.html">Look up a verse</a>.</p>
   </main>
+  <script type="module" src="../script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
 </body>
 </html>

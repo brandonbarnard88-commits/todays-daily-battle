@@ -2652,8 +2652,7 @@ function initTheme() {
     window.tdbInitThemeFromStorage();
   } else {
     const saved = localStorage.getItem("tdb-theme");
-    const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-    applyTheme(saved || (prefersLight ? "light" : "dark"));
+    applyTheme(saved || "dark");
     return;
   }
   syncThemeBtn();

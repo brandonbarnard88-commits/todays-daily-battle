@@ -142,7 +142,17 @@ function getSkyClassFixed(h) {
   return isDawn ? 'sky-dawn' : isDusk ? 'sky-dusk' : isNight ? 'sky-night' : 'sky-day';
 }
 
+function appearanceSkyOverride() {
+  if (!document.body || !document.body.classList.contains('tdb-porch-sky')) return null;
+  var t = '';
+  try { t = document.documentElement.getAttribute('data-theme') || ''; } catch (eT) {}
+  if (t === 'light' || t === 'sepia') return 'sky-day';
+  return null;
+}
+
 function resolveSkyClassNow() {
+  var fromAppearance = appearanceSkyOverride();
+  if (fromAppearance) return fromAppearance;
   var now = new Date();
   try {
     var coords = readSkyGeoForSolar();
@@ -155,6 +165,109 @@ function resolveSkyClassNow() {
   if (fromSun) return fromSun;
   var h = now.getHours() + now.getMinutes() / 60;
   return getSkyClassFixed(h);
+}
+
+function ensurePorchSkyMarkup() {
+  if (!document.body || !document.body.classList.contains('tdb-porch-sky')) {
+    return document.getElementById('sky-layer');
+  }
+  var layer = document.getElementById('sky-layer');
+  if (!layer) {
+    var wrap = document.createElement('div');
+    wrap.className = 'sky-page-backdrop';
+    wrap.setAttribute('aria-hidden', 'true');
+    layer = document.createElement('div');
+    layer.className = 'sky';
+    layer.id = 'sky-layer';
+    layer.setAttribute('aria-hidden', 'true');
+    wrap.appendChild(layer);
+    document.body.insertBefore(wrap, document.body.firstChild);
+  }
+  if (!layer.querySelector('.sky-stars-parallax')) {
+    var parallax = document.createElement('div');
+    parallax.className = 'sky-stars-parallax';
+    parallax.setAttribute('aria-hidden', 'true');
+    layer.appendChild(parallax);
+  }
+  if (!layer.querySelector('.sky-aurora')) {
+    var aurora = document.createElement('div');
+    aurora.className = 'sky-aurora';
+    aurora.id = 'sky-aurora';
+    aurora.setAttribute('aria-hidden', 'true');
+    var veil = document.createElement('div');
+    veil.className = 'sky-aurora-veil';
+    veil.setAttribute('aria-hidden', 'true');
+    aurora.appendChild(veil);
+    layer.appendChild(aurora);
+  }
+  var plane = layer.querySelector('#sky-celestial-plane');
+  if (!plane) {
+    plane = document.createElement('div');
+    plane.className = 'sky-viewport';
+    plane.id = 'sky-celestial-plane';
+    layer.appendChild(plane);
+  }
+  if (!plane.querySelector('#sky-sun')) {
+    var sun = document.createElement('div');
+    sun.className = 'sky-sun';
+    sun.id = 'sky-sun';
+    plane.appendChild(sun);
+  }
+  if (!plane.querySelector('#sky-moon')) {
+    plane.appendChild(buildPorchSkyMoon());
+  }
+  return layer;
+}
+
+function buildPorchSkyMoon() {
+  var NS = 'http://www.w3.org/2000/svg';
+  var moon = document.createElement('div');
+  moon.id = 'sky-moon';
+  moon.setAttribute('role', 'img');
+  moon.setAttribute('aria-label', 'Moon in the sky (decorative)');
+  var svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('class', 'sky-moon-svg');
+  svg.setAttribute('viewBox', '0 0 100 100');
+  svg.setAttribute('aria-hidden', 'true');
+  var defs = document.createElementNS(NS, 'defs');
+  var grad = document.createElementNS(NS, 'radialGradient');
+  grad.setAttribute('id', 'moon-base');
+  grad.setAttribute('cx', '38%');
+  grad.setAttribute('cy', '35%');
+  grad.setAttribute('r', '50%');
+  var stops = [
+    ['0%', 'rgba(255,255,240,0.96)'],
+    ['60%', 'rgba(200,210,230,0.88)'],
+    ['100%', 'rgba(140,160,190,0.72)']
+  ];
+  for (var si = 0; si < stops.length; si++) {
+    var stop = document.createElementNS(NS, 'stop');
+    stop.setAttribute('offset', stops[si][0]);
+    stop.setAttribute('stop-color', stops[si][1]);
+    grad.appendChild(stop);
+  }
+  defs.appendChild(grad);
+  svg.appendChild(defs);
+  var disk = document.createElementNS(NS, 'circle');
+  disk.setAttribute('cx', '50');
+  disk.setAttribute('cy', '50');
+  disk.setAttribute('r', '48');
+  disk.setAttribute('fill', 'url(#moon-base)');
+  svg.appendChild(disk);
+  var shadow = document.createElementNS(NS, 'circle');
+  shadow.setAttribute('id', 'sky-moon-shadow');
+  shadow.setAttribute('cx', '50');
+  shadow.setAttribute('cy', '50');
+  shadow.setAttribute('r', '48');
+  shadow.setAttribute('fill', 'rgba(2,4,18,0.93)');
+  shadow.setAttribute('class', 'sky-moon-shadow-svg');
+  svg.appendChild(shadow);
+  moon.appendChild(svg);
+  var label = document.createElement('span');
+  label.className = 'sky-moon-label';
+  label.id = 'sky-moon-label';
+  moon.appendChild(label);
+  return moon;
 }
 
 function getSkyCelestialPlane(layer) {
@@ -229,7 +342,9 @@ function paintSkyDecorations(layer, r, skyClass) {
   var plane = getSkyCelestialPlane(layer);
   if (!plane) return;
   var isMobile = window.innerWidth < 600;
-  var kidsCalm = document.body.classList.contains('kids-sky-enabled');
+  var porchKids = document.body.classList.contains('tdb-porch-sky--kids');
+  var porchBand = document.body.classList.contains('tdb-porch-sky');
+  var kidsCalm = document.body.classList.contains('kids-sky-enabled') || porchKids;
   var kidsPlayful = document.body.classList.contains('kids-sky-playful');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isNightSky = skyClass === 'sky-night';
@@ -244,6 +359,8 @@ function paintSkyDecorations(layer, r, skyClass) {
   if (isNightSky && !reduced) {
     var starCount = isMobile ? (kidsCalm ? 26 : 55) : (kidsCalm ? 72 : 110);
     if (kidsPlayful) starCount = Math.max(12, Math.floor(starCount * 0.52));
+    if (porchBand) starCount = Math.min(starCount, isMobile ? 18 : 36);
+    if (porchKids) starCount = Math.min(starCount, isMobile ? 12 : 22);
     var bandCount = Math.floor(starCount * 0.34);
     for (var i = 0; i < starCount; i++) {
       var st = document.createElement('div');
@@ -271,7 +388,7 @@ function paintSkyDecorations(layer, r, skyClass) {
       st.style.background = cv > 0.68 ? 'rgba(210,222,255,1)' : cv > 0.36 ? 'rgba(255,246,220,1)' : '#fff';
       plane.appendChild(st);
     }
-    if (!isMobile || !kidsCalm) {
+    if (!porchBand && !porchKids && (!isMobile || !kidsCalm)) {
       var shooterN = isMobile ? 1 : 2;
       for (var si = 0; si < shooterN; si++) {
         (function scheduleShooter(delay) {
@@ -332,6 +449,8 @@ function paintSkyDecorations(layer, r, skyClass) {
     if (kidsPlayful) {
       birdCount = isMobile ? Math.min(birdCount, 1) : Math.max(2, Math.floor(birdCount * 0.7));
     }
+    if (porchKids || reduced) birdCount = 0;
+    else if (porchBand) birdCount = isMobile ? 1 : 2;
     var flockTop = 16 + r() * 8;
     for (var bi = 0; bi < birdCount; bi++) {
       var bd = document.createElement('div');
@@ -397,7 +516,7 @@ function initHeaderSky() {
   var ds = new Date().toDateString();
   var dh = 0;
   for (var di = 0; di < ds.length; di++) { dh = (dh * 31 + ds.charCodeAt(di)) % 100; }
-  if (dh < 20) document.body.classList.add('sky-eclipse');
+  if (dh < 20 && !document.body.classList.contains('tdb-porch-sky')) document.body.classList.add('sky-eclipse');
 
   function sr(seed) {
     var s = seed;
@@ -586,8 +705,20 @@ function initSkyMoon() {
 
 
   function bootKidsPageSky() {
+    try {
+      var m = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var o = false;
+      try { o = localStorage.getItem('tdb_perf_mode') === '1'; } catch (ePerf) {}
+      if (m || o) document.documentElement.classList.add('tdb-perf-mode');
+    } catch (eHint) {}
+    ensurePorchSkyMarkup();
     if (!document.getElementById('sky-layer')) return;
     initHeaderSky();
+    try {
+      window.addEventListener('tdb-theme-change', function () {
+        if (document.body.classList.contains('tdb-porch-sky')) updateSkyClass();
+      });
+    } catch (eTheme) {}
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', bootKidsPageSky);

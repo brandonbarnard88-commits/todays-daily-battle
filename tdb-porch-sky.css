@@ -1,0 +1,131 @@
+/* Inner porch doors only: Home keeps tdb-home-page.css (full sky).
+   Engine: kids/kids-page-sky.css + kids/kids-page-sky.js
+   Arrival rooms: Calm, Kids home, ES/FR/PT hubs.
+   Short band, not a second homepage hero. Night floor matches Home (#0f1218). */
+
+body.tdb-porch-sky {
+  --tdb-porch-sky-h: min(28vh, 220px);
+  position: relative;
+  isolation: isolate;
+}
+
+body.tdb-porch-sky .sky-page-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--tdb-porch-sky-h);
+  min-height: 0;
+  bottom: auto;
+  z-index: 7;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+body.tdb-porch-sky .sky-page-backdrop .sky,
+body.tdb-porch-sky .sky-viewport {
+  min-height: 0;
+  height: 100%;
+  max-height: var(--tdb-porch-sky-h);
+}
+
+/* Kids World otherwise hides .sky-page-backdrop — porch home needs the living band. */
+body.tdb-porch-sky.kids-world-surface .sky-page-backdrop {
+  display: block;
+}
+
+/* Home tokens: light at the top of the door, deepen toward paper. */
+body.tdb-porch-sky.sky-dawn .sky {
+  background: linear-gradient(180deg, #ff8c28 0%, #e05018 32%, #b02818 68%, #700820 100%);
+}
+body.tdb-porch-sky.sky-day .sky {
+  background: linear-gradient(180deg, #7eb8d8 0%, #4a88c0 38%, #245a92 100%);
+}
+body.tdb-porch-sky.sky-dusk .sky {
+  background: linear-gradient(180deg, #ff8020 0%, #c84810 36%, #881018 72%, #500818 100%);
+}
+body.tdb-porch-sky.sky-night .sky {
+  background: linear-gradient(180deg, #02030e 0%, #06091a 24%, #0a0e2a 55%, #0c1030 78%, #0f1218 100%);
+}
+
+body.tdb-porch-sky .sky-page-backdrop::after {
+  height: 58%;
+  background: linear-gradient(to bottom, transparent, var(--bg, #0f1218));
+}
+html[data-theme="light"] body.tdb-porch-sky .sky-page-backdrop::after,
+html[data-theme="sepia"] body.tdb-porch-sky .sky-page-backdrop::after {
+  background: linear-gradient(to bottom, transparent, var(--bg, #f4efe3));
+}
+body.tdb-porch-sky.kids-world-surface .sky-page-backdrop::after {
+  background: linear-gradient(to bottom, transparent, var(--kw-paper, #fffbf3));
+}
+
+/* Band is too short for aurora; moon/stars (night) and sun/clouds (day) are enough. */
+body.tdb-porch-sky .sky-aurora,
+body.tdb-porch-sky .sky-aurora-veil {
+  display: none !important;
+}
+
+body.tdb-porch-sky .sky-sun {
+  width: 64px;
+  height: 64px;
+  top: 38%;
+}
+body.tdb-porch-sky .sky-moon-svg {
+  width: 56px;
+  height: 56px;
+}
+body.tdb-porch-sky #sky-moon {
+  top: 36%;
+}
+
+body.tdb-porch-sky .app-shell,
+body.tdb-porch-sky .app {
+  position: relative;
+  z-index: 12;
+}
+body.tdb-porch-sky .top-bar,
+body.tdb-porch-sky .tdb-global-nav,
+body.tdb-porch-sky .kids-easy-header,
+body.tdb-porch-sky .kids-battle-header {
+  position: relative;
+  z-index: 24;
+}
+
+/* Kids door: slower or still. Little eyes + animation is a different job. */
+body.tdb-porch-sky--kids .sky-bird,
+body.tdb-porch-sky--kids .sky-shooter {
+  display: none !important;
+}
+body.tdb-porch-sky--kids .sky-stars-parallax {
+  animation-duration: 280s;
+  opacity: 0.22;
+}
+body.tdb-porch-sky--kids .sky-sun {
+  width: 52px;
+  height: 52px;
+  animation-duration: 140s;
+}
+body.tdb-porch-sky--kids .sky-moon-svg {
+  width: 44px;
+  height: 44px;
+}
+body.tdb-porch-sky--kids .sky-moon-label {
+  display: none;
+}
+body.tdb-porch-sky--kids .sky-cloud {
+  animation-duration: 240s !important;
+}
+body.tdb-porch-sky--kids .sky-star {
+  animation-duration: 10s;
+}
+
+/* Reduced motion / perf: static sky, no birds. */
+@media (prefers-reduced-motion: reduce) {
+  body.tdb-porch-sky .sky-bird {
+    display: none !important;
+  }
+}
+html.tdb-perf-mode body.tdb-porch-sky .sky-bird {
+  display: none !important;
+}

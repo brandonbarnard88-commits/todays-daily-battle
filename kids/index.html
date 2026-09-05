@@ -5,7 +5,7 @@
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
   <script src="/register-sw.js" defer></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260820polish"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260816-brightgold"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="../analytics-loader.js"></script>
@@ -34,6 +34,10 @@
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
   <link rel="preload" href="kids-play-skin.css?v=20260903words1" as="style">
   <link rel="stylesheet" href="kids-play-skin.css?v=20260903words1">
+  <link rel="preload" href="kids-page-sky.css?v=20260817-skylife" as="style">
+  <link rel="stylesheet" href="kids-page-sky.css?v=20260817-skylife">
+  <link rel="preload" href="/tdb-porch-sky.css?v=20260905porchsky1" as="style">
+  <link rel="stylesheet" href="/tdb-porch-sky.css?v=20260905porchsky1">
   <link rel="manifest" href="../manifest.json">
   <style>
     /* Easy kids home — three big doors only (no second nav stack) */
@@ -123,7 +127,10 @@
     body.kids-kiss-play-home .kids-bottom-nav { display: none !important; }
   </style>
 </head>
-<body class="dark-mode kids-battle-page kids-world-surface kids-kiss-play-home">
+<body class="dark-mode kids-battle-page kids-world-surface kids-kiss-play-home tdb-porch-sky tdb-porch-sky--kids">
+  <div class="sky-page-backdrop" aria-hidden="true">
+    <div class="sky" aria-hidden="true" id="sky-layer"></div>
+  </div>
   <script nonce="tdb2025s">
     (function () {
       try {
@@ -217,5 +224,7 @@
     });
   });
   </script>
+  <script src="../sky-ip-geo.js?v=20260817-skysolar" defer></script>
+  <script src="kids-page-sky.js?v=20260905porchsky1" defer></script>
 </body>
 </html>

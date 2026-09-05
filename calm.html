@@ -58,6 +58,10 @@
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
+  <link rel="preload" href="kids/kids-page-sky.css?v=20260817-skylife" as="style">
+  <link rel="stylesheet" href="kids/kids-page-sky.css?v=20260817-skylife">
+  <link rel="preload" href="tdb-porch-sky.css?v=20260905porchsky1" as="style">
+  <link rel="stylesheet" href="tdb-porch-sky.css?v=20260905porchsky1">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -758,7 +762,10 @@
     }
   </style>
 </head>
-<body class="dark-mode tdb-inner-page tdb-calm-shelf-page">
+<body class="dark-mode tdb-inner-page tdb-calm-shelf-page tdb-porch-sky">
+  <div class="sky-page-backdrop" aria-hidden="true">
+    <div class="sky" aria-hidden="true" id="sky-layer"></div>
+  </div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar" style="minimal">
@@ -1699,5 +1706,7 @@
   <script defer src="calm-rest-kit.js?v=20260523"></script>
   <script defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script defer src="porch-effects.js?v=20260507"></script>
+  <script src="sky-ip-geo.js?v=20260817-skysolar" defer></script>
+  <script src="kids/kids-page-sky.js?v=20260905porchsky1" defer></script>
 </body>
 </html>

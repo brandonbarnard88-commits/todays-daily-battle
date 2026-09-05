@@ -55,7 +55,6 @@ export const STORY_HTML_MARKERS = [
   'kids-library-card--static',
   'kids-library-show-more',
   '/coloring-pages/colored/noah-s1.jpg',
-  'kids-page-sky.css?v=20260817-skylife',
   'uFuzzy.iife.min.js',
   'kids-verses-365.js?v=20260802-calendar-mix',
   

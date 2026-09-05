@@ -208,6 +208,7 @@ const rootFiles = [
   'tdb-heavy-now.css',
   'tdb-porch-verse-widget.css',
   'tdb-porch-verse-widget.js',
+  'tdb-porch-sky.css',
   'tdb-january-quiet.js',
   'tdb-uog-month-signpost.js',
   'inline-bootstrap.js',

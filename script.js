@@ -21698,7 +21698,7 @@ if (typeof document !== 'undefined' && document.addEventListener) {
 if (typeof window !== 'undefined') {
   window.getDailyVerseRef = getDailyVerseRef;
   window.getBibleVerseText = getBibleVerseText;
-        window.loadBible = loadBible;
+  window.loadBible = loadBible;
   window.resolveBibleTextFromMap = resolveBibleTextFromMap;
   window.getDailyKey = getDailyKey;
   window.getDailyBattleFromSupabaseForKey = getDailyBattleFromSupabaseForKey;
@@ -21711,7 +21711,11 @@ if (typeof window !== 'undefined') {
   window.TDB_CLOUD_TTS_FALLBACK_TOAST = TDB_CLOUD_TTS_FALLBACK_TOAST;
   window.tdbGetCalmVerseRootEl = tdbGetCalmVerseRootEl;
   window.tdbGetCalmVerseRefAndTextFromPage = tdbGetCalmVerseRefAndTextFromPage;
-  Object.defineProperty(window, 'bible', { get: function () { return bible; }, configurable: true });
+  Object.defineProperty(window, 'bible', {
+    get: function () { return bible; },
+    set: function (v) { bible = v; },
+    configurable: true
+  });
 }
 
 function getDailyBattleShareUrl() {

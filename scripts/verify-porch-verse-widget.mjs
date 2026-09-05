@@ -12,7 +12,8 @@ const root = path.join(__dirname, '..');
 const HUB_PAGES = [
   { file: 'explore.html', label: 'Explore' },
   { file: 'plans.html', label: 'Plans' },
-  { file: 'family.html', label: 'Family' }
+  { file: 'family.html', label: 'Family' },
+  { file: 'daily-quiet-time.html', label: 'Daily quiet time' }
 ];
 
 const REQUIRED = [

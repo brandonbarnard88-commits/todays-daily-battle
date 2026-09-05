@@ -234,15 +234,15 @@
       }
     },
     {
-      "id": "daily-quiet-time-to-plans",
+      "id": "daily-quiet-time",
+      "note": "Morning sit. Same official verse as Home. Not a Plans alias.",
       "aliases": [
         "/daily-quiet-time",
-        "/daily-quiet-time/",
-        "/daily-quiet-time.html"
+        "/daily-quiet-time/"
       ],
-      "redirect": {
-        "to": "/plans",
-        "status": 301
+      "rewrite": {
+        "to": "/daily-quiet-time.html",
+        "status": 200
       }
     },
     {

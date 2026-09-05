@@ -1,20 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260816-brightgold"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Daily quiet time moved · Today’s Daily Battle</title>
-  <meta name="description" content="Morning quiet time now lives on Plans.">
-  <meta name="robots" content="noindex, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/plans">
-  <meta http-equiv="refresh" content="0;url=/plans">
-  <script>location.replace('/plans');</script>
+  <title>Daily quiet time — Today’s Daily Battle</title>
+  <meta name="description" content="One verse. One quiet minute. No plan required. The same official KJV as Home.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/daily-quiet-time">
+  <meta property="og:site_name" content="Today's Daily Battle">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://todaysdailybattle.com/daily-quiet-time">
+  <meta property="og:title" content="Daily quiet time — Today’s Daily Battle">
+  <meta property="og:description" content="One verse. One quiet minute. No plan required.">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Daily quiet time — Today’s Daily Battle">
+  <meta name="twitter:description" content="One verse. One quiet minute. No plan required.">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260816-brightgold">
+  <link rel="preload" href="tdb-porch-verse-widget.css?v=20260519-porch-verse" as="style">
+  <link rel="stylesheet" href="tdb-porch-verse-widget.css?v=20260519-porch-verse">
+  <script nonce="tdb2025s">(function(){try{var d=new Date();var k=d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');if(localStorage.getItem('tdb-porch-verse-hidden')===k)document.documentElement.classList.add('tdb-porch-verse-hidden');}catch(e){}})();</script>
+  <link rel="manifest" href="manifest.json">
+  <script nonce="tdb2025s" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Daily quiet time",
+        "url": "https://todaysdailybattle.com/daily-quiet-time",
+        "description": "One verse. One quiet minute. No plan required. The same official KJV as Home.",
+        "isPartOf": { "@type": "WebSite", "name": "Today's Daily Battle", "url": "https://todaysdailybattle.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://todaysdailybattle.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Daily quiet time", "item": "https://todaysdailybattle.com/daily-quiet-time" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
-<body>
-  <main style="max-width:32rem;margin:2rem auto;padding:1rem;font-family:system-ui,sans-serif;line-height:1.5">
-    <h1>Daily quiet time moved</h1>
-    <p>Morning quiet time now lives on Plans.</p>
-    <p>Continue on <a href="/plans">Plans</a>.</p>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main id="main-content" class="tdb-quiet-container" style="max-width:32rem;padding:1rem 1rem 2.5rem;">
+    <nav class="tdb-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Daily quiet time</li>
+      </ol>
+    </nav>
+
+    <header class="glass tdb-porch-paper-glass" style="padding:1.1rem 1rem;border-radius:14px;margin:0 0 1rem;">
+      <h1 style="margin:0;">Daily quiet time</h1>
+      <p class="section-note" style="margin:.6rem 0 0;">One verse. One quiet minute. No plan required.</p>
+    </header>
+
+    <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
+      <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
+      <p class="tdb-porch-verse-widget__hint">Same official KJV as Home.</p>
+      <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Psalm 103:5 (KJV)</p>
+      <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“Who satisfieth thy mouth with good things; so that thy youth is renewed like the eagle's.”</p></blockquote>
+      <div class="tdb-porch-verse-widget__actions">
+        <a class="btn btn-secondary" href="/">Read with breakdown</a>
+        <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
+      </div>
+    </aside>
+
+    <section class="glass tdb-porch-paper-glass" style="padding:1rem;border-radius:14px;margin:1rem 0 0;">
+      <p class="section-note" style="margin:0;">When one minute is enough, stay here. If you want a short lane after:</p>
+      <p class="cta-group" style="margin:.75rem 0 0;display:flex;flex-wrap:wrap;gap:.5rem;">
+        <a class="btn btn-primary" href="/">Today</a>
+        <a class="btn btn-secondary" href="/plans.html?plan=steadydays">Steady Days (5)</a>
+        <a class="btn btn-secondary" href="/kids/">Kids</a>
+        <a class="btn btn-secondary" href="/family">Family</a>
+      </p>
+      <p class="section-note" id="dqt-prayer-tools" style="margin:.85rem 0 0;">Need a line of prayer? <a href="/prayer-wall.html">Quiet prayer room</a>. Nothing required.</p>
+    </section>
   </main>
+  <script defer src="tdb-porch-verse-widget.js?v=20260823desk42"></script>
 </body>
 </html>

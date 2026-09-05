@@ -18,6 +18,10 @@
 /calm /calm.html 200!
 /calm/ /calm.html 200!
 
+# Daily quiet time — morning sit (not a Plans alias)
+/daily-quiet-time /daily-quiet-time.html 200!
+/daily-quiet-time/ /daily-quiet-time.html 200!
+
 # Campus / start / find-a-path → one Explore map (aliases kept as redirects)
 /campus /explore#start-here 301
 /campus/ /explore#start-here 301
@@ -46,9 +50,6 @@
 /reading-plan /plans 301
 /reading-plan/ /plans 301
 /reading-plan.html /plans 301
-/daily-quiet-time /plans 301
-/daily-quiet-time/ /plans 301
-/daily-quiet-time.html /plans 301
 /daily-rhythm /plans 301
 /daily-rhythm/ /plans 301
 /daily-rhythm.html /plans 301
@@ -310,9 +311,6 @@
 /reading-plan /plans 301!
 /reading-plan/ /plans 301!
 /reading-plan.html /plans 301!
-/daily-quiet-time /plans 301!
-/daily-quiet-time/ /plans 301!
-/daily-quiet-time.html /plans 301!
 /daily-rhythm /plans 301!
 /daily-rhythm/ /plans 301!
 /daily-rhythm.html /plans 301!

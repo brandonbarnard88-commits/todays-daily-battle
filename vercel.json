@@ -434,17 +434,12 @@
     },
     {
       "source": "/daily-quiet-time",
-      "destination": "/plans",
+      "destination": "/daily-quiet-time.html",
       "permanent": true
     },
     {
       "source": "/daily-quiet-time/",
-      "destination": "/plans",
-      "permanent": true
-    },
-    {
-      "source": "/daily-quiet-time.html",
-      "destination": "/plans",
+      "destination": "/daily-quiet-time.html",
       "permanent": true
     },
     {

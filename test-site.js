@@ -52,7 +52,7 @@ const pages = [
   'id="armor-builder-btn"',
   'id="hero-save-my-verses"',
   'id="tdbAnotherVerseBtn"',
-  'core-home.js?v=20260905porch1',
+  'core-home.js?v=20260905porch2',
   'tdb-verse-accuracy.js',
   'tdb-home-page.css',
   'id="tdbHeroQuietEyebrow"',

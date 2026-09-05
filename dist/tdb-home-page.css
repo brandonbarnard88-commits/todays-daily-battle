@@ -13441,43 +13441,57 @@ html[data-theme="sepia"] .tdb-another-verse .tdb-vbd-label {
   display: none !important;
 }
 
-/* Audit P0: today’s KJV in the first mobile viewport. Header is a porch sign, not a mural. */
+/* Audit: verse fully first. Header is a porch sign, not a mural. Appearance lives in Menu. */
+body:has(#home-primary-flow) .site-header {
+  min-height: 0 !important;
+  padding: 0.55rem 1rem 0.4rem;
+  margin-bottom: 0.35rem;
+  justify-content: flex-start;
+  gap: 0;
+}
+body:has(#home-primary-flow) .site-top-links {
+  display: none !important;
+}
+body:has(#home-primary-flow) .site-logo-wrap {
+  width: 46px;
+  margin: 0 auto 0.04rem;
+}
+body:has(#home-primary-flow) .site-title {
+  font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+  margin: 0 0 0.08rem;
+  line-height: 1.08;
+}
+body:has(#home-primary-flow) .site-title-underline {
+  margin: 0 auto 0.22rem;
+  width: 88px;
+}
+body:has(#home-primary-flow) .hero-brand-taglines {
+  margin: 0 auto;
+}
+body:has(#home-primary-flow) .soul-tag {
+  margin: 0 0 0.06rem;
+  font-size: clamp(0.68rem, 1.5vw, 0.82rem);
+}
+body:has(#home-primary-flow) .hero-brand-taglines .hero-home-heartbeat {
+  margin: 0 0 0.18rem;
+  font-size: clamp(0.58rem, 1.3vw, 0.72rem);
+  letter-spacing: 0.08em;
+}
+#tdbTodaysVerseHeading.tdb-verse-section-label {
+  margin-top: 0.28rem;
+  margin-bottom: 0.28rem;
+}
+@media (min-width: 1024px) {
+  body:has(#home-primary-flow) .site-logo-wrap {
+    width: 52px;
+  }
+}
 @media (max-width: 768px) {
   body:has(#home-primary-flow) .site-header {
-    min-height: 0 !important;
-    padding: 0.5rem 0.7rem 0.35rem;
-    margin-bottom: 0.3rem;
-    justify-content: flex-start;
-    gap: 0;
+    padding: 0.45rem 0.7rem 0.3rem;
   }
   body:has(#home-primary-flow) .site-logo-wrap {
-    width: 42px;
-    margin: 0 auto 0.02rem;
-  }
-  body:has(#home-primary-flow) .site-title {
-    font-size: clamp(1.32rem, 6vw, 1.65rem);
-    margin: 0 0 0.06rem;
-    line-height: 1.08;
-  }
-  body:has(#home-primary-flow) .site-title-underline {
-    margin: 0 auto 0.22rem;
-    width: 84px;
-  }
-  body:has(#home-primary-flow) .hero-brand-taglines {
-    margin: 0 auto;
-  }
-  body:has(#home-primary-flow) .soul-tag {
-    margin: 0 0 0.06rem;
-    font-size: 0.7rem;
-  }
-  body:has(#home-primary-flow) .hero-brand-taglines .hero-home-heartbeat {
-    margin: 0 0 0.16rem;
-    font-size: 0.6rem;
-    letter-spacing: 0.08em;
-  }
-  #tdbTodaysVerseHeading.tdb-verse-section-label {
-    margin-top: 0.28rem;
-    margin-bottom: 0.28rem;
+    width: 40px;
   }
   main#home-primary-flow {
     gap: 0.65rem;

@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260905porch1';
+  var INTERACTIVE_SRC = 'script.js?v=20260905porch2';
   var loaded = false;
   var pendingQuery = '';
 

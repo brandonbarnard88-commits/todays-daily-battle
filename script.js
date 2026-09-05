@@ -957,6 +957,8 @@ function ensureVisibleThemeShortcut() {
 
 function ensureVerseAppearanceNudge() {
   if (typeof document === 'undefined') return;
+  /* Home keeps Appearance in Menu, not on the verse card. */
+  if (document.querySelector('.tdb-primary-site-nav [data-tdb-theme-toggle]')) return;
   var hosts = [
     document.getElementById('verseCard'),
     document.getElementById('daily-verse-card'),
@@ -2983,13 +2985,10 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
       window.dispatchEvent(new CustomEvent('tdb-verse-narration-ready'));
     } catch (e) {}
     if (isHome) {
-      injectScriptsParallel([gentleUrl, wordStudyUrl], function () {
-        injectScript(verseStudyUrl, function () {
-          injectScriptsParallel([familyBridgeUrl, memoryVersesUrl], function () {
-            injectScript(homeVotmUrl, function () {
-              injectScriptsParallel([homeMobiusWeekUrl, skyIpUrl]);
-            });
-          });
+      /* Home verse is already in HTML. Do not pull the full canon (word-study / verse-study). */
+      injectScriptsParallel([familyBridgeUrl, memoryVersesUrl], function () {
+        injectScript(homeVotmUrl, function () {
+          injectScriptsParallel([homeMobiusWeekUrl, skyIpUrl]);
         });
       });
       return;
@@ -3129,6 +3128,13 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     started = true;
     if (!canPreloadNow()) return;
     if (window.kjvData && verseCount(window.kjvData) >= 1000) return;
+    var path = '';
+    try {
+      path = String((window.location && window.location.pathname) || '/').replace(/\/+$/, '') || '/';
+    } catch (eP) {
+      path = '/';
+    }
+    if (path === '/' || path === '/index.html' || path === '') return;
     if (typeof window.TDB_loadKjvFull === 'function') {
       window.TDB_loadKjvFull().catch(function () {});
     }

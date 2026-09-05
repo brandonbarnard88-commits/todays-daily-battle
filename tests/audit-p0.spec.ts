@@ -57,11 +57,11 @@ test.describe('audit P0 porch', () => {
     expect(contrast.ratio).toBeGreaterThanOrEqual(4.5);
   });
 
-  test('home uses one KJV cache key', async ({ page }) => {
+  test('home does not fetch the full KJV for today’s card', async ({ page }) => {
     const kjvUrls: string[] = [];
     page.on('request', (req) => {
       const u = req.url();
-      if (/kjv-(full|verses)\.json/i.test(u)) kjvUrls.push(u);
+      if (/kjv-(full|verses)\.json|\/kjv\.json/i.test(u)) kjvUrls.push(u);
     });
     await page.addInitScript(() => {
       try {
@@ -70,14 +70,41 @@ test.describe('audit P0 porch', () => {
       } catch (e) {}
     });
     await page.goto('/');
+    await expect(page.locator('#heroVerse')).toBeVisible({ timeout: 20000 });
     await page.waitForTimeout(4500);
-    const verses = kjvUrls.filter((u) => /kjv-verses\.json/i.test(u));
-    expect(verses).toEqual([]);
-    const full = kjvUrls.filter((u) => /kjv-full\.json/i.test(u));
-    const keys = [...new Set(full.map((u) => u.replace(/\?.*$/, '')))];
-    expect(keys.length).toBeLessThanOrEqual(1);
-    const busted = full.filter((u) => /[?&]v=/.test(u));
-    const plain = full.filter((u) => !/[?&]v=/.test(u));
-    expect(busted.length === 0 || plain.length === 0).toBeTruthy();
+    expect(kjvUrls).toEqual([]);
+  });
+
+  test('Appearance lives in Menu, not the hero', async ({ page }) => {
+    await page.addInitScript(() => {
+      try {
+        localStorage.setItem('has_visited_porch', '1');
+        localStorage.setItem('tdb-tour-seen', '1');
+      } catch (e) {}
+    });
+    await page.goto('/');
+    await expect(page.locator('.site-top-links [data-tdb-theme-toggle]')).toHaveCount(0);
+    await expect(page.locator('#verseCard [data-tdb-theme-toggle]')).toHaveCount(0);
+    await expect(page.locator('.tdb-nav-more [data-tdb-theme-toggle]')).toHaveCount(1);
+  });
+});
+
+test.describe('audit P0 porch desktop', () => {
+  test.use({ viewport: { width: 1280, height: 800 } });
+
+  test('today’s KJV verse is in the first desktop viewport', async ({ page }) => {
+    await page.addInitScript(() => {
+      try {
+        localStorage.setItem('has_visited_porch', '1');
+        localStorage.setItem('tdb-tour-seen', '1');
+      } catch (e) {}
+    });
+    await page.goto('/');
+    await expect(page.locator('#heroVerse')).toBeVisible({ timeout: 20000 });
+    const verseBox = await page.locator('#heroVerse').boundingBox();
+    expect(verseBox).toBeTruthy();
+    expect(verseBox!.y).toBeGreaterThanOrEqual(0);
+    expect(verseBox!.y).toBeLessThan(800);
+    expect(verseBox!.y + Math.min(verseBox!.height, 48)).toBeLessThan(800);
   });
 });

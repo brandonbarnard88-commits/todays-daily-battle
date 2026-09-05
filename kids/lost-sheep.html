@@ -16,8 +16,8 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="preload" href="kids-play-skin.css?v=20260903verse1" as="style">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260903verse1">
+  <link rel="preload" href="kids-play-skin.css?v=20260905play2" as="style">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260905play2">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -74,8 +74,9 @@
         </div>
         <p id="ls-win" class="ls-win" hidden></p>
         <div class="ls-found-kjv" id="ls-found-kjv">
-          <cite>Luke 15:4–6 (KJV)</cite>
-          <p>What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing. And when he cometh home, he calleth together his friends and neighbours, saying unto them, Rejoice with me; for I have found my sheep which was lost.</p>
+          <cite id="ls-found-cite">Luke 15:4 (KJV)</cite>
+          <p id="ls-found-kjv-text">What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it?</p>
+          <p class="ls-found-teach" id="ls-found-teach">The Shepherd does not shrug and count ninety-nine as enough. He goes after the one.</p>
         </div>
         <div class="ls-actions">
           <button type="button" id="ls-harder" hidden>Next round</button>
@@ -101,7 +102,7 @@
       </div>
     </main>
   </div>
-  <script src="kids-play-helpers.js?v=20260902deep1"></script>
+  <script src="kids-play-helpers.js?v=20260905play2"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -208,7 +209,16 @@
       var flock = document.getElementById('ls-flock');
       if (flock) flock.classList.remove('is-found');
       var flockLine = document.getElementById('ls-flock-line');
-      if (flockLine) flockLine.textContent = 'The flock is here. One sheep is lost.';
+      var beat = (kit && kit.sheepBeat) ? kit.sheepBeat(levelIndex) : null;
+      if (flockLine) flockLine.textContent = (beat && beat.flock) || 'The flock is here. One sheep is lost.';
+      var citeEl = document.getElementById('ls-found-cite');
+      var kjvEl = document.getElementById('ls-found-kjv-text');
+      var teachEl = document.getElementById('ls-found-teach');
+      if (beat) {
+        if (citeEl) citeEl.textContent = beat.cite;
+        if (kjvEl) kjvEl.textContent = beat.kjv;
+        if (teachEl) teachEl.textContent = beat.teach;
+      }
       document.body.classList.remove('is-won', 'ls-at-home');
       var doors = document.getElementById('kg-next-doors');
       if (doors) doors.textContent = '';
@@ -244,7 +254,17 @@
               sheepImg.decoding = 'async';
               b.appendChild(sheepImg);
               done = true;
-              if (st) st.textContent = 'You found the sheep!';
+              if (st) st.textContent = (beat && beat.found) || 'You found the sheep!';
+              if (kit && kit.playChime) kit.playChime('win');
+              if (kit && kit.fillHearButton) {
+                kit.fillHearButton(document.getElementById('ls-found-kjv'), {
+                  plain: (beat && beat.teach) || '',
+                  kjv: (beat && beat.kjv) || '',
+                  shortKjv: (beat && beat.kjv) || ''
+                });
+                var hearBtn = document.querySelector('#ls-found-kjv .kg-hear-pair');
+                if (hearBtn) hearBtn.textContent = 'Hear this verse';
+              }
               if (w) { w.hidden = true; w.textContent = ''; }
               var carryWin = document.getElementById('kg-carry');
               if (carryWin) carryWin.classList.add('show');
@@ -271,6 +291,7 @@
               missStreak += 1;
               var hint = sheepHint(idx, L.n);
               if (st) st.textContent = hint;
+              if (kit && kit.playChime) kit.playChime('miss');
               if (/[Ww]armer/.test(hint) && window.tdbLittleShepherd && window.tdbLittleShepherd.notify) {
                 try { window.tdbLittleShepherd.notify('warmer'); } catch (eW) {}
               }
@@ -295,6 +316,7 @@
         build();
       });
     }
+    if (kit && kit.fillGameChooser) kit.fillGameChooser(document.querySelector('.kg-more'), 'sheep');
     build();
   });
   </script>

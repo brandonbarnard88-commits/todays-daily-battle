@@ -249,6 +249,27 @@
     if (/john 3:16|so loved the world/.test(hay)) {
       return { story: 'jesusBirth', color: 'nativity', label: 'the birth of Jesus' };
     }
+    if (/genesis 1:31|creation|very good/.test(hay)) {
+      return { story: 'creation', color: 'creation', label: 'Creation' };
+    }
+    if (/genesis 8:1|noah/.test(hay)) {
+      return { story: 'noah', color: 'noah', label: 'Noah' };
+    }
+    if (/matthew 28:6|he is risen|empty/.test(hay)) {
+      return { story: 'tombEmpty', color: 'empty-tomb', label: 'the empty tomb' };
+    }
+    if (/matthew 14:20|were filled|five thousand|feeding/.test(hay)) {
+      return { story: 'jesusFeeds5000', color: 'feeding-5000', label: 'the five thousand' };
+    }
+    if (/luke 19:5|zacchaeus/.test(hay)) {
+      return { story: 'zacchaeus', color: 'zacchaeus', label: 'Zacchaeus' };
+    }
+    if (/daniel 6:22|lions/.test(hay)) {
+      return { story: 'danielLionsDen', color: 'daniel-lions', label: 'Daniel and the lions' };
+    }
+    if (/jonah 2:10|jonah/.test(hay)) {
+      return { story: 'jonah', color: 'jonah', label: 'Jonah' };
+    }
     return null;
   }
 
@@ -269,7 +290,15 @@
     { id: 'battle', plain: 'The battle is the Lord’s', short: 'God fights', shortKjv: 'The battle is the Lord\'s', kjv: 'The battle is the Lord\'s.', ref: '1 Samuel 17:47', icon: '⚔️', who: 'David', clue: 'whose battle it really is', teach: 'David faced Goliath trusting God—not his own size.', story: 'davidGoliath', color: 'david', door: 'David and Goliath' },
     { id: 'refuge', plain: 'God is my safe place', short: 'Safe place', shortKjv: 'God is our refuge', kjv: 'God is our refuge and strength, a very present help.', ref: 'Psalm 46:1', icon: '🏰', who: 'Safe', clue: 'a safe place and present help', teach: 'When you need help now, God is a present help.' },
     { id: 'rejoice', plain: 'Rejoice in the Lord', short: 'Be glad', shortKjv: 'Rejoice in the Lord alway', kjv: 'Rejoice in the Lord alway: and again I say, Rejoice.', ref: 'Philippians 4:4', icon: '☀️', who: 'Joy', clue: 'rejoicing in the Lord', teach: 'Joy can grow even on hard days because the Lord is near.' },
-    { id: 'still', plain: 'Be still—know God', short: 'Be still', shortKjv: 'Be still, and know', kjv: 'Be still, and know that I am God.', ref: 'Psalm 46:10', icon: '🤫', who: 'Still', clue: 'being still and knowing God', teach: 'Quiet moments help us remember who God is.' }
+    { id: 'still', plain: 'Be still—know God', short: 'Be still', shortKjv: 'Be still, and know', kjv: 'Be still, and know that I am God.', ref: 'Psalm 46:10', icon: '🤫', who: 'Still', clue: 'being still and knowing God', teach: 'Quiet moments help us remember who God is.' },
+    { id: 'creation', plain: 'God made everything good', short: 'God made it', shortKjv: 'Behold, it was very good', kjv: 'And God saw every thing that he had made, and, behold, it was very good.', ref: 'Genesis 1:31', icon: '🌍', who: 'Maker', clue: 'God making the world good', teach: 'God made the world—and you—on purpose, and He called it very good.', story: 'creation', color: 'creation', door: 'Creation' },
+    { id: 'noah', plain: 'God keeps His promises', short: 'God remembers', shortKjv: 'God remembered Noah', kjv: 'And God remembered Noah.', ref: 'Genesis 8:1', icon: '🌈', who: 'Noah', clue: 'God remembering Noah', teach: 'God does not forget the people who walk with Him.', story: 'noah', color: 'noah', door: 'Noah' },
+    { id: 'empty', plain: 'Jesus is alive', short: 'He is risen', shortKjv: 'He is not here: for he is risen', kjv: 'He is not here: for he is risen, as he said.', ref: 'Matthew 28:6', icon: '🌅', who: 'Risen', clue: 'the empty tomb', teach: 'The tomb was empty because Jesus is alive.', story: 'tombEmpty', color: 'empty-tomb', door: 'the empty tomb' },
+    { id: 'feed', plain: 'Jesus gives more than enough', short: 'More than enough', shortKjv: 'They did all eat, and were filled', kjv: 'And they did all eat, and were filled.', ref: 'Matthew 14:20', icon: '🍞', who: 'Bread', clue: 'a little lunch becoming enough', teach: 'A small lunch in Jesus’ hands was more than enough.', story: 'jesusFeeds5000', color: 'feeding-5000', door: 'the five thousand' },
+    { id: 'zacch', plain: 'Jesus knows your name', short: 'He knows you', shortKjv: 'Zacchaeus, make haste, and come down', kjv: 'Zacchaeus, make haste, and come down; for to day I must abide at thy house.', ref: 'Luke 19:5', icon: '🌳', who: 'Zacchaeus', clue: 'Jesus calling someone by name', teach: 'Jesus saw Zacchaeus in the tree and called him by name.', story: 'zacchaeus', color: 'zacchaeus', door: 'Zacchaeus' },
+    { id: 'daniel', plain: 'God is with you when you are afraid', short: 'God is with you', shortKjv: 'My God hath sent his angel', kjv: 'My God hath sent his angel, and hath shut the lions\' mouths.', ref: 'Daniel 6:22', icon: '🦁', who: 'Daniel', clue: 'God shutting the lions’ mouths', teach: 'Daniel kept praying. God was with him in the den.', story: 'danielLionsDen', color: 'daniel-lions', door: 'Daniel and the lions' },
+    { id: 'lost', plain: 'The Shepherd comes for the one', short: 'He comes for one', shortKjv: 'I have found my sheep which was lost', kjv: 'Rejoice with me; for I have found my sheep which was lost.', ref: 'Luke 15:6', icon: '🐑', who: 'Shepherd', clue: 'finding the one lost sheep', teach: 'The Shepherd does not shrug at ninety-nine. He goes after the one.', story: 'lostSheep', color: 'lost-sheep', door: 'the lost sheep' },
+    { id: 'jonah', plain: 'God’s mercy reaches farther than we run', short: 'God’s mercy', shortKjv: 'The LORD spake unto the fish', kjv: 'And the LORD spake unto the fish, and it vomited out Jonah upon the dry land.', ref: 'Jonah 2:10', icon: '🐋', who: 'Jonah', clue: 'God bringing Jonah back', teach: 'Jonah ran. God still made a way to send him—and to show mercy.', story: 'jonah', color: 'jonah', door: 'Jonah' }
   ];
 
   var ART_BY_REF = [
@@ -279,7 +308,14 @@
     { re: /^mark\s*4:39/i, src: '/coloring-pages/colored/jesus-storm-s1.jpg' },
     { re: /^1\s*samuel\s*17/i, src: '/coloring-pages/colored/david-and-goliath.jpg' },
     { re: /^luke\s*15\b/i, src: '/coloring-pages/colored/lost-sheep-s1.jpg' },
-    { re: /^john\s*3:16/i, src: '/coloring-pages/colored/nativity.jpg' }
+    { re: /^john\s*3:16/i, src: '/coloring-pages/colored/nativity.jpg' },
+    { re: /^genesis\s*1:31/i, src: '/coloring-pages/colored/creation.jpg' },
+    { re: /^genesis\s*8:1/i, src: '/coloring-pages/colored/noahs-ark.jpg' },
+    { re: /^matthew\s*28:6/i, src: '/coloring-pages/colored/empty-tomb.jpg' },
+    { re: /^matthew\s*14:20/i, src: '/coloring-pages/colored/feeding-5000-s1.jpg' },
+    { re: /^luke\s*19:5/i, src: '/coloring-pages/colored/zacchaeus-s1.jpg' },
+    { re: /^daniel\s*6:22/i, src: '/coloring-pages/colored/daniel-in-the-lions-den.jpg' },
+    { re: /^jonah\s*2:10/i, src: '/coloring-pages/colored/jonah-and-the-great-fish.jpg' }
   ];
 
   function pairArt(pair) {
@@ -746,6 +782,119 @@
     return seededShuffle(takeUniquePairs(core.concat(daily), want), dayIndex() * 31 + want);
   }
 
+  var GAME_CHOOSER = [
+    { id: 'match', href: 'match-buddies.html', cls: 'kids-easy-game--match', title: 'Match the Verse', blurb: 'pair a kid line to KJV', ico: 'shepherd-mascot-read.png' },
+    { id: 'sheep', href: 'lost-sheep.html', cls: 'kids-easy-game--sheep', title: 'Find the sheep', blurb: 'tap the grass', ico: 'shepherd-mascot-sheep.png' },
+    { id: 'memory', href: 'memory-flock.html', cls: 'kids-easy-game--memory', title: 'Memory flock', blurb: 'flip and match', ico: 'shepherd-mascot-sit.png' },
+    { id: 'path', href: 'shepherds-path.html', cls: 'kids-easy-game--path', title: 'Shepherd’s Path', blurb: 'step the stones', ico: 'shepherd-mascot-point.png' }
+  ];
+
+  var SHEEP_BEATS = [
+    {
+      cite: 'Luke 15:4 (KJV)',
+      kjv: 'What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it?',
+      teach: 'The Shepherd does not shrug and count ninety-nine as enough. He goes after the one.',
+      flock: 'Ninety-nine are here. One sheep is lost.',
+      found: 'You found the one!'
+    },
+    {
+      cite: 'Luke 15:5 (KJV)',
+      kjv: 'And when he hath found it, he layeth it on his shoulders, rejoicing.',
+      teach: 'He does not drive the tired sheep home. He carries it.',
+      flock: 'The Shepherd is looking. He will carry the lost one.',
+      found: 'On His shoulders—home.'
+    },
+    {
+      cite: 'Luke 15:6 (KJV)',
+      kjv: 'And when he cometh home, he calleth together his friends and neighbours, saying unto them, Rejoice with me; for I have found my sheep which was lost.',
+      teach: 'Heaven is glad when the lost is found. That is a party, not a scolding.',
+      flock: 'Friends are waiting to hear good news.',
+      found: 'Rejoice with me!'
+    },
+    {
+      cite: 'Luke 15:7 (KJV)',
+      kjv: 'I say unto you, that likewise joy shall be in heaven over one sinner that repenteth, more than over ninety and nine just persons, which need no repentance.',
+      teach: 'One heart turning home matters to God.',
+      flock: 'Heaven watches for the one.',
+      found: 'Joy in heaven over one.'
+    }
+  ];
+
+  var toneCtx = null;
+  function playChime(kind) {
+    var box = document.getElementById('match-sound');
+    if (box && !box.checked) return;
+    try {
+      var AC = global.AudioContext || global.webkitAudioContext;
+      if (!AC) return;
+      if (!toneCtx) toneCtx = new AC();
+      function beep(freq, ms, type, delay) {
+        var o = toneCtx.createOscillator();
+        var g = toneCtx.createGain();
+        o.type = type || 'sine';
+        o.frequency.value = freq;
+        g.gain.value = 0.05;
+        o.connect(g);
+        g.connect(toneCtx.destination);
+        var t0 = toneCtx.currentTime + (delay || 0);
+        o.start(t0);
+        g.gain.exponentialRampToValueAtTime(0.001, t0 + (ms || 0.12));
+        o.stop(t0 + (ms || 0.12));
+      }
+      if (kind === 'win') {
+        beep(523, 0.12);
+        beep(784, 0.18, 'sine', 0.09);
+      } else if (kind === 'ok') {
+        beep(660, 0.1);
+      } else if (kind === 'miss') {
+        beep(196, 0.09, 'triangle');
+      }
+    } catch (e) { /* no-op */ }
+  }
+
+  function fillGameChooser(el, currentId) {
+    if (!el) return;
+    el.textContent = '';
+    el.classList.add('kg-more');
+    var lab = document.createElement('p');
+    lab.className = 'kg-more-label';
+    lab.textContent = 'More games';
+    el.appendChild(lab);
+    var grid = document.createElement('div');
+    grid.className = 'kids-easy-game-grid';
+    var i;
+    for (i = 0; i < GAME_CHOOSER.length; i++) {
+      var g = GAME_CHOOSER[i];
+      if (g.id === currentId) continue;
+      var a = document.createElement('a');
+      a.className = 'kids-easy-game ' + g.cls;
+      a.href = g.href;
+      a.setAttribute('data-kg-game', g.id);
+      var ico = document.createElement('span');
+      ico.className = 'kids-easy-game-ico';
+      ico.setAttribute('aria-hidden', 'true');
+      var img = document.createElement('img');
+      img.src = g.ico + '?v=20260820polish';
+      img.alt = '';
+      img.width = 48;
+      img.height = 48;
+      img.decoding = 'async';
+      img.loading = 'lazy';
+      ico.appendChild(img);
+      a.appendChild(ico);
+      a.appendChild(document.createTextNode(g.title));
+      var sm = document.createElement('small');
+      sm.textContent = g.blurb;
+      a.appendChild(sm);
+      grid.appendChild(a);
+    }
+    el.appendChild(grid);
+  }
+
+  function sheepBeat(levelIndex) {
+    return SHEEP_BEATS[Math.max(0, Math.min(levelIndex || 0, SHEEP_BEATS.length - 1))];
+  }
+
   global.tdbKidsGameKit = {
     dayIndex: dayIndex,
     seededShuffle: seededShuffle,
@@ -781,6 +930,10 @@
     MATCH_CORE: MATCH_CORE,
     dailyCorePairs: dailyCorePairs,
     dailyVersePairs: dailyVersePairs,
-    mixDailyAndCore: mixDailyAndCore
+    mixDailyAndCore: mixDailyAndCore,
+    fillGameChooser: fillGameChooser,
+    playChime: playChime,
+    sheepBeat: sheepBeat,
+    SHEEP_BEATS: SHEEP_BEATS
   };
 })(typeof window !== 'undefined' ? window : this);

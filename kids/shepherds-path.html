@@ -16,8 +16,8 @@
   <link rel="stylesheet" href="kids-battle.css?v=20260809easy">
   <link rel="preload" href="kids-kids-world.css?v=20260511legibility" as="style">
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
-  <link rel="preload" href="kids-play-skin.css?v=20260903faces1" as="style">
-  <link rel="stylesheet" href="kids-play-skin.css?v=20260903faces1">
+  <link rel="preload" href="kids-play-skin.css?v=20260905play2" as="style">
+  <link rel="stylesheet" href="kids-play-skin.css?v=20260905play2">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
@@ -90,7 +90,7 @@
     </main>
   </div>
   <script src="kids-verses-365.js?v=20260802-calendar-mix"></script>
-  <script src="kids-play-helpers.js?v=20260902deep1"></script>
+  <script src="kids-play-helpers.js?v=20260905play2"></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260816-playall" defer></script>
@@ -156,12 +156,27 @@
     }
 
     function dailyVerse() {
+      if (kit && kit.dailyCorePairs) {
+        var core = kit.dailyCorePairs(12);
+        var pick = core[(levelIndex + ((kit.dayIndex && kit.dayIndex()) || 0)) % core.length];
+        if (pick && pick.kjv) {
+          return {
+            ref: pick.ref,
+            text: pick.kjv,
+            teach: pick.teach,
+            story: pick.story,
+            color: pick.color,
+            door: pick.door,
+            plain: pick.plain
+          };
+        }
+      }
       var list = window.__TDB_KIDS_VERSES_365;
       if (list && list.length && kit) {
         var v = list[kit.dayIndex() % list.length];
         if (v && v.text) return v;
       }
-      return { ref: 'Psalm 23:1', text: 'The Lord is my shepherd; I shall not want.' };
+      return { ref: 'Psalm 23:1', text: 'The Lord is my shepherd; I shall not want.', teach: 'Jesus cares for you the way a good shepherd cares for sheep.' };
     }
 
     function placeWalker(host) {
@@ -244,19 +259,25 @@
               }
               if (expect > useN) {
                 if (st) st.textContent = 'You finished the path!';
+                if (kit && kit.playChime) kit.playChime('win');
                 if (path) path.classList.add('is-trail');
                 document.body.classList.add('is-won');
                 if (winL) {
-                  winL.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin)
-                    ? tdbLittleShepherd.pickMatchWin()
-                    : 'Well walked. This verse is the path.';
+                  winL.textContent = currentVerse.teach
+                    ? currentVerse.teach
+                    : ((window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin)
+                      ? tdbLittleShepherd.pickMatchWin()
+                      : 'Well walked. This verse is the path.');
                 }
                 if (win) { win.classList.add('show'); win.hidden = false; }
                 if (kit && kit.fillWinDoors) {
                   kit.fillWinDoors(document.getElementById('kg-next-doors'), {
                     ref: currentVerse.ref,
                     kjv: currentVerse.text,
-                    plain: currentVerse.text
+                    plain: currentVerse.plain || currentVerse.text,
+                    story: currentVerse.story,
+                    color: currentVerse.color,
+                    label: currentVerse.door
                   });
                 }
                 if (kit) kit.recordScore('path', { wins: 1, level: levelIndex + 1 });
@@ -267,6 +288,7 @@
               } else if (st) {
                 missStreak = 0;
                 st.textContent = 'Yes. The next word of the verse.';
+                if (kit && kit.playChime) kit.playChime('ok');
                 if (window.tdbLittleShepherd && tdbLittleShepherd.notify) {
                   try { window.tdbLittleShepherd.notify('pathStep'); } catch (eS) {}
                 }
@@ -276,6 +298,7 @@
               b.classList.add('wrong');
               setTimeout(function () { b.classList.remove('wrong'); }, 450);
               if (st) st.textContent = pathHint();
+              if (kit && kit.playChime) kit.playChime('miss');
               if (window.tdbLittleShepherd && tdbLittleShepherd.notify) {
                 try { window.tdbLittleShepherd.notify('wrongMatch'); } catch (e3) {}
               }
@@ -310,6 +333,7 @@
         build();
       });
     }
+    if (kitEarly && kitEarly.fillGameChooser) kitEarly.fillGameChooser(document.querySelector('.kg-more'), 'path');
     build();
   });
   </script>

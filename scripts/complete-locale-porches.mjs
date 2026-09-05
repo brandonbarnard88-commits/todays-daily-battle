@@ -723,6 +723,7 @@ function moodHtml(lang, langKey, moodKey, mood) {
   <link rel="alternate" hreflang="${lang.htmlLang}" href="https://todaysdailybattle.com${path}">
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com${meta.en}">
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
+  <link rel="preload" href="/styles.css?v=20260816-brightgold" as="style">
   <link rel="stylesheet" href="/styles.css?v=20260816-brightgold">
 </head>
 <body class="dark-mode tdb-no-sidebar-shell">
@@ -806,6 +807,7 @@ function shellHtml(lang, langKey, shellKey, shell) {
   <link rel="canonical" href="https://todaysdailybattle.com${path}">
   <link rel="alternate" hreflang="${lang.htmlLang}" href="https://todaysdailybattle.com${path}">
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com${en}">
+  <link rel="preload" href="/styles.css?v=20260816-brightgold" as="style">
   <link rel="stylesheet" href="/styles.css?v=20260816-brightgold">
 </head>
 <body class="dark-mode tdb-no-sidebar-shell">

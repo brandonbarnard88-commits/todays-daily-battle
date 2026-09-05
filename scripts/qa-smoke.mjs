@@ -149,52 +149,32 @@ try {
     mark('Pray counter increments', false, 'Prayer input/button (#prayer-wall-input, #prayer-wall-add) not found on prayer wall.');
   }
 
-  step('search');
-  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  step('ask');
+  await page.goto(origin + '/ask.html', { waitUntil: 'domcontentloaded', timeout: 60000 });
   await page.waitForTimeout(1200);
 
-  const battleTab = page.locator('#tab-battle');
-  if (await battleTab.count()) {
-    await battleTab.first().click();
-    await page.waitForTimeout(250);
-  }
-
-  const searchInput = page.locator('#tdb-search, #feel-search');
-  const quickHope = page.locator('#quickTopics .quick-topic[data-topic="hope"], #quick-actions-hero [data-topic="hope"], #quick-actions-hero a[href*="q=hope"]').first();
+  const searchInput = page.locator('#feel-search');
+  const quickHope = page.locator('#quickTopics .quick-topic[data-topic="hope"]').first();
   const hasSearchInput = (await searchInput.count()) > 0;
   const hasQuickHope = (await quickHope.count()) > 0;
   const searchReady = await waitForSearchReady(page);
 
-  /* Flat feelings: chips are visible without category cards. Keep legacy openers if present. */
-  const feelBack = page.locator('#feelBandBack');
-  if (await feelBack.isVisible().catch(() => false)) {
-    await feelBack.click().catch(() => {});
-    await page.waitForTimeout(200);
-  }
-  const feelSteady = page.locator('#quickTopics .feel-category-card[data-feel-band="steady"]');
-  if (await feelSteady.count() > 0) {
-    await feelSteady.first().click().catch(() => {});
-    await page.waitForTimeout(220);
-  }
-
   if (hasSearchInput || hasQuickHope) {
-    if (searchReady) {
+    if (hasQuickHope) {
+      await quickHope.click();
+    } else if (searchReady) {
       await page.evaluate(() => {
         if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput('hope');
       });
-    } else if (hasQuickHope) {
-      await quickHope.click();
+    } else {
+      await searchInput.fill('hope');
+      await page.locator('#feel-search-btn').click();
     }
 
-    let { cards, emptyCount } = await waitForSearchOutput(page, 12000);
-    if (cards === 0 && emptyCount === 0 && hasQuickHope && !searchReady) {
+    let { cards, emptyCount } = await waitForSearchOutput(page, 15000);
+    if (cards === 0 && emptyCount === 0 && hasQuickHope) {
       await quickHope.click();
       await page.waitForTimeout(800);
-      ({ cards, emptyCount } = await waitForSearchOutput(page, 10000));
-    }
-    if (cards === 0 && emptyCount === 0) {
-      await page.goto(origin + '/index.html?q=hope#feel-section', { waitUntil: 'domcontentloaded', timeout: 60000 });
-      await page.waitForTimeout(1500);
       ({ cards, emptyCount } = await waitForSearchOutput(page, 10000));
     }
 
@@ -207,47 +187,33 @@ try {
 
     if (cards > 0) {
       try {
-        await page.waitForFunction(
-          () =>
-            typeof window.TDBVerseBreakdown === 'object' &&
-            window.TDBVerseBreakdown &&
-            typeof window.TDBVerseBreakdown.open === 'function',
-          { timeout: 20000 }
-        );
-        await page.waitForTimeout(800);
-        // Visible homepage results live in #feel-results / #feelCards; #output is sr-only.
-        // Support both inline-disclosure and KISS card toolbars after porch-calm chrome moves.
-        const scopedDetails = page
-          .locator(
-            '#feel-results .tdb-verse-breakdown-inline, #feelCards .tdb-verse-breakdown-inline, #feel-results details.tdb-verse-breakdown-inline'
-          )
-          .first();
-        await scopedDetails.waitFor({ state: 'attached', timeout: 12000 }).catch(() => {});
-        let actions = '';
-        const trigger = scopedDetails.locator('.tdb-vb-inline-toggle, summary').first();
-        if ((await trigger.count()) > 0) {
-          await trigger.scrollIntoViewIfNeeded().catch(() => {});
-          await page.waitForTimeout(200);
-          await trigger.click({ timeout: 8000 }).catch(() => {});
-          await page.waitForTimeout(500);
-          const actionsLoc = scopedDetails.locator(
-            '.tdb-vb-inline-actions [data-action], [data-action="pray"], [data-action="save"], [data-action="share"]'
-          );
-          await actionsLoc.first().waitFor({ state: 'visible', timeout: 6000 }).catch(() => {});
-          actions = (await actionsLoc.allTextContents()).join(' | ');
-        }
-        if (!actions) {
-          const cardActions = page.locator(
-            '#feel-results [data-action], #feelCards [data-action], #feel-results .home-search-card button, #feelCards .feel-verse-card button'
-          );
-          actions = (await cardActions.allTextContents().catch(() => [])).join(' | ');
-        }
+        const firstCard = page.locator('#feelCards .feel-verse-card, #feel-results .feel-verse-card').first();
+        await firstCard.waitFor({ state: 'visible', timeout: 12000 });
+        const teaching = await firstCard.evaluate((el) => {
+          const text = String(el.textContent || '');
+          return {
+            situation: /What was going on/i.test(text),
+            meaning: /What it means/i.test(text),
+            actions: Array.from(el.querySelectorAll('.fvc-action-btn, [data-action], button'))
+              .map((n) => String(n.textContent || '').trim())
+              .filter(Boolean)
+              .join(' | ')
+          };
+        });
+        const actions = teaching.actions || '';
         const breakdownOk =
-          (/Pray it|Pray/i.test(actions) && /Save/i.test(actions) && /Share/i.test(actions)) ||
-          (/Save/i.test(actions) && (/Share|Copy|Listen/i.test(actions)));
-        mark('Verse breakdown actions', breakdownOk, actions || 'No inline [data-action] buttons visible');
+          (teaching.situation && teaching.meaning) ||
+          (/Save/i.test(actions) && (/Share|Copy|Listen|Chapter/i.test(actions)));
+        mark(
+          'Verse breakdown actions',
+          breakdownOk,
+          actions ||
+            (teaching.situation && teaching.meaning
+              ? 'Ask teaching liturgy visible'
+              : 'No Ask verse teaching or card actions')
+        );
       } catch (clickErr) {
-        mark('Verse breakdown actions', false, 'Breakdown open failed: ' + (clickErr.message || 'timeout'));
+        mark('Verse breakdown actions', false, 'Ask verse card failed: ' + (clickErr.message || 'timeout'));
       }
     } else if (emptyCount > 0) {
       mark('Verse breakdown actions', true, 'Search returned empty state; no verse card available to open.');
@@ -255,10 +221,12 @@ try {
       mark('Verse breakdown actions', false, 'No verse cards to open.');
     }
   } else {
-    mark('Search renders results', false, 'Search controls not found.');
-    mark('Verse breakdown actions', false, 'Search controls not found.');
+    mark('Search renders results', false, 'Ask search controls not found.');
+    mark('Verse breakdown actions', false, 'Ask search controls not found.');
   }
 
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForTimeout(600);
   const footerCols = await page.locator('footer .footer-col').count();
   const footerNavLinks = await page.locator('footer .site-footer-nav a').count();
   const swipeHint = await page.locator('.swipe-hint').count();

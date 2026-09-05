@@ -530,9 +530,9 @@
         return;
       }
     } catch (e) { /* ignore */ }
-    /* Capacity door is the first-visit surface; welcome strip stays in DOM for tests. */
+    /* Verse is the first door. Capacity chooser stays a hidden stub. */
     if (strip) strip.setAttribute('hidden', '');
-    placeCapacityDoor(true);
+    placeCapacityDoor(false);
     placeStartMyDayForReturning();
   }
 

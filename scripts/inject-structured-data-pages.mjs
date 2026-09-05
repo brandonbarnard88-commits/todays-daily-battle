@@ -159,7 +159,7 @@ function extractPlanRows(html) {
   while ((m = re.exec(html)) !== null) {
     const inner = m[1];
     if (!/class="plan-row/.test(inner)) continue;
-    const hrefM = inner.match(/href="plans\.html\?plan=([^"]+)"/);
+    const hrefM = inner.match(/href="(?:\/)?plans(?:\.html)?\?plan=([^"]+)"/);
     const labelM = inner.match(/aria-label="([^"]+)"/);
     if (!hrefM || !labelM) continue;
     const id = hrefM[1];

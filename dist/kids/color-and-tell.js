@@ -4220,24 +4220,13 @@
     return bestSceneSrc(story.scenes[0]) || '';
   }
 
+  var showColorStoryFn = null;
+
   function jumpToColorStory(storyId) {
     if (!storyId) return;
-    var sec = document.querySelector(
-      '.tdb-cat-story[data-tdb-story="' + storyId + '"]'
-    );
-    if (!sec) return;
-    /* Reveal deferred stories when jumped from the picture grid */
-    sec.hidden = false;
-    sec.classList.remove('tdb-cat-story--deferred');
-    try {
-      var showAll = document.querySelector('.tdb-cat-show-all-stories');
-      if (showAll) showAll.hidden = true;
-    } catch (_e) { /* no-op */ }
-    sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    var firstPanel =
-      sec.querySelector('.tdb-cat-panel:not([hidden])') ||
-      sec.querySelector('.tdb-cat-panel');
-    if (firstPanel) ensureSceneJl(firstPanel);
+    if (typeof showColorStoryFn === 'function') {
+      showColorStoryFn(storyId, { scroll: true, smooth: true });
+    }
   }
 
   /**
@@ -4395,15 +4384,6 @@
 
     mount.setAttribute('aria-label', 'Color and tell my story');
 
-    /* Featured doors still load first for deep links; grid lists every story. */
-    var FEATURED_STORY_IDS = {
-      creation: true,
-      david: true,
-      'jesus-children': true,
-      'daniel-lions': true,
-      'empty-tomb': true
-    };
-
     var progressOuter = document.createElement('div');
     progressOuter.className = 'tdb-cat-progress-outer tdb-cat-story-grid-outer';
 
@@ -4482,55 +4462,35 @@
       refreshProgressCards(progressWrap);
     }
 
-    var showAllStoriesBtn = document.createElement('button');
-    showAllStoriesBtn.type = 'button';
-    showAllStoriesBtn.className = 'btn btn-secondary tdb-cat-show-all-stories no-print';
-    showAllStoriesBtn.textContent = 'Show paint tools for every story';
-    showAllStoriesBtn.setAttribute(
-      'aria-label',
-      'Expand paint tools for every Color and Tell story on this page'
-    );
-    showAllStoriesBtn.addEventListener('click', function () {
-      mount.querySelectorAll('.tdb-cat-story--deferred').forEach(function (sec) {
-        sec.hidden = false;
-        sec.classList.remove('tdb-cat-story--deferred');
-      });
-      showAllStoriesBtn.hidden = true;
-    });
-    /* Grid already lists every story; button still expands all paint sections. */
-    mount.appendChild(showAllStoriesBtn);
+    var storyIo = null;
+    if (typeof IntersectionObserver === 'function') {
+      storyIo = new IntersectionObserver(
+        function (entries) {
+          for (var ei = 0; ei < entries.length; ei++) {
+            if (!entries[ei].isIntersecting) continue;
+            var vis = entries[ei].target;
+            if (vis.hidden) continue;
+            var near =
+              vis.querySelector('.tdb-cat-panel:not([hidden])') ||
+              vis.querySelector('.tdb-cat-panel');
+            if (near) ensureSceneJl(near);
+          }
+        },
+        { root: null, rootMargin: '120px 0px', threshold: 0.05 }
+      );
+    }
 
-    for (var si = 0; si < STORIES.length; si++) {
-      (function (story) {
+    function buildStorySection(story) {
         var section = document.createElement('section');
         section.className = 'tdb-cat-story';
         if (story.scenes.length === 1) {
           section.classList.add('is-single-scene');
         }
         section.setAttribute('data-tdb-story', story.id);
-        var isFeatured = !!FEATURED_STORY_IDS[story.id];
-        var isRequested = !!(requestedStoryId && story.id === requestedStoryId);
-        /* Deep link: focus that story. Otherwise start with five doors only. */
-        if (requestedStoryId) {
-          if (!isRequested) {
-            section.hidden = true;
-            section.classList.add('tdb-cat-story--deferred');
-          }
-        } else if (!isFeatured) {
-          section.hidden = true;
-          section.classList.add('tdb-cat-story--deferred');
-        }
-        if (isFeatured || isRequested) {
-          if (!document.getElementById('tdb-cat-story-start')) {
-            section.id = 'tdb-cat-story-start';
-          }
-        }
-        if (requestedStoryId && story.id === requestedStoryId) {
-          requestedStorySection = section;
-        }
 
         var h2 = document.createElement('h2');
         h2.className = 'tdb-cat-story-title';
+        h2.tabIndex = -1;
         h2.textContent = story.title;
 
         var lead = document.createElement('p');
@@ -4789,60 +4749,66 @@
 
         mount.appendChild(section);
         updateStoryUI(story, section, watchBtn, celebrate);
-      })(STORIES[si]);
+        if (storyIo) storyIo.observe(section);
+        return section;
     }
 
-    refreshAllProgress();
-    if (!mount.querySelector('.tdb-cat-story--deferred')) {
-      showAllStoriesBtn.hidden = true;
-    }
-    if (requestedStorySection && progressOuter && progressOuter.parentNode) {
-      progressOuter.parentNode.insertBefore(requestedStorySection, progressOuter);
+    function showOneColorStory(storyId, opts) {
+      var story = getStoryMetaById(storyId);
+      if (!story) return null;
+      opts = opts || {};
+      try {
+        stopStoryListen();
+      } catch (_stop) { /* no-op */ }
+      var sec = mount.querySelector('.tdb-cat-story[data-tdb-story="' + story.id + '"]');
+      if (!sec) {
+        sec = buildStorySection(story);
+      }
+      mount.querySelectorAll('.tdb-cat-story').forEach(function (other) {
+        if (other === sec) return;
+        other.hidden = true;
+        other.classList.add('tdb-cat-story--deferred');
+      });
+      sec.hidden = false;
+      sec.classList.remove('tdb-cat-story--deferred');
+      var prevStart = document.getElementById('tdb-cat-story-start');
+      if (prevStart && prevStart !== sec) prevStart.removeAttribute('id');
+      sec.id = 'tdb-cat-story-start';
+      if (progressOuter && progressOuter.parentNode) {
+        progressOuter.parentNode.insertBefore(sec, progressOuter);
+      }
       gridLead.textContent =
         'Or pick another picture below. ' + STORIES.length + ' Bible stories.';
-    }
-
-    // Mount only the active story's visible scene (not all 80+ books).
-    function mountVisibleStory(sectionEl) {
-      if (!sectionEl) return;
       var panel =
-        sectionEl.querySelector('.tdb-cat-panel:not([hidden])') ||
-        sectionEl.querySelector('.tdb-cat-panel');
+        sec.querySelector('.tdb-cat-panel:not([hidden])') ||
+        sec.querySelector('.tdb-cat-panel');
       if (panel) ensureSceneJl(panel);
-    }
-    if (requestedStorySection) {
-      mountVisibleStory(requestedStorySection);
-    } else {
-      var firstSec = mount.querySelector('.tdb-cat-story');
-      mountVisibleStory(firstSec);
-    }
-
-    // When a story section scrolls near the viewport, mount its first panel once.
-    if (typeof IntersectionObserver === 'function') {
-      var io = new IntersectionObserver(
-        function (entries) {
-          for (var ei = 0; ei < entries.length; ei++) {
-            if (!entries[ei].isIntersecting) continue;
-            var sec = entries[ei].target;
-            var p =
-              sec.querySelector('.tdb-cat-panel:not([hidden])') ||
-              sec.querySelector('.tdb-cat-panel');
-            if (p) ensureSceneJl(p);
+      if (opts.scroll && typeof sec.scrollIntoView === 'function') {
+        sec.scrollIntoView({
+          behavior: opts.smooth ? 'smooth' : 'auto',
+          block: 'start'
+        });
+      }
+      if (opts.focusTitle) {
+        try {
+          var titleEl = sec.querySelector('.tdb-cat-story-title');
+          if (titleEl && typeof titleEl.focus === 'function') {
+            titleEl.focus({ preventScroll: true });
           }
-        },
-        { root: null, rootMargin: '120px 0px', threshold: 0.05 }
-      );
-      mount.querySelectorAll('.tdb-cat-story').forEach(function (sec) {
-        io.observe(sec);
-      });
+        } catch (_f) { /* no-op */ }
+      }
+      return sec;
     }
 
-    if (requestedStorySection && typeof requestedStorySection.scrollIntoView === 'function') {
-      requestedStorySection.scrollIntoView({ behavior: 'auto', block: 'start' });
-      try {
-        var requestedTitle = requestedStorySection.querySelector('.tdb-cat-story-title');
-        if (requestedTitle && typeof requestedTitle.focus === 'function') requestedTitle.focus({ preventScroll: true });
-      } catch (e) {}
+    showColorStoryFn = showOneColorStory;
+
+    refreshAllProgress();
+    if (requestedStoryId) {
+      requestedStorySection = showOneColorStory(requestedStoryId, {
+        scroll: true,
+        smooth: false,
+        focusTitle: true
+      });
     }
   }
 

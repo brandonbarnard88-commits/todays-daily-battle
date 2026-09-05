@@ -186,6 +186,17 @@ function checkColorAndTellWiring() {
   const src = read('kids/color-and-tell.js');
   if (!src) return;
 
+  if (src.includes('Show paint tools for every story')) {
+    errors.push('color-and-tell: Color should not dump paint tools for every story');
+  }
+  if (!src.includes('showOneColorStory') || !src.includes('buildStorySection')) {
+    errors.push('color-and-tell: Color should mount one story’s paint tools at a time');
+  }
+  const shep = read('kids/kids-gentle-shepherd.js');
+  if (shep && (!shep.includes('COLORING_AGAIN') || !shep.includes('kids-coloring-shepherd'))) {
+    errors.push('Little Shepherd should use coloring-only copy on Color');
+  }
+
   const storyIds = [...src.matchAll(/\{\s*id:\s*'([a-z0-9-]+)'\s*,\s*\n\s*title:/g)].map((m) => m[1]);
   const storySet = new Set(storyIds);
   if (storyIds.length < 20) {

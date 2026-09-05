@@ -38,8 +38,15 @@ const TRAILING_SLASH_TO_BARE = new Set([
   '/ask/'
 ]);
 
+const PRICING_TO_GIVE = new Set(['/pricing', '/pricing/', '/pricing.html']);
+
 function canonicalPublicRedirect(url) {
   const path = url.pathname || '/';
+  if (PRICING_TO_GIVE.has(path)) {
+    url.pathname = '/give';
+    url.search = '';
+    return url;
+  }
   if (PRETTY_HTML_TO_CLEAN[path]) {
     url.pathname = PRETTY_HTML_TO_CLEAN[path];
     return url;

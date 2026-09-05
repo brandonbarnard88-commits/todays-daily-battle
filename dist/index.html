@@ -142,8 +142,8 @@
   <link rel="stylesheet" href="tdb-opal-tokens.css?v=20260903opal1">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260904audit1" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260904audit1">
+  <link rel="preload" href="tdb-home-page.css?v=20260905porch2" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260905porch2">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260812unstick-nav" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260812unstick-nav">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -549,12 +549,10 @@
         <p class="soul-tag">Less Scroll, More Soul</p>
         <p class="hero-home-heartbeat site-tagline">For Family, For Country, For GOD</p>
       </div>
-      <nav class="site-top-links" aria-label="Account and appearance">
+      <nav class="site-top-links" aria-label="Account" hidden>
         <span id="header-auth-links">
           <a href="login.html" aria-label="Sign in">Sign in</a>
         </span>
-        <span aria-hidden="true"> · </span>
-        <button type="button" data-tdb-theme-toggle="home_header" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
       </nav>
       <nav class="tdb-home-main-nav tdb-primary-site-nav" aria-label="Main site navigation">
         <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-home" id="tdb-primary-nav-toggle-home">
@@ -1575,7 +1573,7 @@
   <!-- Unified Ask the Word brain (curated + full KJV) — same as bible-tool; before core-home/script.js -->
   <script nonce="tdb2025s" defer src="ask-the-word-core.js?v=20260820-askwalk"></script>
   <!-- Home core first: load script.js interaction stack on user intent/idle (core-home.js). -->
-  <script nonce="tdb2025s" defer src="core-home.js?v=20260905porch1" data-cfasync="false" fetchpriority="low"></script>
+  <script nonce="tdb2025s" defer src="core-home.js?v=20260905porch2" data-cfasync="false" fetchpriority="low"></script>
   <script nonce="tdb2025s">
     (function () {
       var loadPorchEffects = function () {

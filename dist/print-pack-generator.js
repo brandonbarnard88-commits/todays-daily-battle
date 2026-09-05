@@ -284,6 +284,12 @@
     return wrap;
   }
 
+  function addPrintCredit(article) {
+    article.appendChild(
+      el('p', 'ppg-sheet__credit', "Today's Daily Battle · todaysdailybattle.com · KJV only")
+    );
+  }
+
   function renderCover(root, pack) {
     var article = el('article', 'ppg-sheet ppg-sheet--cover');
     var hero = el('div', 'ppg-sheet__cover-intro');
@@ -304,6 +310,7 @@
     addTextSection(grid, 'Inside this pack', 'Four ink-friendly KJV sheets with calm breakdowns, prayer space, and room to write or draw.');
     addTextSection(grid, 'Quiet reminder', 'These pages are companions, not homework. Use one sheet, fold it, revisit it, or leave blank space blank.');
     article.appendChild(grid);
+    addPrintCredit(article);
 
     root.appendChild(article);
   }
@@ -315,6 +322,7 @@
     if (cardData.missing) {
       article.appendChild(el('h2', 'ppg-sheet__title', cardData.title));
       article.appendChild(el('p', 'ppg-sheet__description', 'The source content for this sheet did not load. Refresh and try again.'));
+      addPrintCredit(article);
       root.appendChild(article);
       return;
     }
@@ -346,6 +354,7 @@
 
     addTextSection(article, 'Quiet prayer', cardData.prayer, 'ppg-copy-card--prayer');
     article.appendChild(buildWritingLines(cardData.writingPrompt));
+    addPrintCredit(article);
     root.appendChild(article);
   }
 

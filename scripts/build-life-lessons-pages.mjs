@@ -314,7 +314,7 @@ ${paragraphs(lesson.unfolding, false).replace(/^      /gm, '      ')}
       <h2>A simple prayer</h2>
       <p class="prayer">${esc(lesson.prayer)}</p>
     </div>
-    <p class="footer">todaysdailybattle.com &middot; We battle. He wins. &middot; No score&mdash;return when you need it.</p>
+    <p class="footer">Today&rsquo;s Daily Battle &middot; todaysdailybattle.com &middot; We battle. He wins. &middot; No score&mdash;return when you need it.</p>
   </main>
 </body>
 </html>
@@ -553,7 +553,7 @@ ${listItems(lesson.reflection)}
       <h2>For little ones</h2>
       <p>${lesson.littleOnes.replace(/<[^>]+>/g, '')}</p>
     </div>
-    <p class="footer">todaysdailybattle.com &middot; We battle. He wins. &middot; Return anytime&mdash;no score.</p>
+    <p class="footer">Today&rsquo;s Daily Battle &middot; todaysdailybattle.com &middot; We battle. He wins. &middot; Return anytime&mdash;no score.</p>
   </main>
 </body>
 </html>

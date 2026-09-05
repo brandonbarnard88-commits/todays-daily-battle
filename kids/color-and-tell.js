@@ -117,6 +117,10 @@
     nameLine.className = 'tdb-cat-storyboard-print__name';
     nameLine.textContent = 'Name: ________________________  Date: ____________';
     foot.appendChild(nameLine);
+    var credit = document.createElement('p');
+    credit.className = 'tdb-cat-storyboard-print__credit';
+    credit.textContent = "Today's Daily Battle · todaysdailybattle.com · KJV only";
+    foot.appendChild(credit);
     root.appendChild(foot);
 
     document.body.appendChild(root);

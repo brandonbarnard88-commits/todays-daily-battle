@@ -49,8 +49,8 @@ for (const id of ids) {
     continue;
   }
   const words = text.split(/\s+/).filter(Boolean).length;
-  if (words < 24) fail.push(id + ': hear too short (' + words + ' words)');
-  if (words > 140) fail.push(id + ': hear too long (' + words + ' words) — keep one coloring-length listen');
+  if (words < 120) fail.push(id + ': hear too short (' + words + ' words) — tell the whole story, not a caption');
+  if (words > 900) fail.push(id + ': hear too long (' + words + ' words)');
   if (!QUOTE.test(text)) fail.push(id + ': hear needs one spoken KJV line in quotes');
   if (!CITE.test(text)) fail.push(id + ': hear must cite the KJV (book chapter:verse)');
   const beats = text.split(/\n+/).map((b) => b.trim()).filter(Boolean);

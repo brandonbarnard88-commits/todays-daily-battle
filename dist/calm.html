@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260816-brightgold"></script>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260816-brightgold"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260816-brightgold"></script>
@@ -55,15 +52,16 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="tdb-opal-tokens.css?v=20260903opal1" as="style">
   <link rel="stylesheet" href="tdb-opal-tokens.css?v=20260903opal1">
-  <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260816-brightgold">
-  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
-  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
-
+  <link rel="preload" href="styles.css?v=20260903opal1" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260903opal1">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
+  <link rel="preload" href="kids/kids-page-sky.css?v=20260817-skylife" as="style">
+  <link rel="stylesheet" href="kids/kids-page-sky.css?v=20260817-skylife">
+  <link rel="preload" href="tdb-porch-sky.css?v=20260905porchsky1" as="style">
+  <link rel="stylesheet" href="tdb-porch-sky.css?v=20260905porchsky1">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -764,7 +762,10 @@
     }
   </style>
 </head>
-<body class="dark-mode tdb-inner-page tdb-calm-shelf-page">
+<body class="dark-mode tdb-inner-page tdb-calm-shelf-page tdb-porch-sky">
+  <div class="sky-page-backdrop" aria-hidden="true">
+    <div class="sky" aria-hidden="true" id="sky-layer"></div>
+  </div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar" style="minimal">
@@ -1060,14 +1061,6 @@
 
 </main>
   </div>
-    <nav class="tdb-bottom-dock" aria-label="Main navigation">
-      <a href="/" aria-label="Home — today’s verse">Home</a>
-      <a href="/ask" aria-label="Ask the Word">Ask</a>
-      <a href="/plans.html" aria-label="Reading plans">Plans</a>
-      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
-      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
-    </nav>
-
 <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
     <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
@@ -1194,7 +1187,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">September 5, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -1211,7 +1204,7 @@
         if (document.querySelector('script[data-tdb-calm-app]')) return;
         var s = document.createElement('script');
         s.type = 'module';
-        s.src = 'script.js?v=20260816-brightgold';
+        s.src = 'script.js?v=20260820chrome';
         s.setAttribute('data-tdb-calm-app', '1');
         document.head.appendChild(s);
       }
@@ -1713,7 +1706,7 @@
   <script defer src="calm-rest-kit.js?v=20260523"></script>
   <script defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script defer src="porch-effects.js?v=20260507"></script>
-
-  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
+  <script src="sky-ip-geo.js?v=20260817-skysolar" defer></script>
+  <script src="kids/kids-page-sky.js?v=20260905porchsky1" defer></script>
 </body>
 </html>

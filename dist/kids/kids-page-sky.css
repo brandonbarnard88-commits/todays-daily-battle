@@ -1,4 +1,5 @@
-/* Shared with homepage sky — see index.html inline block */
+/* Shared living-sky engine. Home uses tdb-home-page.css (full porch).
+   Inner arrival rooms add tdb-porch-sky.css for a short band. */
 /* Full-page sky — z-index 7 (under main at 12; sticky nav stays 201). Sun/moon drift in .sky-viewport */
 .sky-page-backdrop {
   position: absolute;

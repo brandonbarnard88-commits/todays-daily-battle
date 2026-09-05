@@ -70,10 +70,11 @@ function main() {
     /id="tdbFeelPathCard"[^>]*aria-live="polite"/,
     'dist/ask.html: #tdbFeelPathCard needs aria-live="polite"'
   );
+  // Home first-doors is a hidden test stub (aria-hidden), not a live nav.
   assertMatch(
     idx,
-    /id="tdbHomeFirstDoors"[^>]*aria-label="/,
-    'dist/index.html: #tdbHomeFirstDoors needs aria-label'
+    /id="tdbHomeFirstDoors"[^>]*\bhidden\b[^>]*aria-hidden="true"/,
+    'dist/index.html: #tdbHomeFirstDoors should stay a hidden stub'
   );
 
   const wall = read('dist/prayer-wall.html');

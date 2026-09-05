@@ -1196,6 +1196,64 @@ body.tdb-kids-coloring-page.dark-mode .tdb-cat-story .btn-secondary:not(.tdb-cat
   }
 }
 
+/* Color footer: kids pages force dark ink on every <p>. The site footer is navy,
+   so humility, legal, Friday letter, and sign-off vanished. Cream + ink. */
+body.tdb-kids-coloring-page .site-footer,
+body.tdb-kids-coloring-page.dark-mode .site-footer {
+  background: #fff9eb !important;
+  color: #0f172a !important;
+  border-top: 2px solid #b45309 !important;
+  box-shadow: none;
+}
+body.tdb-kids-coloring-page .site-footer p,
+body.tdb-kids-coloring-page .site-footer li,
+body.tdb-kids-coloring-page .site-footer label,
+body.tdb-kids-coloring-page .site-footer .section-note,
+body.tdb-kids-coloring-page .site-footer .site-footer-copy,
+body.tdb-kids-coloring-page .site-footer .site-footer-legal-line,
+body.tdb-kids-coloring-page .site-footer .site-footer-story,
+body.tdb-kids-coloring-page .site-footer .footer-humility,
+body.tdb-kids-coloring-page .site-footer .footer-trust-note,
+body.tdb-kids-coloring-page .site-footer .footer-friday-signup-label,
+body.tdb-kids-coloring-page .site-footer .site-footer-updated,
+body.tdb-kids-coloring-page .site-footer .site-footer-mood-insight,
+body.tdb-kids-coloring-page .site-footer .site-footer-safety-line,
+body.tdb-kids-coloring-page .site-footer .tdb-site-footer-finale p,
+body.tdb-kids-coloring-page .site-footer .tdb-site-footer-finale__love,
+body.tdb-kids-coloring-page .site-footer h3,
+body.tdb-kids-coloring-page .site-footer summary,
+body.tdb-kids-coloring-page .site-footer .tdb-lang-switcher-eyebrow,
+body.tdb-kids-coloring-page .site-footer .tdb-lang-sep,
+body.tdb-kids-coloring-page.dark-mode .site-footer p,
+body.tdb-kids-coloring-page.dark-mode .site-footer .section-note,
+body.tdb-kids-coloring-page.dark-mode .site-footer .site-footer-copy,
+body.tdb-kids-coloring-page.dark-mode .site-footer .tdb-site-footer-finale p {
+  color: #0f172a !important;
+  opacity: 1;
+}
+body.tdb-kids-coloring-page .site-footer a,
+body.tdb-kids-coloring-page .site-footer .site-footer-essentials a,
+body.tdb-kids-coloring-page .site-footer .site-footer-nav a,
+body.tdb-kids-coloring-page .site-footer nav.bottom-nav a,
+body.tdb-kids-coloring-page .site-footer .tdb-lang-opt,
+body.tdb-kids-coloring-page .site-footer .footer-appearance-link,
+body.tdb-kids-coloring-page.dark-mode .site-footer a {
+  color: #0f172a !important;
+}
+body.tdb-kids-coloring-page .site-footer a:hover,
+body.tdb-kids-coloring-page .site-footer a:focus-visible,
+body.tdb-kids-coloring-page .site-footer .footer-appearance-link:hover,
+body.tdb-kids-coloring-page .site-footer .footer-appearance-link:focus-visible {
+  color: #7c3d12 !important;
+}
+body.tdb-kids-coloring-page .site-footer .tdb-lang-switcher--footer,
+body.tdb-kids-coloring-page .site-footer nav.bottom-nav,
+body.tdb-kids-coloring-page .site-footer .footer-sitemap {
+  background: #fffef8 !important;
+  border-color: #b45309 !important;
+  box-shadow: none;
+}
+
 /* Screen: storyboard print root stays off-page until print */
 .tdb-cat-storyboard-print {
   position: absolute;

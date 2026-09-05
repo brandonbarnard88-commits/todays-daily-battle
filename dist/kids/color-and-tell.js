@@ -151,7 +151,8 @@
     llcommandments: 'll-commandments'
   };
 
-  var LISTEN_AUDIO_VERSION = '20260823desk49';
+  var LISTEN_AUDIO_VERSION = '20260905listen1';
+  var COLORING_LISTEN = {};
 
   var listenAudio = null;
   var listenBtnActive = null;
@@ -349,10 +350,10 @@
   "/coloring-pages/jesus-storm-s2.svg": "/coloring-pages/jesus-storm-s2.jpg",
   "/coloring-pages/jesus-storm-s3.svg": "/coloring-pages/jesus-storm-s3.jpg",
   "/coloring-pages/jesus-storm-s4.svg": "/coloring-pages/jesus-storm-s4.jpg",
-  "/coloring-pages/jesus-children-s1.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
-  "/coloring-pages/jesus-children-s2.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
-  "/coloring-pages/jesus-children-s3.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
-  "/coloring-pages/jesus-children-s4.svg": "/coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg",
+  "/coloring-pages/jesus-children-s1.svg": "/coloring-pages/jesus-children-fill.png",
+  "/coloring-pages/jesus-children-s2.svg": "/coloring-pages/jesus-children-fill.png",
+  "/coloring-pages/jesus-children-s3.svg": "/coloring-pages/jesus-children-fill.png",
+  "/coloring-pages/jesus-children-s4.svg": "/coloring-pages/jesus-children-fill.png",
   "/coloring-pages/good-samaritan-s1.svg": "/coloring-pages/good-samaritan-s1.jpg",
   "/coloring-pages/good-samaritan-s2.svg": "/coloring-pages/good-samaritan-s2.jpg",
   "/coloring-pages/good-samaritan-s3.svg": "/coloring-pages/good-samaritan-s3.jpg",
@@ -641,7 +642,7 @@
   // TDB_SCENE_ART_END
 
   /** Returns the best available line-art src for a scene (raster preferred). */
-  var ART_CACHE = '20260825desk67';
+  var ART_CACHE = '20260826fill1';
   function bestSceneSrc(scene) {
     if (!scene || !scene.src) return '';
     var src = (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;
@@ -4549,6 +4550,19 @@
           playStoryListen(story, hearBtn);
         });
 
+        var listenText = COLORING_LISTEN[story.id] || '';
+        var listenWrap = null;
+        if (listenText) {
+          listenWrap = document.createElement('details');
+          listenWrap.className = 'tdb-cat-listen-story';
+          var listenSum = document.createElement('summary');
+          listenSum.textContent = 'The story you hear';
+          var listenP = document.createElement('p');
+          listenP.textContent = listenText;
+          listenWrap.appendChild(listenSum);
+          listenWrap.appendChild(listenP);
+        }
+
         var isSingle = story.scenes.length === 1;
         var tablist = null;
         if (!isSingle) {
@@ -4748,6 +4762,7 @@
         section.appendChild(h2);
         section.appendChild(lead);
         section.appendChild(hearBtn);
+        if (listenWrap) section.appendChild(listenWrap);
         section.appendChild(celebrate);
         if (tablist) {
           section.appendChild(tablist);
@@ -4827,9 +4842,22 @@
     }
   }
 
+  function boot() {
+    fetch('/kids/data/coloring-listen.json?v=' + LISTEN_AUDIO_VERSION)
+      .then(function (r) {
+        return r.ok ? r.json() : {};
+      })
+      .then(function (j) {
+        COLORING_LISTEN = (j && j.hear) || {};
+        init();
+      })
+      .catch(function () {
+        init();
+      });
+  }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', boot);
   } else {
-    init();
+    boot();
   }
 })();

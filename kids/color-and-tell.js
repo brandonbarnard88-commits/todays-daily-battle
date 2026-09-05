@@ -151,7 +151,8 @@
     llcommandments: 'll-commandments'
   };
 
-  var LISTEN_AUDIO_VERSION = '20260823desk49';
+  var LISTEN_AUDIO_VERSION = '20260905listen1';
+  var COLORING_LISTEN = {};
 
   var listenAudio = null;
   var listenBtnActive = null;
@@ -4549,6 +4550,19 @@
           playStoryListen(story, hearBtn);
         });
 
+        var listenText = COLORING_LISTEN[story.id] || '';
+        var listenWrap = null;
+        if (listenText) {
+          listenWrap = document.createElement('details');
+          listenWrap.className = 'tdb-cat-listen-story';
+          var listenSum = document.createElement('summary');
+          listenSum.textContent = 'The story you hear';
+          var listenP = document.createElement('p');
+          listenP.textContent = listenText;
+          listenWrap.appendChild(listenSum);
+          listenWrap.appendChild(listenP);
+        }
+
         var isSingle = story.scenes.length === 1;
         var tablist = null;
         if (!isSingle) {
@@ -4748,6 +4762,7 @@
         section.appendChild(h2);
         section.appendChild(lead);
         section.appendChild(hearBtn);
+        if (listenWrap) section.appendChild(listenWrap);
         section.appendChild(celebrate);
         if (tablist) {
           section.appendChild(tablist);
@@ -4827,9 +4842,22 @@
     }
   }
 
+  function boot() {
+    fetch('/kids/data/coloring-listen.json?v=' + LISTEN_AUDIO_VERSION)
+      .then(function (r) {
+        return r.ok ? r.json() : {};
+      })
+      .then(function (j) {
+        COLORING_LISTEN = (j && j.hear) || {};
+        init();
+      })
+      .catch(function () {
+        init();
+      });
+  }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', boot);
   } else {
-    init();
+    boot();
   }
 })();

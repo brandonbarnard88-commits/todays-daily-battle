@@ -917,6 +917,7 @@ function copySpanishUnderEs() {
     const src = path.join(root, file);
     if (!fs.existsSync(src)) continue;
     let html = fs.readFileSync(src, 'utf8');
+    if (html.includes('location.replace') && html.includes('now live under /es/')) continue;
     html = html.replaceAll('https://todaysdailybattle.com/' + file, 'https://todaysdailybattle.com/es/' + file);
     html = html.replaceAll('href="/' + file.replace('.html', '') + '.html"', 'href="/es/' + file + '"');
     const dest = path.join(esDir, file);

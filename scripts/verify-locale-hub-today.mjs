@@ -213,14 +213,14 @@ function main() {
   if (!esHub.includes('href="/verso.html"')) {
     fail('Spanish hub must send Verso del día to /verso.html, not bounce to English verse.html only');
   }
-  if (/<h2>Versículo de hoy<\/h2>/.test(read('ansiedad.html'))) {
-    fail('ansiedad.html must not call a topic verse “Versículo de hoy”');
+  if (/<h2>Versículo de hoy<\/h2>/.test(read('es/ansiedad.html'))) {
+    fail('es/ansiedad.html must not call a topic verse “Versículo de hoy”');
   }
-  if (/<h2>Versículo de hoy<\/h2>/.test(read('fuerza.html'))) {
-    fail('fuerza.html must not call a topic verse “Versículo de hoy”');
+  if (/<h2>Versículo de hoy<\/h2>/.test(read('es/fuerza.html'))) {
+    fail('es/fuerza.html must not call a topic verse “Versículo de hoy”');
   }
-  if (/<h2>Versículo de hoy<\/h2>/.test(read('paz.html'))) {
-    fail('paz.html must not call a topic verse “Versículo de hoy”');
+  if (/<h2>Versículo de hoy<\/h2>/.test(read('es/paz.html'))) {
+    fail('es/paz.html must not call a topic verse “Versículo de hoy”');
   }
 
   if (failures.length) {

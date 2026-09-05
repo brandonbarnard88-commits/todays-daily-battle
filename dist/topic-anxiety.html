@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260816-brightgold"></script>
+  <script nonce="tdb2025s" defer src="/tdb-one-interrupt.js?v=20260816-brightgold"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260816-brightgold"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <!-- tdb-cache-hygiene: topic mood pages inherit global CSS bumps; purge if hero pattern changes -->
   <script src="/vendor/dompurify.min.js"></script>
@@ -8,7 +11,7 @@
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260822quiet"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260816-brightgold"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KJV Bible Verses for Anxiety & Worry | Today's Daily Battle</title>
@@ -17,7 +20,7 @@
   <!-- SEO hreflang cluster: en (this page) + es (ansiedad.html) + x-default (homepage). -->
   <link rel="canonical" href="https://todaysdailybattle.com/topic-anxiety.html">
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/topic-anxiety.html">
-  <link rel="alternate" hreflang="es" href="https://todaysdailybattle.com/ansiedad.html">
+  <link rel="alternate" hreflang="es" href="https://todaysdailybattle.com/es/ansiedad.html">
   <link rel="alternate" hreflang="id" href="https://todaysdailybattle.com/id/">
   <link rel="alternate" hreflang="tl" href="https://todaysdailybattle.com/tl/kabalisahan.html">
   <link rel="alternate" hreflang="fr" href="https://todaysdailybattle.com/fr/anxiete.html">
@@ -41,8 +44,11 @@
   <meta name="twitter:description" content="KJV verses for anxiety and worry—peace, prayer, hand it to God. One verse at a time.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260822desk17" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260822desk17">
+  <link rel="preload" href="styles.css?v=20260816-brightgold" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260816-brightgold">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -134,16 +140,16 @@
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
         <a href="/" aria-label="Home — today’s verse">Today</a>
-        <a href="/ask">Ask the Word</a>
-        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
-        <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
-        <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
+        <a href="/ask" aria-label="Ask the Word">Ask</a>
         <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Scripture</span>
+              <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
+              <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
               <a href="/verse.html">Today’s verse</a>
               <a href="/bible-tool.html" aria-label="Look up a verse">Look up</a>
               <a href="/memorize.html">Memorize</a>
@@ -206,6 +212,8 @@
             </div>
           </details>
         </header>
+        <p id="tdb-start-strip" class="tdb-start-strip section-note"><strong>New here?</strong> This page meets one hard moment with KJV verses. <a href="/explore.html#start-here">See the full map</a> &mdash; hard moment, daily rhythm, family, or church.</p>
+
         <details class="tdb-hub-disclosure" id="topic-mobius-details">
           <summary class="tdb-hub-disclosure__summary">A quieter path (Grace Ribbon)</summary>
           <div class="tdb-hub-disclosure__inner">
@@ -223,8 +231,9 @@
           <h2 class="section-divider">Key Verses</h2>
           <div class="list">
             <div class="list-item"><div><strong>Philippians 4:6-7 (KJV)</strong>
-            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.</p></div>
+            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.</p></div>
             <div class="tdb-topic-vbd tdb-kiss-verse tdb-kiss-verse--topic" data-tdb-topic-vbd="1"><div class="tdb-kiss-verse__block tdb-kiss-verse__block--bbe"><h4 class="tdb-kiss-verse__label">In simpler words</h4><p class="tdb-kiss-verse__bbe">Have no cares; but in everything with prayer and praise put your requests before God.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What was going on</h4><p class="tdb-kiss-verse__sit">Paul writes from prison to Philippi: rejoice, do not be anxious, the peace of God guards hearts; contentment in every state through Christ.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What it means</h4><p class="tdb-kiss-verse__mean">Don't let worry take over—pray and thank God, and tell Him what you need.</p></div></div>
+            
             
             
             
@@ -233,8 +242,9 @@
             
             <p class="tdb-topic-verse-note">Bring the whole worry to God in plain words&mdash;not a polished prayer first.</p></div></div>
             <div class="list-item"><div><strong>1 Peter 5:7 (KJV)</strong>
-            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">Casting all your care upon him; for he careth for you.</p></div>
+            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">Casting all your care upon him; for he careth for you.</p></div>
             <div class="tdb-topic-vbd tdb-kiss-verse tdb-kiss-verse--topic" data-tdb-topic-vbd="1"><div class="tdb-kiss-verse__block tdb-kiss-verse__block--bbe"><h4 class="tdb-kiss-verse__label">In simpler words</h4><p class="tdb-kiss-verse__bbe">Putting all your troubles on him, for he takes care of you.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What was going on</h4><p class="tdb-kiss-verse__sit">Peter closes his letter: humble yourselves under God’s hand, cast all your care on Him, for He cares for you, and resist the devil.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What it means</h4><p class="tdb-kiss-verse__mean">Give God your worries—He cares about you.</p></div></div>
+            
             
             
             
@@ -243,8 +253,9 @@
             
             <p class="tdb-topic-verse-note">All means the messy parts too&mdash;the ones you would not say out loud yet.</p></div></div>
             <div class="list-item"><div><strong>Isaiah 41:10 (KJV)</strong>
-            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.</p></div>
-            <div class="tdb-topic-vbd tdb-kiss-verse tdb-kiss-verse--topic" data-tdb-topic-vbd="1"><div class="tdb-kiss-verse__block tdb-kiss-verse__block--bbe"><h4 class="tdb-kiss-verse__label">In simpler words</h4><p class="tdb-kiss-verse__bbe">Have no fear, for I am with you; do not be looking about in trouble, for I am your God; I will give you strength, yes, I will be your helper; yes, my true right hand will be your support.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What was going on</h4><p class="tdb-kiss-verse__sit">The Lord comforts fearful Israel in exile: “Fear thou not; for I am with thee” — strength and help from His right hand.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What it means</h4><p class="tdb-kiss-verse__mean">God tells us not to fear—He is with us, strengthens us, and holds us up.</p></div></div>
+            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.</p></div>
+            <div class="tdb-topic-vbd tdb-kiss-verse tdb-kiss-verse--topic" data-tdb-topic-vbd="1"><div class="tdb-kiss-verse__block tdb-kiss-verse__block--bbe"><h4 class="tdb-kiss-verse__label">In simpler words</h4><p class="tdb-kiss-verse__bbe">Have no fear, for I am with you; do not be looking about in trouble, for I am your God; I will give you strength, yes, I will be your helper; yes, my true right hand will be your support.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What was going on</h4><p class="tdb-kiss-verse__sit">Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What it means</h4><p class="tdb-kiss-verse__mean">God tells us not to fear—He is with us, strengthens us, and holds us up.</p></div></div>
+            
             
             
             
@@ -253,8 +264,9 @@
             
             <p class="tdb-topic-verse-note">When your body feels alone in the room, His nearness is the anchor.</p></div></div>
             <div class="list-item"><div><strong>Matthew 6:34 (KJV)</strong>
-            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.</p></div>
+            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.</p></div>
             <div class="tdb-topic-vbd tdb-kiss-verse tdb-kiss-verse--topic" data-tdb-topic-vbd="1"><div class="tdb-kiss-verse__block tdb-kiss-verse__block--bbe"><h4 class="tdb-kiss-verse__label">In simpler words</h4><p class="tdb-kiss-verse__bbe">Then have no care for tomorrow: tomorrow will take care of itself. Take the trouble of the day as it comes.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What was going on</h4><p class="tdb-kiss-verse__sit">Jesus said this to His disciples who worry about tomorrow: Do not be anxious.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What it means</h4><p class="tdb-kiss-verse__mean">Focus on today; don't borrow trouble from tomorrow.</p></div></div>
+            
             
             
             
@@ -263,8 +275,9 @@
             
             <p class="tdb-topic-verse-note">One day&rsquo;s weight is enough. Tomorrow can wait outside the door.</p></div></div>
             <div class="list-item"><div><strong>Psalm 56:3 (KJV)</strong>
-            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">What time I am afraid, I will trust in thee.</p></div>
+            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">What time I am afraid, I will trust in thee.</p></div>
             <div class="tdb-topic-vbd tdb-kiss-verse tdb-kiss-verse--topic" data-tdb-topic-vbd="1"><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What was going on</h4><p class="tdb-kiss-verse__sit">When the Philistines took David in Gath, he says: what time I am afraid, I will trust in Thee — God bottles every tear.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What it means</h4><p class="tdb-kiss-verse__mean">What time I am afraid, I will trust in you.</p></div></div>
+            
             
             
             
@@ -273,8 +286,9 @@
             
             <p class="tdb-topic-verse-note">Not &ldquo;when fear is gone&rdquo;&mdash;while fear is still loud.</p></div></div>
             <div class="list-item"><div><strong>Psalm 94:19 (KJV)</strong>
-            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">In the multitude of my thoughts within me thy comforts delight my soul.</p></div>
+            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">In the multitude of my thoughts within me thy comforts delight my soul.</p></div>
             <div class="tdb-topic-vbd tdb-kiss-verse tdb-kiss-verse--topic" data-tdb-topic-vbd="1"><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What was going on</h4><p class="tdb-kiss-verse__sit">A cry against unjust thrones: the psalmist names oppression, then testifies that when his foot slipped, the Lord’s mercy held him up.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What it means</h4><p class="tdb-kiss-verse__mean">When anxiety was great within me, Your consolation brought me joy—God meets us in the overwhelm.</p></div></div>
+            
             
             
             
@@ -283,8 +297,9 @@
             
             <p class="tdb-topic-verse-note">When thoughts multiply faster than you can sort them.</p></div></div>
             <div class="list-item"><div><strong>2 Timothy 1:7 (KJV)</strong>
-            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.</p></div>
+            <div class="tdb-kiss-verse__block tdb-kiss-verse__block--kjv"><h4 class="tdb-kiss-verse__label">KJV</h4><p class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv" class="tdb-kiss-verse__kjv">For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.</p></div>
             <div class="tdb-topic-vbd tdb-kiss-verse tdb-kiss-verse--topic" data-tdb-topic-vbd="1"><div class="tdb-kiss-verse__block tdb-kiss-verse__block--bbe"><h4 class="tdb-kiss-verse__label">In simpler words</h4><p class="tdb-kiss-verse__bbe">For God did not give us a spirit of fear, but of power and of love and of self-control.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What was going on</h4><p class="tdb-kiss-verse__sit">Paul, from prison, tells Timothy to fan the gift of God: God has not given a spirit of fear, but of power, of love, and of a sound mind.</p></div><div class="tdb-kiss-verse__block"><h4 class="tdb-kiss-verse__label">What it means</h4><p class="tdb-kiss-verse__mean">God didn't give us a spirit of fear, but of power, love, and a sound mind.</p></div></div>
+            
             
             
             
@@ -349,6 +364,14 @@
 
           </div>
     </main>
+    <nav class="tdb-bottom-dock" aria-label="Main navigation">
+      <a href="/" aria-label="Home — today’s verse">Home</a>
+      <a href="/ask" aria-label="Ask the Word">Ask</a>
+      <a href="/plans.html" aria-label="Reading plans">Plans</a>
+      <a href="/calm.html" aria-label="When it’s hard — one verse">Hard day</a>
+      <a href="/kids/" class="tdb-bottom-dock-more" aria-label="Kids stories">Kids</a>
+    </nav>
+
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -478,7 +501,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">September 5, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -490,5 +513,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260816-brightgold" data-cfasync="false"></script>
+
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

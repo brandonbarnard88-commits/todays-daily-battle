@@ -3316,7 +3316,7 @@
   </div>
   <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="plans"><p class="offline-msg"></p></div>
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_plans_quiet_update_dismiss')==='2026-05-11-plans')document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');}catch(e){}})();</script>
-  <script nonce="tdb2025s">(function(){function openPlansDisclosureForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansMoreWaysIn','plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-short-paths-details','plans-hero-more','plansAllLibrary','plansLongerLanes','plans-find-your-plan-details','plansCoreSevenDetails','plansAccountStripDetails','plansPorchVerseDetails','plansSermonIntroDetails','plansBibleStudiesDetails','plansBuilderDetails'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openPlansDisclosureForHash);else openPlansDisclosureForHash();window.addEventListener('hashchange',openPlansDisclosureForHash);})();</script>
+  <script nonce="tdb2025s">(function(){function porchPlansHash(){try{var id=(location.hash||'').replace(/^#/,'');var lib=document.getElementById('plansAllLibrary');var longer=document.getElementById('plansLongerLanes');var row=id&&id.match(/^plan-row-(.+)$/);if(row&&row[1]){location.replace('/plans?plan='+encodeURIComponent(row[1]));return;}if(lib)lib.open=(id==='all-plans');if(longer)longer.open=(id==='plansLongerLanes');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansMoreWaysIn','plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-short-paths-details','plans-hero-more','plansLongerLanes','plans-find-your-plan-details','plansCoreSevenDetails','plansAccountStripDetails','plansPorchVerseDetails','plansSermonIntroDetails','plansBibleStudiesDetails','plansBuilderDetails'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',porchPlansHash);else porchPlansHash();window.addEventListener('hashchange',porchPlansHash);window.addEventListener('pageshow',porchPlansHash);})();</script>
   <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-05-11-plans" role="status" aria-live="polite" hidden>
     <p class="tdb-quiet-update-strip__text">Short KJV reading tracks—open any day.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="plans-quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
@@ -3357,7 +3357,6 @@
               <li><a href="/plans?plan=worrytrust">Worry to Trust</a></li>
               <li><a href="/plans?plan=universityanxiety">Anxiety &amp; Fear</a></li>
               <li><a href="/plans?plan=fearpressesin">When Fear Presses In</a></li>
-              <li><a href="#plan-row-universityanxiety">Jump to anxiety in the full list</a></li>
             </ul>
           </details>
           <details class="plans-door" role="listitem">
@@ -3367,7 +3366,6 @@
               <li><a href="/plans?plan=universityloneliness">Loneliness</a></li>
               <li><a href="/plans?plan=heartalone">When the Heart Feels Alone</a></li>
               <li><a href="/plans?plan=aftergrief">After grief</a></li>
-              <li><a href="#plan-row-griefhope">Jump to grief in the full list</a></li>
             </ul>
           </details>
           <details class="plans-door" role="listitem">
@@ -3377,7 +3375,6 @@
               <li><a href="/plans?plan=comeuntome">Come Unto Me</a></li>
               <li><a href="/plans?plan=universityexhaustion">Exhaustion</a></li>
               <li><a href="/plans?plan=wearyhands">Grace for Weary Hands</a></li>
-              <li><a href="#plan-row-overwhelmedburnout">Jump to overwhelm in the full list</a></li>
             </ul>
           </details>
           <details class="plans-door" role="listitem">
@@ -3387,7 +3384,6 @@
               <li><a href="/plans?plan=longdayslittle">Long Days with Little Ones</a></li>
               <li><a href="/plans?plan=steadydays-kids">Steady Days for Families</a></li>
               <li><a href="/plans?plan=familyworship">Family Worship in the Trenches</a></li>
-              <li><a href="#plan-row-marriage">Jump to marriage / home in the full list</a></li>
             </ul>
           </details>
           <details class="plans-door" role="listitem">

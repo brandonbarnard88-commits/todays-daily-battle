@@ -1254,6 +1254,20 @@ body.tdb-kids-coloring-page .site-footer .footer-sitemap {
   box-shadow: none;
 }
 
+/* After-footer extras sit on cream, not navy: gray humility and gold “Hidden moments”
+   washed out. Family Armor toast is grown-up chrome on a coloring page. */
+body.tdb-kids-coloring-page .tdb-site-humility,
+body.tdb-kids-coloring-page #daily-nudge,
+body.tdb-kids-coloring-page .toast-gold {
+  display: none !important;
+}
+body.tdb-kids-coloring-page .easter-egg-badge,
+body.tdb-kids-coloring-page .site-footer .easter-egg-badge,
+body.tdb-kids-coloring-page .site-footer #easter-egg-badge {
+  color: #0f172a !important;
+  opacity: 1;
+}
+
 /* Screen: storyboard print root stays off-page until print */
 .tdb-cat-storyboard-print {
   position: absolute;

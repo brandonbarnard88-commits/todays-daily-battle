@@ -23,14 +23,14 @@
   <meta name="twitter:description" content="Bible story coloring pages for kids — print, color, and talk about what happened.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260823desk51" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260823desk51">
+  <link rel="preload" href="styles.css?v=20260906color1" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260906color1">
   <link rel="preload" href="kids/kids-design-tokens.css" as="style">
   <link rel="stylesheet" href="kids/kids-design-tokens.css">
   <link rel="preload" href="kids/kids-kids-world.css?v=20260810contrast" as="style">
   <link rel="stylesheet" href="kids/kids-kids-world.css?v=20260810contrast">
-  <link rel="preload" href="kids/color-and-tell.css?v=20260905ink4" as="style">
-  <link rel="stylesheet" href="kids/color-and-tell.css?v=20260905ink4">
+  <link rel="preload" href="kids/color-and-tell.css?v=20260906color1" as="style">
+  <link rel="stylesheet" href="kids/color-and-tell.css?v=20260906color1">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,11 +115,13 @@
 
     <main class="app-content porch-section" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner tdb-dawn-hub--mist">
+        <header class="hero-banner tdb-dawn-hub--mist tdb-cat-color-hero">
           <h1 style="text-align:center;">Kids Coloring</h1>
-          <p style="text-align:center; max-width:520px; margin:1rem auto;">Pick a picture. Color it. Save it. That is enough.</p>
+          <p style="text-align:center; max-width:520px; margin:0.5rem auto 0;">Pick a picture. Color it. Save it.</p>
         </header>
-        <section class="kids-shepherd-compact glass tdb-porch-paper-glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0 0 1rem">
+        <section class="glass tdb-porch-paper-glass tdb-cat-story-bridge" id="tdb-cat-story-bridge-top" hidden aria-live="polite"></section>
+        <div id="tdb-cat-root" data-tdb-color-tell="Watch My Story unlocks when at least one scene for that story is saved on this device." data-tdb-scene-assets="/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg /coloring-pages/bible-stories/david-and-goliath-blank.jpg /coloring-pages/lydia-believes-coloring.jpg /coloring-pages/rahab-spies-coloring.jpg /coloring-pages/jesus-children-fill.png /coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg /coloring-pages/bible-stories/empty-tomb-coloring-page.jpg /coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg"></div>
+        <section class="kids-shepherd-compact glass tdb-porch-paper-glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:1rem 0">
           <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
           <div class="kids-buddy-mascot-row">
             <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
@@ -133,7 +135,6 @@
             </div>
           </div>
         </section>
-        <section class="glass tdb-porch-paper-glass tdb-cat-story-bridge" id="tdb-cat-story-bridge-top" hidden aria-live="polite"></section>
         <details class="tdb-cat-parent-tip-details" id="tdb-cat-parent-tip-details">
           <summary class="tdb-cat-parent-tip-summary">How Color &amp; Tell works <span class="tdb-cat-parent-tip-summary-hint">(tap to expand)</span></summary>
           <p class="tdb-cat-parent-tip" role="note">Pick a color, then <strong>tap an area</strong> to fill inside the lines (Fill tool is on by default). Switch to the brush if you want to draw freehand. Tap <strong>Hear the story</strong> to listen while you color—a warm male storyteller reads the whole story on this device; nothing is uploaded. Open <strong>The story you hear</strong> to read the same words. Tap <strong>Save</strong>, then open <strong>Watch My Story</strong>—one saved scene is enough; more panels make a fuller storyboard. Every story is a gentle panel sequence with a short KJV line under each panel and one big idea. Use <strong>Print storyboard</strong> for a blank fridge page. On phones and tablets the cards scroll sideways. Everything stays private on this device.</p>
@@ -147,8 +148,6 @@
           </blockquote>
           <p class="tdb-cat-parent-tip" role="note"><strong>A tiny prayer before you start.</strong> Lord, thank you for this story. Help me learn something from it today. Amen.</p>
         </details>
-        <h2 class="tdb-cat-story-grid-heading section-divider" id="tdb-cat-choose-h">Choose your story</h2>
-        <div id="tdb-cat-root" data-tdb-color-tell="Watch My Story unlocks when at least one scene for that story is saved on this device." data-tdb-scene-assets="/coloring-pages/bible-stories/creation-six-days-coloring-page.jpg /coloring-pages/bible-stories/david-and-goliath-blank.jpg /coloring-pages/lydia-believes-coloring.jpg /coloring-pages/rahab-spies-coloring.jpg /coloring-pages/jesus-children-fill.png /coloring-pages/bible-stories/jesus-and-the-children-coloring-page.jpg /coloring-pages/bible-stories/empty-tomb-coloring-page.jpg /coloring-pages/bible-stories/daniel-in-the-lions-den-coloring-page.jpg"></div>
         <details class="tdb-cat-parent-tip-details" id="tdb-cat-after-color-details">
           <summary class="tdb-cat-parent-tip-summary">After you color <span class="tdb-cat-parent-tip-summary-hint">(for grown-ups)</span></summary>
         <section class="glass tdb-porch-paper-glass">
@@ -371,12 +370,12 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script defer src="kids/kids-gentle-shepherd.js?v=20260905quiet1"></script>
-  <script defer src="/vendor/jl-coloringBook.js?v=20260826fill1"></script>
+  <script defer src="/vendor/jl-coloringBook.js?v=20260906fill2"></script>
   <script defer src="/kids/kids-gentle-journey.js?v=20260503goal365"></script>
   <link rel="preload" href="kids/data/coloring-listen.json?v=20260905listen3" as="fetch" crossorigin>
-  <script defer src="kids/color-and-tell.js?v=20260905art6"></script>
+  <script defer src="kids/color-and-tell.js?v=20260906color1"></script>
   <script type="module" src="config.js"></script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260820polish"></script>
-  <script type="module" src="script.js?v=20260826desk69" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260906color1" data-cfasync="false"></script>
 </body>
 </html>

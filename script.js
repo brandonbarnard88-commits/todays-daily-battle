@@ -3392,6 +3392,8 @@ function isTdbQuietPorchPath() {
     if (p === '/plans' || p === '/plans.html') return true;
     if (p === '/ask' || p === '/ask.html') return true;
     if (p === '/calm' || p === '/calm.html') return true;
+    if (p === '/coloring' || p === '/coloring.html') return true;
+    if (p === '/kids' || p.indexOf('/kids/') === 0) return true;
     return false;
   } catch (ePath) {
     return false;
@@ -37597,8 +37599,8 @@ async function tdbInitImpl() {
 
     var scopedHrefLabelMap = {
       'study.html': 'Study Workspace',
-      '/kids/': 'Kids play',
-      'kids/index.html': 'Kids play',
+      '/kids/': document.body.classList.contains('tdb-kids-coloring-page') ? 'Kids' : 'Kids play',
+      'kids/index.html': document.body.classList.contains('tdb-kids-coloring-page') ? 'Kids' : 'Kids play',
       'coloring.html': 'Kids Coloring',
       'kids-corner.html': 'Bible Loop Library',
       '/kids-corner.html': 'Bible Loop Library',

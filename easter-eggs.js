@@ -238,6 +238,9 @@
   }
 
   function createToast(message, className, duration) {
+    if (document.body && document.body.classList.contains('tdb-kids-coloring-page')) {
+      return null;
+    }
     var toast = document.createElement('div');
     applyClassTokens(toast, 'add', normalizeClassTokens([className || 'easter-triple-toast']));
     if (!toast.classList.length) toast.classList.add('easter-triple-toast');
@@ -1753,6 +1756,7 @@
     }
 
     function wireSundayDawnEgg() {
+      if (document.body && document.body.classList.contains('tdb-kids-coloring-page')) return;
       var now = new Date();
       if (now.getDay() !== 0) return;
       if (now.getHours() < 5 || now.getHours() > 8) return;

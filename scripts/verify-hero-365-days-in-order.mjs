@@ -16,6 +16,7 @@ import path from 'path';
 import vm from 'vm';
 import { fileURLToPath } from 'url';
 import { loadYear365, utcDayOfYear, utcDaysSinceHeroEpoch, pickVerseAtOffset } from './lib/hero-daily-verse-pick.mjs';
+import { adjacentSameChapterPairs } from './lib/hero-calendar-spread.mjs';
 import { BOOK_CHAPTER_SITUATIONS } from './lib/bible-situation-map.mjs';
 import { isWeakPlainStamp } from './lib/teaching-quality.mjs';
 import {
@@ -189,6 +190,16 @@ function main() {
   if (checked !== want) {
     failures.push('Expected to check ' + want + ' upcoming days, checked ' + checked);
   }
+
+  adjacentSameChapterPairs(year, startOffset).forEach((p) => {
+    failures.push(
+      'Same chapter two days in a row (' +
+        p.prev +
+        ' → ' +
+        p.next +
+        ') — today would feel like yesterday. Reorder with scripts/separate-hero-adjacent-chapters.mjs'
+    );
+  });
 
   if (failures.length) {
     console.error('Hero 365 days-in-order FAIL — ' + failures.length + ' issue(s) in ' + checked + ' days:\n');

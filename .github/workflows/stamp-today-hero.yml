@@ -1,5 +1,6 @@
 # Stamp today's hero verse into first-paint HTML at midnight UTC.
 # JS still picks the live queue if HTML is a few hours late; this keeps first paint honest.
+# verify-dist-hero-lock refuses unpublished days that repeat yesterday's chapter.
 name: Stamp today's hero
 
 on:

@@ -56,7 +56,7 @@ export const STORY_HTML_MARKERS = [
   'kids-library-show-more',
   '/coloring-pages/colored/noah-s1.jpg',
   'uFuzzy.iife.min.js',
-  'kids-verses-365.js?v=20260802-calendar-mix',
+  'kids-verses-365.js?v=20260906-ch',
   
   'kids-read-quiz-data.js?v=20260810nostick',
   'kids-story-remember.js?v=20260803remember',

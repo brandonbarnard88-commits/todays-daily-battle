@@ -131,7 +131,7 @@
     }
     return new Promise(function (resolve) {
       var s = document.createElement('script');
-      s.src = '/hero-daily-365-data.js?v=20260820-heb';
+      s.src = '/hero-daily-365-data.js?v=20260906-ch';
       s.onload = function () {
         resolve(window.__TDB_HERO_DAILY_YEAR || []);
       };

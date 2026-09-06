@@ -8,6 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { breakAdjacentSameChapter } from './lib/hero-calendar-spread.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -121,7 +122,7 @@ function main() {
   }
   const beforeMax = maxSameBookStreak(arr);
   const beforeOrder = arr.map((v) => v.ref).join('\n');
-  const next = redistribute(arr);
+  const next = breakAdjacentSameChapter(redistribute(arr), 0);
   const afterRefs = next.map((v) => v.ref).sort().join('\n');
   const beforeSorted = arr.map((v) => v.ref).sort().join('\n');
   if (afterRefs !== beforeSorted) {

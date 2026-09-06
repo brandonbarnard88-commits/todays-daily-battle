@@ -2985,18 +2985,6 @@
     "today": "He fills you with good things and renews your strength like the eagle — life given, not squeezed out"
   },
   {
-    "ref": "Psalm 103:8",
-    "text": "The Lord is merciful and gracious, slow to anger, and plenteous in mercy.",
-    "plain": "The Lord is merciful and gracious, slow to anger, full of mercy — He is not quick to finish you.",
-    "step": "Ask mercy with this line, then give one person a share of it: “The Lord is merciful and gracious, slow to anger, and plenteous in mercy.”",
-    "about": "David",
-    "to": "Them that fear Him — and you when you need mercy that actually removes the sin",
-    "setting": "David measures the Lord’s mercy: merciful and gracious, slow to anger; as far as the east is from the west He has removed our transgressions. The verse: The Lord is merciful and gracious, slow to anger, and plenteous in mercy.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “The Lord is merciful and gracious, slow to anger, and plenteous in mercy.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, The Lord is merciful and gracious, slow to anger, full of mercy — He is not quick to finish you. The verse still says: “The Lord is merciful and gracious, slow to anger, and plenteous in mercy.”",
-    "today": "This word is for you when you need the Lord merciful and gracious, slow to anger."
-  },
-  {
     "ref": "Proverbs 2:6",
     "text": "For the LORD giveth wisdom: out of his mouth cometh knowledge and understanding.",
     "plain": "Wisdom is a gift from the Lord’s mouth — knowledge and understanding, not a private cleverness.",
@@ -3009,28 +2997,16 @@
     "today": "Wisdom is a gift from the Lord’s mouth — knowledge and understanding, not a private cleverness"
   },
   {
-    "ref": "Psalm 103:11",
-    "text": "For as the heaven is high above the earth, so great is his mercy toward them that fear him.",
-    "plain": "His mercy toward those who fear Him is as high as the heavens over the earth — not a thin layer.",
-    "step": "Name the fear, then answer it with: “For as the heaven is high above the earth, so great is his mercy toward them that fear him.”",
+    "ref": "Psalm 103:8",
+    "text": "The Lord is merciful and gracious, slow to anger, and plenteous in mercy.",
+    "plain": "The Lord is merciful and gracious, slow to anger, full of mercy — He is not quick to finish you.",
+    "step": "Ask mercy with this line, then give one person a share of it: “The Lord is merciful and gracious, slow to anger, and plenteous in mercy.”",
     "about": "David",
     "to": "Them that fear Him — and you when you need mercy that actually removes the sin",
-    "setting": "David measures the Lord’s mercy: merciful and gracious, slow to anger; as far as the east is from the west He has removed our transgressions. The verse: For as the heaven is high above the earth, so great is his mercy toward them that fear him.",
-    "prayer": "Lord, when fear rises, hold me with “For as the heaven is high above the earth, so great is his mercy toward them that fear him.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, His mercy toward those who fear Him is as high as the heavens over the earth — not a thin layer. The verse still says: “For as the heaven is high above the earth, so great is his mercy toward them that fear him.”",
-    "today": "His mercy toward those who fear Him is as high as the heavens over the earth — not a thin layer"
-  },
-  {
-    "ref": "Psalm 103:12",
-    "text": "As far as the east is from the west, so far hath he removed our transgressions from us.",
-    "plain": "He has moved our sins as far as east is from west — gone, not stored next door.",
-    "step": "Keep this clause until the next meal: “As far as the east is from the west, so far hath he removed our transgressions from us.”",
-    "about": "David",
-    "to": "Them that fear Him — and you when you need mercy that actually removes the sin",
-    "setting": "David measures the Lord’s mercy: merciful and gracious, slow to anger; as far as the east is from the west He has removed our transgressions. The verse: As far as the east is from the west, so far hath he removed our transgressions from us.",
-    "prayer": "Lord, let this word be true in me today: “As far as the east is from the west, so far hath he removed our transgressions from us.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, He has moved our sins as far as east is from west — gone, not stored next door. The verse still says: “As far as the east is from the west, so far hath he removed our transgressions from us.”",
-    "today": "He has moved our sins as far as east is from west — gone, not stored next door"
+    "setting": "David measures the Lord’s mercy: merciful and gracious, slow to anger; as far as the east is from the west He has removed our transgressions. The verse: The Lord is merciful and gracious, slow to anger, and plenteous in mercy.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “The Lord is merciful and gracious, slow to anger, and plenteous in mercy.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, The Lord is merciful and gracious, slow to anger, full of mercy — He is not quick to finish you. The verse still says: “The Lord is merciful and gracious, slow to anger, and plenteous in mercy.”",
+    "today": "This word is for you when you need the Lord merciful and gracious, slow to anger."
   },
   {
     "ref": "Romans 8:31",
@@ -3045,16 +3021,16 @@
     "today": "This word is for you when you need to know God is for you."
   },
   {
-    "ref": "Psalm 103:17",
-    "text": "But the mercy of the LORD is from everlasting to everlasting upon them that fear him, and his righteousness unto children’s children;",
-    "plain": "The Lord’s mercy lasts from everlasting to everlasting for those who fear Him — and it reaches their children.",
-    "step": "Name the fear, then answer it with: “But the mercy of the LORD is from everlasting to everlasting upon them that fear him, and his righteousness unto children’s children;”",
+    "ref": "Psalm 103:11",
+    "text": "For as the heaven is high above the earth, so great is his mercy toward them that fear him.",
+    "plain": "His mercy toward those who fear Him is as high as the heavens over the earth — not a thin layer.",
+    "step": "Name the fear, then answer it with: “For as the heaven is high above the earth, so great is his mercy toward them that fear him.”",
     "about": "David",
-    "to": "Them that fear Him — and you when you need a Father who knows you are dust",
-    "setting": "Like as a father pitieth his children, so the Lord pitieth them that fear Him; He knows our frame. The verse: But the mercy of the LORD is from everlasting to everlasting upon them that fear him, and his righteousness unto children’s children;",
-    "prayer": "Lord, when fear rises, hold me with “But the mercy of the LORD is from everlasting to everlasting upon them that fear him, and his righteousness unto children’s children;” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, The Lord’s mercy lasts from everlasting to everlasting for those who fear Him — and it reaches their children. The verse still says: “But the mercy of the LORD is from everlasting to everlasting upon them that fear him, and his righteousness unto children’s children;”",
-    "today": "The Lord’s mercy lasts from everlasting to everlasting for those who fear Him — and it reaches their children"
+    "to": "Them that fear Him — and you when you need mercy that actually removes the sin",
+    "setting": "David measures the Lord’s mercy: merciful and gracious, slow to anger; as far as the east is from the west He has removed our transgressions. The verse: For as the heaven is high above the earth, so great is his mercy toward them that fear him.",
+    "prayer": "Lord, when fear rises, hold me with “For as the heaven is high above the earth, so great is his mercy toward them that fear him.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, His mercy toward those who fear Him is as high as the heavens over the earth — not a thin layer. The verse still says: “For as the heaven is high above the earth, so great is his mercy toward them that fear him.”",
+    "today": "His mercy toward those who fear Him is as high as the heavens over the earth — not a thin layer"
   },
   {
     "ref": "Psalm 104:1",
@@ -3069,6 +3045,18 @@
     "today": "Bless the Lord, O my soul. He is very great — honor and majesty are His, not ours"
   },
   {
+    "ref": "Psalm 103:12",
+    "text": "As far as the east is from the west, so far hath he removed our transgressions from us.",
+    "plain": "He has moved our sins as far as east is from west — gone, not stored next door.",
+    "step": "Keep this clause until the next meal: “As far as the east is from the west, so far hath he removed our transgressions from us.”",
+    "about": "David",
+    "to": "Them that fear Him — and you when you need mercy that actually removes the sin",
+    "setting": "David measures the Lord’s mercy: merciful and gracious, slow to anger; as far as the east is from the west He has removed our transgressions. The verse: As far as the east is from the west, so far hath he removed our transgressions from us.",
+    "prayer": "Lord, let this word be true in me today: “As far as the east is from the west, so far hath he removed our transgressions from us.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, He has moved our sins as far as east is from west — gone, not stored next door. The verse still says: “As far as the east is from the west, so far hath he removed our transgressions from us.”",
+    "today": "He has moved our sins as far as east is from west — gone, not stored next door"
+  },
+  {
     "ref": "1 John 4:18",
     "text": "There is no fear in love; but perfect love casteth out fear: because fear hath torment. He that feareth is not made perfect in love.",
     "plain": "Perfect love drives out fear—so we don't have to be afraid.",
@@ -3079,6 +3067,18 @@
     "prayer": "Lord, perfect love casts out fear. Drive this fear out of my chest today. In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Perfect love drives out fear—so we don't have to be afraid. The verse still says: “There is no fear in love; but perfect love casteth out fear: because fear hath torment. He that feareth is not made perfect in love.”",
     "today": "This word is for you when fear is still sitting in the room."
+  },
+  {
+    "ref": "Psalm 103:17",
+    "text": "But the mercy of the LORD is from everlasting to everlasting upon them that fear him, and his righteousness unto children’s children;",
+    "plain": "The Lord’s mercy lasts from everlasting to everlasting for those who fear Him — and it reaches their children.",
+    "step": "Name the fear, then answer it with: “But the mercy of the LORD is from everlasting to everlasting upon them that fear him, and his righteousness unto children’s children;”",
+    "about": "David",
+    "to": "Them that fear Him — and you when you need a Father who knows you are dust",
+    "setting": "Like as a father pitieth his children, so the Lord pitieth them that fear Him; He knows our frame. The verse: But the mercy of the LORD is from everlasting to everlasting upon them that fear him, and his righteousness unto children’s children;",
+    "prayer": "Lord, when fear rises, hold me with “But the mercy of the LORD is from everlasting to everlasting upon them that fear him, and his righteousness unto children’s children;” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, The Lord’s mercy lasts from everlasting to everlasting for those who fear Him — and it reaches their children. The verse still says: “But the mercy of the LORD is from everlasting to everlasting upon them that fear him, and his righteousness unto children’s children;”",
+    "today": "The Lord’s mercy lasts from everlasting to everlasting for those who fear Him — and it reaches their children"
   },
   {
     "ref": "Psalm 104:33",
@@ -3153,18 +3153,6 @@
     "today": "Oh that men would praise the Lord for his goodness, and for his wonderful works to the — praise aimed at Him, not at the room"
   },
   {
-    "ref": "Psalm 107:9",
-    "text": "For he satisfieth the longing soul, and filleth the hungry soul with goodness.",
-    "plain": "For he satisfieth the longing soul, and filleth the hungry soul with goodness.",
-    "step": "Keep this clause until the next meal: “For he satisfieth the longing soul, and filleth the hungry soul with goodness.”",
-    "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
-    "to": "The redeemed telling what God has done",
-    "setting": "Book V opens: the redeemed from trouble give thanks — desert, prison, sickness, and storm. The verse: For he satisfieth the longing soul, and filleth the hungry soul with goodness.",
-    "prayer": "Lord, let this word be true in me today: “For he satisfieth the longing soul, and filleth the hungry soul with goodness.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, For he satisfieth the longing soul, and filleth the hungry soul with goodness. The verse still says: “For he satisfieth the longing soul, and filleth the hungry soul with goodness.”",
-    "today": "For he satisfieth the longing soul, and filleth the hungry soul with goodness"
-  },
-  {
     "ref": "Matthew 5:14",
     "text": "Ye are the light of the world. A city that is set on an hill cannot be hid.",
     "plain": "Jesus says His people are the world’s light—let your life point others to God (see the full KJV line above).",
@@ -3175,6 +3163,18 @@
     "prayer": "Lord, light the next step: “Ye are the light of the world. A city that is set on an hill cannot be hid.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Jesus says His people are the world’s light—let your life point others to God (see the full KJV line above). The verse still says: “Ye are the light of the world. A city that is set on an hill cannot be hid.”",
     "today": "Jesus says His people are the world’s light—let your life point others to God (see the full KJV line above)"
+  },
+  {
+    "ref": "Psalm 107:9",
+    "text": "For he satisfieth the longing soul, and filleth the hungry soul with goodness.",
+    "plain": "For he satisfieth the longing soul, and filleth the hungry soul with goodness.",
+    "step": "Keep this clause until the next meal: “For he satisfieth the longing soul, and filleth the hungry soul with goodness.”",
+    "about": "The redeemed of the Lord — giving thanks after desert, prison, sickness, and storm",
+    "to": "The redeemed telling what God has done",
+    "setting": "Book V opens: the redeemed from trouble give thanks — desert, prison, sickness, and storm. The verse: For he satisfieth the longing soul, and filleth the hungry soul with goodness.",
+    "prayer": "Lord, let this word be true in me today: “For he satisfieth the longing soul, and filleth the hungry soul with goodness.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, For he satisfieth the longing soul, and filleth the hungry soul with goodness. The verse still says: “For he satisfieth the longing soul, and filleth the hungry soul with goodness.”",
+    "today": "For he satisfieth the longing soul, and filleth the hungry soul with goodness"
   },
   {
     "ref": "Psalm 108:1",
@@ -3189,18 +3189,6 @@
     "today": "O God, my heart is fixed; — praise aimed at Him, not at the room"
   },
   {
-    "ref": "Psalm 108:4",
-    "text": "For thy mercy is great above the heavens: and thy truth reacheth unto the clouds.",
-    "plain": "For your mercy is great above the heavens: — mercy that actually moves the sin.",
-    "step": "Do one concrete kindness today because of this: “For thy mercy is great above the heavens: and thy truth reacheth unto the clouds.”",
-    "about": "David",
-    "to": "Anyone who needs courage for the next fight",
-    "setting": "David’s heart is fixed: he will sing praise among the nations, and through God they shall do valiantly. The verse: For thy mercy is great above the heavens: and thy truth reacheth unto the clouds.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “For thy mercy is great above the heavens: and thy truth reacheth unto the clouds.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, For your mercy is great above the heavens: — mercy that actually moves the sin. The verse still says: “For thy mercy is great above the heavens: and thy truth reacheth unto the clouds.”",
-    "today": "This word is for you when mercy has to be great above the heavens."
-  },
-  {
     "ref": "Philippians 4:4",
     "text": "Rejoice in the Lord alway: and again I say, Rejoice.",
     "plain": "Rejoice in the Lord always; I will say it again: rejoice.",
@@ -3211,6 +3199,18 @@
     "prayer": "Lord, let this word be true in me today: “Rejoice in the Lord alway: and again I say, Rejoice.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Rejoice in the Lord always; I will say it again: rejoice. The verse still says: “Rejoice in the Lord alway: and again I say, Rejoice.”",
     "today": "Rejoice in the Lord always; I will say it again: rejoice"
+  },
+  {
+    "ref": "Psalm 108:4",
+    "text": "For thy mercy is great above the heavens: and thy truth reacheth unto the clouds.",
+    "plain": "For your mercy is great above the heavens: — mercy that actually moves the sin.",
+    "step": "Do one concrete kindness today because of this: “For thy mercy is great above the heavens: and thy truth reacheth unto the clouds.”",
+    "about": "David",
+    "to": "Anyone who needs courage for the next fight",
+    "setting": "David’s heart is fixed: he will sing praise among the nations, and through God they shall do valiantly. The verse: For thy mercy is great above the heavens: and thy truth reacheth unto the clouds.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “For thy mercy is great above the heavens: and thy truth reacheth unto the clouds.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, For your mercy is great above the heavens: — mercy that actually moves the sin. The verse still says: “For thy mercy is great above the heavens: and thy truth reacheth unto the clouds.”",
+    "today": "This word is for you when mercy has to be great above the heavens."
   },
   {
     "ref": "Psalm 109:30",
@@ -3405,18 +3405,6 @@
     "today": "Not a one-day song: Because he has inclined his ear to me, so will I call upon him as long as I live"
   },
   {
-    "ref": "Psalm 116:5",
-    "text": "Gracious is the Lord, and righteous; yea, our God is merciful.",
-    "plain": "Gracious is the Lord, and righteous;.",
-    "step": "Stop once today and return to these words: “Gracious is the Lord, and righteous; yea, our God is merciful.”",
-    "about": "A thankful worshiper (untitled in the KJV)",
-    "to": "Anyone who has been heard after being brought low",
-    "setting": "I love the Lord, because He hath heard my voice: the psalmist was brought low, and He saved him — what shall I render?. The verse: Gracious is the Lord, and righteous; yea, our God is merciful.",
-    "prayer": "Lord, let this word be true in me today: “Gracious is the Lord, and righteous; yea, our God is merciful.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Gracious is the Lord, and righteous;. The verse still says: “Gracious is the Lord, and righteous; yea, our God is merciful.”",
-    "today": "Gracious is the Lord, and righteous;"
-  },
-  {
     "ref": "Matthew 5:9",
     "text": "Blessed are the peacemakers: for they shall be called the children of God.",
     "plain": "Blessed are the peacemakers:.",
@@ -3429,16 +3417,16 @@
     "today": "Blessed are the peacemakers:"
   },
   {
-    "ref": "Psalm 116:7",
-    "text": "Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.",
-    "plain": "Return to your rest, O my soul;.",
-    "step": "Sit still sixty seconds and let this be the only sentence: “Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.”",
+    "ref": "Psalm 116:5",
+    "text": "Gracious is the Lord, and righteous; yea, our God is merciful.",
+    "plain": "Gracious is the Lord, and righteous;.",
+    "step": "Stop once today and return to these words: “Gracious is the Lord, and righteous; yea, our God is merciful.”",
     "about": "A thankful worshiper (untitled in the KJV)",
     "to": "Anyone who has been heard after being brought low",
-    "setting": "I love the Lord, because He hath heard my voice: the psalmist was brought low, and He saved him — what shall I render?. The verse: Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.",
-    "prayer": "Lord, still my heart with “Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Return to your rest, O my soul;. The verse still says: “Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.”",
-    "today": "Return to your rest, O my soul;"
+    "setting": "I love the Lord, because He hath heard my voice: the psalmist was brought low, and He saved him — what shall I render?. The verse: Gracious is the Lord, and righteous; yea, our God is merciful.",
+    "prayer": "Lord, let this word be true in me today: “Gracious is the Lord, and righteous; yea, our God is merciful.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Gracious is the Lord, and righteous;. The verse still says: “Gracious is the Lord, and righteous; yea, our God is merciful.”",
+    "today": "Gracious is the Lord, and righteous;"
   },
   {
     "ref": "Philippians 4:8",
@@ -3453,6 +3441,18 @@
     "today": "For the rest, my brothers, whatever things are true, whatever things have honour, whatever things are upright, whatever things are holy, whatever things are beautiful, whatever things are of value,…"
   },
   {
+    "ref": "Psalm 116:7",
+    "text": "Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.",
+    "plain": "Return to your rest, O my soul;.",
+    "step": "Sit still sixty seconds and let this be the only sentence: “Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.”",
+    "about": "A thankful worshiper (untitled in the KJV)",
+    "to": "Anyone who has been heard after being brought low",
+    "setting": "I love the Lord, because He hath heard my voice: the psalmist was brought low, and He saved him — what shall I render?. The verse: Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.",
+    "prayer": "Lord, still my heart with “Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Return to your rest, O my soul;. The verse still says: “Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.”",
+    "today": "Return to your rest, O my soul;"
+  },
+  {
     "ref": "Psalm 117:1",
     "text": "O praise the Lord, all ye nations: praise him, all ye people.",
     "plain": "O praise the Lord, all you nations: — praise aimed at Him, not at the room.",
@@ -3463,18 +3463,6 @@
     "prayer": "Lord, I set these words before You from Psalm 117:1: “O praise the Lord, all you nations: praise him, all.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, O praise the Lord, all you nations: — praise aimed at Him, not at the room. The verse still says: “O praise the Lord, all ye nations: praise him, all ye people.”",
     "today": "O praise the Lord, all you nations: — praise aimed at Him, not at the room"
-  },
-  {
-    "ref": "Psalm 117:2",
-    "text": "For his merciful kindness is great toward us: and the truth of the LORD endureth for ever. Praise ye the LORD.",
-    "plain": "For his merciful kindness is great toward us:.",
-    "step": "Ask mercy with this line, then give one person a share of it: “For his merciful kindness is great toward us: and the truth of the LORD endureth for ever. Praise ye the LORD.”",
-    "about": "Israel’s congregation calling the nations (untitled in the KJV)",
-    "to": "All nations — and you when praise is due",
-    "setting": "O praise the Lord, all ye nations: His merciful kindness is great, and His truth endureth for ever. The verse: For his merciful kindness is great toward us: and the truth of the LORD endureth for ever. Praise ye the LORD.",
-    "prayer": "Lord, let this word be true in me today: “For his merciful kindness is great toward us: and the truth of the LORD endureth for ever. Praise ye the LORD.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, For his merciful kindness is great toward us:. The verse still says: “For his merciful kindness is great toward us: and the truth of the LORD endureth for ever. Praise ye the LORD.”",
-    "today": "For his merciful kindness is great toward us:"
   },
   {
     "ref": "Proverbs 12:25",
@@ -3489,6 +3477,18 @@
     "today": "This word is for you in the hour this verse is for: “Heaviness in the heart of man maketh it stoop: but a good word maketh it glad.”"
   },
   {
+    "ref": "Psalm 117:2",
+    "text": "For his merciful kindness is great toward us: and the truth of the LORD endureth for ever. Praise ye the LORD.",
+    "plain": "For his merciful kindness is great toward us:.",
+    "step": "Ask mercy with this line, then give one person a share of it: “For his merciful kindness is great toward us: and the truth of the LORD endureth for ever. Praise ye the LORD.”",
+    "about": "Israel’s congregation calling the nations (untitled in the KJV)",
+    "to": "All nations — and you when praise is due",
+    "setting": "O praise the Lord, all ye nations: His merciful kindness is great, and His truth endureth for ever. The verse: For his merciful kindness is great toward us: and the truth of the LORD endureth for ever. Praise ye the LORD.",
+    "prayer": "Lord, let this word be true in me today: “For his merciful kindness is great toward us: and the truth of the LORD endureth for ever. Praise ye the LORD.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, For his merciful kindness is great toward us:. The verse still says: “For his merciful kindness is great toward us: and the truth of the LORD endureth for ever. Praise ye the LORD.”",
+    "today": "For his merciful kindness is great toward us:"
+  },
+  {
     "ref": "Psalm 118:1",
     "text": "O give thanks unto the Lord; for he is good: because his mercy endureth for ever.",
     "plain": "O give thanks to the Lord; — praise aimed at Him, not at the room.",
@@ -3499,18 +3499,6 @@
     "prayer": "Lord, I set these words before You from Psalm 118:1: “O give thanks unto the Lord; for he is good: because his mercy endureth for ever.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, O give thanks to the Lord; — praise aimed at Him, not at the room. The verse still says: “O give thanks unto the Lord; for he is good: because his mercy endureth for ever.”",
     "today": "This word is for you when thanks has to be the first word."
-  },
-  {
-    "ref": "Psalm 118:5",
-    "text": "I called upon the Lord in distress: the Lord answered me, and set me in a large place.",
-    "plain": "I called upon the Lord in distress:.",
-    "step": "Stop once today and return to these words: “I called upon the Lord in distress: the Lord answered me, and set me in a large place.”",
-    "about": "Israel’s congregation after rescue (untitled in the KJV)",
-    "to": "All who need to thank Him for a day He made",
-    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: I called upon the Lord in distress: the Lord answered me, and set me in a large place.",
-    "prayer": "Lord, let this word be true in me today: “I called upon the Lord in distress: the Lord answered me, and set me in a large place.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, I called upon the Lord in distress:. The verse still says: “I called upon the Lord in distress: the Lord answered me, and set me in a large place.”",
-    "today": "I called upon the Lord in distress:"
   },
   {
     "ref": "Romans 12:12",
@@ -3525,28 +3513,16 @@
     "today": "Stay full of hope, be patient in hardship, and keep praying"
   },
   {
-    "ref": "Psalm 118:8",
-    "text": "It is better to trust in the Lord than to put confidence in man.",
-    "plain": "Put your weight where it will hold: It is better to trust in the Lord than to put confidence in man.",
-    "step": "When you want another rescue, return to: “It is better to trust in the Lord than to put confidence in man.”",
+    "ref": "Psalm 118:5",
+    "text": "I called upon the Lord in distress: the Lord answered me, and set me in a large place.",
+    "plain": "I called upon the Lord in distress:.",
+    "step": "Stop once today and return to these words: “I called upon the Lord in distress: the Lord answered me, and set me in a large place.”",
     "about": "Israel’s congregation after rescue (untitled in the KJV)",
     "to": "All who need to thank Him for a day He made",
-    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: It is better to trust in the Lord than to put confidence in man.",
-    "prayer": "Lord, i put my weight on You: “It is better to trust in the Lord than to put confidence in man.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Put your weight where it will hold: It is better to trust in the Lord than to put confidence in man. The verse still says: “It is better to trust in the Lord than to put confidence in man.”",
-    "today": "Put your weight where it will hold: It is better to trust in the Lord than to put confidence in man"
-  },
-  {
-    "ref": "Psalm 118:17",
-    "text": "I shall not die, but live, and declare the works of the Lord.",
-    "plain": "I shall not die, but live, and declare the works of the Lord.",
-    "step": "Stop once today and return to these words: “I shall not die, but live, and declare the works of the Lord.”",
-    "about": "Israel’s congregation after rescue (untitled in the KJV)",
-    "to": "All who need to thank Him for a day He made",
-    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: I shall not die, but live, and declare the works of the Lord.",
-    "prayer": "Lord, let this word be true in me today: “I shall not die, but live, and declare the works of the Lord.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, I shall not die, but live, and declare the works of the Lord. The verse still says: “I shall not die, but live, and declare the works of the Lord.”",
-    "today": "I shall not die, but live, and declare the works of the Lord"
+    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: I called upon the Lord in distress: the Lord answered me, and set me in a large place.",
+    "prayer": "Lord, let this word be true in me today: “I called upon the Lord in distress: the Lord answered me, and set me in a large place.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, I called upon the Lord in distress:. The verse still says: “I called upon the Lord in distress: the Lord answered me, and set me in a large place.”",
+    "today": "I called upon the Lord in distress:"
   },
   {
     "ref": "Isaiah 43:4",
@@ -3561,28 +3537,16 @@
     "today": "Since you were precious in my sight, you have been honourable"
   },
   {
-    "ref": "Psalm 118:21",
-    "text": "I will praise thee: for thou hast heard me, and art become my salvation.",
-    "plain": "I will praise you: — praise aimed at Him, not at the room.",
-    "step": "Before the next task, bless His name with these words: “I will praise thee: for thou hast heard me, and art become my salvation.”",
+    "ref": "Psalm 118:8",
+    "text": "It is better to trust in the Lord than to put confidence in man.",
+    "plain": "Put your weight where it will hold: It is better to trust in the Lord than to put confidence in man.",
+    "step": "When you want another rescue, return to: “It is better to trust in the Lord than to put confidence in man.”",
     "about": "Israel’s congregation after rescue (untitled in the KJV)",
     "to": "All who need to thank Him for a day He made",
-    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: I will praise thee: for thou hast heard me, and art become my salvation.",
-    "prayer": "Lord, I set these words before You from Psalm 118:21: “I will praise thee: for thou hast heard me, and art become my salvation.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, I will praise you: — praise aimed at Him, not at the room. The verse still says: “I will praise thee: for thou hast heard me, and art become my salvation.”",
-    "today": "I will praise you: — praise aimed at Him, not at the room"
-  },
-  {
-    "ref": "Psalm 118:23",
-    "text": "This is the Lord's doing; it is marvellous in our eyes.",
-    "plain": "This is the Lord's doing;.",
-    "step": "Read this once out loud, then do the next honest thing it names: “This is the Lord's doing; it is marvellous in our eyes.”",
-    "about": "Israel’s congregation after rescue (untitled in the KJV)",
-    "to": "All who need to thank Him for a day He made",
-    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: This is the Lord's doing; it is marvellous in our eyes.",
-    "prayer": "Lord, let this word be true in me today: “This is the Lord's doing; it is marvellous in our eyes.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, This is the Lord's doing;. The verse still says: “This is the Lord's doing; it is marvellous in our eyes.”",
-    "today": "This is the Lord's doing;"
+    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: It is better to trust in the Lord than to put confidence in man.",
+    "prayer": "Lord, i put my weight on You: “It is better to trust in the Lord than to put confidence in man.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Put your weight where it will hold: It is better to trust in the Lord than to put confidence in man. The verse still says: “It is better to trust in the Lord than to put confidence in man.”",
+    "today": "Put your weight where it will hold: It is better to trust in the Lord than to put confidence in man"
   },
   {
     "ref": "John 11:25",
@@ -3597,28 +3561,16 @@
     "today": "Living hope, not a mood: I am the resurrection, and the life"
   },
   {
-    "ref": "Psalm 118:28",
-    "text": "Thou art my God, and I will praise thee: thou art my God, I will exalt thee.",
-    "plain": "You are my God, and I will praise you: — praise aimed at Him, not at the room.",
-    "step": "Thank Him out loud using this line, then start the next honest work: “Thou art my God, and I will praise thee: thou art my God, I will exalt thee.”",
+    "ref": "Psalm 118:17",
+    "text": "I shall not die, but live, and declare the works of the Lord.",
+    "plain": "I shall not die, but live, and declare the works of the Lord.",
+    "step": "Stop once today and return to these words: “I shall not die, but live, and declare the works of the Lord.”",
     "about": "Israel’s congregation after rescue (untitled in the KJV)",
     "to": "All who need to thank Him for a day He made",
-    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: Thou art my God, and I will praise thee: thou art my God, I will exalt thee.",
-    "prayer": "Lord, I set these words before You from Psalm 118:28: “Thou art my God, and I will praise thee: thou art my God, I will exalt thee.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, You are my God, and I will praise you: — praise aimed at Him, not at the room. The verse still says: “Thou art my God, and I will praise thee: thou art my God, I will exalt thee.”",
-    "today": "You are my God, and I will praise you: — praise aimed at Him, not at the room"
-  },
-  {
-    "ref": "Psalm 118:29",
-    "text": "O give thanks unto the Lord; for he is good: for his mercy endureth for ever.",
-    "plain": "Give thanks to the Lord again — he is good, and his mercy endures forever to the end of the song.",
-    "step": "Say this praise out loud once: “O give thanks unto the Lord; for he is good: for his mercy endureth for ever.” (O give thanks unto the Lord)",
-    "about": "Israel’s congregation after rescue (untitled in the KJV)",
-    "to": "All who need to thank Him for a day He made",
-    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: O give thanks unto the Lord; for he is good: for his mercy endureth for ever.",
-    "prayer": "Lord, I set these words before You from Psalm 118:29: “O give thanks unto the Lord; for he is good: for his mercy endureth for ever.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Give thanks to the Lord again — he is good, and his mercy endures forever to the end of the song. The verse still says: “O give thanks unto the Lord; for he is good: for his mercy endureth for ever.”",
-    "today": "This word is for you when thanks has to be said while His mercy still endures — “O give thanks unto the Lord; for he is good: for his mercy endureth for ever.”"
+    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: I shall not die, but live, and declare the works of the Lord.",
+    "prayer": "Lord, let this word be true in me today: “I shall not die, but live, and declare the works of the Lord.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, I shall not die, but live, and declare the works of the Lord. The verse still says: “I shall not die, but live, and declare the works of the Lord.”",
+    "today": "I shall not die, but live, and declare the works of the Lord"
   },
   {
     "ref": "Matthew 6:33",
@@ -3633,6 +3585,18 @@
     "today": "Put God’s kingdom and His right ways first, and what you need will be added in His care"
   },
   {
+    "ref": "Psalm 118:21",
+    "text": "I will praise thee: for thou hast heard me, and art become my salvation.",
+    "plain": "I will praise you: — praise aimed at Him, not at the room.",
+    "step": "Before the next task, bless His name with these words: “I will praise thee: for thou hast heard me, and art become my salvation.”",
+    "about": "Israel’s congregation after rescue (untitled in the KJV)",
+    "to": "All who need to thank Him for a day He made",
+    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: I will praise thee: for thou hast heard me, and art become my salvation.",
+    "prayer": "Lord, I set these words before You from Psalm 118:21: “I will praise thee: for thou hast heard me, and art become my salvation.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, I will praise you: — praise aimed at Him, not at the room. The verse still says: “I will praise thee: for thou hast heard me, and art become my salvation.”",
+    "today": "I will praise you: — praise aimed at Him, not at the room"
+  },
+  {
     "ref": "Psalm 119:9",
     "text": "Wherewithal shall a young man cleanse his way? by taking heed thereto according to thy word.",
     "plain": "Wherewithal shall a young man cleanse his way? By taking heed thereto according to your word.",
@@ -3643,6 +3607,18 @@
     "prayer": "Lord, write this on my path today: “Wherewithal shall a young man cleanse his way? by taking heed thereto according to thy word.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Wherewithal shall a young man cleanse his way? By taking heed thereto according to your word. The verse still says: “Wherewithal shall a young man cleanse his way? by taking heed thereto according to thy word.”",
     "today": "This word is for you in the hour this verse is for: “Wherewithal shall a young man cleanse his way? by taking heed thereto according to thy word.”"
+  },
+  {
+    "ref": "Psalm 118:23",
+    "text": "This is the Lord's doing; it is marvellous in our eyes.",
+    "plain": "This is the Lord's doing;.",
+    "step": "Read this once out loud, then do the next honest thing it names: “This is the Lord's doing; it is marvellous in our eyes.”",
+    "about": "Israel’s congregation after rescue (untitled in the KJV)",
+    "to": "All who need to thank Him for a day He made",
+    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: This is the Lord's doing; it is marvellous in our eyes.",
+    "prayer": "Lord, let this word be true in me today: “This is the Lord's doing; it is marvellous in our eyes.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, This is the Lord's doing;. The verse still says: “This is the Lord's doing; it is marvellous in our eyes.”",
+    "today": "This is the Lord's doing;"
   },
   {
     "ref": "Psalm 119:18",
@@ -3657,6 +3633,18 @@
     "today": "Open you mine eyes, that I may look wondrous things out of your law"
   },
   {
+    "ref": "Psalm 118:28",
+    "text": "Thou art my God, and I will praise thee: thou art my God, I will exalt thee.",
+    "plain": "You are my God, and I will praise you: — praise aimed at Him, not at the room.",
+    "step": "Thank Him out loud using this line, then start the next honest work: “Thou art my God, and I will praise thee: thou art my God, I will exalt thee.”",
+    "about": "Israel’s congregation after rescue (untitled in the KJV)",
+    "to": "All who need to thank Him for a day He made",
+    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: Thou art my God, and I will praise thee: thou art my God, I will exalt thee.",
+    "prayer": "Lord, I set these words before You from Psalm 118:28: “Thou art my God, and I will praise thee: thou art my God, I will exalt thee.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, You are my God, and I will praise you: — praise aimed at Him, not at the room. The verse still says: “Thou art my God, and I will praise thee: thou art my God, I will exalt thee.”",
+    "today": "You are my God, and I will praise you: — praise aimed at Him, not at the room"
+  },
+  {
     "ref": "Philippians 4:19",
     "text": "But my God shall supply all your need according to his riches in glory by Christ Jesus.",
     "plain": "My God shall supply all your need according to his riches in glory.",
@@ -3667,6 +3655,18 @@
     "prayer": "Lord, let this word be true in me today: “But my God shall supply all your need according to his riches in glory by Christ Jesus.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, My God shall supply all your need according to his riches in glory. The verse still says: “But my God shall supply all your need according to his riches in glory by Christ Jesus.”",
     "today": "My God shall supply all your need according to his riches in glory"
+  },
+  {
+    "ref": "Psalm 118:29",
+    "text": "O give thanks unto the Lord; for he is good: for his mercy endureth for ever.",
+    "plain": "Give thanks to the Lord again — he is good, and his mercy endures forever to the end of the song.",
+    "step": "Say this praise out loud once: “O give thanks unto the Lord; for he is good: for his mercy endureth for ever.” (O give thanks unto the Lord)",
+    "about": "Israel’s congregation after rescue (untitled in the KJV)",
+    "to": "All who need to thank Him for a day He made",
+    "setting": "O give thanks, for He is good: the stone which the builders refused is become the head; this is the day the Lord hath made. The verse: O give thanks unto the Lord; for he is good: for his mercy endureth for ever.",
+    "prayer": "Lord, I set these words before You from Psalm 118:29: “O give thanks unto the Lord; for he is good: for his mercy endureth for ever.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Give thanks to the Lord again — he is good, and his mercy endures forever to the end of the song. The verse still says: “O give thanks unto the Lord; for he is good: for his mercy endureth for ever.”",
+    "today": "This word is for you when thanks has to be said while His mercy still endures — “O give thanks unto the Lord; for he is good: for his mercy endureth for ever.”"
   },
   {
     "ref": "Psalm 119:27",
@@ -3681,18 +3681,6 @@
     "today": "Make me to understand the way of your precepts: — wisdom from His mouth, not a private trick"
   },
   {
-    "ref": "Psalm 119:174",
-    "text": "I have longed for thy salvation, O Lord; and thy law is my delight.",
-    "plain": "I have longed for your salvation, O Lord; — enough light for the next step.",
-    "step": "Carry this clause in your mouth until noon: “I have longed for thy salvation, O Lord; and thy law is my delight.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: I have longed for thy salvation, O Lord; and thy law is my delight.",
-    "prayer": "Lord, write this on my path today: “I have longed for thy salvation, O Lord; and thy law is my delight.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, I have longed for your salvation, O Lord; — enough light for the next step. The verse still says: “I have longed for thy salvation, O Lord; and thy law is my delight.”",
-    "today": "I have longed for your salvation, O Lord; — enough light for the next step"
-  },
-  {
     "ref": "Proverbs 14:30",
     "text": "A sound heart is the life of the flesh: but envy the rottenness of the bones.",
     "plain": "A sound heart is the life of the flesh:.",
@@ -3705,28 +3693,16 @@
     "today": "A sound heart is the life of the flesh:"
   },
   {
-    "ref": "Psalm 119:32",
-    "text": "I will run the way of thy commandments, when thou shalt enlarge my heart.",
-    "plain": "I will run the way of your commandments, when you shall enlarge my heart.",
-    "step": "Read this once out loud, then do the next honest thing it names: “I will run the way of your commandments, when.”",
+    "ref": "Psalm 119:174",
+    "text": "I have longed for thy salvation, O Lord; and thy law is my delight.",
+    "plain": "I have longed for your salvation, O Lord; — enough light for the next step.",
+    "step": "Carry this clause in your mouth until noon: “I have longed for thy salvation, O Lord; and thy law is my delight.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: I will run the way of thy commandments, when thou shalt enlarge my heart.",
-    "prayer": "Lord, let this word be true in me today: “I will run the way of your commandments, when you.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, I will run the way of your commandments, when you shall enlarge my heart. The verse still says: “I will run the way of thy commandments, when thou shalt enlarge my heart.”",
-    "today": "This word is for you in the hour this verse is for: “I will run the way of thy commandments, when thou shalt enlarge my heart.”"
-  },
-  {
-    "ref": "Psalm 119:45",
-    "text": "And I will walk at liberty: for I seek thy precepts.",
-    "plain": "And I will walk at liberty: — bring the real request; He hears.",
-    "step": "Write this where you will see it: “And I will walk at liberty: for I seek thy precepts.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: And I will walk at liberty: for I seek thy precepts.",
-    "prayer": "Lord, hear this as my whole request: “And I will walk at liberty: for I seek your precepts.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, And I will walk at liberty: — bring the real request; He hears. The verse still says: “And I will walk at liberty: for I seek thy precepts.”",
-    "today": "And I will walk at liberty: — bring the real request; He hears"
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: I have longed for thy salvation, O Lord; and thy law is my delight.",
+    "prayer": "Lord, write this on my path today: “I have longed for thy salvation, O Lord; and thy law is my delight.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, I have longed for your salvation, O Lord; — enough light for the next step. The verse still says: “I have longed for thy salvation, O Lord; and thy law is my delight.”",
+    "today": "I have longed for your salvation, O Lord; — enough light for the next step"
   },
   {
     "ref": "Romans 8:32",
@@ -3741,16 +3717,16 @@
     "today": "He that spared not his own Son, but delivered him up for us all, how shall he not with him also freely give"
   },
   {
-    "ref": "Psalm 119:65",
-    "text": "Thou hast dealt well with thy servant, O Lord, according unto thy word.",
-    "plain": "You have dealt well with your servant, O LORD, according to your word.",
-    "step": "Read this once out loud, then do the next honest thing it names: “Thou hast dealt well with thy servant, O Lord, according unto thy word.”",
+    "ref": "Psalm 119:32",
+    "text": "I will run the way of thy commandments, when thou shalt enlarge my heart.",
+    "plain": "I will run the way of your commandments, when you shall enlarge my heart.",
+    "step": "Read this once out loud, then do the next honest thing it names: “I will run the way of your commandments, when.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thou hast dealt well with thy servant, O Lord, according unto thy word.",
-    "prayer": "Lord, write this on my path today: “Thou hast dealt well with thy servant, O Lord, according unto thy word.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, You have dealt well with your servant, O LORD, according to your word. The verse still says: “Thou hast dealt well with thy servant, O Lord, according unto thy word.”",
-    "today": "This word is for you in the hour this verse is for: “Thou hast dealt well with thy servant, O Lord, according unto thy word.”"
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: I will run the way of thy commandments, when thou shalt enlarge my heart.",
+    "prayer": "Lord, let this word be true in me today: “I will run the way of your commandments, when you.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, I will run the way of your commandments, when you shall enlarge my heart. The verse still says: “I will run the way of thy commandments, when thou shalt enlarge my heart.”",
+    "today": "This word is for you in the hour this verse is for: “I will run the way of thy commandments, when thou shalt enlarge my heart.”"
   },
   {
     "ref": "Isaiah 49:16",
@@ -3765,28 +3741,16 @@
     "today": "Look, I have graven you upon the palms of my hands"
   },
   {
-    "ref": "Psalm 119:111",
-    "text": "Thy testimonies have I taken as an heritage for ever: for they are the rejoicing of my heart.",
-    "plain": "Your testimonies have I taken as an heritage forever:.",
-    "step": "Carry this clause in your mouth until noon: “Thy testimonies have I taken as an heritage for ever: for they are the rejoicing of my heart.”",
+    "ref": "Psalm 119:45",
+    "text": "And I will walk at liberty: for I seek thy precepts.",
+    "plain": "And I will walk at liberty: — bring the real request; He hears.",
+    "step": "Write this where you will see it: “And I will walk at liberty: for I seek thy precepts.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thy testimonies have I taken as an heritage for ever: for they are the rejoicing of my heart.",
-    "prayer": "Lord, write this on my path today: “Thy testimonies have I taken as an heritage for ever: for they are the rejoicing of my heart.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Your testimonies have I taken as an heritage forever:. The verse still says: “Thy testimonies have I taken as an heritage for ever: for they are the rejoicing of my heart.”",
-    "today": "Your testimonies have I taken as an heritage forever:"
-  },
-  {
-    "ref": "Psalm 119:68",
-    "text": "Thou art good, and doest good; teach me thy statutes.",
-    "plain": "You are good, and doest good; teach me your statutes.",
-    "step": "Read this once out loud, then do the next honest thing it names: “Thou art good, and doest good; teach me thy statutes.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thou art good, and doest good; teach me thy statutes.",
-    "prayer": "Lord, write this on my path today: “Thou art good, and doest good; teach me thy statutes.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, You are good, and doest good; teach me your statutes. The verse still says: “Thou art good, and doest good; teach me thy statutes.”",
-    "today": "This word is for you in the hour this verse is for: “Thou art good, and doest good; teach me thy statutes.”"
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: And I will walk at liberty: for I seek thy precepts.",
+    "prayer": "Lord, hear this as my whole request: “And I will walk at liberty: for I seek your precepts.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, And I will walk at liberty: — bring the real request; He hears. The verse still says: “And I will walk at liberty: for I seek thy precepts.”",
+    "today": "And I will walk at liberty: — bring the real request; He hears"
   },
   {
     "ref": "John 13:34",
@@ -3801,28 +3765,16 @@
     "today": "This word is for you in the hour this verse is for: “A new commandment I give unto you, That ye love one another; as I have loved you, that ye also love one another.”"
   },
   {
-    "ref": "Psalm 119:73",
-    "text": "Thy hands have made me and fashioned me: give me understanding, that I may learn thy commandments.",
-    "plain": "Your hands have made me and fashioned me: — wisdom from His mouth, not a private trick.",
-    "step": "Write this where you will see it: “Thy hands have made me and fashioned me: give me understanding, that I may learn thy commandments.”",
+    "ref": "Psalm 119:65",
+    "text": "Thou hast dealt well with thy servant, O Lord, according unto thy word.",
+    "plain": "You have dealt well with your servant, O LORD, according to your word.",
+    "step": "Read this once out loud, then do the next honest thing it names: “Thou hast dealt well with thy servant, O Lord, according unto thy word.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thy hands have made me and fashioned me: give me understanding, that I may learn thy commandments.",
-    "prayer": "Lord, let this word be true in me today: “Thy hands have made me and fashioned me: give me understanding, that I may learn thy commandments.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Your hands have made me and fashioned me: — wisdom from His mouth, not a private trick. The verse still says: “Thy hands have made me and fashioned me: give me understanding, that I may learn thy commandments.”",
-    "today": "Your hands have made me and fashioned me: — wisdom from His mouth, not a private trick"
-  },
-  {
-    "ref": "Psalm 119:89",
-    "text": "For ever, O Lord, thy word is settled in heaven.",
-    "plain": "Forever, O LORD, your word is settled in heaven.",
-    "step": "Write this where you will see it: “For ever, O Lord, your word is settled in heaven.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: For ever, O Lord, thy word is settled in heaven.",
-    "prayer": "Lord, write this on my path today: “For ever, O Lord, your word is settled in heaven.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Forever, O LORD, your word is settled in heaven. The verse still says: “For ever, O Lord, thy word is settled in heaven.”",
-    "today": "This word is for you in the hour this verse is for: “For ever, O Lord, thy word is settled in heaven.”"
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thou hast dealt well with thy servant, O Lord, according unto thy word.",
+    "prayer": "Lord, write this on my path today: “Thou hast dealt well with thy servant, O Lord, according unto thy word.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, You have dealt well with your servant, O LORD, according to your word. The verse still says: “Thou hast dealt well with thy servant, O Lord, according unto thy word.”",
+    "today": "This word is for you in the hour this verse is for: “Thou hast dealt well with thy servant, O Lord, according unto thy word.”"
   },
   {
     "ref": "Matthew 7:12",
@@ -3837,28 +3789,16 @@
     "today": "All things whatever you would that men should do to you, do you even so to them"
   },
   {
-    "ref": "Psalm 119:93",
-    "text": "I will never forget thy precepts: for with them thou hast quickened me.",
-    "plain": "I will never forget your precepts:.",
-    "step": "Write this where you will see it: “I will never forget your precepts: for with them.”",
+    "ref": "Psalm 119:111",
+    "text": "Thy testimonies have I taken as an heritage for ever: for they are the rejoicing of my heart.",
+    "plain": "Your testimonies have I taken as an heritage forever:.",
+    "step": "Carry this clause in your mouth until noon: “Thy testimonies have I taken as an heritage for ever: for they are the rejoicing of my heart.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: I will never forget thy precepts: for with them thou hast quickened me.",
-    "prayer": "Lord, write this on my path today: “I will never forget your precepts: for with them.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, I will never forget your precepts:. The verse still says: “I will never forget thy precepts: for with them thou hast quickened me.”",
-    "today": "I will never forget your precepts:"
-  },
-  {
-    "ref": "Psalm 119:97",
-    "text": "O how love I thy law! it is my meditation all the day.",
-    "plain": "O how love I your law.",
-    "step": "Carry this clause in your mouth until noon: “O how love I thy law! it is my meditation all the day.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: O how love I thy law! it is my meditation all the day.",
-    "prayer": "Lord, write this on my path today: “O how love I thy law! it is my meditation all the day.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, O how love I your law. The verse still says: “O how love I thy law! it is my meditation all the day.”",
-    "today": "O how love I your law"
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thy testimonies have I taken as an heritage for ever: for they are the rejoicing of my heart.",
+    "prayer": "Lord, write this on my path today: “Thy testimonies have I taken as an heritage for ever: for they are the rejoicing of my heart.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Your testimonies have I taken as an heritage forever:. The verse still says: “Thy testimonies have I taken as an heritage for ever: for they are the rejoicing of my heart.”",
+    "today": "Your testimonies have I taken as an heritage forever:"
   },
   {
     "ref": "Proverbs 15:1",
@@ -3873,28 +3813,16 @@
     "today": "A gentle answer turns away anger; harsh words make things worse"
   },
   {
-    "ref": "Psalm 119:103",
-    "text": "How sweet are thy words unto my taste! yea, sweeter than honey to my mouth!",
-    "plain": "How sweet are your words to my taste! Yes, sweeter than honey to my mouth!",
-    "step": "Write this where you will see it: “How sweet are thy words unto my taste! yea, sweeter than honey to my mouth.”",
+    "ref": "Psalm 119:68",
+    "text": "Thou art good, and doest good; teach me thy statutes.",
+    "plain": "You are good, and doest good; teach me your statutes.",
+    "step": "Read this once out loud, then do the next honest thing it names: “Thou art good, and doest good; teach me thy statutes.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: How sweet are thy words unto my taste! yea, sweeter than honey to my mouth!",
-    "prayer": "Lord, write this on my path today: “How sweet are thy words unto my taste! yea, sweeter than honey to my mouth.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, How sweet are your words to my taste! Yes, sweeter than honey to my mouth!. The verse still says: “How sweet are thy words unto my taste! yea, sweeter than honey to my mouth!”",
-    "today": "This word is for you in the hour this verse is for: “How sweet are thy words unto my taste! yea, sweeter than honey to my mouth!”"
-  },
-  {
-    "ref": "Psalm 119:114",
-    "text": "Thou art my hiding place and my shield: I hope in thy word.",
-    "plain": "You are my hiding place and my shield: I hope in your word.",
-    "step": "When you want another rescue, return to: “Thou art my hiding place and my shield: I hope in thy word.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thou art my hiding place and my shield: I hope in thy word.",
-    "prayer": "Lord, i put my weight on You: “Thou art my hiding place and my shield: I hope in thy word.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, You are my hiding place and my shield: I hope in your word. The verse still says: “Thou art my hiding place and my shield: I hope in thy word.”",
-    "today": "This word is for you in the hour this verse is for: “Thou art my hiding place and my shield: I hope in thy word.”"
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thou art good, and doest good; teach me thy statutes.",
+    "prayer": "Lord, write this on my path today: “Thou art good, and doest good; teach me thy statutes.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, You are good, and doest good; teach me your statutes. The verse still says: “Thou art good, and doest good; teach me thy statutes.”",
+    "today": "This word is for you in the hour this verse is for: “Thou art good, and doest good; teach me thy statutes.”"
   },
   {
     "ref": "Isaiah 54:10",
@@ -3909,28 +3837,16 @@
     "today": "God's love and peace won't leave you—He has promised"
   },
   {
-    "ref": "Psalm 119:116",
-    "text": "Uphold me according unto thy word, that I may live: and let me not be ashamed of my hope.",
-    "plain": "Uphold me according to your word, that I may live: and let me not be ashamed of my hope.",
-    "step": "Write this where you will see it: “Uphold me according unto your word, that I may.”",
+    "ref": "Psalm 119:73",
+    "text": "Thy hands have made me and fashioned me: give me understanding, that I may learn thy commandments.",
+    "plain": "Your hands have made me and fashioned me: — wisdom from His mouth, not a private trick.",
+    "step": "Write this where you will see it: “Thy hands have made me and fashioned me: give me understanding, that I may learn thy commandments.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Uphold me according unto thy word, that I may live: and let me not be ashamed of my hope.",
-    "prayer": "Lord, write this on my path today: “Uphold me according unto your word, that I may live.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Uphold me according to your word, that I may live: and let me not be ashamed of my hope. The verse still says: “Uphold me according unto thy word, that I may live: and let me not be ashamed of my hope.”",
-    "today": "This word is for you in the hour this verse is for: “Uphold me according unto thy word, that I may live: and let me not be ashamed of my hope.”"
-  },
-  {
-    "ref": "Psalm 119:130",
-    "text": "The entrance of thy words giveth light; it giveth understanding unto the simple.",
-    "plain": "The entrance of your words gives light; — wisdom from His mouth, not a private trick.",
-    "step": "Write this where you will see it: “The entrance of thy words giveth light; it giveth understanding unto the simple.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: The entrance of thy words giveth light; it giveth understanding unto the simple.",
-    "prayer": "Lord, write this on my path today: “The entrance of thy words giveth light; it giveth understanding unto the simple.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, The entrance of your words gives light; — wisdom from His mouth, not a private trick. The verse still says: “The entrance of thy words giveth light; it giveth understanding unto the simple.”",
-    "today": "The entrance of your words gives light; — wisdom from His mouth, not a private trick"
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thy hands have made me and fashioned me: give me understanding, that I may learn thy commandments.",
+    "prayer": "Lord, let this word be true in me today: “Thy hands have made me and fashioned me: give me understanding, that I may learn thy commandments.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Your hands have made me and fashioned me: — wisdom from His mouth, not a private trick. The verse still says: “Thy hands have made me and fashioned me: give me understanding, that I may learn thy commandments.”",
+    "today": "Your hands have made me and fashioned me: — wisdom from His mouth, not a private trick"
   },
   {
     "ref": "John 14:1",
@@ -3945,28 +3861,16 @@
     "today": "Do not let your heart be troubled:"
   },
   {
-    "ref": "Psalm 119:151",
-    "text": "Thou art near, O Lord; and all thy commandments are truth.",
-    "plain": "You are near, O LORD; and all your commandments are truth.",
-    "step": "Carry this clause in your mouth until noon: “Thou art near, O Lord; and all thy commandments are truth.”",
+    "ref": "Psalm 119:89",
+    "text": "For ever, O Lord, thy word is settled in heaven.",
+    "plain": "Forever, O LORD, your word is settled in heaven.",
+    "step": "Write this where you will see it: “For ever, O Lord, your word is settled in heaven.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thou art near, O Lord; and all thy commandments are truth.",
-    "prayer": "Lord, let this word be true in me today: “Thou art near, O Lord; and all thy commandments are truth.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, You are near, O LORD; and all your commandments are truth. The verse still says: “Thou art near, O Lord; and all thy commandments are truth.”",
-    "today": "This word is for you in the hour this verse is for: “Thou art near, O Lord; and all thy commandments are truth.”"
-  },
-  {
-    "ref": "Psalm 119:140",
-    "text": "Thy word is very pure: therefore thy servant loveth it.",
-    "plain": "Your word is very pure: so your servant loves it.",
-    "step": "Write this where you will see it: “your word is very pure: therefore your servant.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thy word is very pure: therefore thy servant loveth it.",
-    "prayer": "Lord, write this on my path today: “your word is very pure: therefore your servant loveth.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Your word is very pure: so your servant loves it. The verse still says: “Thy word is very pure: therefore thy servant loveth it.”",
-    "today": "This word is for you in the hour this verse is for: “Thy word is very pure: therefore thy servant loveth it.”"
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: For ever, O Lord, thy word is settled in heaven.",
+    "prayer": "Lord, write this on my path today: “For ever, O Lord, your word is settled in heaven.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Forever, O LORD, your word is settled in heaven. The verse still says: “For ever, O Lord, thy word is settled in heaven.”",
+    "today": "This word is for you in the hour this verse is for: “For ever, O Lord, thy word is settled in heaven.”"
   },
   {
     "ref": "Matthew 18:20",
@@ -3981,28 +3885,16 @@
     "today": "Where two or three are gathered together in my name, there am I in the midst of them"
   },
   {
-    "ref": "Psalm 119:160",
-    "text": "Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.",
-    "plain": "Your word is true from the beginning: and every one of your righteous judgments endureth forever.",
-    "step": "Write this where you will see it: “Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.”",
+    "ref": "Psalm 119:93",
+    "text": "I will never forget thy precepts: for with them thou hast quickened me.",
+    "plain": "I will never forget your precepts:.",
+    "step": "Write this where you will see it: “I will never forget your precepts: for with them.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.",
-    "prayer": "Lord, write this on my path today: “Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Your word is true from the beginning: and every one of your righteous judgments endureth forever. The verse still says: “Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.”",
-    "today": "This word is for you in the hour this verse is for: “Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.”"
-  },
-  {
-    "ref": "Psalm 119:162",
-    "text": "I rejoice at thy word, as one that findeth great spoil.",
-    "plain": "I rejoice at your word, as one that findeth great spoil.",
-    "step": "Read this once out loud, then do the next honest thing it names: “I rejoice at your word, as one that findeth.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: I rejoice at thy word, as one that findeth great spoil.",
-    "prayer": "Lord, write this on my path today: “I rejoice at your word, as one that findeth great.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, I rejoice at your word, as one that findeth great spoil. The verse still says: “I rejoice at thy word, as one that findeth great spoil.”",
-    "today": "This word is for you in the hour this verse is for: “I rejoice at thy word, as one that findeth great spoil.”"
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: I will never forget thy precepts: for with them thou hast quickened me.",
+    "prayer": "Lord, write this on my path today: “I will never forget your precepts: for with them.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, I will never forget your precepts:. The verse still says: “I will never forget thy precepts: for with them thou hast quickened me.”",
+    "today": "I will never forget your precepts:"
   },
   {
     "ref": "Proverbs 15:3",
@@ -4017,16 +3909,16 @@
     "today": "The eyes of the Lord are in every place"
   },
   {
-    "ref": "Psalm 119:175",
-    "text": "Let my soul live, and it shall praise thee; and let thy judgments help me.",
-    "plain": "Let my soul live, and it shall praise you; — praise aimed at Him, not at the room.",
-    "step": "Thank Him out loud using this line, then start the next honest work: “Let my soul live, and it shall praise you.”",
+    "ref": "Psalm 119:97",
+    "text": "O how love I thy law! it is my meditation all the day.",
+    "plain": "O how love I your law.",
+    "step": "Carry this clause in your mouth until noon: “O how love I thy law! it is my meditation all the day.”",
     "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
     "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Let my soul live, and it shall praise thee; and let thy judgments help me.",
-    "prayer": "Lord, I set these words before You from Psalm 119:175: “Let my soul live, and it shall praise you.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Let my soul live, and it shall praise you; — praise aimed at Him, not at the room. The verse still says: “Let my soul live, and it shall praise thee; and let thy judgments help me.”",
-    "today": "Let my soul live, and it shall praise you; — praise aimed at Him, not at the room"
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: O how love I thy law! it is my meditation all the day.",
+    "prayer": "Lord, write this on my path today: “O how love I thy law! it is my meditation all the day.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, O how love I your law. The verse still says: “O how love I thy law! it is my meditation all the day.”",
+    "today": "O how love I your law"
   },
   {
     "ref": "Psalm 121:4",
@@ -4041,6 +3933,18 @@
     "today": "Look,, the one who keeps Israel will neither slumber nor sleep"
   },
   {
+    "ref": "Psalm 119:103",
+    "text": "How sweet are thy words unto my taste! yea, sweeter than honey to my mouth!",
+    "plain": "How sweet are your words to my taste! Yes, sweeter than honey to my mouth!",
+    "step": "Write this where you will see it: “How sweet are thy words unto my taste! yea, sweeter than honey to my mouth.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: How sweet are thy words unto my taste! yea, sweeter than honey to my mouth!",
+    "prayer": "Lord, write this on my path today: “How sweet are thy words unto my taste! yea, sweeter than honey to my mouth.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, How sweet are your words to my taste! Yes, sweeter than honey to my mouth!. The verse still says: “How sweet are thy words unto my taste! yea, sweeter than honey to my mouth!”",
+    "today": "This word is for you in the hour this verse is for: “How sweet are thy words unto my taste! yea, sweeter than honey to my mouth!”"
+  },
+  {
     "ref": "Isaiah 55:6",
     "text": "Seek ye the LORD while he may be found, call ye upon him while he is near:",
     "plain": "Seek you the Lord while he may be found, call you upon him while he is near. That is the point — bring the real request; He hears.",
@@ -4051,6 +3955,18 @@
     "prayer": "Lord, hear this as my whole request: “Seek ye the LORD while he may be found, call ye upon him while he is near:.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Seek you the Lord while he may be found, call you upon him while he is near. That is the point — bring the real request; He hears. The verse still says: “Seek ye the LORD while he may be found, call ye upon him while he is near:”",
     "today": "Seek you the Lord while he may be found, call you upon him while he is near. That is the point — bring the real request; He hears"
+  },
+  {
+    "ref": "Psalm 119:114",
+    "text": "Thou art my hiding place and my shield: I hope in thy word.",
+    "plain": "You are my hiding place and my shield: I hope in your word.",
+    "step": "When you want another rescue, return to: “Thou art my hiding place and my shield: I hope in thy word.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thou art my hiding place and my shield: I hope in thy word.",
+    "prayer": "Lord, i put my weight on You: “Thou art my hiding place and my shield: I hope in thy word.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, You are my hiding place and my shield: I hope in your word. The verse still says: “Thou art my hiding place and my shield: I hope in thy word.”",
+    "today": "This word is for you in the hour this verse is for: “Thou art my hiding place and my shield: I hope in thy word.”"
   },
   {
     "ref": "Psalm 121:5",
@@ -4065,6 +3981,18 @@
     "today": "The Lord is your keeper:"
   },
   {
+    "ref": "Psalm 119:116",
+    "text": "Uphold me according unto thy word, that I may live: and let me not be ashamed of my hope.",
+    "plain": "Uphold me according to your word, that I may live: and let me not be ashamed of my hope.",
+    "step": "Write this where you will see it: “Uphold me according unto your word, that I may.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Uphold me according unto thy word, that I may live: and let me not be ashamed of my hope.",
+    "prayer": "Lord, write this on my path today: “Uphold me according unto your word, that I may live.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Uphold me according to your word, that I may live: and let me not be ashamed of my hope. The verse still says: “Uphold me according unto thy word, that I may live: and let me not be ashamed of my hope.”",
+    "today": "This word is for you in the hour this verse is for: “Uphold me according unto thy word, that I may live: and let me not be ashamed of my hope.”"
+  },
+  {
     "ref": "John 14:6",
     "text": "Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.",
     "plain": "Jesus is the way to the Father — not one option among many.",
@@ -4075,6 +4003,18 @@
     "prayer": "Lord Jesus, You are the way, the truth, and the life. I take the next step toward You. Amen.",
     "modernApplication": "In 2026, Jesus is the way to the Father — not one option among many. The verse still says: “Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.”",
     "today": "Jesus is the way to the Father — not one option among many"
+  },
+  {
+    "ref": "Psalm 119:130",
+    "text": "The entrance of thy words giveth light; it giveth understanding unto the simple.",
+    "plain": "The entrance of your words gives light; — wisdom from His mouth, not a private trick.",
+    "step": "Write this where you will see it: “The entrance of thy words giveth light; it giveth understanding unto the simple.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: The entrance of thy words giveth light; it giveth understanding unto the simple.",
+    "prayer": "Lord, write this on my path today: “The entrance of thy words giveth light; it giveth understanding unto the simple.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, The entrance of your words gives light; — wisdom from His mouth, not a private trick. The verse still says: “The entrance of thy words giveth light; it giveth understanding unto the simple.”",
+    "today": "The entrance of your words gives light; — wisdom from His mouth, not a private trick"
   },
   {
     "ref": "Psalm 121:6",
@@ -4089,6 +4029,18 @@
     "today": "The sun shall not smite you by day, nor the moon by night"
   },
   {
+    "ref": "Psalm 119:151",
+    "text": "Thou art near, O Lord; and all thy commandments are truth.",
+    "plain": "You are near, O LORD; and all your commandments are truth.",
+    "step": "Carry this clause in your mouth until noon: “Thou art near, O Lord; and all thy commandments are truth.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thou art near, O Lord; and all thy commandments are truth.",
+    "prayer": "Lord, let this word be true in me today: “Thou art near, O Lord; and all thy commandments are truth.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, You are near, O LORD; and all your commandments are truth. The verse still says: “Thou art near, O Lord; and all thy commandments are truth.”",
+    "today": "This word is for you in the hour this verse is for: “Thou art near, O Lord; and all thy commandments are truth.”"
+  },
+  {
     "ref": "Psalm 124:8",
     "text": "Our help is in the name of the Lord, who made heaven and earth.",
     "plain": "God is the Maker. Nothing exists outside His hand — “Our help is in the name of the Lord, who made heaven and earth.”",
@@ -4099,6 +4051,18 @@
     "prayer": "Lord, let this word be true in me today: “Our help is in the name of the Lord, who made heaven and earth.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, God is the Maker. Nothing exists outside His hand — “Our help is in the name of the Lord, who made heaven and earth.” The verse still says: “Our help is in the name of the Lord, who made heaven and earth.”",
     "today": "God is the Maker. Nothing exists outside His hand — “Our help is in the name of the Lord, who made heaven and earth.”"
+  },
+  {
+    "ref": "Psalm 119:140",
+    "text": "Thy word is very pure: therefore thy servant loveth it.",
+    "plain": "Your word is very pure: so your servant loves it.",
+    "step": "Write this where you will see it: “your word is very pure: therefore your servant.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thy word is very pure: therefore thy servant loveth it.",
+    "prayer": "Lord, write this on my path today: “your word is very pure: therefore your servant loveth.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Your word is very pure: so your servant loves it. The verse still says: “Thy word is very pure: therefore thy servant loveth it.”",
+    "today": "This word is for you in the hour this verse is for: “Thy word is very pure: therefore thy servant loveth it.”"
   },
   {
     "ref": "Matthew 21:22",
@@ -4113,6 +4077,18 @@
     "today": "When you ask God for something in prayer and you truly believe He will answer, He will"
   },
   {
+    "ref": "Psalm 119:160",
+    "text": "Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.",
+    "plain": "Your word is true from the beginning: and every one of your righteous judgments endureth forever.",
+    "step": "Write this where you will see it: “Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.",
+    "prayer": "Lord, write this on my path today: “Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Your word is true from the beginning: and every one of your righteous judgments endureth forever. The verse still says: “Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.”",
+    "today": "This word is for you in the hour this verse is for: “Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.”"
+  },
+  {
     "ref": "Psalm 125:1",
     "text": "They that trust in the LORD shall be as mount Zion, which cannot be removed, but abideth for ever.",
     "plain": "Put your weight where it will hold: They that trust in the Lord shall be as mount Zion, which cannot be removed.",
@@ -4125,6 +4101,18 @@
     "today": "Put your weight where it will hold: They that trust in the Lord shall be as mount Zion, which cannot be removed"
   },
   {
+    "ref": "Psalm 119:162",
+    "text": "I rejoice at thy word, as one that findeth great spoil.",
+    "plain": "I rejoice at your word, as one that findeth great spoil.",
+    "step": "Read this once out loud, then do the next honest thing it names: “I rejoice at your word, as one that findeth.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: I rejoice at thy word, as one that findeth great spoil.",
+    "prayer": "Lord, write this on my path today: “I rejoice at your word, as one that findeth great.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, I rejoice at your word, as one that findeth great spoil. The verse still says: “I rejoice at thy word, as one that findeth great spoil.”",
+    "today": "This word is for you in the hour this verse is for: “I rejoice at thy word, as one that findeth great spoil.”"
+  },
+  {
     "ref": "Psalm 126:2",
     "text": "Then was our mouth filled with laughter, and our tongue with singing: then said they among the heathen, The LORD hath done great things for them.",
     "plain": "Then was our mouth filled with laughter, and our tongue with singing.",
@@ -4135,6 +4123,18 @@
     "prayer": "Lord, I set these words before You from Psalm 126:2: “Then was our mouth filled with laughter, and our tongue with singing: then said they among the heathen, The LORD hath done great things for them.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Then was our mouth filled with laughter, and our tongue with singing. The verse still says: “Then was our mouth filled with laughter, and our tongue with singing: then said they among the heathen, The LORD hath done great things for them.”",
     "today": "Then was our mouth filled with laughter, and our tongue with singing"
+  },
+  {
+    "ref": "Psalm 119:175",
+    "text": "Let my soul live, and it shall praise thee; and let thy judgments help me.",
+    "plain": "Let my soul live, and it shall praise you; — praise aimed at Him, not at the room.",
+    "step": "Thank Him out loud using this line, then start the next honest work: “Let my soul live, and it shall praise you.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Let my soul live, and it shall praise thee; and let thy judgments help me.",
+    "prayer": "Lord, I set these words before You from Psalm 119:175: “Let my soul live, and it shall praise you.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Let my soul live, and it shall praise you; — praise aimed at Him, not at the room. The verse still says: “Let my soul live, and it shall praise thee; and let thy judgments help me.”",
+    "today": "Let my soul live, and it shall praise you; — praise aimed at Him, not at the room"
   },
   {
     "ref": "Proverbs 16:9",
@@ -4473,30 +4473,6 @@
     "today": "The LORD bless you, and keep you:"
   },
   {
-    "ref": "Numbers 6:25",
-    "text": "The LORD make his face shine upon thee, and be gracious unto thee:",
-    "plain": "The LORD make his face shine upon you, and be gracious to you:.",
-    "step": "Stop once today and return to these words: “The LORD make his face shine upon you, and be.”",
-    "about": "Moses (recording the Lord’s command)",
-    "to": "Israel preparing to move as God’s camp",
-    "setting": "Israel is counted and ordered around the tabernacle for the march from Sinai. The verse: The LORD make his face shine upon thee, and be gracious unto thee:",
-    "prayer": "Lord, let this word be true in me today: “The LORD make his face shine upon you, and be.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, The LORD make his face shine upon you, and be gracious to you:. The verse still says: “The LORD make his face shine upon thee, and be gracious unto thee:”",
-    "today": "The LORD make his face shine upon you, and be gracious to you:"
-  },
-  {
-    "ref": "Numbers 6:26",
-    "text": "The LORD lift up his countenance upon thee, and give thee peace.",
-    "plain": "The LORD lift up his countenance upon you, and give you peace.",
-    "step": "Stop once today and return to these words: “The LORD lift up his countenance upon you.”",
-    "about": "Moses (recording the Lord’s command)",
-    "to": "Israel preparing to move as God’s camp",
-    "setting": "Israel is counted and ordered around the tabernacle for the march from Sinai. The verse: The LORD lift up his countenance upon thee, and give thee peace.",
-    "prayer": "Lord, still my heart with “The LORD lift up his countenance upon you.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, The LORD lift up his countenance upon you, and give you peace. The verse still says: “The LORD lift up his countenance upon thee, and give thee peace.”",
-    "today": "The LORD lift up his countenance upon you, and give you peace"
-  },
-  {
     "ref": "Deuteronomy 6:5",
     "text": "And thou shalt love the LORD thy God with all thine heart, and with all thy soul, and with all thy might.",
     "plain": "And you shall love the LORD your God with all yours heart, and with all your soul, and with all your might.",
@@ -4509,6 +4485,18 @@
     "today": "And you shall love the LORD your God with all yours heart, and with all your soul, and with all your might"
   },
   {
+    "ref": "Numbers 6:25",
+    "text": "The LORD make his face shine upon thee, and be gracious unto thee:",
+    "plain": "The LORD make his face shine upon you, and be gracious to you:.",
+    "step": "Stop once today and return to these words: “The LORD make his face shine upon you, and be.”",
+    "about": "Moses (recording the Lord’s command)",
+    "to": "Israel preparing to move as God’s camp",
+    "setting": "Israel is counted and ordered around the tabernacle for the march from Sinai. The verse: The LORD make his face shine upon thee, and be gracious unto thee:",
+    "prayer": "Lord, let this word be true in me today: “The LORD make his face shine upon you, and be.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, The LORD make his face shine upon you, and be gracious to you:. The verse still says: “The LORD make his face shine upon thee, and be gracious unto thee:”",
+    "today": "The LORD make his face shine upon you, and be gracious to you:"
+  },
+  {
     "ref": "Deuteronomy 31:6",
     "text": "Be strong and of a good courage, fear not, nor be afraid of them: for the LORD thy God, he it is that doth go with thee; he will not fail thee, nor forsake thee.",
     "plain": "Be strong and courageous; the Lord goes with you and will never leave you.",
@@ -4519,6 +4507,18 @@
     "prayer": "Lord, when fear rises, hold me with “Be strong and of a good courage, fear not, nor be afraid of them: for the LORD thy God, he it is that doth go with thee; he will not fail thee, nor forsake thee.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Be strong and courageous; the Lord goes with you and will never leave you. The verse still says: “Be strong and of a good courage, fear not, nor be afraid of them: for the LORD thy God, he it is that doth go with thee; he will not fail thee, nor forsake thee.”",
     "today": "Be strong and courageous; the Lord goes with you and will never leave you"
+  },
+  {
+    "ref": "Numbers 6:26",
+    "text": "The LORD lift up his countenance upon thee, and give thee peace.",
+    "plain": "The LORD lift up his countenance upon you, and give you peace.",
+    "step": "Stop once today and return to these words: “The LORD lift up his countenance upon you.”",
+    "about": "Moses (recording the Lord’s command)",
+    "to": "Israel preparing to move as God’s camp",
+    "setting": "Israel is counted and ordered around the tabernacle for the march from Sinai. The verse: The LORD lift up his countenance upon thee, and give thee peace.",
+    "prayer": "Lord, still my heart with “The LORD lift up his countenance upon you.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, The LORD lift up his countenance upon you, and give you peace. The verse still says: “The LORD lift up his countenance upon thee, and give thee peace.”",
+    "today": "The LORD lift up his countenance upon you, and give you peace"
   },
   {
     "ref": "Deuteronomy 31:8",
@@ -4725,30 +4725,6 @@
     "today": "Blessed is the man that walketh not in the counsel of the ungodly, nor standeth in the way of sinners, nor"
   },
   {
-    "ref": "Psalm 1:2",
-    "text": "But his delight is in the law of the LORD; and in his law doth he meditate day and night.",
-    "plain": "But his delight is in the law of the LORD; and in his law does he meditate day and night.",
-    "step": "Carry this clause in your mouth until noon: “But his delight is in the law of the LORD; and in his law doth he meditate day and night.”",
-    "about": "A psalm writer",
-    "to": "Worshipers choosing the path of the righteous",
-    "setting": "Opening of the Psalter: two ways — the righteous rooted like a tree, the wicked like chaff. The verse: But his delight is in the law of the LORD; and in his law doth he meditate day and night.",
-    "prayer": "Lord, write this on my path today: “But his delight is in the law of the LORD; and in his law doth he meditate day and night.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, But his delight is in the law of the LORD; and in his law does he meditate day and night. The verse still says: “But his delight is in the law of the LORD; and in his law doth he meditate day and night.”",
-    "today": "This word is for you in the hour this verse is for: “But his delight is in the law of the LORD; and in his law doth he meditate day and night.”"
-  },
-  {
-    "ref": "Psalm 1:3",
-    "text": "And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.",
-    "plain": "And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season;.",
-    "step": "Keep this clause until the next meal: “And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.”",
-    "about": "A psalm writer",
-    "to": "Worshipers choosing the path of the righteous",
-    "setting": "Opening of the Psalter: two ways — the righteous rooted like a tree, the wicked like chaff. The verse: And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.",
-    "prayer": "Lord, let this word be true in me today: “And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season;. The verse still says: “And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.”",
-    "today": "And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season;"
-  },
-  {
     "ref": "Psalm 3:3",
     "text": "But thou, O LORD, art a shield for me; my glory, and the lifter up of mine head.",
     "plain": "But you, O LORD, are a shield for me;.",
@@ -4761,6 +4737,18 @@
     "today": "But you, O LORD, are a shield for me;"
   },
   {
+    "ref": "Psalm 1:2",
+    "text": "But his delight is in the law of the LORD; and in his law doth he meditate day and night.",
+    "plain": "But his delight is in the law of the LORD; and in his law does he meditate day and night.",
+    "step": "Carry this clause in your mouth until noon: “But his delight is in the law of the LORD; and in his law doth he meditate day and night.”",
+    "about": "A psalm writer",
+    "to": "Worshipers choosing the path of the righteous",
+    "setting": "Opening of the Psalter: two ways — the righteous rooted like a tree, the wicked like chaff. The verse: But his delight is in the law of the LORD; and in his law doth he meditate day and night.",
+    "prayer": "Lord, write this on my path today: “But his delight is in the law of the LORD; and in his law doth he meditate day and night.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, But his delight is in the law of the LORD; and in his law does he meditate day and night. The verse still says: “But his delight is in the law of the LORD; and in his law doth he meditate day and night.”",
+    "today": "This word is for you in the hour this verse is for: “But his delight is in the law of the LORD; and in his law doth he meditate day and night.”"
+  },
+  {
     "ref": "Psalm 3:5",
     "text": "I laid me down and slept; I awaked; for the LORD sustained me.",
     "plain": "I laid me down and slept;.",
@@ -4771,6 +4759,18 @@
     "prayer": "Lord, let this word be true in me today: “I laid me down and slept; I awaked; for the LORD sustained me.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, I laid me down and slept;. The verse still says: “I laid me down and slept; I awaked; for the LORD sustained me.”",
     "today": "I laid me down and slept;"
+  },
+  {
+    "ref": "Psalm 1:3",
+    "text": "And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.",
+    "plain": "And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season;.",
+    "step": "Keep this clause until the next meal: “And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.”",
+    "about": "A psalm writer",
+    "to": "Worshipers choosing the path of the righteous",
+    "setting": "Opening of the Psalter: two ways — the righteous rooted like a tree, the wicked like chaff. The verse: And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.",
+    "prayer": "Lord, let this word be true in me today: “And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season;. The verse still says: “And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.”",
+    "today": "And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season;"
   },
   {
     "ref": "Psalm 9:9",
@@ -4809,18 +4809,6 @@
     "today": "The heavens declare the glory of God;"
   },
   {
-    "ref": "Psalm 19:7",
-    "text": "The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.",
-    "plain": "Real wisdom starts with taking God seriously and walking in His way — “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.”",
-    "step": "Read this once out loud, then do the next honest thing it names: “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.”",
-    "about": "David",
-    "to": "Anyone hearing God in sky and Scripture",
-    "setting": "Creation declares God’s glory; His law revives the soul; David prays to be kept from secret faults. The verse: The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.",
-    "prayer": "Lord, write this on my path today: “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Real wisdom starts with taking God seriously and walking in His way — “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.” The verse still says: “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.”",
-    "today": "Real wisdom starts with taking God seriously and walking in His way — “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.”"
-  },
-  {
     "ref": "Psalm 23:2",
     "text": "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
     "plain": "He makes me to lie down in green pastures:.",
@@ -4831,6 +4819,18 @@
     "prayer": "Lord, still my heart with “He maketh me to lie down in green pastures: he leadeth me beside the still waters.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, He makes me to lie down in green pastures:. The verse still says: “He maketh me to lie down in green pastures: he leadeth me beside the still waters.”",
     "today": "He makes me to lie down in green pastures:"
+  },
+  {
+    "ref": "Psalm 19:7",
+    "text": "The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.",
+    "plain": "Real wisdom starts with taking God seriously and walking in His way — “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.”",
+    "step": "Read this once out loud, then do the next honest thing it names: “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.”",
+    "about": "David",
+    "to": "Anyone hearing God in sky and Scripture",
+    "setting": "Creation declares God’s glory; His law revives the soul; David prays to be kept from secret faults. The verse: The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.",
+    "prayer": "Lord, write this on my path today: “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Real wisdom starts with taking God seriously and walking in His way — “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.” The verse still says: “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.”",
+    "today": "Real wisdom starts with taking God seriously and walking in His way — “The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.”"
   },
   {
     "ref": "Psalm 23:3",
@@ -4845,42 +4845,6 @@
     "today": "He restoreth my soul:"
   },
   {
-    "ref": "Psalm 23:4",
-    "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
-    "plain": "Even in the darkest valley I don't have to be afraid—You are with me.",
-    "step": "Name the valley you are walking. Then say: I will not fear, for You are with me.",
-    "about": "David",
-    "to": "Anyone who needs a Shepherd",
-    "setting": "David sings of the Lord as his own shepherd: green pastures, still waters, a table, and a house forever. The verse: Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
-    "prayer": "Lord, I am in a valley. Walk with me and take the fear, because You are with me. In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Even in the darkest valley I don't have to be afraid—You are with me. The verse still says: “Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.”",
-    "today": "This word is for you when you need Him beside you, not only ahead."
-  },
-  {
-    "ref": "Psalm 23:5",
-    "text": "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
-    "plain": "You preparest a table before me in the presence of mine enemies:.",
-    "step": "Sit still sixty seconds and let this be the only sentence: “Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.”",
-    "about": "David",
-    "to": "Anyone who needs a Shepherd",
-    "setting": "David sings of the Lord as his own shepherd: green pastures, still waters, a table, and a house forever. The verse: Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
-    "prayer": "Lord, still my heart with “Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, You preparest a table before me in the presence of mine enemies:. The verse still says: “Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.”",
-    "today": "You preparest a table before me in the presence of mine enemies:"
-  },
-  {
-    "ref": "Psalm 23:6",
-    "text": "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
-    "plain": "Surely goodness and mercy shall follow me all the days of my life — not a one-day kindness.",
-    "step": "Ask mercy with this line, then give one person a share of it: “Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.”",
-    "about": "David",
-    "to": "Anyone who needs a Shepherd",
-    "setting": "David sings of the Lord as his own shepherd: green pastures, still waters, a table, and a house forever. The verse: Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Surely goodness and mercy shall follow me all the days of my life — not a one-day kindness. The verse still says: “Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.”",
-    "today": "This word is for you when you need goodness and mercy still following you."
-  },
-  {
     "ref": "Psalm 24:1",
     "text": "The earth is the LORD’s, and the fulness thereof; the world, and they that dwell therein.",
     "plain": "The earth is the LORD’s, and the fulness thereof;.",
@@ -4891,6 +4855,18 @@
     "prayer": "Lord, let this word be true in me today: “The earth is the LORD’s, and the fulness thereof; the world, and they that dwell therein.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, The earth is the LORD’s, and the fulness thereof;. The verse still says: “The earth is the LORD’s, and the fulness thereof; the world, and they that dwell therein.”",
     "today": "The earth is the LORD’s, and the fulness thereof;"
+  },
+  {
+    "ref": "Psalm 23:4",
+    "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+    "plain": "Even in the darkest valley I don't have to be afraid—You are with me.",
+    "step": "Name the valley you are walking. Then say: I will not fear, for You are with me.",
+    "about": "David",
+    "to": "Anyone who needs a Shepherd",
+    "setting": "David sings of the Lord as his own shepherd: green pastures, still waters, a table, and a house forever. The verse: Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+    "prayer": "Lord, I am in a valley. Walk with me and take the fear, because You are with me. In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Even in the darkest valley I don't have to be afraid—You are with me. The verse still says: “Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.”",
+    "today": "This word is for you when you need Him beside you, not only ahead."
   },
   {
     "ref": "Psalm 25:9",
@@ -4905,6 +4881,18 @@
     "today": "The meek will he guide in judgment:"
   },
   {
+    "ref": "Psalm 23:5",
+    "text": "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+    "plain": "You preparest a table before me in the presence of mine enemies:.",
+    "step": "Sit still sixty seconds and let this be the only sentence: “Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.”",
+    "about": "David",
+    "to": "Anyone who needs a Shepherd",
+    "setting": "David sings of the Lord as his own shepherd: green pastures, still waters, a table, and a house forever. The verse: Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+    "prayer": "Lord, still my heart with “Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, You preparest a table before me in the presence of mine enemies:. The verse still says: “Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.”",
+    "today": "You preparest a table before me in the presence of mine enemies:"
+  },
+  {
     "ref": "Psalm 27:4",
     "text": "One thing have I desired of the LORD, that will I seek after; that I may dwell in the house of the LORD all the days of my life, to behold the beauty of the LORD, and to enquire in his temple.",
     "plain": "One thing have I desired of the LORD, that will I seek after; — bring the real request; He hears.",
@@ -4915,6 +4903,18 @@
     "prayer": "Lord, hear this as my whole request: “One thing have I desired of the LORD, that will I seek after; that I may dwell in the house of the LORD all the days of my life, to behold the beauty of the LORD, and to enquire in his temple.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, One thing have I desired of the LORD, that will I seek after; — bring the real request; He hears. The verse still says: “One thing have I desired of the LORD, that will I seek after; that I may dwell in the house of the LORD all the days of my life, to behold the beauty of the LORD, and to enquire in his temple.”",
     "today": "One thing have I desired of the LORD, that will I seek after; — bring the real request; He hears"
+  },
+  {
+    "ref": "Psalm 23:6",
+    "text": "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+    "plain": "Surely goodness and mercy shall follow me all the days of my life — not a one-day kindness.",
+    "step": "Ask mercy with this line, then give one person a share of it: “Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.”",
+    "about": "David",
+    "to": "Anyone who needs a Shepherd",
+    "setting": "David sings of the Lord as his own shepherd: green pastures, still waters, a table, and a house forever. The verse: Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Surely goodness and mercy shall follow me all the days of my life — not a one-day kindness. The verse still says: “Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.”",
+    "today": "This word is for you when you need goodness and mercy still following you."
   },
   {
     "ref": "Psalm 27:13",
@@ -4965,18 +4965,6 @@
     "today": "I will bless the LORD at all times: — praise aimed at Him, not at the room"
   },
   {
-    "ref": "Psalm 34:15",
-    "text": "The eyes of the LORD are upon the righteous, and his ears are open unto their cry.",
-    "plain": "The eyes of the LORD are upon the righteous, and his ears are open to their cry.",
-    "step": "Stop once today and return to these words: “The eyes of the LORD are upon the righteous, and his ears are open unto their cry.”",
-    "about": "David",
-    "to": "The brokenhearted — and anyone tasting that the Lord is good",
-    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit; taste and see that the Lord is good. The verse: The eyes of the LORD are upon the righteous, and his ears are open unto their cry.",
-    "prayer": "Lord, let this word be true in me today: “The eyes of the LORD are upon the righteous, and his ears are open unto their cry.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, The eyes of the LORD are upon the righteous, and his ears are open to their cry. The verse still says: “The eyes of the LORD are upon the righteous, and his ears are open unto their cry.”",
-    "today": "The eyes of the LORD are upon the righteous, and his ears are open to their cry"
-  },
-  {
     "ref": "Psalm 37:31",
     "text": "The law of his God is in his heart; none of his steps shall slide.",
     "plain": "The law of his God is in his heart;.",
@@ -4987,6 +4975,18 @@
     "prayer": "Lord, write this on my path today: “The law of his God is in his heart; none of his steps shall slide.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, The law of his God is in his heart;. The verse still says: “The law of his God is in his heart; none of his steps shall slide.”",
     "today": "The law of his God is in his heart;"
+  },
+  {
+    "ref": "Psalm 34:15",
+    "text": "The eyes of the LORD are upon the righteous, and his ears are open unto their cry.",
+    "plain": "The eyes of the LORD are upon the righteous, and his ears are open to their cry.",
+    "step": "Stop once today and return to these words: “The eyes of the LORD are upon the righteous, and his ears are open unto their cry.”",
+    "about": "David",
+    "to": "The brokenhearted — and anyone tasting that the Lord is good",
+    "setting": "David, after escaping Abimelech, teaches: the Lord is near to the brokenhearted and saves those of a contrite spirit; taste and see that the Lord is good. The verse: The eyes of the LORD are upon the righteous, and his ears are open unto their cry.",
+    "prayer": "Lord, let this word be true in me today: “The eyes of the LORD are upon the righteous, and his ears are open unto their cry.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, The eyes of the LORD are upon the righteous, and his ears are open to their cry. The verse still says: “The eyes of the LORD are upon the righteous, and his ears are open unto their cry.”",
+    "today": "The eyes of the LORD are upon the righteous, and his ears are open to their cry"
   },
   {
     "ref": "Psalm 39:7",
@@ -5709,18 +5709,6 @@
     "today": "To every thing there is a season, and a time to every purpose under the heaven:"
   },
   {
-    "ref": "Ecclesiastes 3:11",
-    "text": "He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end.",
-    "plain": "He has made every thing beautiful in his time:.",
-    "step": "Keep this clause until the next meal: “He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end.”",
-    "about": "Solomon (the Preacher)",
-    "to": "Anyone asking what lasts under the sun",
-    "setting": "The Preacher tests pleasure, work, and wisdom “under the sun” and finds vanity without God. The verse: He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end.",
-    "prayer": "Lord, let this word be true in me today: “He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, He has made every thing beautiful in his time:. The verse still says: “He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end.”",
-    "today": "He has made every thing beautiful in his time:"
-  },
-  {
     "ref": "Isaiah 9:6",
     "text": "For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.",
     "plain": "For to us a child is born, to us a son is given: and the government shall be upon his shoulder:.",
@@ -5731,6 +5719,18 @@
     "prayer": "Lord, give me strength for this hour: “For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, For to us a child is born, to us a son is given: and the government shall be upon his shoulder:. The verse still says: “For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.”",
     "today": "For to us a child is born, to us a son is given: and the government shall be upon his shoulder:"
+  },
+  {
+    "ref": "Ecclesiastes 3:11",
+    "text": "He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end.",
+    "plain": "He has made every thing beautiful in his time:.",
+    "step": "Keep this clause until the next meal: “He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end.”",
+    "about": "Solomon (the Preacher)",
+    "to": "Anyone asking what lasts under the sun",
+    "setting": "The Preacher tests pleasure, work, and wisdom “under the sun” and finds vanity without God. The verse: He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end.",
+    "prayer": "Lord, let this word be true in me today: “He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, He has made every thing beautiful in his time:. The verse still says: “He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end.”",
+    "today": "He has made every thing beautiful in his time:"
   },
   {
     "ref": "Isaiah 12:2",
@@ -5805,18 +5805,6 @@
     "today": "This word is for you in the hour this verse is for: “The grass withereth, the flower fadeth: but the word of our God shall stand for ever.”"
   },
   {
-    "ref": "Isaiah 40:11",
-    "text": "He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.",
-    "plain": "He shall feed his flock like a shepherd: — He keeps the flock Himself.",
-    "step": "Read this once out loud, then do the next honest thing it names: “He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.”",
-    "about": "Isaiah (comfort from God)",
-    "to": "Weary Judah — and anyone waiting on the Lord",
-    "setting": "Comfort ye my people: the Lord comes as a shepherd who gathers the lambs, and they that wait on Him renew their strength. The verse: He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.",
-    "prayer": "Lord, shepherd me. I bring You this want: “He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, He shall feed his flock like a shepherd: — He keeps the flock Himself. The verse still says: “He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.”",
-    "today": "He shall feed his flock like a shepherd: — He keeps the flock Himself"
-  },
-  {
     "ref": "Isaiah 41:13",
     "text": "For I the LORD thy God will hold thy right hand, saying unto thee, Fear not; I will help thee.",
     "plain": "For I the LORD your God will hold your right hand, saying to you, Do not be afraid; — do not let fear have the last word.",
@@ -5827,6 +5815,18 @@
     "prayer": "Lord, when fear rises, hold me with “For I the LORD thy God will hold thy right hand, saying unto thee, Fear not; I will help thee.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, For I the LORD your God will hold your right hand, saying to you, Do not be afraid; — do not let fear have the last word. The verse still says: “For I the LORD thy God will hold thy right hand, saying unto thee, Fear not; I will help thee.”",
     "today": "For I the LORD your God will hold your right hand, saying to you, Do not be afraid; — do not let fear have the last word"
+  },
+  {
+    "ref": "Isaiah 40:11",
+    "text": "He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.",
+    "plain": "He shall feed his flock like a shepherd: — He keeps the flock Himself.",
+    "step": "Read this once out loud, then do the next honest thing it names: “He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.”",
+    "about": "Isaiah (comfort from God)",
+    "to": "Weary Judah — and anyone waiting on the Lord",
+    "setting": "Comfort ye my people: the Lord comes as a shepherd who gathers the lambs, and they that wait on Him renew their strength. The verse: He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.",
+    "prayer": "Lord, shepherd me. I bring You this want: “He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, He shall feed his flock like a shepherd: — He keeps the flock Himself. The verse still says: “He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.”",
+    "today": "He shall feed his flock like a shepherd: — He keeps the flock Himself"
   },
   {
     "ref": "Isaiah 43:1",
@@ -5841,18 +5841,6 @@
     "today": "But now thus says the LORD that created you, O Jacob, and he that formed you, O Israel, Do — do not let fear have the last word"
   },
   {
-    "ref": "Isaiah 43:19",
-    "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
-    "plain": "Look, I will do a new thing;.",
-    "step": "Read this once out loud, then do the next honest thing it names: “Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.”",
-    "about": "Isaiah (comfort from God)",
-    "to": "Exiles who need to know they belong to God",
-    "setting": "The Lord names and redeems His people: Fear not, for I have redeemed thee; I have called thee by thy name; thou art mine. The verse: Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
-    "prayer": "Lord, let this word be true in me today: “Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Look, I will do a new thing;. The verse still says: “Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.”",
-    "today": "Look, I will do a new thing;"
-  },
-  {
     "ref": "Isaiah 44:22",
     "text": "I have blotted out, as a thick cloud, thy transgressions, and, as a cloud, thy sins: return unto me; for I have redeemed thee.",
     "plain": "Turn back to God. He welcomes the one who comes home — \"I have blotted out, as a thick cloud, your transgression\".",
@@ -5863,6 +5851,18 @@
     "prayer": "Lord, show me Your salvation again today: “I have blotted out, as a thick cloud, thy transgressions, and, as a cloud, thy sins: return unto me; for I have redeemed thee.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Turn back to God. He welcomes the one who comes home — \"I have blotted out, as a thick cloud, your transgression\". The verse still says: “I have blotted out, as a thick cloud, thy transgressions, and, as a cloud, thy sins: return unto me; for I have redeemed thee.”",
     "today": "Turn back to God. He welcomes the one who comes home — \"I have blotted out, as a thick cloud, your transgression\""
+  },
+  {
+    "ref": "Isaiah 43:19",
+    "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
+    "plain": "Look, I will do a new thing;.",
+    "step": "Read this once out loud, then do the next honest thing it names: “Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.”",
+    "about": "Isaiah (comfort from God)",
+    "to": "Exiles who need to know they belong to God",
+    "setting": "The Lord names and redeems His people: Fear not, for I have redeemed thee; I have called thee by thy name; thou art mine. The verse: Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
+    "prayer": "Lord, let this word be true in me today: “Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Look, I will do a new thing;. The verse still says: “Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.”",
+    "today": "Look, I will do a new thing;"
   },
   {
     "ref": "Isaiah 45:22",
@@ -5913,30 +5913,6 @@
     "today": "Ho, every one that thirsteth, Come to the waters, and he that has no money;"
   },
   {
-    "ref": "Isaiah 55:8",
-    "text": "For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD.",
-    "plain": "For my thoughts are not your thoughts, neither are your ways my ways, says the LORD.",
-    "step": "Stop once today and return to these words: “For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD.”",
-    "about": "Isaiah",
-    "to": "The thirsty and the poor who cannot pay",
-    "setting": "Free pardon is offered; the word of God stands forever; come, buy wine and milk without money. The verse: For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD.",
-    "prayer": "Lord, let this word be true in me today: “For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, For my thoughts are not your thoughts, neither are your ways my ways, says the LORD. The verse still says: “For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD.”",
-    "today": "For my thoughts are not your thoughts, neither are your ways my ways, says the LORD"
-  },
-  {
-    "ref": "Isaiah 55:9",
-    "text": "For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.",
-    "plain": "For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your.",
-    "step": "Keep this clause until the next meal: “For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.”",
-    "about": "Isaiah",
-    "to": "The thirsty and the poor who cannot pay",
-    "setting": "Free pardon is offered; the word of God stands forever; come, buy wine and milk without money. The verse: For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.",
-    "prayer": "Lord, let this word be true in me today: “For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your. The verse still says: “For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.”",
-    "today": "For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your"
-  },
-  {
     "ref": "Isaiah 61:1",
     "text": "The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;",
     "plain": "The Spirit of the Lord GOD is upon me; because the LORD has anointed me to preach good tidings to the meek;.",
@@ -5949,6 +5925,18 @@
     "today": "The Spirit of the Lord GOD is upon me; because the LORD has anointed me to preach good tidings to the meek;"
   },
   {
+    "ref": "Isaiah 55:8",
+    "text": "For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD.",
+    "plain": "For my thoughts are not your thoughts, neither are your ways my ways, says the LORD.",
+    "step": "Stop once today and return to these words: “For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD.”",
+    "about": "Isaiah",
+    "to": "The thirsty and the poor who cannot pay",
+    "setting": "Free pardon is offered; the word of God stands forever; come, buy wine and milk without money. The verse: For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD.",
+    "prayer": "Lord, let this word be true in me today: “For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, For my thoughts are not your thoughts, neither are your ways my ways, says the LORD. The verse still says: “For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD.”",
+    "today": "For my thoughts are not your thoughts, neither are your ways my ways, says the LORD"
+  },
+  {
     "ref": "Isaiah 61:3",
     "text": "To appoint unto them that mourn in Zion, to give unto them beauty for ashes, the oil of joy for mourning, the garment of praise for the spirit of heaviness; that they might be called trees of righteousness, the planting of the LORD, that he might be glorified.",
     "plain": "To appoint to them that mourn in Zion, to give to them beauty for ashes, the oil of joy for — praise aimed at Him, not at the room.",
@@ -5959,6 +5947,18 @@
     "prayer": "Lord, I set these words before You from Isaiah 61:3: “To appoint unto them that mourn in Zion, to give unto them beauty for ashes, the oil of joy for mourning, the garment of praise for the spirit of heaviness; that they might be called trees of righteousness, the planting of the LORD, that he might be glorified.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, To appoint to them that mourn in Zion, to give to them beauty for ashes, the oil of joy for — praise aimed at Him, not at the room. The verse still says: “To appoint unto them that mourn in Zion, to give unto them beauty for ashes, the oil of joy for mourning, the garment of praise for the spirit of heaviness; that they might be called trees of righteousness, the planting of the LORD, that he might be glorified.”",
     "today": "To appoint to them that mourn in Zion, to give to them beauty for ashes, the oil of joy for — praise aimed at Him, not at the room"
+  },
+  {
+    "ref": "Isaiah 55:9",
+    "text": "For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.",
+    "plain": "For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your.",
+    "step": "Keep this clause until the next meal: “For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.”",
+    "about": "Isaiah",
+    "to": "The thirsty and the poor who cannot pay",
+    "setting": "Free pardon is offered; the word of God stands forever; come, buy wine and milk without money. The verse: For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.",
+    "prayer": "Lord, let this word be true in me today: “For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your. The verse still says: “For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.”",
+    "today": "For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your"
   },
   {
     "ref": "Jeremiah 1:5",
@@ -6021,18 +6021,6 @@
     "today": "God's love never runs out; His compassion is new every morning"
   },
   {
-    "ref": "Lamentations 3:23",
-    "text": "They are new every morning: great is thy faithfulness.",
-    "plain": "They are new every morning:.",
-    "step": "Keep this clause until the next meal: “They are new every morning: great is thy faithfulness.”",
-    "about": "Jeremiah",
-    "to": "Exiles mourning Jerusalem",
-    "setting": "Jerusalem has fallen; the poet weeps, yet hopes in mercies new every morning. The verse: They are new every morning: great is thy faithfulness.",
-    "prayer": "Lord, let this word be true in me today: “They are new every morning: great is thy faithfulness.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, They are new every morning:. The verse still says: “They are new every morning: great is thy faithfulness.”",
-    "today": "They are new every morning:"
-  },
-  {
     "ref": "Ezekiel 36:26",
     "text": "A new heart also will I give you, and a new spirit will I put within you: and I will take away the stony heart out of your flesh, and I will give you an heart of flesh.",
     "plain": "A new heart also will I give you, and a new spirit will I put within you:.",
@@ -6043,6 +6031,18 @@
     "prayer": "Lord, let this word be true in me today: “A new heart also will I give you, and a new spirit will I put within you: and I will take away the stony heart out of your flesh, and I will give you an heart of flesh.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, A new heart also will I give you, and a new spirit will I put within you:. The verse still says: “A new heart also will I give you, and a new spirit will I put within you: and I will take away the stony heart out of your flesh, and I will give you an heart of flesh.”",
     "today": "A new heart also will I give you, and a new spirit will I put within you:"
+  },
+  {
+    "ref": "Lamentations 3:23",
+    "text": "They are new every morning: great is thy faithfulness.",
+    "plain": "They are new every morning:.",
+    "step": "Keep this clause until the next meal: “They are new every morning: great is thy faithfulness.”",
+    "about": "Jeremiah",
+    "to": "Exiles mourning Jerusalem",
+    "setting": "Jerusalem has fallen; the poet weeps, yet hopes in mercies new every morning. The verse: They are new every morning: great is thy faithfulness.",
+    "prayer": "Lord, let this word be true in me today: “They are new every morning: great is thy faithfulness.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, They are new every morning:. The verse still says: “They are new every morning: great is thy faithfulness.”",
+    "today": "They are new every morning:"
   },
   {
     "ref": "Daniel 2:20",
@@ -6105,18 +6105,6 @@
     "today": "Turn back to God. He welcomes the one who comes home — \"And rend your heart, and not your garments, and turn to\""
   },
   {
-    "ref": "Joel 2:25",
-    "text": "And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.",
-    "plain": "And I will restore to you the years that the locust has eaten, the cankerworm, and the caterpiller, and the.",
-    "step": "Sit still sixty seconds and let this be the only sentence: “And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.”",
-    "about": "Joel",
-    "to": "Judah facing the day of the Lord",
-    "setting": "A locust plague and drought become a call to repent before the day of the Lord. The verse: And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.",
-    "prayer": "Lord, still my heart with “And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, And I will restore to you the years that the locust has eaten, the cankerworm, and the caterpiller, and the. The verse still says: “And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.”",
-    "today": "And I will restore to you the years that the locust has eaten, the cankerworm, and the caterpiller, and the"
-  },
-  {
     "ref": "Amos 5:4",
     "text": "For thus saith the LORD unto the house of Israel, Seek ye me, and ye shall live:",
     "plain": "God shows a clear way to live. His instructions are for your good — \"For thus says the LORD to the house of Israel, Seek you\".",
@@ -6127,6 +6115,18 @@
     "prayer": "Lord, hear this as my whole request: “For thus saith the LORD unto the house of Israel, Seek ye me, and ye shall live:.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, God shows a clear way to live. His instructions are for your good — \"For thus says the LORD to the house of Israel, Seek you\". The verse still says: “For thus saith the LORD unto the house of Israel, Seek ye me, and ye shall live:”",
     "today": "God shows a clear way to live. His instructions are for your good — \"For thus says the LORD to the house of Israel, Seek you\""
+  },
+  {
+    "ref": "Joel 2:25",
+    "text": "And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.",
+    "plain": "And I will restore to you the years that the locust has eaten, the cankerworm, and the caterpiller, and the.",
+    "step": "Sit still sixty seconds and let this be the only sentence: “And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.”",
+    "about": "Joel",
+    "to": "Judah facing the day of the Lord",
+    "setting": "A locust plague and drought become a call to repent before the day of the Lord. The verse: And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.",
+    "prayer": "Lord, still my heart with “And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, And I will restore to you the years that the locust has eaten, the cankerworm, and the caterpiller, and the. The verse still says: “And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.”",
+    "today": "And I will restore to you the years that the locust has eaten, the cankerworm, and the caterpiller, and the"
   },
   {
     "ref": "Micah 6:8",
@@ -6153,18 +6153,6 @@
     "today": "Rejoice not against me, O mine enemy: — enough light for the next step"
   },
   {
-    "ref": "Micah 7:18",
-    "text": "Who is a God like unto thee, that pardoneth iniquity, and passeth by the transgression of the remnant of his heritage? he retaineth not his anger for ever, because he delighteth in mercy.",
-    "plain": "There is no God like the Lord, who pardons iniquity and does not keep His anger forever.",
-    "step": "Do one concrete kindness today because of this: “Who is a God like unto you, that pardoneth.”",
-    "about": "Micah",
-    "to": "Judah hearing what the Lord requires",
-    "setting": "Micah warns Samaria and Jerusalem; he asks what the Lord requires: justice, mercy, humility. The verse: Who is a God like unto thee, that pardoneth iniquity, and passeth by the transgression of the remnant of his heritage? he retaineth not his anger for ever, because he delighteth in mercy.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “Who is a God like unto you, that pardoneth.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, There is no God like the Lord, who pardons iniquity and does not keep His anger forever. The verse still says: “Who is a God like unto thee, that pardoneth iniquity, and passeth by the transgression of the remnant of his heritage? he retaineth not his anger for ever, because he delighteth in mercy.”",
-    "today": "There is no God like the Lord, who pardons iniquity and does not keep His anger forever"
-  },
-  {
     "ref": "Habakkuk 3:19",
     "text": "The LORD God is my strength, and he will make my feet like hinds’ feet, and he will make me to walk upon mine high places. To the chief singer on my stringed instruments.",
     "plain": "When you feel empty, God gives strength beyond your own — “The LORD God is my strength, and he will make my feet like hinds’ feet, and he will make me to walk upon mine high places. To the chief singer on my stringed instruments.”",
@@ -6175,6 +6163,18 @@
     "prayer": "Lord, I set these words before You from Habakkuk 3:19: “The LORD God is my strength, and he will make my feet like hinds’ feet, and he will make me to walk upon mine high places. To the chief singer on my stringed instruments.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, When you feel empty, God gives strength beyond your own — “The LORD God is my strength, and he will make my feet like hinds’ feet, and he will make me to walk upon mine high places. To the chief singer on my stringed instruments.” The verse still says: “The LORD God is my strength, and he will make my feet like hinds’ feet, and he will make me to walk upon mine high places. To the chief singer on my stringed instruments.”",
     "today": "When you feel empty, God gives strength beyond your own — “The LORD God is my strength, and he will make my feet like hinds’ feet, and he will make me to walk upon mine high places. To the chief singer on my stringed instruments.”"
+  },
+  {
+    "ref": "Micah 7:18",
+    "text": "Who is a God like unto thee, that pardoneth iniquity, and passeth by the transgression of the remnant of his heritage? he retaineth not his anger for ever, because he delighteth in mercy.",
+    "plain": "There is no God like the Lord, who pardons iniquity and does not keep His anger forever.",
+    "step": "Do one concrete kindness today because of this: “Who is a God like unto you, that pardoneth.”",
+    "about": "Micah",
+    "to": "Judah hearing what the Lord requires",
+    "setting": "Micah warns Samaria and Jerusalem; he asks what the Lord requires: justice, mercy, humility. The verse: Who is a God like unto thee, that pardoneth iniquity, and passeth by the transgression of the remnant of his heritage? he retaineth not his anger for ever, because he delighteth in mercy.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Who is a God like unto you, that pardoneth.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, There is no God like the Lord, who pardons iniquity and does not keep His anger forever. The verse still says: “Who is a God like unto thee, that pardoneth iniquity, and passeth by the transgression of the remnant of his heritage? he retaineth not his anger for ever, because he delighteth in mercy.”",
+    "today": "There is no God like the Lord, who pardons iniquity and does not keep His anger forever"
   },
   {
     "ref": "Zechariah 4:6",
@@ -6237,54 +6237,6 @@
     "today": "Blessed are the poor in spirit:"
   },
   {
-    "ref": "Matthew 5:4",
-    "text": "Blessed are they that mourn: for they shall be comforted.",
-    "plain": "Those who mourn will be comforted by God.",
-    "step": "Thank Him out loud using this line, then start the next honest work: “Blessed are they that mourn: for they shall be comforted.”",
-    "about": "Jesus",
-    "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The verse: Blessed are they that mourn: for they shall be comforted.",
-    "prayer": "Lord, I set these words before You from Matthew 5:4: “Blessed are they that mourn: for they shall be comforted.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Those who mourn will be comforted by God. The verse still says: “Blessed are they that mourn: for they shall be comforted.”",
-    "today": "Those who mourn will be comforted by God"
-  },
-  {
-    "ref": "Matthew 5:6",
-    "text": "Blessed are they which do hunger and thirst after righteousness: for they shall be filled.",
-    "plain": "Blessed are they which do hunger and thirst after righteousness:.",
-    "step": "Before the next task, bless His name with these words: “Blessed are they which do hunger and thirst after righteousness: for they shall be filled.”",
-    "about": "Jesus",
-    "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The verse: Blessed are they which do hunger and thirst after righteousness: for they shall be filled.",
-    "prayer": "Lord, I set these words before You from Matthew 5:6: “Blessed are they which do hunger and thirst after righteousness: for they shall be filled.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Blessed are they which do hunger and thirst after righteousness:. The verse still says: “Blessed are they which do hunger and thirst after righteousness: for they shall be filled.”",
-    "today": "Blessed are they which do hunger and thirst after righteousness:"
-  },
-  {
-    "ref": "Matthew 5:7",
-    "text": "Blessed are the merciful: for they shall obtain mercy.",
-    "plain": "Blessed are the merciful: they shall obtain mercy — mercy given and mercy received.",
-    "step": "Thank Him out loud using this line, then start the next honest work: “Blessed are the merciful: for they shall obtain mercy.”",
-    "about": "Jesus",
-    "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The verse: Blessed are the merciful: for they shall obtain mercy.",
-    "prayer": "Lord, I set these words before You from Matthew 5:7: “Blessed are the merciful: for they shall obtain mercy.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Blessed are the merciful: they shall obtain mercy — mercy given and mercy received. The verse still says: “Blessed are the merciful: for they shall obtain mercy.”",
-    "today": "This word is for you when you need the mercy promised to the merciful."
-  },
-  {
-    "ref": "Matthew 5:8",
-    "text": "Blessed are the pure in heart: for they shall see God.",
-    "plain": "Blessed are the pure in heart:.",
-    "step": "Say this praise out loud once: “Blessed are the pure in heart: for they shall see God.”",
-    "about": "Jesus",
-    "to": "His disciples on the mount (and you today)",
-    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The verse: Blessed are the pure in heart: for they shall see God.",
-    "prayer": "Lord, I set these words before You from Matthew 5:8: “Blessed are the pure in heart: for they shall see God.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Blessed are the pure in heart:. The verse still says: “Blessed are the pure in heart: for they shall see God.”",
-    "today": "Blessed are the pure in heart:"
-  },
-  {
     "ref": "Matthew 6:14",
     "text": "For if ye forgive men their trespasses, your heavenly Father will also forgive you:",
     "plain": "Mercy that actually moves the sin: For if you forgive men their trespasses, your heavenly Father will also forgive you:.",
@@ -6295,6 +6247,18 @@
     "prayer": "Lord, let this mercy reach me, then go out from me: “For if ye forgive men their trespasses, your heavenly Father will also forgive you:.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Mercy that actually moves the sin: For if you forgive men their trespasses, your heavenly Father will also forgive you:. The verse still says: “For if ye forgive men their trespasses, your heavenly Father will also forgive you:”",
     "today": "This word is for you when you need to forgive as you have been forgiven."
+  },
+  {
+    "ref": "Matthew 5:4",
+    "text": "Blessed are they that mourn: for they shall be comforted.",
+    "plain": "Those who mourn will be comforted by God.",
+    "step": "Thank Him out loud using this line, then start the next honest work: “Blessed are they that mourn: for they shall be comforted.”",
+    "about": "Jesus",
+    "to": "His disciples on the mount (and you today)",
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The verse: Blessed are they that mourn: for they shall be comforted.",
+    "prayer": "Lord, I set these words before You from Matthew 5:4: “Blessed are they that mourn: for they shall be comforted.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Those who mourn will be comforted by God. The verse still says: “Blessed are they that mourn: for they shall be comforted.”",
+    "today": "Those who mourn will be comforted by God"
   },
   {
     "ref": "Matthew 6:34",
@@ -6309,6 +6273,18 @@
     "today": "Focus on today; don't borrow trouble from tomorrow"
   },
   {
+    "ref": "Matthew 5:6",
+    "text": "Blessed are they which do hunger and thirst after righteousness: for they shall be filled.",
+    "plain": "Blessed are they which do hunger and thirst after righteousness:.",
+    "step": "Before the next task, bless His name with these words: “Blessed are they which do hunger and thirst after righteousness: for they shall be filled.”",
+    "about": "Jesus",
+    "to": "His disciples on the mount (and you today)",
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The verse: Blessed are they which do hunger and thirst after righteousness: for they shall be filled.",
+    "prayer": "Lord, I set these words before You from Matthew 5:6: “Blessed are they which do hunger and thirst after righteousness: for they shall be filled.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Blessed are they which do hunger and thirst after righteousness:. The verse still says: “Blessed are they which do hunger and thirst after righteousness: for they shall be filled.”",
+    "today": "Blessed are they which do hunger and thirst after righteousness:"
+  },
+  {
     "ref": "Matthew 7:8",
     "text": "For every one that asketh receiveth; and he that seeketh findeth; and to him that knocketh it shall be opened.",
     "plain": "For every one that asketh receiveth; — bring the real request; He hears.",
@@ -6321,6 +6297,18 @@
     "today": "For every one that asketh receiveth; — bring the real request; He hears"
   },
   {
+    "ref": "Matthew 5:7",
+    "text": "Blessed are the merciful: for they shall obtain mercy.",
+    "plain": "Blessed are the merciful: they shall obtain mercy — mercy given and mercy received.",
+    "step": "Thank Him out loud using this line, then start the next honest work: “Blessed are the merciful: for they shall obtain mercy.”",
+    "about": "Jesus",
+    "to": "His disciples on the mount (and you today)",
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The verse: Blessed are the merciful: for they shall obtain mercy.",
+    "prayer": "Lord, I set these words before You from Matthew 5:7: “Blessed are the merciful: for they shall obtain mercy.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Blessed are the merciful: they shall obtain mercy — mercy given and mercy received. The verse still says: “Blessed are the merciful: for they shall obtain mercy.”",
+    "today": "This word is for you when you need the mercy promised to the merciful."
+  },
+  {
     "ref": "Matthew 11:29",
     "text": "Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.",
     "plain": "Take my yoke upon you, and learn of me;.",
@@ -6331,6 +6319,18 @@
     "prayer": "Lord, still my heart with “Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Take my yoke upon you, and learn of me;. The verse still says: “Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.”",
     "today": "Take my yoke upon you, and learn of me;"
+  },
+  {
+    "ref": "Matthew 5:8",
+    "text": "Blessed are the pure in heart: for they shall see God.",
+    "plain": "Blessed are the pure in heart:.",
+    "step": "Say this praise out loud once: “Blessed are the pure in heart: for they shall see God.”",
+    "about": "Jesus",
+    "to": "His disciples on the mount (and you today)",
+    "setting": "Jesus teaches the Sermon on the Mount: heart righteousness, prayer, and the narrow way. The verse: Blessed are the pure in heart: for they shall see God.",
+    "prayer": "Lord, I set these words before You from Matthew 5:8: “Blessed are the pure in heart: for they shall see God.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Blessed are the pure in heart:. The verse still says: “Blessed are the pure in heart: for they shall see God.”",
+    "today": "Blessed are the pure in heart:"
   },
   {
     "ref": "Matthew 18:3",
@@ -6357,18 +6357,6 @@
     "today": "Jesus said to him, You shall love the Lord your God with all your heart, and with all your soul, and with all"
   },
   {
-    "ref": "Matthew 22:39",
-    "text": "And the second is like unto it, Thou shalt love thy neighbour as thyself.",
-    "plain": "And the second is like to it, You shall love your neighbor as thyself.",
-    "step": "Read this once out loud, then do the next honest thing it names: “And the second is like unto it, you shall love.”",
-    "about": "Jesus (through Matthew)",
-    "to": "Jerusalem’s leaders — and all who test Him",
-    "setting": "Wedding-feast parable and debates in the temple: render unto Caesar; the great commandment. The verse: And the second is like unto it, Thou shalt love thy neighbour as thyself.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “And the second is like unto it, you shalt love.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, And the second is like to it, You shall love your neighbor as thyself. The verse still says: “And the second is like unto it, Thou shalt love thy neighbour as thyself.”",
-    "today": "And the second is like to it, You shall love your neighbor as thyself"
-  },
-  {
     "ref": "Matthew 28:20",
     "text": "Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.",
     "plain": "Jesus is with you always, to the very end of the age.",
@@ -6379,6 +6367,18 @@
     "prayer": "Lord, let this word be true in me today: “Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Jesus is with you always, to the very end of the age. The verse still says: “Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.”",
     "today": "Jesus is with you always, to the very end of the age"
+  },
+  {
+    "ref": "Matthew 22:39",
+    "text": "And the second is like unto it, Thou shalt love thy neighbour as thyself.",
+    "plain": "And the second is like to it, You shall love your neighbor as thyself.",
+    "step": "Read this once out loud, then do the next honest thing it names: “And the second is like unto it, you shall love.”",
+    "about": "Jesus (through Matthew)",
+    "to": "Jerusalem’s leaders — and all who test Him",
+    "setting": "Wedding-feast parable and debates in the temple: render unto Caesar; the great commandment. The verse: And the second is like unto it, Thou shalt love thy neighbour as thyself.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And the second is like unto it, you shalt love.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, And the second is like to it, You shall love your neighbor as thyself. The verse still says: “And the second is like unto it, Thou shalt love thy neighbour as thyself.”",
+    "today": "And the second is like to it, You shall love your neighbor as thyself"
   },
   {
     "ref": "Mark 5:36",
@@ -6405,18 +6405,6 @@
     "today": "When you feel empty, God gives strength beyond your own — \"And you shall love the Lord your God with all your heart\""
   },
   {
-    "ref": "Mark 12:31",
-    "text": "And the second is like, namely this, Thou shalt love thy neighbour as thyself. There is none other commandment greater than these.",
-    "plain": "And the second is like, namely this, You shall love your neighbor as thyself. There is none other commandment greater than these.",
-    "step": "Carry this clause in your mouth until noon: “And the second is like, namely this, you shall.”",
-    "about": "Jesus (through Mark)",
-    "to": "Jerusalem in the final week",
-    "setting": "Entry into Jerusalem; temple cleansing; Olivet discourse. The verse: And the second is like, namely this, Thou shalt love thy neighbour as thyself. There is none other commandment greater than these.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “And the second is like, namely this, you shalt.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, And the second is like, namely this, You shall love your neighbor as thyself. There is none other commandment greater than these. The verse still says: “And the second is like, namely this, Thou shalt love thy neighbour as thyself. There is none other commandment greater than these.”",
-    "today": "This word is for you in the hour this verse is for: “And the second is like, namely this, Thou shalt love thy neighbour as thyself. There is none other commandment greater than these.”"
-  },
-  {
     "ref": "Luke 2:10",
     "text": "And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people.",
     "plain": "And the angel said to them, Do not be afraid: — do not let fear have the last word.",
@@ -6427,6 +6415,18 @@
     "prayer": "Lord, when fear rises, hold me with “And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, And the angel said to them, Do not be afraid: — do not let fear have the last word. The verse still says: “And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people.”",
     "today": "And the angel said to them, Do not be afraid: — do not let fear have the last word"
+  },
+  {
+    "ref": "Mark 12:31",
+    "text": "And the second is like, namely this, Thou shalt love thy neighbour as thyself. There is none other commandment greater than these.",
+    "plain": "And the second is like, namely this, You shall love your neighbor as thyself. There is none other commandment greater than these.",
+    "step": "Carry this clause in your mouth until noon: “And the second is like, namely this, you shall.”",
+    "about": "Jesus (through Mark)",
+    "to": "Jerusalem in the final week",
+    "setting": "Entry into Jerusalem; temple cleansing; Olivet discourse. The verse: And the second is like, namely this, Thou shalt love thy neighbour as thyself. There is none other commandment greater than these.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And the second is like, namely this, you shalt.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, And the second is like, namely this, You shall love your neighbor as thyself. There is none other commandment greater than these. The verse still says: “And the second is like, namely this, Thou shalt love thy neighbour as thyself. There is none other commandment greater than these.”",
+    "today": "This word is for you in the hour this verse is for: “And the second is like, namely this, Thou shalt love thy neighbour as thyself. There is none other commandment greater than these.”"
   },
   {
     "ref": "Luke 2:14",
@@ -6513,18 +6513,6 @@
     "today": "In him was life; — enough light for the next step"
   },
   {
-    "ref": "John 1:5",
-    "text": "And the light shineth in darkness; and the darkness comprehended it not.",
-    "plain": "God brings light into dark places — and that light is for you too — “And the light shineth in darkness; and the darkness comprehended it not.”",
-    "step": "Stop once today and return to these words: “And the light shineth in darkness; and the darkness comprehended it not.”",
-    "about": "Jesus (through John)",
-    "to": "Anyone who needs the Word made flesh",
-    "setting": "The Word becomes flesh and dwells among us; first disciples follow the Lamb of God. The verse: And the light shineth in darkness; and the darkness comprehended it not.",
-    "prayer": "Lord, light the next step: “And the light shineth in darkness; and the darkness comprehended it not.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, God brings light into dark places — and that light is for you too — “And the light shineth in darkness; and the darkness comprehended it not.” The verse still says: “And the light shineth in darkness; and the darkness comprehended it not.”",
-    "today": "God brings light into dark places — and that light is for you too — “And the light shineth in darkness; and the darkness comprehended it not.”"
-  },
-  {
     "ref": "John 3:17",
     "text": "For God sent not his Son into the world to condemn the world; but that the world through him might be saved.",
     "plain": "For God sent not his Son into the world to condemn the world;.",
@@ -6535,6 +6523,18 @@
     "prayer": "Lord, give me strength for this hour: “For God sent not his Son into the world to condemn the world; but that the world through him might be saved.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, For God sent not his Son into the world to condemn the world;. The verse still says: “For God sent not his Son into the world to condemn the world; but that the world through him might be saved.”",
     "today": "For God sent not his Son into the world to condemn the world;"
+  },
+  {
+    "ref": "John 1:5",
+    "text": "And the light shineth in darkness; and the darkness comprehended it not.",
+    "plain": "God brings light into dark places — and that light is for you too — “And the light shineth in darkness; and the darkness comprehended it not.”",
+    "step": "Stop once today and return to these words: “And the light shineth in darkness; and the darkness comprehended it not.”",
+    "about": "Jesus (through John)",
+    "to": "Anyone who needs the Word made flesh",
+    "setting": "The Word becomes flesh and dwells among us; first disciples follow the Lamb of God. The verse: And the light shineth in darkness; and the darkness comprehended it not.",
+    "prayer": "Lord, light the next step: “And the light shineth in darkness; and the darkness comprehended it not.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, God brings light into dark places — and that light is for you too — “And the light shineth in darkness; and the darkness comprehended it not.” The verse still says: “And the light shineth in darkness; and the darkness comprehended it not.”",
+    "today": "God brings light into dark places — and that light is for you too — “And the light shineth in darkness; and the darkness comprehended it not.”"
   },
   {
     "ref": "John 8:31",
@@ -6549,18 +6549,6 @@
     "today": "This word is for you in the hour this verse is for: “Then said Jesus to those Jews which believed on him, If ye continue in my word, then are ye my disciples indeed;”"
   },
   {
-    "ref": "John 8:32",
-    "text": "And ye shall know the truth, and the truth shall make you free.",
-    "plain": "God shows a clear way to live. His instructions are for your good — \"And you shall know the truth, and the truth shall make y\".",
-    "step": "Keep this clause until the next meal: “And ye shall know the truth, and the truth shall make you free.”",
-    "about": "Jesus (through John)",
-    "to": "Those in the temple hearing His claim",
-    "setting": "Jesus speaks in the temple: I am the light of the world; He tells the truth that sets people free. The verse: And ye shall know the truth, and the truth shall make you free.",
-    "prayer": "Lord, let this word be true in me today: “And ye shall know the truth, and the truth shall make you free.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, God shows a clear way to live. His instructions are for your good — \"And you shall know the truth, and the truth shall make y\". The verse still says: “And ye shall know the truth, and the truth shall make you free.”",
-    "today": "God shows a clear way to live. His instructions are for your good — \"And you shall know the truth, and the truth shall make y\""
-  },
-  {
     "ref": "John 10:10",
     "text": "The thief cometh not, but for to steal, and to kill, and to destroy: I am come that they might have life, and that they might have it more abundantly.",
     "plain": "The thief comes not, but for to steal, and to kill, and to destroy:.",
@@ -6571,6 +6559,18 @@
     "prayer": "Lord, give me strength for this hour: “The thief cometh not, but for to steal, and to kill, and to destroy: I am come that they might have life, and that they might have it more abundantly.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, The thief comes not, but for to steal, and to kill, and to destroy:. The verse still says: “The thief cometh not, but for to steal, and to kill, and to destroy: I am come that they might have life, and that they might have it more abundantly.”",
     "today": "The thief comes not, but for to steal, and to kill, and to destroy:"
+  },
+  {
+    "ref": "John 8:32",
+    "text": "And ye shall know the truth, and the truth shall make you free.",
+    "plain": "God shows a clear way to live. His instructions are for your good — \"And you shall know the truth, and the truth shall make y\".",
+    "step": "Keep this clause until the next meal: “And ye shall know the truth, and the truth shall make you free.”",
+    "about": "Jesus (through John)",
+    "to": "Those in the temple hearing His claim",
+    "setting": "Jesus speaks in the temple: I am the light of the world; He tells the truth that sets people free. The verse: And ye shall know the truth, and the truth shall make you free.",
+    "prayer": "Lord, let this word be true in me today: “And ye shall know the truth, and the truth shall make you free.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, God shows a clear way to live. His instructions are for your good — \"And you shall know the truth, and the truth shall make y\". The verse still says: “And ye shall know the truth, and the truth shall make you free.”",
+    "today": "God shows a clear way to live. His instructions are for your good — \"And you shall know the truth, and the truth shall make y\""
   },
   {
     "ref": "John 14:2",
@@ -6585,18 +6585,6 @@
     "today": "In my Father’s house are many mansions:"
   },
   {
-    "ref": "John 14:18",
-    "text": "I will not leave you comfortless: I will come to you.",
-    "plain": "I will not leave you comfortless:.",
-    "step": "Stop once today and return to these words: “I will not leave you comfortless: I will come to you.”",
-    "about": "Jesus",
-    "to": "Troubled disciples the night before the cross",
-    "setting": "Let not your heart be troubled: Jesus is the way, the truth, and the life; He leaves peace, not as the world gives. The verse: I will not leave you comfortless: I will come to you.",
-    "prayer": "Lord, let this word be true in me today: “I will not leave you comfortless: I will come to you.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, I will not leave you comfortless:. The verse still says: “I will not leave you comfortless: I will come to you.”",
-    "today": "I will not leave you comfortless:"
-  },
-  {
     "ref": "John 15:5",
     "text": "I am the vine, ye are the branches: He that abideth in me, and I in him, the same bringeth forth much fruit: for without me ye can do nothing.",
     "plain": "I am the vine, you are the branches:.",
@@ -6607,6 +6595,18 @@
     "prayer": "Lord, let this word be true in me today: “I am the vine, ye are the branches: He that abideth in me, and I in him, the same bringeth forth much fruit: for without me ye can do nothing.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, I am the vine, you are the branches:. The verse still says: “I am the vine, ye are the branches: He that abideth in me, and I in him, the same bringeth forth much fruit: for without me ye can do nothing.”",
     "today": "I am the vine, you are the branches:"
+  },
+  {
+    "ref": "John 14:18",
+    "text": "I will not leave you comfortless: I will come to you.",
+    "plain": "I will not leave you comfortless:.",
+    "step": "Stop once today and return to these words: “I will not leave you comfortless: I will come to you.”",
+    "about": "Jesus",
+    "to": "Troubled disciples the night before the cross",
+    "setting": "Let not your heart be troubled: Jesus is the way, the truth, and the life; He leaves peace, not as the world gives. The verse: I will not leave you comfortless: I will come to you.",
+    "prayer": "Lord, let this word be true in me today: “I will not leave you comfortless: I will come to you.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, I will not leave you comfortless:. The verse still says: “I will not leave you comfortless: I will come to you.”",
+    "today": "I will not leave you comfortless:"
   },
   {
     "ref": "John 15:9",
@@ -6681,18 +6681,6 @@
     "today": "So being justified by faith, we have peace with God through our Lord Jesus Christ:"
   },
   {
-    "ref": "Romans 5:8",
-    "text": "But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.",
-    "plain": "God showed His love by sending Christ to die for us while we were still sinners.",
-    "step": "Do one concrete kindness today because of this: “But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.”",
-    "about": "Paul",
-    "to": "Believers justified by faith (and you today)",
-    "setting": "Abraham believed God; peace with God comes through Christ, not law-keeping. The verse: But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, God showed His love by sending Christ to die for us while we were still sinners. The verse still says: “But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.”",
-    "today": "God showed His love by sending Christ to die for us while we were still sinners"
-  },
-  {
     "ref": "Romans 6:23",
     "text": "For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord.",
     "plain": "For the wages of sin is death;.",
@@ -6703,6 +6691,18 @@
     "prayer": "Lord, let this word be true in me today: “For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, For the wages of sin is death;. The verse still says: “For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord.”",
     "today": "For the wages of sin is death;"
+  },
+  {
+    "ref": "Romans 5:8",
+    "text": "But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.",
+    "plain": "God showed His love by sending Christ to die for us while we were still sinners.",
+    "step": "Do one concrete kindness today because of this: “But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.”",
+    "about": "Paul",
+    "to": "Believers justified by faith (and you today)",
+    "setting": "Abraham believed God; peace with God comes through Christ, not law-keeping. The verse: But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, God showed His love by sending Christ to die for us while we were still sinners. The verse still says: “But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.”",
+    "today": "God showed His love by sending Christ to die for us while we were still sinners"
   },
   {
     "ref": "Romans 10:9",
@@ -6717,18 +6717,6 @@
     "today": "That if you shall confess with your mouth the Lord Jesus, and shall believe in yours heart that God has"
   },
   {
-    "ref": "Romans 10:13",
-    "text": "For whosoever shall call upon the name of the Lord shall be saved.",
-    "plain": "For whoever shall call upon the name of the Lord shall be saved.",
-    "step": "Read this once out loud, then do the next honest thing it names: “For whosoever shall call upon the name of the Lord shall be saved.”",
-    "about": "Paul",
-    "to": "Roman believers needing a big view of God’s plan",
-    "setting": "Paul wrestles with Israel’s unbelief and God’s mercy to Jew and Gentile. The verse: For whosoever shall call upon the name of the Lord shall be saved.",
-    "prayer": "Lord, show me Your salvation again today: “For whosoever shall call upon the name of the Lord shall be saved.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, For whoever shall call upon the name of the Lord shall be saved. The verse still says: “For whosoever shall call upon the name of the Lord shall be saved.”",
-    "today": "For whoever shall call upon the name of the Lord shall be saved"
-  },
-  {
     "ref": "Romans 12:2",
     "text": "And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.",
     "plain": "Don't copy the world; let God transform you by renewing your mind.",
@@ -6739,6 +6727,18 @@
     "prayer": "Lord, let this word be true in me today: “And be not conformed to this world: but be you.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Don't copy the world; let God transform you by renewing your mind. The verse still says: “And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.”",
     "today": "Don't copy the world; let God transform you by renewing your mind"
+  },
+  {
+    "ref": "Romans 10:13",
+    "text": "For whosoever shall call upon the name of the Lord shall be saved.",
+    "plain": "For whoever shall call upon the name of the Lord shall be saved.",
+    "step": "Read this once out loud, then do the next honest thing it names: “For whosoever shall call upon the name of the Lord shall be saved.”",
+    "about": "Paul",
+    "to": "Roman believers needing a big view of God’s plan",
+    "setting": "Paul wrestles with Israel’s unbelief and God’s mercy to Jew and Gentile. The verse: For whosoever shall call upon the name of the Lord shall be saved.",
+    "prayer": "Lord, show me Your salvation again today: “For whosoever shall call upon the name of the Lord shall be saved.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, For whoever shall call upon the name of the Lord shall be saved. The verse still says: “For whosoever shall call upon the name of the Lord shall be saved.”",
+    "today": "For whoever shall call upon the name of the Lord shall be saved"
   },
   {
     "ref": "Romans 12:21",
@@ -6825,18 +6825,6 @@
     "today": "But thanks be to God, which gives us the victory through our Lord Jesus Christ"
   },
   {
-    "ref": "1 Corinthians 15:58",
-    "text": "Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord, forasmuch as ye know that your labour is not in vain in the Lord.",
-    "plain": "So, my beloved brothers and sisters, Be stedfast, unmoveable, always abounding in the work of the Lord.",
-    "step": "Stop once today and return to these words: “Therefore, my beloved brethren, be you stedfast.”",
-    "about": "Paul",
-    "to": "Corinth needing certainty that Christ is risen",
-    "setting": "The resurrection of Christ and of the dead; final instructions and greetings. The verse: Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord, forasmuch as ye know that your labour is not in vain in the Lord.",
-    "prayer": "Lord, let this word be true in me today: “Therefore, my beloved brethren, be you stedfast.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, So, my beloved brothers and sisters, Be stedfast, unmoveable, always abounding in the work of the Lord. The verse still says: “Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord, forasmuch as ye know that your labour is not in vain in the Lord.”",
-    "today": "So, my beloved brothers and sisters, Be stedfast, unmoveable, always abounding in the work of the Lord"
-  },
-  {
     "ref": "2 Corinthians 1:3",
     "text": "Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort;",
     "plain": "God is the Father of compassion and the One who comforts us in our troubles.",
@@ -6847,6 +6835,18 @@
     "prayer": "Lord, I set these words before You from 2 Corinthians 1:3: “Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort;” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, God is the Father of compassion and the One who comforts us in our troubles. The verse still says: “Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort;”",
     "today": "God is the Father of compassion and the One who comforts us in our troubles"
+  },
+  {
+    "ref": "1 Corinthians 15:58",
+    "text": "Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord, forasmuch as ye know that your labour is not in vain in the Lord.",
+    "plain": "So, my beloved brothers and sisters, Be stedfast, unmoveable, always abounding in the work of the Lord.",
+    "step": "Stop once today and return to these words: “Therefore, my beloved brethren, be you stedfast.”",
+    "about": "Paul",
+    "to": "Corinth needing certainty that Christ is risen",
+    "setting": "The resurrection of Christ and of the dead; final instructions and greetings. The verse: Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord, forasmuch as ye know that your labour is not in vain in the Lord.",
+    "prayer": "Lord, let this word be true in me today: “Therefore, my beloved brethren, be you stedfast.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, So, my beloved brothers and sisters, Be stedfast, unmoveable, always abounding in the work of the Lord. The verse still says: “Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord, forasmuch as ye know that your labour is not in vain in the Lord.”",
+    "today": "So, my beloved brothers and sisters, Be stedfast, unmoveable, always abounding in the work of the Lord"
   },
   {
     "ref": "2 Corinthians 1:4",
@@ -6873,18 +6873,6 @@
     "today": "When you feel empty, God gives strength beyond your own — “For which cause we faint not; but though our outward man perish, yet the inward man is renewed day by day.”"
   },
   {
-    "ref": "2 Corinthians 4:18",
-    "text": "While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.",
-    "plain": "While we look not at the things which are seen, but at the things which are not seen:.",
-    "step": "Read this once out loud, then do the next honest thing it names: “While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.”",
-    "about": "Paul",
-    "to": "the church at Corinth (and you today)",
-    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. The verse: While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.",
-    "prayer": "Lord, let this word be true in me today: “While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, While we look not at the things which are seen, but at the things which are not seen:. The verse still says: “While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.”",
-    "today": "While we look not at the things which are seen, but at the things which are not seen:"
-  },
-  {
     "ref": "2 Corinthians 5:17",
     "text": "Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.",
     "plain": "So if any man be in Christ, he is a new creature:.",
@@ -6895,6 +6883,18 @@
     "prayer": "Lord, let this word be true in me today: “Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, So if any man be in Christ, he is a new creature:. The verse still says: “Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.”",
     "today": "So if any man be in Christ, he is a new creature:"
+  },
+  {
+    "ref": "2 Corinthians 4:18",
+    "text": "While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.",
+    "plain": "While we look not at the things which are seen, but at the things which are not seen:.",
+    "step": "Read this once out loud, then do the next honest thing it names: “While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.”",
+    "about": "Paul",
+    "to": "the church at Corinth (and you today)",
+    "setting": "Paul defends a tearful ministry of comfort and reconciliation after conflict with Corinth. The verse: While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.",
+    "prayer": "Lord, let this word be true in me today: “While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, While we look not at the things which are seen, but at the things which are not seen:. The verse still says: “While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.”",
+    "today": "While we look not at the things which are seen, but at the things which are not seen:"
   },
   {
     "ref": "2 Corinthians 9:7",
@@ -6933,18 +6933,6 @@
     "today": "Stand fast so in the liberty wherewith Christ has made us free, and be not entangled again with the yoke of"
   },
   {
-    "ref": "Galatians 5:13",
-    "text": "For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.",
-    "plain": "For, brothers and sisters, you have been called to liberty;.",
-    "step": "Read this once out loud, then do the next honest thing it names: “For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.”",
-    "about": "Paul",
-    "to": "Churches learning freedom in the Spirit (and you today)",
-    "setting": "Freedom in the Spirit; fruit of the Spirit; bearing one another’s burdens. The verse: For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, For, brothers and sisters, you have been called to liberty;. The verse still says: “For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.”",
-    "today": "For, brothers and sisters, you have been called to liberty;"
-  },
-  {
     "ref": "Galatians 6:2",
     "text": "Bear ye one another’s burdens, and so fulfil the law of Christ.",
     "plain": "Bear you one another’s burdens, and so fulfil the law of Christ.",
@@ -6955,6 +6943,18 @@
     "prayer": "Lord, write this on my path today: “Bear ye one another’s burdens, and so fulfil the law of Christ.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Bear you one another’s burdens, and so fulfil the law of Christ. The verse still says: “Bear ye one another’s burdens, and so fulfil the law of Christ.”",
     "today": "Bear you one another’s burdens, and so fulfil the law of Christ"
+  },
+  {
+    "ref": "Galatians 5:13",
+    "text": "For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.",
+    "plain": "For, brothers and sisters, you have been called to liberty;.",
+    "step": "Read this once out loud, then do the next honest thing it names: “For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.”",
+    "about": "Paul",
+    "to": "Churches learning freedom in the Spirit (and you today)",
+    "setting": "Freedom in the Spirit; fruit of the Spirit; bearing one another’s burdens. The verse: For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, For, brothers and sisters, you have been called to liberty;. The verse still says: “For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.”",
+    "today": "For, brothers and sisters, you have been called to liberty;"
   },
   {
     "ref": "Ephesians 1:7",
@@ -6993,18 +6993,6 @@
     "today": "When you feel empty, God gives strength beyond your own — “That he would grant you, according to the riches of his glory, to be strengthened with might by his Spirit in the inner man;”"
   },
   {
-    "ref": "Ephesians 3:17",
-    "text": "That Christ may dwell in your hearts by faith; that ye, being rooted and grounded in love,",
-    "plain": "That Christ may live in your hearts by faith;.",
-    "step": "Ask mercy with this line, then give one person a share of it: “That Christ may dwell in your hearts by faith; that ye, being rooted and grounded in love,”",
-    "about": "Paul",
-    "to": "believers in Ephesus (and you today)",
-    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and Gentile. The verse: That Christ may dwell in your hearts by faith; that ye, being rooted and grounded in love,",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “That Christ may dwell in your hearts by faith; that ye, being rooted and grounded in love,.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, That Christ may live in your hearts by faith;. The verse still says: “That Christ may dwell in your hearts by faith; that ye, being rooted and grounded in love,”",
-    "today": "That Christ may live in your hearts by faith;"
-  },
-  {
     "ref": "Ephesians 4:2",
     "text": "With all lowliness and meekness, with longsuffering, forbearing one another in love;",
     "plain": "Walk with all lowliness and meekness, with longsuffering, forbearing one another in love.",
@@ -7015,6 +7003,18 @@
     "prayer": "Lord, let this mercy reach me, then go out from me: “With all lowliness and meekness, with longsuffering, forbearing one another in love;.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Walk with all lowliness and meekness, with longsuffering, forbearing one another in love. The verse still says: “With all lowliness and meekness, with longsuffering, forbearing one another in love;”",
     "today": "Walk with all lowliness and meekness, with longsuffering, forbearing one another in love"
+  },
+  {
+    "ref": "Ephesians 3:17",
+    "text": "That Christ may dwell in your hearts by faith; that ye, being rooted and grounded in love,",
+    "plain": "That Christ may live in your hearts by faith;.",
+    "step": "Ask mercy with this line, then give one person a share of it: “That Christ may dwell in your hearts by faith; that ye, being rooted and grounded in love,”",
+    "about": "Paul",
+    "to": "believers in Ephesus (and you today)",
+    "setting": "Paul (likely from prison) unfolds every spiritual blessing in Christ and one new humanity of Jew and Gentile. The verse: That Christ may dwell in your hearts by faith; that ye, being rooted and grounded in love,",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “That Christ may dwell in your hearts by faith; that ye, being rooted and grounded in love,.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, That Christ may live in your hearts by faith;. The verse still says: “That Christ may dwell in your hearts by faith; that ye, being rooted and grounded in love,”",
+    "today": "That Christ may live in your hearts by faith;"
   },
   {
     "ref": "Ephesians 5:2",
@@ -7077,18 +7077,6 @@
     "today": "Brothers and sisters, I count not myself to have apprehended:"
   },
   {
-    "ref": "Philippians 3:14",
-    "text": "I press toward the mark for the prize of the high calling of God in Christ Jesus.",
-    "plain": "I press toward the mark for the prize of the high calling of God in Christ Jesus.",
-    "step": "Stop once today and return to these words: “I press toward the mark for the prize of the high calling of God in Christ Jesus.”",
-    "about": "Paul",
-    "to": "Philippi learning true righteousness",
-    "setting": "Paul counts status as loss for Christ; he presses toward the prize. The verse: I press toward the mark for the prize of the high calling of God in Christ Jesus.",
-    "prayer": "Lord, let this word be true in me today: “I press toward the mark for the prize of the high calling of God in Christ Jesus.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, I press toward the mark for the prize of the high calling of God in Christ Jesus. The verse still says: “I press toward the mark for the prize of the high calling of God in Christ Jesus.”",
-    "today": "I press toward the mark for the prize of the high calling of God in Christ Jesus"
-  },
-  {
     "ref": "Philippians 4:11",
     "text": "Not that I speak in respect of want: for I have learned, in whatsoever state I am, therewith to be content.",
     "plain": "Not that I speak in respect of want:.",
@@ -7099,6 +7087,18 @@
     "prayer": "Lord, shepherd me. I bring You this want: “Not that I speak in respect of want: for I have learned, in whatsoever state I am, therewith to be content.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Not that I speak in respect of want:. The verse still says: “Not that I speak in respect of want: for I have learned, in whatsoever state I am, therewith to be content.”",
     "today": "Not that I speak in respect of want:"
+  },
+  {
+    "ref": "Philippians 3:14",
+    "text": "I press toward the mark for the prize of the high calling of God in Christ Jesus.",
+    "plain": "I press toward the mark for the prize of the high calling of God in Christ Jesus.",
+    "step": "Stop once today and return to these words: “I press toward the mark for the prize of the high calling of God in Christ Jesus.”",
+    "about": "Paul",
+    "to": "Philippi learning true righteousness",
+    "setting": "Paul counts status as loss for Christ; he presses toward the prize. The verse: I press toward the mark for the prize of the high calling of God in Christ Jesus.",
+    "prayer": "Lord, let this word be true in me today: “I press toward the mark for the prize of the high calling of God in Christ Jesus.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, I press toward the mark for the prize of the high calling of God in Christ Jesus. The verse still says: “I press toward the mark for the prize of the high calling of God in Christ Jesus.”",
+    "today": "I press toward the mark for the prize of the high calling of God in Christ Jesus"
   },
   {
     "ref": "Colossians 1:13",
@@ -7113,18 +7113,6 @@
     "today": "When you feel empty, God gives strength beyond your own — \"Who has delivered us from the power of darkness, and\""
   },
   {
-    "ref": "Colossians 1:17",
-    "text": "And he is before all things, and by him all things consist.",
-    "plain": "And he is before all things, and by him all things consist.",
-    "step": "Stop once today and return to these words: “And he is before all things, and by him all things consist.”",
-    "about": "Paul",
-    "to": "believers in Colosse (and you today)",
-    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse. The verse: And he is before all things, and by him all things consist.",
-    "prayer": "Lord, let this word be true in me today: “And he is before all things, and by him all things consist.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, And he is before all things, and by him all things consist. The verse still says: “And he is before all things, and by him all things consist.”",
-    "today": "And he is before all things, and by him all things consist"
-  },
-  {
     "ref": "Colossians 2:6",
     "text": "As ye have therefore received Christ Jesus the Lord, so walk ye in him:",
     "plain": "As you have so received Christ Jesus the Lord, so walk you in him:.",
@@ -7135,6 +7123,18 @@
     "prayer": "Lord, let this word be true in me today: “As ye have therefore received Christ Jesus the Lord, so walk ye in him:.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, As you have so received Christ Jesus the Lord, so walk you in him:. The verse still says: “As ye have therefore received Christ Jesus the Lord, so walk ye in him:”",
     "today": "As you have so received Christ Jesus the Lord, so walk you in him:"
+  },
+  {
+    "ref": "Colossians 1:17",
+    "text": "And he is before all things, and by him all things consist.",
+    "plain": "And he is before all things, and by him all things consist.",
+    "step": "Stop once today and return to these words: “And he is before all things, and by him all things consist.”",
+    "about": "Paul",
+    "to": "believers in Colosse (and you today)",
+    "setting": "Paul exalts Christ’s supremacy against hollow philosophy in Colosse. The verse: And he is before all things, and by him all things consist.",
+    "prayer": "Lord, let this word be true in me today: “And he is before all things, and by him all things consist.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, And he is before all things, and by him all things consist. The verse still says: “And he is before all things, and by him all things consist.”",
+    "today": "And he is before all things, and by him all things consist"
   },
   {
     "ref": "Colossians 3:2",
@@ -7149,30 +7149,6 @@
     "today": "Set your affection on things above, not on things on the earth"
   },
   {
-    "ref": "Colossians 3:15",
-    "text": "And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.",
-    "plain": "And let the peace of God rule in your hearts, to the which also you are called in one body;.",
-    "step": "Stop once today and return to these words: “And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.”",
-    "about": "Paul",
-    "to": "Believers setting minds above (and you today)",
-    "setting": "Set minds above; put on love; wives, husbands, children, and fathers are taught a new household life in Christ. The verse: And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.",
-    "prayer": "Lord, still my heart with “And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, And let the peace of God rule in your hearts, to the which also you are called in one body;. The verse still says: “And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.”",
-    "today": "And let the peace of God rule in your hearts, to the which also you are called in one body;"
-  },
-  {
-    "ref": "Colossians 3:16",
-    "text": "Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.",
-    "plain": "Let the word of Christ dwell in you richly — teaching and singing with grace in your hearts to the Lord.",
-    "step": "Say this praise out loud once: “Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.”",
-    "about": "Paul",
-    "to": "Believers setting minds above (and you today)",
-    "setting": "Set minds above; put on love; wives, husbands, children, and fathers are taught a new household life in Christ. The verse: Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.",
-    "prayer": "Lord, I set these words before You from Colossians 3:16: “Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Let the word of Christ dwell in you richly — teaching and singing with grace in your hearts to the Lord. The verse still says: “Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.”",
-    "today": "Let the word of Christ dwell in you richly — teaching and singing with grace in your hearts to the Lord"
-  },
-  {
     "ref": "1 Thessalonians 4:14",
     "text": "For if we believe that Jesus died and rose again, even so them also which sleep in Jesus will God bring with him.",
     "plain": "For if we believe that Jesus died and rose again, even so them also which sleep in Jesus will God bring with.",
@@ -7183,6 +7159,18 @@
     "prayer": "Lord, let this word be true in me today: “For if we believe that Jesus died and rose again, even so them also which sleep in Jesus will God bring with him.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, For if we believe that Jesus died and rose again, even so them also which sleep in Jesus will God bring with. The verse still says: “For if we believe that Jesus died and rose again, even so them also which sleep in Jesus will God bring with him.”",
     "today": "For if we believe that Jesus died and rose again, even so them also which sleep in Jesus will God bring with"
+  },
+  {
+    "ref": "Colossians 3:15",
+    "text": "And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.",
+    "plain": "And let the peace of God rule in your hearts, to the which also you are called in one body;.",
+    "step": "Stop once today and return to these words: “And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.”",
+    "about": "Paul",
+    "to": "Believers setting minds above (and you today)",
+    "setting": "Set minds above; put on love; wives, husbands, children, and fathers are taught a new household life in Christ. The verse: And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.",
+    "prayer": "Lord, still my heart with “And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, And let the peace of God rule in your hearts, to the which also you are called in one body;. The verse still says: “And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.”",
+    "today": "And let the peace of God rule in your hearts, to the which also you are called in one body;"
   },
   {
     "ref": "1 Thessalonians 5:18",
@@ -7197,6 +7185,18 @@
     "today": "Give thanks in all circumstances; this is God's will for you"
   },
   {
+    "ref": "Colossians 3:16",
+    "text": "Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.",
+    "plain": "Let the word of Christ dwell in you richly — teaching and singing with grace in your hearts to the Lord.",
+    "step": "Say this praise out loud once: “Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.”",
+    "about": "Paul",
+    "to": "Believers setting minds above (and you today)",
+    "setting": "Set minds above; put on love; wives, husbands, children, and fathers are taught a new household life in Christ. The verse: Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.",
+    "prayer": "Lord, I set these words before You from Colossians 3:16: “Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Let the word of Christ dwell in you richly — teaching and singing with grace in your hearts to the Lord. The verse still says: “Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.”",
+    "today": "Let the word of Christ dwell in you richly — teaching and singing with grace in your hearts to the Lord"
+  },
+  {
     "ref": "1 Thessalonians 5:23",
     "text": "And the very God of peace sanctify you wholly; and I pray God your whole spirit and soul and body be preserved blameless unto the coming of our Lord Jesus Christ.",
     "plain": "And the very God of peace sanctify you wholly; — bring the real request; He hears.",
@@ -7209,18 +7209,6 @@
     "today": "And the very God of peace sanctify you wholly; — bring the real request; He hears"
   },
   {
-    "ref": "1 Thessalonians 5:24",
-    "text": "Faithful is he that calleth you, who also will do it.",
-    "plain": "The One who called you will also do it. The line itself is this: Faithful is he that calleth you who also will.",
-    "step": "Keep this clause until the next meal: “Faithful is he that calleth you, who also will do it.”",
-    "about": "Paul",
-    "to": "Thessalonians grieving with hope",
-    "setting": "Comfort about those who sleep in Christ; the day of the Lord; encourage one another. The verse: Faithful is he that calleth you, who also will do it.",
-    "prayer": "Lord, let this word be true in me today: “Faithful is he that calleth you, who also will do it.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, The One who called you will also do it. The line itself is this: Faithful is he that calleth you who also will. The verse still says: “Faithful is he that calleth you, who also will do it.”",
-    "today": "The One who called you will also do it. The line itself is this: Faithful is he that calleth you who also will"
-  },
-  {
     "ref": "2 Thessalonians 2:16",
     "text": "Now our Lord Jesus Christ himself, and God, even our Father, which hath loved us, and hath given us everlasting consolation and good hope through grace,",
     "plain": "Our Lord Jesus Christ and God our Father, who loved us, give everlasting consolation and good hope through grace.",
@@ -7231,6 +7219,18 @@
     "prayer": "Lord, let this word be true in me today: “Now our Lord Jesus Christ himself, and God, even our Father, which hath loved us, and hath given us everlasting consolation and good hope through grace,.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Our Lord Jesus Christ and God our Father, who loved us, give everlasting consolation and good hope through grace. The verse still says: “Now our Lord Jesus Christ himself, and God, even our Father, which hath loved us, and hath given us everlasting consolation and good hope through grace,”",
     "today": "Our Lord Jesus Christ and God our Father, who loved us, give everlasting consolation and good hope through grace"
+  },
+  {
+    "ref": "1 Thessalonians 5:24",
+    "text": "Faithful is he that calleth you, who also will do it.",
+    "plain": "The One who called you will also do it. The line itself is this: Faithful is he that calleth you who also will.",
+    "step": "Keep this clause until the next meal: “Faithful is he that calleth you, who also will do it.”",
+    "about": "Paul",
+    "to": "Thessalonians grieving with hope",
+    "setting": "Comfort about those who sleep in Christ; the day of the Lord; encourage one another. The verse: Faithful is he that calleth you, who also will do it.",
+    "prayer": "Lord, let this word be true in me today: “Faithful is he that calleth you, who also will do it.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, The One who called you will also do it. The line itself is this: Faithful is he that calleth you who also will. The verse still says: “Faithful is he that calleth you, who also will do it.”",
+    "today": "The One who called you will also do it. The line itself is this: Faithful is he that calleth you who also will"
   },
   {
     "ref": "1 Timothy 1:15",
@@ -7257,18 +7257,6 @@
     "today": "But godliness with contentment is great gain"
   },
   {
-    "ref": "1 Timothy 6:12",
-    "text": "Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.",
-    "plain": "Fight the good fight of faith, lay hold on eternal life, whereunto you are also called, and have professed a.",
-    "step": "Read this once out loud, then do the next honest thing it names: “Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.”",
-    "about": "Paul",
-    "to": "Timothy (and every young believer)",
-    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus. The verse: Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.",
-    "prayer": "Lord, let this word be true in me today: “Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Fight the good fight of faith, lay hold on eternal life, whereunto you are also called, and have professed a. The verse still says: “Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.”",
-    "today": "Fight the good fight of faith, lay hold on eternal life, whereunto you are also called, and have professed a"
-  },
-  {
     "ref": "2 Timothy 2:1",
     "text": "Thou therefore, my son, be strong in the grace that is in Christ Jesus.",
     "plain": "Be strong in the grace that is in Christ Jesus — strength from His grace, not from your grit.",
@@ -7279,6 +7267,18 @@
     "prayer": "Lord, give me strength for this hour: “Thou therefore, my son, be strong in the grace that is in Christ Jesus.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Be strong in the grace that is in Christ Jesus — strength from His grace, not from your grit. The verse still says: “Thou therefore, my son, be strong in the grace that is in Christ Jesus.”",
     "today": "Be strong in the grace that is in Christ Jesus — strength from His grace, not from your grit"
+  },
+  {
+    "ref": "1 Timothy 6:12",
+    "text": "Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.",
+    "plain": "Fight the good fight of faith, lay hold on eternal life, whereunto you are also called, and have professed a.",
+    "step": "Read this once out loud, then do the next honest thing it names: “Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.”",
+    "about": "Paul",
+    "to": "Timothy (and every young believer)",
+    "setting": "Paul coaches Timothy on doctrine, prayer, leaders, and godliness in Ephesus. The verse: Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.",
+    "prayer": "Lord, let this word be true in me today: “Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Fight the good fight of faith, lay hold on eternal life, whereunto you are also called, and have professed a. The verse still says: “Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.”",
+    "today": "Fight the good fight of faith, lay hold on eternal life, whereunto you are also called, and have professed a"
   },
   {
     "ref": "2 Timothy 3:16",
@@ -7305,18 +7305,6 @@
     "today": "I have fought a good fight, I have finished my course, I have kept the faith:"
   },
   {
-    "ref": "2 Timothy 4:17",
-    "text": "Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.",
-    "plain": "When you feel empty, God gives strength beyond your own — “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.”",
-    "step": "Read this once out loud, then do the next honest thing it names: “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.”",
-    "about": "Paul",
-    "to": "Timothy (and every timid heart)",
-    "setting": "Endure hardness as a good soldier; preach the word; Paul finishes his course. The verse: Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.",
-    "prayer": "Lord, give me strength for this hour: “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, When you feel empty, God gives strength beyond your own — “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.” The verse still says: “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.”",
-    "today": "When you feel empty, God gives strength beyond your own — “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.”"
-  },
-  {
     "ref": "Titus 3:5",
     "text": "Not by works of righteousness which we have done, but according to his mercy he saved us, by the washing of regeneration, and renewing of the Holy Ghost;",
     "plain": "He saved us not by works of righteousness which we have done, but according to His mercy.",
@@ -7327,6 +7315,18 @@
     "prayer": "Lord, let this mercy reach me, then go out from me: “Not by works of righteousness which we have done, but according to his mercy he saved us, by the washing of regeneration, and renewing of the Holy Ghost;.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, He saved us not by works of righteousness which we have done, but according to His mercy. The verse still says: “Not by works of righteousness which we have done, but according to his mercy he saved us, by the washing of regeneration, and renewing of the Holy Ghost;”",
     "today": "He saved us not by works of righteousness which we have done, but according to His mercy"
+  },
+  {
+    "ref": "2 Timothy 4:17",
+    "text": "Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.",
+    "plain": "When you feel empty, God gives strength beyond your own — “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.”",
+    "step": "Read this once out loud, then do the next honest thing it names: “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.”",
+    "about": "Paul",
+    "to": "Timothy (and every timid heart)",
+    "setting": "Endure hardness as a good soldier; preach the word; Paul finishes his course. The verse: Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.",
+    "prayer": "Lord, give me strength for this hour: “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, When you feel empty, God gives strength beyond your own — “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.” The verse still says: “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.”",
+    "today": "When you feel empty, God gives strength beyond your own — “Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known, and that all the Gentiles might hear: and I was delivered out of the mouth of the lion.”"
   },
   {
     "ref": "Hebrews 4:12",
@@ -7389,18 +7389,6 @@
     "today": "God will never leave you or turn His back on you"
   },
   {
-    "ref": "Hebrews 13:8",
-    "text": "Jesus Christ the same yesterday, and to day, and for ever.",
-    "plain": "Jesus Christ the same yesterday, and to day, and forever.",
-    "step": "Keep this clause until the next meal: “Jesus Christ the same yesterday, and to day, and for ever.”",
-    "about": "The writer of Hebrews",
-    "to": "Believers running with patience",
-    "setting": "Let brotherly love continue; be content; He hath said, I will never leave thee nor forsake thee. The verse: Jesus Christ the same yesterday, and to day, and for ever.",
-    "prayer": "Lord, let this word be true in me today: “Jesus Christ the same yesterday, and to day, and for ever.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Jesus Christ the same yesterday, and to day, and forever. The verse still says: “Jesus Christ the same yesterday, and to day, and for ever.”",
-    "today": "Jesus Christ the same yesterday, and to day, and forever"
-  },
-  {
     "ref": "James 1:2",
     "text": "My brethren, count it all joy when ye fall into divers temptations;",
     "plain": "My brothers and sisters, count it all joy when you fall into divers temptations;.",
@@ -7411,6 +7399,18 @@
     "prayer": "Lord, let this word be true in me today: “My brethren, count it all joy when you fall into.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, My brothers and sisters, count it all joy when you fall into divers temptations;. The verse still says: “My brethren, count it all joy when ye fall into divers temptations;”",
     "today": "My brothers and sisters, count it all joy when you fall into divers temptations;"
+  },
+  {
+    "ref": "Hebrews 13:8",
+    "text": "Jesus Christ the same yesterday, and to day, and for ever.",
+    "plain": "Jesus Christ the same yesterday, and to day, and forever.",
+    "step": "Keep this clause until the next meal: “Jesus Christ the same yesterday, and to day, and for ever.”",
+    "about": "The writer of Hebrews",
+    "to": "Believers running with patience",
+    "setting": "Let brotherly love continue; be content; He hath said, I will never leave thee nor forsake thee. The verse: Jesus Christ the same yesterday, and to day, and for ever.",
+    "prayer": "Lord, let this word be true in me today: “Jesus Christ the same yesterday, and to day, and for ever.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Jesus Christ the same yesterday, and to day, and forever. The verse still says: “Jesus Christ the same yesterday, and to day, and for ever.”",
+    "today": "Jesus Christ the same yesterday, and to day, and forever"
   },
   {
     "ref": "James 1:12",
@@ -7425,18 +7425,6 @@
     "today": "Temptation is real and common, but God is faithful and makes a way through it — “Blessed is the man that endureth temptation: for when he is tried, he shall receive the crown of life, which the Lord hath promised to them that love him.”"
   },
   {
-    "ref": "James 1:22",
-    "text": "But be ye doers of the word, and not hearers only, deceiving your own selves.",
-    "plain": "But Be doers of the word, and not hearers only, deceiving your own selves.",
-    "step": "Read this once out loud, then do the next honest thing it names: “But be ye doers of the word, and not hearers only, deceiving your own selves.”",
-    "about": "James",
-    "to": "scattered believers under trial",
-    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience. The verse: But be ye doers of the word, and not hearers only, deceiving your own selves.",
-    "prayer": "Lord, write this on my path today: “But be ye doers of the word, and not hearers only, deceiving your own selves.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, But Be doers of the word, and not hearers only, deceiving your own selves. The verse still says: “But be ye doers of the word, and not hearers only, deceiving your own selves.”",
-    "today": "This word is for you in the hour this verse is for: “But be ye doers of the word, and not hearers only, deceiving your own selves.”"
-  },
-  {
     "ref": "James 4:7",
     "text": "Submit yourselves therefore to God. Resist the devil, and he will flee from you.",
     "plain": "Submit yourselves so to God.",
@@ -7447,6 +7435,18 @@
     "prayer": "Lord, let this word be true in me today: “Submit yourselves therefore to God. Resist the devil, and he will flee from you.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Submit yourselves so to God. The verse still says: “Submit yourselves therefore to God. Resist the devil, and he will flee from you.”",
     "today": "Submit yourselves so to God"
+  },
+  {
+    "ref": "James 1:22",
+    "text": "But be ye doers of the word, and not hearers only, deceiving your own selves.",
+    "plain": "But Be doers of the word, and not hearers only, deceiving your own selves.",
+    "step": "Read this once out loud, then do the next honest thing it names: “But be ye doers of the word, and not hearers only, deceiving your own selves.”",
+    "about": "James",
+    "to": "scattered believers under trial",
+    "setting": "James writes scattered believers under trial about real faith that works in speech, mercy, and patience. The verse: But be ye doers of the word, and not hearers only, deceiving your own selves.",
+    "prayer": "Lord, write this on my path today: “But be ye doers of the word, and not hearers only, deceiving your own selves.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, But Be doers of the word, and not hearers only, deceiving your own selves. The verse still says: “But be ye doers of the word, and not hearers only, deceiving your own selves.”",
+    "today": "This word is for you in the hour this verse is for: “But be ye doers of the word, and not hearers only, deceiving your own selves.”"
   },
   {
     "ref": "James 5:16",
@@ -7509,18 +7509,6 @@
     "today": "Humble yourselves so under the mighty hand of God, that he may exalt you in due time:"
   },
   {
-    "ref": "1 Peter 5:10",
-    "text": "But the God of all grace, who hath called us unto his eternal glory by Christ Jesus, after that ye have suffered a while, make you perfect, stablish, strengthen, settle you.",
-    "plain": "The God of all grace, who called you, will make you perfect, stablish, strengthen, and settle you after you have suffered a while.",
-    "step": "Ask God for strength for the next hour, using this line: “But the God of all grace, who has called us.”",
-    "about": "Peter",
-    "to": "Believers casting care on God",
-    "setting": "Peter closes: humble yourselves under God’s hand, cast all your care on Him, for He cares for you, and resist the devil. The verse: But the God of all grace, who hath called us unto his eternal glory by Christ Jesus, after that ye have suffered a while, make you perfect, stablish, strengthen, settle you.",
-    "prayer": "Lord, give me strength for this hour: “But the God of all grace, who has called us unto.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, The God of all grace, who called you, will make you perfect, stablish, strengthen, and settle you after you have suffered a while. The verse still says: “But the God of all grace, who hath called us unto his eternal glory by Christ Jesus, after that ye have suffered a while, make you perfect, stablish, strengthen, settle you.”",
-    "today": "The God of all grace, who called you, will make you perfect, stablish, strengthen, and settle you after you have suffered a while"
-  },
-  {
     "ref": "2 Peter 1:3",
     "text": "According as his divine power hath given unto us all things that pertain unto life and godliness, through the knowledge of him that hath called us to glory and virtue:",
     "plain": "When you feel empty, God gives strength beyond your own — \"According as his divine power has given to us all\".",
@@ -7531,6 +7519,18 @@
     "prayer": "Lord, let this word be true in me today: “According as his divine power has given unto us.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, When you feel empty, God gives strength beyond your own — \"According as his divine power has given to us all\". The verse still says: “According as his divine power hath given unto us all things that pertain unto life and godliness, through the knowledge of him that hath called us to glory and virtue:”",
     "today": "When you feel empty, God gives strength beyond your own — \"According as his divine power has given to us all\""
+  },
+  {
+    "ref": "1 Peter 5:10",
+    "text": "But the God of all grace, who hath called us unto his eternal glory by Christ Jesus, after that ye have suffered a while, make you perfect, stablish, strengthen, settle you.",
+    "plain": "The God of all grace, who called you, will make you perfect, stablish, strengthen, and settle you after you have suffered a while.",
+    "step": "Ask God for strength for the next hour, using this line: “But the God of all grace, who has called us.”",
+    "about": "Peter",
+    "to": "Believers casting care on God",
+    "setting": "Peter closes: humble yourselves under God’s hand, cast all your care on Him, for He cares for you, and resist the devil. The verse: But the God of all grace, who hath called us unto his eternal glory by Christ Jesus, after that ye have suffered a while, make you perfect, stablish, strengthen, settle you.",
+    "prayer": "Lord, give me strength for this hour: “But the God of all grace, who has called us unto.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, The God of all grace, who called you, will make you perfect, stablish, strengthen, and settle you after you have suffered a while. The verse still says: “But the God of all grace, who hath called us unto his eternal glory by Christ Jesus, after that ye have suffered a while, make you perfect, stablish, strengthen, settle you.”",
+    "today": "The God of all grace, who called you, will make you perfect, stablish, strengthen, and settle you after you have suffered a while"
   },
   {
     "ref": "2 Peter 3:9",
@@ -7557,18 +7557,6 @@
     "today": "Jesus gave Himself so you could be brought near to God — “But if we walk in the light, as he is in the light, we have fellowship one with another, and the blood of Jesus Christ his Son cleanseth us from all sin.”"
   },
   {
-    "ref": "1 John 1:9",
-    "text": "If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.",
-    "plain": "If we confess our sins, He is faithful and just to forgive us our sins and to cleanse us from all unrighteousness.",
-    "step": "Do one concrete kindness today because of this: “If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.”",
-    "about": "John",
-    "to": "beloved children walking in the light",
-    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. The verse: If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, If we confess our sins, He is faithful and just to forgive us our sins and to cleanse us from all unrighteousness. The verse still says: “If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.”",
-    "today": "This word is for you when you need to confess and be cleaned."
-  },
-  {
     "ref": "1 John 2:1",
     "text": "My little children, these things write I unto you, that ye sin not. And if any man sin, we have an advocate with the Father, Jesus Christ the righteous:",
     "plain": "My little children, these things write I to you, that you sin not.",
@@ -7579,6 +7567,18 @@
     "prayer": "Lord, let this word be true in me today: “My little children, these things write I unto you, that ye sin not. And if any man sin, we have an advocate with the Father, Jesus Christ the righteous:.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, My little children, these things write I to you, that you sin not. The verse still says: “My little children, these things write I unto you, that ye sin not. And if any man sin, we have an advocate with the Father, Jesus Christ the righteous:”",
     "today": "My little children, these things write I to you, that you sin not"
+  },
+  {
+    "ref": "1 John 1:9",
+    "text": "If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.",
+    "plain": "If we confess our sins, He is faithful and just to forgive us our sins and to cleanse us from all unrighteousness.",
+    "step": "Do one concrete kindness today because of this: “If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.”",
+    "about": "John",
+    "to": "beloved children walking in the light",
+    "setting": "John writes about fellowship, light, and assurance against early antichrist lies. The verse: If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, If we confess our sins, He is faithful and just to forgive us our sins and to cleanse us from all unrighteousness. The verse still says: “If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.”",
+    "today": "This word is for you when you need to confess and be cleaned."
   },
   {
     "ref": "1 John 3:16",
@@ -7605,42 +7605,6 @@
     "today": "God is love—whoever lives in love lives in God"
   },
   {
-    "ref": "1 John 4:9",
-    "text": "In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him.",
-    "plain": "In this was manifested the love of God toward us, because that God sent his only only Son into the world.",
-    "step": "Do one concrete kindness today because of this: “In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him.”",
-    "about": "John",
-    "to": "Beloved children learning God’s love",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love. The verse: In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, In this was manifested the love of God toward us, because that God sent his only only Son into the world. The verse still says: “In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him.”",
-    "today": "In this was manifested the love of God toward us, because that God sent his only only Son into the world"
-  },
-  {
-    "ref": "1 John 4:11",
-    "text": "Beloved, if God so loved us, we ought also to love one another.",
-    "plain": "Beloved, if God so loved us, we ought also to love one another.",
-    "step": "Read this once out loud, then do the next honest thing it names: “Beloved, if God so loved us, we ought also to love one another.”",
-    "about": "John",
-    "to": "Beloved children learning God’s love",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love. The verse: Beloved, if God so loved us, we ought also to love one another.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “Beloved, if God so loved us, we ought also to love one another.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Beloved, if God so loved us, we ought also to love one another. The verse still says: “Beloved, if God so loved us, we ought also to love one another.”",
-    "today": "Beloved, if God so loved us, we ought also to love one another"
-  },
-  {
-    "ref": "1 John 4:16",
-    "text": "And we have known and believed the love that God hath to us. God is love; and he that dwelleth in love dwelleth in God, and God in him.",
-    "plain": "And we have known and believed the love that God has to us.",
-    "step": "Ask mercy with this line, then give one person a share of it: “And we have known and believed the love that God hath to us. God is love; and he that dwelleth in love dwelleth in God, and God in him.”",
-    "about": "John",
-    "to": "Beloved children learning God’s love",
-    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love. The verse: And we have known and believed the love that God hath to us. God is love; and he that dwelleth in love dwelleth in God, and God in him.",
-    "prayer": "Lord, let this mercy reach me, then go out from me: “And we have known and believed the love that God hath to us. God is love; and he that dwelleth in love dwelleth in God, and God in him.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, And we have known and believed the love that God has to us. The verse still says: “And we have known and believed the love that God hath to us. God is love; and he that dwelleth in love dwelleth in God, and God in him.”",
-    "today": "And we have known and believed the love that God has to us"
-  },
-  {
     "ref": "1 John 5:4",
     "text": "For whatsoever is born of God overcometh the world: and this is the victory that overcometh the world, even our faith.",
     "plain": "For whatever is born of God overcometh the world:.",
@@ -7651,6 +7615,18 @@
     "prayer": "Lord, let this word be true in me today: “For whatsoever is born of God overcometh the world: and this is the victory that overcometh the world, even our faith.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, For whatever is born of God overcometh the world:. The verse still says: “For whatsoever is born of God overcometh the world: and this is the victory that overcometh the world, even our faith.”",
     "today": "For whatever is born of God overcometh the world:"
+  },
+  {
+    "ref": "1 John 4:9",
+    "text": "In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him.",
+    "plain": "In this was manifested the love of God toward us, because that God sent his only only Son into the world.",
+    "step": "Do one concrete kindness today because of this: “In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him.”",
+    "about": "John",
+    "to": "Beloved children learning God’s love",
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love. The verse: In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, In this was manifested the love of God toward us, because that God sent his only only Son into the world. The verse still says: “In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him.”",
+    "today": "In this was manifested the love of God toward us, because that God sent his only only Son into the world"
   },
   {
     "ref": "Jude 1:21",
@@ -7665,6 +7641,18 @@
     "today": "Keep yourselves in the love of God, looking for the mercy of our Lord Jesus Christ unto eternal life"
   },
   {
+    "ref": "1 John 4:11",
+    "text": "Beloved, if God so loved us, we ought also to love one another.",
+    "plain": "Beloved, if God so loved us, we ought also to love one another.",
+    "step": "Read this once out loud, then do the next honest thing it names: “Beloved, if God so loved us, we ought also to love one another.”",
+    "about": "John",
+    "to": "Beloved children learning God’s love",
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love. The verse: Beloved, if God so loved us, we ought also to love one another.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “Beloved, if God so loved us, we ought also to love one another.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Beloved, if God so loved us, we ought also to love one another. The verse still says: “Beloved, if God so loved us, we ought also to love one another.”",
+    "today": "Beloved, if God so loved us, we ought also to love one another"
+  },
+  {
     "ref": "Revelation 1:17",
     "text": "And when I saw him, I fell at his feet as dead. And he laid his right hand upon me, saying unto me, Fear not; I am the first and the last:",
     "plain": "And when I saw him, I fell at his feet as dead — do not let fear have the last word.",
@@ -7675,6 +7663,18 @@
     "prayer": "Lord, when fear rises, hold me with “And when I saw him, I fell at his feet as dead. And he laid his right hand upon me, saying unto me, Fear not; I am the first and the last:” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, And when I saw him, I fell at his feet as dead — do not let fear have the last word. The verse still says: “And when I saw him, I fell at his feet as dead. And he laid his right hand upon me, saying unto me, Fear not; I am the first and the last:”",
     "today": "This word is for you when His glory knocks you down and His right hand lifts you."
+  },
+  {
+    "ref": "1 John 4:16",
+    "text": "And we have known and believed the love that God hath to us. God is love; and he that dwelleth in love dwelleth in God, and God in him.",
+    "plain": "And we have known and believed the love that God has to us.",
+    "step": "Ask mercy with this line, then give one person a share of it: “And we have known and believed the love that God hath to us. God is love; and he that dwelleth in love dwelleth in God, and God in him.”",
+    "about": "John",
+    "to": "Beloved children learning God’s love",
+    "setting": "John urges the church to love one another because love is of God: whoever loves is born of God and knows God, and God is love. The verse: And we have known and believed the love that God hath to us. God is love; and he that dwelleth in love dwelleth in God, and God in him.",
+    "prayer": "Lord, let this mercy reach me, then go out from me: “And we have known and believed the love that God hath to us. God is love; and he that dwelleth in love dwelleth in God, and God in him.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, And we have known and believed the love that God has to us. The verse still says: “And we have known and believed the love that God hath to us. God is love; and he that dwelleth in love dwelleth in God, and God in him.”",
+    "today": "And we have known and believed the love that God has to us"
   },
   {
     "ref": "Revelation 7:17",
@@ -7701,18 +7701,6 @@
     "today": "One day God will wipe away every tear; no more death, grief, or pain"
   },
   {
-    "ref": "Revelation 21:5",
-    "text": "And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.",
-    "plain": "And he that sat upon the throne said, Look, I make all things new. And he said to me, Write: for these words are true and faithful.",
-    "step": "Write this where you will see it: “And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.”",
-    "about": "John (from God)",
-    "to": "The church hoping for the new creation",
-    "setting": "Christ returns; new heaven and new earth; the river of life; “Even so, come, Lord Jesus.”. The verse: And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.",
-    "prayer": "Lord, write this on my path today: “And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, And he that sat upon the throne said, Look, I make all things new. And he said to me, Write: for these words are true and faithful. The verse still says: “And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.”",
-    "today": "This word is for you in the hour this verse is for: “And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.”"
-  },
-  {
     "ref": "Revelation 22:17",
     "text": "And the Spirit and the bride say, Come. And let him that heareth say, Come. And let him that is athirst come. And whosoever will, let him take the water of life freely.",
     "plain": "And the Spirit and the bride say, Come.",
@@ -7723,6 +7711,18 @@
     "prayer": "Lord, let this word be true in me today: “And the Spirit and the bride say, Come. And let him that heareth say, Come. And let him that is athirst come. And whosoever will, let him take the water of life freely.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, And the Spirit and the bride say, Come. The verse still says: “And the Spirit and the bride say, Come. And let him that heareth say, Come. And let him that is athirst come. And whosoever will, let him take the water of life freely.”",
     "today": "And the Spirit and the bride say, Come"
+  },
+  {
+    "ref": "Revelation 21:5",
+    "text": "And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.",
+    "plain": "And he that sat upon the throne said, Look, I make all things new. And he said to me, Write: for these words are true and faithful.",
+    "step": "Write this where you will see it: “And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.”",
+    "about": "John (from God)",
+    "to": "The church hoping for the new creation",
+    "setting": "Christ returns; new heaven and new earth; the river of life; “Even so, come, Lord Jesus.”. The verse: And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.",
+    "prayer": "Lord, write this on my path today: “And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, And he that sat upon the throne said, Look, I make all things new. And he said to me, Write: for these words are true and faithful. The verse still says: “And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.”",
+    "today": "This word is for you in the hour this verse is for: “And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful.”"
   },
   {
     "ref": "Psalm 18:28",
@@ -8037,54 +8037,6 @@
     "today": "When you feel empty, God gives strength beyond your own — “My soul melteth for heaviness: strengthen thou me according unto thy word.”"
   },
   {
-    "ref": "Psalm 119:49",
-    "text": "Remember the word unto thy servant, upon which thou hast caused me to hope.",
-    "plain": "Remember the word to your servant, upon which you have caused me to hope.",
-    "step": "Write this where you will see it: “Remember the word unto your servant, upon.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Remember the word unto thy servant, upon which thou hast caused me to hope.",
-    "prayer": "Lord, write this on my path today: “Remember the word unto your servant, upon which you.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Remember the word to your servant, upon which you have caused me to hope. The verse still says: “Remember the word unto thy servant, upon which thou hast caused me to hope.”",
-    "today": "This word is for you in the hour this verse is for: “Remember the word unto thy servant, upon which thou hast caused me to hope.”"
-  },
-  {
-    "ref": "Psalm 119:64",
-    "text": "The earth, O LORD, is full of thy mercy: teach me thy statutes.",
-    "plain": "The earth, O Lord, is full of Thy mercy: teach me Thy statutes.",
-    "step": "Carry this clause in your mouth until noon: “The earth, O LORD, is full of your mercy: teach.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: The earth, O LORD, is full of thy mercy: teach me thy statutes.",
-    "prayer": "Lord, write this on my path today: “The earth, O LORD, is full of your mercy: teach me.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, The earth, O Lord, is full of Thy mercy: teach me Thy statutes. The verse still says: “The earth, O LORD, is full of thy mercy: teach me thy statutes.”",
-    "today": "This word is for you when the earth is already full of His mercy."
-  },
-  {
-    "ref": "Psalm 119:72",
-    "text": "The law of thy mouth is better unto me than thousands of gold and silver.",
-    "plain": "The law of your mouth is better to me than thousands of gold and silver.",
-    "step": "Read this once out loud, then do the next honest thing it names: “The law of thy mouth is better unto me than thousands of gold and silver.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: The law of thy mouth is better unto me than thousands of gold and silver.",
-    "prayer": "Lord, write this on my path today: “The law of thy mouth is better unto me than thousands of gold and silver.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, The law of your mouth is better to me than thousands of gold and silver. The verse still says: “The law of thy mouth is better unto me than thousands of gold and silver.”",
-    "today": "The law of your mouth is better to me than thousands of gold and silver"
-  },
-  {
-    "ref": "Psalm 119:92",
-    "text": "Unless thy law had been my delights, I should then have perished in mine affliction.",
-    "plain": "Enough light for the next step: Unless your law had been my delights, I should then have perished in mine affliction.",
-    "step": "Walk to the next doorway holding: “Unless thy law had been my delights, I should then have perished in mine affliction.”",
-    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
-    "to": "Anyone learning to walk by Scripture",
-    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Unless thy law had been my delights, I should then have perished in mine affliction.",
-    "prayer": "Lord, write this on my path today: “Unless thy law had been my delights, I should then have perished in mine affliction.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, Enough light for the next step: Unless your law had been my delights, I should then have perished in mine affliction. The verse still says: “Unless thy law had been my delights, I should then have perished in mine affliction.”",
-    "today": "Enough light for the next step: Unless your law had been my delights, I should then have perished in mine affliction"
-  },
-  {
     "ref": "Psalm 138:8",
     "text": "The LORD will perfect that which concerneth me: thy mercy, O LORD, endureth for ever: forsake not the works of thine own hands.",
     "plain": "The Lord will perfect that which concerneth me: Thy mercy, O Lord, endureth for ever.",
@@ -8095,6 +8047,18 @@
     "prayer": "Lord, let this mercy reach me, then go out from me: “The LORD will perfect that which concerneth me: thy mercy, O LORD, endureth for ever: forsake not the works of thine own hands.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, The Lord will perfect that which concerneth me: Thy mercy, O Lord, endureth for ever. The verse still says: “The LORD will perfect that which concerneth me: thy mercy, O LORD, endureth for ever: forsake not the works of thine own hands.”",
     "today": "This word is for you when you need the Lord to perfect what concerns you."
+  },
+  {
+    "ref": "Psalm 119:49",
+    "text": "Remember the word unto thy servant, upon which thou hast caused me to hope.",
+    "plain": "Remember the word to your servant, upon which you have caused me to hope.",
+    "step": "Write this where you will see it: “Remember the word unto your servant, upon.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Remember the word unto thy servant, upon which thou hast caused me to hope.",
+    "prayer": "Lord, write this on my path today: “Remember the word unto your servant, upon which you.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Remember the word to your servant, upon which you have caused me to hope. The verse still says: “Remember the word unto thy servant, upon which thou hast caused me to hope.”",
+    "today": "This word is for you in the hour this verse is for: “Remember the word unto thy servant, upon which thou hast caused me to hope.”"
   },
   {
     "ref": "Psalm 139:5",
@@ -8109,6 +8073,18 @@
     "today": "You have beset me behind and before, and laid yours hand upon me"
   },
   {
+    "ref": "Psalm 119:64",
+    "text": "The earth, O LORD, is full of thy mercy: teach me thy statutes.",
+    "plain": "The earth, O Lord, is full of Thy mercy: teach me Thy statutes.",
+    "step": "Carry this clause in your mouth until noon: “The earth, O LORD, is full of your mercy: teach.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: The earth, O LORD, is full of thy mercy: teach me thy statutes.",
+    "prayer": "Lord, write this on my path today: “The earth, O LORD, is full of your mercy: teach me.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, The earth, O Lord, is full of Thy mercy: teach me Thy statutes. The verse still says: “The earth, O LORD, is full of thy mercy: teach me thy statutes.”",
+    "today": "This word is for you when the earth is already full of His mercy."
+  },
+  {
     "ref": "Psalm 143:10",
     "text": "Teach me to do thy will; for thou art my God: thy spirit is good; lead me into the land of uprightness.",
     "plain": "Teach me to do your will;.",
@@ -8121,6 +8097,18 @@
     "today": "Teach me to do your will;"
   },
   {
+    "ref": "Psalm 119:72",
+    "text": "The law of thy mouth is better unto me than thousands of gold and silver.",
+    "plain": "The law of your mouth is better to me than thousands of gold and silver.",
+    "step": "Read this once out loud, then do the next honest thing it names: “The law of thy mouth is better unto me than thousands of gold and silver.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: The law of thy mouth is better unto me than thousands of gold and silver.",
+    "prayer": "Lord, write this on my path today: “The law of thy mouth is better unto me than thousands of gold and silver.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, The law of your mouth is better to me than thousands of gold and silver. The verse still says: “The law of thy mouth is better unto me than thousands of gold and silver.”",
+    "today": "The law of your mouth is better to me than thousands of gold and silver"
+  },
+  {
     "ref": "Psalm 145:8",
     "text": "The LORD is gracious, and full of compassion; slow to anger, and of great mercy.",
     "plain": "The Lord is gracious, and full of compassion; slow to anger, and of great mercy.",
@@ -8131,6 +8119,18 @@
     "prayer": "Lord, let this mercy reach me, then go out from me: “The LORD is gracious, and full of compassion; slow to anger, and of great mercy.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, The Lord is gracious, and full of compassion; slow to anger, and of great mercy. The verse still says: “The LORD is gracious, and full of compassion; slow to anger, and of great mercy.”",
     "today": "This word is for you when you need the Lord gracious and full of compassion."
+  },
+  {
+    "ref": "Psalm 119:92",
+    "text": "Unless thy law had been my delights, I should then have perished in mine affliction.",
+    "plain": "Enough light for the next step: Unless your law had been my delights, I should then have perished in mine affliction.",
+    "step": "Walk to the next doorway holding: “Unless thy law had been my delights, I should then have perished in mine affliction.”",
+    "about": "A worshiper in love with God’s Word — walking by law, precepts, and path",
+    "to": "Anyone learning to walk by Scripture",
+    "setting": "The great acrostic love-song to God’s Word — law, precepts, and path for life. The verse: Unless thy law had been my delights, I should then have perished in mine affliction.",
+    "prayer": "Lord, write this on my path today: “Unless thy law had been my delights, I should then have perished in mine affliction.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, Enough light for the next step: Unless your law had been my delights, I should then have perished in mine affliction. The verse still says: “Unless thy law had been my delights, I should then have perished in mine affliction.”",
+    "today": "Enough light for the next step: Unless your law had been my delights, I should then have perished in mine affliction"
   },
   {
     "ref": "Psalm 146:1",
@@ -8421,42 +8421,6 @@
     "today": "There is no condemnation for those who are in Christ Jesus"
   },
   {
-    "ref": "Romans 8:14",
-    "text": "For as many as are led by the Spirit of God, they are the sons of God.",
-    "plain": "For as many as are led by the Spirit of God, they are the sons of God.",
-    "step": "Read this once out loud, then do the next honest thing it names: “For as many as are led by the Spirit of God, they are the sons of God.”",
-    "about": "Paul",
-    "to": "Believers in the Spirit (and you today)",
-    "setting": "No condemnation for those in Christ; the Spirit of adoption; nothing can separate us from the love of God. The verse: For as many as are led by the Spirit of God, they are the sons of God.",
-    "prayer": "Lord, let this word be true in me today: “For as many as are led by the Spirit of God, they are the sons of God.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, For as many as are led by the Spirit of God, they are the sons of God. The verse still says: “For as many as are led by the Spirit of God, they are the sons of God.”",
-    "today": "For as many as are led by the Spirit of God, they are the sons of God"
-  },
-  {
-    "ref": "Romans 8:15",
-    "text": "For ye have not received the spirit of bondage again to fear; but ye have received the Spirit of adoption, whereby we cry, Abba, Father.",
-    "plain": "For you have not received the spirit of bondage again to fear;.",
-    "step": "Name the fear, then answer it with: “For ye have not received the spirit of bondage again to fear; but ye have received the Spirit of adoption, whereby we cry, Abba, Father.”",
-    "about": "Paul",
-    "to": "Believers in the Spirit (and you today)",
-    "setting": "No condemnation for those in Christ; the Spirit of adoption; nothing can separate us from the love of God. The verse: For ye have not received the spirit of bondage again to fear; but ye have received the Spirit of adoption, whereby we cry, Abba, Father.",
-    "prayer": "Lord, when fear rises, hold me with “For ye have not received the spirit of bondage again to fear; but ye have received the Spirit of adoption, whereby we cry, Abba, Father.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, For you have not received the spirit of bondage again to fear;. The verse still says: “For ye have not received the spirit of bondage again to fear; but ye have received the Spirit of adoption, whereby we cry, Abba, Father.”",
-    "today": "For you have not received the spirit of bondage again to fear;"
-  },
-  {
-    "ref": "Romans 8:16",
-    "text": "The Spirit itself beareth witness with our spirit, that we are the children of God:",
-    "plain": "The Spirit itself beareth witness with our spirit, that we are the children of God:.",
-    "step": "Keep this clause until the next meal: “The Spirit itself beareth witness with our spirit, that we are the children of God:”",
-    "about": "Paul",
-    "to": "Believers in the Spirit (and you today)",
-    "setting": "No condemnation for those in Christ; the Spirit of adoption; nothing can separate us from the love of God. The verse: The Spirit itself beareth witness with our spirit, that we are the children of God:",
-    "prayer": "Lord, let this word be true in me today: “The Spirit itself beareth witness with our spirit, that we are the children of God:.” In Jesus’ name, Amen.",
-    "modernApplication": "In 2026, The Spirit itself beareth witness with our spirit, that we are the children of God:. The verse still says: “The Spirit itself beareth witness with our spirit, that we are the children of God:”",
-    "today": "The Spirit itself beareth witness with our spirit, that we are the children of God:"
-  },
-  {
     "ref": "Romans 14:8",
     "text": "For whether we live, we live unto the Lord; and whether we die, we die unto the Lord: whether we live therefore, or die, we are the Lord’s.",
     "plain": "For whether we live, we live to the Lord;.",
@@ -8467,6 +8431,18 @@
     "prayer": "Lord, let this word be true in me today: “For whether we live, we live unto the Lord; and whether we die, we die unto the Lord: whether we live therefore, or die, we are the Lord’s.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, For whether we live, we live to the Lord;. The verse still says: “For whether we live, we live unto the Lord; and whether we die, we die unto the Lord: whether we live therefore, or die, we are the Lord’s.”",
     "today": "For whether we live, we live to the Lord;"
+  },
+  {
+    "ref": "Romans 8:14",
+    "text": "For as many as are led by the Spirit of God, they are the sons of God.",
+    "plain": "For as many as are led by the Spirit of God, they are the sons of God.",
+    "step": "Read this once out loud, then do the next honest thing it names: “For as many as are led by the Spirit of God, they are the sons of God.”",
+    "about": "Paul",
+    "to": "Believers in the Spirit (and you today)",
+    "setting": "No condemnation for those in Christ; the Spirit of adoption; nothing can separate us from the love of God. The verse: For as many as are led by the Spirit of God, they are the sons of God.",
+    "prayer": "Lord, let this word be true in me today: “For as many as are led by the Spirit of God, they are the sons of God.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, For as many as are led by the Spirit of God, they are the sons of God. The verse still says: “For as many as are led by the Spirit of God, they are the sons of God.”",
+    "today": "For as many as are led by the Spirit of God, they are the sons of God"
   },
   {
     "ref": "1 Corinthians 6:19",
@@ -8481,6 +8457,18 @@
     "today": "Your body is the temple of the Holy Ghost which is in you, which you have of God — you are not your own"
   },
   {
+    "ref": "Romans 8:15",
+    "text": "For ye have not received the spirit of bondage again to fear; but ye have received the Spirit of adoption, whereby we cry, Abba, Father.",
+    "plain": "For you have not received the spirit of bondage again to fear;.",
+    "step": "Name the fear, then answer it with: “For ye have not received the spirit of bondage again to fear; but ye have received the Spirit of adoption, whereby we cry, Abba, Father.”",
+    "about": "Paul",
+    "to": "Believers in the Spirit (and you today)",
+    "setting": "No condemnation for those in Christ; the Spirit of adoption; nothing can separate us from the love of God. The verse: For ye have not received the spirit of bondage again to fear; but ye have received the Spirit of adoption, whereby we cry, Abba, Father.",
+    "prayer": "Lord, when fear rises, hold me with “For ye have not received the spirit of bondage again to fear; but ye have received the Spirit of adoption, whereby we cry, Abba, Father.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, For you have not received the spirit of bondage again to fear;. The verse still says: “For ye have not received the spirit of bondage again to fear; but ye have received the Spirit of adoption, whereby we cry, Abba, Father.”",
+    "today": "For you have not received the spirit of bondage again to fear;"
+  },
+  {
     "ref": "1 Corinthians 13:8",
     "text": "Charity never faileth: but whether there be prophecies, they shall fail; whether there be tongues, they shall cease; whether there be knowledge, it shall vanish away.",
     "plain": "Love never faileth: — wisdom from His mouth, not a private trick.",
@@ -8491,6 +8479,18 @@
     "prayer": "Lord, let this word be true in me today: “Charity never faileth: but whether there be prophecies, they shall fail; whether there be tongues, they shall cease; whether there be knowledge, it shall vanish away.” In Jesus’ name, Amen.",
     "modernApplication": "In 2026, Love never faileth: — wisdom from His mouth, not a private trick. The verse still says: “Charity never faileth: but whether there be prophecies, they shall fail; whether there be tongues, they shall cease; whether there be knowledge, it shall vanish away.”",
     "today": "Love never faileth: — wisdom from His mouth, not a private trick"
+  },
+  {
+    "ref": "Romans 8:16",
+    "text": "The Spirit itself beareth witness with our spirit, that we are the children of God:",
+    "plain": "The Spirit itself beareth witness with our spirit, that we are the children of God:.",
+    "step": "Keep this clause until the next meal: “The Spirit itself beareth witness with our spirit, that we are the children of God:”",
+    "about": "Paul",
+    "to": "Believers in the Spirit (and you today)",
+    "setting": "No condemnation for those in Christ; the Spirit of adoption; nothing can separate us from the love of God. The verse: The Spirit itself beareth witness with our spirit, that we are the children of God:",
+    "prayer": "Lord, let this word be true in me today: “The Spirit itself beareth witness with our spirit, that we are the children of God:.” In Jesus’ name, Amen.",
+    "modernApplication": "In 2026, The Spirit itself beareth witness with our spirit, that we are the children of God:. The verse still says: “The Spirit itself beareth witness with our spirit, that we are the children of God:”",
+    "today": "The Spirit itself beareth witness with our spirit, that we are the children of God:"
   },
   {
     "ref": "1 Corinthians 16:14",

@@ -6,7 +6,8 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { loadYear365 } from './lib/hero-daily-verse-pick.mjs';
+import { loadYear365, utcDaysSinceHeroEpoch } from './lib/hero-daily-verse-pick.mjs';
+import { adjacentSameChapterPairs, breakAdjacentSameChapter } from './lib/hero-calendar-spread.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -27,6 +28,18 @@ function scriptToken(html, file) {
 }
 
 function main() {
+  const spreadDemo = breakAdjacentSameChapter(
+    [
+      { ref: 'Psalm 103:5', text: 'a' },
+      { ref: 'Psalm 103:8', text: 'b' },
+      { ref: 'Proverbs 2:6', text: 'c' }
+    ],
+    1
+  );
+  if (spreadDemo.map((v) => v.ref).join('|') !== 'Psalm 103:5|Proverbs 2:6|Psalm 103:8') {
+    fail('breakAdjacentSameChapter must not leave two Psalm 103 days back to back');
+  }
+
   const srcIndex = read('index.html');
   const distIndex = fs.existsSync(path.join(root, 'dist', 'index.html'))
     ? read('dist/index.html')
@@ -131,6 +144,20 @@ function main() {
         fail('Kids year 1 and hero queue drift at day ' + (i + 1) + ': kids ' + kidRefs[i].ref + ' vs hero ' + year[i].ref);
         break;
       }
+    }
+    const from = utcDaysSinceHeroEpoch();
+    const sameChapter = adjacentSameChapterPairs(year, from);
+    if (sameChapter.length) {
+      const sample = sameChapter
+        .slice(0, 5)
+        .map((p) => p.prev + ' → ' + p.next)
+        .join('; ');
+      fail(
+        'Unpublished hero days must not repeat a chapter (today would feel like yesterday): ' +
+          sameChapter.length +
+          ' pair(s), e.g. ' +
+          sample
+      );
     }
   }
 

@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Hero calendar must not repeat a chapter two days in a row
+        run: node scripts/verify-dist-hero-lock.mjs
+
       - name: Install Playwright Chromium
         # Chromium first in scripts/qa-smoke.mjs — Firefox stalls on Action Bible under python http.server in CI.
         run: npx playwright install chromium

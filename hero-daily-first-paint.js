@@ -1875,7 +1875,7 @@
     if (window.__TDB_HERO_DAILY_YEAR && window.__TDB_HERO_DAILY_YEAR.length) return;
     window.__TDB_HERO365_LOAD_SCHEDULED = true;
     var s = document.createElement('script');
-    s.src = 'hero-daily-365-data.js?v=20260820-heb';
+    s.src = 'hero-daily-365-data.js?v=20260906-ch';
     s.async = true;
     s.setAttribute('data-tdb-hero365', '1');
     s.onload = function () {

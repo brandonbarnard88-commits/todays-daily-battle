@@ -46,7 +46,7 @@ if (!/hath gotten him the victory/.test(data)) {
   fail('Psalm 98:1 queue text is still truncated');
 }
 const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-if (!/hero-daily-365-data\.js\?v=20260820-heb/.test(indexHtml)) {
+if (!/hero-daily-365-data\.js\?v=20260906-ch/.test(indexHtml)) {
   fail('index.html must cache-bust hero-daily-365-data.js after a verse-text change');
 }
 if (/daily calendar verse/i.test(indexHtml)) {

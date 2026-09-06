@@ -412,10 +412,10 @@
       title: 'What happened next?',
       encouragement: 'Jesus welcomes little ones — order the story!',
       beats: [
-        { id: 'a', label: 'Parents bring children so Jesus will touch them' },
+        { id: 'a', label: 'Parents bring children so Jesus will bless them' },
         { id: 'b', label: 'Disciples try to stop them' },
         { id: 'c', label: 'Jesus is displeased with that' },
-        { id: 'd', label: 'He puts His hands on the children and blesses them' }
+        { id: 'd', label: 'He takes them in His arms and blesses them' }
       ]
     },
     jonah: {

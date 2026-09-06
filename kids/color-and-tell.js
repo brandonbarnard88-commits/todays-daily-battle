@@ -155,7 +155,7 @@
     llcommandments: 'll-commandments'
   };
 
-  var LISTEN_AUDIO_VERSION = '20260905listen3';
+  var LISTEN_AUDIO_VERSION = '20260906bless1';
   var COLORING_LISTEN = {};
 
   var listenAudio = null;
@@ -1148,14 +1148,14 @@
           src: '/coloring-pages/jesus-children-s1.svg',
           alt: 'Families bring young children to Jesus',
           caption: 'Families bring little ones to Jesus.',
-          verse: '“And they brought young children to him, that he should touch them: and his disciples rebuked those that brought them.” — Mark 10:13 (KJV)'
+          verse: '“Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.” — Mark 10:14 (KJV)'
         },
         {
           id: '2',
           src: '/coloring-pages/jesus-children-s2.svg',
           alt: 'The disciples try to send the children away',
           caption: 'The disciples try to send them away.',
-          verse: '“And they brought young children to him, that he should touch them: and his disciples rebuked those that brought them.” — Mark 10:13 (KJV)'
+          verse: '“Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.” — Mark 10:14 (KJV)'
         },
         {
           id: '3',

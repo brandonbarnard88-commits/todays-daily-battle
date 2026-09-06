@@ -197,12 +197,22 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
                 display: block;
             }
 
-            .undoButton > i::after{ content: "undo"}
-            .clearButton > i::after{ content: "clear"}
-            .printButton > i::after{ content: "print"}
-            .saveButton > i::after{ content: "save"}
-            .fillButton > i::after{ content: "format_color_fill"}
-            .brushButton > i::after{ content: "brush"}
+            .tools .button,
+            .tools .button .material-icons {
+                font-family: system-ui, -apple-system, "Segoe UI", sans-serif !important;
+                font-size: 13px;
+                font-weight: 700;
+                font-style: normal;
+                letter-spacing: 0;
+                text-transform: none;
+                line-height: 1.1;
+            }
+            .undoButton > i::after{ content: "Undo"}
+            .clearButton > i::after{ content: "Clear"}
+            .printButton > i::after{ content: "Print"}
+            .saveButton > i::after{ content: "Save"}
+            .fillButton > i::after{ content: "Fill"}
+            .brushButton > i::after{ content: "Brush"}
             .tools .button.modeSelected {
                 outline: 3px solid #2563eb;
                 background: #dbeafe;

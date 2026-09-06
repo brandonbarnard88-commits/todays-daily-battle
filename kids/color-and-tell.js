@@ -646,7 +646,7 @@
   // TDB_SCENE_ART_END
 
   /** Returns the best available line-art src for a scene (raster preferred). */
-  var ART_CACHE = '20260905art6';
+  var ART_CACHE = '20260906color1';
   function bestSceneSrc(scene) {
     if (!scene || !scene.src) return '';
     var src = (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;
@@ -709,36 +709,19 @@
     var card = document.createElement('div');
     card.className = 'tdb-cat-scene-story-card';
 
-    var label = document.createElement('p');
-    label.className = 'tdb-cat-scene-label';
     if (sceneTotal > 1) {
+      var label = document.createElement('p');
+      label.className = 'tdb-cat-scene-label';
       label.textContent =
         'Scene ' + (sceneIdx + 1) + ' of ' + sceneTotal + ' · ' + (story.title || '');
-    } else {
-      label.textContent = story.title || 'Bible story';
+      card.appendChild(label);
     }
-    card.appendChild(label);
 
     if (scene.caption) {
       var cap = document.createElement('p');
       cap.className = 'tdb-cat-scene-caption';
       cap.textContent = scene.caption;
       card.appendChild(cap);
-    }
-
-    var pictureHint = scene.alt || '';
-    if (pictureHint) {
-      var pic = document.createElement('p');
-      pic.className = 'tdb-cat-scene-picture-hint';
-      pic.textContent = 'In this picture: ' + pictureHint;
-      card.appendChild(pic);
-    }
-
-    if (story.idea) {
-      var idea = document.createElement('p');
-      idea.className = 'tdb-cat-scene-idea';
-      idea.textContent = 'Big idea: ' + story.idea;
-      card.appendChild(idea);
     }
 
     return card;
@@ -4232,59 +4215,73 @@
   /**
    * Story-library-style picture grid: one thumbnail card per coloring story.
    */
+  function makeStoryGridCard(story, eager) {
+    var card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'tdb-cat-progress-card tdb-cat-story-grid-card';
+    card.setAttribute('data-tdb-jump-story', story.id);
+
+    var thumbWrap = document.createElement('span');
+    thumbWrap.className = 'tdb-cat-story-grid-thumb-wrap';
+    thumbWrap.setAttribute('aria-hidden', 'true');
+    var src = storyThumbSrc(story);
+    var badge = document.createElement('span');
+    badge.className = 'tdb-cat-story-grid-fallback';
+    badge.textContent = (story.title || '?').charAt(0);
+    thumbWrap.appendChild(badge);
+    if (src) {
+      var img = document.createElement('img');
+      img.className = 'tdb-cat-story-grid-thumb';
+      img.src = src;
+      img.alt = '';
+      img.loading = eager ? 'eager' : 'lazy';
+      img.decoding = 'async';
+      img.width = 280;
+      img.height = 224;
+      img.addEventListener('load', function () {
+        badge.setAttribute('hidden', '');
+        thumbWrap.classList.add('has-art');
+      });
+      img.addEventListener('error', function () {
+        this.remove();
+        badge.removeAttribute('hidden');
+        thumbWrap.classList.remove('has-art');
+      });
+      thumbWrap.appendChild(img);
+    }
+
+    var st = statusLabel(story);
+    card.setAttribute(
+      'aria-label',
+      (story.title || 'Story') + ' — ' + st.text + ' — open to color'
+    );
+
+    var title = document.createElement('p');
+    title.className = 'tdb-cat-progress-card-title tdb-cat-story-grid-title';
+    title.textContent = story.title;
+
+    card.appendChild(thumbWrap);
+    card.appendChild(title);
+    card.addEventListener('click', function () {
+      jumpToColorStory(this.getAttribute('data-tdb-jump-story'));
+    });
+    return card;
+  }
+
+  var FEATURED_STORY_COUNT = 8;
+
   function refreshProgressCards(container) {
     container.textContent = '';
     container.classList.add('tdb-cat-story-grid');
+    var moreHost = document.getElementById('tdb-cat-more-story-grid');
+    if (moreHost) moreHost.textContent = '';
     for (var s = 0; s < STORIES.length; s++) {
-      var story = STORIES[s];
-      var card = document.createElement('button');
-      card.type = 'button';
-      card.className = 'tdb-cat-progress-card tdb-cat-story-grid-card';
-      card.setAttribute('data-tdb-jump-story', story.id);
-
-      var thumbWrap = document.createElement('span');
-      thumbWrap.className = 'tdb-cat-story-grid-thumb-wrap';
-      thumbWrap.setAttribute('aria-hidden', 'true');
-      var src = storyThumbSrc(story);
-      if (src) {
-        var img = document.createElement('img');
-        img.className = 'tdb-cat-story-grid-thumb';
-        img.src = src;
-        img.alt = '';
-        img.setAttribute('alt', '');
-        img.loading = s < 8 ? 'eager' : 'lazy';
-        img.decoding = 'async';
-        img.width = 280;
-        img.height = 224;
-        img.addEventListener('error', function () {
-          this.style.display = 'none';
-          var badge = this.parentNode && this.parentNode.querySelector('.tdb-cat-progress-card-badge');
-          if (badge) badge.hidden = false;
-        });
-        thumbWrap.appendChild(img);
+      var card = makeStoryGridCard(STORIES[s], s < FEATURED_STORY_COUNT);
+      if (s < FEATURED_STORY_COUNT || !moreHost) {
+        container.appendChild(card);
+      } else {
+        moreHost.appendChild(card);
       }
-      var badge = document.createElement('span');
-      badge.className = 'tdb-cat-progress-card-thumb tdb-cat-progress-card-badge';
-      badge.textContent = (story.title || '?').charAt(0);
-      if (src) badge.hidden = true;
-      thumbWrap.appendChild(badge);
-
-      var st = statusLabel(story);
-      card.setAttribute(
-        'aria-label',
-        (story.title || 'Story') + ' — ' + st.text + ' — open to color'
-      );
-
-      var title = document.createElement('p');
-      title.className = 'tdb-cat-progress-card-title tdb-cat-story-grid-title';
-      title.textContent = story.title;
-
-      card.appendChild(thumbWrap);
-      card.appendChild(title);
-      card.addEventListener('click', function () {
-        jumpToColorStory(this.getAttribute('data-tdb-jump-story'));
-      });
-      container.appendChild(card);
     }
   }
 
@@ -4387,6 +4384,11 @@
     var progressOuter = document.createElement('div');
     progressOuter.className = 'tdb-cat-progress-outer tdb-cat-story-grid-outer';
 
+    var chooseH = document.createElement('h2');
+    chooseH.className = 'tdb-cat-story-grid-heading section-divider';
+    chooseH.id = 'tdb-cat-choose-h';
+    chooseH.textContent = 'Choose your story';
+
     var progressWrap = document.createElement('div');
     progressWrap.className = 'tdb-cat-progress tdb-cat-story-grid';
     progressWrap.setAttribute('role', 'region');
@@ -4396,10 +4398,26 @@
 
     var gridLead = document.createElement('p');
     gridLead.className = 'section-note tdb-cat-story-grid-lead';
-    gridLead.textContent = STORIES.length + ' Bible stories to color.';
+    gridLead.textContent = 'Tap a picture to color.';
 
+    var moreDetails = document.createElement('details');
+    moreDetails.className = 'tdb-cat-more-stories';
+    var moreSum = document.createElement('summary');
+    moreSum.className = 'tdb-cat-more-stories-summary';
+    moreSum.textContent =
+      'More Bible stories (' + Math.max(0, STORIES.length - FEATURED_STORY_COUNT) + ')';
+    var moreHost = document.createElement('div');
+    moreHost.id = 'tdb-cat-more-story-grid';
+    moreHost.className = 'tdb-cat-progress tdb-cat-story-grid';
+    moreDetails.appendChild(moreSum);
+    moreDetails.appendChild(moreHost);
+
+    progressOuter.appendChild(chooseH);
     progressOuter.appendChild(gridLead);
     progressOuter.appendChild(progressWrap);
+    if (STORIES.length > FEATURED_STORY_COUNT) {
+      progressOuter.appendChild(moreDetails);
+    }
     mount.appendChild(progressOuter);
     if (requestedStoryId) {
       var storyMeta = getStoryMetaById(requestedStoryId);
@@ -4492,10 +4510,6 @@
         h2.className = 'tdb-cat-story-title';
         h2.tabIndex = -1;
         h2.textContent = story.title;
-
-        var lead = document.createElement('p');
-        lead.className = 'tdb-cat-story-lead';
-        lead.textContent = story.lead;
 
         var celebrate = document.createElement('p');
         celebrate.className = 'tdb-cat-story-celebrate';
@@ -4656,9 +4670,9 @@
                 });
             });
 
-            panel.appendChild(storyCard);
             panel.appendChild(jlBox);
             panel.appendChild(verseStrip);
+            if (storyCard.childNodes.length) panel.appendChild(storyCard);
             panel.appendChild(printBtn);
             panel.appendChild(saveBtn);
             panel.appendChild(msg);
@@ -4724,14 +4738,13 @@
         actions.appendChild(startOverBtn);
 
         section.appendChild(h2);
-        section.appendChild(lead);
-        section.appendChild(hearBtn);
-        if (listenWrap) section.appendChild(listenWrap);
-        section.appendChild(celebrate);
         if (tablist) {
           section.appendChild(tablist);
         }
         section.appendChild(panelsWrap);
+        section.appendChild(hearBtn);
+        if (listenWrap) section.appendChild(listenWrap);
+        section.appendChild(celebrate);
         section.appendChild(actions);
         if (story.idea) {
           var ideaNote = document.createElement('p');
@@ -4774,11 +4787,22 @@
       var prevStart = document.getElementById('tdb-cat-story-start');
       if (prevStart && prevStart !== sec) prevStart.removeAttribute('id');
       sec.id = 'tdb-cat-story-start';
-      if (progressOuter && progressOuter.parentNode) {
-        progressOuter.parentNode.insertBefore(sec, progressOuter);
+      gridLead.textContent = 'Or pick another picture.';
+      document.body.classList.add('tdb-cat-has-open-story');
+      if (progressOuter && !progressOuter.closest('details.tdb-cat-picker-fold') && progressOuter.parentNode) {
+        var fold = document.createElement('details');
+        fold.className = 'tdb-cat-picker-fold';
+        var foldSum = document.createElement('summary');
+        foldSum.className = 'tdb-cat-picker-fold-summary';
+        foldSum.textContent = 'Pick another story';
+        progressOuter.parentNode.insertBefore(fold, progressOuter);
+        fold.appendChild(foldSum);
+        fold.appendChild(progressOuter);
       }
-      gridLead.textContent =
-        'Or pick another picture below. ' + STORIES.length + ' Bible stories.';
+      var picker = (progressOuter && progressOuter.closest('details.tdb-cat-picker-fold')) || progressOuter;
+      if (picker && picker.parentNode) {
+        picker.parentNode.insertBefore(sec, picker);
+      }
       var panel =
         sec.querySelector('.tdb-cat-panel:not([hidden])') ||
         sec.querySelector('.tdb-cat-panel');

@@ -271,31 +271,31 @@ body.tdb-kids-coloring-page.dark-mode {
 .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
 .tdb-cat-story-grid-card .tdb-cat-story-grid-title {
   margin: 0;
-  padding: 0.5rem 0.45rem 0.45rem;
-  border-radius: 8px;
-  background: #0f172a;
+  padding: 0.45rem 0.35rem 0.15rem;
+  border-radius: 0;
+  background: transparent;
   font-family: Inter, 'Nunito', system-ui, sans-serif;
   font-weight: 800;
-  font-size: 1.18rem;
+  font-size: 0.95rem;
   line-height: 1.25;
   letter-spacing: 0;
-  color: #f2dc98;
-  -webkit-text-fill-color: #f2dc98;
+  color: #0f172a;
+  -webkit-text-fill-color: #0f172a;
   text-wrap: pretty;
   overflow-wrap: anywhere;
 }
 .dark-mode .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
 .dark-mode .tdb-cat-story-grid-card .tdb-cat-story-grid-title {
-  color: #f2dc98;
-  -webkit-text-fill-color: #f2dc98;
-  background: #0f172a;
+  color: #0f172a;
+  -webkit-text-fill-color: #0f172a;
+  background: transparent;
 }
 .tdb-cat-story-grid-card .tdb-cat-progress-card-status,
 .tdb-cat-story-grid-card .tdb-cat-progress-meter,
 .tdb-cat-story-grid-card .tdb-cat-story-grid-open {
   display: none !important;
 }
-.tdb-cat-story-grid-card .tdb-cat-progress-card-badge {
+.tdb-cat-story-grid-fallback {
   position: absolute;
   inset: 0;
   display: flex;
@@ -304,7 +304,17 @@ body.tdb-kids-coloring-page.dark-mode {
   font-size: 2rem;
   font-weight: 800;
   color: #92400e;
-  background: rgba(254, 243, 199, 0.95);
+  background: #fff8e7;
+  pointer-events: none;
+}
+.tdb-cat-story-grid-fallback[hidden],
+.tdb-cat-story-grid-thumb-wrap.has-art .tdb-cat-story-grid-fallback {
+  display: none !important;
+}
+.tdb-cat-story-grid-thumb {
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
 }
 
 /* Phones & tablets: edge fade so long horizontal strip feels bounded (not picture grid) */
@@ -1009,7 +1019,7 @@ body.tdb-kids-coloring-page h2#tdb-cat-choose-h {
 body.tdb-kids-coloring-page button.tdb-cat-story-grid-card {
   background: #fffef8 !important;
   border-color: #d97706 !important;
-  color: #f2dc98 !important;
+  color: #0f172a !important;
   font-size: inherit !important;
 }
 .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
@@ -1018,10 +1028,10 @@ body.tdb-kids-coloring-page button.tdb-cat-story-grid-card {
 .dark-mode .tdb-cat-story-grid-card .tdb-cat-story-grid-title,
 body.tdb-kids-coloring-page .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
 body.tdb-kids-coloring-page .tdb-cat-story-grid-card .tdb-cat-story-grid-title {
-  color: #f2dc98 !important;
-  -webkit-text-fill-color: #f2dc98 !important;
-  background: #0f172a !important;
-  font-size: 1.18rem !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  background: transparent !important;
+  font-size: 0.95rem !important;
   font-weight: 800 !important;
   line-height: 1.25 !important;
 }
@@ -1399,4 +1409,87 @@ body.tdb-kids-coloring-page .site-footer #easter-egg-badge {
     letter-spacing: 0.02em;
     color: #57534e;
   }
+}
+
+/* Coloring porch: cream paper, picture first, no adult chrome on the crayons */
+body.tdb-kids-coloring-page .easter-triple-toast,
+body.tdb-kids-coloring-page .easter-toast-large {
+  display: none !important;
+}
+body.tdb-kids-coloring-page .tdb-lang-switcher-header-wrap {
+  background: #f8efd6 !important;
+  border-top-color: rgba(180, 83, 9, 0.18) !important;
+}
+body.tdb-kids-coloring-page .top-bar .tdb-lang-switcher--header.tdb-lang-switcher--labeled {
+  background: #fff8e7 !important;
+  border-color: rgba(180, 83, 9, 0.28) !important;
+  box-shadow: none !important;
+}
+body.tdb-kids-coloring-page .tdb-lang-switcher-eyebrow,
+body.tdb-kids-coloring-page .tdb-lang-switcher .tdb-lang-sep {
+  color: #7c3d12 !important;
+}
+body.tdb-kids-coloring-page .tdb-lang-switcher .tdb-lang-opt {
+  color: #7c3d12 !important;
+}
+body.tdb-kids-coloring-page .kids-mascot-tap,
+body.tdb-kids-coloring-page.dark-mode .kids-mascot-tap {
+  background: #fff8e7 !important;
+  color: inherit !important;
+  border: 0 !important;
+  box-shadow: 0 0 0 3px rgba(242, 220, 152, 0.8), 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+body.tdb-kids-coloring-page .kids-shepherd-hero-wrap,
+body.tdb-kids-coloring-page .kids-shepherd-hero-img {
+  background: #fff8e7 !important;
+}
+body.tdb-kids-coloring-page .kids-print-btn,
+body.tdb-kids-coloring-page.dark-mode .kids-print-btn {
+  background: #fffef8 !important;
+  color: #0f172a !important;
+  border: 2px solid #b45309 !important;
+}
+body.tdb-kids-coloring-page .tdb-cat-save-scene.btn-primary,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-save-scene.btn-primary,
+body.tdb-kids-coloring-page .tdb-cat-watch-story.btn-primary,
+body.tdb-kids-coloring-page.dark-mode .tdb-cat-watch-story.btn-primary {
+  background: #e6c56a !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  border: 2px solid #8a6a12 !important;
+  box-shadow: 0 2px 0 rgba(15, 23, 42, 0.12);
+  font-weight: 800;
+}
+body.tdb-kids-coloring-page .tdb-cat-color-hero {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+body.tdb-kids-coloring-page .tdb-cat-picker-fold,
+body.tdb-kids-coloring-page .tdb-cat-more-stories {
+  margin: 0.75rem 0 1rem;
+  padding: 0.35rem 0.65rem 0.55rem;
+  border-radius: 12px;
+  border: 2px solid rgba(180, 83, 9, 0.28);
+  background: #fffef8;
+}
+body.tdb-kids-coloring-page .tdb-cat-picker-fold-summary,
+body.tdb-kids-coloring-page .tdb-cat-more-stories-summary {
+  cursor: pointer;
+  font-weight: 800;
+  color: #7c3d12;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+body.tdb-kids-coloring-page .tdb-cat-scene-story-card {
+  margin: 0.65rem 0 0;
+  padding: 0.55rem 0.75rem;
+}
+body.tdb-kids-coloring-page .tdb-cat-scene-caption {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+body.tdb-kids-coloring-page.tdb-cat-has-open-story .kids-shepherd-compact {
+  display: none;
 }

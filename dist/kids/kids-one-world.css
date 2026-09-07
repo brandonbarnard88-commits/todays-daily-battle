@@ -1,0 +1,173 @@
+/* One Kids world: cream paper, same three doors, no adult chrome. */
+.kids-easy-doors--three {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 0.5rem !important;
+  margin: 0.35rem 0 0.85rem;
+}
+.kids-easy-doors--three .kids-easy-door {
+  display: block;
+  text-decoration: none;
+  border-radius: 1.1rem;
+  padding: 0.55rem 0.35rem 0.6rem;
+  font-weight: 800;
+  font-size: 1.02rem;
+  line-height: 1.2;
+  color: #0f172a !important;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.12);
+  border: 3px solid transparent;
+  text-align: center;
+}
+.kids-easy-doors--three .kids-easy-door-pic {
+  width: 2.35rem;
+  height: 2.35rem;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 0.3rem;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+.kids-easy-doors--three .kids-easy-door small {
+  display: block;
+  font-weight: 600;
+  font-size: 0.72rem;
+  margin-top: 0.2rem;
+  opacity: 0.88;
+  color: #1e293b !important;
+}
+.kids-easy-door--story {
+  background: linear-gradient(145deg, #fef3c7, #fde68a);
+  border-color: #f59e0b !important;
+}
+.kids-easy-door--color {
+  background: linear-gradient(145deg, #dbeafe, #93c5fd);
+  border-color: #3b82f6 !important;
+}
+.kids-easy-door--watch {
+  background: linear-gradient(145deg, #fce7f3, #f9a8d4);
+  border-color: #db2777 !important;
+}
+.kids-easy-door[aria-current='page'] {
+  box-shadow: 0 0 0 3px #fff, 3px 3px 0 rgba(0, 0, 0, 0.16);
+}
+
+.kids-home-verse {
+  margin: 0 auto 0.85rem;
+  max-width: 36rem;
+  padding: 0.65rem 0.8rem 0.7rem;
+  border-radius: 14px;
+  background: #fffef8;
+  border: 3px solid rgba(217, 119, 6, 0.45);
+  text-align: left;
+}
+.kids-home-verse h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a !important;
+}
+.kids-home-verse-ref {
+  margin: 0 0 0.2rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #7c3d12 !important;
+}
+.kids-home-verse-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #0f172a !important;
+}
+
+body.kids-one-world {
+  background: #fff9eb !important;
+  color: #0f172a !important;
+}
+body.kids-one-world .kids-easy-header {
+  text-align: center;
+  padding: 0.75rem 1rem 0.15rem;
+}
+body.kids-one-world .kids-easy-header .brand-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #0f172a !important;
+}
+body.kids-one-world .kids-easy-header .kids-subtitle {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #92400e;
+  margin-top: 0.15rem;
+}
+body.kids-one-world .tdb-lang-switcher-header-wrap,
+body.kids-one-world .tdb-nav-flyout-toggle,
+body.kids-one-world .tdb-primary-nav-panel,
+body.kids-one-world .tdb-header-heartbeat,
+body.kids-one-world .easter-triple-toast,
+body.kids-one-world .easter-toast-large,
+body.kids-one-world .tdb-site-humility,
+body.kids-one-world #daily-nudge,
+body.kids-one-world .toast-gold {
+  display: none !important;
+}
+
+body.little-ones-kids-surface.kids-one-world .little-ones-page,
+body.kids-one-world .loop-library-page,
+body.kids-one-world .content-inner {
+  color: #0f172a;
+}
+body.little-ones-kids-surface.kids-one-world .little-ones-feature-card,
+body.little-ones-kids-surface.kids-one-world .little-ones-story-actions,
+body.little-ones-kids-surface.kids-one-world .little-ones-age-card,
+body.little-ones-kids-surface.kids-one-world .little-ones-chip,
+body.kids-one-world .glass,
+body.kids-one-world .card-gold {
+  background: #fffef8 !important;
+  border: 2px solid rgba(217, 119, 6, 0.4) !important;
+  color: #0f172a !important;
+  box-shadow: none !important;
+}
+body.little-ones-kids-surface.kids-one-world .little-ones-chip {
+  border-radius: 999px !important;
+  background: #fff8e7 !important;
+}
+body.little-ones-kids-surface.kids-one-world .little-ones-chip.is-active {
+  background: #fde68a !important;
+  border-color: #d97706 !important;
+}
+body.kids-one-world h1,
+body.kids-one-world h2,
+body.kids-one-world h3,
+body.kids-one-world p,
+body.kids-one-world li,
+body.kids-one-world .section-note,
+body.kids-one-world .kids-hero-title,
+body.kids-one-world .kids-hero-sub,
+body.kids-one-world .parent-note,
+body.kids-one-world .loop-hero-kicker,
+body.kids-one-world .hero-kicker {
+  color: #0f172a !important;
+}
+body.kids-one-world .little-ones-onpage-nav {
+  background: #fffef8 !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+}
+body.kids-one-world .little-ones-onpage-nav__list a {
+  color: #0f172a !important;
+  background: #fff8e7 !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+}
+body.kids-one-world .plans-back {
+  display: none !important;
+}
+body.kids-one-world .site-footer {
+  background: #fff9eb !important;
+  color: #0f172a !important;
+  border-top: 2px solid #b45309 !important;
+}
+body.kids-one-world .site-footer a,
+body.kids-one-world .site-footer p {
+  color: #0f172a !important;
+}

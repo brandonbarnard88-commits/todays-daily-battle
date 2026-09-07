@@ -34,6 +34,7 @@
   <link rel="stylesheet" href="kids-kids-world.css?v=20260511legibility">
   <link rel="preload" href="kids-play-skin.css?v=20260905play2" as="style">
   <link rel="stylesheet" href="kids-play-skin.css?v=20260905play2">
+  <link rel="stylesheet" href="kids-one-world.css?v=20260907one1">
   <link rel="preload" href="kids-page-sky.css?v=20260817-skylife" as="style">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260817-skylife">
   <link rel="preload" href="/tdb-porch-sky.css?v=20260905porchsky1" as="style">
@@ -126,7 +127,7 @@
     body.kids-kiss-play-home .kids-bottom-nav { display: none !important; }
   </style>
 </head>
-<body class="dark-mode kids-battle-page kids-world-surface kids-kiss-play-home tdb-porch-sky tdb-porch-sky--kids">
+<body class="dark-mode kids-battle-page kids-world-surface kids-kiss-play-home kids-one-world tdb-porch-sky tdb-porch-sky--kids">
   <div class="sky-page-backdrop" aria-hidden="true">
     <div class="sky" aria-hidden="true" id="sky-layer"></div>
   </div>
@@ -163,7 +164,7 @@
         <div class="kids-easy-home">
           <img class="kids-easy-mascot" src="shepherd-mascot-welcome.png?v=20260820polish" width="120" height="132" alt="Little Shepherd waves hello" decoding="async" loading="eager" fetchpriority="high" onerror="this.onerror=null;this.src='shepherd-mascot-welcome.svg'">
           <h1 id="kids-hub-play-h">What sounds fun?</h1>
-          <div class="kids-easy-doors" role="navigation" aria-label="Story or color">
+          <div class="kids-easy-doors kids-easy-doors--three" role="navigation" aria-label="Story, color, or watch">
             <a class="kids-easy-door kids-easy-door--story" href="corner.html?choose=1#kids-library-grid">
               <img class="kids-easy-door-pic" src="../coloring-pages/colored/creation.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy">
               Story
@@ -174,7 +175,17 @@
               Color
               <small>Pick a picture to color</small>
             </a>
+            <a class="kids-easy-door kids-easy-door--watch" href="../kids-corner.html">
+              <img class="kids-easy-door-pic" src="../coloring-pages/colored/jesus-storm-s1.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy">
+              Watch
+              <small>A short Bible cartoon</small>
+            </a>
           </div>
+          <section class="kids-home-verse" aria-labelledby="kids-home-verse-h">
+            <h2 id="kids-home-verse-h">Today&rsquo;s verse</h2>
+            <p class="kids-home-verse-ref" id="kids-home-verse-ref">Same KJV as the rest of the site</p>
+            <p class="kids-home-verse-text" id="kids-home-verse-text">A quiet line for little hearts.</p>
+          </section>
 
           <section class="kids-easy-games" id="kids-easy-games" aria-labelledby="kids-easy-games-h">
             <h2 id="kids-easy-games-h">Pick a game</h2>
@@ -185,6 +196,17 @@
               <a class="kids-easy-game kids-easy-game--path" data-kg-game="path" href="shepherds-path.html"><span class="kids-easy-game-ico" aria-hidden="true"><img src="shepherd-mascot-point.png?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy"></span>Shepherd&rsquo;s Path<small>step the stones</small></a>
             </div>
           </section>
+
+          <details class="kids-easy-more" id="kids-little-ones-fold">
+            <summary>With a little one</summary>
+            <p>Keep it very short. One picture, one line, then stop while it still feels sweet.</p>
+            <ul>
+              <li>Story or Color &mdash; pick a picture first.</li>
+              <li>Watch a short cartoon if they want to see it move.</li>
+              <li>Repeat one word from today&rsquo;s verse.</li>
+            </ul>
+            <p><a href="/little-ones.html">More for ages 3&ndash;4</a></p>
+          </details>
 
           <details class="kids-easy-more">
             <summary>More</summary>
@@ -211,6 +233,20 @@
   </div>
   <script src="kids-verses-365.js?v=20260906-ch"></script>
   <script src="kids-play-helpers.js?v=20260905play2"></script>
+  <script nonce="tdb2025s">
+    (function () {
+      var list = window.__TDB_KIDS_VERSES_365;
+      if (!list || !list.length) return;
+      var day = Math.floor((Date.now() - Date.UTC(2026, 0, 1)) / 86400000);
+      if (day < 0) day = 0;
+      var v = list[day % list.length];
+      if (!v) return;
+      var refEl = document.getElementById('kids-home-verse-ref');
+      var textEl = document.getElementById('kids-home-verse-text');
+      if (refEl) refEl.textContent = v.ref + ' (KJV)';
+      if (textEl) textEl.textContent = v.text;
+    })();
+  </script>
   <script nonce="tdb2025s">
   document.addEventListener('DOMContentLoaded', function () {
     var kit = window.tdbKidsGameKit;

@@ -3394,6 +3394,8 @@ function isTdbQuietPorchPath() {
     if (p === '/calm' || p === '/calm.html') return true;
     if (p === '/coloring' || p === '/coloring.html') return true;
     if (p === '/kids' || p.indexOf('/kids/') === 0) return true;
+    if (p === '/little-ones' || p === '/little-ones.html') return true;
+    if (p === '/kids-corner' || p === '/kids-corner.html') return true;
     return false;
   } catch (ePath) {
     return false;

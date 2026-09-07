@@ -315,6 +315,22 @@ body.tdb-kids-coloring-page.dark-mode {
   position: relative;
   z-index: 1;
 }
+.tdb-cat-story-grid-watch-mark {
+  position: absolute;
+  left: 0.4rem;
+  bottom: 0.4rem;
+  z-index: 2;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: #f59e0b;
+  color: #111;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.tdb-cat-watch-shelf {
+  margin-bottom: 1.25rem;
+}
 
 /* Phones & tablets: edge fade so long horizontal strip feels bounded (not picture grid) */
 @media (max-width: 64rem) {

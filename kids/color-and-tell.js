@@ -646,7 +646,7 @@
   // TDB_SCENE_ART_END
 
   /** Returns the best available line-art src for a scene (raster preferred). */
-  var ART_CACHE = '20260906art2';
+  var ART_CACHE = '20260907thumbs2';
   function bestSceneSrc(scene) {
     if (!scene || !scene.src) return '';
     var src = (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;
@@ -4225,10 +4225,6 @@
     thumbWrap.className = 'tdb-cat-story-grid-thumb-wrap';
     thumbWrap.setAttribute('aria-hidden', 'true');
     var src = storyThumbSrc(story);
-    var badge = document.createElement('span');
-    badge.className = 'tdb-cat-story-grid-fallback';
-    badge.textContent = (story.title || '?').charAt(0);
-    thumbWrap.appendChild(badge);
     if (src) {
       var img = document.createElement('img');
       img.className = 'tdb-cat-story-grid-thumb';
@@ -4236,16 +4232,10 @@
       img.alt = '';
       img.loading = eager ? 'eager' : 'lazy';
       img.decoding = 'async';
-      img.width = 280;
-      img.height = 224;
-      img.addEventListener('load', function () {
-        badge.setAttribute('hidden', '');
-        thumbWrap.classList.add('has-art');
-      });
+      img.width = 240;
+      img.height = 360;
       img.addEventListener('error', function () {
         this.remove();
-        badge.removeAttribute('hidden');
-        thumbWrap.classList.remove('has-art');
       });
       thumbWrap.appendChild(img);
     }

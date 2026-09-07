@@ -214,24 +214,33 @@ body.tdb-kids-coloring-page.dark-mode {
 }
 .tdb-cat-story-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)) !important;
-  gap: 1rem !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.85rem !important;
   flex-wrap: unset !important;
   overflow-x: visible !important;
   padding: 0.25rem 0 0.5rem;
+}
+@media (min-width: 40rem) {
+  .tdb-cat-story-grid {
+    grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr)) !important;
+  }
 }
 .tdb-cat-story-grid-card {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   text-align: center;
-  padding: 0.5rem 0.5rem 0.55rem;
+  padding: 0.45rem 0.45rem 0.5rem;
   border-radius: 12px;
   border: 3px solid rgba(245, 158, 11, 0.55);
   background: #fffef8;
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.12);
   cursor: pointer;
   min-height: 44px;
+  min-width: 0;
+  width: 100%;
+  max-width: none;
+  flex: none;
   font: inherit;
   color: #111;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -251,17 +260,19 @@ body.tdb-kids-coloring-page.dark-mode {
 .tdb-cat-story-grid-thumb-wrap {
   display: block;
   width: 100%;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 2 / 3;
   border-radius: 8px;
   overflow: hidden;
-  background: rgba(148, 163, 184, 0.2);
-  margin-bottom: 0.5rem;
+  background: #fff;
+  margin-bottom: 0.35rem;
   position: relative;
+  border: 1px solid rgba(180, 83, 9, 0.18);
 }
 .tdb-cat-story-grid-thumb {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center;
   display: block;
   background: #fff;
 }
@@ -295,26 +306,14 @@ body.tdb-kids-coloring-page.dark-mode {
 .tdb-cat-story-grid-card .tdb-cat-story-grid-open {
   display: none !important;
 }
-.tdb-cat-story-grid-fallback {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 800;
-  color: #92400e;
-  background: #fff8e7;
-  pointer-events: none;
-}
-.tdb-cat-story-grid-fallback[hidden],
-.tdb-cat-story-grid-thumb-wrap.has-art .tdb-cat-story-grid-fallback {
+.tdb-cat-story-grid-fallback,
+.tdb-cat-story-grid-card .tdb-cat-progress-card-badge,
+.tdb-cat-story-grid-thumb-wrap .tdb-cat-progress-card-badge {
   display: none !important;
 }
 .tdb-cat-story-grid-thumb {
   position: relative;
   z-index: 1;
-  object-fit: contain;
 }
 
 /* Phones & tablets: edge fade so long horizontal strip feels bounded (not picture grid) */
@@ -392,7 +391,7 @@ body.tdb-kids-coloring-page.dark-mode {
     outline-color: rgba(147, 197, 253, 0.65);
   }
 
-  .tdb-cat-progress-card {
+  .tdb-cat-progress:not(.tdb-cat-story-grid) .tdb-cat-progress-card {
     flex: 0 0 clamp(9rem, 44vw, 10.85rem);
     max-width: min(100%, 11.25rem);
     scroll-snap-align: start;
@@ -1021,6 +1020,9 @@ body.tdb-kids-coloring-page button.tdb-cat-story-grid-card {
   border-color: #d97706 !important;
   color: #0f172a !important;
   font-size: inherit !important;
+  width: 100% !important;
+  max-width: none !important;
+  flex: none !important;
 }
 .tdb-cat-story-grid-card .tdb-cat-progress-card-title,
 .tdb-cat-story-grid-card .tdb-cat-story-grid-title,

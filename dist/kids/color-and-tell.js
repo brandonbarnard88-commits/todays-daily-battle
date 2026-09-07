@@ -646,7 +646,7 @@
   // TDB_SCENE_ART_END
 
   /** Returns the best available line-art src for a scene (raster preferred). */
-  var ART_CACHE = '20260907thumbs2';
+  var ART_CACHE = '20260907watch1';
   function bestSceneSrc(scene) {
     if (!scene || !scene.src) return '';
     var src = (TDB_SCENE_ART && TDB_SCENE_ART[scene.src]) || scene.src;
@@ -3869,6 +3869,11 @@
     return { done: done, total: story.scenes.length };
   }
 
+  function storyWatchReady(story) {
+    var p = storyProgress(story);
+    return p.total > 0 && p.done === p.total;
+  }
+
   function statusLabel(story) {
     var p = storyProgress(story);
     if (p.done === 0) return { text: 'Not started', doneClass: '' };
@@ -4024,8 +4029,15 @@
         });
       }
     }
-    if (!slides.length) {
-      window.alert('Save at least one scene first—then you can watch your story.');
+    if (!storyWatchReady(story)) {
+      var left = story.scenes.length - slides.length;
+      window.alert(
+        left > 1
+          ? 'Color every picture in this story (' +
+              left +
+              ' left), then you can watch it.'
+          : 'Color every picture in this story, then you can watch it.'
+      );
       return;
     }
     show.slides = slides;
@@ -4175,10 +4187,12 @@
     var p = storyProgress(story);
     var st = statusLabel(story);
     if (watchBtn) {
-      if (p.done >= 1) {
+      if (p.done === p.total && p.total > 0) {
         watchBtn.classList.add('is-on');
+        watchBtn.textContent = 'Watch My Story';
       } else {
         watchBtn.classList.remove('is-on');
+        watchBtn.textContent = 'Color every picture to watch';
       }
     }
     if (celebrateEl) {
@@ -4252,8 +4266,50 @@
 
     card.appendChild(thumbWrap);
     card.appendChild(title);
+    if (storyWatchReady(story)) {
+      card.classList.add('tdb-cat-story-grid-card--ready');
+      var watchMark = document.createElement('span');
+      watchMark.className = 'tdb-cat-story-grid-watch-mark';
+      watchMark.textContent = 'Watch';
+      thumbWrap.appendChild(watchMark);
+    }
     card.addEventListener('click', function () {
       jumpToColorStory(this.getAttribute('data-tdb-jump-story'));
+    });
+    return card;
+  }
+
+  function makeWatchShelfCard(story) {
+    var card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'tdb-cat-progress-card tdb-cat-story-grid-card tdb-cat-story-grid-card--ready';
+    card.setAttribute('data-tdb-watch-story', story.id);
+    var thumbWrap = document.createElement('span');
+    thumbWrap.className = 'tdb-cat-story-grid-thumb-wrap';
+    thumbWrap.setAttribute('aria-hidden', 'true');
+    var saved = getSaved(story.id, story.scenes[0].id);
+    var src = saved || storyThumbSrc(story);
+    if (src) {
+      var img = document.createElement('img');
+      img.className = 'tdb-cat-story-grid-thumb';
+      img.src = src;
+      img.alt = '';
+      img.width = 240;
+      img.height = 360;
+      thumbWrap.appendChild(img);
+    }
+    var watchMark = document.createElement('span');
+    watchMark.className = 'tdb-cat-story-grid-watch-mark';
+    watchMark.textContent = 'Watch';
+    thumbWrap.appendChild(watchMark);
+    var title = document.createElement('p');
+    title.className = 'tdb-cat-progress-card-title tdb-cat-story-grid-title';
+    title.textContent = story.title;
+    card.setAttribute('aria-label', 'Watch ' + (story.title || 'story'));
+    card.appendChild(thumbWrap);
+    card.appendChild(title);
+    card.addEventListener('click', function () {
+      openSlideshow(story);
     });
     return card;
   }
@@ -4345,9 +4401,13 @@
     var requestedStoryId = '';
     var gentleStoryKey = '';
     var gentleNextKey = '';
+    var watchMode = false;
     try {
       var params = new URLSearchParams(window.location.search || '');
       requestedStoryId = normalizeStoryQuery(params.get('story'));
+      watchMode =
+        params.get('watch') === '1' ||
+        String(window.location.hash || '').indexOf('watch') !== -1;
       gentleStoryKey = String(params.get('gentleStory') || '').trim();
       if (
         params.get('gentle') === '1' &&
@@ -4407,6 +4467,37 @@
     progressOuter.appendChild(progressWrap);
     if (STORIES.length > FEATURED_STORY_COUNT) {
       progressOuter.appendChild(moreDetails);
+    }
+    if (watchMode) {
+      var watchOuter = document.createElement('div');
+      watchOuter.className = 'tdb-cat-progress-outer tdb-cat-story-grid-outer tdb-cat-watch-shelf';
+      watchOuter.id = 'tdb-cat-watch-shelf';
+      var watchH = document.createElement('h2');
+      watchH.className = 'tdb-cat-story-grid-heading section-divider';
+      watchH.id = 'tdb-cat-watch-h';
+      watchH.textContent = 'Watch your stories';
+      var watchLead = document.createElement('p');
+      watchLead.className = 'section-note tdb-cat-story-grid-lead';
+      var readyStories = [];
+      for (var wi = 0; wi < STORIES.length; wi++) {
+        if (storyWatchReady(STORIES[wi])) readyStories.push(STORIES[wi]);
+      }
+      watchLead.textContent = readyStories.length
+        ? 'You colored every picture. Tap a story to watch it.'
+        : 'Color every picture in a story, then it becomes a video you can watch.';
+      var watchGrid = document.createElement('div');
+      watchGrid.className = 'tdb-cat-progress tdb-cat-story-grid';
+      watchGrid.setAttribute('role', 'region');
+      watchGrid.setAttribute('aria-labelledby', 'tdb-cat-watch-h');
+      for (var wj = 0; wj < readyStories.length; wj++) {
+        watchGrid.appendChild(makeWatchShelfCard(readyStories[wj]));
+      }
+      watchOuter.appendChild(watchH);
+      watchOuter.appendChild(watchLead);
+      watchOuter.appendChild(watchGrid);
+      mount.appendChild(watchOuter);
+      chooseH.textContent = 'Or color a story';
+      gridLead.textContent = 'Every picture you color becomes the video.';
     }
     mount.appendChild(progressOuter);
     if (requestedStoryId) {
@@ -4747,7 +4838,7 @@
         hint.className = 'section-note';
         hint.id = 'tdb-cat-watch-hint-' + story.id;
         hint.textContent =
-          'Hear the story while you color. Watch the scenes you’ve saved — one is enough. More panels make a fuller storyboard.';
+          'Color every picture in this story, then Watch My Story — that is the video of the story you made.';
         section.appendChild(hint);
 
         mount.appendChild(section);

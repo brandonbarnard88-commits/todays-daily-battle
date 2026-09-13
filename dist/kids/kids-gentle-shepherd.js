@@ -179,7 +179,7 @@
   var ADVENTURES = [
     { line: "Today’s pick: a surprise Bible story—tap the big button.", href: '/kids/corner.html?choose=1#kids-library-grid', label: 'Pick a story' },
     { line: "Today’s pick: one calm color page you can actually paint.", href: '/coloring.html', label: 'Open coloring' },
-    { line: "Today’s pick: a tiny loop to watch—good for a reset.", href: '/kids-corner.html', label: 'Open a short loop' },
+    { line: "Today’s pick: a tiny cartoon—good for a reset.", href: '/kids-corner.html', label: 'Open cartoons' },
     { line: "Today’s pick: match a few verse friends together.", href: '/kids/match-buddies.html', label: 'Open match game' },
     { line: "Today’s pick: let Gentle Journey choose your next peaceful story.", href: '/kids/corner.html?journey=1', label: 'Start Gentle Journey' }
   ];

@@ -13,7 +13,7 @@
   <title>Bible Loop Library • Today's Daily Battle</title>
   <meta name="description" content="Short KJV Bible cartoon loops (10–15s) on a growing roadmap—gold stars on this device. Clips land as files are ready. For comic panels and read-and-quiz stories, use Bible Story Library (/kids/corner.html).">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/kids/">
+  <link rel="canonical" href="https://todaysdailybattle.com/kids-corner.html">
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/kids-corner.html">
   <link rel="alternate" hreflang="pt" href="https://todaysdailybattle.com/pt/criancas.html">
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
@@ -58,17 +58,6 @@
     (function () {
       try {
         var p = new URLSearchParams(location.search);
-        if (p.get('story') || p.get('random') === '1' || p.get('journey') === '1' || p.get('challenge') === '1') return;
-        if (p.has('loop') || p.has('play') || p.has('v')) return;
-        if (location.hash) return;
-        location.replace('/kids/' + (location.search || ''));
-      } catch (e) {}
-    })();
-  </script>
-  <script nonce="tdb2025s">
-    (function () {
-      try {
-        var p = new URLSearchParams(location.search);
         var st = p.get('story');
         if (st && String(st).trim()) {
           location.replace('/kids/corner.html' + location.search);
@@ -90,7 +79,7 @@
       <a class="kids-easy-door kids-easy-door--story" href="/kids/corner.html?choose=1#kids-library-grid">
         <img class="kids-easy-door-pic" src="/coloring-pages/colored/creation.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy">
         Story
-        <small>Pick a picture, then open a Bible story</small>
+        <small>Read a Bible story</small>
       </a>
       <a class="kids-easy-door kids-easy-door--color" href="/coloring.html">
         <img class="kids-easy-door-pic" src="/coloring-pages/colored/jesus-and-the-children.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy">
@@ -100,7 +89,7 @@
       <a class="kids-easy-door kids-easy-door--watch" href="/coloring.html?watch=1">
         <img class="kids-easy-door-pic" src="/coloring-pages/colored/jesus-storm-s1.jpg?v=20260820polish" alt="" width="48" height="48" decoding="async" loading="lazy">
         Watch
-        <small>A short Bible cartoon</small>
+        <small>The story you colored</small>
       </a>
     </nav>
 
@@ -110,8 +99,8 @@
         <header class="kids-hero kids-hero--soar-dawn loop-library-hero" aria-label="Bible Loop Library hero">
           <div class="kids-hero-frame">
             <p class="loop-hero-kicker">Bible Loop Library</p>
-            <h1 class="kids-hero-title">Watch a Bible cartoon</h1>
-            <p class="kids-hero-sub">Short, gentle loops they can watch again. Same Kids door as Story and Color.</p>
+            <h1 class="kids-hero-title">Cartoons</h1>
+            <p class="kids-hero-sub">Short ready-made Bible cartoons. Watch on Kids is the story you colored. This shelf is extra.</p>
             <p class="loop-audio-note">Audio style: ukulele + soft sounds, no voice-over.</p>
             <p class="parent-note">Everything stays right here on your device — no ads, no strangers, just a quiet moment with God’s Word. Parents: watch together or let them explore.</p>
           </div>
@@ -119,7 +108,7 @@
 
         <section class="glass tdb-porch-paper-glass card-gold loop-story-anchors" aria-labelledby="loop-story-anchors-heading">
           <h2 class="section-divider kids-section-divider" id="loop-story-anchors-heading">Three story anchors (after one loop)</h2>
-          <p class="section-note util-mb-0_75">When a quick loop was not enough, open one read-along story in the <a href="/kids/corner.html">Bible Story Library</a>&mdash;same KJV heart, a little more narrative room. Pick one; stop while it still feels warm.</p>
+          <p class="section-note util-mb-0_75">When a quick cartoon was not enough, open <a href="/kids/corner.html">Story</a>&mdash;same KJV heart, a little more room. Pick one; stop while it still feels warm.</p>
           <div class="loop-story-anchors-grid" role="list">
             <a href="/kids/corner.html?story=noah" class="loop-story-anchor-card" role="listitem">
               <img src="/coloring-pages/colored/noah-s1.jpg" alt="" width="140" height="112" loading="lazy" decoding="async" class="loop-story-anchor-card__img">
@@ -192,12 +181,12 @@
           </div>
         </section>
 
-        <section class="glass tdb-porch-paper-glass card-gold" aria-label="Little ones all-in-one hub">
-          <h2 class="section-divider kids-section-divider">Want one calmer all-in-one start?</h2>
-          <p class="section-note util-mb-0_5">If you are choosing a first kids page, start with <a href="/little-ones.html">For the Little Ones</a>. Come back here when you want the full loop shelf and quick replay space.</p>
+        <section class="glass tdb-porch-paper-glass card-gold" aria-label="Kids home">
+          <h2 class="section-divider kids-section-divider">Start at Kids</h2>
+          <p class="section-note util-mb-0_5">Story, Color, and Watch live on <a href="/kids/">Kids</a>. This page is ready-made cartoons. For ages 3&ndash;4 with a grown-up, <a href="/little-ones.html">For the Little Ones</a> is still here.</p>
           <div class="cta-group">
-            <a class="btn btn-primary" href="/little-ones.html">Start at For the Little Ones</a>
-            <a class="btn btn-secondary" href="/coloring.html?story=jesus">Color after one loop</a>
+            <a class="btn btn-primary" href="/kids/">Open Kids</a>
+            <a class="btn btn-secondary" href="/coloring.html">Color</a>
           </div>
         </section>
 
@@ -273,8 +262,8 @@
           <p class="section-note util-mb-0_5">Want crayons instead of cartoons? Open printable Bible outlines—tap a story, paint on screen, then print.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="coloring.html">Open Kids Coloring</a>
-            <a class="btn btn-secondary" href="/kids/corner.html">Bible Story Library</a>
-            <a class="btn btn-secondary" href="/kids/">← Kids play</a>
+            <a class="btn btn-secondary" href="/kids/corner.html">Story</a>
+            <a class="btn btn-secondary" href="/kids/">← Kids</a>
           </div>
           <p class="section-note" style="margin-top:0.85rem;">Gentle feeling stories: <a href="/kids-summer-feelings.html">When Your Heart Feels Heavy</a> &middot; <a href="/kids-grief-story.html">When Your Heart Misses Someone</a> &middot; <a href="/kids-back-to-school.html">When School Feels Scary</a> — read-aloud + coloring + Q&amp;A for little ones.</p>
         </section>

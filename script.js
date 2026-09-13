@@ -37586,8 +37586,8 @@ async function tdbInitImpl() {
   function normalizePrimaryNavLabels() {
     const sectionLabelMap = {
       'study-tools': 'Study Workspace',
-      'kids-battle': 'Kids play',
-      'kids-corner': 'Kids Coloring',
+      'kids-battle': 'Kids',
+      'kids-corner': 'Kids',
       'message-board': 'Prayer'
     };
     document.querySelectorAll('.side-nav a[data-section]').forEach(function (link) {
@@ -37595,17 +37595,17 @@ async function tdbInitImpl() {
       var nextLabel = sectionLabelMap[section];
       if (!nextLabel) return;
       link.textContent = nextLabel;
-      if (section === 'kids-battle') link.setAttribute('aria-label', 'Kids play');
-      if (section === 'kids-corner') link.setAttribute('aria-label', 'Kids Coloring');
+      if (section === 'kids-battle' || section === 'kids-corner') link.setAttribute('aria-label', 'Kids');
     });
 
     var scopedHrefLabelMap = {
       'study.html': 'Study Workspace',
-      '/kids/': document.body.classList.contains('tdb-kids-coloring-page') ? 'Kids' : 'Kids play',
-      'kids/index.html': document.body.classList.contains('tdb-kids-coloring-page') ? 'Kids' : 'Kids play',
-      'coloring.html': 'Kids Coloring',
-      'kids-corner.html': 'Bible Loop Library',
-      '/kids-corner.html': 'Bible Loop Library',
+      '/kids/': 'Kids',
+      'kids/index.html': 'Kids',
+      'coloring.html': 'Color',
+      '/coloring.html': 'Color',
+      'kids-corner.html': 'Cartoons',
+      '/kids-corner.html': 'Cartoons',
       'message.html': 'Prayer',
       'prayer-wall.html': 'Prayer',
       '/church/': 'Church group join',

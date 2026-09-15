@@ -11168,9 +11168,9 @@
   // full browser session without re-prompting.
   //
   // Locked state:
-  //   - Every .kids-card-color-btn gets class "locked" + pointer-events:none
-  //   - #kids-coloring-save-btn gets class "locked"
-  //   - Clicking either opens the gate modal
+  //   - Color Me is never locked. The crayon is a crayon.
+  //   - #kids-coloring-save-btn may still get class "locked"
+  //   - Clicking a locked Save opens the gate modal
   //
   // First-load (no code stored): gate routes straight to Set Code flow.
   // Wrong code: digit group shakes, error shown, inputs cleared.
@@ -11236,16 +11236,11 @@
     /* ── Lock / unlock visual state ── */
     function applyLockState() {
       var locked = !isUnlocked();
-      // Color Me buttons in the grid
+      // Color Me is never gated. Leave any leftover stamp off the crayon.
       var colorBtns = document.querySelectorAll('.kids-card-color-btn');
       colorBtns.forEach(function (btn) {
-        if (locked) {
-          btn.classList.add('locked');
-          btn.setAttribute('aria-disabled', 'true');
-        } else {
-          btn.classList.remove('locked');
-          btn.removeAttribute('aria-disabled');
-        }
+        btn.classList.remove('locked');
+        btn.removeAttribute('aria-disabled');
       });
       // Save button inside coloring overlay
       var saveBtn = document.getElementById('kids-coloring-save-btn');

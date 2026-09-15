@@ -2644,7 +2644,7 @@
   </script>
   <script src="loop-library-coloring.js?v=20260524readquiz" defer></script>
   <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
-  <script src="kids-corner.js?v=20260817-honestpath" defer></script>
+  <script src="kids-corner.js?v=20260914nocolorlock" defer></script>
   <script src="kids-hub-play.js?v=20260817-honestpath" defer></script>
   <script src="kids-gentle-shepherd.js?v=20260811audio2" defer></script>
   <script type="module" src="../kids-data-loader.js" data-cfasync="false" defer></script>
@@ -2832,21 +2832,6 @@
       padding: 0;
     }
 
-    /* Locked Color Me buttons — grayed with hint */
-    .kids-card-color-btn.locked {
-      opacity: 0.45;
-      cursor: default;
-      position: relative;
-    }
-    .kids-card-color-btn.locked::after {
-      content: 'Ask mom/dad';
-      display: block;
-      font-size: 0.72rem;
-      color: #bcc5d6;
-      margin-top: 3px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 600;
-    }
     /* Save button locked state */
     .kids-coloring-save-btn.locked {
       opacity: 0.4;

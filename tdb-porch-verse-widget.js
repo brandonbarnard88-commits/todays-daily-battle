@@ -132,6 +132,31 @@
       return true;
     }
 
+    function fillFromTodayJson(done) {
+      if (typeof fetch !== 'function') {
+        if (done) done(false);
+        return;
+      }
+      fetch('/today-kjv-verse.json', { cache: 'no-store', credentials: 'same-origin' })
+        .then(function (r) {
+          return r.ok ? r.json() : null;
+        })
+        .then(function (j) {
+          if (!j || !j.ref || !j.text) {
+            if (done) done(false);
+            return;
+          }
+          var verse = { ref: String(j.ref).replace(/\s*\(KJV\)\s*$/i, '').trim(), text: String(j.text).trim() };
+          setVerseDom(refEl, textEl, verse);
+          writeCache(verse);
+          root.setAttribute('data-tdb-porch-verse-prebuilt', '1');
+          if (done) done(true);
+        })
+        .catch(function () {
+          if (done) done(false);
+        });
+    }
+
     function stampedRef() {
       return refEl
         ? String(refEl.textContent || '')
@@ -150,22 +175,30 @@
         : '';
     }
     var stampedIsToday = prebuilt && stampedRef() && queueRef() && stampedRef() === queueRef();
-    if (!prebuilt || !stampedIsToday) {
+    if (required && prebuilt && !queueRef()) {
+      /* Quiet time has no year queue on the page. Trust HTML only after JSON agrees, or fill from JSON. */
+      fillFromTodayJson(function (ok) {
+        if (!ok) fillFromQueue();
+      });
+    } else if (!prebuilt || !stampedIsToday) {
       if (!fillFromQueue()) {
-        var tries = 0;
-        var wait = setInterval(function () {
-          tries += 1;
-          if (fillFromQueue() || tries > 40) {
-            clearInterval(wait);
-            if (
-              refEl &&
-              root.getAttribute('data-tdb-porch-verse-prebuilt') !== '1' &&
-              (refEl.textContent === '\u2014' || refEl.textContent === '—')
-            ) {
-              refEl.textContent = '';
+        fillFromTodayJson(function (ok) {
+          if (ok) return;
+          var tries = 0;
+          var wait = setInterval(function () {
+            tries += 1;
+            if (fillFromQueue() || tries > 40) {
+              clearInterval(wait);
+              if (
+                refEl &&
+                root.getAttribute('data-tdb-porch-verse-prebuilt') !== '1' &&
+                (refEl.textContent === '\u2014' || refEl.textContent === '—')
+              ) {
+                refEl.textContent = '';
+              }
             }
-          }
-        }, 50);
+          }, 50);
+        });
       }
     } else if (refEl && textEl) {
       var cached = readCache();

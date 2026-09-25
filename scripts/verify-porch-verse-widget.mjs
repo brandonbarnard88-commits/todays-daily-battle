@@ -5,6 +5,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { loadYear365, pickVerseForToday } from './lib/hero-daily-verse-pick.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -66,6 +67,18 @@ for (const hub of HUB_PAGES) {
 
 if (!injectSrc.includes('injectBoundTeaching') || !injectSrc.includes('familySimpleSituation')) {
   fail('inject-porch-verse-widget.mjs must stamp Family sit/meaning for today, not leftover Psalm 100');
+}
+
+const todayVerse = pickVerseForToday(loadYear365(root));
+const todayRef = todayVerse && todayVerse.ref ? String(todayVerse.ref).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+if (!todayRef) fail('could not pick today for Daily quiet time check');
+const dqtHtml = fs.readFileSync(path.join(root, 'daily-quiet-time.html'), 'utf8');
+if (!dqtHtml.includes(todayRef)) {
+  fail('daily-quiet-time.html must stamp the same official verse as Home (' + todayRef + ')');
+}
+const stampYml = fs.readFileSync(path.join(root, '.github/workflows/stamp-today-hero.yml'), 'utf8');
+if (!stampYml.includes('daily-quiet-time.html')) {
+  fail('stamp-today-hero.yml must git add daily-quiet-time.html so the midnight stamp commits it');
 }
 
 console.log(

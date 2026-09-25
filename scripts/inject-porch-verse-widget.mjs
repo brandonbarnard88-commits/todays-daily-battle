@@ -304,5 +304,5 @@ console.log(
     refPlain +
     ' (UTC doy ' +
     utcDayOfYear() +
-    ') → explore + plans + family + verse + kids + church'
+    ') → explore + plans + family + daily quiet time + verse + kids + church'
 );

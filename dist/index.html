@@ -756,9 +756,10 @@
         </nav>
         <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: copy, share, save to My Study">
             <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, more tools">
-            <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
-            <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse: KJV text, one small step when available, and a link a friend can open without an account">Share</button>
+            <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy today’s verse and a link">Copy</button>
+            <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse and a link — no account needed">Share</button>
             </div>
+            <p class="section-note" id="tdbShareTodayStatus" role="status" aria-live="polite"></p>
             <p class="tdb-hero-share-more tdb-hero-share-more--quiet" role="group" aria-label="Email, text, or verse image">
               <button type="button" class="tdb-hero-share-quiet-link" id="heroFriendEmailBtn" aria-label="Open your email app with today’s verse, one small step if shown, and a link">Email</button>
               <span class="tdb-hero-share-quiet-sep" aria-hidden="true">·</span>
@@ -1571,6 +1572,7 @@
   <script nonce="tdb2025s" defer src="tdb-porch-restfulness.js?v=20260520-polish-a"></script>
   <!-- Unified Ask the Word brain (curated + full KJV) — same as bible-tool; before core-home/script.js -->
   <script nonce="tdb2025s" defer src="ask-the-word-core.js?v=20260820-askwalk"></script>
+  <script nonce="tdb2025s" defer src="tdb-share-today-verse.js?v=20260925share1"></script>
   <!-- Home core first: load script.js interaction stack on user intent/idle (core-home.js). -->
   <script nonce="tdb2025s" defer src="core-home.js?v=20260905safari1" data-cfasync="false" fetchpriority="low"></script>
   <script nonce="tdb2025s">

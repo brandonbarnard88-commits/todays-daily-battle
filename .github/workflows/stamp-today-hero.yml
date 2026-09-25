@@ -54,6 +54,7 @@ jobs:
             family.html dist/family.html verse.html dist/verse.html explore.html dist/explore.html \
             plans.html dist/plans.html kids-corner.html dist/kids-corner.html \
             kids/corner.html dist/kids/corner.html church/daily.html dist/church/daily.html \
+            daily-quiet-time.html dist/daily-quiet-time.html \
             verso.html dist/verso.html \
             es/index.html dist/es/index.html \
             fr/index.html dist/fr/index.html \

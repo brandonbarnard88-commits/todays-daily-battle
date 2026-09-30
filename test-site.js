@@ -103,7 +103,7 @@ const pages = [
   { path: '/church-starter-pack.html', name: 'Church Starter Pack', mustInclude: ['Church Starter Pack', 'Plug-and-play for small churches', 'First hour workflow', 'Preaching Through Exhaustion', 'Small Church Encouragement', 'Sermon Builder + One-Tap Export'] },
   { path: '/sermon.html', name: 'Sermon', mustInclude: ['Sermon', 'sb-quick-preach-btn', 'The Peace That Guards', 'Philippians 4:6-7', 'sb-pdf-handout-btn', 'Handout PDF', 'Lesson pack', 'sb-oia-points', 'Main points (OIA)', 'sb-study-materials', 'Supporting context', 'fp-oia-examples', 'fp-workflow', 'Expository', 'Romans 8:1-4', 'sb-template-btn--starter'] },
   { path: '/reading-plan.html', name: 'Reading plan alias', mustInclude: ['Reading plan moved', 'noindex', 'location.replace'] },
-  { path: '/faq.html', name: 'FAQ', mustInclude: ['FAQ', 'is free printables'], mustNotInclude: ['tdb-porch-sky.css'] },
+  { path: '/faq.html', name: 'FAQ', mustInclude: ['FAQ', 'is free printables', 'Free forever', 'There is no paid plan', 'There is no Supporter, Battle Pro, or Church plan'], mustNotInclude: ['tdb-porch-sky.css', 'free and paid options', 'See Pricing', 'Why charge for Battle Pro', 'How do I cancel my subscription'] },
   { path: '/contact.html', name: 'Contact', mustInclude: ['Contact'] },
   { path: '/message.html', name: 'Message / Prayer Wall', mustInclude: ['Prayer moved', '/prayer-wall.html?tab=with-others', 'message-prayer-quiet-feed-note', 'redirect does not fire'] },
   { path: '/wins-report.html', name: 'Wins Report', mustInclude: ['Wins', 'Report'] },

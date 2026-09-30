@@ -408,6 +408,12 @@
 /pricing/ /give 301!
 /pricing.html /give 301!
 
+# FAQ: pin the file so Googlebot does not 308 /faq.html → /faq while canonical
+# still points at faq.html (that loop left March store-copy in search).
+/faq /faq.html 200!
+/faq/ /faq.html 200!
+/faq.html /faq.html 200!
+
 # Donation/support. /give must be a rewrite (200!), never 301↔.html — CF clean-URL
 # 308 (/give.html → /give) + our 301 (/give → /give.html) caused infinite redirect.
 /give /give.html 200!

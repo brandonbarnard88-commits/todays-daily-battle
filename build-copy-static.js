@@ -1422,6 +1422,11 @@ if (!givePageMatch.test(redirectsContent)) {
   console.error('BUILD FAIL: _redirects must map /give → /give.html (200! rewrite preferred; 301 legacy) for the calm support page.');
   process.exit(1);
 }
+const faqPageMatch = /^\/faq\s+\/faq\.html\s+200!\s*$/m;
+if (!faqPageMatch.test(redirectsContent)) {
+  console.error('BUILD FAIL: _redirects must pin /faq → /faq.html 200! so Googlebot does not 308 /faq.html away from the canonical FAQ.');
+  process.exit(1);
+}
 const missingRedirects = DONATION_REDIRECTS.filter(function (r) {
   const lineMatch = new RegExp('^' + r.path.replace(/\*/g, '\\*') + '\\s+' + buymeacoffee.replace(/\./g, '\\.') + '\\s+301', 'm');
   return !lineMatch.test(redirectsContent);
